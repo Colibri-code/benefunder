@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the BF Cause feature.
+ */
+
+include_once 'bf_cause.features.inc';
