@@ -25,7 +25,8 @@ function bf_cause_field_group_info() {
     'children' => array(
       0 => 'field_university_or_institution',
       1 => 'field_research_area',
-      2 => 'title',
+      2 => 'field_subtitle',
+      3 => 'title',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -54,6 +55,7 @@ function bf_cause_field_group_info() {
     'children' => array(
       0 => 'field_jumbotron_video',
       1 => 'field_jumbotron_image',
+      2 => 'field_jumbotron_copy',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -139,10 +141,11 @@ function bf_cause_field_group_info() {
     'label' => 'Researcher Links',
     'weight' => '6',
     'children' => array(
-      0 => 'field_patents',
-      1 => 'field_publications',
-      2 => 'field_videos',
-      3 => 'field_in_the_news',
+      0 => 'field_publications',
+      1 => 'field_videos',
+      2 => 'field_in_the_news',
+      3 => 'field_patents',
+      4 => 'field_additional_videos',
     ),
     'format_type' => 'tab',
     'format_settings' => array(

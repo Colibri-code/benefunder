@@ -79,7 +79,7 @@ function bf_cause_field_default_field_instances() {
         'summary_rows' => 5,
       ),
       'type' => 'text_textarea_with_summary',
-      'weight' => 9,
+      'weight' => 42,
     ),
   );
 
@@ -119,6 +119,63 @@ function bf_cause_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
+      'weight' => 38,
+    ),
+  );
+
+  // Exported field_instance: 'node-cause-field_additional_videos'
+  $field_instances['node-cause-field_additional_videos'] = array(
+    'bundle' => 'cause',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'link',
+        'settings' => array(),
+        'type' => 'link_default',
+        'weight' => 20,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_additional_videos',
+    'label' => 'Additional Video Links',
+    'required' => 0,
+    'settings' => array(
+      'absolute_url' => 1,
+      'attributes' => array(
+        'class' => '',
+        'configurable_class' => 0,
+        'configurable_title' => 0,
+        'rel' => '',
+        'target' => '_blank',
+        'title' => '',
+      ),
+      'display' => array(
+        'url_cutoff' => 80,
+      ),
+      'enable_tokens' => 1,
+      'rel_remove' => 'default',
+      'title' => 'optional',
+      'title_label_use_field_label' => 0,
+      'title_maxlength' => 128,
+      'title_value' => '',
+      'url' => 0,
+      'user_register_form' => FALSE,
+      'validate_url' => 1,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'link',
+      'settings' => array(),
+      'type' => 'link_field',
       'weight' => 37,
     ),
   );
@@ -239,7 +296,7 @@ function bf_cause_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 11,
+      'weight' => 44,
     ),
   );
 
@@ -319,7 +376,7 @@ function bf_cause_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 36,
+      'weight' => 37,
     ),
   );
 
@@ -377,6 +434,46 @@ function bf_cause_field_default_field_instances() {
       'settings' => array(),
       'type' => 'link_field',
       'weight' => 33,
+    ),
+  );
+
+  // Exported field_instance: 'node-cause-field_jumbotron_copy'
+  $field_instances['node-cause-field_jumbotron_copy'] = array(
+    'bundle' => 'cause',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 22,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_jumbotron_copy',
+    'label' => 'Jumbotron Copy',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 8,
     ),
   );
 
@@ -477,6 +574,7 @@ function bf_cause_field_default_field_instances() {
         'allowed_schemes' => array(
           'public' => 0,
           'vimeo' => 'vimeo',
+          'youtube' => 'youtube',
         ),
         'allowed_types' => array(
           'audio' => 0,
@@ -527,7 +625,7 @@ function bf_cause_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 35,
+      'weight' => 36,
     ),
   );
 
@@ -540,10 +638,10 @@ function bf_cause_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'link',
+        'module' => 'text',
         'settings' => array(),
-        'type' => 'link_default',
-        'weight' => 13,
+        'type' => 'text_default',
+        'weight' => 19,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -557,33 +655,16 @@ function bf_cause_field_default_field_instances() {
     'label' => 'Patents',
     'required' => 0,
     'settings' => array(
-      'absolute_url' => 1,
-      'attributes' => array(
-        'class' => '',
-        'configurable_class' => 0,
-        'configurable_title' => 0,
-        'rel' => '',
-        'target' => '_blank',
-        'title' => '',
-      ),
-      'display' => array(
-        'url_cutoff' => 80,
-      ),
-      'enable_tokens' => 1,
-      'rel_remove' => 'default',
-      'title' => 'optional',
-      'title_label_use_field_label' => 0,
-      'title_maxlength' => 128,
-      'title_value' => '',
-      'url' => 0,
+      'text_processing' => 0,
       'user_register_form' => FALSE,
-      'validate_url' => 1,
     ),
     'widget' => array(
-      'active' => 0,
-      'module' => 'link',
-      'settings' => array(),
-      'type' => 'link_field',
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
       'weight' => 35,
     ),
   );
@@ -709,7 +790,7 @@ function bf_cause_field_default_field_instances() {
     'bundle' => 'cause',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => 'You may choose up to 3 Research Areas.',
+    'description' => 'Choose 1 top-level item, and up to 3 additional research areas.',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -739,12 +820,12 @@ function bf_cause_field_default_field_instances() {
         'apply_chosen' => 1,
       ),
       'type' => 'options_select',
-      'weight' => 4,
+      'weight' => 5,
     ),
   );
 
-  // Exported field_instance: 'node-cause-field_share_lines'
-  $field_instances['node-cause-field_share_lines'] = array(
+  // Exported field_instance: 'node-cause-field_subtitle'
+  $field_instances['node-cause-field_subtitle'] = array(
     'bundle' => 'cause',
     'default_value' => NULL,
     'deleted' => 0,
@@ -755,7 +836,7 @@ function bf_cause_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 3,
+        'weight' => 21,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -765,8 +846,8 @@ function bf_cause_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_share_lines',
-    'label' => 'Share Lines',
+    'field_name' => 'field_subtitle',
+    'label' => 'Subtitle',
     'required' => 0,
     'settings' => array(
       'text_processing' => 0,
@@ -779,7 +860,7 @@ function bf_cause_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 8,
+      'weight' => 3,
     ),
   );
 
@@ -819,7 +900,7 @@ function bf_cause_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 10,
+      'weight' => 43,
     ),
   );
 
@@ -866,7 +947,7 @@ function bf_cause_field_default_field_instances() {
         'sort_options' => 0,
       ),
       'type' => 'select_or_other',
-      'weight' => 3,
+      'weight' => 4,
     ),
   );
 
@@ -908,6 +989,7 @@ function bf_cause_field_default_field_instances() {
         'allowed_schemes' => array(
           'public' => 0,
           'vimeo' => 'vimeo',
+          'youtube' => 'youtube',
         ),
         'allowed_types' => array(
           'audio' => 0,
@@ -924,13 +1006,16 @@ function bf_cause_field_default_field_instances() {
 
   // Translatables
   // Included for use with string extractors like potx.
+  t('Additional Video Links');
   t('Awards');
   t('Bio');
   t('Call to Action');
+  t('Choose 1 top-level item, and up to 3 additional research areas.');
   t('Education');
   t('Elevator Pitch');
   t('Email');
   t('In the News');
+  t('Jumbotron Copy');
   t('Jumbotron Image');
   t('Jumbotron Video');
   t('Name');
@@ -938,12 +1023,11 @@ function bf_cause_field_default_field_instances() {
   t('Picture');
   t('Publications');
   t('Research Area');
-  t('Share Lines');
+  t('Subtitle');
   t('Summary');
   t('Title / Academic Position');
   t('University or Institution');
   t('Videos');
-  t('You may choose up to 3 Research Areas.');
 
   return $field_instances;
 }

@@ -68,6 +68,36 @@ function bf_cause_field_default_field_bases() {
     'type' => 'text',
   );
 
+  // Exported field_base: 'field_additional_videos'
+  $field_bases['field_additional_videos'] = array(
+    'active' => 1,
+    'cardinality' => -1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_additional_videos',
+    'foreign keys' => array(),
+    'indexes' => array(),
+    'locked' => 0,
+    'module' => 'link',
+    'settings' => array(
+      'attributes' => array(
+        'class' => '',
+        'rel' => '',
+        'target' => 'default',
+      ),
+      'display' => array(
+        'url_cutoff' => 80,
+      ),
+      'enable_tokens' => 1,
+      'title' => 'optional',
+      'title_maxlength' => 128,
+      'title_value' => '',
+      'url' => 0,
+    ),
+    'translatable' => 0,
+    'type' => 'link_field',
+  );
+
   // Exported field_base: 'field_awards'
   $field_bases['field_awards'] = array(
     'active' => 1,
@@ -239,6 +269,33 @@ function bf_cause_field_default_field_bases() {
     'type' => 'link_field',
   );
 
+  // Exported field_base: 'field_jumbotron_copy'
+  $field_bases['field_jumbotron_copy'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_jumbotron_copy',
+    'foreign keys' => array(
+      'format' => array(
+        'columns' => array(
+          'format' => 'format',
+        ),
+        'table' => 'filter_format',
+      ),
+    ),
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(),
+    'translatable' => 0,
+    'type' => 'text_long',
+  );
+
   // Exported field_base: 'field_jumbotron_image'
   $field_bases['field_jumbotron_image'] = array(
     'active' => 1,
@@ -336,27 +393,26 @@ function bf_cause_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_patents',
-    'foreign keys' => array(),
-    'indexes' => array(),
+    'foreign keys' => array(
+      'format' => array(
+        'columns' => array(
+          'format' => 'format',
+        ),
+        'table' => 'filter_format',
+      ),
+    ),
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
     'locked' => 0,
-    'module' => 'link',
+    'module' => 'text',
     'settings' => array(
-      'attributes' => array(
-        'class' => '',
-        'rel' => '',
-        'target' => 'default',
-      ),
-      'display' => array(
-        'url_cutoff' => 80,
-      ),
-      'enable_tokens' => 1,
-      'title' => 'optional',
-      'title_maxlength' => 128,
-      'title_value' => '',
-      'url' => 0,
+      'max_length' => 255,
     ),
     'translatable' => 0,
-    'type' => 'link_field',
+    'type' => 'text',
   );
 
   // Exported field_base: 'field_picture'
@@ -422,7 +478,7 @@ function bf_cause_field_default_field_bases() {
   // Exported field_base: 'field_research_area'
   $field_bases['field_research_area'] = array(
     'active' => 1,
-    'cardinality' => 3,
+    'cardinality' => 4,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_research_area',
@@ -453,13 +509,13 @@ function bf_cause_field_default_field_bases() {
     'type' => 'taxonomy_term_reference',
   );
 
-  // Exported field_base: 'field_share_lines'
-  $field_bases['field_share_lines'] = array(
+  // Exported field_base: 'field_subtitle'
+  $field_bases['field_subtitle'] = array(
     'active' => 1,
-    'cardinality' => -1,
+    'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_share_lines',
+    'field_name' => 'field_subtitle',
     'foreign keys' => array(
       'format' => array(
         'columns' => array(
@@ -512,7 +568,7 @@ function bf_cause_field_default_field_bases() {
   // Exported field_base: 'field_university_or_institution'
   $field_bases['field_university_or_institution'] = array(
     'active' => 1,
-    'cardinality' => 1,
+    'cardinality' => 3,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_university_or_institution',
