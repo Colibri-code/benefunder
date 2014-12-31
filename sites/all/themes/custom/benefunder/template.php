@@ -22,7 +22,6 @@ function benefunder_preprocess_views_exposed_form(&$vars) {
     foreach ($full_tree as $term) {
       if ($term->depth == 0) {
         $options[$term->tid] = $term->name;
-        continue;
       }
       else {
         $sub[$term->parents[0]][$term->tid] = $term->name;
