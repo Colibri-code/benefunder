@@ -41,7 +41,7 @@ function benefunder_preprocess_views_exposed_form(&$vars) {
     foreach ($sub as $parent_tid => $subs) {
       $links = array();
       foreach ($subs as $tid => $name) {
-        $class = $_GET['term_node_tid_depth'] == $tid ? array('active-tag', 'tag') : array('tag');
+        $class = (isset($_GET['term_node_tid_depth']) && $_GET['term_node_tid_depth'] == $tid) ? array('active-tag', 'tag') : array('tag');
         $links[] = l(t($name), 'cause-listing', array('query' => array('term' => $tid), 'attributes' => array('class' => $class)));
       }
       $id = drupal_strtolower($options[$parent_tid]) . '-filter-tags';
