@@ -1,0 +1,5 @@
+name = Cause Listing Customizations
+description = Contains required customizations for the Cause Listing view
+package = Benefunder Custom
+core = 7.x
+
