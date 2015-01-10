@@ -22,6 +22,4 @@ function cause_listing_views_query_alter(&$view, &$query) {
     // Not sure why this table is joined twice - remove 1 join.
     unset($query->table_queue['taxonomy_term_data_taxonomy_term_hierarchy']);
   }
-
-  dpm($query->table_queue);
 }
