@@ -30,6 +30,13 @@ function bf_cause_field_default_field_instances() {
         'type' => 'text_default',
         'weight' => 0,
       ),
+      'search_result' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 0,
+      ),
       'teaser' => array(
         'label' => 'hidden',
         'module' => 'text',
@@ -79,7 +86,7 @@ function bf_cause_field_default_field_instances() {
         'summary_rows' => 5,
       ),
       'type' => 'text_textarea_with_summary',
-      'weight' => 42,
+      'weight' => 8,
     ),
   );
 
@@ -91,6 +98,13 @@ function bf_cause_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 9,
+      ),
+      'search_result' => array(
         'label' => 'above',
         'module' => 'text',
         'settings' => array(),
@@ -119,7 +133,7 @@ function bf_cause_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 38,
+      'weight' => 49,
     ),
   );
 
@@ -131,6 +145,13 @@ function bf_cause_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'above',
+        'module' => 'link',
+        'settings' => array(),
+        'type' => 'link_default',
+        'weight' => 20,
+      ),
+      'search_result' => array(
         'label' => 'above',
         'module' => 'link',
         'settings' => array(),
@@ -176,7 +197,7 @@ function bf_cause_field_default_field_instances() {
       'module' => 'link',
       'settings' => array(),
       'type' => 'link_field',
-      'weight' => 37,
+      'weight' => 36,
     ),
   );
 
@@ -188,6 +209,13 @@ function bf_cause_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 12,
+      ),
+      'search_result' => array(
         'label' => 'above',
         'module' => 'text',
         'settings' => array(),
@@ -234,6 +262,13 @@ function bf_cause_field_default_field_instances() {
         'type' => 'text_default',
         'weight' => 11,
       ),
+      'search_result' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 11,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -274,6 +309,13 @@ function bf_cause_field_default_field_instances() {
         'type' => 'text_default',
         'weight' => 5,
       ),
+      'search_result' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 5,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -296,7 +338,7 @@ function bf_cause_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 44,
+      'weight' => 10,
     ),
   );
 
@@ -308,6 +350,13 @@ function bf_cause_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 10,
+      ),
+      'search_result' => array(
         'label' => 'above',
         'module' => 'text',
         'settings' => array(),
@@ -336,7 +385,7 @@ function bf_cause_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 29,
+      'weight' => 31,
     ),
   );
 
@@ -348,6 +397,13 @@ function bf_cause_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 8,
+      ),
+      'search_result' => array(
         'label' => 'above',
         'module' => 'text',
         'settings' => array(),
@@ -376,7 +432,54 @@ function bf_cause_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 37,
+      'weight' => 48,
+    ),
+  );
+
+  // Exported field_instance: 'node-cause-field_first_name'
+  $field_instances['node-cause-field_first_name'] = array(
+    'bundle' => 'cause',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 23,
+      ),
+      'search_result' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 23,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_first_name',
+    'label' => 'First Name',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 45,
     ),
   );
 
@@ -388,6 +491,13 @@ function bf_cause_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'above',
+        'module' => 'link',
+        'settings' => array(),
+        'type' => 'link_default',
+        'weight' => 16,
+      ),
+      'search_result' => array(
         'label' => 'above',
         'module' => 'link',
         'settings' => array(),
@@ -433,7 +543,7 @@ function bf_cause_field_default_field_instances() {
       'module' => 'link',
       'settings' => array(),
       'type' => 'link_field',
-      'weight' => 33,
+      'weight' => 32,
     ),
   );
 
@@ -445,6 +555,13 @@ function bf_cause_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 22,
+      ),
+      'search_result' => array(
         'label' => 'above',
         'module' => 'text',
         'settings' => array(),
@@ -493,6 +610,16 @@ function bf_cause_field_default_field_instances() {
         'type' => 'image',
         'weight' => 2,
       ),
+      'search_result' => array(
+        'label' => 'above',
+        'module' => 'image',
+        'settings' => array(
+          'image_link' => '',
+          'image_style' => '',
+        ),
+        'type' => 'image',
+        'weight' => 2,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -503,7 +630,7 @@ function bf_cause_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_jumbotron_image',
     'label' => 'Jumbotron Image',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
       'alt_field' => 0,
       'default_image' => 0,
@@ -522,6 +649,7 @@ function bf_cause_field_default_field_instances() {
         'allowed_schemes' => array(
           'public' => 'public',
           'vimeo' => 0,
+          'youtube' => 0,
         ),
         'allowed_types' => array(
           'audio' => 0,
@@ -543,6 +671,13 @@ function bf_cause_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'above',
+        'module' => 'file',
+        'settings' => array(),
+        'type' => 'file_default',
+        'weight' => 1,
+      ),
+      'search_result' => array(
         'label' => 'above',
         'module' => 'file',
         'settings' => array(),
@@ -589,8 +724,8 @@ function bf_cause_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-cause-field_name'
-  $field_instances['node-cause-field_name'] = array(
+  // Exported field_instance: 'node-cause-field_keywords'
+  $field_instances['node-cause-field_keywords'] = array(
     'bundle' => 'cause',
     'default_value' => NULL,
     'deleted' => 0,
@@ -601,7 +736,13 @@ function bf_cause_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 7,
+        'weight' => 27,
+      ),
+      'search_result' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -611,8 +752,55 @@ function bf_cause_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_name',
-    'label' => 'Name',
+    'field_name' => 'field_keywords',
+    'label' => 'Keywords',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 52,
+    ),
+  );
+
+  // Exported field_instance: 'node-cause-field_last_name'
+  $field_instances['node-cause-field_last_name'] = array(
+    'bundle' => 'cause',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 24,
+      ),
+      'search_result' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 24,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_last_name',
+    'label' => 'Last Name',
     'required' => 0,
     'settings' => array(
       'text_processing' => 0,
@@ -625,7 +813,53 @@ function bf_cause_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 36,
+      'weight' => 46,
+    ),
+  );
+
+  // Exported field_instance: 'node-cause-field_overlay_copy'
+  $field_instances['node-cause-field_overlay_copy'] = array(
+    'bundle' => 'cause',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 25,
+      ),
+      'search_result' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_overlay_copy',
+    'label' => 'Overlay Copy',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 50,
     ),
   );
 
@@ -637,6 +871,13 @@ function bf_cause_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 19,
+      ),
+      'search_result' => array(
         'label' => 'above',
         'module' => 'text',
         'settings' => array(),
@@ -665,7 +906,7 @@ function bf_cause_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 35,
+      'weight' => 34,
     ),
   );
 
@@ -676,6 +917,16 @@ function bf_cause_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'above',
+        'module' => 'image',
+        'settings' => array(
+          'image_link' => '',
+          'image_style' => '',
+        ),
+        'type' => 'image',
+        'weight' => 6,
+      ),
+      'search_result' => array(
         'label' => 'above',
         'module' => 'image',
         'settings' => array(
@@ -724,7 +975,7 @@ function bf_cause_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'media_generic',
-      'weight' => 34,
+      'weight' => 47,
     ),
   );
 
@@ -736,6 +987,13 @@ function bf_cause_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'above',
+        'module' => 'link',
+        'settings' => array(),
+        'type' => 'link_default',
+        'weight' => 14,
+      ),
+      'search_result' => array(
         'label' => 'above',
         'module' => 'link',
         'settings' => array(),
@@ -781,7 +1039,7 @@ function bf_cause_field_default_field_instances() {
       'module' => 'link',
       'settings' => array(),
       'type' => 'link_field',
-      'weight' => 34,
+      'weight' => 33,
     ),
   );
 
@@ -799,6 +1057,13 @@ function bf_cause_field_default_field_instances() {
         'type' => 'taxonomy_term_reference_link',
         'weight' => 18,
       ),
+      'search_result' => array(
+        'label' => 'above',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 18,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -809,7 +1074,7 @@ function bf_cause_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_research_area',
     'label' => 'Research Area',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
     ),
@@ -820,7 +1085,53 @@ function bf_cause_field_default_field_instances() {
         'apply_chosen' => 1,
       ),
       'type' => 'options_select',
-      'weight' => 5,
+      'weight' => 48,
+    ),
+  );
+
+  // Exported field_instance: 'node-cause-field_share_lines'
+  $field_instances['node-cause-field_share_lines'] = array(
+    'bundle' => 'cause',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 26,
+      ),
+      'search_result' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_share_lines',
+    'label' => 'Share Lines',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 51,
     ),
   );
 
@@ -832,6 +1143,13 @@ function bf_cause_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 21,
+      ),
+      'search_result' => array(
         'label' => 'above',
         'module' => 'text',
         'settings' => array(),
@@ -860,7 +1178,7 @@ function bf_cause_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 3,
+      'weight' => 7,
     ),
   );
 
@@ -872,6 +1190,13 @@ function bf_cause_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 4,
+      ),
+      'search_result' => array(
         'label' => 'above',
         'module' => 'text',
         'settings' => array(),
@@ -900,7 +1225,7 @@ function bf_cause_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 43,
+      'weight' => 9,
     ),
   );
 
@@ -912,6 +1237,13 @@ function bf_cause_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'above',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 17,
+      ),
+      'search_result' => array(
         'label' => 'above',
         'module' => 'taxonomy',
         'settings' => array(),
@@ -947,7 +1279,7 @@ function bf_cause_field_default_field_instances() {
         'sort_options' => 0,
       ),
       'type' => 'select_or_other',
-      'weight' => 4,
+      'weight' => 47,
     ),
   );
 
@@ -958,6 +1290,13 @@ function bf_cause_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'above',
+        'module' => 'file',
+        'settings' => array(),
+        'type' => 'file_default',
+        'weight' => 15,
+      ),
+      'search_result' => array(
         'label' => 'above',
         'module' => 'file',
         'settings' => array(),
@@ -1000,7 +1339,7 @@ function bf_cause_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'media_generic',
-      'weight' => 36,
+      'weight' => 35,
     ),
   );
 
@@ -1014,15 +1353,19 @@ function bf_cause_field_default_field_instances() {
   t('Education');
   t('Elevator Pitch');
   t('Email');
+  t('First Name');
   t('In the News');
   t('Jumbotron Copy');
   t('Jumbotron Image');
   t('Jumbotron Video');
-  t('Name');
+  t('Keywords');
+  t('Last Name');
+  t('Overlay Copy');
   t('Patents');
   t('Picture');
   t('Publications');
   t('Research Area');
+  t('Share Lines');
   t('Subtitle');
   t('Summary');
   t('Title / Academic Position');
