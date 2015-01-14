@@ -5,3 +5,19 @@
  */
 
 include_once 'bf_cause.features.inc';
+
+/**
+ * Implements hook_media_browser_plugins_alter().
+ *
+ * Removes the Upload tab from video fields that should
+ * not allow any uploads (using youtube/vimeo links instead).
+ *
+ * @param $plugins
+ */
+function bf_cause_media_browser_plugins_alter(&$plugins) {
+  $valid_extensions = $plugins['upload']['form'][0]['#validators']['file_validate_extensions'][0];
+  // The unwanted video fields have allowed extensions of 'txt'.
+  if ($valid_extensions == 'txt') {
+    unset($plugins['upload']);
+  }
+}
