@@ -1,1 +1,504 @@
-// Insert your styling here.
+/* ==========================================================================
+  Breakpoints
+   ========================================================================== */
+
+// Extra small screen / phone
+// @screen-xs:                  480px;
+// @screen-xs-min:              @screen-xs;
+
+// Small screen / tablet
+// @screen-sm:                  768px;
+// @screen-sm-min:              @screen-sm;
+
+// Medium screen / desktop
+// @screen-md:                  992px;
+// @screen-md-min:              @screen-md;
+
+// Large screen / wide desktop
+// Note: Deprecated @screen-lg and @screen-lg-desktop as of v3.0.1
+// @screen-lg:                  1200px;
+// @screen-lg-min:              @screen-lg;
+
+// Height breakpoint used for hero region
+@screen-height-break:           600px;
+
+/* ==========================================================================
+  Colors
+   ========================================================================== */
+
+@brand-life: #339999; // active/hover/brand color for Life Causes
+@brand-technology: #cc6600; // active/hover/brand color for Technology Causes
+@brand-environment: #3f9ed4; // active/hover/brand color for Environment Causes
+@brand-humanities: #9357b2; // active/hover/brand color for Humanities Causes
+
+@primary: #999933; // Green active/primary
+@primary2: #999999; // Grey for hover states
+@bodybg: #ebebeb; // Off-white used for body background
+
+@secondary: #0078d0; // light blue links
+@white: #fff;
+
+@grey-c: #ccc;
+@grey-da: #dadada;
+@grey-ed: #ededed;
+@grey-9: #999;
+@grey-6: #666;
+@grey-3: #444;
+
+
+/* ==========================================================================
+  Typography
+   ========================================================================== */
+
+// Custom font variable declaration
+@raleway: 'raleway';
+@raleway-extralight: 'raleway-extralight';
+@raleway-light: 'raleway-light';
+@raleway-bold: 'raleway-bold';
+@raleway-semibold: 'raleway-semibold';
+@raleway-medium: 'raleway-medium';
+@lato: 'latoregular';
+@chaparral-regular: 'Chaparral W01 Regular';
+@chaparral-light: 'Chaparral W01 Lt';
+@chaparral-light-italic: 'Chaparral W01 Lt It';
+@proxima-nova: 'Proxima N W01 Reg';
+@proxima-nova-semibold: 'Proxima N W01 Smbd';
+@default-family: Arial, Helvetica, sans-serif;
+
+@body-copy-family: @raleway, @default-family;
+@body-copy-color: @grey-3;
+@body-copy-size: 16px;
+@body-copy-line-height: 25px;
+@font-sm: 12px;
+
+body {
+  background-color: @white;
+  color: @body-copy-color;
+  font-family: @body-copy-family;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  //color: @primary2;
+}
+h1 {
+  font-size:28px;
+}
+h1.page-title {
+  font-size:52px;
+
+  @media(min-width:@screen-sm-min) {font-size:72px;}
+}
+h2 {
+  font-size:20px;
+}
+strong {
+  font-weight:normal;
+}
+
+a {
+  color: @primary;
+  opacity:1;
+  transition:opacity 0.3s linear 0s;
+
+  &:hover {
+    //opacity:0.6;
+    text-decoration:none;
+    color:@primary;
+  }
+}
+p {
+  color: @body-copy-color;
+  font-size: @body-copy-size;
+  line-height:@body-copy-line-height;
+}
+.btn-default {
+  background-color: @primary;
+  border-color: @primary;
+  color:@white;
+  font-family: @proxima-nova-semibold;
+  font-size: 12px;
+  padding:13px 30px;
+  border:none;
+  text-transform: uppercase;
+  border-radius:0;
+  //box-shadow: 1px -1px 0px #48482d;
+  line-height:9px;
+  transition:opacity 0.3s linear 0s;
+
+  &:hover {
+    opacity:0.75;
+    background-color: @primary;
+    border-color: @primary;
+    color:@white;
+  }
+}
+
+/* ==========================================================================
+  Custom Utility Classes
+   ========================================================================== */
+.bf-arrow:before {
+  content:'';
+  display:inline-block;
+  font-size:inherit;
+  text-rendering:auto;
+  font-size:normal;
+  font-weight:normal;
+  line-height:1;
+  background-repeat:no-repeat;
+  width:18px;
+  height:12px;
+  overflow:hidden;
+  background-position:0 0;
+}
+
+.bf-arrow-left:before {
+  background-image:url(../media/images/benefunder-arrows-left.png);
+  margin-right:10px;
+}
+
+.bf-arrow-right:before {
+  background-image:url(../media/images/benefunder-arrows-right.png);
+  margin-left:10px;
+}
+
+.life .bf-arrow:before {background-position:0 -13px;}
+.technology .bf-arrow:before {background-position:0 -25px;}
+.environment .bf-arrow:before {background-position:0 -37px;}
+.humanities .bf-arrow:before {background-position:0 -49px;}
+.donate .bf-arrow:before {background-position:0 -61px;}
+.bf-arrow-white:before {background-position:0 -73px}
+
+.gutters {
+  padding-left:15px;
+  padding-right:15px;
+
+  @media(min-width:@screen-sm-min) {
+    padding-left:30px;
+    padding-right:30px;
+  }
+}
+
+.front .navbar-default,
+.cause-list .navbar-default {
+
+  @media(min-width:@screen-md-min) {
+    height:120px;
+  }
+}
+
+/* ==========================================================================
+  Default Navbar Customizations
+   ========================================================================== */
+.navbar-default {
+  border-radius:0;
+  overflow:hidden;
+  margin-bottom:0;
+  position:absolute;
+  width:100%;
+  z-index:5;
+
+  &.activated {
+
+    li a {
+      @media(min-width:@screen-md-min) {
+        opacity:0;
+      }
+    }
+
+    #header-main-navigation .search-toggle {
+      background-image:url(../media/images/jumbo_close.png);
+      width:20px;
+      height:20px;
+      margin:22px 0 0 45px;
+      background-position:0 0;
+      transition:all 0.15s ease 0s;
+
+      &:hover {
+        background-position:0 -50px;
+      }
+    }
+  }
+
+  @media(min-width:@screen-md-min) {
+    //height:120px;
+  }
+
+  #search-block-form .form-group {
+    margin-bottom: 0;
+  }
+
+  #search-block-form .btn {
+    float:right;
+    background-color:transparent;
+    .text-hide();
+    width:18px;
+    height:18px;
+    background-image:url(../media/images/mag_glass_background.png);
+    background-repeat:no-repeat;
+    background-position:0 0;
+    background-size:cover;
+    margin:8px;
+    opacity:1;
+    transition:opacity 0.3s linear 0s;
+    padding: 0;
+
+    &:hover {
+      opacity:0.6;
+    }
+  }
+
+  #search-block-form {
+    width:101%;
+    background-color:rgba(27,27,27,0.75);
+    padding:19px 0;
+    position:absolute;
+    z-index:2;
+    transition:margin 0.3s ease 0s;
+    margin-left:100%;
+
+    &.activated {margin-left:0%;}
+
+    input[type='text'] {
+      border-radius:0;
+      width:45%;
+      float:right;
+      background-color:transparent;
+      margin-right:75px;
+      outline:none;
+      border-color:transparent;
+      box-shadow:none;
+
+      &:focus {
+        box-shadow: 0px 0px 8px rgba(153, 153, 51, 0.6);
+      }
+
+    }
+  }
+}
+.container-fluid {
+
+  .navbar-header {
+
+    .navbar-brand {
+      background-image:url(../media/images/benefunder_logo.png);
+      background-position:center center;
+      background-repeat:no-repeat;
+      font-size:1px;
+      color:transparent;
+      width:190px;
+      height:31px;
+      margin:15px;
+      position:relative;
+      z-index:2;
+
+      @media(min-width:@screen-md-min) {
+        margin-left:15px;
+      }
+    }
+  }
+
+  #header-main-navigation {
+
+    border-bottom:1px solid rgba(255,255,255,0.1);
+    position:relative;
+    //margin-bottom:10px;
+
+    @media(min-width:@screen-md-min) {
+      border-bottom:none;
+    }
+
+    .search-toggle {
+
+      display:none;
+      float:right;
+      margin:25px 0 0 45px;
+      padding:0;
+      width:18px;
+      height:18px;
+      outline:none;
+      background-image:url(../media/images/mag_glass_background.png);
+      background-repeat:no-repeat;
+      background-position:0 0;
+      border:none;
+      background-color:transparent;
+      background-size:cover;
+      position:relative;
+      z-index:2;
+      transition:all 0.15s linear 0s;
+
+      &:hover {
+        background-position:0 -21px;
+      }
+
+      @media(min-width:@screen-md-min) {
+        display:block;
+      }
+    }
+
+    #header-search-form-mobile {
+      
+      .clearfix;
+      padding:15px;
+      margin:0 -15px;
+      border-bottom:1px solid rgba(255,255,255,0.1);
+
+      input[type='text'] {
+        border-radius:0;
+        background-color:transparent;
+        border-color:transparent;
+        box-shadow:none;
+
+        &:focus {
+          box-shadow: 0px 0px 8px rgba(153, 153, 51, 0.6);
+        }
+      }
+    }
+
+    .navbar-nav {
+
+      margin:0;
+
+      > li {
+
+        > a {
+
+          @media(min-width:@screen-md-min) {
+            padding-top:25px;
+          }
+          transition: all 0.3s linear 0s;
+
+          &:hover {
+            color:@primary;
+          }
+
+          &.active {
+            color:@primary;
+          }
+        }
+      }
+    }
+
+    .footer-menu {
+      border-bottom:1px solid rgba(255,255,255,0.1);
+      border-top:1px solid rgba(255,255,255,0.1);
+    }
+
+    .footer-menu,
+    .privacy-menu {
+      margin:0 -15px;
+      padding:0 15px;
+
+      li {
+
+        a {
+          color:#fff;
+          text-decoration:none;
+          display:block;
+          padding:10px 15px;
+          transition: all 0.3s linear 0s;
+          text-shadow:none;
+
+          &:hover {
+            color:@primary;
+          }
+        }
+      }
+    }
+  }
+
+}
+
+button.navbar-toggle {
+
+  padding:15px;
+  margin:15px;
+
+  .burger,
+  .burger:before,
+  .burger:after {
+    position: absolute;
+    top: 12px;
+    right: 0px;
+    width: 30px;
+    height: 2px;
+    background: #fff;
+    z-index: 5001;
+    transition: all 0.3s linear 0s;
+  }
+
+  .burger {
+    background:transparent;
+  }
+
+  .burger:before {
+    top: 0;
+    transform: rotate3d(0, 0, 1, -45deg);
+    left: 0;
+    content: "";
+  }
+
+  .burger:after {
+    top: 0;
+    transform: rotate3d(0, 0, 1, 45deg);
+    left: 0;
+    content: "";
+  }
+
+  &.collapsed {
+
+    .burger {
+      background:#fff;
+    }
+
+    .burger:before {
+      top:-11px;
+      transform: rotate3d(0, 0, 1, 0deg);
+    }
+
+    .burger:after {
+      top:10px;
+      transform: rotate3d(0, 0, 1, 0deg);
+    }
+  }
+
+  &:hover .burger {
+    opacity: .6;
+  }
+}
+/* ==========================================================================
+  Header Background for Interior Pages
+   ========================================================================== */
+body.not-front {
+
+  .navbar-default {
+    background-color:rgba(51,51,51,0.75);
+
+    .navbar-collapse {
+      background-color:rgba(51,51,51,0.98);
+
+      @media(min-width:@screen-md-min) {
+        background-color:transparent;
+      }
+    }
+  }
+}
+
+body.node-type-cause,
+body.front {
+
+  .navbar-default {
+    background-color:rgba(51,51,51,0.0);
+  }
+
+  .navbar-collapse {
+    background-color:rgba(51,51,51,0.98);
+
+    @media(min-width:@screen-md-min) {
+      background-color:transparent;
+    }
+  }
+}

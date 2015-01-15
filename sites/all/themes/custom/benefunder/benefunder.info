@@ -24,6 +24,7 @@ regions[page_bottom]    = 'Page bottom'
 ;; Stylesheets
 ;;;;;;;;;;;;;;;;;;;;;
 
+stylesheets[all][] = css/magnific-popup.css
 stylesheets[all][] = css/style.css
 
 
@@ -41,20 +42,27 @@ stylesheets[all][] = css/style.css
 ; 
 ; scripts[] = 'bootstrap/js/affix.js'
 ; scripts[] = 'bootstrap/js/alert.js'
-; scripts[] = 'bootstrap/js/button.js'
-; scripts[] = 'bootstrap/js/carousel.js'
-; scripts[] = 'bootstrap/js/collapse.js'
-; scripts[] = 'bootstrap/js/dropdown.js'
-; scripts[] = 'bootstrap/js/modal.js'
-; scripts[] = 'bootstrap/js/tooltip.js'
-; scripts[] = 'bootstrap/js/popover.js'
-; scripts[] = 'bootstrap/js/scrollspy.js'
-; scripts[] = 'bootstrap/js/tab.js'
-; scripts[] = 'bootstrap/js/transition.js'
+scripts[] = 'bootstrap/js/button.js'
+;scripts[] = 'bootstrap/js/carousel.js'
+scripts[] = 'bootstrap/js/collapse.js'
+scripts[] = 'bootstrap/js/dropdown.js'
+;scripts[] = 'bootstrap/js/modal.js'
+;scripts[] = 'bootstrap/js/tooltip.js'
+;scripts[] = 'bootstrap/js/popover.js'
+;scripts[] = 'bootstrap/js/scrollspy.js'
+;scripts[] = 'bootstrap/js/tab.js'
+scripts[] = 'bootstrap/js/transition.js'
 ;
 ; ; Disable BootstrapCDN if using Bootstrap source files in your sub-theme.
 ; settings[bootstrap_cdn] = ''
 
+scripts[] = 'js/plugins/modernizr-2.6.2.min.js'
+scripts[] = 'js/plugins/respond.min.js'
+scripts[] = 'js/plugins/media.match.js'
+scripts[] = 'js/plugins/jquery.selectric.min.js'
+scripts[] = 'js/plugins/jquery.magnific-popup.min.js'
+scripts[] = 'js/plugins/jquery.placeholder.js'
+scripts[] = 'js/main.js'
 
 ; ;-------------------------
 ; ; METHOD 2: Bootstrap CDN

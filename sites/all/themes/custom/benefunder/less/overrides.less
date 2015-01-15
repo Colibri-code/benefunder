@@ -168,7 +168,7 @@ ul.secondary {
 // Blocks
 .block {
   &:first-child h2.block-title {
-    margin-top: 0;
+    // margin-top: 0;
   }
 }
 
@@ -648,4 +648,11 @@ table {
 }
 .alert-danger a {
   color: darken(@alert-danger-text, 10%);
+}
+
+// Benefunder Grid Overrides
+.col-xs-6 {
+  @media(max-width:@screen-xs-min) {
+    width:100%;
+  }
 }

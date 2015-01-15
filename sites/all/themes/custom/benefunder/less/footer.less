@@ -1,1 +1,158 @@
-// Insert your styling here.
+/* ==========================================================================
+  Less for footer section
+   ========================================================================== */
+ul.menu {
+  margin:0;
+  padding:0;
+
+  li {
+    list-style:none;
+
+    a {
+      transition: color 0.3s linear 0s;
+      text-shadow:3px 2px 5px #000;
+
+      &:hover {
+        color:@primary;
+      }
+
+      &.active {
+        color:@primary;
+      }
+    }
+  }
+}
+
+footer {
+  float:left;
+  width:100%;
+  padding:30px 0;
+  background-position:bottom center;
+  background-repeat:no-repeat;
+  background-size:cover;
+  text-align:center;
+
+  @media(min-width:@screen-md-min) {
+    padding-top:75px;
+  }
+
+  .footer-menu {
+    text-align:left;
+
+    li {
+
+      a {
+        color:#fff;
+        font-family:@raleway-light;
+        font-size:16px;
+        text-decoration:none;
+        padding-bottom:6px;
+        display:block;
+
+        &:hover {
+          text-decoration:none;
+        }
+      }
+    }
+  }
+
+  .social-menu {
+
+    @media(min-width:@screen-sm-min) {
+      float:right;
+      text-align:right;
+    }
+
+    li {
+      display:inline-block;
+
+      a {
+        .text-hide();
+        background-repeat:no-repeat;
+        background-image:url(../media/images/social_sprite.png);
+        display:block;
+        height:35px;
+        margin:0 20px;
+        transition:all 0.15s linear 0s;
+
+        &.facebook {
+          background-position:0 0;
+          width:19px;
+
+          &:hover {
+            background-position:0 -35px;
+          }
+        }
+
+        &.twitter {
+          background-position:-68px -1px;
+          width:32px;
+
+          &:hover {
+            background-position:-68px -36px;
+          }
+        }
+
+        &.linkedin {
+          background-position:right 0px;
+          width:30px;
+
+          &:hover {
+            background-position:right -35px;
+          }
+        }
+      }
+    }
+  }
+
+  .copyright-section {
+    padding-top:20px;
+
+    @media(min-width:@screen-sm-min) {
+      text-align:left;
+    }
+
+    @media(min-width:@screen-md-min) {
+      text-align:center;
+      padding-top:120px;
+    }
+    .reserved {
+      display:inline-block;
+      font-family:@raleway-light;
+      font-size:12px;
+      color:@grey-9;
+      text-shadow:3px 2px 5px #000;
+
+      @media(min-width:@screen-sm-min) {
+        padding-top:15px;
+      }
+    }
+
+    .privacy-menu {
+
+      @media(min-width:@screen-sm-min) {
+        display:inline-block;
+      }
+
+      li {
+        display:inline;
+
+        a {
+          display:inline-block;
+          padding:0 5px;
+          color:#fff;
+          text-decoration:none;
+          font-family:@raleway-light;
+          font-size:12px;
+          transition:color 0.3s linear 0s;
+
+          &:hover {
+            text-decoration:none;
+            color:@primary;
+          }
+        }
+      }
+    }
+  }
+
+}
