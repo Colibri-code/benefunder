@@ -47,8 +47,6 @@ function homepage_research_areas_contents($which_block) {
       $vars['life_text'] = $life->description;
       $vars['technologies_text'] = $technologies->description;
 
-      dpm($vars);
-
       return theme('homepage_research_areas_template', $vars);
   }
 }
