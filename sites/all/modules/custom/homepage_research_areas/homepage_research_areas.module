@@ -1,0 +1,73 @@
+<?php
+
+/**
+ * Implements hook_block_info().
+ *
+ * This hook declares what blocks are provided by the module.
+ */
+function homepage_research_areas_block_info() {
+  $blocks['homepage_research_areas'] = array(
+    'info' => t('Homepage Research Areas'),
+    'status' => TRUE,
+  );
+
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ *
+ * This hook generates the contents of the blocks themselves.
+ */
+function homepage_research_areas_block_view($delta = '') {
+  // The $delta parameter tells us which block is being requested.
+  switch ($delta) {
+    case 'homepage_research_areas':
+      $block['content'] = homepage_research_areas_contents($delta);
+      break;
+  }
+  return $block;
+}
+
+/**
+ * A module-defined block content function.
+ */
+function homepage_research_areas_contents($which_block) {
+  switch ($which_block) {
+    case 'homepage_research_areas':
+      $vars = array();
+
+      $environment = taxonomy_term_load(10);
+      $humanities = taxonomy_term_load(7);
+      $life = taxonomy_term_load(66);
+      $technologies = taxonomy_term_load(91);
+
+      $vars['environment_text'] = $environment->description;
+      $vars['humanities_text'] = $humanities->description;
+      $vars['life_text'] = $life->description;
+      $vars['technologies_text'] = $technologies->description;
+
+      dpm($vars);
+
+      return theme('homepage_research_areas_template', $vars);
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function homepage_research_areas_theme() {
+  return array(
+    'homepage_research_areas_template' => array(
+      'template' => 'homepage_research_areas',
+      'path' => drupal_get_path('module', 'homepage_research_areas'),
+      'type' => 'theme',
+      'variables' => array(
+        'environment_text' => NULL,
+        'humanities_text' => NULL,
+        'life_text' => NULL,
+        'technologies_text' => NULL,
+      ),
+    ),
+  );
+}

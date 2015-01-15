@@ -1,0 +1,5 @@
+name = Homepage Research Areas
+description = Creates a block that contains info about the research areas
+core = 7.x
+version = 7.x-1.0
+package = Benefunder Custom

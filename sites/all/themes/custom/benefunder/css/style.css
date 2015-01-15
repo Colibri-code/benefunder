@@ -6833,6 +6833,9 @@ body.cause-list {
 .mfp-iframe-holder .mfp-close:hover {
   background-position: 97% -65px;
 }
+.alert-block {
+  margin-top: 150px;
+}
 /* ==========================================================================
   Homepage Featured Causes
    ========================================================================== */
