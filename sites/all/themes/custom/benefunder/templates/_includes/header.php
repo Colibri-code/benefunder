@@ -13,7 +13,7 @@
     </div>
 
     <!-- Mobile search -->
-    <div class="collapse navbar-collapse collapsed" id="mobile-search">
+    <div class="collapse navbar-collapse" id="mobile-search">
 
       <?php $block = module_invoke('search', 'block_view'); print render($block['content']); ?>
 
@@ -27,20 +27,15 @@
       <?php print theme('links', array('links' => menu_navigation_links('main-menu'), 'attributes' => array('class'=> array('nav', 'navbar-nav', 'navbar-right')) ));?>
 
       <div class="footer-menu hidden-md hidden-lg">
-        <ul class="menu">
-          <li><a href="#">Contact Us</a></li>
-          <li><a href="#">Financial Advisors</a></li>
-          <li><a href="#">Researchers</a></li>
-          <li><a href="#">Institutions</a></li>
-        </ul>
-      </div><!-- end .footer-menu -->
+        <?php print theme('links', array('links' => menu_navigation_links('menu-footer-menu'), 'attributes' => array('class'=> array('menu')) ));?>
+      </div>
 
-      <div class="privacy-menu hidden-md hidden-lg">
-        <ul class="menu">
-          <li><a href="#">Privacy</a></li>
-          <li><a href="#">Legal</a></li>
-        </ul>
-      </div><!-- end .privacy-menu -->
+      <div class="copyright-section hidden-md hidden-lg">
+        <span class="reserved">Copyright © <?php echo date("Y"); ?>, Benefunder. All Rights Reserved.</span>
+        <div class="privacy-menu">
+          <?php print theme('links', array('links' => menu_navigation_links('menu-footer-second-menu'), 'attributes' => array('class'=> array('menu')) ));?>
+        </div>
+      </div>
 
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

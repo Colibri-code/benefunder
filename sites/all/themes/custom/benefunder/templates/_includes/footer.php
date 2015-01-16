@@ -31,12 +31,9 @@
         </ul>
       </div>
       <div class="copyright-section col-xs-12 col-sm-6 col-md-12">
-        <span class="reserved">Copyright © 2014, Benefunder. All Rights Reserved.</span>
+        <span class="reserved">Copyright © <?php echo date("Y"); ?>, Benefunder. All Rights Reserved.</span>
         <div class="privacy-menu">
-          <ul class="menu">
-            <li><a href="#">Privacy</a></li>
-            <li><a href="#">Legal</a></li>
-          </ul>
+          <?php print theme('links', array('links' => menu_navigation_links('menu-footer-second-menu'), 'attributes' => array('class'=> array('menu')) ));?>
         </div>
       </div>
     </div>

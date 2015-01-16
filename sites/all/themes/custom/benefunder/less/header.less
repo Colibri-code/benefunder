@@ -218,7 +218,7 @@ p {
       background-image:url(../media/images/jumbo_close.png);
       width:20px;
       height:20px;
-      margin:22px 0 0 45px;
+      margin:27px 0 0 45px;
       background-position:0 0;
       transition:all 0.15s ease 0s;
 
@@ -387,11 +387,6 @@ p {
       }
     }
 
-    .footer-menu {
-      border-bottom:1px solid rgba(255,255,255,0.1);
-      border-top:1px solid rgba(255,255,255,0.1);
-    }
-
     .footer-menu,
     .privacy-menu {
       margin:0 -15px;
@@ -413,12 +408,93 @@ p {
         }
       }
     }
+
+    @media (max-width: @screen-sm-max) {
+      padding: 0;
+      overflow: hidden;
+
+      & > ul.navbar-nav {
+        background: #fff;
+
+        a {
+          color: @primary;
+          font-size: 25px;
+          margin: 36px 40px;
+        }
+      }
+
+      .footer-menu {
+        margin-bottom: 78px;
+      }
+
+      .footer-menu a {
+        font-family: @raleway-light;
+        font-size: 18px;
+        margin: 36px 40px;
+      }
+
+      .privacy-menu ul {
+        margin-left: 40px;
+      }
+
+      .privacy-menu a {
+        font-family: @raleway-light;
+        font-size: 15px;
+        margin: 36px 34px 28px 0;
+        float: left;
+      }
+
+      .reserved {
+        font-family: @raleway-light;
+        font-size: 13px;
+        color: @grey-c;
+        padding: 0 51px;
+      }
+    }
+
+    @media (max-width: @screen-xs-min) {
+      & > ul.navbar-nav {
+        a {
+          font-size: 17px;
+          margin: 12px 27px;
+        }
+      }
+
+      .footer-menu {
+        margin-bottom: 50px;
+      }
+
+      .footer-menu a {
+        font-size: 12px;
+        margin: 12px 27px;
+      }
+
+      .privacy-menu ul {
+        margin-left: 27px;
+      }
+
+      .privacy-menu a {
+        font-size: 10px;
+        margin: 12px 0;
+      }
+
+      .reserved {
+        font-size: 9px;
+        padding: 0 42px;
+      }
+    }
   }
 
 }
 
 .navbar button.menu-toggle {
   margin-top: 17px;
+}
+
+@media (max-width: 340px) {
+  .navbar button.menu-toggle {
+    margin-right: 5px;
+  }
 }
 
 button.navbar-toggle {
@@ -477,7 +553,7 @@ button.navbar-toggle {
   &:hover {
     .burger:before,
     .burger:after {
-      background: #999933;
+      background: @primary;
     }
   }
 
@@ -485,7 +561,7 @@ button.navbar-toggle {
     .burger,
     .burger:before,
     .burger:after {
-      background: #999933;
+      background: @primary;
     }
   }
 }
@@ -505,8 +581,13 @@ button.mobile-search-toggle {
   transition: color .3s;
   color: #fff;
 
+  @media (max-width: @screen-xs-min) {
+    margin-left: 0;
+    margin-right: 10px;
+  }
+
   &:hover {
-    color: #999933;
+    color: @primary;
   }
 }
 
@@ -516,37 +597,57 @@ button.mobile-search-toggle {
 }
 
 #mobile-search .form-group {
-  margin: 70px 0 0;
+  margin: 40px 0 0;
+
+  @media (max-width: @screen-xs-min) {
+    margin-top: 30px;
+  }
 }
 
 #mobile-search .form-text {
   box-shadow: none;
   font-family: raleway-extralight;
-  font-size: 32px;
+  font-size: 22px;
   height: auto;
   width: 82%;
   float: right;
   padding-left: 2%;
-  margin-bottom: 70px;
+  margin-bottom: 40px;
+
+  @media (max-width: @screen-xs-min) {
+    margin-bottom: 30px;
+    font-size: 16px;
+    width: 85%;
+  }
 }
 
 #mobile-search .form-type-textfield:before {
   content: "\f002";
   font: normal normal normal 14px/1 FontAwesome;
   float: left;
-  font-size: 32px;
+  font-size: 22px;
   padding-top: 12px;
   padding-left: 7%;
+
+  @media (max-width: @screen-xs-min) {
+    font-size: 16px;
+    padding-top: 9px;
+  }
 }
 
 #mobile-search button {
-  height: 80px;
-  background: #999933;
+  height: 72px;
+  background: @primary;
   width: 100%;
   border-radius: 0;
   border: none;
   font-family: @raleway-extralight;
-  font-size: 32px;
+  font-size: 22px;
+
+  @media (max-width: @screen-xs-min) {
+    height: 40px;
+    font-size: 16px;
+  }
 }
 
 @media (min-width: @screen-sm-min) {

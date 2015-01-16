@@ -51,6 +51,14 @@ var general = function() {
 			$('button.search-toggle').on('click', function() {
 				$('#search-block-form, .navbar-default, #mobile-search').toggleClass('activated');
 			});
+
+			$('button.menu-toggle.collapsed').on('click', function() {
+				$('#mobile-search').removeClass('in');
+			});
+
+			$('button.mobile-search-toggle.collapsed').on('click', function() {
+				$('#header-main-navigation').removeClass('in');
+			});
 		},
 
 		// Handles footer random background image
