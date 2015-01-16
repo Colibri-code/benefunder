@@ -1,0 +1,5 @@
+name = Homepage Featured Causes
+description = Creates a block that contains the featured causes that appear on the homepage
+core = 7.x
+version = 7.x-1.0
+package = Benefunder Custom

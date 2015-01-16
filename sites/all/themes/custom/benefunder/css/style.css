@@ -6833,9 +6833,6 @@ body.cause-list {
 .mfp-iframe-holder .mfp-close:hover {
   background-position: 97% -65px;
 }
-.alert-block {
-  margin-top: 150px;
-}
 /* ==========================================================================
   Homepage Featured Causes
    ========================================================================== */
@@ -6908,6 +6905,8 @@ body.cause-list {
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
   opacity: 1;
+  background-position: 50% 50%;
+  background-size: cover;
 }
 .cause-features .feature .cause-teaser .cause-image-white {
   position: absolute;
@@ -7344,7 +7343,7 @@ body.cause-list {
 /* ==========================================================================
   Homepage Humble Brag Section
    ========================================================================== */
-.humble-brag {
+.view-humble-brag {
   clear: both;
   width: 100%;
   background-color: #fff;
@@ -7352,21 +7351,21 @@ body.cause-list {
   text-align: center;
 }
 @media (min-width: 992px) {
-  .humble-brag {
+  .view-humble-brag {
     padding: 80px 0 60px;
   }
 }
-.humble-brag .brag-highlight {
+.view-humble-brag .brag-highlight {
   display: none;
   padding-bottom: 50px;
   min-height: 250px;
 }
 @media (min-width: 992px) {
-  .humble-brag .brag-highlight {
+  .view-humble-brag .brag-highlight {
     display: block;
   }
 }
-.humble-brag .brag-highlight p {
+.view-humble-brag .brag-highlight p {
   margin: 0;
   font-family: 'raleway-light';
   font-size: 28px;
@@ -7374,28 +7373,28 @@ body.cause-list {
   margin: 0 250px;
   position: relative;
 }
-.humble-brag .brag-highlight p span {
+.view-humble-brag .brag-highlight p span {
   color: #3f9ed4;
   font-size: 140px;
   position: absolute;
   line-height: 0;
   padding-top: 50px;
 }
-.humble-brag .brag-highlight p span:first-of-type {
+.view-humble-brag .brag-highlight p span:first-of-type {
   margin-left: -40px;
 }
-.humble-brag .brag-post {
+.view-humble-brag .views-row {
   padding-top: 20px;
   padding-bottom: 20px;
   transition: opacity 0.3s linear 0s;
 }
 @media (min-width: 768px) {
-  .humble-brag .brag-post {
+  .view-humble-brag .views-row {
     min-height: 200px;
   }
 }
 @media (min-width: 992px) {
-  .humble-brag .brag-post {
+  .view-humble-brag .views-row {
     float: none;
     display: inline-block;
     width: auto;
@@ -7406,18 +7405,19 @@ body.cause-list {
     padding-left: 40px;
   }
 }
-.humble-brag .brag-post.current,
-.humble-brag .brag-post:hover {
+.view-humble-brag .views-row.current,
+.view-humble-brag .views-row:hover {
   opacity: 1;
 }
-.humble-brag .brag-post.current .triangle-clip,
-.humble-brag .brag-post:hover .triangle-clip {
+.view-humble-brag .views-row.current .triangle-clip,
+.view-humble-brag .views-row:hover .triangle-clip {
   opacity: 1;
 }
-.humble-brag .brag-post .brag-title {
+.view-humble-brag .views-row img {
   padding-bottom: 10px;
+  height: auto;
 }
-.humble-brag .brag-post .triangle-clip {
+.view-humble-brag .views-row .triangle-clip {
   width: 10px;
   height: 0;
   margin: 0 auto;
@@ -7429,26 +7429,26 @@ body.cause-list {
   display: none;
 }
 @media (min-width: 992px) {
-  .humble-brag .brag-post .triangle-clip {
+  .view-humble-brag .views-row .triangle-clip {
     display: block;
   }
 }
-.humble-brag .brag-post .brag-copy {
+.view-humble-brag .views-row .brag-copy {
   margin: 0;
   font-family: 'raleway-light';
 }
 @media (min-width: 992px) {
-  .humble-brag .brag-post .brag-copy {
+  .view-humble-brag .views-row .brag-copy {
     display: none;
   }
 }
-.humble-brag .brag-post .brag-copy:before {
+.view-humble-brag .views-row .brag-copy:before {
   content: '“';
   color: #3f9ed4;
   font-size: 40px;
   vertical-align: middle;
 }
-.humble-brag .brag-post .brag-copy:after {
+.view-humble-brag .views-row .brag-copy:after {
   content: '”';
   color: #3f9ed4;
   font-size: 40px;

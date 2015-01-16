@@ -60,10 +60,6 @@ body {
   }
 }
 
-.alert-block {
-  margin-top: 150px;
-}
-
 
 /* ==========================================================================
   Homepage Featured Causes
@@ -117,6 +113,8 @@ body {
         transition:opacity 0.5s linear 0.1s;
         backface-visibility: hidden;
         opacity:1;
+        background-position: 50% 50%;
+        background-size: cover;
       }
 
       .cause-image-white {
@@ -571,7 +569,7 @@ body {
 /* ==========================================================================
   Homepage Humble Brag Section
    ========================================================================== */
-.humble-brag {
+.view-humble-brag {
   clear:both;
   width:100%;
   background-color:#fff;
@@ -613,7 +611,7 @@ body {
     }
   }
 
-  .brag-post {
+  .views-row {
     padding-top:20px;
     padding-bottom:20px;
     transition: opacity 0.3s linear 0s;
@@ -642,8 +640,9 @@ body {
       }
     }
 
-    .brag-title {
+    img {
       padding-bottom:10px;
+      height: auto;
     }
 
     .triangle-clip {

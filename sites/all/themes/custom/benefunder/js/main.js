@@ -49,7 +49,7 @@ var general = function() {
 		// Handles mobile/desktop navbar 
 		setNavbar: function() {
 			$('button.search-toggle').on('click', function() {
-				$('#search-block-form, .navbar-default').toggleClass('activated');
+				$('#search-block-form, .navbar-default, #mobile-search').toggleClass('activated');
 			});
 		},
 
@@ -227,7 +227,7 @@ var Benefunder = {
 	front: {
 		init: function() {
 			// JavaScript to be fired on the home page
-			general.setupHumbleBrag('.humble-brag .brag-post', '.brag-copy', '.brag-highlight .inner');
+			general.setupHumbleBrag('.view-humble-brag .views-row', '.brag-copy', '.brag-highlight .inner');
 			general.setCauseShelf('.sector-link', '.sector-shelf');
 			general.setupTileGrid();
 			general.jumboTeaser();

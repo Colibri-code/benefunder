@@ -37,16 +37,25 @@ function homepage_research_areas_contents($which_block) {
     case 'homepage_research_areas':
       $vars = array();
 
+      // Load up the main research areas for causes
       $environment = taxonomy_term_load(10);
       $humanities = taxonomy_term_load(7);
       $life = taxonomy_term_load(66);
       $technologies = taxonomy_term_load(91);
 
+      // Get icons
+      $vars['environment_icon'] = file_create_url($environment->field_term_icon_with_color_['und'][0]['uri']);
+      $vars['humanities_icon'] = file_create_url($humanities->field_term_icon_with_color_['und'][0]['uri']);
+      $vars['life_icon'] = file_create_url($life->field_term_icon_with_color_['und'][0]['uri']);
+      $vars['technologies_icon'] = file_create_url($technologies->field_term_icon_with_color_['und'][0]['uri']);
+
+      // Get text
       $vars['environment_text'] = $environment->description;
       $vars['humanities_text'] = $humanities->description;
       $vars['life_text'] = $life->description;
       $vars['technologies_text'] = $technologies->description;
 
+      // Send icons and text to template file and return as block content
       return theme('homepage_research_areas_template', $vars);
   }
 }
@@ -65,6 +74,10 @@ function homepage_research_areas_theme() {
         'humanities_text' => NULL,
         'life_text' => NULL,
         'technologies_text' => NULL,
+        'environment_icon' => NULL,
+        'humanities_icon' => NULL,
+        'life_icon' => NULL,
+        'technologies_icon' => NULL,
       ),
     ),
   );

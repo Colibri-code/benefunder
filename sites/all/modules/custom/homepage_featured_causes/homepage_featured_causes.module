@@ -1,0 +1,133 @@
+<?php
+
+/**
+ * Implements hook_block_info().
+ *
+ * This hook declares what blocks are provided by the module.
+ */
+function homepage_featured_causes_block_info() {
+  $blocks['homepage_featured_causes'] = array(
+    'info' => t('Homepage Featured Causes'),
+    'status' => TRUE,
+  );
+
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ *
+ * This hook generates the contents of the blocks themselves.
+ */
+function homepage_featured_causes_block_view($delta = '') {
+  // The $delta parameter tells us which block is being requested.
+  switch ($delta) {
+    case 'homepage_featured_causes':
+      $block['content'] = homepage_featured_causes_contents($delta);
+      break;
+  }
+  return $block;
+}
+
+/**
+ * A module-defined block content function.
+ */
+function homepage_featured_causes_contents($which_block) {
+  switch ($which_block) {
+    case 'homepage_featured_causes':
+      $vars = array();
+
+      /**
+       * 
+       * Homepage node
+       * 
+       */
+      $wrapper = entity_metadata_wrapper('node', 12);
+
+      /* Body text */
+      $vars['featured_causes_text'] = $wrapper->body->value->value();
+
+      /**
+       * 
+       * Data from causes
+       * 
+       */
+      
+      $causes = array();
+
+      for ($i = 1; $i <= 6; $i++) {
+        $test = 'field_featured_cause_' . $i;
+        $cause = entity_metadata_wrapper('node', $wrapper->$test->value());
+
+        /* Title */
+        $causes[$i]['title'] = $cause->title->value();
+
+        /* Research area name */
+        $cause_1_research_areas = $cause->field_research_area->value();
+        $cause_1_research_area = $cause_1_research_areas[0];
+        $causes[$i]['research_area_name'] = $cause_1_research_area->name;
+
+        /* Research area icon (white) */
+        $causes[$i]['research_area_icon_white'] = file_create_url($cause_1_research_area->field_term_icon['und'][0]['uri']);
+
+        /* Research area icon (color) */
+        $causes[$i]['research_area_icon_color'] = file_create_url($cause_1_research_area->field_term_icon_with_color_['und'][0]['uri']);
+
+        /* Cause image */
+        $jumbotron_image = $cause->field_jumbotron_image->value();
+        $causes[$i]['image'] = file_create_url($jumbotron_image['uri']);
+
+        /* Researcher image */
+        $researcher_image = $cause->field_picture->value();
+        $causes[$i]['researcher_image'] = file_create_url($researcher_image['uri']);
+
+        /* Researcher text */
+        $causes[$i]['researcher_text'] = $cause->field_overlay_copy->value();
+
+        /* Researcher name */
+        $causes[$i]['researcher_name'] = $cause->field_first_name->value() . ' ' . $cause->field_last_name->value();
+
+        /* Research area CSS class */
+        $research_area_css_class = '';
+        switch ($cause_1_research_area->tid) {
+          case 10:
+            $research_area_css_class = 'environment';
+            break;
+          case 7:
+            $research_area_css_class = 'humanities';
+            break;
+          case 66:
+            $research_area_css_class = 'life';
+            break;
+          case 91:
+            $research_area_css_class = 'technology';
+            break;
+        }
+        $causes[$i]['research_area_css_class'] = $research_area_css_class;
+      }
+
+      $vars['causes'] = $causes;
+
+      // Send all data to template file and return as block content
+      return theme('homepage_featured_causes_template', $vars);
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function homepage_featured_causes_theme() {
+  return array(
+    'homepage_featured_causes_template' => array(
+      'template' => 'homepage_featured_causes',
+      'path' => drupal_get_path('module', 'homepage_featured_causes'),
+      'type' => 'theme',
+      'variables' => array(
+        'environment_text' => NULL,
+        'humanities_text' => NULL,
+        'life_text' => NULL,
+        'technologies_text' => NULL,
+      ),
+    ),
+  );
+}
