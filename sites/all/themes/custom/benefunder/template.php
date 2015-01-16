@@ -28,3 +28,10 @@ function benefunder_preprocess_page(&$vars, $hook) {
     $vars['theme_hook_suggestions'][] = 'page__'. $vars['node']->type;
   }
 }
+
+/**
+ * Implements template_preprocess_html().
+ */
+function benefunder_preprocess_html(&$variables) {
+  drupal_add_css('//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css', array('type' => 'external'));
+}

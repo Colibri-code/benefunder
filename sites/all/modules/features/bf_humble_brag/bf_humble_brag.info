@@ -1,7 +1,7 @@
 name = BF Humble Brag
 core = 7.x
 package = Benefunder
-version = 7.x-1.0
+version = 7.x-1.1
 project = bf_humble_brag
 dependencies[] = bf_cause
 dependencies[] = text

@@ -55,7 +55,7 @@ var general = function() {
 
 		// Handles footer random background image
 		setFooter: function() {
-			$('footer').css({'background-image': 'url(sites/all/themes/custom/benefunder/media/images/footer_backgrounds/' + getRandomInt(0,0) + '.jpg)'});
+			$('footer').css({'background-image': 'url(/sites/all/themes/custom/benefunder/media/images/footer_backgrounds/' + getRandomInt(0,0) + '.jpg)'});
 		},
 
 		// Window resize function

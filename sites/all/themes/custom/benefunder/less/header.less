@@ -193,6 +193,11 @@ p {
 /* ==========================================================================
   Default Navbar Customizations
    ========================================================================== */
+
+.navbar {
+  border: none;
+}
+
 .navbar-default {
   border-radius:0;
   overflow:hidden;
@@ -412,6 +417,10 @@ p {
 
 }
 
+.navbar button.menu-toggle {
+  margin-top: 17px;
+}
+
 button.navbar-toggle {
 
   padding:15px;
@@ -465,10 +474,104 @@ button.navbar-toggle {
     }
   }
 
-  &:hover .burger {
-    opacity: .6;
+  &:hover {
+    .burger:before,
+    .burger:after {
+      background: #999933;
+    }
+  }
+
+  &.collapsed:hover {
+    .burger,
+    .burger:before,
+    .burger:after {
+      background: #999933;
+    }
   }
 }
+
+button.mobile-search-toggle {
+  margin: 0;
+  padding: 0;
+  width: 38px;
+  height: 38px;
+  margin-top: 11px;
+  margin-right: 27px;
+  margin-left: 30px;
+  border-radius: 0;
+  border: none;
+  font-size: 32px;
+  margin-top: 8px;
+  transition: color .3s;
+  color: #fff;
+
+  &:hover {
+    color: #999933;
+  }
+}
+
+#mobile-search {
+  background: #fff;
+  padding: 0;
+}
+
+#mobile-search .form-group {
+  margin: 70px 0 0;
+}
+
+#mobile-search .form-text {
+  box-shadow: none;
+  font-family: raleway-extralight;
+  font-size: 32px;
+  height: auto;
+  width: 82%;
+  float: right;
+  padding-left: 2%;
+  margin-bottom: 70px;
+}
+
+#mobile-search .form-type-textfield:before {
+  content: "\f002";
+  font: normal normal normal 14px/1 FontAwesome;
+  float: left;
+  font-size: 32px;
+  padding-top: 12px;
+  padding-left: 7%;
+}
+
+#mobile-search button {
+  height: 80px;
+  background: #999933;
+  width: 100%;
+  border-radius: 0;
+  border: none;
+  font-family: @raleway-extralight;
+  font-size: 32px;
+}
+
+@media (min-width: @screen-sm-min) {
+  #mobile-search .form-text {
+    padding-left: 2%;
+    width: 93%;
+  }
+
+  #mobile-search .form-type-textfield:before {
+    padding-left: 3%;
+  }
+}
+
+@media (max-width: 991px) {
+  #mobile-search form {
+    display: block !important;
+  }
+}
+
+@media (min-width: 992px) {
+  #mobile-search {
+    display: none !important;
+  }
+}
+
 /* ==========================================================================
   Header Background for Interior Pages
    ========================================================================== */
