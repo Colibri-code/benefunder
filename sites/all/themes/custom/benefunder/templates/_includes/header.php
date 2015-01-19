@@ -22,7 +22,7 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="header-main-navigation">
 
-      <button type="button" class="search-toggle" data-target="#header-search-form"></button>
+      <button type="button" class="search-toggle" data-target="#header-search-form"><span></span></button>
 
       <?php print theme('links', array('links' => menu_navigation_links('main-menu'), 'attributes' => array('class'=> array('nav', 'navbar-nav', 'navbar-right')) ));?>
 

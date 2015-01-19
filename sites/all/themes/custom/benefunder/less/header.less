@@ -183,7 +183,7 @@ p {
 }
 
 .front .navbar-default,
-.cause-list .navbar-default {
+.page-causes .navbar-default {
 
   @media(min-width:@screen-md-min) {
     height:120px;
@@ -216,14 +216,27 @@ p {
 
     #header-main-navigation .search-toggle {
       background-image:url(../media/images/jumbo_close.png);
+      background-repeat: no-repeat;
       width:20px;
       height:20px;
       margin:27px 0 0 45px;
       background-position:0 0;
-      transition:all 0.15s ease 0s;
 
-      &:hover {
+      span {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-image:url(../media/images/jumbo_close.png);
+        background-repeat: no-repeat;
         background-position:0 -50px;
+        width:20px;
+        height:20px;
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+
+      &:hover span {
+        opacity: 1;
       }
     }
   }
@@ -333,10 +346,24 @@ p {
       background-size:cover;
       position:relative;
       z-index:2;
-      transition:all 0.15s linear 0s;
 
-      &:hover {
+      span {
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        width:18px;
+        height:18px;
+        background-image:url(../media/images/mag_glass_background.png);
+        background-repeat:no-repeat;
         background-position:0 -21px;
+        background-color:transparent;
+        background-size:cover;
+        transition: opacity 0.3s;
+      }
+
+      &:hover span {
+        opacity: 1;
       }
 
       @media(min-width:@screen-md-min) {

@@ -74,13 +74,27 @@ footer {
         height:35px;
         margin:0 20px;
         transition:all 0.15s linear 0s;
+        position: relative;
 
         &.facebook {
           background-position:0 0;
           width:19px;
 
-          &:hover {
+          span {
+            opacity: 0;
+            background-repeat:no-repeat;
+            background-image:url(../media/images/social_sprite.png);
             background-position:0 -35px;
+            width:19px;
+            height:35px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: opacity 0.3s;
+          }
+
+          &:hover span {
+            opacity: 1;
           }
         }
 
@@ -88,8 +102,21 @@ footer {
           background-position:-68px -1px;
           width:32px;
 
-          &:hover {
+          span {
+            opacity: 0;
+            background-repeat:no-repeat;
+            background-image:url(../media/images/social_sprite.png);
             background-position:-68px -36px;
+            width:32px;
+            height:35px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: opacity 0.3s;
+          }
+
+          &:hover span {
+            opacity: 1;
           }
         }
 
@@ -97,8 +124,21 @@ footer {
           background-position:right 0px;
           width:30px;
 
-          &:hover {
+          span {
+            opacity: 0;
+            background-repeat:no-repeat;
+            background-image:url(../media/images/social_sprite.png);
             background-position:right -35px;
+            width:30px;
+            height:35px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: opacity 0.3s;
+          }
+
+          &:hover span {
+            opacity: 1;
           }
         }
       }

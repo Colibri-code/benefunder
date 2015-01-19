@@ -16,7 +16,7 @@ body {
     background-image:url(../media/images/nemo_background.jpg);
   }
 
-  &.cause-list {
+  &.page-causes {
     background-image:url(../media/images/galaxy_background.jpg);
   }
 }
@@ -58,6 +58,10 @@ body {
   &:hover {
     background-position:97% -65px;
   }
+}
+
+.region-content {
+  position: relative;
 }
 
 
@@ -274,10 +278,22 @@ body {
     height:26px;
     width:26px;
     cursor:pointer;
-    transition:all 0.15s linear 0s;
 
-    &:hover {
+    span {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height:26px;
+      width:26px;
+      background-image:url(../media/images/jumbo_close.png);
+      background-repeat:no-repeat;
       background-position:0 -65px;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    &:hover span {
+      opacity: 1;
     }
   }
 
@@ -731,18 +747,31 @@ body {
   background-image:url(../media/images/selectric_down.png);
   background-repeat:no-repeat;
   background-position:0 0;
-  transition: all 0.15s linear 0s;
 }
 
-.selectricHover .selectric .button {
+.selectric .button span {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 33px;
+  height: 33px;
+  background-image:url(../media/images/selectric_down.png);
+  background-repeat:no-repeat;
   background-position:0 -40px;
+  opacity: 0;
+  transition: opacity .3s;
+}
+
+.selectricHover .selectric .button span {
+  opacity: 1;
 }
 
 .selectricOpen {
   z-index: 9999;
 }
 
-.selectricOpen .selectric .button {
+.selectricOpen .selectric .button,
+.selectricOpen .selectric .button span {
   background-image:url(../media/images/selectric_close.png);
 }
 
@@ -803,6 +832,7 @@ body {
 /* Items box */
 .selectricItems {
   //display: none;
+  width: 210px !important;
   max-height:0;
   overflow:hidden;
   padding-left:25px;
@@ -833,11 +863,11 @@ body {
   padding: 5px;
   cursor: pointer;
 
-  .all {color:@primary;}
-  .life {color:@brand-life;}
-  .technology {color:@brand-technology;}
-  .environment {color:@brand-environment;}
-  .humanities {color:@brand-humanities;}
+  .tid-all {color:@primary;}
+  .tid-66 {color:@brand-life;}
+  .tid-91 {color:@brand-technology;}
+  .tid-10 {color:@brand-environment;}
+  .tid-7 {color:@brand-humanities;}
 }
 .selectricItems li.selected {
   display:none;
@@ -907,10 +937,27 @@ body {
   }
 }
 
-.exposed-filters {
+.view-cause-listing {
+  float: left;
+  width: 100%;
+}
+
+.view-filters {
   float:left;
   width:100%;
   padding-top:64px;
+
+  .views-submit-button {
+    display: none;
+  }
+
+  .views-exposed-widgets {
+    margin-bottom: 0;
+  }
+
+  #edit-term-wrapper {
+    padding: 0;
+  }
 
   @media(min-width:@screen-md-min) {
     padding-top:120px;
@@ -1781,16 +1828,16 @@ h2.body-intro-text {
 }
 
 .life .explore-more-wrapper .block-title {border-bottom:2px solid @brand-life;}
-.life .more-news .news-teaser .teaser-title {color:@brand-life;}
+.life .more-news .news-teaser .teaser-title a {color:@brand-life;}
 .life .more-publications .publications-link {background-color:@brand-life;}
 .technology .explore-more-wrapper .block-title {border-bottom:2px solid @brand-technology;}
-.technology .more-news .news-teaser .teaser-title {color:@brand-technology;}
+.technology .more-news .news-teaser .teaser-title a {color:@brand-technology;}
 .technology .more-publications .publications-link {background-color:@brand-technology;}
 .environment .explore-more-wrapper .block-title {border-bottom:2px solid @brand-environment;}
-.environment .more-news .news-teaser .teaser-title {color:@brand-environment;}
+.environment .more-news .news-teaser .teaser-title a {color:@brand-environment;}
 .environment .more-publications .publications-link {background-color:@brand-environment;}
 .humanities .explore-more-wrapper .block-title {border-bottom:2px solid @brand-humanities;}
-.humanities .more-news .news-teaser .teaser-title {color:@brand-humanities;}
+.humanities .more-news .news-teaser .teaser-title a {color:@brand-humanities;}
 .humanities .more-publications .publications-link {background-color:@brand-humanities;}
 
 .explore-more-wrapper {

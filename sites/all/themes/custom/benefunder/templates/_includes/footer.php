@@ -20,13 +20,13 @@
       <div class="social-menu col-xs-12 col-sm-6">
         <ul class="menu">
           <li>
-            <a class="facebook" href="https://www.facebook.com/benefunder" target="_blank">Facebook</a>
+            <a class="facebook" href="https://www.facebook.com/benefunder" target="_blank"><span></span>Facebook</a>
           </li>
           <li>
-            <a class="twitter" href="https://twitter.com/benefundit" target="_blank">Twitter</a>
+            <a class="twitter" href="https://twitter.com/benefundit" target="_blank"><span></span>Twitter</a>
           </li>
           <li>
-            <a class="linkedin" href="https://www.linkedin.com/company/benefunder" target="_blank">LinkedIn</a>
+            <a class="linkedin" href="https://www.linkedin.com/company/benefunder" target="_blank"><span></span>LinkedIn</a>
           </li>
         </ul>
       </div>
