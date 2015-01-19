@@ -96,6 +96,12 @@ function benefunder_preprocess_node(&$variables) {
       $jumbotron_copy = $wrapper->field_jumbotron_copy->value();
       $variables['jumbotron_copy'] = $jumbotron_copy;
 
+      /* Jumbotron video */
+      $jumbotron_video = $wrapper->field_jumbotron_video->value();
+      if (!empty($jumbotron_video)) {
+        $variables['jumbotron_video'] = file_create_url($jumbotron_video['uri']);
+      }
+
       /* Body text */
       $body = $wrapper->body->value->value();
       $variables['body'] = $body;

@@ -173,7 +173,10 @@ var general = function() {
 		setupSelectric: function() {
 			$('#causes-list-exposed-filter').selectric({
 				optionsItemBuilder: function(itemData, element, index){
-					return '<span class="' + itemData.value + '">' + itemData.text + '</span>';
+					return '<span class="tid-' + itemData.value + '">' + itemData.text + '</span>';
+				},
+				onInit: function() {
+					$('.view-cause-listing .selectric b.button').prepend('<span></span>');
 				}
 			});
 		},
@@ -242,7 +245,7 @@ var Benefunder = {
 		}
 	},
 	// Causes Listing page
-	cause_list: {
+	page_causes: {
 		init: function() {
 			// Javascript to be fired on the causes listing page
 			general.listingTeaserHeight();
