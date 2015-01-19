@@ -61,8 +61,8 @@ function bf_homepage_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-homepage-field_featured_cause_1'
-  $field_instances['node-homepage-field_featured_cause_1'] = array(
+  // Exported field_instance: 'node-homepage-field_featured_causes'
+  $field_instances['node-homepage-field_featured_causes'] = array(
     'bundle' => 'homepage',
     'default_value' => NULL,
     'deleted' => 0,
@@ -89,8 +89,8 @@ function bf_homepage_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_featured_cause_1',
-    'label' => 'Featured Cause #1',
+    'field_name' => 'field_featured_causes',
+    'label' => 'Featured Causes',
     'required' => 1,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -99,6 +99,7 @@ function bf_homepage_field_default_field_instances() {
       'active' => 1,
       'module' => 'node_reference',
       'settings' => array(
+        'apply_chosen' => '',
         'autocomplete_match' => 'contains',
         'autocomplete_path' => 'node_reference/autocomplete',
         'size' => 60,
@@ -108,249 +109,9 @@ function bf_homepage_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-homepage-field_featured_cause_2'
-  $field_instances['node-homepage-field_featured_cause_2'] = array(
-    'bundle' => 'homepage',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'node_reference',
-        'settings' => array(),
-        'type' => 'node_reference_default',
-        'weight' => 2,
-      ),
-      'full' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 1,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_featured_cause_2',
-    'label' => 'Featured Cause #2',
-    'required' => 1,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'node_reference',
-      'settings' => array(
-        'autocomplete_match' => 'contains',
-        'autocomplete_path' => 'node_reference/autocomplete',
-        'size' => 60,
-      ),
-      'type' => 'node_reference_autocomplete',
-      'weight' => 33,
-    ),
-  );
-
-  // Exported field_instance: 'node-homepage-field_featured_cause_3'
-  $field_instances['node-homepage-field_featured_cause_3'] = array(
-    'bundle' => 'homepage',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'node_reference',
-        'settings' => array(),
-        'type' => 'node_reference_default',
-        'weight' => 3,
-      ),
-      'full' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 2,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_featured_cause_3',
-    'label' => 'Featured Cause #3',
-    'required' => 1,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'node_reference',
-      'settings' => array(
-        'autocomplete_match' => 'contains',
-        'autocomplete_path' => 'node_reference/autocomplete',
-        'size' => 60,
-      ),
-      'type' => 'node_reference_autocomplete',
-      'weight' => 34,
-    ),
-  );
-
-  // Exported field_instance: 'node-homepage-field_featured_cause_4'
-  $field_instances['node-homepage-field_featured_cause_4'] = array(
-    'bundle' => 'homepage',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'node_reference',
-        'settings' => array(),
-        'type' => 'node_reference_default',
-        'weight' => 4,
-      ),
-      'full' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 3,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_featured_cause_4',
-    'label' => 'Featured Cause #4',
-    'required' => 1,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'node_reference',
-      'settings' => array(
-        'autocomplete_match' => 'contains',
-        'autocomplete_path' => 'node_reference/autocomplete',
-        'size' => 60,
-      ),
-      'type' => 'node_reference_autocomplete',
-      'weight' => 35,
-    ),
-  );
-
-  // Exported field_instance: 'node-homepage-field_featured_cause_5'
-  $field_instances['node-homepage-field_featured_cause_5'] = array(
-    'bundle' => 'homepage',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'node_reference',
-        'settings' => array(),
-        'type' => 'node_reference_default',
-        'weight' => 5,
-      ),
-      'full' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 4,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_featured_cause_5',
-    'label' => 'Featured Cause #5',
-    'required' => 1,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'node_reference',
-      'settings' => array(
-        'autocomplete_match' => 'contains',
-        'autocomplete_path' => 'node_reference/autocomplete',
-        'size' => 60,
-      ),
-      'type' => 'node_reference_autocomplete',
-      'weight' => 36,
-    ),
-  );
-
-  // Exported field_instance: 'node-homepage-field_featured_cause_6'
-  $field_instances['node-homepage-field_featured_cause_6'] = array(
-    'bundle' => 'homepage',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'node_reference',
-        'settings' => array(),
-        'type' => 'node_reference_default',
-        'weight' => 6,
-      ),
-      'full' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 5,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_featured_cause_6',
-    'label' => 'Featured Cause #6',
-    'required' => 1,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'node_reference',
-      'settings' => array(
-        'autocomplete_match' => 'contains',
-        'autocomplete_path' => 'node_reference/autocomplete',
-        'size' => 60,
-      ),
-      'type' => 'node_reference_autocomplete',
-      'weight' => 37,
-    ),
-  );
-
   // Translatables
   // Included for use with string extractors like potx.
-  t('Featured Cause #1');
-  t('Featured Cause #2');
-  t('Featured Cause #3');
-  t('Featured Cause #4');
-  t('Featured Cause #5');
-  t('Featured Cause #6');
+  t('Featured Causes');
   t('Text next to featured causes');
 
   return $field_instances;
