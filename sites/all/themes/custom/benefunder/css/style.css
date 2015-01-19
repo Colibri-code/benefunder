@@ -7967,16 +7967,16 @@ body.page-causes {
 .view-filters .conditional-filter ul.filter-tags.active {
   display: block;
 }
-.view-filters .conditional-filter ul.filter-tags#life-filter-tags {
+.view-filters .conditional-filter ul.filter-tags#tid-66-filter-tags {
   background-color: #339999;
 }
-.view-filters .conditional-filter ul.filter-tags#technology-filter-tags {
+.view-filters .conditional-filter ul.filter-tags#tid-91-filter-tags {
   background-color: #cc6600;
 }
-.view-filters .conditional-filter ul.filter-tags#environment-filter-tags {
+.view-filters .conditional-filter ul.filter-tags#tid-10-filter-tags {
   background-color: #3f9ed4;
 }
-.view-filters .conditional-filter ul.filter-tags#humanities-filter-tags {
+.view-filters .conditional-filter ul.filter-tags#tid-7-filter-tags {
   background-color: #9357b2;
 }
 .view-filters .conditional-filter ul.filter-tags li {

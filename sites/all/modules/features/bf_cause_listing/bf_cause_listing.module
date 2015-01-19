@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the BF Cause Listing feature.
+ */
+
+include_once 'bf_cause_listing.features.inc';

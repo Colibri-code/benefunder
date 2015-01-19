@@ -96,7 +96,7 @@
   <section class="hero-wrapper">
     <div class="hero" style="background-image: url('<?php print $hero_image; ?>');"></div>
     <h2 class="sub-heading"><?php print $jumbotron_copy; ?></h2>
-    <a class="video-play-button" href="">Play Video</a>
+    <a class="video-play-button" href="<?php if (isset($jumbotron_video)) { print $jumbotron_video; } ?>">Play Video</a>
   </section><!-- end .hero-wrapper -->
 
   <div class="node-content-wrapper">
