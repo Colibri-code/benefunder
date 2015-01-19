@@ -43,3 +43,5 @@ Thumbs.db
 .sass-cache
 
 sites/default/settings.php
+
+/.project
