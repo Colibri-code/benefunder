@@ -23,7 +23,7 @@
             <img src="<?php print $causes[0]['research_area_icon_color']; ?>">
             <span class="<?php print $causes[0]['research_area_css_class']; ?>"><?php print $causes[0]['research_area_name']; ?></span>
           </div>
-          <a class="cause-link" href="cause.php">See Cause <i class="bf-arrow bf-arrow-right"></i></a>
+          <a class="cause-link" href="/<?php print drupal_get_path_alias('node/' . $causes[0]['nid']); ?>">See Cause <i class="bf-arrow bf-arrow-right"></i></a>
         </div>
       </div>
     </div>
@@ -45,7 +45,7 @@
                 <img src="<?php print $causes[1]['research_area_icon_color']; ?>">
                 <span class="<?php print $causes[1]['research_area_css_class']; ?>"><?php print $causes[1]['research_area_name']; ?></span>
               </div>
-              <a class="cause-link" href="cause.php">See Cause <i class="bf-arrow bf-arrow-right"></i></a>
+              <a class="cause-link" href="/<?php print drupal_get_path_alias('node/' . $causes[1]['nid']); ?>">See Cause <i class="bf-arrow bf-arrow-right"></i></a>
             </div>
           </div>
         </div>
@@ -63,7 +63,7 @@
                 <img src="<?php print $causes[2]['research_area_icon_color']; ?>">
                 <span class="<?php print $causes[2]['research_area_css_class']; ?>"><?php print $causes[2]['research_area_name']; ?></span>
               </div>
-              <a class="cause-link" href="cause.php">See Cause <i class="bf-arrow bf-arrow-right"></i></a>
+              <a class="cause-link" href="/<?php print drupal_get_path_alias('node/' . $causes[2]['nid']); ?>">See Cause <i class="bf-arrow bf-arrow-right"></i></a>
             </div>
           </div>
         </div>
@@ -82,7 +82,7 @@
               <img src="<?php print $causes[3]['research_area_icon_color']; ?>">
               <span class="<?php print $causes[3]['research_area_css_class']; ?>"><?php print $causes[3]['research_area_name']; ?></span>
             </div>
-            <a class="cause-link" href="cause.php">See Cause <i class="bf-arrow bf-arrow-right"></i></a>
+            <a class="cause-link" href="/<?php print drupal_get_path_alias('node/' . $causes[3]['nid']); ?>">See Cause <i class="bf-arrow bf-arrow-right"></i></a>
           </div>
         </div>
       </div>
@@ -102,7 +102,7 @@
               <img src="<?php print $causes[4]['research_area_icon_color']; ?>">
               <span class="<?php print $causes[4]['research_area_css_class']; ?>"><?php print $causes[4]['research_area_name']; ?></span>
             </div>
-            <a class="cause-link" href="cause.php">See Cause <i class="bf-arrow bf-arrow-right"></i></a>
+            <a class="cause-link" href="/<?php print drupal_get_path_alias('node/' . $causes[4]['nid']); ?>">See Cause <i class="bf-arrow bf-arrow-right"></i></a>
           </div>
         </div>
       </div>
@@ -120,7 +120,7 @@
               <img src="<?php print $causes[5]['research_area_icon_color']; ?>">
               <span class="<?php print $causes[5]['research_area_css_class']; ?>"><?php print $causes[5]['research_area_name']; ?></span>
             </div>
-            <a class="cause-link" href="cause.php">See Cause <i class="bf-arrow bf-arrow-right"></i></a>
+            <a class="cause-link" href="/<?php print drupal_get_path_alias('node/' . $causes[5]['nid']); ?>">See Cause <i class="bf-arrow bf-arrow-right"></i></a>
           </div>
         </div>
       </div>

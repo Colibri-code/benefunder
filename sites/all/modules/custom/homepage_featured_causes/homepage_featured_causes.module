@@ -57,8 +57,10 @@ function homepage_featured_causes_contents($which_block) {
       $field_featured_causes = $wrapper->field_featured_causes->value();
 
       for ($i = 0; $i <= 5; $i++) {
-        $test = 'field_featured_cause_' . $i;
         $cause = entity_metadata_wrapper('node', $field_featured_causes[$i]->nid);
+
+        /* NID */
+        $causes[$i]['nid'] = $field_featured_causes[$i]->nid;
 
         /* Title */
         $causes[$i]['title'] = $cause->title->value();
@@ -66,7 +68,7 @@ function homepage_featured_causes_contents($which_block) {
         /* Research area name */
         $research_areas = $cause->field_research_area->value();
 
-        // find top level research area
+        /* Find top level research area */
         $top_level_research_area = NULL;
         foreach ($research_areas as $research_area) {
           $parent = taxonomy_get_parents($research_area->tid);
