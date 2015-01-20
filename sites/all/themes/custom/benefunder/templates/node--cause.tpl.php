@@ -138,7 +138,7 @@
             <?php print $call_to_action; ?>
           <?php endif; ?>
 
-          <p style="font-size:24px">617-331-3914</p>
+          <p style="font-size:24px">(858) 215-1136</p>
         </div>
       </div><!-- end .researcher-body -->
 
@@ -169,6 +169,7 @@
         
         <div class="open-html">
           <?php print $body; ?>
+          <?php print $summary; ?>
         </div> <!-- end .open-html -->
 
         <div class="explore-more-block">
@@ -180,7 +181,8 @@
                 <h2 class="block-title">In the News</h2>
                 <?php foreach ($in_the_news as $item): ?>
                   <div class="news-teaser">
-                    <h2 class="teaser-title"><?php print $item; ?></h2>
+                    <h2 class="teaser-title"><?php print $item['link']; ?></h2>
+                    <p><?php print $item['teaser']; ?></p>
                   </div>
                 <?php endforeach; ?>
               </div><!-- end .more-news -->
@@ -207,6 +209,28 @@
                   </div>
                 <?php endforeach; ?>
               </div><!-- end .more-videos -->
+            <?php endif; ?>
+
+            <?php if (isset($awards) && !empty($awards)): ?>
+              <div class="awards">
+                <h2 class="block-title">Awards</h2>
+                <?php foreach ($awards as $award): ?>
+                  <div class="award">
+                    <?php print $award; ?>
+                  </div>
+                <?php endforeach; ?>
+              </div><!-- end .awards -->
+            <?php endif; ?>
+
+            <?php if (isset($patents) && !empty($patents)): ?>
+              <div class="patents">
+                <h2 class="block-title">Patents</h2>
+                <?php foreach ($patents as $patent): ?>
+                  <div class="patent">
+                    <?php print $patent; ?>
+                  </div>
+                <?php endforeach; ?>
+              </div><!-- end .patents -->
             <?php endif; ?>
 
           </div><!-- end .explore-more-wrapper -->

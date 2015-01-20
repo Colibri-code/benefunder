@@ -52,7 +52,7 @@ function benefunder_preprocess_node(&$variables) {
 
   switch ($variables['type']) {
     case 'cause':
-      if($variables['view_mode'] != 'search_result'){
+      if ($variables['view_mode'] != 'search_result') {
         $wrapper = entity_metadata_wrapper('node', $variables['nid']);
   
         /* Cause image */
@@ -111,10 +111,17 @@ function benefunder_preprocess_node(&$variables) {
         $in_the_news_items = $wrapper->field_in_the_news->value();
         $in_the_news = array();
         foreach ($in_the_news_items as $item) {
-          $in_the_news[] = l(t($item['title']), $item['url'], array(
-              'query' => $item['query'],
-              'attributes' => $item['attributes'],
-            ));
+          $item = entity_metadata_wrapper('field_collection_item', $item->item_id);
+          $link = $item->field_in_the_news_link->value();
+          $teaser = $item->field_in_the_news_teaser->value();
+  
+          $in_the_news[] = array(
+            'link' => l(t($link['title']), $link['url'], array(
+                'query' => $link['query'],
+                'attributes' => $link['attributes'],
+              )),
+            'teaser' => $teaser,
+          );
         }
         $variables['in_the_news'] = $in_the_news;
   
@@ -172,6 +179,14 @@ function benefunder_preprocess_node(&$variables) {
             break;
         }
   
+        /* Awards */
+  
+        $variables['awards'] = $wrapper->field_awards->value();
+  
+        $variables['patents'] = $wrapper->field_patents->value();
+  
+        $variables['summary'] = $wrapper->field_summary->value->value();
+  
         $variables['title'] = $wrapper->title->value();
   
         $variables['research_area_name'] = $top_level_research_area->name;
@@ -180,8 +195,12 @@ function benefunder_preprocess_node(&$variables) {
         $variables['research_area_icon_color'] = file_create_url($top_level_research_area->field_term_icon_with_color_['und'][0]['uri']);
   
         $variables['research_area_css_class'] = $research_area_css_class;
-  
+      }
         break;
-    }
+      
+
+    case 'page':
+
+      break;
   }
 }

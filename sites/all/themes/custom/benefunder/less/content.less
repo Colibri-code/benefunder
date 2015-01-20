@@ -107,6 +107,16 @@ body {
         margin:0 auto;
       }
 
+      .lifestyle-wrapper {
+        background: #000;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: all 1s;
+      }
+
       .lifestyle {
         min-width:100%;
         height:100%;
@@ -116,7 +126,7 @@ body {
         transform: translateX(-50%);
         transition:opacity 0.5s linear 0.1s;
         backface-visibility: hidden;
-        opacity:1;
+        opacity:.6;
         background-position: 50% 50%;
         background-size: cover;
       }
@@ -156,6 +166,10 @@ body {
         }
       }
     }
+  }
+
+  .feature:hover .cause-teaser .lifestyle-wrapper {
+    background-color: transparent;
   }
 }
 
@@ -330,6 +344,16 @@ body {
 
     img.cause-image-white {display:none;}
 
+    .lifestyle-wrapper {
+      background: #000;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transition: all 1s;
+    }
+
     div.lifestyle {
       top:0;
       left:0;
@@ -339,6 +363,7 @@ body {
       background-repeat: no-repeat;
       background-size: cover;
       background-position: 50% 50%;
+      opacity: 0.6;
     }
 
     .jumbo-rail {
@@ -957,6 +982,7 @@ body {
 
   #edit-term-wrapper {
     padding: 0;
+    width: 100%;
   }
 
   @media(min-width:@screen-md-min) {
@@ -1031,6 +1057,22 @@ body {
   }
 }
 
+.view-cause-listing ul.pager {
+  display: none;
+}
+
+#views_infinite_scroll-ajax-loader {
+  float: left;
+  clear: left;
+  width: 100%;
+}
+
+@media(min-width:@screen-md-min) {
+  .view-cause-listing {
+    margin-bottom:200px;
+  }
+}
+
 .causes-list {
   float:left;
   padding-top:30px;
@@ -1040,7 +1082,6 @@ body {
 
   @media(min-width:@screen-md-min) {
     padding-top:50px;
-    padding-bottom:200px;
   }
 
   .listing-teaser {
@@ -1968,6 +2009,15 @@ h2.body-intro-text {
         }
       }
     }
+  }
+}
+
+.explore-more-block {
+  .awards,
+  .patents {
+    display: block;
+    float: none;
+    clear: left;
   }
 }
 

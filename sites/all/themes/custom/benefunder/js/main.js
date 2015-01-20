@@ -167,6 +167,14 @@ var general = function() {
 			var teaser = $('.causes-list .listing-teaser');
 					tWidth = teaser.width();
 					teaser.height(tWidth * 0.90);
+
+		  Drupal.behaviors.cause_listing = {
+		    attach: function (context, settings) {
+					var teaser = $('.causes-list .listing-teaser');
+							tWidth = teaser.width();
+							teaser.height(tWidth * 0.90);
+		    }
+		  };
 		},
 
 		// Initializing jQuery Selectric plugin for select lists
