@@ -18,7 +18,7 @@
         <div class="jumbo-rail col-sm-6 col-md-4">
           <img class="researcher-image" src="<?php print $causes[0]['researcher_image']; ?>">
           <span class="researcher"><?php print $causes[0]['researcher_name']; ?></span>
-          <p class="bio"><?php print $causes[0]['researcher_text']; ?></p>
+          <p class="bio"><?php print $causes[0]['overlay_copy']; ?></p>
           <div class="type">
             <img src="<?php print $causes[0]['research_area_icon_color']; ?>">
             <span class="<?php print $causes[0]['research_area_css_class']; ?>"><?php print $causes[0]['research_area_name']; ?></span>
@@ -40,7 +40,7 @@
             <div class="jumbo-rail col-sm-6 col-md-4">
               <img class="researcher-image" src="<?php print $causes[1]['researcher_image']; ?>">
               <span class="researcher"><?php print $causes[1]['researcher_name']; ?></span>
-              <p class="bio"><?php print $causes[1]['researcher_text']; ?></p>
+              <p class="bio"><?php print $causes[1]['overlay_copy']; ?></p>
               <div class="type">
                 <img src="<?php print $causes[1]['research_area_icon_color']; ?>">
                 <span class="<?php print $causes[1]['research_area_css_class']; ?>"><?php print $causes[1]['research_area_name']; ?></span>
@@ -58,7 +58,7 @@
             <div class="jumbo-rail col-sm-6 col-md-4">
               <img class="researcher-image" src="<?php print $causes[2]['researcher_image']; ?>">
               <span class="researcher"><?php print $causes[2]['researcher_name']; ?></span>
-              <p class="bio"><?php print $causes[2]['researcher_text']; ?></p>
+              <p class="bio"><?php print $causes[2]['overlay_copy']; ?></p>
               <div class="type">
                 <img src="<?php print $causes[2]['research_area_icon_color']; ?>">
                 <span class="<?php print $causes[2]['research_area_css_class']; ?>"><?php print $causes[2]['research_area_name']; ?></span>
@@ -77,7 +77,7 @@
             <div class="jumbo-rail col-sm-6 col-md-4">
             <img class="researcher-image" src="<?php print $causes[3]['researcher_image']; ?>">
             <span class="researcher"><?php print $causes[3]['researcher_name']; ?></span>
-            <p class="bio"><?php print $causes[3]['researcher_text']; ?></p>
+            <p class="bio"><?php print $causes[3]['overlay_copy']; ?></p>
             <div class="type">
               <img src="<?php print $causes[3]['research_area_icon_color']; ?>">
               <span class="<?php print $causes[3]['research_area_css_class']; ?>"><?php print $causes[3]['research_area_name']; ?></span>
@@ -97,7 +97,7 @@
           <div class="jumbo-rail col-sm-6 col-md-4">
             <img class="researcher-image" src="<?php print $causes[4]['researcher_image']; ?>">
             <span class="researcher"><?php print $causes[4]['researcher_name']; ?></span>
-            <p class="bio"><?php print $causes[4]['researcher_text']; ?></p>
+            <p class="bio"><?php print $causes[4]['overlay_copy']; ?></p>
             <div class="type">
               <img src="<?php print $causes[4]['research_area_icon_color']; ?>">
               <span class="<?php print $causes[4]['research_area_css_class']; ?>"><?php print $causes[4]['research_area_name']; ?></span>
@@ -115,7 +115,7 @@
           <div class="jumbo-rail col-sm-6 col-md-4">
             <img class="researcher-image" src="<?php print $causes[5]['researcher_image']; ?>">
             <span class="researcher"><?php print $causes[5]['researcher_name']; ?></span>
-            <p class="bio"><?php print $causes[5]['researcher_text']; ?></p>
+            <p class="bio"><?php print $causes[5]['overlay_copy']; ?></p>
             <div class="type">
               <img src="<?php print $causes[5]['research_area_icon_color']; ?>">
               <span class="<?php print $causes[5]['research_area_css_class']; ?>"><?php print $causes[5]['research_area_name']; ?></span>

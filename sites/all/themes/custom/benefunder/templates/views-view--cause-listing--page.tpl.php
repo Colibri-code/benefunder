@@ -44,13 +44,17 @@
   <?php endif; ?>
 
   <?php if ($rows): ?>
-    <div class="causes-list gutters col-sm-12">
+    <div class="view-content causes-list gutters col-sm-12">
       <?php print $rows; ?>
     </div>
   <?php elseif ($empty): ?>
     <div class="view-empty">
       <?php print $empty; ?>
     </div>
+  <?php endif; ?>
+
+  <?php if ($pager): ?>
+    <?php print $pager; ?>
   <?php endif; ?>
 
 </div><?php /* class view */ ?>

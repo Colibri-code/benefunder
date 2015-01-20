@@ -171,6 +171,8 @@ function benefunder_preprocess_node(&$variables) {
           break;
       }
 
+      $variables['summary'] = $wrapper->field_summary->value->value();
+
       $variables['title'] = $wrapper->title->value();
 
       $variables['research_area_name'] = $top_level_research_area->name;

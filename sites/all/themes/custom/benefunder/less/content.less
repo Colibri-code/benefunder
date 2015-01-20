@@ -957,6 +957,7 @@ body {
 
   #edit-term-wrapper {
     padding: 0;
+    width: 100%;
   }
 
   @media(min-width:@screen-md-min) {
@@ -1031,6 +1032,22 @@ body {
   }
 }
 
+.view-cause-listing ul.pager {
+  display: none;
+}
+
+#views_infinite_scroll-ajax-loader {
+  float: left;
+  clear: left;
+  width: 100%;
+}
+
+@media(min-width:@screen-md-min) {
+  .view-cause-listing {
+    margin-bottom:200px;
+  }
+}
+
 .causes-list {
   float:left;
   padding-top:30px;
@@ -1040,7 +1057,6 @@ body {
 
   @media(min-width:@screen-md-min) {
     padding-top:50px;
-    padding-bottom:200px;
   }
 
   .listing-teaser {

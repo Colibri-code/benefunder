@@ -7910,6 +7910,7 @@ body.page-causes {
 }
 .view-filters #edit-term-wrapper {
   padding: 0;
+  width: 100%;
 }
 @media (min-width: 992px) {
   .view-filters {
@@ -7999,6 +8000,19 @@ body.page-causes {
   background-color: #ffffff;
   text-decoration: none;
 }
+.view-cause-listing ul.pager {
+  display: none;
+}
+#views_infinite_scroll-ajax-loader {
+  float: left;
+  clear: left;
+  width: 100%;
+}
+@media (min-width: 992px) {
+  .view-cause-listing {
+    margin-bottom: 200px;
+  }
+}
 .causes-list {
   float: left;
   padding-top: 30px;
@@ -8024,7 +8038,6 @@ body.page-causes {
 @media (min-width: 992px) {
   .causes-list {
     padding-top: 50px;
-    padding-bottom: 200px;
   }
 }
 .causes-list .listing-teaser {

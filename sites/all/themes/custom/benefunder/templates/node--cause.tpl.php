@@ -138,7 +138,7 @@
             <?php print $call_to_action; ?>
           <?php endif; ?>
 
-          <p style="font-size:24px">617-331-3914</p>
+          <p style="font-size:24px">(858) 215-1136</p>
         </div>
       </div><!-- end .researcher-body -->
 
@@ -169,6 +169,7 @@
         
         <div class="open-html">
           <?php print $body; ?>
+          <?php print $summary; ?>
         </div> <!-- end .open-html -->
 
         <div class="explore-more-block">
