@@ -156,7 +156,7 @@ function benefunder_preprocess_node(&$variables) {
       }
 
       $research_area_css_class = '';
-      if($top_level_research_area->tid){
+      if($top_level_research_area){
         switch ($top_level_research_area->tid) {
           case 10:
             $research_area_css_class = 'environment';
