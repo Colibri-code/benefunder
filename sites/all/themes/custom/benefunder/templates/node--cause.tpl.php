@@ -181,7 +181,8 @@
                 <h2 class="block-title">In the News</h2>
                 <?php foreach ($in_the_news as $item): ?>
                   <div class="news-teaser">
-                    <h2 class="teaser-title"><?php print $item; ?></h2>
+                    <h2 class="teaser-title"><?php print $item['link']; ?></h2>
+                    <p><?php print $item['teaser']; ?></p>
                   </div>
                 <?php endforeach; ?>
               </div><!-- end .more-news -->

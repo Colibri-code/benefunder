@@ -110,10 +110,17 @@ function benefunder_preprocess_node(&$variables) {
       $in_the_news_items = $wrapper->field_in_the_news->value();
       $in_the_news = array();
       foreach ($in_the_news_items as $item) {
-        $in_the_news[] = l(t($item['title']), $item['url'], array(
-            'query' => $item['query'],
-            'attributes' => $item['attributes'],
-          ));
+        $item = entity_metadata_wrapper('field_collection_item', $item->item_id);
+        $link = $item->field_in_the_news_link->value();
+        $teaser = $item->field_in_the_news_teaser->value();
+
+        $in_the_news[] = array(
+          'link' => l(t($link['title']), $link['url'], array(
+              'query' => $link['query'],
+              'attributes' => $link['attributes'],
+            )),
+          'teaser' => $teaser,
+        );
       }
       $variables['in_the_news'] = $in_the_news;
 
