@@ -113,8 +113,9 @@ function bf_cause_field_group_info() {
     'label' => 'Not Displayed',
     'weight' => '8',
     'children' => array(
-      0 => 'field_share_lines',
+      0 => 'field_email',
       1 => 'field_keywords',
+      2 => 'field_share_lines',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -197,11 +198,11 @@ function bf_cause_field_group_info() {
     'children' => array(
       0 => 'field_awards',
       1 => 'field_education',
-      2 => 'field_in_the_news',
-      3 => 'field_publications',
-      4 => 'field_videos',
-      5 => 'field_additional_videos',
-      6 => 'field_patents',
+      2 => 'field_publications',
+      3 => 'field_videos',
+      4 => 'field_additional_videos',
+      5 => 'field_patents',
+      6 => 'field_in_the_news',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -229,8 +230,7 @@ function bf_cause_field_group_info() {
     'weight' => '4',
     'children' => array(
       0 => 'field_academic_position',
-      1 => 'field_email',
-      2 => 'field_picture',
+      1 => 'field_picture',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -260,11 +260,11 @@ function bf_cause_field_group_info() {
       0 => 'group_basic',
       1 => 'group_cause_media',
       2 => 'group_cause',
-      3 => 'group_researcher_bio',
-      4 => 'group_researcher_links',
-      5 => 'group_researcher',
-      6 => 'group_overlay',
-      7 => 'group_hidden',
+      3 => 'group_hidden',
+      4 => 'group_overlay',
+      5 => 'group_researcher_bio',
+      6 => 'group_researcher_links',
+      7 => 'group_researcher',
     ),
     'format_type' => 'tabs',
     'format_settings' => array(
