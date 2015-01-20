@@ -49,6 +49,7 @@ function benefunder_preprocess_node(&$variables) {
       $variables['region'][$region_key] = array();
     }
   }
+
   switch ($variables['type']) {
     case 'cause':
       $wrapper = entity_metadata_wrapper('node', $variables['nid']);
@@ -149,25 +150,27 @@ function benefunder_preprocess_node(&$variables) {
       $top_level_research_area = NULL;
       foreach ($research_areas as $research_area) {
         $parent = taxonomy_get_parents($research_area->tid);
-        if ($parent && empty($parent)) {
+        if (empty($parent)) {
           $top_level_research_area = $research_area;
         }
       }
 
       $research_area_css_class = '';
-      switch ($top_level_research_area->tid) {
-        case 10:
-          $research_area_css_class = 'environment';
-          break;
-        case 7:
-          $research_area_css_class = 'humanities';
-          break;
-        case 66:
-          $research_area_css_class = 'life';
-          break;
-        case 91:
-          $research_area_css_class = 'technology';
-          break;
+      if($top_level_research_area->tid){
+        switch ($top_level_research_area->tid) {
+          case 10:
+            $research_area_css_class = 'environment';
+            break;
+          case 7:
+            $research_area_css_class = 'humanities';
+            break;
+          case 66:
+            $research_area_css_class = 'life';
+            break;
+          case 91:
+            $research_area_css_class = 'technology';
+            break;
+        }
       }
 
       $variables['title'] = $wrapper->title->value();
