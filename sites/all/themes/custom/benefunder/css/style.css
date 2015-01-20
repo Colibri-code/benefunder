@@ -7095,6 +7095,15 @@ body.page-causes {
   width: 75%;
   margin: 0 auto;
 }
+.cause-features .feature .cause-teaser .lifestyle-wrapper {
+  background: #000;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all 1s;
+}
 .cause-features .feature .cause-teaser .lifestyle {
   min-width: 100%;
   height: 100%;
@@ -7107,7 +7116,7 @@ body.page-causes {
   transition: opacity 0.5s linear 0.1s;
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
-  opacity: 1;
+  opacity: .6;
   background-position: 50% 50%;
   background-size: cover;
 }
@@ -7135,6 +7144,9 @@ body.page-causes {
 }
 .cause-features .feature .cause-teaser:hover .lifestyle {
   opacity: 0;
+}
+.cause-features .feature:hover .cause-teaser .lifestyle-wrapper {
+  background-color: transparent;
 }
 .cause-features .feature-intro {
   padding: 0;
@@ -7334,6 +7346,15 @@ body.page-causes {
 .jumbo-teaser .cause-teaser img.cause-image-white {
   display: none;
 }
+.jumbo-teaser .cause-teaser .lifestyle-wrapper {
+  background: #000;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all 1s;
+}
 .jumbo-teaser .cause-teaser div.lifestyle {
   top: 0;
   left: 0;
@@ -7343,6 +7364,7 @@ body.page-causes {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 50% 50%;
+  opacity: 0.6;
 }
 .jumbo-teaser .cause-teaser .jumbo-rail {
   float: right;

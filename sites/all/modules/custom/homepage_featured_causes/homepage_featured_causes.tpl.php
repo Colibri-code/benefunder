@@ -14,7 +14,7 @@
       <div class="cause-teaser <?php print $causes[0]['research_area_css_class']; ?>">
         <h2 class="teaser-title"><?php print $causes[0]['title']; ?></h2>
         <img class="cause-image-white" src="<?php print $causes[0]['research_area_icon_white']; ?>">
-        <div class="lifestyle" style="background-image: url('<?php print $causes[0]['image']; ?>');"></div>
+        <div class="lifestyle-wrapper"><div class="lifestyle" style="background-image: url('<?php print $causes[0]['image']; ?>');"></div></div>
         <div class="jumbo-rail col-sm-6 col-md-4">
           <img class="researcher-image" src="<?php print $causes[0]['researcher_image']; ?>">
           <span class="researcher"><?php print $causes[0]['researcher_name']; ?></span>
@@ -36,7 +36,7 @@
           <div class="cause-teaser <?php print $causes[1]['research_area_css_class']; ?>">
             <h2 class="teaser-title"><?php print $causes[1]['title']; ?></h2>
             <img class="cause-image-white" src="<?php print $causes[1]['research_area_icon_white']; ?>">
-            <div class="lifestyle" style="background-image: url('<?php print $causes[1]['image']; ?>');"></div>
+            <div class="lifestyle-wrapper"><div class="lifestyle" style="background-image: url('<?php print $causes[1]['image']; ?>');"></div></div>
             <div class="jumbo-rail col-sm-6 col-md-4">
               <img class="researcher-image" src="<?php print $causes[1]['researcher_image']; ?>">
               <span class="researcher"><?php print $causes[1]['researcher_name']; ?></span>
@@ -54,7 +54,7 @@
           <div class="cause-teaser <?php print $causes[2]['research_area_css_class']; ?>">
             <h2 class="teaser-title"><?php print $causes[2]['title']; ?></h2>
             <img class="cause-image-white" src="<?php print $causes[2]['research_area_icon_white']; ?>">
-            <div class="lifestyle" style="background-image: url('<?php print $causes[2]['image']; ?>');"></div>
+            <div class="lifestyle-wrapper"><div class="lifestyle" style="background-image: url('<?php print $causes[2]['image']; ?>');"></div></div>
             <div class="jumbo-rail col-sm-6 col-md-4">
               <img class="researcher-image" src="<?php print $causes[2]['researcher_image']; ?>">
               <span class="researcher"><?php print $causes[2]['researcher_name']; ?></span>
@@ -73,7 +73,7 @@
         <div class="cause-teaser <?php print $causes[3]['research_area_css_class']; ?>">
           <h2 class="teaser-title"><?php print $causes[3]['title']; ?></h2>
           <img class="cause-image-white" src="<?php print $causes[3]['research_area_icon_white']; ?>">
-            <div class="lifestyle" style="background-image: url('<?php print $causes[3]['image']; ?>');"></div>
+            <div class="lifestyle-wrapper"><div class="lifestyle" style="background-image: url('<?php print $causes[3]['image']; ?>');"></div></div>
             <div class="jumbo-rail col-sm-6 col-md-4">
             <img class="researcher-image" src="<?php print $causes[3]['researcher_image']; ?>">
             <span class="researcher"><?php print $causes[3]['researcher_name']; ?></span>
@@ -93,7 +93,7 @@
         <div class="cause-teaser <?php print $causes[4]['research_area_css_class']; ?>">
           <h2 class="teaser-title"><?php print $causes[4]['title']; ?></h2>
           <img class="cause-image-white" src="<?php print $causes[4]['research_area_icon_white']; ?>">
-          <div class="lifestyle" style="background-image: url('<?php print $causes[4]['image']; ?>');"></div>
+          <div class="lifestyle-wrapper"><div class="lifestyle" style="background-image: url('<?php print $causes[4]['image']; ?>');"></div></div>
           <div class="jumbo-rail col-sm-6 col-md-4">
             <img class="researcher-image" src="<?php print $causes[4]['researcher_image']; ?>">
             <span class="researcher"><?php print $causes[4]['researcher_name']; ?></span>
@@ -111,7 +111,7 @@
         <div class="cause-teaser <?php print $causes[5]['research_area_css_class']; ?>">
           <h2 class="teaser-title"><?php print $causes[5]['title']; ?></h2>
           <img class="cause-image-white" src="<?php print $causes[5]['research_area_icon_white']; ?>">
-          <div class="lifestyle" style="background-image: url('<?php print $causes[5]['image']; ?>');"></div>
+          <div class="lifestyle-wrapper"><div class="lifestyle" style="background-image: url('<?php print $causes[5]['image']; ?>');"></div></div>
           <div class="jumbo-rail col-sm-6 col-md-4">
             <img class="researcher-image" src="<?php print $causes[5]['researcher_image']; ?>">
             <span class="researcher"><?php print $causes[5]['researcher_name']; ?></span>

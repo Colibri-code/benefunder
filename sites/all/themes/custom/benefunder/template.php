@@ -196,5 +196,9 @@ function benefunder_preprocess_node(&$variables) {
       $variables['research_area_css_class'] = $research_area_css_class;
 
       break;
+
+    case 'page':
+
+      break;
   }
 }
