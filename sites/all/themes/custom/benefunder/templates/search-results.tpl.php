@@ -24,12 +24,12 @@
  */
 ?>
 <?php if ($search_results): ?>
-  <h2><?php print t('Search Results');?></h2>
-  <ol class="search-results <?php print $module; ?>-results">
+  <h2 class="search-results-label"><?php print t('Search Results');?></h2>
+  <ol class="search-results-list node-results search-results <?php print $module; ?>-results">
     <?php print $search_results; ?>
   </ol>
   <?php print $pager; ?>
 <?php else : ?>
-  <h2><?php print t('Your search yielded no results');?></h2>
+  <h2 class="search-results-label"><?php print t('Your search yielded no results');?></h2>
   <?php print search_help('search#noresults', drupal_help_arg()); ?>
 <?php endif; ?>
