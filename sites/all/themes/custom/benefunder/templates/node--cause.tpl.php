@@ -210,6 +210,28 @@
               </div><!-- end .more-videos -->
             <?php endif; ?>
 
+            <?php if (isset($awards) && !empty($awards)): ?>
+              <div class="awards">
+                <h2 class="block-title">Awards</h2>
+                <?php foreach ($awards as $award): ?>
+                  <div class="award">
+                    <?php print $award; ?>
+                  </div>
+                <?php endforeach; ?>
+              </div><!-- end .awards -->
+            <?php endif; ?>
+
+            <?php if (isset($patents) && !empty($patents)): ?>
+              <div class="patents">
+                <h2 class="block-title">Patents</h2>
+                <?php foreach ($patents as $patent): ?>
+                  <div class="patent">
+                    <?php print $patent; ?>
+                  </div>
+                <?php endforeach; ?>
+              </div><!-- end .patents -->
+            <?php endif; ?>
+
           </div><!-- end .explore-more-wrapper -->
         </div><!-- end .explore-more-block -->
       </div><!-- end #system-content-main -->

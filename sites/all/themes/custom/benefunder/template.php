@@ -171,6 +171,12 @@ function benefunder_preprocess_node(&$variables) {
           break;
       }
 
+      /* Awards */
+
+      $variables['awards'] = $wrapper->field_awards->value();
+
+      $variables['patents'] = $wrapper->field_patents->value();
+
       $variables['summary'] = $wrapper->field_summary->value->value();
 
       $variables['title'] = $wrapper->title->value();
