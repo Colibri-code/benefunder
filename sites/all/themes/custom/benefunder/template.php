@@ -49,7 +49,6 @@ function benefunder_preprocess_node(&$variables) {
       $variables['region'][$region_key] = array();
     }
   }
-
   switch ($variables['type']) {
     case 'cause':
       $wrapper = entity_metadata_wrapper('node', $variables['nid']);
@@ -150,7 +149,7 @@ function benefunder_preprocess_node(&$variables) {
       $top_level_research_area = NULL;
       foreach ($research_areas as $research_area) {
         $parent = taxonomy_get_parents($research_area->tid);
-        if (empty($parent)) {
+        if ($parent && empty($parent)) {
           $top_level_research_area = $research_area;
         }
       }
