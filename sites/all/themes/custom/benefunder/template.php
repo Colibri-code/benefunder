@@ -152,6 +152,21 @@ function benefunder_preprocess_node(&$variables) {
         }
         $variables['in_the_news'] = $in_the_news;
   
+        /* Patents */
+        $patent_items = $wrapper->field_patents->value();
+        $patents = array();
+        foreach ($patent_items as $item) {
+          $item = entity_metadata_wrapper('field_collection_item', $item->item_id);
+          $title = $item->field_patent_title->value();
+          $description = $item->field_patent_description->value();
+  
+          $patents[] = array(
+            'title' => $title,
+            'description' => $description,
+          );
+        }
+        $variables['patents'] = $patents;
+  
         /* Publications */
         $publications_items = $wrapper->field_publications->value();
         $publications = array();
@@ -213,8 +228,6 @@ function benefunder_preprocess_node(&$variables) {
         /* Awards */
   
         $variables['awards'] = $wrapper->field_awards->value();
-  
-        $variables['patents'] = $wrapper->field_patents->value();
   
         $summary = $wrapper->field_summary->value();
         $variables['summary'] = !empty($summary) ? $summary['safe_value'] : ''  ;

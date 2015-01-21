@@ -247,7 +247,8 @@
                 <h2 class="block-title">Patents</h2>
                 <?php foreach ($patents as $patent): ?>
                   <div class="patent">
-                    <?php print $patent; ?>
+                    <h4><?php print $patent['title']; ?></h4>
+                    <p><?php print $patent['description']; ?></p>
                   </div>
                 <?php endforeach; ?>
               </div><!-- end .patents -->

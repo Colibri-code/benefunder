@@ -170,6 +170,7 @@ function bf_cause_field_group_info() {
     'weight' => '5',
     'children' => array(
       0 => 'field_bio',
+      1 => 'field_education',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -197,12 +198,10 @@ function bf_cause_field_group_info() {
     'weight' => '6',
     'children' => array(
       0 => 'field_awards',
-      1 => 'field_education',
-      2 => 'field_publications',
-      3 => 'field_videos',
-      4 => 'field_additional_videos',
-      5 => 'field_patents',
-      6 => 'field_in_the_news',
+      1 => 'field_publications',
+      2 => 'field_additional_videos',
+      3 => 'field_in_the_news',
+      4 => 'field_patents',
     ),
     'format_type' => 'tab',
     'format_settings' => array(

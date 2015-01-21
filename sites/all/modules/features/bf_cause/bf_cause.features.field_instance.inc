@@ -95,6 +95,74 @@ function bf_cause_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'field_collection_item-field_patents-field_patent_description'
+  $field_instances['field_collection_item-field_patents-field_patent_description'] = array(
+    'bundle' => 'field_patents',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 1,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_patent_description',
+    'label' => 'Description',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 2,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_patents-field_patent_title'
+  $field_instances['field_collection_item-field_patents-field_patent_title'] = array(
+    'bundle' => 'field_patents',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_patent_title',
+    'label' => 'Title',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 1,
+    ),
+  );
+
   // Exported field_instance: 'node-cause-body'
   $field_instances['node-cause-body'] = array(
     'bundle' => 'cause',
@@ -252,7 +320,7 @@ function bf_cause_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_additional_videos',
-    'label' => 'Additional Video Links',
+    'label' => 'Video Links',
     'required' => 0,
     'settings' => array(
       'absolute_url' => 1,
@@ -282,7 +350,7 @@ function bf_cause_field_default_field_instances() {
       'module' => 'link',
       'settings' => array(),
       'type' => 'link_field',
-      'weight' => 36,
+      'weight' => 34,
     ),
   );
 
@@ -470,7 +538,7 @@ function bf_cause_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 31,
+      'weight' => 29,
     ),
   );
 
@@ -613,7 +681,7 @@ function bf_cause_field_default_field_instances() {
       'module' => 'field_collection',
       'settings' => array(),
       'type' => 'field_collection_embed',
-      'weight' => 32,
+      'weight' => 31,
     ),
   );
 
@@ -943,17 +1011,22 @@ function bf_cause_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'text',
-        'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 19,
+        'module' => 'field_collection',
+        'settings' => array(
+          'add' => 'Add',
+          'delete' => 'Delete',
+          'description' => TRUE,
+          'edit' => 'Edit',
+          'view_mode' => 'full',
+        ),
+        'type' => 'field_collection_view',
+        'weight' => 29,
       ),
       'search_result' => array(
         'label' => 'above',
-        'module' => 'text',
         'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 19,
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -967,17 +1040,14 @@ function bf_cause_field_default_field_instances() {
     'label' => 'Patents',
     'required' => 0,
     'settings' => array(
-      'text_processing' => 0,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
-      'active' => 1,
-      'module' => 'text',
-      'settings' => array(
-        'size' => 60,
-      ),
-      'type' => 'text_textfield',
-      'weight' => 34,
+      'active' => 0,
+      'module' => 'field_collection',
+      'settings' => array(),
+      'type' => 'field_collection_embed',
+      'weight' => 33,
     ),
   );
 
@@ -1112,7 +1182,7 @@ function bf_cause_field_default_field_instances() {
       'module' => 'link',
       'settings' => array(),
       'type' => 'link_field',
-      'weight' => 33,
+      'weight' => 32,
     ),
   );
 
@@ -1356,73 +1426,13 @@ function bf_cause_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-cause-field_videos'
-  $field_instances['node-cause-field_videos'] = array(
-    'bundle' => 'cause',
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'file',
-        'settings' => array(),
-        'type' => 'file_default',
-        'weight' => 15,
-      ),
-      'search_result' => array(
-        'label' => 'above',
-        'module' => 'file',
-        'settings' => array(),
-        'type' => 'file_default',
-        'weight' => 15,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_videos',
-    'label' => 'Videos',
-    'required' => 0,
-    'settings' => array(
-      'description_field' => 0,
-      'file_directory' => '',
-      'file_extensions' => 'txt',
-      'max_filesize' => '',
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'media',
-      'settings' => array(
-        'allowed_schemes' => array(
-          'public' => 0,
-          'vimeo' => 'vimeo',
-          'youtube' => 'youtube',
-        ),
-        'allowed_types' => array(
-          'audio' => 0,
-          'default' => 0,
-          'image' => 0,
-          'video' => 'video',
-        ),
-        'progress_indicator' => 'throbber',
-      ),
-      'type' => 'media_generic',
-      'weight' => 35,
-    ),
-  );
-
   // Translatables
   // Included for use with string extractors like potx.
-  t('Additional Video Links');
   t('Awards');
   t('Bio');
   t('Call to Action');
   t('Choose 1 top-level item, and up to 3 additional research areas.');
+  t('Description');
   t('Education');
   t('Elevator Pitch');
   t('Email');
@@ -1443,9 +1453,10 @@ function bf_cause_field_default_field_instances() {
   t('Subtitle');
   t('Summary');
   t('Teaser');
+  t('Title');
   t('Title / Academic Position');
   t('University or Institution');
-  t('Videos');
+  t('Video Links');
 
   return $field_instances;
 }
