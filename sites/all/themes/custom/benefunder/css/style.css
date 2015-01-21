@@ -7116,7 +7116,7 @@ body.page-causes {
   transition: opacity 0.5s linear 0.1s;
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
-  opacity: .6;
+  opacity: 0.7;
   background-position: 50% 50%;
   background-size: cover;
 }
@@ -7723,6 +7723,18 @@ body.page-causes {
   font-size: 26px;
   color: #999933;
   font-family: 'raleway-light';
+}
+.selectricHideSelect + .selectric .label.tid-66 {
+  color: #339999;
+}
+.selectricHideSelect + .selectric .label.tid-91 {
+  color: #cc6600;
+}
+.selectricHideSelect + .selectric .label.tid-10 {
+  color: #3f9ed4;
+}
+.selectricHideSelect + .selectric .label.tid-7 {
+  color: #9357b2;
 }
 .selectric .button {
   display: block;

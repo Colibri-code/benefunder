@@ -8,7 +8,6 @@
 function homepage_featured_causes_block_info() {
   $blocks['homepage_featured_causes'] = array(
     'info' => t('Homepage Featured Causes'),
-    'status' => TRUE,
   );
 
   return $blocks;

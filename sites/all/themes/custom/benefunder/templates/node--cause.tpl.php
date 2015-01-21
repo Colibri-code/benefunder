@@ -142,7 +142,7 @@
         </div>
       </div><!-- end .researcher-body -->
 
-      <?php print render($region['sidebar_first']); ?>
+      <?php print render($sidebar_first); ?>
     </div><!-- end .sidebar-first -->
 
     <div class="col-xs-12 col-sm-8 main-content">

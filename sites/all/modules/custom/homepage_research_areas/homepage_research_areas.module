@@ -8,7 +8,6 @@
 function homepage_research_areas_block_info() {
   $blocks['homepage_research_areas'] = array(
     'info' => t('Homepage Research Areas'),
-    'status' => TRUE,
   );
 
   return $blocks;

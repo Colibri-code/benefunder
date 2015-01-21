@@ -68,13 +68,9 @@ function benefunder_preprocess_html(&$variables) {
  */
 function benefunder_preprocess_node(&$variables) {
   // Adding regions to node templates so that sidebars can be printed there
-  foreach (system_region_list($GLOBALS['theme']) as $region_key => $region_name) {
-    if ($blocks = block_get_blocks_by_region($region_key)) {
-      $variables['region'][$region_key] = $blocks;
-    }
-    else {
-      $variables['region'][$region_key] = array();
-    }
+  if ($plugin = context_get_plugin('reaction', 'block')) {
+    $variables['sidebar_first'] = $plugin->block_get_blocks_by_region('sidebar_first');
+    $variables['sidebar_second'] = $plugin->block_get_blocks_by_region('sidebar_second');
   }
 
   switch ($variables['type']) {

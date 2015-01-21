@@ -1,0 +1,5 @@
+name = Request Information Form
+description = Creates a block that contains the "Request Information" form that appears in the sidebar on some pages
+core = 7.x
+version = 7.x-1.0
+package = Benefunder Custom

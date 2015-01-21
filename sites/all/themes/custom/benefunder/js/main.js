@@ -184,22 +184,32 @@ var general = function() {
 				},
 				onInit: function() {
 					$('.view-cause-listing .selectric b.button').prepend('<span></span>');
+
+					// Add class to selectric to change color of currently selected item
+					var primary = getParameterByName('primary');
+					if (primary.length) {
+						$('.selectricHideSelect + .selectric .label').addClass(primary);
+					}
+				},
+				onChange: function (element) {
+					$('.selectricOpen .selectricItems').css({'max-height':'188px'});
 				}
 			});
 		},
 
-		// Show secondary conditional filters on primary filter click 
+		// Setup for cause listing conditional filters
 		conditionalFilters: function() {
-			var term = getParameterByName('term');
 			var primary = getParameterByName('primary');
 			if (primary.length) {
 				$('#' + primary + '-filter-tags').addClass('active');
-				$('#causes-list-exposed-filter [value="' + term + '"]').attr('selected', 'selected');
+				$('#causes-list-exposed-filter [value="' + primary.substring(4) + '"]').attr('selected', 'selected');
 				$('#causes-list-exposed-filter').selectric('refresh');
 			}
 
 			$('.primary-filter .selectricItems li').on('click', function(event) {
 				var tid = $('span', this).data('tid');
+				$('.selectricHideSelect + .selectric .label').attr('class', 'label');
+				$('.selectricHideSelect + .selectric .label').addClass('tid-' + tid);
 
 				if ((typeof tid) === 'number') {
 					document.location.href = '/causes?term=' + tid + '&primary=' + $('span', this).attr('class');

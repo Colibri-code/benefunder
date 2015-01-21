@@ -45,7 +45,7 @@ function cause_listing_preprocess_views_exposed_form(&$vars) {
       $links = array();
       foreach ($subs as $tid => $name) {
         $class = (isset($_GET['term']) && $_GET['term'] == $tid) ? array('active-tag', 'tag') : array('tag');
-        $links[] = l(t($name), 'causes', array('query' => array('term' => $tid), 'attributes' => array('class' => $class)));
+        $links[] = l(t($name), 'causes', array('query' => array('term' => $tid, 'primary' => 'tid-' . $parent_tid), 'attributes' => array('class' => $class)));
       }
       $id = 'tid-' . $parent_tid . '-filter-tags';
       $list = theme('item_list', array('items' => $links, 'type' => 'ul', 'attributes' => array('id' => $id, 'class' => 'filter-tags')));

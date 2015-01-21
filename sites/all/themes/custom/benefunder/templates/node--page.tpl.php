@@ -114,8 +114,7 @@
   <?php endif; ?>
 
   <div class="node-content-wrapper">
-
-    <?php if (!empty($page['sidebar_second'])): ?>
+    <?php if (!empty($sidebar_second)): ?>
       <div class="col-xs-12 col-sm-8 col-md-7 main-content">
     <?php else: ?>
       <div class="col-xs-12 main-content">
@@ -154,9 +153,9 @@
       </div><!-- end #system-content-main -->
     </div><!-- end .main-content -->
 
-    <?php if (!empty($page['sidebar_second'])): ?>
+    <?php if (!empty($sidebar_second)): ?>
       <div class="col-xs-12 col-sm-4 col-md-4 col-md-offset-1 sidebar-second">
-
+        <?php print render($sidebar_second); ?>
       </div><!-- end .sidebar-second -->
     <?php endif; ?>
 

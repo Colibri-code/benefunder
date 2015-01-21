@@ -56,19 +56,19 @@
   <div class="drop-shelf">
     <div id="life-shelf" class="sector-shelf">
       <p><?php print $life_text; ?></p>
-      <a href="cause-list.php">See All Life Causes<i class="fa fa-long-arrow-right"></i></a>
+      <a href="/causes?term=66&amp;primary=tid-66">See All Life Causes<i class="fa fa-long-arrow-right"></i></a>
     </div>
     <div id="technology-shelf" class="sector-shelf">
       <p><?php print $technologies_text; ?></p>
-      <a href="cause-list.php">See All Technology Causes<i class="fa fa-long-arrow-right"></i></a>
+      <a href="/causes?term=91&amp;primary=tid-91">See All Technology Causes<i class="fa fa-long-arrow-right"></i></a>
     </div>
     <div id="environment-shelf" class="sector-shelf">
       <p><?php print $environment_text; ?></p>
-      <a href="cause-list.php">See All Environment Causes<i class="fa fa-long-arrow-right"></i></a>
+      <a href="/causes?term=10&amp;primary=tid-10">See All Environment Causes<i class="fa fa-long-arrow-right"></i></a>
     </div>
     <div id="humanities-shelf" class="sector-shelf">
       <p><?php print $humanities_text; ?></p>
-      <a href="cause-list.php">See All Humanities Causes<i class="fa fa-long-arrow-right"></i></a>
+      <a href="/causes?term=7&amp;primary=tid-7">See All Humanities Causes<i class="fa fa-long-arrow-right"></i></a>
     </div>
   </div>
 </section>

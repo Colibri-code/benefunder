@@ -1,0 +1,53 @@
+<?php
+
+/**
+ * Implements hook_block_info().
+ *
+ * This hook declares what blocks are provided by the module.
+ */
+function request_information_form_block_info() {
+  $blocks['request_information_form'] = array(
+    'info' => t('Request Information Form'),
+  );
+
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ *
+ * This hook generates the contents of the blocks themselves.
+ */
+function request_information_form_block_view($delta = '') {
+  // The $delta parameter tells us which block is being requested.
+  switch ($delta) {
+    case 'request_information_form':
+      $block['subject'] = t('Request Information');
+      $block['content'] = request_information_form_contents($delta);
+      break;
+  }
+  return $block;
+}
+
+/**
+ * A module-defined block content function.
+ */
+function request_information_form_contents($which_block) {
+  switch ($which_block) {
+    case 'request_information_form':
+      return theme('request_information_form_template');
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function request_information_form_theme() {
+  return array(
+    'request_information_form_template' => array(
+      'template' => 'request_information_form',
+      'path' => drupal_get_path('module', 'request_information_form'),
+      'type' => 'theme',
+    ),
+  );
+}
