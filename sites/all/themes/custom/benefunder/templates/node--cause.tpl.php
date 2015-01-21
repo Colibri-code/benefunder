@@ -237,7 +237,8 @@
                 <h2 class="block-title">Awards</h2>
                 <?php foreach ($awards as $award): ?>
                   <div class="award">
-                    <?php print $award; ?>
+                    <h4><?php print $award['title']; ?></h4>
+                    <p><?php print $award['description']; ?></p>
                   </div>
                 <?php endforeach; ?>
               </div><!-- end .awards -->

@@ -197,11 +197,11 @@ function bf_cause_field_group_info() {
     'label' => 'Researcher Links',
     'weight' => '6',
     'children' => array(
-      0 => 'field_awards',
-      1 => 'field_additional_videos',
-      2 => 'field_in_the_news',
-      3 => 'field_patents',
-      4 => 'field_publications',
+      0 => 'field_additional_videos',
+      1 => 'field_in_the_news',
+      2 => 'field_patents',
+      3 => 'field_publications',
+      4 => 'field_awards',
     ),
     'format_type' => 'tab',
     'format_settings' => array(

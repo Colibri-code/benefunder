@@ -231,8 +231,19 @@ function benefunder_preprocess_node(&$variables) {
         $variables['bio'] = !empty($bio) ? $bio['safe_value'] : '';
   
         /* Awards */
+        $award_items = $wrapper->field_awards->value();
+        $awards = array();
+        foreach ($award_items as $item) {
+          $item = entity_metadata_wrapper('field_collection_item', $item->item_id);
+          $title = $item->field_award_title->value();
+          $description = $item->field_award_description->value();
   
-        $variables['awards'] = $wrapper->field_awards->value();
+          $awards[] = array(
+            'title' => $title,
+            'description' => $description,
+          );
+        }
+        $variables['awards'] = $awards;
   
         $summary = $wrapper->field_summary->value();
         $variables['summary'] = !empty($summary) ? $summary['safe_value'] : ''  ;
