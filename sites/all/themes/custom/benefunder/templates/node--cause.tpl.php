@@ -122,14 +122,14 @@
           <?php if (!empty($academic_positions)): ?>
             <h4>Academic Position</h4>
             <?php foreach ($academic_positions as $position): ?>
-              <p><?php print $position; ?></p>
+              <p><?php print $position['safe_value']; ?></p>
             <?php endforeach; ?>
           <?php endif; ?>
 
           <?php if (!empty($education_items)): ?>
             <h4>Education</h4>
             <?php foreach ($education_items as $item): ?>
-              <p><?php print $item; ?></p>
+              <p><?php print $item['safe_value']; ?></p>
             <?php endforeach; ?>
           <?php endif; ?>
 

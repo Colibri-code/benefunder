@@ -180,7 +180,7 @@ var general = function() {
 		setupSelectric: function() {
 			$('#causes-list-exposed-filter').selectric({
 				optionsItemBuilder: function(itemData, element, index){
-					return '<span class="tid-' + itemData.value + '">' + itemData.text + '</span>';
+					return '<span class="tid-' + itemData.value + '" data-tid="' + itemData.value + '">' + itemData.text + '</span>';
 				},
 				onInit: function() {
 					$('.view-cause-listing .selectric b.button').prepend('<span></span>');
@@ -190,11 +190,24 @@ var general = function() {
 
 		// Show secondary conditional filters on primary filter click 
 		conditionalFilters: function() {
-			$('.primary-filter .selectricItems span').on('click', function(event) {
-				//console.log(event.target.className);
+			var term = getParameterByName('term');
+			var primary = getParameterByName('primary');
+			if (primary.length) {
+				$('#' + primary + '-filter-tags').addClass('active');
+				$('#causes-list-exposed-filter [value="' + term + '"]').attr('selected', 'selected');
+				$('#causes-list-exposed-filter').selectric('refresh');
+			}
 
-				$('.conditional-filter .filter-tags').removeClass('active');
-				$('#' + event.target.className + '-filter-tags').addClass('active');
+			$('.primary-filter .selectricItems li').on('click', function(event) {
+				var tid = $('span', this).data('tid');
+
+				if ((typeof tid) === 'number') {
+					document.location.href = '/causes?term=' + tid + '&primary=' + $('span', this).attr('class');
+				}
+				else {
+					document.location.href = '/causes';
+				}
+				
 			});
 		},
 
@@ -301,6 +314,13 @@ var UTIL = {
 		});
 	}
 };
+
+function getParameterByName(name) {
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+        results = regex.exec(location.search);
+    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
 
 $(document).ready(UTIL.loadEvents);
 
