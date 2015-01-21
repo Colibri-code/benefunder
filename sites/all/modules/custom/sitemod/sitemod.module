@@ -7,6 +7,7 @@ function sitemod_form_alter(&$form, &$form_state, $form_id) {
   switch ($form_id) {
     case 'cause_node_form':
       $form['#validate'][] = 'sitemod_cause_node_validate';
+      $form['title']['#description'] = t('The First Letter Of Each Word Must Be In Caps. 3-5 word max.');
 
       break;
   }
