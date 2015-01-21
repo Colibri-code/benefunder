@@ -206,6 +206,10 @@ function benefunder_preprocess_node(&$variables) {
             break;
         }
   
+        /* Bio */
+        $bio = $wrapper->field_bio->value();
+        $variables['bio'] = !empty($bio) ? $bio['safe_value'] : '';
+  
         /* Awards */
   
         $variables['awards'] = $wrapper->field_awards->value();

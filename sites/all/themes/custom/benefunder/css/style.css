@@ -8964,6 +8964,7 @@ h2.body-intro-text {
   float: left;
   width: 100%;
   padding-top: 40px;
+  clear: left;
 }
 @media (min-width: 768px) {
   .explore-more-wrapper .more-news {

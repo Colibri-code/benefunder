@@ -176,6 +176,24 @@
           <h2 class="block-title collapsed" data-toggle="collapse" data-target=".explore-more-wrapper">Explore More</h2>
           <div class="explore-more-wrapper collapse">
 
+            <?php if (!empty($bio)): ?>
+              <div class="bio">
+                <h2 class="block-title">Bio</h2>
+                <?php
+
+                  print theme(
+                    'ctools_collapsible',
+                    array(
+                      'handle' => 'View', 
+                      'content' => $bio, 
+                      'collapsed' => TRUE
+                    )
+                  );
+
+                ?>
+              </div>
+            <?php endif; ?>
+
             <?php if (isset($in_the_news) && !empty($in_the_news)): ?>
               <div class="more-news">
                 <h2 class="block-title">In the News</h2>

@@ -83,6 +83,7 @@
 
 <?php
   $need_top_image = false;
+  $arg1 = arg(1);
 
   if (arg(0) == 'node') {
     $wrapper = entity_metadata_wrapper('node', arg(1));
@@ -90,6 +91,9 @@
     if (($bundle != 'page') && ($bundle != 'cause')) {
       $need_top_image = true;
     }
+  }
+  else if ((arg(0) == 'causes') && (empty($arg1))) {
+    $need_top_image = false;
   }
   else {
     $need_top_image = true;
