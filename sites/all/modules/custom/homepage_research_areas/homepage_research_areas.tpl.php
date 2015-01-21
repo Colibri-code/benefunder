@@ -14,6 +14,12 @@
     }
   </style>
 
+  <!-- Preload -->
+  <img style="display: none;" src="<?php print $technologies_image; ?>" />
+  <img style="display: none;" src="<?php print $life_image; ?>" />
+  <img style="display: none;" src="<?php print $environment_image; ?>" />
+  <img style="display: none;" src="<?php print $humanities_image; ?>" />
+
   <div class="container">
     <div class="row">
       <a class="sector-link" href="cause-list.php" data-shelf="life-shelf">

@@ -84,11 +84,11 @@ function benefunder_preprocess_node(&$variables) {
   
         /* Cause image */
         $jumbotron_image = $wrapper->field_jumbotron_image->value();
-        $variables['hero_image'] = file_create_url($jumbotron_image['uri']);
+        $variables['hero_image'] = !empty($jumbotron_image) ? file_create_url($jumbotron_image['uri']) : '';
   
         /* Researcher image */
         $researcher_image = $wrapper->field_picture->value();
-        $variables['researcher_image'] = file_create_url($researcher_image['uri']);
+        $variables['researcher_image'] = !empty($researcher_image) ? file_create_url($researcher_image['uri']) : '';
   
         /* Researcher name */
         $variables['researcher_first_name'] = $wrapper->field_first_name->value();
@@ -96,7 +96,7 @@ function benefunder_preprocess_node(&$variables) {
   
         /* Affiliation */
         $university_or_institution = $wrapper->field_university_or_institution->value();
-        $variables['affiliation'] = $university_or_institution[0]->name;
+        $variables['affiliation'] = !empty($university_or_institution) ? $university_or_institution[0]->name : '';
   
         /* Affiliation logo */
         if (!empty($university_or_institution[0]->field_logo)) {
@@ -107,22 +107,22 @@ function benefunder_preprocess_node(&$variables) {
   
         /* Academic Position */
         $academic_positions = $wrapper->field_academic_position->value();
-        $variables['academic_positions'] = $academic_positions;
+        $variables['academic_positions'] = !empty($academic_positions) ? $academic_positions : '';
   
         /* Education */
         $education_items = $wrapper->field_education->value();
-        $variables['education_items'] = $education_items;
+        $variables['education_items'] = !empty($education_items) ? $education_items : '';
   
         /* How to contribute */
-        $call_to_action = $wrapper->field_call_to_action->value->value();
-        $variables['call_to_action'] = $call_to_action;
+        $call_to_action = $wrapper->field_call_to_action->value();
+        $variables['call_to_action'] = !empty($call_to_action) ? $call_to_action['safe_value'] : '';
   
         /* Subtitle */
         $variables['subtitle'] = $wrapper->field_subtitle->value();
   
         /* Jumbotron copy */
         $jumbotron_copy = $wrapper->field_jumbotron_copy->value();
-        $variables['jumbotron_copy'] = $jumbotron_copy;
+        $variables['jumbotron_copy'] = !empty($jumbotron_copy) ? $jumbotron_copy : '';
   
         /* Jumbotron video */
         $jumbotron_video = $wrapper->field_jumbotron_video->value();
@@ -131,8 +131,8 @@ function benefunder_preprocess_node(&$variables) {
         }
   
         /* Body text */
-        $body = $wrapper->body->value->value();
-        $variables['body'] = $body;
+        $body = $wrapper->body->value();
+        $variables['body'] = !empty($body) ? $body['safe_value'] : '';
   
         /* In the news */
         $in_the_news_items = $wrapper->field_in_the_news->value();
@@ -212,7 +212,8 @@ function benefunder_preprocess_node(&$variables) {
   
         $variables['patents'] = $wrapper->field_patents->value();
   
-        $variables['summary'] = $wrapper->field_summary->value->value();
+        $summary = $wrapper->field_summary->value();
+        $variables['summary'] = !empty($summary) ? $summary['safe_value'] : ''  ;
   
         $variables['title'] = $wrapper->title->value();
   
