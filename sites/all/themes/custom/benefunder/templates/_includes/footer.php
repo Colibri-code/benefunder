@@ -2,20 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="footer-menu col-md-6 hidden-xs hidden-sm">
-        <ul class="menu">
-          <li>
-            <a href="#">Contact Us</a>
-          </li>
-          <li>
-            <a href="#">Financial Advisors</a>
-          </li>
-          <li>
-            <a href="#">Researchers</a>
-          </li>
-          <li>
-            <a href="#">Institutions</a>
-          </li>
-        </ul>
+        <?php print theme('links', array('links' => menu_navigation_links('menu-footer-menu'), 'attributes' => array('class'=> array('menu')) ));?>
       </div>
       <div class="social-menu col-xs-12 col-sm-6">
         <ul class="menu">
