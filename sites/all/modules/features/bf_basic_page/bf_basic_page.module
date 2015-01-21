@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the BF Basic Page feature.
+ */
+
+include_once 'bf_basic_page.features.inc';

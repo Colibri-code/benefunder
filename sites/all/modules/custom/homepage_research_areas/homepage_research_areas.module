@@ -38,22 +38,36 @@ function homepage_research_areas_contents($which_block) {
       $vars = array();
 
       // Load up the main research areas for causes
-      $environment = taxonomy_term_load(10);
-      $humanities = taxonomy_term_load(7);
-      $life = taxonomy_term_load(66);
-      $technologies = taxonomy_term_load(91);
+      $environment = entity_metadata_wrapper('taxonomy_term', 10);
+      $humanities = entity_metadata_wrapper('taxonomy_term', 7);
+      $life = entity_metadata_wrapper('taxonomy_term', 66);
+      $technologies = entity_metadata_wrapper('taxonomy_term', 91);
 
       // Get icons
-      $vars['environment_icon'] = file_create_url($environment->field_term_icon_with_color_['und'][0]['uri']);
-      $vars['humanities_icon'] = file_create_url($humanities->field_term_icon_with_color_['und'][0]['uri']);
-      $vars['life_icon'] = file_create_url($life->field_term_icon_with_color_['und'][0]['uri']);
-      $vars['technologies_icon'] = file_create_url($technologies->field_term_icon_with_color_['und'][0]['uri']);
+      $environment_icon = $environment->field_term_icon_with_color_->value();
+      $humanities_icon = $humanities->field_term_icon_with_color_->value();
+      $life_icon = $life->field_term_icon_with_color_->value();
+      $technologies_icon = $technologies->field_term_icon_with_color_->value();
+      $vars['environment_icon'] = file_create_url($environment_icon['uri']);
+      $vars['humanities_icon'] = file_create_url($humanities_icon['uri']);
+      $vars['life_icon'] = file_create_url($life_icon['uri']);
+      $vars['technologies_icon'] = file_create_url($technologies_icon['uri']);
+
+      // Get images
+      $environment_image = $environment->field_term_image->value();
+      $humanities_image = $humanities->field_term_image->value();
+      $life_image = $life->field_term_image->value();
+      $technologies_image = $technologies->field_term_image->value();
+      $vars['environment_image'] = file_create_url($environment_image['uri']);
+      $vars['humanities_image'] = file_create_url($humanities_image['uri']);
+      $vars['life_image'] = file_create_url($life_image['uri']);
+      $vars['technologies_image'] = file_create_url($technologies_image['uri']);
 
       // Get text
-      $vars['environment_text'] = $environment->description;
-      $vars['humanities_text'] = $humanities->description;
-      $vars['life_text'] = $life->description;
-      $vars['technologies_text'] = $technologies->description;
+      $vars['environment_text'] = $environment->description->value();
+      $vars['humanities_text'] = $humanities->description->value();
+      $vars['life_text'] = $life->description->value();
+      $vars['technologies_text'] = $technologies->description->value();
 
       // Send icons and text to template file and return as block content
       return theme('homepage_research_areas_template', $vars);
@@ -69,16 +83,6 @@ function homepage_research_areas_theme() {
       'template' => 'homepage_research_areas',
       'path' => drupal_get_path('module', 'homepage_research_areas'),
       'type' => 'theme',
-      'variables' => array(
-        'environment_text' => NULL,
-        'humanities_text' => NULL,
-        'life_text' => NULL,
-        'technologies_text' => NULL,
-        'environment_icon' => NULL,
-        'humanities_icon' => NULL,
-        'life_icon' => NULL,
-        'technologies_icon' => NULL,
-      ),
     ),
   );
 }

@@ -1,4 +1,19 @@
 <section class="cause-sectors">
+  <style type="text/css">
+    .drop-shelf.technology-shelf {
+      background-image: url('<?php print $technologies_image; ?>');
+    }
+    .drop-shelf.life-shelf {
+      background-image: url('<?php print $life_image; ?>');
+    }
+    .drop-shelf.environment-shelf {
+      background-image: url('<?php print $environment_image; ?>');
+    }
+    .drop-shelf.humanities-shelf {
+      background-image: url('<?php print $humanities_image; ?>');
+    }
+  </style>
+
   <div class="container">
     <div class="row">
       <a class="sector-link" href="cause-list.php" data-shelf="life-shelf">

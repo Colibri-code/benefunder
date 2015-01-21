@@ -1901,9 +1901,11 @@ h2.body-intro-text {
 
     @media(min-width:@screen-sm-min) {
       width: calc(~"50% - 20px");
+      margin-right:40px;
     }   
 
     @media(min-width:@screen-md-min) {
+      margin-right:64px;
       width: calc(~"50% - 32px");
     }
 
@@ -1934,12 +1936,10 @@ h2.body-intro-text {
 
     @media(min-width:@screen-sm-min) {
       padding-top:40px;
-      margin-left:40px;
       width: calc(~"50% - 20px");
     }
 
     @media(min-width:@screen-md-min) {
-      margin-left:64px;
       width: calc(~"50% - 32px");
     }
 
@@ -2094,8 +2094,8 @@ h2.body-intro-text {
   }
 }
 
-.sidebar-first,
-.sidebar-second {
+div.sidebar-first,
+div.sidebar-second {
 
   .open-html p,
   .field-name-body p {
@@ -2296,15 +2296,15 @@ h2.body-intro-text {
 /* ==========================================================================
   Contact Us Page
   ========================================================================== */
-body.contact-us {
 
-  .field-body-label p:before {
-    background-image:url(../media/images/contact_title_icon.png);
-    height:31px;
-    width:36px;
-    margin-top:-2px;
-  }
+#node-3 .field-body-label p:before {
+  background-image:url(../media/images/contact_title_icon.png);
+  height:31px;
+  width:36px;
+  margin-top:-2px;
+}
 
+body.node-type-page {
   .sidebar-second {
     @media(min-width:@screen-sm-min) {
       margin-top:-158px;
@@ -2319,35 +2319,12 @@ body.contact-us {
 /* ==========================================================================
   Donate Page
   ========================================================================== */
-body.donate {
 
-  .main-content #block-system-main {
-
-    @media(min-width:@screen-md-min) {
-      padding:0 60px;
-    }
-  }
-
-  .hero-wrapper {
-    // height:auto;
-  }
-
-  .field-body-label p:before {
-    background-image:url(../media/images/faq_icon.png);
-    width:25px;
-    height:40px;
-    margin-top:-15px;
-  }
-
-  .sidebar-second {
-    @media(min-width:@screen-sm-min) {
-      margin-top:-158px;
-    }
-
-    @media(min-width:@screen-md-min) {
-      margin-top:-136px
-    }
-  }
+#node-42 .field-body-label p:before {
+  background-image:url(../media/images/faq_icon.png);
+  width:25px;
+  height:40px;
+  margin-top:-15px;
 }
 
 /* ==========================================================================
@@ -2359,12 +2336,11 @@ section.banner {
   width:100%;
 }
 
-body.about-benefunder {
+body.node-type-page {
 
   .hero-wrapper {
     //height:433px;
     overflow:hidden;
-    max-height: 722px;
 
     @media(min-width:@screen-sm-min) {
       //height:724px;
@@ -2379,6 +2355,10 @@ body.about-benefunder {
 
     @media(min-width:@screen-sm-min) {
       margin-top:-291px;
+    }
+
+    @media (min-width: 1300px) {
+      margin-top: -191px;
     }
   }
 
@@ -2396,28 +2376,30 @@ body.about-benefunder {
     .feature {
       padding-top:20px;
       padding-bottom:20px;
-      text-align:center;
 
       @media(min-width:@screen-md-min) {
 
         img {
           padding-left:30px;
           padding-right:30px;
+          padding-top: 0;
+          padding-bottom: 0;
+          width: 100%;
+        }
+
+        &.feature-text {
+          padding-left:60px;
+          padding-right:40px;
         }
       }
     }
 
-    h2.subhead {
+    h2 {
       font-family:@raleway-light;
       font-size:32px;
       margin-top:10px;
       color:#000;
       text-align:left;
-
-      @media(min-width:@screen-md-min) {
-        padding-left:60px;
-        padding-right:40px;
-      }
     }
 
     p {
@@ -2425,11 +2407,6 @@ body.about-benefunder {
       line-height:32px;
       font-family:@chaparral-light;
       text-align:left;
-
-      @media(min-width:@screen-md-min) {
-        padding-left:60px;
-        padding-right:40px;
-      }
     }
 
     img {
@@ -2438,7 +2415,7 @@ body.about-benefunder {
   }
 }
 
-.about-benefunder-intro {
+.banner-inner {
   background-color:@primary;
   padding:40px;
 

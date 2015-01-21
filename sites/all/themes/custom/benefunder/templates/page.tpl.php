@@ -81,6 +81,32 @@
 
 <?php include_once('_includes/header.php'); ?>
 
+<?php
+  $need_top_image = false;
+
+  if (arg(0) == 'node') {
+    $wrapper = entity_metadata_wrapper('node', arg(1));
+    $bundle = $wrapper->getBundle();
+    if (($bundle != 'page') && ($bundle != 'cause')) {
+      $need_top_image = true;
+    }
+  }
+  else {
+    $need_top_image = true;
+  }
+?>
+
+<?php if ($need_top_image): ?>
+
+  <section class="hero-wrapper">
+    <div class="hero" style="background-image: url('<?php print drupal_get_path('theme', 'benefunder'); ?>/media/images/nemo_background.jpg');"></div>
+    <div class="hero-text only-title">
+      <h1 class="page-title"><?php print $title; ?></h1>
+    </div>
+  </section><!-- end .hero-wrapper -->
+
+<?php endif; ?>
+
 <?php print render($page['content']); ?>
 
 <?php include_once('_includes/footer.php'); ?>

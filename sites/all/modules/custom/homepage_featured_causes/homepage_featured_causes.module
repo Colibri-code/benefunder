@@ -136,12 +136,6 @@ function homepage_featured_causes_theme() {
       'template' => 'homepage_featured_causes',
       'path' => drupal_get_path('module', 'homepage_featured_causes'),
       'type' => 'theme',
-      'variables' => array(
-        'environment_text' => NULL,
-        'humanities_text' => NULL,
-        'life_text' => NULL,
-        'technologies_text' => NULL,
-      ),
     ),
   );
 }

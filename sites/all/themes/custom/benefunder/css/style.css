@@ -6463,7 +6463,7 @@ p {
 .humanities .bf-arrow:before {
   background-position: 0 -49px;
 }
-.donate .bf-arrow:before {
+.node-type-page .hero-wrapper .bf-arrow:before {
   background-position: 0 -61px;
 }
 .bf-arrow-white:before {
@@ -8968,10 +8968,12 @@ h2.body-intro-text {
 @media (min-width: 768px) {
   .explore-more-wrapper .more-news {
     width: calc(50% - 20px);
+    margin-right: 40px;
   }
 }
 @media (min-width: 992px) {
   .explore-more-wrapper .more-news {
+    margin-right: 64px;
     width: calc(50% - 32px);
   }
 }
@@ -8998,13 +9000,11 @@ h2.body-intro-text {
 @media (min-width: 768px) {
   .explore-more-wrapper .more-publications {
     padding-top: 40px;
-    margin-left: 40px;
     width: calc(50% - 20px);
   }
 }
 @media (min-width: 992px) {
   .explore-more-wrapper .more-publications {
-    margin-left: 64px;
     width: calc(50% - 32px);
   }
 }
@@ -9163,10 +9163,10 @@ h2.body-intro-text {
 .field-name-body img.pull-right {
   padding-left: 20px;
 }
-.sidebar-first .open-html p,
-.sidebar-second .open-html p,
-.sidebar-first .field-name-body p,
-.sidebar-second .field-name-body p {
+div.sidebar-first .open-html p,
+div.sidebar-second .open-html p,
+div.sidebar-first .field-name-body p,
+div.sidebar-second .field-name-body p {
   font-size: 16px;
   line-height: 24px;
 }
@@ -9365,45 +9365,30 @@ h2.body-intro-text {
 /* ==========================================================================
   Contact Us Page
   ========================================================================== */
-body.contact-us .field-body-label p:before {
+#node-3 .field-body-label p:before {
   background-image: url(../media/images/contact_title_icon.png);
   height: 31px;
   width: 36px;
   margin-top: -2px;
 }
 @media (min-width: 768px) {
-  body.contact-us .sidebar-second {
+  body.node-type-page .sidebar-second {
     margin-top: -158px;
   }
 }
 @media (min-width: 992px) {
-  body.contact-us .sidebar-second {
+  body.node-type-page .sidebar-second {
     margin-top: -136px;
   }
 }
 /* ==========================================================================
   Donate Page
   ========================================================================== */
-@media (min-width: 992px) {
-  body.donate .main-content #block-system-main {
-    padding: 0 60px;
-  }
-}
-body.donate .field-body-label p:before {
+#node-42 .field-body-label p:before {
   background-image: url(../media/images/faq_icon.png);
   width: 25px;
   height: 40px;
   margin-top: -15px;
-}
-@media (min-width: 768px) {
-  body.donate .sidebar-second {
-    margin-top: -158px;
-  }
-}
-@media (min-width: 992px) {
-  body.donate .sidebar-second {
-    margin-top: -136px;
-  }
 }
 /* ==========================================================================
   About Benefunder Page
@@ -9413,85 +9398,83 @@ section.banner {
   float: left;
   width: 100%;
 }
-body.about-benefunder .hero-wrapper {
+body.node-type-page .hero-wrapper {
   overflow: hidden;
-  max-height: 722px;
 }
-body.about-benefunder .hero-wrapper .hero {
+body.node-type-page .hero-wrapper .hero {
   position: absolute;
 }
 @media (min-width: 768px) {
-  body.about-benefunder .banner {
+  body.node-type-page .banner {
     margin-top: -291px;
   }
 }
-body.about-benefunder .subhead-row {
+@media (min-width: 1300px) {
+  body.node-type-page .banner {
+    margin-top: -191px;
+  }
+}
+body.node-type-page .subhead-row {
   padding: 20px 0;
 }
 @media (min-width: 992px) {
-  body.about-benefunder .subhead-row {
+  body.node-type-page .subhead-row {
     padding: 50px 0;
   }
-  body.about-benefunder .subhead-row:last-of-type {
+  body.node-type-page .subhead-row:last-of-type {
     padding-bottom: 0;
   }
 }
-body.about-benefunder .subhead-row .feature {
+body.node-type-page .subhead-row .feature {
   padding-top: 20px;
   padding-bottom: 20px;
-  text-align: center;
 }
 @media (min-width: 992px) {
-  body.about-benefunder .subhead-row .feature img {
+  body.node-type-page .subhead-row .feature img {
     padding-left: 30px;
     padding-right: 30px;
+    padding-top: 0;
+    padding-bottom: 0;
+    width: 100%;
+  }
+  body.node-type-page .subhead-row .feature.feature-text {
+    padding-left: 60px;
+    padding-right: 40px;
   }
 }
-body.about-benefunder .subhead-row h2.subhead {
+body.node-type-page .subhead-row h2 {
   font-family: 'raleway-light';
   font-size: 32px;
   margin-top: 10px;
   color: #000;
   text-align: left;
 }
-@media (min-width: 992px) {
-  body.about-benefunder .subhead-row h2.subhead {
-    padding-left: 60px;
-    padding-right: 40px;
-  }
-}
-body.about-benefunder .subhead-row p {
+body.node-type-page .subhead-row p {
   font-size: 18px;
   line-height: 32px;
   font-family: 'Chaparral W01 Lt';
   text-align: left;
 }
-@media (min-width: 992px) {
-  body.about-benefunder .subhead-row p {
-    padding-left: 60px;
-    padding-right: 40px;
-  }
-}
-body.about-benefunder .subhead-row img {
+body.node-type-page .subhead-row img {
   max-width: 100%;
 }
-.about-benefunder-intro {
+.banner-inner {
   background-color: #999933;
   padding: 40px;
 }
 @media (min-width: 992px) {
-  .about-benefunder-intro {
+  .banner-inner {
     padding: 60px 60px 60px 100px;
   }
 }
-.about-benefunder-intro h1 {
+.banner-inner h1 {
   font-size: 32px;
   line-height: 80px;
   font-family: 'raleway-light';
   color: #fff;
   margin: 0;
 }
-.about-benefunder-intro p {
+.banner-inner p {
   color: #fff;
   font-size: 18px;
   line-height: 32px;

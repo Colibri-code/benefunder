@@ -182,7 +182,9 @@
                 <?php foreach ($in_the_news as $item): ?>
                   <div class="news-teaser">
                     <h2 class="teaser-title"><?php print $item['link']; ?></h2>
-                    <p><?php print $item['teaser']; ?></p>
+                    <?php if (!empty($item['teaser'])): ?>
+                      <p><?php print $item['teaser']; ?></p>
+                    <?php endif; ?>
                   </div>
                 <?php endforeach; ?>
               </div><!-- end .more-news -->

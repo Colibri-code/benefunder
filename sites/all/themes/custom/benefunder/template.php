@@ -33,7 +33,34 @@ function benefunder_preprocess_page(&$vars, $hook) {
  * Implements template_preprocess_html().
  */
 function benefunder_preprocess_html(&$variables) {
+  // Add font awesome css file
   drupal_add_css('//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css', array('type' => 'external'));
+
+  // Add body classes to nodes in the basic page content type
+  $node = menu_get_object();
+  if ($node && isset($node->nid)) {
+    if ($node->type == 'page') {
+      $wrapper = entity_metadata_wrapper('node', $node);
+      $jumbotron_fields = $wrapper->field_jumbotron_fields->value();
+
+      switch ($jumbotron_fields) {
+        case 'banner':
+          $variables['classes_array'][] = 'banner';
+
+          break;
+
+        case 'title':
+          $variables['classes_array'][] = 'only-title';
+
+          break;
+
+        case 'title_teaser_link':
+          $variables['classes_array'][] = 'title-teaser-link';
+
+          break;
+      }
+    }
+  }
 }
 
 /**
@@ -200,6 +227,78 @@ function benefunder_preprocess_node(&$variables) {
       
 
     case 'page':
+      if ($variables['view_mode'] != 'search_result') {
+        $wrapper = entity_metadata_wrapper('node', $variables['nid']);
+
+        /* Jumbotron fields */
+        $jumbotron_fields = $wrapper->field_jumbotron_fields->value();
+        $variables['jumbotron_fields'] = $jumbotron_fields;
+
+        switch ($jumbotron_fields) {
+          case 'banner':
+            $variables['banner_text'] = $wrapper->field_jumbotron_teaser->value();
+
+            break;
+
+          case 'title_teaser_link':
+            /* Jumbotron link */
+            $variables['jumbotron_teaser'] = $wrapper->field_jumbotron_teaser->value();
+
+            /* Jumbotron link */
+            $jumbotron_link = $wrapper->field_jumbotron_link->value();
+            if ($jumbotron_link) {
+              $jumbotron_link['attributes']['class'][] = 'call-to-action-link';
+              $variables['jumbotron_link'] = l(t($jumbotron_link['title'] . '<i class="bf-arrow bf-arrow-right"></i>'), $jumbotron_link['url'], array(
+                      'query' => $jumbotron_link['query'],
+                      'attributes' => $jumbotron_link['attributes'],
+                      'html' => true,
+                    ));
+            }
+
+            break;
+        }
+
+        /* Jumbotron image */
+        $jumbotron_image = $wrapper->field_page_hero->value();
+
+        if (!$jumbotron_image) {
+          $jumbotron_image = '/' . drupal_get_path('theme', 'benefunder') . '/media/images/nemo_background.jpg';
+        }
+        else {
+          $jumbotron_image = file_create_url($jumbotron_image['uri']);
+        }
+        $variables['jumbotron_image'] = $jumbotron_image;
+
+        /* Subtitle */
+        $variables['subtitle'] = $wrapper->field_subtitle->value();
+
+        /* 50/50 Image/Text alternating */
+        $fifty_fifty_items = $wrapper->field_50_50_image_text_alternati->value();
+        $fifty_fifty = array();
+        foreach ($fifty_fifty_items as $item) {
+          $item = entity_metadata_wrapper('field_collection_item', $item->item_id);
+          $image = $item->field_50_50_image->value();
+          $text = $item->field_50_50_text->value();
+  
+          $fifty_fifty[] = array(
+            'text' => isset($text) ? $text['safe_value'] : '',
+            'image' => !empty($image) ? file_create_url($image['uri']) : '',
+          );
+        }
+        $variables['fifty_fifty'] = $fifty_fifty;
+
+        /* Body text */
+        $body = $wrapper->body->value();
+        if (!empty($body)) {
+          $variables['body'] = $wrapper->body->value->value();
+        }
+
+        /* Bottom body text */
+        $bottom_body = $wrapper->field_bottom_text->value();
+        if (!empty($bottom_body)) {
+          $variables['bottom_body'] = $wrapper->field_bottom_text->value->value();
+        }
+      }
 
       break;
   }

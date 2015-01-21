@@ -69,7 +69,6 @@ var general = function() {
 		// Window resize function
 		windowResize: function() {
 		  $(window).resize(function() {
-		      general.setCauseShelf('.sector-link', '.sector-shelf');
 		      general.setupTileGrid();
 		      general.shiftLayout();
 		      //console.log(viewport.height());
@@ -98,7 +97,6 @@ var general = function() {
 		// Hompeage Cause Sector shelf
 		setCauseShelf: function(triggerObject, responseObject) {
 			$(triggerObject).on('click', function(e) {
-				//console.log(e);
 				if( !isMobile() ){
 					e.preventDefault();
 					$(triggerObject).children().removeClass('active');
@@ -108,6 +106,7 @@ var general = function() {
 					$(e.currentTarget.children[0]).addClass('active');
 
 					var shelf = $(e.currentTarget).data('shelf');
+					$('.drop-shelf').attr('class', shelf + ' drop-shelf');
 
 					$('#' + shelf)
 						.addClass('active')
