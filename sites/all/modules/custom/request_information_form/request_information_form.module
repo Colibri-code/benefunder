@@ -35,7 +35,9 @@ function request_information_form_block_view($delta = '') {
 function request_information_form_contents($which_block) {
   switch ($which_block) {
     case 'request_information_form':
-      return theme('request_information_form_template');
+      global $base_url;
+      $vars = array('base_url' => $base_url);
+      return theme('request_information_form_template', $vars);
   }
 }
 

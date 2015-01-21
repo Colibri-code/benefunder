@@ -1,7 +1,7 @@
 <form id="request-info" action="https://www.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST">
 
   <input type=hidden name="oid" value="00Do0000000JSTB">
-  <input type=hidden name="retURL" value="http://<?php print $_SERVER['SERVER_NAME']; ?>/thank-you">
+  <input type=hidden name="retURL" value="<?php print $base_url; ?>/thank-you">
 
   <div class="form-group"><label for="first_name">First Name</label><input id="request-info-first-name" class="form-control" id="first_name" maxlength="40" name="first_name" size="20" type="text" placeholder="First Name" /></div>
 
