@@ -9020,6 +9020,10 @@ h2.body-intro-text {
   color: #000;
   font-family: 'raleway-semibold';
 }
+.explore-more-wrapper .more-publications .publications-teaser p.desc {
+  font-size: 14px;
+  font-family: 'raleway';
+}
 .explore-more-wrapper .more-publications .publications-teaser .publications-link {
   text-transform: uppercase;
   color: #fff;

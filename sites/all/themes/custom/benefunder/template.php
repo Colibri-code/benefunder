@@ -152,6 +152,26 @@ function benefunder_preprocess_node(&$variables) {
         }
         $variables['in_the_news'] = $in_the_news;
   
+        /* Publications */
+        $publication_items = $wrapper->field_publications->value();
+        $publications = array();
+        foreach ($publication_items as $item) {
+          $item = entity_metadata_wrapper('field_collection_item', $item->item_id);
+          $link = $item->field_publication_link->value();
+          $link['attributes']['class'] = 'publications-link';
+          $teaser = $item->field_publication_description->value();
+  
+          $publications[] = array(
+            'title' => $link['title'],
+            'link' => l('PDF', $link['url'], array(
+                'query' => $link['query'],
+                'attributes' => $link['attributes'],
+              )),
+            'teaser' => $teaser,
+          );
+        }
+        $variables['publications'] = $publications;
+  
         /* Patents */
         $patent_items = $wrapper->field_patents->value();
         $patents = array();
@@ -166,21 +186,6 @@ function benefunder_preprocess_node(&$variables) {
           );
         }
         $variables['patents'] = $patents;
-  
-        /* Publications */
-        $publications_items = $wrapper->field_publications->value();
-        $publications = array();
-        foreach ($publications_items as $item) {
-          $item['attributes']['class'][] = 'publications-link';
-          $publications[] = array(
-            'title' => $item['title'],
-            'link' => l('PDF', $item['url'], array(
-                'query' => $item['query'],
-                'attributes' => $item['attributes'],
-              )),
-          );
-        }
-        $variables['publications'] = $publications;
   
         /* Videos */
         $additional_videos_items = $wrapper->field_additional_videos->value();

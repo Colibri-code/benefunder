@@ -198,10 +198,10 @@ function bf_cause_field_group_info() {
     'weight' => '6',
     'children' => array(
       0 => 'field_awards',
-      1 => 'field_publications',
-      2 => 'field_additional_videos',
-      3 => 'field_in_the_news',
-      4 => 'field_patents',
+      1 => 'field_additional_videos',
+      2 => 'field_in_the_news',
+      3 => 'field_patents',
+      4 => 'field_publications',
     ),
     'format_type' => 'tab',
     'format_settings' => array(

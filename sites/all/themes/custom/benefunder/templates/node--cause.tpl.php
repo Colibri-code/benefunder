@@ -214,6 +214,7 @@
                 <?php foreach ($publications as $item): ?>
                   <div class="publications-teaser">
                     <p><?php print $item['title']; ?></p>
+                    <p class="desc"><?php print $item['teaser']; ?></p>
                     <?php print $item['link']; ?>
                   </div>
                 <?php endforeach; ?>
