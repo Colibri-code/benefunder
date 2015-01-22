@@ -1,0 +1,5 @@
+name = Basic Page Sidebar Text
+description = Creates a block that contains the content from the "Sidebar Text" field in the basic page content type.
+core = 7.x
+version = 7.x-1.0
+package = Benefunder Custom

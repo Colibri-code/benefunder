@@ -1,0 +1,47 @@
+<?php
+
+/**
+ * Implements hook_block_info().
+ *
+ * This hook declares what blocks are provided by the module.
+ */
+function basic_page_sidebar_text_block_info() {
+  $blocks['basic_page_sidebar_text'] = array(
+    'info' => t('Basic Page Sidebar Text'),
+  );
+
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ *
+ * This hook generates the contents of the blocks themselves.
+ */
+function basic_page_sidebar_text_block_view($delta = '') {
+  // The $delta parameter tells us which block is being requested.
+  switch ($delta) {
+    case 'basic_page_sidebar_text':
+      $block['content'] = basic_page_sidebar_text_contents($delta);
+      break;
+  }
+  return $block;
+}
+
+/**
+ * A module-defined block content function.
+ */
+function basic_page_sidebar_text_contents($which_block) {
+  switch ($which_block) {
+    case 'basic_page_sidebar_text':
+      $arg1 = arg(1);
+
+      if ((arg(0) == 'node') && !empty($arg1)) {
+        $wrapper = entity_metadata_wrapper('node', $arg1);
+        $field_sidebar_text = $wrapper->field_sidebar_text->value();
+        if (!empty($field_sidebar_text)) {
+          return $field_sidebar_text['value'];
+        }
+      }
+  }
+}
