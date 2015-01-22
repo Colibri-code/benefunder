@@ -39,8 +39,16 @@ function request_information_form_contents($which_block) {
 
       if ((arg(0) == 'node') && !empty($arg1)) {
         $wrapper = entity_metadata_wrapper('node', $arg1);
-        $show_form = $wrapper->field_show_request_information_f->value();
-        if ($show_form) {
+        $bundle = $wrapper->getBundle();
+        if ($bundle == 'page') {
+          $show_form = $wrapper->field_show_request_information_f->value();
+          if ($show_form) {
+            global $base_url;
+            $vars = array('base_url' => $base_url);
+            return theme('request_information_form_template', $vars);
+          }
+        }
+        elseif ($bundle == 'cause') {
           global $base_url;
           $vars = array('base_url' => $base_url);
           return theme('request_information_form_template', $vars);
