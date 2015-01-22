@@ -461,12 +461,76 @@ function bf_basic_page_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-page-field_show_request_information_f'
+  $field_instances['node-page-field_show_request_information_f'] = array(
+    'bundle' => 'page',
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => 'Check this box if you want the "Request Information" form to appear in the right sidebar.',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 9,
+      ),
+      'full' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'ds_extras_field_template' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_show_request_information_f',
+    'label' => 'Show Request Information form',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'display_label' => 1,
+      ),
+      'type' => 'options_onoff',
+      'weight' => 8,
+    ),
+  );
+
   // Exported field_instance: 'node-page-field_sidebar_text'
   $field_instances['node-page-field_sidebar_text'] = array(
     'bundle' => 'page',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => '<h4>Benefunder Location</h4>
+
+<p>3580 Carmel Mountain Road,<br />
+Suite 300<br />
+San Diego, California 92123</p>
+
+<h4>Call Us</h4>
+
+<p>(858) 215-1136</p>
+',
+        'format' => 'full_html',
+      ),
+    ),
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Enter text that you would like to appear in the right sidebar.',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -504,7 +568,7 @@ function bf_basic_page_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 7,
+      'weight' => 9,
     ),
   );
 
@@ -559,11 +623,14 @@ function bf_basic_page_field_default_field_instances() {
   t('50/50 Image/Text Alternating');
   t('Body');
   t('Bottom Text');
+  t('Check this box if you want the "Request Information" form to appear in the right sidebar.');
+  t('Enter text that you would like to appear in the right sidebar.');
   t('Image');
   t('Jumbotron Fields');
   t('Jumbotron Image');
   t('Jumbotron Link');
   t('Jumbotron Teaser');
+  t('Show Request Information form');
   t('Sidebar Text');
   t('Subtitle');
   t('Text');

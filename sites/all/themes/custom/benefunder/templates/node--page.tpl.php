@@ -134,7 +134,7 @@
             <?php foreach ($fifty_fifty as $delta => $row): ?>
                 <div class="subhead-row row">
                   <?php if (!empty($row['image'])): ?>
-                    <div class="feature feature-img col-xs-12 <?php print (!empty($row['text'])) ? 'col-sm-6' : ''; ?>">
+                    <div class="feature feature-img col-xs-12 <?php print (!empty($row['text'])) ? 'col-sm-6' : ''; ?> <?php if (($delta % 2) != 0) { print 'right-feature'; } ?>">
                       <img src="<?php print $row['image']; ?>">
                     </div>
                   <?php endif; ?>

@@ -70,7 +70,6 @@ var general = function() {
 		windowResize: function() {
 		  $(window).resize(function() {
 		      general.setupTileGrid();
-		      general.shiftLayout();
 		      //console.log(viewport.height());
 		  });
 		},
@@ -250,14 +249,6 @@ var general = function() {
 				'userCollapseText':'Read Less',
 				'expandPrefix':''
 			});
-		},
-
-		shiftLayout: function() {
-			// If larger than mobile float third feature to the right to create offset grid
-			if ( viewport.width() >= screenSizeSmall ) {
-				var thirdFeature = $('.subhead-row .feature')[2];
-				$(thirdFeature).css('float', 'right');
-			}
 		}
 	};
 }();
@@ -305,13 +296,6 @@ var Benefunder = {
 	node_type_page: {
 		init: function() {
 			// Javascript to be fired on all Basic pages
-		}
-	},
-	// About Benefunder page
-	about_benefunder: {
-		init: function() {
-			// Javascript to be fired on the About Benefunder page
-			general.shiftLayout();
 		}
 	}
 };

@@ -84,9 +84,9 @@ function bf_basic_page_field_group_info() {
     'label' => 'Tabs',
     'weight' => '0',
     'children' => array(
-      0 => 'group_sidebar',
-      1 => 'group_body_text',
-      2 => 'group_jumbotron',
+      0 => 'group_body_text',
+      1 => 'group_jumbotron',
+      2 => 'group_sidebar',
     ),
     'format_type' => 'tabs',
     'format_settings' => array(
@@ -112,6 +112,7 @@ function bf_basic_page_field_group_info() {
     'weight' => '4',
     'children' => array(
       0 => 'field_sidebar_text',
+      1 => 'field_show_request_information_f',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
