@@ -7,7 +7,7 @@
 
   <div class="form-group"><label for="last_name">Last Name</label><input id="request-info-last-name" class="form-control" id="last_name" maxlength="80" name="last_name" size="20" type="text" placeholder="Last Name" /></div>
 
-  <div class="form-group"><label for="email">Email</label><input id="request-info-email" class="form-control" id="email" maxlength="80" name="email" size="20" type="text" placeholder="Email" /></div>
+  <div class="form-group"><label for="email">Email</label><input id="request-info-email" class="form-control" id="email" maxlength="80" name="email" size="20" type="email" required placeholder="Email" /></div>
 
   <div class="form-group"><label for="phone">Phone</label><input id="request-info-phone" class="form-control" id="phone" maxlength="40" name="phone" size="20" type="text" placeholder="Phone (Optional)" /><button type="submit" class="btn btn-default">Send</button></div>
 
