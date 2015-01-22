@@ -7036,6 +7036,9 @@ body.page-causes {
 .region-content {
   position: relative;
 }
+.top-spacer + .region-content {
+  padding: 140px 40px 40px;
+}
 /* ==========================================================================
   Homepage Featured Causes
    ========================================================================== */
@@ -7389,6 +7392,10 @@ body.page-causes {
   font-family: 'raleway-extralight';
   line-height: 36px;
   padding: 20px 0;
+}
+.jumbo-teaser .cause-teaser .jumbo-rail .bio .read-more a {
+  padding-top: 10px;
+  display: inline-block;
 }
 .jumbo-teaser .cause-teaser .jumbo-rail .type {
   float: left;
@@ -8509,88 +8516,88 @@ body.page-causes {
     margin-top: -121px;
   }
 }
-.sidebar-first {
+div.sidebar-first {
   padding-bottom: 50px;
   float: left;
 }
-.sidebar-first p {
+div.sidebar-first p {
   font-size: 16px;
   line-height: 24px;
 }
-.sidebar-first .researcher-intro {
+div.sidebar-first .researcher-intro {
   position: relative;
   text-align: center;
   background-color: #ffffff;
 }
 @media (max-width: 767px) {
-  .sidebar-first .researcher-intro {
+  div.sidebar-first .researcher-intro {
     max-width: 320px;
     margin: 0 auto 40px;
   }
 }
-.sidebar-first .researcher-intro img {
+div.sidebar-first .researcher-intro img {
   max-width: 100%;
   width: 100%;
   height: auto;
 }
 @media (min-width: 992px) {
-  .sidebar-first .researcher-intro img {
+  div.sidebar-first .researcher-intro img {
     width: 100%;
   }
 }
-.sidebar-first .researcher-intro .researcher-details {
+div.sidebar-first .researcher-intro .researcher-details {
   position: absolute;
   bottom: -1px;
   width: 100%;
   padding: 17px 17px 17px 23px;
   text-align: left;
 }
-.sidebar-first .researcher-intro .researcher-details .researcher-name {
+div.sidebar-first .researcher-intro .researcher-details .researcher-name {
   color: #fff;
   font-family: 'Proxima N W01 Smbd';
   font-size: 18px;
   margin: 0;
 }
-.sidebar-first .researcher-intro .researcher-details .researcher-name:first-of-type {
+div.sidebar-first .researcher-intro .researcher-details .researcher-name:first-of-type {
   float: left;
   padding-right: 5px;
 }
-.sidebar-first .researcher-intro .researcher-details .affiliation {
+div.sidebar-first .researcher-intro .researcher-details .affiliation {
   color: #fff;
   font-family: 'Proxima N W01 Reg';
   font-size: 14px;
 }
 @media (min-width: 768px) {
-  .sidebar-first .researcher-intro .researcher-details .affiliation {
+  div.sidebar-first .researcher-intro .researcher-details .affiliation {
     font-size: 12px;
   }
 }
 @media (min-width: 992px) {
-  .sidebar-first .researcher-intro .researcher-details .affiliation {
+  div.sidebar-first .researcher-intro .researcher-details .affiliation {
     font-size: 14px;
   }
 }
-.sidebar-first .researcher-body {
+div.sidebar-first .researcher-body {
   background-color: #fff;
   padding: 30px;
 }
-.sidebar-first .researcher-body:before,
-.sidebar-first .researcher-body:after {
+div.sidebar-first .researcher-body:before,
+div.sidebar-first .researcher-body:after {
   content: " ";
   display: table;
 }
-.sidebar-first .researcher-body:after {
+div.sidebar-first .researcher-body:after {
   clear: both;
 }
-.sidebar-first .researcher-body:before,
-.sidebar-first .researcher-body:after {
+div.sidebar-first .researcher-body:before,
+div.sidebar-first .researcher-body:after {
   content: " ";
   display: table;
 }
-.sidebar-first .researcher-body:after {
+div.sidebar-first .researcher-body:after {
   clear: both;
 }
-.sidebar-first .researcher-body .affiliation-logo {
+div.sidebar-first .researcher-body .affiliation-logo {
   padding-bottom: 20px;
 }
 .request-information-block {
@@ -9106,6 +9113,9 @@ h2.body-intro-text {
   display: block;
   float: none;
   clear: left;
+}
+.explore-more-block .award {
+  margin-bottom: 15px;
 }
 .life .videos-teaser .teaser-video:before {
   background-position: 0 0;

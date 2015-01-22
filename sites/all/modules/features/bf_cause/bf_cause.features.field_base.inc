@@ -761,7 +761,7 @@ function bf_cause_field_default_field_bases() {
   // Exported field_base: 'field_research_area'
   $field_bases['field_research_area'] = array(
     'active' => 1,
-    'cardinality' => 4,
+    'cardinality' => 5,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_research_area',

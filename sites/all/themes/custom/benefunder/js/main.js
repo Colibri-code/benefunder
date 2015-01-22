@@ -244,7 +244,12 @@ var general = function() {
 		},
 
 		bio: function() {
-			$('.bio').expander({'slicePoint':500});
+			$('.bio').expander({
+				'slicePoint':500,
+				'expandText':'Read More',
+				'userCollapseText':'Read Less',
+				'expandPrefix':''
+			});
 		},
 
 		shiftLayout: function() {

@@ -63,6 +63,9 @@ body {
 .region-content {
   position: relative;
 }
+.top-spacer + .region-content {
+  padding: 140px 40px 40px;
+}
 
 
 /* ==========================================================================
@@ -391,6 +394,11 @@ body {
         font-family:@raleway-extralight;
         line-height:36px;
         padding:20px 0;
+
+        .read-more a {
+          padding-top: 10px;
+          display: inline-block;
+        }
       }
 
       .type {
@@ -1511,7 +1519,7 @@ body.node-type-cause .sidebar-first {
   }
 }
 
-.sidebar-first {
+div.sidebar-first {
   padding-bottom:50px;
   float:left;
 
@@ -2048,6 +2056,10 @@ h2.body-intro-text {
     display: block;
     float: none;
     clear: left;
+  }
+
+  .award {
+    margin-bottom: 15px;
   }
 }
 

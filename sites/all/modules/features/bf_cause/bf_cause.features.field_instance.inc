@@ -15,7 +15,7 @@ function bf_cause_field_default_field_instances() {
     'bundle' => 'field_awards',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Add any additional copy researcher provided in this section. Do not use ending punctuation.',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -25,6 +25,7 @@ function bf_cause_field_default_field_instances() {
         'weight' => 1,
       ),
     ),
+    'ds_extras_field_template' => '',
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_award_description',
     'label' => 'Description',
@@ -49,7 +50,7 @@ function bf_cause_field_default_field_instances() {
     'bundle' => 'field_awards',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Name of award, year received',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -59,6 +60,7 @@ function bf_cause_field_default_field_instances() {
         'weight' => 0,
       ),
     ),
+    'ds_extras_field_template' => '',
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_award_title',
     'label' => 'Title',
@@ -83,7 +85,7 @@ function bf_cause_field_default_field_instances() {
     'bundle' => 'field_in_the_news',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Title of Article',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -93,6 +95,7 @@ function bf_cause_field_default_field_instances() {
         'weight' => 0,
       ),
     ),
+    'ds_extras_field_template' => '',
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_in_the_news_link',
     'label' => 'Link',
@@ -134,7 +137,7 @@ function bf_cause_field_default_field_instances() {
     'bundle' => 'field_in_the_news',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Add any additional copy researcher provided in this section. Do not use ending punctuation.',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -144,6 +147,7 @@ function bf_cause_field_default_field_instances() {
         'weight' => 1,
       ),
     ),
+    'ds_extras_field_template' => '',
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_in_the_news_teaser',
     'label' => 'Teaser',
@@ -168,7 +172,8 @@ function bf_cause_field_default_field_instances() {
     'bundle' => 'field_patents',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => '<p>Description Section to include - Inventors. Issue date. Issued to</p>
+<ul><li>U.S. Patent No. 7,138,569: "Nucleic acids encoding <br />Pseudomonas Hop proteins and use thereof". <br />Inventors: Alan R. Collmer, James R. Alfano, Xiaoyan<br /> Tang, Robin C. Buell, and Gregory B. Martin. <br />Issued November 21, 2006 to Cornell Research<br /> Foundation, Boyce Thompson Institute, <br />Kansas State University, The Institute<br /> for Genomics Research, and the University<br /> of Nebraska.</li></ul>',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -178,6 +183,7 @@ function bf_cause_field_default_field_instances() {
         'weight' => 1,
       ),
     ),
+    'ds_extras_field_template' => '',
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_patent_description',
     'label' => 'Description',
@@ -202,7 +208,7 @@ function bf_cause_field_default_field_instances() {
     'bundle' => 'field_patents',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Patent Number: “Title.”',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -212,6 +218,7 @@ function bf_cause_field_default_field_instances() {
         'weight' => 0,
       ),
     ),
+    'ds_extras_field_template' => '',
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_patent_title',
     'label' => 'Title',
@@ -236,7 +243,7 @@ function bf_cause_field_default_field_instances() {
     'bundle' => 'field_publications',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Add any additional copy researcher provided in this section. Do not use ending punctuation.',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -246,6 +253,7 @@ function bf_cause_field_default_field_instances() {
         'weight' => 1,
       ),
     ),
+    'ds_extras_field_template' => '',
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_publication_description',
     'label' => 'Description',
@@ -270,7 +278,7 @@ function bf_cause_field_default_field_instances() {
     'bundle' => 'field_publications',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Title of Publication',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -280,6 +288,7 @@ function bf_cause_field_default_field_instances() {
         'weight' => 0,
       ),
     ),
+    'ds_extras_field_template' => '',
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_publication_link',
     'label' => 'Link',
@@ -319,15 +328,9 @@ function bf_cause_field_default_field_instances() {
   // Exported field_instance: 'node-cause-body'
   $field_instances['node-cause-body'] = array(
     'bundle' => 'cause',
-    'default_value' => array(
-      0 => array(
-        'summary' => '',
-        'value' => '',
-        'format' => 'full_html',
-      ),
-    ),
+    'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'The first paragraph of the cause content',
     'display' => array(
       'default' => array(
         'label' => 'hidden',
@@ -353,33 +356,12 @@ function bf_cause_field_default_field_instances() {
         'weight' => 0,
       ),
     ),
+    'ds_extras_field_template' => '',
     'entity_type' => 'node',
     'field_name' => 'body',
     'label' => 'Elevator Pitch',
     'required' => 0,
     'settings' => array(
-      'better_formats' => array(
-        'allowed_formats' => array(
-          'filtered_html' => 0,
-          'full_html' => 'full_html',
-          'plain_text' => 0,
-        ),
-        'allowed_formats_toggle' => 0,
-        'default_order_toggle' => 1,
-        'default_order_wrapper' => array(
-          'formats' => array(
-            'filtered_html' => array(
-              'weight' => -49,
-            ),
-            'full_html' => array(
-              'weight' => -50,
-            ),
-            'plain_text' => array(
-              'weight' => -48,
-            ),
-          ),
-        ),
-      ),
       'display_summary' => 0,
       'text_processing' => 1,
       'user_register_form' => FALSE,
@@ -401,7 +383,10 @@ function bf_cause_field_default_field_instances() {
     'bundle' => 'cause',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => '<p>Add most current first. Title, Department (line break) Full Name of University or Institution (line break) year started – year ended or if current write current</p>
+<p>Professor, Pathology<br />
+University of California, San Diego<br />
+2006 – current</p>',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -424,12 +409,13 @@ function bf_cause_field_default_field_instances() {
         'weight' => 0,
       ),
     ),
+    'ds_extras_field_template' => '',
     'entity_type' => 'node',
     'field_name' => 'field_academic_position',
     'label' => 'Title / Academic Position',
     'required' => 0,
     'settings' => array(
-      'text_processing' => 0,
+      'text_processing' => 1,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -448,7 +434,7 @@ function bf_cause_field_default_field_instances() {
     'bundle' => 'cause',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Add URL for a video',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -471,6 +457,7 @@ function bf_cause_field_default_field_instances() {
         'weight' => 0,
       ),
     ),
+    'ds_extras_field_template' => '',
     'entity_type' => 'node',
     'field_name' => 'field_additional_videos',
     'label' => 'Video Links',
@@ -540,6 +527,7 @@ function bf_cause_field_default_field_instances() {
         'weight' => 0,
       ),
     ),
+    'ds_extras_field_template' => '',
     'entity_type' => 'node',
     'field_name' => 'field_awards',
     'label' => 'Awards',
@@ -561,7 +549,7 @@ function bf_cause_field_default_field_instances() {
     'bundle' => 'cause',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Write in paragraph form.',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -584,6 +572,7 @@ function bf_cause_field_default_field_instances() {
         'weight' => 0,
       ),
     ),
+    'ds_extras_field_template' => '',
     'entity_type' => 'node',
     'field_name' => 'field_bio',
     'label' => 'Bio',
@@ -608,7 +597,7 @@ function bf_cause_field_default_field_instances() {
     'bundle' => 'cause',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Character count should not exceed 550.',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -631,6 +620,7 @@ function bf_cause_field_default_field_instances() {
         'weight' => 0,
       ),
     ),
+    'ds_extras_field_template' => '',
     'entity_type' => 'node',
     'field_name' => 'field_call_to_action',
     'label' => 'Call to Action',
@@ -655,7 +645,11 @@ function bf_cause_field_default_field_instances() {
     'bundle' => 'cause',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => '<p>Degree (written in acronym i.e., B.A.), in Department, year graduated (line break)
+school</p>
+<p>Ph.D. in Health Science Center 1990<br />
+Texas Tech University<br />
+Researcher Bio – Write in paragraph form.</p>',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -678,12 +672,13 @@ function bf_cause_field_default_field_instances() {
         'weight' => 0,
       ),
     ),
+    'ds_extras_field_template' => '',
     'entity_type' => 'node',
     'field_name' => 'field_education',
     'label' => 'Education',
     'required' => 0,
     'settings' => array(
-      'text_processing' => 0,
+      'text_processing' => 1,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -702,7 +697,7 @@ function bf_cause_field_default_field_instances() {
     'bundle' => 'cause',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Researchers actual email address',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -725,6 +720,7 @@ function bf_cause_field_default_field_instances() {
         'weight' => 0,
       ),
     ),
+    'ds_extras_field_template' => '',
     'entity_type' => 'node',
     'field_name' => 'field_email',
     'label' => 'Email',
@@ -749,7 +745,7 @@ function bf_cause_field_default_field_instances() {
     'bundle' => 'cause',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Researcher first name (not nickname)',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -772,6 +768,7 @@ function bf_cause_field_default_field_instances() {
         'weight' => 0,
       ),
     ),
+    'ds_extras_field_template' => '',
     'entity_type' => 'node',
     'field_name' => 'field_first_name',
     'label' => 'First Name',
@@ -845,7 +842,7 @@ function bf_cause_field_default_field_instances() {
     'bundle' => 'cause',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Use J1 Question only.',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -868,6 +865,7 @@ function bf_cause_field_default_field_instances() {
         'weight' => 0,
       ),
     ),
+    'ds_extras_field_template' => '',
     'entity_type' => 'node',
     'field_name' => 'field_jumbotron_copy',
     'label' => 'Jumbotron Copy',
@@ -962,7 +960,7 @@ function bf_cause_field_default_field_instances() {
   $field_instances['node-cause-field_jumbotron_video'] = array(
     'bundle' => 'cause',
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Benefunder video only. Use vimeo url link.',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -985,6 +983,7 @@ function bf_cause_field_default_field_instances() {
         'weight' => 0,
       ),
     ),
+    'ds_extras_field_template' => '',
     'entity_type' => 'node',
     'field_name' => 'field_jumbotron_video',
     'label' => 'Jumbotron Video',
@@ -1001,6 +1000,7 @@ function bf_cause_field_default_field_instances() {
       'module' => 'media',
       'settings' => array(
         'allowed_schemes' => array(
+          'private' => 0,
           'public' => 0,
           'vimeo' => 'vimeo',
           'youtube' => 'youtube',
@@ -1069,7 +1069,7 @@ function bf_cause_field_default_field_instances() {
     'bundle' => 'cause',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => ' Researcher last name',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -1092,6 +1092,7 @@ function bf_cause_field_default_field_instances() {
         'weight' => 0,
       ),
     ),
+    'ds_extras_field_template' => '',
     'entity_type' => 'node',
     'field_name' => 'field_last_name',
     'label' => 'Last Name',
@@ -1116,7 +1117,7 @@ function bf_cause_field_default_field_instances() {
     'bundle' => 'cause',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Use Jumbotron 3 answer here.',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -1138,6 +1139,7 @@ function bf_cause_field_default_field_instances() {
         'weight' => 0,
       ),
     ),
+    'ds_extras_field_template' => '',
     'entity_type' => 'node',
     'field_name' => 'field_overlay_copy',
     'label' => 'Overlay Copy',
@@ -1210,7 +1212,7 @@ function bf_cause_field_default_field_instances() {
   $field_instances['node-cause-field_picture'] = array(
     'bundle' => 'cause',
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Researcher headshot',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -1239,6 +1241,7 @@ function bf_cause_field_default_field_instances() {
         'weight' => 0,
       ),
     ),
+    'ds_extras_field_template' => '',
     'entity_type' => 'node',
     'field_name' => 'field_picture',
     'label' => 'Picture',
@@ -1331,7 +1334,7 @@ function bf_cause_field_default_field_instances() {
     'bundle' => 'cause',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => 'Choose 1 top-level item, and up to 3 additional research areas.',
+    'description' => 'Select up to two top level categories then choose up to three researcher areas within the categories',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -1354,6 +1357,7 @@ function bf_cause_field_default_field_instances() {
         'weight' => 0,
       ),
     ),
+    'ds_extras_field_template' => '',
     'entity_type' => 'node',
     'field_name' => 'field_research_area',
     'label' => 'Research Area',
@@ -1377,7 +1381,7 @@ function bf_cause_field_default_field_instances() {
     'bundle' => 'cause',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Limit to 140 characters',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -1399,6 +1403,7 @@ function bf_cause_field_default_field_instances() {
         'weight' => 0,
       ),
     ),
+    'ds_extras_field_template' => '',
     'entity_type' => 'node',
     'field_name' => 'field_share_lines',
     'label' => 'Share Lines',
@@ -1423,7 +1428,7 @@ function bf_cause_field_default_field_instances() {
     'bundle' => 'cause',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Should be written in sentence caps.',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -1446,6 +1451,7 @@ function bf_cause_field_default_field_instances() {
         'weight' => 0,
       ),
     ),
+    'ds_extras_field_template' => '',
     'entity_type' => 'node',
     'field_name' => 'field_subtitle',
     'label' => 'Subtitle',
@@ -1470,7 +1476,7 @@ function bf_cause_field_default_field_instances() {
     'bundle' => 'cause',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'The body of the content to include bullet points. Use one space throughout paragraphs and bullet points. Use text editor bullet points. Left justify text. Font and size are set – Do not adjust.',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -1493,6 +1499,7 @@ function bf_cause_field_default_field_instances() {
         'weight' => 0,
       ),
     ),
+    'ds_extras_field_template' => '',
     'entity_type' => 'node',
     'field_name' => 'field_summary',
     'label' => 'Summary',
@@ -1517,7 +1524,7 @@ function bf_cause_field_default_field_instances() {
     'bundle' => 'cause',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Correlated to current academic or corporate position',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -1540,6 +1547,7 @@ function bf_cause_field_default_field_instances() {
         'weight' => 0,
       ),
     ),
+    'ds_extras_field_template' => '',
     'entity_type' => 'node',
     'field_name' => 'field_university_or_institution',
     'label' => 'University or Institution',
@@ -1568,10 +1576,26 @@ function bf_cause_field_default_field_instances() {
 
   // Translatables
   // Included for use with string extractors like potx.
+  t(' Researcher last name');
+  t('<p>Add most current first. Title, Department (line break) Full Name of University or Institution (line break) year started – year ended or if current write current</p>
+<p>Professor, Pathology<br />
+University of California, San Diego<br />
+2006 – current</p>');
+  t('<p>Degree (written in acronym i.e., B.A.), in Department, year graduated (line break)
+school</p>
+<p>Ph.D. in Health Science Center 1990<br />
+Texas Tech University<br />
+Researcher Bio – Write in paragraph form.</p>');
+  t('<p>Description Section to include - Inventors. Issue date. Issued to</p>
+<ul><li>U.S. Patent No. 7,138,569: "Nucleic acids encoding <br />Pseudomonas Hop proteins and use thereof". <br />Inventors: Alan R. Collmer, James R. Alfano, Xiaoyan<br /> Tang, Robin C. Buell, and Gregory B. Martin. <br />Issued November 21, 2006 to Cornell Research<br /> Foundation, Boyce Thompson Institute, <br />Kansas State University, The Institute<br /> for Genomics Research, and the University<br /> of Nebraska.</li></ul>');
+  t('Add URL for a video');
+  t('Add any additional copy researcher provided in this section. Do not use ending punctuation.');
   t('Awards');
+  t('Benefunder video only. Use vimeo url link.');
   t('Bio');
   t('Call to Action');
-  t('Choose 1 top-level item, and up to 3 additional research areas.');
+  t('Character count should not exceed 550.');
+  t('Correlated to current academic or corporate position');
   t('Description');
   t('Education');
   t('Elevator Pitch');
@@ -1583,20 +1607,35 @@ function bf_cause_field_default_field_instances() {
   t('Jumbotron Video');
   t('Keywords');
   t('Last Name');
+  t('Limit to 140 characters');
   t('Link');
+  t('Name of award, year received');
   t('Overlay Copy');
+  t('Patent Number: “Title.”');
   t('Patents');
   t('Picture');
   t('Publications');
   t('Research Area');
+  t('Researcher first name (not nickname)');
+  t('Researcher headshot');
+  t('Researchers actual email address');
+  t('Select up to two top level categories then choose up to three researcher areas within the categories');
   t('Share Lines');
+  t('Should be written in sentence caps.');
   t('Subtitle');
   t('Summary');
   t('Teaser');
+  t('The body of the content to include bullet points. Use one space throughout paragraphs and bullet points. Use text editor bullet points. Left justify text. Font and size are set – Do not adjust.');
+  t('The first paragraph of the cause content');
   t('Title');
   t('Title / Academic Position');
+  t('Title of Article');
+  t('Title of Publication');
   t('University or Institution');
+  t('Use J1 Question only.');
+  t('Use Jumbotron 3 answer here.');
   t('Video Links');
+  t('Write in paragraph form.');
 
   return $field_instances;
 }

@@ -84,8 +84,9 @@ function bf_basic_page_field_group_info() {
     'label' => 'Tabs',
     'weight' => '0',
     'children' => array(
-      0 => 'group_jumbotron',
+      0 => 'group_sidebar',
       1 => 'group_body_text',
+      2 => 'group_jumbotron',
     ),
     'format_type' => 'tabs',
     'format_settings' => array(
@@ -96,6 +97,33 @@ function bf_basic_page_field_group_info() {
     ),
   );
   $export['group_page_tabs|node|page|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_sidebar|node|page|form';
+  $field_group->group_name = 'group_sidebar';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'page';
+  $field_group->mode = 'form';
+  $field_group->parent_name = 'group_page_tabs';
+  $field_group->data = array(
+    'label' => 'Sidebar',
+    'weight' => '4',
+    'children' => array(
+      0 => 'field_sidebar_text',
+    ),
+    'format_type' => 'tab',
+    'format_settings' => array(
+      'formatter' => 'closed',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => 'group-sidebar field-group-tab',
+        'required_fields' => 1,
+      ),
+    ),
+  );
+  $export['group_sidebar|node|page|form'] = $field_group;
 
   return $export;
 }

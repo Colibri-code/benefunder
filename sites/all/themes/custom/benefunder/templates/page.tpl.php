@@ -101,14 +101,7 @@
 ?>
 
 <?php if ($need_top_image): ?>
-
-  <section class="hero-wrapper">
-    <div class="hero" style="background-image: url('<?php print drupal_get_path('theme', 'benefunder'); ?>/media/images/nemo_background.jpg');"></div>
-    <div class="hero-text only-title">
-      <h1 class="page-title"><?php print $title; ?></h1>
-    </div>
-  </section><!-- end .hero-wrapper -->
-
+  <div class="top-spacer"></div>
 <?php endif; ?>
 
 <?php print render($page['content']); ?>
