@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the BF Causes Admin View feature.
+ */
+
+include_once 'bf_causes_admin_view.features.inc';
