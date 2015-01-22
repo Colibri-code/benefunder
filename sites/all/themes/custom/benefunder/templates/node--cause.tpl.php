@@ -152,14 +152,13 @@
             <img class="cause-type-icon" src="<?php print $research_area_icon_color; ?>">
             <p class="cause-title"><?php print $title; ?></p>
           </div>
+          <?php $block = module_invoke('service_links', 'block_view', 'service_links'); ?>
           <div class="share-block">
             <p class="share-text collapsed" data-toggle="collapse" data-target=".share-wrapper">Share</p>
             <div class="share-wrapper collapse">
               <i class="carrot"></i>
               <div class="share-contents">
-                <a href="#" class="facebook">Share on Facebook</a>
-                <a href="#" class="twitter">Share on Twitter</a>
-                <a href="#" class="linkedin">Share on LinkedIn</a>
+                <?php print render($block['content']); ?>
               </div>
             </div>
           </div>
@@ -179,18 +178,7 @@
             <?php if (!empty($bio)): ?>
               <div class="bio">
                 <h2 class="block-title">Bio</h2>
-                <?php
-
-                  print theme(
-                    'ctools_collapsible',
-                    array(
-                      'handle' => 'View', 
-                      'content' => $bio, 
-                      'collapsed' => TRUE
-                    )
-                  );
-
-                ?>
+                <?php print $bio; ?>
               </div>
             <?php endif; ?>
 

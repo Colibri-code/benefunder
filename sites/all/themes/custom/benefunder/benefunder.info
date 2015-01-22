@@ -62,6 +62,7 @@ scripts[] = 'js/plugins/media.match.js'
 scripts[] = 'js/plugins/jquery.selectric.min.js'
 scripts[] = 'js/plugins/jquery.magnific-popup.min.js'
 scripts[] = 'js/plugins/jquery.placeholder.js'
+scripts[] = 'js/plugins/jquery.expander.min.js'
 scripts[] = 'js/main.js'
 
 ; ;-------------------------

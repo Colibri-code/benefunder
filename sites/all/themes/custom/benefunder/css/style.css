@@ -8808,6 +8808,12 @@ body.page-causes {
 .cause-meta .share-block .share-contents:after {
   clear: both;
 }
+.cause-meta .share-block .share-contents ul,
+.cause-meta .share-block .share-contents li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
 .cause-meta .share-block .share-contents a {
   display: inline-block;
   float: left;
@@ -8827,17 +8833,17 @@ body.page-causes {
   background-repeat: no-repeat;
   margin-right: 20px;
 }
-.cause-meta .share-block .share-contents a.facebook:before {
+.cause-meta .share-block .share-contents a.service-links-facebook:before {
   height: 21px;
   width: 11px;
   background-position: -7px 0px;
 }
-.cause-meta .share-block .share-contents a.twitter:before {
+.cause-meta .share-block .share-contents a.service-links-twitter:before {
   height: 17px;
   width: 22px;
   background-position: 0px -41px;
 }
-.cause-meta .share-block .share-contents a.linkedin:before {
+.cause-meta .share-block .share-contents a.service-links-linkedin:before {
   height: 19px;
   width: 19px;
   background-position: 0px -76px;

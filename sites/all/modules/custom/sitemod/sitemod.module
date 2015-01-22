@@ -40,3 +40,9 @@ function sitemod_cause_node_validate($form, &$form_state) {
   }
   
 }
+
+function sitemod_service_links_alter(&$links) {
+  $links['facebook']['name'] = t('Share on Facebook');
+  $links['twitter']['name'] = t('Share on Twitter');
+  $links['linkedin']['name'] = t('Share on LinkedIn');
+}

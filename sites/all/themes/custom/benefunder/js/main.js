@@ -243,6 +243,10 @@ var general = function() {
 			}
 		},
 
+		bio: function() {
+			$('.bio').expander({'slicePoint':500});
+		},
+
 		shiftLayout: function() {
 			// If larger than mobile float third feature to the right to create offset grid
 			if ( viewport.width() >= screenSizeSmall ) {
@@ -289,6 +293,7 @@ var Benefunder = {
 			// Javascript to be fired on the causes detail page
 			general.causeDetailVideo();
 			general.heroBackgroundImage();
+			general.bio();
 		}
 	},
 	// type Basic Page 
