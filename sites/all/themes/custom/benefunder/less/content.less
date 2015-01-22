@@ -1525,8 +1525,14 @@ body.node-type-cause .sidebar-first {
     text-align:center;
     background-color:rgba(255,255,255,1);
 
+    @media (max-width: @screen-xs-max) {
+      max-width: 320px;
+      margin: 0 auto 40px;
+    }
+
     img {
       max-width:100%;
+      width: 100%;
       height:auto;
 
       @media(min-width:@screen-md-min) {

@@ -8522,8 +8522,15 @@ body.page-causes {
   text-align: center;
   background-color: #ffffff;
 }
+@media (max-width: 767px) {
+  .sidebar-first .researcher-intro {
+    max-width: 320px;
+    margin: 0 auto 40px;
+  }
+}
 .sidebar-first .researcher-intro img {
   max-width: 100%;
+  width: 100%;
   height: auto;
 }
 @media (min-width: 992px) {
