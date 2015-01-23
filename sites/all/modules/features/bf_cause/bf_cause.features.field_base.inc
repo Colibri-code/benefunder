@@ -911,5 +911,43 @@ function bf_cause_field_default_field_bases() {
     'type' => 'taxonomy_term_reference',
   );
 
+  // Exported field_base: 'meta_description'
+  $field_bases['meta_description'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'meta_description',
+    'foreign keys' => array(),
+    'indexes' => array(),
+    'locked' => 0,
+    'module' => 'metatags_quick',
+    'settings' => array(
+      'max_length' => 160,
+      'meta_name' => 'description',
+    ),
+    'translatable' => 0,
+    'type' => 'metatags_quick',
+  );
+
+  // Exported field_base: 'meta_keywords'
+  $field_bases['meta_keywords'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'meta_keywords',
+    'foreign keys' => array(),
+    'indexes' => array(),
+    'locked' => 0,
+    'module' => 'metatags_quick',
+    'settings' => array(
+      'max_length' => 160,
+      'meta_name' => 'keywords',
+    ),
+    'translatable' => 0,
+    'type' => 'metatags_quick',
+  );
+
   return $field_bases;
 }

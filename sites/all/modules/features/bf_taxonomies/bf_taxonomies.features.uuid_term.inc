@@ -938,8 +938,8 @@ function bf_taxonomies_uuid_features_default_terms() {
     ),
   );
   $terms[] = array(
-    'name' => 'Technologies',
-    'description' => 'Marfa vinyl literally Helvetica roof party, food truck hella +1 Wes Anderson Blue Bottle. Mumblecore post-ironic crucifix try-hard. Kogi letterpress 3 wolf moon. Marfa vinyl literally Helvetica roof party, food truck hella +1 Wes Anderson Blue Bottle. Mumblecore post-ironic crucifix try-hard. Kogi letterpress 3 wolf moon. Marfa vinyl literally Helvetica roof party, food truck hella +1 Wes Anderson Blue Bottle. Mumblecore post-ironic crucifix try-hard. Kogi letterpress 3 wolf moon.',
+    'name' => 'Technology',
+    'description' => 'Marfa vinyl literally Helvetica roof party, food truck hella +1 Wes Anderson Blue Bottle. Mumblecore post-ironic crucifix try-hard. Kogi letterpress 3 wolf moon. Marfa vinyl literally Helvetica roof party, food truck hella +1 Wes Anderson Blue Bottle. Mumblecore post-ironic crucifix try-hard. Kogi letterpress 3 wolf moon.',
     'format' => 'plain_text',
     'weight' => 0,
     'uuid' => '797fa9c6-81a9-4032-b846-763ed1162542',

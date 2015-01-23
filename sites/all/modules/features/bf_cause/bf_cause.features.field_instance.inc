@@ -889,7 +889,7 @@ Researcher Bio – Write in paragraph form.</p>',
   $field_instances['node-cause-field_jumbotron_image'] = array(
     'bundle' => 'cause',
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Ideally the image should be at least 1400 pixels wide.  Also keep in mind that the top and bottom of the image will be cut off on some displays.',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -918,6 +918,7 @@ Researcher Bio – Write in paragraph form.</p>',
         'weight' => 0,
       ),
     ),
+    'ds_extras_field_template' => '',
     'entity_type' => 'node',
     'field_name' => 'field_jumbotron_image',
     'label' => 'Jumbotron Image',
@@ -1212,7 +1213,7 @@ Researcher Bio – Write in paragraph form.</p>',
   $field_instances['node-cause-field_picture'] = array(
     'bundle' => 'cause',
     'deleted' => 0,
-    'description' => 'Researcher headshot',
+    'description' => 'Researcher headshot.  Ideally the width should be around 400 pixels wide, and the image should be at least roughly square.',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -1574,9 +1575,97 @@ Researcher Bio – Write in paragraph form.</p>',
     ),
   );
 
+  // Exported field_instance: 'node-cause-meta_description'
+  $field_instances['node-cause-meta_description'] = array(
+    'bundle' => 'cause',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'Enter a description. Limit your description to about 20 words, with a maximum of 255 characters. It should not contain any HTML tags or other formatting.',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'metatags_quick',
+        'settings' => array(),
+        'type' => 'metatags_quick_default',
+        'weight' => 32,
+      ),
+      'search_result' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'meta_description',
+    'formatter' => 'metatags_quick_default',
+    'label' => '(Meta)Description',
+    'required' => FALSE,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'module' => 'metatags_quick',
+      'settings' => array(),
+      'type' => 'metatags_quick_textarea',
+      'weight' => 1,
+    ),
+  );
+
+  // Exported field_instance: 'node-cause-meta_keywords'
+  $field_instances['node-cause-meta_keywords'] = array(
+    'bundle' => 'cause',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'Enter a short abstract. Typically it is one sentence.',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'metatags_quick',
+        'settings' => array(),
+        'type' => 'metatags_quick_default',
+        'weight' => 33,
+      ),
+      'search_result' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'meta_keywords',
+    'formatter' => 'metatags_quick_default',
+    'label' => '(Meta)Keywords',
+    'required' => FALSE,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'module' => 'metatags_quick',
+      'settings' => array(),
+      'type' => 'metatags_quick_textfield',
+      'weight' => 0,
+    ),
+  );
+
   // Translatables
   // Included for use with string extractors like potx.
   t(' Researcher last name');
+  t('(Meta)Description');
+  t('(Meta)Keywords');
   t('<p>Add most current first. Title, Department (line break) Full Name of University or Institution (line break) year started – year ended or if current write current</p>
 <p>Professor, Pathology<br />
 University of California, San Diego<br />
@@ -1600,7 +1689,10 @@ Researcher Bio – Write in paragraph form.</p>');
   t('Education');
   t('Elevator Pitch');
   t('Email');
+  t('Enter a description. Limit your description to about 20 words, with a maximum of 255 characters. It should not contain any HTML tags or other formatting.');
+  t('Enter a short abstract. Typically it is one sentence.');
   t('First Name');
+  t('Ideally the image should be at least 1400 pixels wide.  Also keep in mind that the top and bottom of the image will be cut off on some displays.');
   t('In the News');
   t('Jumbotron Copy');
   t('Jumbotron Image');
@@ -1617,7 +1709,7 @@ Researcher Bio – Write in paragraph form.</p>');
   t('Publications');
   t('Research Area');
   t('Researcher first name (not nickname)');
-  t('Researcher headshot');
+  t('Researcher headshot.  Ideally the width should be around 400 pixels wide, and the image should be at least roughly square.');
   t('Researchers actual email address');
   t('Select up to two top level categories then choose up to three researcher areas within the categories');
   t('Share Lines');

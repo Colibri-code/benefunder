@@ -246,6 +246,34 @@ function bf_cause_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
+  $field_group->identifier = 'group_seo|node|cause|form';
+  $field_group->group_name = 'group_seo';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'cause';
+  $field_group->mode = 'form';
+  $field_group->parent_name = 'group_tabs';
+  $field_group->data = array(
+    'label' => 'SEO',
+    'weight' => '9',
+    'children' => array(
+      0 => 'meta_description',
+      1 => 'meta_keywords',
+    ),
+    'format_type' => 'tab',
+    'format_settings' => array(
+      'formatter' => 'closed',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => 'group-seo field-group-tab',
+        'required_fields' => 1,
+      ),
+    ),
+  );
+  $export['group_seo|node|cause|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
   $field_group->identifier = 'group_tabs|node|cause|form';
   $field_group->group_name = 'group_tabs';
   $field_group->entity_type = 'node';
@@ -256,14 +284,15 @@ function bf_cause_field_group_info() {
     'label' => 'Horizontal Tabs',
     'weight' => '0',
     'children' => array(
-      0 => 'group_basic',
-      1 => 'group_cause_media',
-      2 => 'group_cause',
-      3 => 'group_hidden',
-      4 => 'group_overlay',
-      5 => 'group_researcher_bio',
-      6 => 'group_researcher_links',
-      7 => 'group_researcher',
+      0 => 'group_seo',
+      1 => 'group_basic',
+      2 => 'group_cause_media',
+      3 => 'group_cause',
+      4 => 'group_hidden',
+      5 => 'group_overlay',
+      6 => 'group_researcher_bio',
+      7 => 'group_researcher_links',
+      8 => 'group_researcher',
     ),
     'format_type' => 'tabs',
     'format_settings' => array(

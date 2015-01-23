@@ -30,12 +30,13 @@ function bf_basic_page_field_group_info() {
     ),
     'format_type' => 'tab',
     'format_settings' => array(
-      'formatter' => 'closed',
+      'label' => 'Body Text',
       'instance_settings' => array(
-        'description' => '',
-        'classes' => 'group-body-text field-group-tab',
         'required_fields' => 1,
+        'classes' => 'group-body-text field-group-tab',
+        'description' => 'These fields will show on the page in the order that they appear in this form.',
       ),
+      'formatter' => 'closed',
     ),
   );
   $export['group_body_text|node|page|form'] = $field_group;
@@ -87,6 +88,7 @@ function bf_basic_page_field_group_info() {
       0 => 'group_body_text',
       1 => 'group_jumbotron',
       2 => 'group_sidebar',
+      3 => 'group_seo',
     ),
     'format_type' => 'tabs',
     'format_settings' => array(
@@ -97,6 +99,34 @@ function bf_basic_page_field_group_info() {
     ),
   );
   $export['group_page_tabs|node|page|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_seo|node|page|form';
+  $field_group->group_name = 'group_seo';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'page';
+  $field_group->mode = 'form';
+  $field_group->parent_name = 'group_page_tabs';
+  $field_group->data = array(
+    'label' => 'SEO',
+    'weight' => '5',
+    'children' => array(
+      0 => 'meta_description',
+      1 => 'meta_keywords',
+    ),
+    'format_type' => 'tab',
+    'format_settings' => array(
+      'formatter' => 'closed',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => 'group-seo field-group-tab',
+        'required_fields' => 1,
+      ),
+    ),
+  );
+  $export['group_seo|node|page|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */

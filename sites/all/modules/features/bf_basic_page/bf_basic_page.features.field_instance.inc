@@ -14,7 +14,7 @@ function bf_basic_page_field_default_field_instances() {
   $field_instances['field_collection_item-field_50_50_image_text_alternati-field_50_50_image'] = array(
     'bundle' => 'field_50_50_image_text_alternati',
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Ideally this image should be at least 700 pixels wide.',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -27,6 +27,7 @@ function bf_basic_page_field_default_field_instances() {
         'weight' => 1,
       ),
     ),
+    'ds_extras_field_template' => '',
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_50_50_image',
     'label' => 'Image',
@@ -47,6 +48,7 @@ function bf_basic_page_field_default_field_instances() {
       'module' => 'media',
       'settings' => array(
         'allowed_schemes' => array(
+          'private' => 0,
           'public' => 'public',
           'vimeo' => 0,
           'youtube' => 0,
@@ -116,7 +118,7 @@ function bf_basic_page_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 7,
+        'weight' => 11,
       ),
       'teaser' => array(
         'label' => 'hidden',
@@ -153,7 +155,11 @@ function bf_basic_page_field_default_field_instances() {
     'bundle' => 'page',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => '<p>If you add only an image or only text, it will appear at full width.</p>
+<p>If you add both, one will be on the left, and the other will be on the right.  The order of the image and text will alternate as seen below:</p>
+<p>Image | Text<br />
+Text | Image<br />Image | Text<br />
+Text | Image<br /></p>',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -172,7 +178,7 @@ function bf_basic_page_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 6,
+        'weight' => 10,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -181,6 +187,7 @@ function bf_basic_page_field_default_field_instances() {
         'weight' => 0,
       ),
     ),
+    'ds_extras_field_template' => '',
     'entity_type' => 'node',
     'field_name' => 'field_50_50_image_text_alternati',
     'label' => '50/50 Image/Text Alternating',
@@ -215,7 +222,7 @@ function bf_basic_page_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 3,
+        'weight' => 7,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -224,6 +231,7 @@ function bf_basic_page_field_default_field_instances() {
         'weight' => 0,
       ),
     ),
+    'ds_extras_field_template' => '',
     'entity_type' => 'node',
     'field_name' => 'field_bottom_text',
     'label' => 'Bottom Text',
@@ -248,7 +256,8 @@ function bf_basic_page_field_default_field_instances() {
     'bundle' => 'page',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => '<p>Use this field to select the jumbotron style.  Examples:</p>
+<p><a href="/node/3" target="_blank">Title only</a><br /><a href="/node/22" target="_blank">Title, teaser, and link</a><br /><a href="/node/13" target="_blank">Banner with title and teaser</a></p>',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -261,7 +270,7 @@ function bf_basic_page_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 2,
+        'weight' => 6,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -270,6 +279,7 @@ function bf_basic_page_field_default_field_instances() {
         'weight' => 0,
       ),
     ),
+    'ds_extras_field_template' => '',
     'entity_type' => 'node',
     'field_name' => 'field_jumbotron_fields',
     'label' => 'Jumbotron Fields',
@@ -304,7 +314,7 @@ function bf_basic_page_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 4,
+        'weight' => 8,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -367,7 +377,7 @@ function bf_basic_page_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 2,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -399,7 +409,7 @@ function bf_basic_page_field_default_field_instances() {
   $field_instances['node-page-field_page_hero'] = array(
     'bundle' => 'page',
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Ideally the image should be at least 1400 pixels wide.  Also keep in mind that the top and bottom of the image will be cut off at some resolutions.',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -415,7 +425,7 @@ function bf_basic_page_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 1,
+        'weight' => 5,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -424,6 +434,7 @@ function bf_basic_page_field_default_field_instances() {
         'weight' => 0,
       ),
     ),
+    'ds_extras_field_template' => '',
     'entity_type' => 'node',
     'field_name' => 'field_page_hero',
     'label' => 'Jumbotron Image',
@@ -444,6 +455,7 @@ function bf_basic_page_field_default_field_instances() {
       'module' => 'media',
       'settings' => array(
         'allowed_schemes' => array(
+          'private' => 0,
           'public' => 'public',
           'vimeo' => 0,
           'youtube' => 0,
@@ -483,7 +495,7 @@ function bf_basic_page_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 3,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -543,7 +555,7 @@ San Diego, California 92123</p>
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 4,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -577,7 +589,7 @@ San Diego, California 92123</p>
     'bundle' => 'page',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'The subtitle appears above the body text and is underlined in green.',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -590,7 +602,7 @@ San Diego, California 92123</p>
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 5,
+        'weight' => 9,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -599,6 +611,7 @@ San Diego, California 92123</p>
         'weight' => 0,
       ),
     ),
+    'ds_extras_field_template' => '',
     'entity_type' => 'node',
     'field_name' => 'field_subtitle',
     'label' => 'Subtitle',
@@ -618,13 +631,114 @@ San Diego, California 92123</p>
     ),
   );
 
+  // Exported field_instance: 'node-page-meta_description'
+  $field_instances['node-page-meta_description'] = array(
+    'bundle' => 'page',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'Enter a description. Limit your description to about 20 words, with a maximum of 255 characters. It should not contain any HTML tags or other formatting.',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'metatags_quick',
+        'settings' => array(),
+        'type' => 'metatags_quick_default',
+        'weight' => 10,
+      ),
+      'full' => array(
+        'label' => 'hidden',
+        'module' => 'metatags_quick',
+        'settings' => array(),
+        'type' => 'metatags_quick_default',
+        'weight' => 1,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'meta_description',
+    'formatter' => 'metatags_quick_default',
+    'label' => '(Meta)Description',
+    'required' => FALSE,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'module' => 'metatags_quick',
+      'settings' => array(),
+      'type' => 'metatags_quick_textarea',
+      'weight' => 1,
+    ),
+  );
+
+  // Exported field_instance: 'node-page-meta_keywords'
+  $field_instances['node-page-meta_keywords'] = array(
+    'bundle' => 'page',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'Enter a short abstract. Typically it is one sentence.',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'metatags_quick',
+        'settings' => array(),
+        'type' => 'metatags_quick_default',
+        'weight' => 11,
+      ),
+      'full' => array(
+        'label' => 'hidden',
+        'module' => 'metatags_quick',
+        'settings' => array(),
+        'type' => 'metatags_quick_default',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'meta_keywords',
+    'formatter' => 'metatags_quick_default',
+    'label' => '(Meta)Keywords',
+    'required' => FALSE,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'module' => 'metatags_quick',
+      'settings' => array(),
+      'type' => 'metatags_quick_textfield',
+      'weight' => 0,
+    ),
+  );
+
   // Translatables
   // Included for use with string extractors like potx.
+  t('(Meta)Description');
+  t('(Meta)Keywords');
   t('50/50 Image/Text Alternating');
+  t('<p>If you add only an image or only text, it will appear at full width.</p>
+<p>If you add both, one will be on the left, and the other will be on the right.  The order of the image and text will alternate as seen below:</p>
+<p>Image | Text<br />
+Text | Image<br />Image | Text<br />
+Text | Image<br /></p>');
+  t('<p>Use this field to select the jumbotron style.  Examples:</p>
+<p><a href="/node/3" target="_blank">Title only</a><br /><a href="/node/22" target="_blank">Title, teaser, and link</a><br /><a href="/node/13" target="_blank">Banner with title and teaser</a></p>');
   t('Body');
   t('Bottom Text');
   t('Check this box if you want the "Request Information" form to appear in the right sidebar.');
+  t('Enter a description. Limit your description to about 20 words, with a maximum of 255 characters. It should not contain any HTML tags or other formatting.');
+  t('Enter a short abstract. Typically it is one sentence.');
   t('Enter text that you would like to appear in the right sidebar.');
+  t('Ideally the image should be at least 1400 pixels wide.  Also keep in mind that the top and bottom of the image will be cut off at some resolutions.');
+  t('Ideally this image should be at least 700 pixels wide.');
   t('Image');
   t('Jumbotron Fields');
   t('Jumbotron Image');
@@ -634,6 +748,7 @@ San Diego, California 92123</p>
   t('Sidebar Text');
   t('Subtitle');
   t('Text');
+  t('The subtitle appears above the body text and is underlined in green.');
 
   return $field_instances;
 }
