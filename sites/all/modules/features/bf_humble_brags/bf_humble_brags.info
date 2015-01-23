@@ -1,0 +1,10 @@
+name = BF Humble Brags
+core = 7.x
+package = Benefunder
+version = 7.x-1.0
+project = bf_humble_brags
+dependencies[] = views
+features[ctools][] = views:views_default:3.0
+features[features_api][] = api:2
+features[views_view][] = humble_brags
+features_exclude[dependencies][ctools] = ctools

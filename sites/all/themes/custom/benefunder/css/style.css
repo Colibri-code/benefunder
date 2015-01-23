@@ -7589,7 +7589,7 @@ body.page-causes {
 /* ==========================================================================
   Homepage Humble Brag Section
    ========================================================================== */
-.view-humble-brag {
+.view-humble-brags {
   clear: both;
   width: 100%;
   background-color: #fff;
@@ -7598,21 +7598,21 @@ body.page-causes {
   float: left;
 }
 @media (min-width: 992px) {
-  .view-humble-brag {
+  .view-humble-brags {
     padding: 80px 0 60px;
   }
 }
-.view-humble-brag .brag-highlight {
+.view-humble-brags .brag-highlight {
   display: none;
   padding-bottom: 50px;
   min-height: 250px;
 }
 @media (min-width: 992px) {
-  .view-humble-brag .brag-highlight {
+  .view-humble-brags .brag-highlight {
     display: block;
   }
 }
-.view-humble-brag .brag-highlight p {
+.view-humble-brags .brag-highlight p {
   margin: 0;
   font-family: 'raleway-light';
   font-size: 28px;
@@ -7620,28 +7620,28 @@ body.page-causes {
   margin: 0 250px;
   position: relative;
 }
-.view-humble-brag .brag-highlight p span {
+.view-humble-brags .brag-highlight p span {
   color: #3f9ed4;
   font-size: 140px;
   position: absolute;
   line-height: 0;
   padding-top: 50px;
 }
-.view-humble-brag .brag-highlight p span:first-of-type {
+.view-humble-brags .brag-highlight p span:first-of-type {
   margin-left: -40px;
 }
-.view-humble-brag .views-row {
+.view-humble-brags .views-row {
   padding-top: 20px;
   padding-bottom: 20px;
   transition: opacity 0.3s linear 0s;
 }
 @media (min-width: 768px) {
-  .view-humble-brag .views-row {
+  .view-humble-brags .views-row {
     min-height: 200px;
   }
 }
 @media (min-width: 992px) {
-  .view-humble-brag .views-row {
+  .view-humble-brags .views-row {
     float: none;
     display: inline-block;
     width: auto;
@@ -7652,19 +7652,19 @@ body.page-causes {
     padding-left: 40px;
   }
 }
-.view-humble-brag .views-row.current,
-.view-humble-brag .views-row:hover {
+.view-humble-brags .views-row.current,
+.view-humble-brags .views-row:hover {
   opacity: 1;
 }
-.view-humble-brag .views-row.current .triangle-clip,
-.view-humble-brag .views-row:hover .triangle-clip {
+.view-humble-brags .views-row.current .triangle-clip,
+.view-humble-brags .views-row:hover .triangle-clip {
   opacity: 1;
 }
-.view-humble-brag .views-row img {
+.view-humble-brags .views-row img {
   padding-bottom: 10px;
   height: auto;
 }
-.view-humble-brag .views-row .triangle-clip {
+.view-humble-brags .views-row .triangle-clip {
   width: 10px;
   height: 0;
   margin: 0 auto;
@@ -7676,26 +7676,26 @@ body.page-causes {
   display: none;
 }
 @media (min-width: 992px) {
-  .view-humble-brag .views-row .triangle-clip {
+  .view-humble-brags .views-row .triangle-clip {
     display: block;
   }
 }
-.view-humble-brag .views-row .brag-copy {
+.view-humble-brags .views-row .brag-copy {
   margin: 0;
   font-family: 'raleway-light';
 }
 @media (min-width: 992px) {
-  .view-humble-brag .views-row .brag-copy {
+  .view-humble-brags .views-row .brag-copy {
     display: none;
   }
 }
-.view-humble-brag .views-row .brag-copy:before {
+.view-humble-brags .views-row .brag-copy:before {
   content: '“';
   color: #3f9ed4;
   font-size: 40px;
   vertical-align: middle;
 }
-.view-humble-brag .views-row .brag-copy:after {
+.view-humble-brags .views-row .brag-copy:after {
   content: '”';
   color: #3f9ed4;
   font-size: 40px;

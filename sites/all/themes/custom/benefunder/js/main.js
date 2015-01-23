@@ -268,7 +268,7 @@ var Benefunder = {
 	front: {
 		init: function() {
 			// JavaScript to be fired on the home page
-			general.setupHumbleBrag('.view-humble-brag .views-row', '.brag-copy', '.brag-highlight .inner');
+			general.setupHumbleBrag('.view-humble-brags .views-row', '.brag-copy', '.brag-highlight .inner');
 			general.setCauseShelf('.sector-link', '.sector-shelf');
 			general.setupTileGrid();
 			general.jumboTeaser();
