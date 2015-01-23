@@ -22,21 +22,21 @@
 
   <div class="container">
     <div class="row">
-      <a class="sector-link" href="cause-list.php" data-shelf="life-shelf">
+      <a class="sector-link" href="/causes?term=66&amp;primary=tid-66" data-shelf="life-shelf">
         <div class="sector life col-xs-6 col-md-3">
           <img class="sector-icon" src="<?php print $life_icon; ?>">
           <h2 class="sector-title">Life</h2>
           <div class="triangle-clip"></div>
         </div>
       </a>
-      <a class="sector-link" href="cause-list.php" data-shelf="technology-shelf">
+      <a class="sector-link" href="/causes?term=91&amp;primary=tid-91" data-shelf="technology-shelf">
         <div class="sector technology col-xs-6 col-md-3">
           <img class="sector-icon" src="<?php print $technologies_icon; ?>">
           <h2 class="sector-title">Technology</h2>
           <div class="triangle-clip"></div>
         </div>
       </a>
-      <a class="sector-link" href="cause-list.php" data-shelf="environment-shelf">
+      <a class="sector-link" href="/causes?term=10&amp;primary=tid-10" data-shelf="environment-shelf">
         <div class="sector environment col-xs-6 col-md-3">
     
           <img class="sector-icon" src="<?php print $environment_icon; ?>">
@@ -44,7 +44,7 @@
           <div class="triangle-clip"></div>
         </div>
       </a>
-      <a class="sector-link" href="cause-list.php" data-shelf="humanities-shelf">
+      <a class="sector-link" href="/causes?term=7&amp;primary=tid-7" data-shelf="humanities-shelf">
         <div class="sector humanities col-xs-6 col-md-3">
           <img class="sector-icon" src="<?php print $humanities_icon; ?>">
           <h2 class="sector-title">Humanities</h2>
