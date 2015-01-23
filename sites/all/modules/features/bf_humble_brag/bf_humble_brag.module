@@ -1,7 +1,0 @@
-<?php
-/**
- * @file
- * Code for the BF Humble Brag feature.
- */
-
-include_once 'bf_humble_brag.features.inc';
