@@ -48,6 +48,13 @@ body {
   }
 }
 
+#search-block-form input.form-text {
+  &::-webkit-input-placeholder {color:#fff;}
+  &:-moz-placeholder {color:#fff;}
+  &::-moz-placeholder {color:#fff;}
+  &:-ms-input-placeholder {color:#fff;}
+}
+
 .mfp-iframe-holder .mfp-close {
   .text-hide();
   background-image:url(../media/images/jumbo_close.png);
@@ -2503,15 +2510,22 @@ body.node-type-page {
 /* ==========================================================================
   Search Results Page
   ========================================================================== */
-body.search-results .hero-wrapper .hero {
-  position:absolute;
+
+body.page-search-site {
+  .hero {
+    background-image: url('../media/images/city_background.jpg');
+  }
+
+  .hero-wrapper {
+    max-height: 466px;
+  }
+
+  .hero {
+    position:absolute;
+  }
 }
 
-body.search-results .hero-wrapper {
-  max-height: 466px;
-}
-
-#search-results-form {
+#search-form {
   position:absolute;
   top: 58%;
   transform: translateY(-50%);
@@ -2522,7 +2536,7 @@ body.search-results .hero-wrapper {
 
     input[type='text'] {
       height:100%;
-      width: calc(~"100% - 88px");
+      width: 100%;
       float:left;
       font-family:@raleway-extralight;
       font-size:22px;
@@ -2531,13 +2545,28 @@ body.search-results .hero-wrapper {
       background-position:25px 25px;
       padding-left:75px;
     }
+  }
 
-    .btn {
-      width:88px;
-      height:100%;
-      font-family:@raleway-extralight;
-      font-size:22px;
+  .form-type-textfield {
+    width: calc(~"100% - 88px");
+    float: left;
+
+    label {
+      display: none;
     }
+  }
+
+  .btn {
+    width:88px;
+    height:70px;
+    font-family:@raleway-extralight;
+    font-size:22px;
+    backface-visibility:hidden;
+  }
+
+  #edit-basic {
+    float: left;
+    width: 100%;
   }
 }
 
@@ -2550,6 +2579,8 @@ h2.search-results-label {
   padding-bottom:20px;
   margin-bottom:25px;
   margin-top:0;
+  padding-left: 0;
+  padding-right: 0;
 
   @media(min-width:@screen-md-min) {
     padding-top:70px;
@@ -2577,6 +2608,13 @@ h2.search-results-label {
 
 .search-teaser {
   padding-bottom:35px;
+  float: left;
+  width: 100%;
+
+  .search-teaser-inner {
+    padding-left: 0;
+    padding-right: 0;
+  }
 
   .teaser-title {
     font-family:@raleway-light;
@@ -2596,6 +2634,7 @@ h2.search-results-label {
     padding-bottom:10px;
     font-size:18px;
     display:block;
+    word-wrap: break-word;
   }
 
   .search-teaser-body {

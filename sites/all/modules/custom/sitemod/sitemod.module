@@ -10,6 +10,12 @@ function sitemod_form_alter(&$form, &$form_state, $form_id) {
       $form['title']['#description'] = t('The First Letter Of Each Word Must Be In Caps. 3-5 word max.');
 
       break;
+
+    case 'apachesolr_search_custom_page_search_form':
+      $form['#attributes']['class'][] = 'col-xs-12 col-sm-10 col-sm-offset-1';
+      $form['basic']['submit']['#attributes']['class'][] = 'btn-default';
+      $form['basic']['submit']['#value'] = 'Go';
+      break;
   }
 }
 
@@ -45,4 +51,21 @@ function sitemod_service_links_alter(&$links) {
   $links['facebook']['name'] = t('Share on Facebook');
   $links['twitter']['name'] = t('Share on Twitter');
   $links['linkedin']['name'] = t('Share on LinkedIn');
+}
+
+
+/**
+ * Used in display suite field "Search result - node link"
+ */
+function sitemod_node_link($entity) {
+  if (isset($entity->nid)) {
+    $alias = drupal_get_path_alias('node/' . $entity->nid);
+    $full_path = url($alias, array('absolute' => true));
+    $options = array(
+      'attributes' => array(
+        'class' => array('search-teaser-link'),
+      ),
+    );
+    return l($full_path, $alias, $options);
+  }
 }
