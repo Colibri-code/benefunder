@@ -91,21 +91,22 @@
 
   <?php if (isset($page['content']['system_main']['search_results']['search_results'])): ?>
 
-    <div class="col-xs-12 col-md-7 main-content">
+    <div class="col-xs-12 <?php if (!empty($page['content']['system_main']['search_results']['search_pager']['#markup'])) { print 'col-md-7'; } ?> main-content">
       <h2 class="search-results-label">Search Results</h2>
       <?php print render($page['content']['system_main']['search_results']['search_results']); ?>
     </div>
 
-    <div class="col-xs-12 col-md-4 col-md-offset-1 sidebar-second">
-      <?php print render($page['content']['system_main']['search_results']['search_pager']); ?>
-    </div>
+    <?php if (isset($page['content']['system_main']['search_results']['search_pager'])): ?>
+      <div class="col-xs-12 col-md-4 col-md-offset-1 sidebar-second">
+        <?php print render($page['content']['system_main']['search_results']['search_pager']); ?>
+      </div>
+    <?php endif; ?>
 
   <?php else: ?>
     <div class="col-xs-12 main-content">
       <h2 class="search-results-label">Your search yielded no results</h2>
       <?php print render($page['content']['system_main']['search_results']); ?>
     </div>
-
   <?php endif; ?>
 
 </div>
