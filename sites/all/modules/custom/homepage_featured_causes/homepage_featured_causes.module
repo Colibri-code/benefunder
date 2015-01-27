@@ -36,92 +36,89 @@ function homepage_featured_causes_contents($which_block) {
     case 'homepage_featured_causes':
       $vars = array();
 
-      /**
-       * 
-       * Homepage node
-       * 
-       */
+      /* Homepage node */
       $wrapper = entity_metadata_wrapper('node', 12);
 
       /* Body text */
       $vars['featured_causes_text'] = $wrapper->body->value->value();
 
-      /**
-       * 
-       * Data from causes
-       * 
-       */
-      
+      /* Data from causes */
       $causes = array();
       $field_featured_causes = $wrapper->field_featured_causes->value();
 
-      for ($i = 0; $i <= 5; $i++) {
-        $cause = entity_metadata_wrapper('node', $field_featured_causes[$i]->nid);
+      foreach ($field_featured_causes as $key => $featured_cause) {
+        if ($featured_cause->status) {
+          $cause = entity_metadata_wrapper('node', $featured_cause->nid);
 
-        /* NID */
-        $causes[$i]['nid'] = $field_featured_causes[$i]->nid;
+          /* NID */
+          $causes[$key]['nid'] = $featured_cause->nid;
 
-        /* Title */
-        $causes[$i]['title'] = $cause->title->value();
+          /* Title */
+          $causes[$key]['title'] = $cause->title->value();
 
-        /* Research area name */
-        $research_areas = $cause->field_research_area->value();
+          /* Research area name */
+          $research_areas = $cause->field_research_area->value();
 
-        /* Find top level research area */
-        $top_level_research_area = NULL;
-        foreach ($research_areas as $research_area) {
-          $parent = taxonomy_get_parents($research_area->tid);
-          if (empty($parent)) {
-            $top_level_research_area = $research_area;
+          /* Find top level research area */
+          $top_level_research_area = NULL;
+          foreach ($research_areas as $research_area) {
+            $parent = taxonomy_get_parents($research_area->tid);
+            if (empty($parent)) {
+              $top_level_research_area = $research_area;
+            }
           }
+          $causes[$key]['research_area_name'] = $top_level_research_area->name;
+
+          /* Research area icon (white) */
+          $causes[$key]['research_area_icon_white'] = file_create_url($top_level_research_area->field_term_icon['und'][0]['uri']);
+
+          /* Research area icon (color) */
+          $causes[$key]['research_area_icon_color'] = file_create_url($top_level_research_area->field_term_icon_with_color_['und'][0]['uri']);
+
+          /* Cause image */
+          $jumbotron_image = $cause->field_jumbotron_image->value();
+          $causes[$key]['image'] = file_create_url($jumbotron_image['uri']);
+
+          /* Researcher image */
+          $researcher_image = $cause->field_picture->value();
+          $causes[$key]['researcher_image'] = file_create_url($researcher_image['uri']);
+
+          /* Researcher text */
+          $causes[$key]['researcher_text'] = $cause->field_overlay_copy->value();
+
+          /* Researcher name */
+          $causes[$key]['researcher_name'] = $cause->field_first_name->value() . ' ' . $cause->field_last_name->value();
+
+          /* Overlay copy */
+          $causes[$key]['overlay_copy'] = $cause->field_overlay_copy->value();
+
+          /* Research area CSS class */
+          $research_area_css_class = '';
+          switch ($top_level_research_area->tid) {
+            case 10:
+              $research_area_css_class = 'environment';
+              break;
+            case 7:
+              $research_area_css_class = 'humanities';
+              break;
+            case 66:
+              $research_area_css_class = 'life';
+              break;
+            case 91:
+              $research_area_css_class = 'technology';
+              break;
+          }
+          $causes[$key]['research_area_css_class'] = $research_area_css_class;
         }
-        $causes[$i]['research_area_name'] = $top_level_research_area->name;
-
-        /* Research area icon (white) */
-        $causes[$i]['research_area_icon_white'] = file_create_url($top_level_research_area->field_term_icon['und'][0]['uri']);
-
-        /* Research area icon (color) */
-        $causes[$i]['research_area_icon_color'] = file_create_url($top_level_research_area->field_term_icon_with_color_['und'][0]['uri']);
-
-        /* Cause image */
-        $jumbotron_image = $cause->field_jumbotron_image->value();
-        $causes[$i]['image'] = file_create_url($jumbotron_image['uri']);
-
-        /* Researcher image */
-        $researcher_image = $cause->field_picture->value();
-        $causes[$i]['researcher_image'] = file_create_url($researcher_image['uri']);
-
-        /* Researcher text */
-        $causes[$i]['researcher_text'] = $cause->field_overlay_copy->value();
-
-        /* Researcher name */
-        $causes[$i]['researcher_name'] = $cause->field_first_name->value() . ' ' . $cause->field_last_name->value();
-
-        /* Overlay copy */
-        $causes[$i]['overlay_copy'] = $cause->field_overlay_copy->value();
-
-        /* Research area CSS class */
-        $research_area_css_class = '';
-        switch ($top_level_research_area->tid) {
-          case 10:
-            $research_area_css_class = 'environment';
-            break;
-          case 7:
-            $research_area_css_class = 'humanities';
-            break;
-          case 66:
-            $research_area_css_class = 'life';
-            break;
-          case 91:
-            $research_area_css_class = 'technology';
-            break;
+        else {
+          /* If unpublished */
+          $causes[$key] = NULL;
         }
-        $causes[$i]['research_area_css_class'] = $research_area_css_class;
       }
 
       $vars['causes'] = $causes;
 
-      // Send all data to template file and return as block content
+      /* Send all data to template file and return as block content */
       return theme('homepage_featured_causes_template', $vars);
   }
 }

@@ -7086,6 +7086,9 @@ body.page-causes {
   padding: 0;
   height: 100%;
 }
+.cause-features .feature.empty {
+  cursor: default !important;
+}
 .cause-features .feature:hover {
   cursor: pointer;
 }
