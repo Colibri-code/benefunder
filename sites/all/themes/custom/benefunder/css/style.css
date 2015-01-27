@@ -9568,12 +9568,11 @@ body.node-type-page .subhead-row img {
   ========================================================================== */
 body.page-search-site .hero {
   background-image: url('../media/images/city_background.jpg');
+  position: absolute;
+  opacity: 1;
 }
 body.page-search-site .hero-wrapper {
   max-height: 466px;
-}
-body.page-search-site .hero {
-  position: absolute;
 }
 #search-form {
   position: absolute;

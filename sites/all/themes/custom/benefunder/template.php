@@ -12,6 +12,7 @@ function benefunder_form_alter(array &$form, array &$form_state = array(), $form
     switch ($form_id) {
       case 'search_block_form':
         unset($form['search_block_form']['#theme_wrappers']);
+        $form['search_block_form']['#attributes']['placeholder'] = t('Search Causes');
         unset($form['actions']['submit']['#attributes']['class']);
         $form['#attributes']['class'][] = 'hidden-xs hidden-sm';
         
