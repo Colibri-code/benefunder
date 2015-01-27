@@ -36,7 +36,7 @@
     <div class="feature-row top-row">
       <div class="stacked col-xs-12 col-sm-8 col-md-3">
         <?php if (isset($causes[1]) && $causes[1]): ?>
-          <div id="feature-2" class="col-xs-6 col-md-12 feature">
+          <div id="feature-2" class="col-xs-6 col-md-12 feature" data-path="<?php print $causes[1]['path']; ?>">
             <!-- feature #2 -->
             <div class="cause-teaser <?php print $causes[1]['research_area_css_class']; ?>">
               <h2 class="teaser-title"><?php print $causes[1]['title']; ?></h2>
@@ -58,7 +58,7 @@
           <div id="feature-2" class="col-xs-6 col-md-12 feature empty"></div>
         <?php endif; ?>
         <?php if (isset($causes[2]) && $causes[2]): ?>
-          <div id="feature-3" class="col-xs-6 col-md-12 feature">
+          <div id="feature-3" class="col-xs-6 col-md-12 feature" data-path="<?php print $causes[2]['path']; ?>">
             <!-- feature #3 -->
             <div class="cause-teaser <?php print $causes[2]['research_area_css_class']; ?>">
               <h2 class="teaser-title"><?php print $causes[2]['title']; ?></h2>
@@ -81,7 +81,7 @@
         <?php endif; ?>
       </div>
       <?php if (isset($causes[3]) && $causes[3]): ?>
-        <div id="feature-4" class="feature col-xs-12 col-sm-4 col-md-9">
+        <div id="feature-4" class="feature col-xs-12 col-sm-4 col-md-9" data-path="<?php print $causes[3]['path']; ?>">
           <!-- feature #4 -->
           <div class="cause-teaser <?php print $causes[3]['research_area_css_class']; ?>">
             <h2 class="teaser-title"><?php print $causes[3]['title']; ?></h2>
@@ -105,7 +105,7 @@
     </div>
     <div class="feature-row bottom-row">
       <?php if (isset($causes[4]) && $causes[4]): ?>
-        <div id="feature-5" class="feature col-xs-6">
+        <div id="feature-5" class="feature col-xs-6" data-path="<?php print $causes[4]['path']; ?>">
           <!-- feature #5 -->
           <div class="cause-teaser <?php print $causes[4]['research_area_css_class']; ?>">
             <h2 class="teaser-title"><?php print $causes[4]['title']; ?></h2>
@@ -127,7 +127,7 @@
         <div id="feature-5" class="feature empty col-xs-6">
       <?php endif; ?>
       <?php if (isset($causes[5]) && $causes[5]): ?>
-        <div id="feature-6" class="feature col-xs-6">
+        <div id="feature-6" class="feature col-xs-6" data-path="<?php print $causes[5]['path']; ?>">
           <!-- feature #6 -->
           <div class="cause-teaser <?php print $causes[5]['research_area_css_class']; ?>">
             <h2 class="teaser-title"><?php print $causes[5]['title']; ?></h2>

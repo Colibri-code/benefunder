@@ -53,6 +53,9 @@ function homepage_featured_causes_contents($which_block) {
           /* NID */
           $causes[$key]['nid'] = $featured_cause->nid;
 
+          /* Path */
+          $causes[$key]['path'] = drupal_get_path_alias('node/' . $featured_cause->nid);
+
           /* Title */
           $causes[$key]['title'] = $cause->title->value();
 

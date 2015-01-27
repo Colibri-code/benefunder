@@ -147,10 +147,15 @@ var general = function() {
 		jumboTeaser: function() {
 			$('.cause-features .feature').on('click', function(event) {
 				if (!$(this).hasClass('empty')) {
-					$('.jumbo-teaser')
-						.addClass('full')
-						.css('z-index', 3)
-						.find('.contents').html( $(this).children().clone() );
+					if (viewport.width() >= screenSizeSmall) {
+						$('.jumbo-teaser')
+							.addClass('full')
+							.css('z-index', 3)
+							.find('.contents').html( $(this).children().clone() );
+					}
+					else {
+						document.location.href = '/' + $(this).data('path');
+					}
 				}
 			});
 			$('.jumbo-teaser .empty').on('click', function(event) {
