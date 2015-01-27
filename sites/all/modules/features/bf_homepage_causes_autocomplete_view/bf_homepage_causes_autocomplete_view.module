@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the BF Homepage Causes Autocomplete View feature.
+ */
+
+include_once 'bf_homepage_causes_autocomplete_view.features.inc';
