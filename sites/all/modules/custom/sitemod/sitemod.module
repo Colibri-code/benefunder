@@ -26,7 +26,7 @@ function sitemod_form_alter(&$form, &$form_state, $form_id) {
  */
 function sitemod_cause_node_validate($form, &$form_state) {
   $lang = $form['field_research_area']['#language'];
-  $top_level_selected = false;
+  $top_level_selected = 0;
 
   // Check if empty
   if ((count($form_state['values']['field_research_area'][$lang]) == 1) && ($form_state['values']['field_research_area'][$lang][0]['tid'] == NULL)) {
@@ -37,14 +37,16 @@ function sitemod_cause_node_validate($form, &$form_state) {
   foreach ($form_state['values']['field_research_area'][$lang] as $research_area) {
     $parent = taxonomy_get_parents($research_area['tid']);
     if (empty($parent)) {
-      $top_level_selected = true;
+      $top_level_selected++;
     }
   }
 
   if (!$top_level_selected) {
-    form_set_error('field_research_area', t('You must select a top-level (parent) research area.  Example: Life or Technology.'));
+    form_set_error('field_research_area', t('You must select a top-level (parent) research area. Example: Life or Technology.'));
   }
-  
+  elseif ($top_level_selected > 1) {
+    form_set_error('field_research_area', t('You may only select 1 top-level (parent) research area. Example: Life or Technology.'));
+  }
 }
 
 /**
