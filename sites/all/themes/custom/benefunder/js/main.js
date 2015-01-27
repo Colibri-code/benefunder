@@ -249,7 +249,6 @@ var general = function() {
 				'slicePoint':500,
 				'expandText':'Read More',
 				'userCollapseText':'Read Less',
-				'expandPrefix':''
 			});
 		}
 	};
