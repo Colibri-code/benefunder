@@ -118,7 +118,27 @@ var general = function() {
 		// Homepage Featured Causes Tile System
 		setupTileGrid: function() {
 			
+			// Set feature heights based on width of viewport
+			var screenWidth = viewport.width(),
+					screens = {
 
+						tiny:function(){
+							$('.feature-row .feature').css('height', screenWidth / 2);
+						},
+						smalll: function(){
+							$('#feature-2, #feature-3, #feature-4').css('height', screenWidth / 3);
+							$('#feature-5, #feature-6').css('height', screenWidth / 2);
+						},
+						medium: function(){
+							$('.feature-row .feature').css('height', '100%');
+						}
+					};
+
+			if (screenWidth > screenSizeMedium) {
+				screens.medium();
+			} else {
+				screenWidth < screenSizeSmall ? screens.tiny() :  screens.smalll();
+			}
 		},
 
 		
