@@ -8332,6 +8332,12 @@ body.page-causes {
   position: absolute;
   top: 60%;
 }
+@media (min-width: 768px) {
+  .node-type-cause .node-content-wrapper > .main-content {
+    width: 62%;
+    padding-top: 80px;
+  }
+}
 .hero-wrapper {
   float: left;
   width: 100%;
@@ -8473,7 +8479,7 @@ body.page-causes {
 }
 @media (min-width: 768px) {
   .node-content-wrapper {
-    padding: 30px 15px 110px 15px;
+    padding: 30px 40px 110px 40px;
   }
 }
 @media (min-width: 992px) {

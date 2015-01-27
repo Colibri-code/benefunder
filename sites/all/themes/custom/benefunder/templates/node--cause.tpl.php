@@ -145,7 +145,7 @@
       <?php print render($sidebar_first); ?>
     </div><!-- end .sidebar-first -->
 
-    <div class="col-xs-12 col-sm-8 main-content">
+    <div class="col-xs-12 col-sm-7 pull-right main-content">
       <div id="block-system-main">
         <div class="<?php print $research_area_css_class; ?> cause-meta">
           <div class="title-wrapper">
