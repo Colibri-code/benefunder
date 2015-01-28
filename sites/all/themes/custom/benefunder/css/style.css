@@ -7112,6 +7112,7 @@ body.page-causes {
   z-index: 2;
   width: 75%;
   margin: 0 auto;
+  line-height: 29px;
 }
 .cause-features .feature .cause-teaser .lifestyle-wrapper {
   background: #000;
@@ -7237,10 +7238,12 @@ body.page-causes {
   }
   .cause-features .feature-main .feature-row #feature-4 .teaser-title {
     font-size: 36px;
+    line-height: 40px;
   }
   .cause-features .feature-main .feature-row #feature-5 .teaser-title,
   .cause-features .feature-main .feature-row #feature-6 .teaser-title {
     font-size: 28px;
+    line-height: 35px;
   }
 }
 .cause-features .feature-main .stacked {
@@ -7255,6 +7258,7 @@ body.page-causes {
   .cause-features .feature-main .stacked #feature-2 .teaser-title,
   .cause-features .feature-main .stacked #feature-3 .teaser-title {
     font-size: 20px;
+    line-height: 25px;
   }
 }
 .jumbo-teaser {
