@@ -47,7 +47,7 @@ function homepage_featured_causes_contents($which_block) {
       $field_featured_causes = $wrapper->field_featured_causes->value();
 
       foreach ($field_featured_causes as $key => $featured_cause) {
-        if ($featured_cause->status) {
+        if (!empty($featured_cause) && $featured_cause->status) {
           $cause = entity_metadata_wrapper('node', $featured_cause->nid);
 
           /* NID */
@@ -114,7 +114,7 @@ function homepage_featured_causes_contents($which_block) {
           $causes[$key]['research_area_css_class'] = $research_area_css_class;
         }
         else {
-          /* If unpublished */
+          /* If unpublished or value is missing */
           $causes[$key] = NULL;
         }
       }
