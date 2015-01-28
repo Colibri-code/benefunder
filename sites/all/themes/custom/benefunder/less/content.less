@@ -1121,6 +1121,7 @@ body {
     border:5px solid #fff;
     margin-top:-5px;
     margin-left:-5px;
+    background-color: #ccc;
 
     &:first-of-type {
 
@@ -1149,16 +1150,36 @@ body {
     .teaser-title {
       font-family:@raleway;
       color:#fff;
-      font-size:14px;
+      font-size:13px;
       padding-left:15px;
       padding-right:15px;
       position:relative;
-      top: 50%;
+      top: 40%;
       transform: translateY(-50%);
       z-index:3;
+      margin-top: 10px;
+      line-height: 17px;
+
+      @media (min-width: 550px) {
+        font-size: 14px;
+        line-height: 18px;
+      }
 
       @media(min-width:@screen-md-min) {
         padding-left:30px;
+        font-size: 16px;
+        line-height: 21px;
+        top: 50%;
+      }
+
+      @media(min-width: 1400px) {
+        font-size: 18px;
+        line-height: 24px;
+      }
+
+      @media(min-width: 1700px) {
+        font-size: 20px;
+        line-height: 28px;
       }
     }
 

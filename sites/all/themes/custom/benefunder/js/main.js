@@ -70,6 +70,7 @@ var general = function() {
 		windowResize: function() {
 		  $(window).resize(function() {
 		      general.setupTileGrid();
+		      general.listingTeaserHeight();
 		      //console.log(viewport.height());
 		  });
 		},
@@ -172,8 +173,10 @@ var general = function() {
 			var teaser = $('.causes-list .listing-teaser');
 					tWidth = teaser.width();
 					teaser.height(tWidth * 0.90);
-
-		  Drupal.behaviors.cause_listing = {
+		},
+		// Setting Listing Teaser height based on width
+		listingTeaserHeightNewItems: function() {
+			Drupal.behaviors.cause_listing = {
 		    attach: function (context, settings) {
 					var teaser = $('.causes-list .listing-teaser');
 							tWidth = teaser.width();
@@ -285,6 +288,7 @@ var Benefunder = {
 		init: function() {
 			// Javascript to be fired on the causes listing page
 			general.listingTeaserHeight();
+			general.listingTeaserHeightNewItems();
 			general.setupSelectric();
 			general.conditionalFilters();
 		}
