@@ -7044,10 +7044,16 @@ body.page-causes {
   background-image: url(../media/images/jumbo_close.png);
   background-repeat: no-repeat;
   background-position: 97% 0;
-  transition: all 0.3s linear 0s;
 }
-.mfp-iframe-holder .mfp-close:hover {
+.mfp-iframe-holder .mfp-close span {
+  background-image: url(../media/images/jumbo_close.png);
+  background-repeat: no-repeat;
   background-position: 97% -65px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.mfp-iframe-holder .mfp-close:hover span {
+  opacity: 1;
 }
 .region-content {
   position: relative;

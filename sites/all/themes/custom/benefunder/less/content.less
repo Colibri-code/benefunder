@@ -60,10 +60,17 @@ body {
   background-image:url(../media/images/jumbo_close.png);
   background-repeat:no-repeat;
   background-position:97% 0;
-  transition:all 0.3s linear 0s;
 
-  &:hover {
+  span {
+    background-image:url(../media/images/jumbo_close.png);
+    background-repeat:no-repeat;
     background-position:97% -65px;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  &:hover span {
+    opacity: 1;
   }
 }
 

@@ -241,7 +241,8 @@ var general = function() {
 
 			if (video.attr('href').length > 1) {
 				video.magnificPopup({
-					type: 'iframe'
+					type: 'iframe',
+					closeMarkup: '<button title="Close (Esc)" type="button" class="mfp-close"><span></span>×</button>'
 				});
 			} else {
 				video.css('display', 'none');
