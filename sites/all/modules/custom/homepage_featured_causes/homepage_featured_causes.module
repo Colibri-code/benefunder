@@ -84,7 +84,9 @@ function homepage_featured_causes_contents($which_block) {
 
           /* Researcher image */
           $researcher_image = $cause->field_picture->value();
-          $causes[$key]['researcher_image'] = file_create_url($researcher_image['uri']);
+          if ($researcher_image) {
+            $causes[$key]['researcher_image'] = file_create_url($researcher_image['uri']);
+          }
 
           /* Researcher text */
           $causes[$key]['researcher_text'] = $cause->field_overlay_copy->value();

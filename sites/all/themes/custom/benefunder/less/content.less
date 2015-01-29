@@ -399,12 +399,12 @@ body {
       .researcher-image {
         width:60px;
         height:60px;
+        margin-right:20px;
       }
 
       .researcher {
         font-family:@raleway-extralight;
         font-size:24px;
-        padding-left:20px;
       }
 
       .bio {
@@ -1039,6 +1039,11 @@ body {
     width:100%;
     z-index:2;
 
+    @media (max-width: @screen-sm-max) {
+      padding-top: 15px;
+      padding-bottom: 5px;
+    }
+
     @media(min-width:@screen-md-min) {
       position:absolute;
     }
@@ -1064,6 +1069,11 @@ body {
       list-style:none;
       display:none;
       padding-bottom:25px;
+
+      @media (max-width: @screen-sm-max) {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
 
       &.active {
         display:block;
@@ -1987,7 +1997,7 @@ h2.body-intro-text {
   }
 
   .bio {
-    margin-bottom: 50px;
+    margin-bottom: 70px;
   }
 
   .block-title {
@@ -2004,7 +2014,7 @@ h2.body-intro-text {
     float:left;
     width:100%;
     clear: left;
-    margin-bottom: 50px;
+    margin-bottom: 70px;
 
     @media (max-width: @screen-xs-max) {
       margin-bottom: 25px;
@@ -2052,7 +2062,7 @@ h2.body-intro-text {
   .more-publications {
     float:left;
     width:100%;
-    margin-bottom: 50px;
+    margin-bottom: 70px;
 
     @media (max-width: @screen-xs-max) {
       margin-bottom: 30px;
@@ -2104,7 +2114,7 @@ h2.body-intro-text {
     float:left;
     clear:left;
     position:relative;
-    margin-bottom: 50px;
+    margin-bottom: 70px;
 
     @media (max-width: @screen-xs-max) {
       margin-bottom: 30px;
@@ -2156,7 +2166,7 @@ h2.body-intro-text {
     display: block;
     float: none;
     clear: left;
-    margin-bottom: 50px;
+    margin-bottom: 70px;
   }
 
   .award,
@@ -2405,7 +2415,7 @@ div.sidebar-second {
   }
 
   .field-body-label {
-    padding-top:50px;
+    padding-top:20px;
 
     @media(min-width:@screen-sm-min) {
       padding-top:70px;
@@ -2678,6 +2688,10 @@ h2.search-results-label {
   margin-top:0;
   padding-left: 0;
   padding-right: 0;
+
+  @media (max-width: @screen-xs-max) {
+    padding-top: 15px;
+  }
 
   @media(min-width:@screen-md-min) {
     padding-top:70px;

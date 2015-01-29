@@ -6572,6 +6572,7 @@ p {
   outline: none;
   border-color: transparent;
   box-shadow: none;
+  color: #fff;
 }
 .navbar-default #search-block-form input[type='text']:focus {
   box-shadow: 0px 0px 8px rgba(153, 153, 51, 0.6);
@@ -7405,11 +7406,11 @@ body.page-causes {
 .jumbo-teaser .cause-teaser .jumbo-rail .researcher-image {
   width: 60px;
   height: 60px;
+  margin-right: 20px;
 }
 .jumbo-teaser .cause-teaser .jumbo-rail .researcher {
   font-family: 'raleway-extralight';
   font-size: 24px;
-  padding-left: 20px;
 }
 .jumbo-teaser .cause-teaser .jumbo-rail .bio {
   color: #fff;
@@ -8015,6 +8016,12 @@ body.page-causes {
 .view-filters .primary-filter:after {
   clear: both;
 }
+@media (max-width: 991px) {
+  .view-filters .primary-filter {
+    padding-top: 15px;
+    padding-bottom: 5px;
+  }
+}
 @media (min-width: 992px) {
   .view-filters .primary-filter {
     position: absolute;
@@ -8040,6 +8047,12 @@ body.page-causes {
   list-style: none;
   display: none;
   padding-bottom: 25px;
+}
+@media (max-width: 991px) {
+  .view-filters .conditional-filter ul.filter-tags {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 }
 .view-filters .conditional-filter ul.filter-tags.active {
   display: block;
@@ -9065,7 +9078,7 @@ h2.body-intro-text {
   margin-top: 0;
 }
 .explore-more-wrapper .bio {
-  margin-bottom: 50px;
+  margin-bottom: 70px;
 }
 .explore-more-wrapper .block-title {
   width: 100%;
@@ -9080,7 +9093,7 @@ h2.body-intro-text {
   float: left;
   width: 100%;
   clear: left;
-  margin-bottom: 50px;
+  margin-bottom: 70px;
 }
 @media (max-width: 767px) {
   .explore-more-wrapper .more-news {
@@ -9128,7 +9141,7 @@ h2.body-intro-text {
 .explore-more-wrapper .more-publications {
   float: left;
   width: 100%;
-  margin-bottom: 50px;
+  margin-bottom: 70px;
 }
 @media (max-width: 767px) {
   .explore-more-wrapper .more-publications {
@@ -9176,7 +9189,7 @@ h2.body-intro-text {
   float: left;
   clear: left;
   position: relative;
-  margin-bottom: 50px;
+  margin-bottom: 70px;
 }
 @media (max-width: 767px) {
   .explore-more-wrapper .more-videos {
@@ -9225,7 +9238,7 @@ h2.body-intro-text {
   display: block;
   float: none;
   clear: left;
-  margin-bottom: 50px;
+  margin-bottom: 70px;
 }
 .explore-more-block .award,
 .explore-more-block .patent {
@@ -9491,7 +9504,7 @@ div.sidebar-second .field-name-body p {
   }
 }
 .node-type-page .field-body-label {
-  padding-top: 50px;
+  padding-top: 20px;
 }
 @media (min-width: 768px) {
   .node-type-page .field-body-label {
@@ -9730,6 +9743,11 @@ h2.search-results-label {
   margin-top: 0;
   padding-left: 0;
   padding-right: 0;
+}
+@media (max-width: 767px) {
+  h2.search-results-label {
+    padding-top: 15px;
+  }
 }
 @media (min-width: 992px) {
   h2.search-results-label {
