@@ -6792,7 +6792,8 @@ button.navbar-toggle .burger:after {
   height: 2px;
   background: #fff;
   z-index: 5001;
-  transition: all 0.3s linear 0s;
+  transition: -webkit-transform 0.3s linear 0s, top 0.3s linear 0s, left 0.3s linear 0s;
+  transition: transform 0.3s linear 0s, top 0.3s linear 0s, left 0.3s linear 0s;
 }
 button.navbar-toggle .burger {
   background: transparent;
@@ -7783,6 +7784,7 @@ body.page-causes {
   margin: 0;
   padding: 10px 6px 6px;
   font-size: 26px;
+  font-weight: normal;
   color: #999933;
   font-family: 'raleway-light';
 }
@@ -8389,6 +8391,7 @@ body.page-causes {
 @media (min-width: 480px) {
   .node-heading-wrapper h1.page-title {
     font-size: 28px;
+    line-height: 35px;
   }
 }
 @media (min-width: 992px) {

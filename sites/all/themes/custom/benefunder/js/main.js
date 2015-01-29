@@ -154,6 +154,8 @@ var general = function() {
 							.addClass('full')
 							.css('z-index', 3)
 							.find('.contents').html( $(this).children().clone() );
+
+						$('html, body').animate({ scrollTop: 0 }, 'slow');
 					}
 					else {
 						document.location.href = '/' + $(this).data('path');
