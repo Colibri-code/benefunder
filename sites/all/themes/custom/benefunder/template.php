@@ -431,7 +431,7 @@ function benefunder_preprocess_node(&$variables) {
   
           $fifty_fifty[] = array(
             'text' => isset($text) ? $text['safe_value'] : '',
-            'image' => !empty($image) ? file_create_url($image['uri']) : '',
+            'image' => !empty($image) ? image_style_url('basic_page_-_50_50_alternating', $image['uri']) : '',
           );
         }
         $variables['fifty_fifty'] = $fifty_fifty;

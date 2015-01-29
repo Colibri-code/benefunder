@@ -80,7 +80,7 @@ function homepage_featured_causes_contents($which_block) {
 
           /* Cause image */
           $jumbotron_image = $cause->field_jumbotron_image->value();
-          $causes[$key]['image'] = file_create_url($jumbotron_image['uri']);
+          $causes[$key]['image'] = image_style_url('homepage_-_featured_causes', $jumbotron_image['uri']);
 
           /* Researcher image */
           $researcher_image = $cause->field_picture->value();
