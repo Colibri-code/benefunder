@@ -85,7 +85,7 @@ function homepage_featured_causes_contents($which_block) {
           /* Researcher image */
           $researcher_image = $cause->field_picture->value();
           if ($researcher_image) {
-            $causes[$key]['researcher_image'] = file_create_url($researcher_image['uri']);
+            $causes[$key]['researcher_image'] = image_style_url('cause_listing_-_researcher_photo', $researcher_image['uri']);
           }
 
           /* Researcher text */
