@@ -6738,6 +6738,7 @@ p {
     float: left;
   }
   .container-fluid #header-main-navigation .reserved {
+    display: inline-block;
     font-family: 'raleway-light';
     font-size: 13px;
     color: #cccccc;
