@@ -134,12 +134,12 @@
             <?php foreach ($fifty_fifty as $delta => $row): ?>
                 <div class="subhead-row row">
                   <?php if (!empty($row['image'])): ?>
-                    <div class="feature feature-img col-xs-12 <?php print (!empty($row['text'])) ? 'col-sm-6' : ''; ?> <?php if (($delta % 2) != 0) { print 'right-feature'; } ?>">
+                    <div class="feature feature-img col-xs-12 <?php print (!empty($row['text'])) ? 'col-md-6' : ''; ?> <?php if (($delta % 2) != 0) { print 'right-feature'; } ?>">
                       <img src="<?php print $row['image']; ?>">
                     </div>
                   <?php endif; ?>
                   <?php if (!empty($row['text'])): ?>
-                    <div class="feature feature-text col-xs-12 <?php print (!empty($row['image'])) ? 'col-sm-6' : ''; ?>">
+                    <div class="feature feature-text col-xs-12 <?php print (!empty($row['image'])) ? 'col-md-6' : ''; ?>">
                       <?php print $row['text']; ?>
                     </div>
                   <?php endif; ?>

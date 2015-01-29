@@ -58,6 +58,7 @@ var general = function() {
 
 			$('button.mobile-search-toggle.collapsed').on('click', function() {
 				$('#header-main-navigation').removeClass('in');
+				$('button.menu-toggle').addClass('collapsed');
 			});
 		},
 
@@ -202,7 +203,8 @@ var general = function() {
 				},
 				onChange: function (element) {
 					$('.selectricOpen .selectricItems').css({'max-height':'188px'});
-				}
+				},
+				disableOnMobile: false
 			});
 		},
 
