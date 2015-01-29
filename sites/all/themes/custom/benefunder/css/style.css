@@ -9681,10 +9681,10 @@ body.node-type-page .subhead-row img {
 }
 .banner-inner h1 {
   font-size: 32px;
-  line-height: 80px;
+  line-height: 49px;
   font-family: 'raleway-light';
   color: #fff;
-  margin: 0;
+  margin: 0 0 25px;
 }
 .banner-inner p {
   color: #fff;
