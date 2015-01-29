@@ -7179,7 +7179,7 @@ body.page-causes {
   }
 }
 .cause-features .feature-intro .feature-text {
-  padding: 0 15px;
+  padding: 0 25px;
 }
 @media (min-width: 1200px) {
   .cause-features .feature-intro .feature-text {
@@ -7191,7 +7191,7 @@ body.page-causes {
   font-family: 'raleway-extralight';
   line-height: 42px;
 }
-@media (min-width: 991px) and (max-width: 1250px) {
+@media (min-width: 992px) and (max-width: 1250px) {
   .cause-features .feature-intro .feature-text h1 {
     line-height: 40px;
   }
@@ -7204,6 +7204,11 @@ body.page-causes {
 @media (min-width: 992px) {
   .cause-features .feature-intro .feature-text h1 {
     margin: 0;
+    font-size: 28px;
+  }
+}
+@media (min-width: 1100px) {
+  .cause-features .feature-intro .feature-text h1 {
     font-size: 32px;
   }
 }
