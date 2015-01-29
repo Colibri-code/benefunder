@@ -206,7 +206,11 @@ body {
     h1 {
       color:#fff;
       font-family:@raleway-extralight;
-      line-height:inherit;
+      line-height:42px;
+
+      @media (min-width: 991px) and (max-width: 1250px) {
+        line-height: 40px;
+      }
 
       @media (max-width: @screen-sm-max) {
         margin:15px 0 35px;

@@ -7189,7 +7189,12 @@ body.page-causes {
 .cause-features .feature-intro .feature-text h1 {
   color: #fff;
   font-family: 'raleway-extralight';
-  line-height: inherit;
+  line-height: 42px;
+}
+@media (min-width: 991px) and (max-width: 1250px) {
+  .cause-features .feature-intro .feature-text h1 {
+    line-height: 40px;
+  }
 }
 @media (max-width: 991px) {
   .cause-features .feature-intro .feature-text h1 {
