@@ -201,7 +201,9 @@ function benefunder_preprocess_node(&$variables) {
   
         /* Researcher image */
         $researcher_image = $wrapper->field_picture->value();
-        $variables['researcher_image'] = !empty($researcher_image) ? file_create_url($researcher_image['uri']) : '';
+        if ($researcher_image) {
+          $variables['researcher_image'] = !empty($researcher_image) ? file_create_url($researcher_image['uri']) : '';
+        }
   
         /* Researcher name */
         $variables['researcher_first_name'] = $wrapper->field_first_name->value();

@@ -103,7 +103,9 @@
 
     <div class="col-sm-4 sidebar-first">
       <div class="researcher-intro">
-        <img class="headshot" src="<?php print $researcher_image; ?>">
+        <?php if (isset($researcher_image)): ?>
+          <img class="headshot" src="<?php print $researcher_image; ?>">
+        <?php endif; ?>
         <div class="researcher-details">
           <p class="researcher-name"><?php print $researcher_first_name; ?></p>
           <p class="researcher-name"><?php print $researcher_last_name; ?></p>
