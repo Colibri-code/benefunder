@@ -7469,6 +7469,18 @@ body.page-causes {
   padding: 37px 0 24px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
+.cause-sectors .container a:focus {
+  border: 0;
+  outline: none;
+}
+.cause-sectors .container a:active {
+  border: 0;
+  outline: none;
+}
+.cause-sectors .container a::-moz-focus-inner {
+  border: 0;
+  outline: none;
+}
 @media (min-width: 992px) {
   .cause-sectors {
     padding: 80px 0 0 0;
