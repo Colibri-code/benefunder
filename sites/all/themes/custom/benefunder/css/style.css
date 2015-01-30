@@ -9339,7 +9339,9 @@ h2.body-intro-text {
 .open-html p,
 .field-name-body p,
 .open-html ul li,
-.field-name-body ul li {
+.field-name-body ul li,
+.open-html ol li,
+.field-name-body ol li {
   font-family: 'Chaparral W01 Lt';
   font-size: 18px;
   line-height: 32px;
