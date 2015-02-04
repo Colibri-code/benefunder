@@ -174,7 +174,7 @@
         </div> <!-- end .open-html -->
 
         <div class="explore-more-block">
-          <h2 class="block-title collapsed" data-toggle="collapse" data-target=".explore-more-wrapper">Explore More</h2>
+          <button class="block-title collapsed" data-toggle="collapse" data-target=".explore-more-wrapper">Explore More</button>
           <div class="explore-more-wrapper collapse">
 
             <?php if (!empty($bio)): ?>

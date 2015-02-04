@@ -9034,7 +9034,7 @@ h2.body-intro-text {
 .explore-more-block > .block-title {
   margin: 0;
   color: #000;
-  padding: 26px 20px 26px 23px;
+  padding: 25px 20px 20px 23px;
   text-transform: uppercase;
   font-family: 'raleway';
   font-size: 20px;
@@ -9042,6 +9042,20 @@ h2.body-intro-text {
   border-top: 2px solid #ccc;
   opacity: 1;
   transition: opacity 0.3s linear 0s;
+  background: transparent;
+  border-left: none;
+  border-right: none;
+  text-align: left;
+  width: 100%;
+}
+.explore-more-block > .block-title:focus {
+  outline: none;
+}
+.explore-more-block > .block-title:active {
+  outline: none;
+}
+.explore-more-block > .block-title::-moz-focus-inner {
+  outline: none;
 }
 .explore-more-block > .block-title:after {
   content: '';
@@ -9053,7 +9067,7 @@ h2.body-intro-text {
   background-repeat: no-repeat;
   background-position: 0 0;
   float: right;
-  margin-top: -7px;
+  margin-top: -5px;
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
   transition: -webkit-transform 0.3s linear 0s;
