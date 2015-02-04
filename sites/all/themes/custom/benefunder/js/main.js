@@ -51,7 +51,9 @@ var general = function() {
       $('button.search-toggle').on('click', function() {
         $('#search-block-form, .navbar-default, #mobile-search').toggleClass('activated');
         setTimeout(function() {
-          $('#edit-search-block-form--2').focus();
+          if ($('#search-block-form, .navbar-default, #mobile-search').hasClass('activated')) {
+            $('#edit-search-block-form--2').focus();
+          }
         }, 500);
       });
 
