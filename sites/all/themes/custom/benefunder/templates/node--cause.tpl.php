@@ -156,7 +156,7 @@
           </div>
           <?php $block = module_invoke('service_links', 'block_view', 'service_links'); ?>
           <div class="share-block">
-            <p class="share-text collapsed" data-toggle="collapse" data-target=".share-wrapper">Share</p>
+            <a class="share-text collapsed" data-toggle="collapse" data-target=".share-wrapper">Share</a>
             <div class="share-wrapper collapse">
               <i class="carrot"></i>
               <div class="share-contents">
