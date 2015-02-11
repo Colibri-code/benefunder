@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the BF Humble Brags Content Type feature.
+ */
+
+include_once 'bf_humble_brags_content_type.features.inc';

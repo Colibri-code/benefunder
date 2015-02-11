@@ -91,10 +91,12 @@ var general = function() {
         $(bragObject).removeClass('current');
         var context = $(this)[0] === window ? $(bragObject)[0] : $(this);
         $(context).addClass('current');
-        var content = $(context).find(bragText).text();
+        var content = $(context).find(bragText + ' .brag-text').text();
+        var bragLink = $(context).find(bragText + ' a');
+        var bragLinkHTML = bragLink.length ? bragLink[0].outerHTML : '';
         $(highlight)
           .fadeOut(500, function() {
-            $(this).html('<p><span>&ldquo;</span>'+content+'<span>&rdquo;</span></p>');
+            $(this).html('<p><span>&ldquo;</span>'+content+'<span>&rdquo;</span></p>' + bragLinkHTML);
           })
           .fadeIn(500);
       };

@@ -7668,6 +7668,11 @@ body.page-causes {
     display: block;
   }
 }
+.view-humble-brags .brag-highlight a {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 20px;
+}
 .view-humble-brags .brag-highlight p {
   margin: 0;
   font-family: 'raleway-light';
@@ -7751,13 +7756,18 @@ body.page-causes {
     display: none;
   }
 }
-.view-humble-brags .views-row .brag-copy:before {
+@media (max-width: 992px) {
+  .view-humble-brags .views-row .brag-copy .brag-text {
+    margin-bottom: 0;
+  }
+}
+.view-humble-brags .views-row .brag-copy .brag-text:before {
   content: '“';
   color: #3f9ed4;
   font-size: 40px;
   vertical-align: middle;
 }
-.view-humble-brags .views-row .brag-copy:after {
+.view-humble-brags .views-row .brag-copy .brag-text:after {
   content: '”';
   color: #3f9ed4;
   font-size: 40px;

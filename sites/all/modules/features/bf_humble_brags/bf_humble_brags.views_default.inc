@@ -45,6 +45,15 @@ function bf_humble_brags_views_default_views() {
   $handler->display->display_options['relationships']['field_humble_brags_nid']['field'] = 'field_humble_brags_nid';
   $handler->display->display_options['relationships']['field_humble_brags_nid']['required'] = TRUE;
   $handler->display->display_options['relationships']['field_humble_brags_nid']['delta'] = '-1';
+  /* Field: Content: Link */
+  $handler->display->display_options['fields']['field_humble_brag_link']['id'] = 'field_humble_brag_link';
+  $handler->display->display_options['fields']['field_humble_brag_link']['table'] = 'field_data_field_humble_brag_link';
+  $handler->display->display_options['fields']['field_humble_brag_link']['field'] = 'field_humble_brag_link';
+  $handler->display->display_options['fields']['field_humble_brag_link']['relationship'] = 'field_humble_brags_nid';
+  $handler->display->display_options['fields']['field_humble_brag_link']['label'] = '';
+  $handler->display->display_options['fields']['field_humble_brag_link']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_humble_brag_link']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_humble_brag_link']['click_sort_column'] = 'url';
   /* Field: Field: Logo */
   $handler->display->display_options['fields']['field_logo']['id'] = 'field_logo';
   $handler->display->display_options['fields']['field_logo']['table'] = 'field_data_field_logo';
@@ -55,7 +64,7 @@ function bf_humble_brags_views_default_views() {
   $handler->display->display_options['fields']['field_logo']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_logo']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_logo']['settings'] = array(
-    'image_style' => '',
+    'image_style' => 'humble_brag',
     'image_link' => '',
   );
   /* Field: Content: Quote */
@@ -67,14 +76,19 @@ function bf_humble_brags_views_default_views() {
   $handler->display->display_options['fields']['body']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['body']['alter']['text'] = '          [field_logo]
           <div class="triangle-clip"></div>
-          <p class="brag-copy">[body-value]</p>
+          <div class="brag-copy">
+            <p class="brag-text">[body-value]</p>
+            [field_humble_brag_link]
+          </div>
+
 ';
   $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
   /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
-  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['relationship'] = 'field_humble_brags_nid';
+  $handler->display->display_options['filters']['status']['value'] = '1';
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
   /* Filter criterion: Content: Type */
