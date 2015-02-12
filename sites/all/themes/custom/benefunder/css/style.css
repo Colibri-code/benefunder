@@ -8906,6 +8906,17 @@ div.sidebar-first .researcher-body .affiliation-logo {
   color: #000;
   font-size: 16px;
   display: inline-block;
+  background: transparent;
+  border: none;
+}
+.cause-meta .share-block .share-text:focus {
+  outline: none;
+}
+.cause-meta .share-block .share-text:active {
+  outline: none;
+}
+.cause-meta .share-block .share-text::-moz-focus-inner {
+  outline: none;
 }
 .cause-meta .share-block .share-text:before {
   content: '';
