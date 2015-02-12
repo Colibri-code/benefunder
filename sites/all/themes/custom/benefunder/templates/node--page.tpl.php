@@ -115,7 +115,7 @@
 
   <div class="node-content-wrapper">
     <?php if (!empty($sidebar_second)): ?>
-      <div class="col-xs-12 col-sm-8 col-md-7 main-content">
+      <div class="col-xs-12 col-md-6 col-lg-7 main-content">
     <?php else: ?>
       <div class="col-xs-12 main-content">
     <?php endif; ?>
@@ -154,7 +154,7 @@
     </div><!-- end .main-content -->
 
     <?php if (!empty($sidebar_second)): ?>
-      <div class="col-xs-12 col-sm-4 col-md-4 col-md-offset-1 sidebar-second">
+      <div class="col-xs-12 col-md-5 col-md-offset-1 col-lg-4 sidebar-second">
         <?php print render($sidebar_second); ?>
       </div><!-- end .sidebar-second -->
     <?php endif; ?>

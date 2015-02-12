@@ -8774,16 +8774,6 @@ div.sidebar-first .researcher-body .affiliation-logo {
   transition: opacity 0.3s linear 0s;
   opacity: 1;
 }
-@media (min-width: 768px) {
-  .request-information-block .block-title {
-    word-spacing: 50px;
-  }
-}
-@media (min-width: 992px) {
-  .request-information-block .block-title {
-    word-spacing: 0;
-  }
-}
 .request-information-block .block-title:after {
   content: '';
   display: inline-block;
@@ -8821,7 +8811,6 @@ div.sidebar-first .researcher-body .affiliation-logo {
 }
 @media (min-width: 768px) {
   .request-information-block #request-info .form-group #request-info-phone {
-    width: 100%;
     margin-bottom: 5px;
   }
 }
@@ -9429,6 +9418,7 @@ div.sidebar-first .field-name-body p,
 div.sidebar-second .field-name-body p {
   font-size: 16px;
   line-height: 24px;
+  word-wrap: break-word;
 }
 /* ==========================================================================
   Content Type: Page
@@ -9608,7 +9598,7 @@ div.sidebar-second .field-name-body p {
 .node-type-page .sidebar-second {
   padding-top: 50px;
 }
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   .node-type-page .sidebar-second {
     padding-top: 0;
   }
@@ -9630,11 +9620,6 @@ div.sidebar-second .field-name-body p {
   height: 31px;
   width: 36px;
   margin-top: -2px;
-}
-@media (min-width: 768px) {
-  body.node-type-page .sidebar-second {
-    margin-top: -158px;
-  }
 }
 @media (min-width: 992px) {
   body.node-type-page .sidebar-second {

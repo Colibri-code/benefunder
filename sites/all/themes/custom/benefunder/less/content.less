@@ -1733,13 +1733,6 @@ div.sidebar-first {
     transition:opacity 0.3s linear 0s;
     opacity:1;
 
-    @media(min-width:@screen-sm-min) {
-      word-spacing:50px;
-    }
-    @media(min-width:@screen-md-min) {
-      word-spacing:0;
-    }
-
     &:after {
       content:'';
       display:inline-block;
@@ -1779,7 +1772,6 @@ div.sidebar-first {
         margin-right:5px;
 
         @media(min-width:@screen-sm-min) {
-          width:100%;
           margin-bottom:5px;
         }
 
@@ -2327,6 +2319,7 @@ div.sidebar-second {
   .field-name-body p {
     font-size:16px;
     line-height:24px;
+    word-wrap: break-word;
   }
 }
 
@@ -2504,7 +2497,7 @@ div.sidebar-second {
   .sidebar-second {
     padding-top:50px;
 
-    @media(min-width:@screen-sm-min) {
+    @media(min-width:@screen-md-min) {
       padding-top:0;
     }
   }
@@ -2532,10 +2525,6 @@ div.sidebar-second {
 
 body.node-type-page {
   .sidebar-second {
-    @media(min-width:@screen-sm-min) {
-      margin-top:-158px;
-    }
-
     @media(min-width:@screen-md-min) {
       margin-top:-136px
     }
