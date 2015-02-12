@@ -22,10 +22,7 @@ function bf_humble_brags_content_type_strongarm() {
           'weight' => '0',
         ),
         'path' => array(
-          'weight' => '6',
-        ),
-        'redirect' => array(
-          'weight' => '7',
+          'weight' => '3',
         ),
       ),
       'display' => array(),

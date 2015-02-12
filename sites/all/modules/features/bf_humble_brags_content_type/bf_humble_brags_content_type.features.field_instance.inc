@@ -174,86 +174,8 @@ function bf_humble_brags_content_type_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-humble_brag-meta_description'
-  $field_instances['node-humble_brag-meta_description'] = array(
-    'bundle' => 'humble_brag',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => 'Enter a description. Limit your description to about 20 words, with a maximum of 255 characters. It should not contain any HTML tags or other formatting.',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'metatags_quick',
-        'settings' => array(),
-        'type' => 'metatags_quick_default',
-        'weight' => 2,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'meta_description',
-    'formatter' => 'metatags_quick_default',
-    'label' => '(Meta)Description',
-    'required' => FALSE,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'module' => 'metatags_quick',
-      'settings' => array(),
-      'type' => 'metatags_quick_textarea',
-      'weight' => 1,
-    ),
-  );
-
-  // Exported field_instance: 'node-humble_brag-meta_keywords'
-  $field_instances['node-humble_brag-meta_keywords'] = array(
-    'bundle' => 'humble_brag',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => 'Enter a short abstract. Typically it is one sentence.',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'metatags_quick',
-        'settings' => array(),
-        'type' => 'metatags_quick_default',
-        'weight' => 3,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'meta_keywords',
-    'formatter' => 'metatags_quick_default',
-    'label' => '(Meta)Keywords',
-    'required' => FALSE,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'module' => 'metatags_quick',
-      'settings' => array(),
-      'type' => 'metatags_quick_textfield',
-      'weight' => 2,
-    ),
-  );
-
   // Translatables
   // Included for use with string extractors like potx.
-  t('(Meta)Description');
-  t('(Meta)Keywords');
-  t('Enter a description. Limit your description to about 20 words, with a maximum of 255 characters. It should not contain any HTML tags or other formatting.');
-  t('Enter a short abstract. Typically it is one sentence.');
   t('Link');
   t('Logo');
   t('Quote');

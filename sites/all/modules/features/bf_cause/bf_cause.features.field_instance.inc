@@ -300,7 +300,7 @@ function bf_cause_field_default_field_instances() {
         'configurable_class' => 0,
         'configurable_title' => 0,
         'rel' => '',
-        'target' => 'default',
+        'target' => '_blank',
         'title' => '',
       ),
       'display' => array(
@@ -344,7 +344,7 @@ function bf_cause_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 0,
+        'weight' => 2,
       ),
       'teaser' => array(
         'label' => 'hidden',
@@ -397,10 +397,9 @@ University of California, San Diego<br />
       ),
       'search_result' => array(
         'label' => 'above',
-        'module' => 'text',
         'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 9,
+        'type' => 'hidden',
+        'weight' => 28,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -445,10 +444,9 @@ University of California, San Diego<br />
       ),
       'search_result' => array(
         'label' => 'above',
-        'module' => 'link',
         'settings' => array(),
-        'type' => 'link_default',
-        'weight' => 20,
+        'type' => 'hidden',
+        'weight' => 33,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -518,7 +516,7 @@ University of California, San Diego<br />
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 6,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -560,10 +558,9 @@ University of California, San Diego<br />
       ),
       'search_result' => array(
         'label' => 'above',
-        'module' => 'text',
         'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 11,
+        'type' => 'hidden',
+        'weight' => 30,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -608,10 +605,9 @@ University of California, San Diego<br />
       ),
       'search_result' => array(
         'label' => 'above',
-        'module' => 'text',
         'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 5,
+        'type' => 'hidden',
+        'weight' => 25,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -660,10 +656,9 @@ Researcher Bio – Write in paragraph form.</p>',
       ),
       'search_result' => array(
         'label' => 'above',
-        'module' => 'text',
         'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 10,
+        'type' => 'hidden',
+        'weight' => 29,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -708,10 +703,9 @@ Researcher Bio – Write in paragraph form.</p>',
       ),
       'search_result' => array(
         'label' => 'above',
-        'module' => 'text',
         'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 8,
+        'type' => 'hidden',
+        'weight' => 27,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -756,10 +750,9 @@ Researcher Bio – Write in paragraph form.</p>',
       ),
       'search_result' => array(
         'label' => 'above',
-        'module' => 'text',
         'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 23,
+        'type' => 'hidden',
+        'weight' => 36,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -812,7 +805,7 @@ Researcher Bio – Write in paragraph form.</p>',
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 18,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -853,10 +846,9 @@ Researcher Bio – Write in paragraph form.</p>',
       ),
       'search_result' => array(
         'label' => 'above',
-        'module' => 'text',
         'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 22,
+        'type' => 'hidden',
+        'weight' => 35,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -889,7 +881,7 @@ Researcher Bio – Write in paragraph form.</p>',
   $field_instances['node-cause-field_jumbotron_image'] = array(
     'bundle' => 'cause',
     'deleted' => 0,
-    'description' => 'Ideally the image should be at least 1400 pixels wide.  Also keep in mind that the top and bottom of the image will be cut off on some displays.',
+    'description' => 'Ideally the image should be at least 1400x670 pixels.  If this cause will be featured on the homepage, the resolution should be roughly 1600x1000 pixels.  Also keep in mind that the top and bottom of the image will be cut off on some displays.',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -903,13 +895,9 @@ Researcher Bio – Write in paragraph form.</p>',
       ),
       'search_result' => array(
         'label' => 'above',
-        'module' => 'image',
-        'settings' => array(
-          'image_link' => '',
-          'image_style' => '',
-        ),
-        'type' => 'image',
-        'weight' => 2,
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 23,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -972,10 +960,9 @@ Researcher Bio – Write in paragraph form.</p>',
       ),
       'search_result' => array(
         'label' => 'above',
-        'module' => 'file',
         'settings' => array(),
-        'type' => 'file_default',
-        'weight' => 1,
+        'type' => 'hidden',
+        'weight' => 22,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -1037,7 +1024,7 @@ Researcher Bio – Write in paragraph form.</p>',
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 20,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -1081,10 +1068,9 @@ Researcher Bio – Write in paragraph form.</p>',
       ),
       'search_result' => array(
         'label' => 'above',
-        'module' => 'text',
         'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 24,
+        'type' => 'hidden',
+        'weight' => 37,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -1131,7 +1117,7 @@ Researcher Bio – Write in paragraph form.</p>',
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 21,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -1184,7 +1170,7 @@ Researcher Bio – Write in paragraph form.</p>',
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 7,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -1213,7 +1199,7 @@ Researcher Bio – Write in paragraph form.</p>',
   $field_instances['node-cause-field_picture'] = array(
     'bundle' => 'cause',
     'deleted' => 0,
-    'description' => 'Researcher headshot.  Ideally the width should be around 400 pixels wide, and the image should be at least roughly square.',
+    'description' => 'Researcher headshot should be 402x402 pixels square.  ',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -1227,13 +1213,9 @@ Researcher Bio – Write in paragraph form.</p>',
       ),
       'search_result' => array(
         'label' => 'above',
-        'module' => 'image',
-        'settings' => array(
-          'image_link' => '',
-          'image_style' => '',
-        ),
-        'type' => 'image',
-        'weight' => 6,
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 26,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -1305,7 +1287,7 @@ Researcher Bio – Write in paragraph form.</p>',
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 8,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -1335,7 +1317,7 @@ Researcher Bio – Write in paragraph form.</p>',
     'bundle' => 'cause',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => 'Select up to two top level categories then choose up to three researcher areas within the categories',
+    'description' => 'Select one top level category (Life, Environment, Humanities, or Technology) and up to three research areas under any top level category.',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -1346,10 +1328,9 @@ Researcher Bio – Write in paragraph form.</p>',
       ),
       'search_result' => array(
         'label' => 'above',
-        'module' => 'taxonomy',
         'settings' => array(),
-        'type' => 'taxonomy_term_reference_link',
-        'weight' => 18,
+        'type' => 'hidden',
+        'weight' => 32,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -1395,7 +1376,7 @@ Researcher Bio – Write in paragraph form.</p>',
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 19,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -1440,10 +1421,9 @@ Researcher Bio – Write in paragraph form.</p>',
       ),
       'search_result' => array(
         'label' => 'above',
-        'module' => 'text',
         'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 21,
+        'type' => 'hidden',
+        'weight' => 34,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -1477,7 +1457,7 @@ Researcher Bio – Write in paragraph form.</p>',
     'bundle' => 'cause',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => 'The body of the content to include bullet points. Use one space throughout paragraphs and bullet points. Use text editor bullet points. Left justify text. Font and size are set – Do not adjust.',
+    'description' => 'The body of the content to include bullet points. Use one space throughout paragraphs and bullet points. Use text editor bullet points. Left justify text. Font and size are set – Do not adjust.  Images uploaded here will be scaled to cover the full width of this text area.  The ideal width of images here is 1200 pixels.',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -1488,10 +1468,9 @@ Researcher Bio – Write in paragraph form.</p>',
       ),
       'search_result' => array(
         'label' => 'above',
-        'module' => 'text',
         'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 4,
+        'type' => 'hidden',
+        'weight' => 24,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -1536,10 +1515,9 @@ Researcher Bio – Write in paragraph form.</p>',
       ),
       'search_result' => array(
         'label' => 'above',
-        'module' => 'taxonomy',
         'settings' => array(),
-        'type' => 'taxonomy_term_reference_link',
-        'weight' => 17,
+        'type' => 'hidden',
+        'weight' => 31,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -1593,7 +1571,7 @@ Researcher Bio – Write in paragraph form.</p>',
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 5,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -1636,7 +1614,7 @@ Researcher Bio – Write in paragraph form.</p>',
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 3,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -1692,7 +1670,7 @@ Researcher Bio – Write in paragraph form.</p>');
   t('Enter a description. Limit your description to about 20 words, with a maximum of 255 characters. It should not contain any HTML tags or other formatting.');
   t('Enter a short abstract. Typically it is one sentence.');
   t('First Name');
-  t('Ideally the image should be at least 1400 pixels wide.  Also keep in mind that the top and bottom of the image will be cut off on some displays.');
+  t('Ideally the image should be at least 1400x670 pixels.  If this cause will be featured on the homepage, the resolution should be roughly 1600x1000 pixels.  Also keep in mind that the top and bottom of the image will be cut off on some displays.');
   t('In the News');
   t('Jumbotron Copy');
   t('Jumbotron Image');
@@ -1709,15 +1687,15 @@ Researcher Bio – Write in paragraph form.</p>');
   t('Publications');
   t('Research Area');
   t('Researcher first name (not nickname)');
-  t('Researcher headshot.  Ideally the width should be around 400 pixels wide, and the image should be at least roughly square.');
+  t('Researcher headshot should be 402x402 pixels square.  ');
   t('Researchers actual email address');
-  t('Select up to two top level categories then choose up to three researcher areas within the categories');
+  t('Select one top level category (Life, Environment, Humanities, or Technology) and up to three research areas under any top level category.');
   t('Share Lines');
   t('Should be written in sentence caps.');
   t('Subtitle');
   t('Summary');
   t('Teaser');
-  t('The body of the content to include bullet points. Use one space throughout paragraphs and bullet points. Use text editor bullet points. Left justify text. Font and size are set – Do not adjust.');
+  t('The body of the content to include bullet points. Use one space throughout paragraphs and bullet points. Use text editor bullet points. Left justify text. Font and size are set – Do not adjust.  Images uploaded here will be scaled to cover the full width of this text area.  The ideal width of images here is 1200 pixels.');
   t('The first paragraph of the cause content');
   t('Title');
   t('Title / Academic Position');

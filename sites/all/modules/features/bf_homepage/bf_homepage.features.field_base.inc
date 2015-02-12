@@ -42,8 +42,8 @@ function bf_homepage_field_default_field_bases() {
       ),
       'view' => array(
         'args' => array(),
-        'display_name' => '',
-        'view_name' => '',
+        'display_name' => 'references_1',
+        'view_name' => 'homepage_featured_causes_autocomplete',
       ),
     ),
     'translatable' => 0,
@@ -82,8 +82,8 @@ function bf_homepage_field_default_field_bases() {
       ),
       'view' => array(
         'args' => array(),
-        'display_name' => '',
-        'view_name' => '',
+        'display_name' => 'references_1',
+        'view_name' => 'homepage_humble_brag_autocomplete',
       ),
     ),
     'translatable' => 0,

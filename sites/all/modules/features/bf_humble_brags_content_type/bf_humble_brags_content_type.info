@@ -1,7 +1,7 @@
 name = BF Humble Brags Content Type
 core = 7.x
 package = Benefunder
-version = 7.x-1.0
+version = 7.x-1.1
 project = bf_humble_brags_content_type
 dependencies[] = bf_cause
 dependencies[] = bf_taxonomies
@@ -19,8 +19,6 @@ features[field_base][] = field_humble_brag_link
 features[field_instance][] = node-humble_brag-body
 features[field_instance][] = node-humble_brag-field_humble_brag_link
 features[field_instance][] = node-humble_brag-field_logo
-features[field_instance][] = node-humble_brag-meta_description
-features[field_instance][] = node-humble_brag-meta_keywords
 features[node][] = humble_brag
 features[variable][] = field_bundle_settings_node__humble_brag
 features[variable][] = menu_options_humble_brag

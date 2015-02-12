@@ -43,9 +43,9 @@ function bf_taxonomies_uuid_features_default_terms() {
     ),
   );
   $terms[] = array(
-    'name' => 'University Of Iowa',
-    'description' => NULL,
-    'format' => NULL,
+    'name' => 'University of Iowa',
+    'description' => '',
+    'format' => 'full_html',
     'weight' => 0,
     'uuid' => '04085a8a-7991-452a-9a2d-46058282940b',
     'vocabulary_machine_name' => 'university_or_institution',
@@ -71,7 +71,7 @@ function bf_taxonomies_uuid_features_default_terms() {
   );
   $terms[] = array(
     'name' => 'Humanities',
-    'description' => 'Marfa vinyl literally Helvetica roof party, food truck hella +1 Wes Anderson Blue Bottle. Mumblecore post-ironic crucifix try-hard. Kogi letterpress 3 wolf moon. Marfa vinyl literally Helvetica roof party, food truck hella +1 Wes Anderson Blue Bottle. Mumblecore post-ironic crucifix try-hard. Kogi letterpress 3 wolf moon.',
+    'description' => 'Philosophy, literature, religion, art, music, history, and language shape our culture. Benefunder researchers are exploring the human experience, such as creating better solutions for relieving anxiety, enhancing hands-on higher education, understanding how social networks impact our daily lives, and how identity shapes political, social, business, education, and economic outcomes.',
     'format' => 'plain_text',
     'weight' => 0,
     'uuid' => '080b773f-5832-47fb-92d9-6a65271fa81a',
@@ -100,8 +100,7 @@ function bf_taxonomies_uuid_features_default_terms() {
   );
   $terms[] = array(
     'name' => 'Environment',
-    'description' => 'Marfa vinyl literally Helvetica roof party, food truck hella +1 Wes Anderson Blue Bottle. Mumblecore post-ironic crucifix try-hard. Kogi letterpress 3 wolf moon. Helvetica roof party, food truck hella +1 Wes Anderson Blue Bottle.
-',
+    'description' => 'From enhanced renewable energies to space exploration, enhancing battery life, and understanding the world\'s oceans and ecosystems, academic researchers are developing solutions that will help us guard our resources and preserve our environment for future generations.',
     'format' => 'plain_text',
     'weight' => 0,
     'uuid' => '0b1631a9-faa8-47a2-8de3-834fbc6960d2',
@@ -129,9 +128,9 @@ function bf_taxonomies_uuid_features_default_terms() {
     'field_logo' => array(),
   );
   $terms[] = array(
-    'name' => 'University Of New Mexico',
-    'description' => NULL,
-    'format' => NULL,
+    'name' => 'University of New Mexico',
+    'description' => '',
+    'format' => 'full_html',
     'weight' => 0,
     'uuid' => '0c85e14f-6f9a-4b22-a89d-2ff4a754e427',
     'vocabulary_machine_name' => 'university_or_institution',
@@ -157,15 +156,6 @@ function bf_taxonomies_uuid_features_default_terms() {
     'format' => NULL,
     'weight' => 0,
     'uuid' => '0eb132f8-4638-455e-a0dc-e119dbaefaad',
-    'vocabulary_machine_name' => 'university_or_institution',
-    'field_logo' => array(),
-  );
-  $terms[] = array(
-    'name' => 'Stony Brook U.',
-    'description' => NULL,
-    'format' => NULL,
-    'weight' => 0,
-    'uuid' => '0ecb77af-4c8c-45cb-bb3c-e07556ed05d0',
     'vocabulary_machine_name' => 'university_or_institution',
     'field_logo' => array(),
   );
@@ -202,9 +192,9 @@ function bf_taxonomies_uuid_features_default_terms() {
     'field_logo' => array(),
   );
   $terms[] = array(
-    'name' => 'University Of California Irvine',
-    'description' => NULL,
-    'format' => NULL,
+    'name' => 'University of California, Irvine',
+    'description' => '',
+    'format' => 'full_html',
     'weight' => 0,
     'uuid' => '1429b95b-7e97-430f-95f9-f6887c14f87f',
     'vocabulary_machine_name' => 'university_or_institution',
@@ -225,18 +215,18 @@ function bf_taxonomies_uuid_features_default_terms() {
     ),
   );
   $terms[] = array(
-    'name' => 'University Of Wisconsin-Madison',
-    'description' => NULL,
-    'format' => NULL,
+    'name' => 'University of Wisconsin-Madison',
+    'description' => '',
+    'format' => 'full_html',
     'weight' => 0,
     'uuid' => '168a6343-b8b5-46aa-82f3-753e92500520',
     'vocabulary_machine_name' => 'university_or_institution',
     'field_logo' => array(),
   );
   $terms[] = array(
-    'name' => 'State University New York Stony Brook',
-    'description' => NULL,
-    'format' => NULL,
+    'name' => 'Stony Brook University',
+    'description' => '',
+    'format' => 'full_html',
     'weight' => 0,
     'uuid' => '181d271f-4b8e-4fb4-86d9-411f179c1ca1',
     'vocabulary_machine_name' => 'university_or_institution',
@@ -257,9 +247,9 @@ function bf_taxonomies_uuid_features_default_terms() {
     ),
   );
   $terms[] = array(
-    'name' => 'University Of Colorado Denver',
-    'description' => NULL,
-    'format' => NULL,
+    'name' => 'University of Colorado, Denver',
+    'description' => '',
+    'format' => 'full_html',
     'weight' => 0,
     'uuid' => '1ce765ce-ab79-4d7b-9900-4bc53ba5eea5',
     'vocabulary_machine_name' => 'university_or_institution',
@@ -280,36 +270,36 @@ function bf_taxonomies_uuid_features_default_terms() {
     ),
   );
   $terms[] = array(
-    'name' => 'Tulane University Of Louisiana',
-    'description' => NULL,
-    'format' => NULL,
+    'name' => 'Tulane University',
+    'description' => '',
+    'format' => 'full_html',
     'weight' => 0,
     'uuid' => '1ea43dff-e1a3-42f2-b7c6-c099fb07d680',
     'vocabulary_machine_name' => 'university_or_institution',
     'field_logo' => array(),
   );
   $terms[] = array(
-    'name' => 'Stevens Institute Of Technology',
-    'description' => NULL,
-    'format' => NULL,
+    'name' => 'Stevens Institute of Technology',
+    'description' => '',
+    'format' => 'full_html',
     'weight' => 0,
     'uuid' => '207a6cb7-0194-4719-a9ee-3d591abf703a',
     'vocabulary_machine_name' => 'university_or_institution',
     'field_logo' => array(),
   );
   $terms[] = array(
-    'name' => 'Purdue University West Lafayette',
-    'description' => NULL,
-    'format' => NULL,
+    'name' => 'Purdue University',
+    'description' => '',
+    'format' => 'full_html',
     'weight' => 0,
     'uuid' => '209c95a9-1f6c-4389-ba66-4d88712829aa',
     'vocabulary_machine_name' => 'university_or_institution',
     'field_logo' => array(),
   );
   $terms[] = array(
-    'name' => 'University Of Delaware',
-    'description' => NULL,
-    'format' => NULL,
+    'name' => 'University of Delaware',
+    'description' => '',
+    'format' => 'full_html',
     'weight' => 0,
     'uuid' => '22ec5610-e336-45f1-a0ac-0d79271cb277',
     'vocabulary_machine_name' => 'university_or_institution',
@@ -325,9 +315,9 @@ function bf_taxonomies_uuid_features_default_terms() {
     'field_logo' => array(),
   );
   $terms[] = array(
-    'name' => 'University Of Illinois Urbana-Champaign',
-    'description' => NULL,
-    'format' => NULL,
+    'name' => 'University of Illinois Urbana-Champaign',
+    'description' => '',
+    'format' => 'full_html',
     'weight' => 0,
     'uuid' => '24c9cd62-b7c7-4777-8fb8-e3a9e55ba3cf',
     'vocabulary_machine_name' => 'university_or_institution',
@@ -348,9 +338,9 @@ function bf_taxonomies_uuid_features_default_terms() {
     ),
   );
   $terms[] = array(
-    'name' => 'State University Of New York At Albany',
-    'description' => NULL,
-    'format' => NULL,
+    'name' => 'University at Albany, SUNY',
+    'description' => '',
+    'format' => 'full_html',
     'weight' => 0,
     'uuid' => '2581c7da-db44-4a96-9e9a-786c4432314c',
     'vocabulary_machine_name' => 'university_or_institution',
@@ -407,18 +397,18 @@ function bf_taxonomies_uuid_features_default_terms() {
     'field_logo' => array(),
   );
   $terms[] = array(
-    'name' => 'City University Of New York',
-    'description' => NULL,
-    'format' => NULL,
+    'name' => 'The City University of New York',
+    'description' => '',
+    'format' => 'full_html',
     'weight' => 0,
     'uuid' => '321d1837-cecc-43f6-9558-51646ebbd8c0',
     'vocabulary_machine_name' => 'university_or_institution',
     'field_logo' => array(),
   );
   $terms[] = array(
-    'name' => 'University Of Texas, Austin',
-    'description' => NULL,
-    'format' => NULL,
+    'name' => 'University of Texas, Austin',
+    'description' => '',
+    'format' => 'full_html',
     'weight' => 0,
     'uuid' => '34de25f0-f9bd-4b77-808e-eb500aed29a4',
     'vocabulary_machine_name' => 'university_or_institution',
@@ -439,18 +429,18 @@ function bf_taxonomies_uuid_features_default_terms() {
     ),
   );
   $terms[] = array(
-    'name' => 'University Of California Santa Cruz',
-    'description' => NULL,
-    'format' => NULL,
+    'name' => 'University of California, Santa Cruz',
+    'description' => '',
+    'format' => 'full_html',
     'weight' => 0,
     'uuid' => '35958178-5edb-41c4-97d4-d6c0b3cbd658',
     'vocabulary_machine_name' => 'university_or_institution',
     'field_logo' => array(),
   );
   $terms[] = array(
-    'name' => 'University Of Chicago',
-    'description' => NULL,
-    'format' => NULL,
+    'name' => 'University of Chicago',
+    'description' => '',
+    'format' => 'full_html',
     'weight' => 0,
     'uuid' => '363e3112-2df2-4bfb-b908-9ab6437682ac',
     'vocabulary_machine_name' => 'university_or_institution',
@@ -499,15 +489,6 @@ function bf_taxonomies_uuid_features_default_terms() {
     ),
   );
   $terms[] = array(
-    'name' => 'Harvard College',
-    'description' => NULL,
-    'format' => NULL,
-    'weight' => 0,
-    'uuid' => '395f623d-11c5-426f-a349-6b26b9826125',
-    'vocabulary_machine_name' => 'university_or_institution',
-    'field_logo' => array(),
-  );
-  $terms[] = array(
     'name' => 'Geology',
     'description' => NULL,
     'format' => NULL,
@@ -536,36 +517,36 @@ function bf_taxonomies_uuid_features_default_terms() {
     ),
   );
   $terms[] = array(
-    'name' => 'Indiana Univ-Purdue Univ At Indianapolis',
-    'description' => NULL,
-    'format' => NULL,
+    'name' => 'Indiana University-Purdue University Indianapolis',
+    'description' => '',
+    'format' => 'full_html',
     'weight' => 0,
     'uuid' => '3c215489-4896-4ed4-b628-1b340275aec0',
     'vocabulary_machine_name' => 'university_or_institution',
     'field_logo' => array(),
   );
   $terms[] = array(
-    'name' => 'University Of Utah',
-    'description' => NULL,
-    'format' => NULL,
+    'name' => 'University of Utah',
+    'description' => '',
+    'format' => 'full_html',
     'weight' => 0,
     'uuid' => '3c307ba7-fa71-4e7a-aaf7-468e4acf9d07',
     'vocabulary_machine_name' => 'university_or_institution',
     'field_logo' => array(),
   );
   $terms[] = array(
-    'name' => 'California Institute Of Technology',
-    'description' => NULL,
-    'format' => NULL,
+    'name' => 'California Institute of Technology',
+    'description' => '',
+    'format' => 'full_html',
     'weight' => 0,
     'uuid' => '3ce672e0-9b5e-4352-866d-6153729a0db3',
     'vocabulary_machine_name' => 'university_or_institution',
     'field_logo' => array(),
   );
   $terms[] = array(
-    'name' => 'University Of California At Davis',
-    'description' => NULL,
-    'format' => NULL,
+    'name' => 'University of California, Davis',
+    'description' => '',
+    'format' => 'full_html',
     'weight' => 0,
     'uuid' => '3d2c53c9-8c31-49b5-a62f-473fa008369c',
     'vocabulary_machine_name' => 'university_or_institution',
@@ -618,9 +599,9 @@ function bf_taxonomies_uuid_features_default_terms() {
     'field_logo' => array(),
   );
   $terms[] = array(
-    'name' => 'University Of Massachusetts Medical School - Worcester',
-    'description' => NULL,
-    'format' => NULL,
+    'name' => 'University of Massachusetts Medical School - Worcester',
+    'description' => '',
+    'format' => 'full_html',
     'weight' => 0,
     'uuid' => '43ce7a3b-548d-4732-837a-41f50dfb6fca',
     'vocabulary_machine_name' => 'university_or_institution',
@@ -650,9 +631,9 @@ function bf_taxonomies_uuid_features_default_terms() {
     ),
   );
   $terms[] = array(
-    'name' => 'University Of Massachusetts Lowell',
-    'description' => NULL,
-    'format' => NULL,
+    'name' => 'University of Massachusetts Lowell',
+    'description' => '',
+    'format' => 'full_html',
     'weight' => 0,
     'uuid' => '4c26508b-0761-435a-b060-8bb3a33a89f0',
     'vocabulary_machine_name' => 'university_or_institution',
@@ -677,9 +658,9 @@ function bf_taxonomies_uuid_features_default_terms() {
     'field_logo' => array(),
   );
   $terms[] = array(
-    'name' => 'University Of California Los Angeles',
-    'description' => NULL,
-    'format' => NULL,
+    'name' => 'University of California, Los Angeles',
+    'description' => '',
+    'format' => 'full_html',
     'weight' => 0,
     'uuid' => '567c2835-87c2-4abe-8df4-dfabed9c5959',
     'vocabulary_machine_name' => 'university_or_institution',
@@ -687,7 +668,7 @@ function bf_taxonomies_uuid_features_default_terms() {
   );
   $terms[] = array(
     'name' => 'Life',
-    'description' => 'Marfa vinyl literally Helvetica roof party, food truck hella +1 Wes Anderson Blue Bottle. Mumblecore post-ironic crucifix try-hard. Kogi letterpress 3 wolf moon.',
+    'description' => 'Improving human health, discovering treatments, finding cures - from lifestyle changes to treating disabilities, transforming healthcare, and improving medical devices and diagnostics, the nation\'s top researchers are discovering groundbreaking solutions.',
     'format' => 'plain_text',
     'weight' => 0,
     'uuid' => '571713b2-f33e-448f-a4bc-fc967f7dbf1d',
@@ -697,9 +678,9 @@ function bf_taxonomies_uuid_features_default_terms() {
     'field_term_icon_with_color_' => array(),
   );
   $terms[] = array(
-    'name' => 'University Of Virginia',
-    'description' => NULL,
-    'format' => NULL,
+    'name' => 'University of Virginia',
+    'description' => '',
+    'format' => 'full_html',
     'weight' => 0,
     'uuid' => '59affc35-ecf3-4be1-b06d-dcbd3bb3dfe0',
     'vocabulary_machine_name' => 'university_or_institution',
@@ -724,9 +705,9 @@ function bf_taxonomies_uuid_features_default_terms() {
     'field_logo' => array(),
   );
   $terms[] = array(
-    'name' => 'University Of Rochester',
-    'description' => NULL,
-    'format' => NULL,
+    'name' => 'University of Rochester',
+    'description' => '',
+    'format' => 'full_html',
     'weight' => 0,
     'uuid' => '5bee574a-e129-43a2-8226-e84585a03c90',
     'vocabulary_machine_name' => 'university_or_institution',
@@ -742,18 +723,18 @@ function bf_taxonomies_uuid_features_default_terms() {
     'field_logo' => array(),
   );
   $terms[] = array(
-    'name' => 'University Of Georgia',
-    'description' => NULL,
-    'format' => NULL,
+    'name' => 'University of Georgia',
+    'description' => '',
+    'format' => 'full_html',
     'weight' => 0,
     'uuid' => '5d754dff-d58f-499e-b107-91d5edb14cd9',
     'vocabulary_machine_name' => 'university_or_institution',
     'field_logo' => array(),
   );
   $terms[] = array(
-    'name' => 'Claremont Mckenna College',
-    'description' => NULL,
-    'format' => NULL,
+    'name' => 'Claremont McKenna College',
+    'description' => '',
+    'format' => 'full_html',
     'weight' => 0,
     'uuid' => '5d9090e4-ea49-4170-b58e-def80a40b2e7',
     'vocabulary_machine_name' => 'university_or_institution',
@@ -769,81 +750,82 @@ function bf_taxonomies_uuid_features_default_terms() {
     'field_logo' => array(),
   );
   $terms[] = array(
-    'name' => 'University Of Pennsylvania',
-    'description' => NULL,
-    'format' => NULL,
+    'name' => 'University of Pennsylvania',
+    'description' => '',
+    'format' => 'full_html',
     'weight' => 0,
     'uuid' => '60004ec3-a8f9-488f-b722-aaf03f0dd9ad',
     'vocabulary_machine_name' => 'university_or_institution',
     'field_logo' => array(),
   );
   $terms[] = array(
-    'name' => 'Arizona State University-Tempe Campus',
-    'description' => NULL,
-    'format' => NULL,
+    'name' => 'Arizona State University',
+    'description' => '',
+    'format' => 'full_html',
     'weight' => 0,
     'uuid' => '6040eed8-9f45-415e-bcc0-066974bf4e48',
     'vocabulary_machine_name' => 'university_or_institution',
     'field_logo' => array(),
   );
   $terms[] = array(
-    'name' => 'University Of California Berkeley',
-    'description' => NULL,
-    'format' => NULL,
+    'name' => 'University of California, Berkeley',
+    'description' => '',
+    'format' => 'full_html',
     'weight' => 0,
     'uuid' => '670b7851-bea4-4581-91d6-3ff4679acf4b',
     'vocabulary_machine_name' => 'university_or_institution',
     'field_logo' => array(),
   );
   $terms[] = array(
-    'name' => 'University Of Michigan',
-    'description' => NULL,
-    'format' => NULL,
+    'name' => 'University of Michigan',
+    'description' => '<p><a href="http://live-benefunder.gotpantheon.com/taxonomy/term/78/display">Manage display</a></p>
+',
+    'format' => 'full_html',
     'weight' => 0,
     'uuid' => '6721441d-bd2b-4ac0-94c5-0d1b694eb2b8',
     'vocabulary_machine_name' => 'university_or_institution',
     'field_logo' => array(),
   );
   $terms[] = array(
-    'name' => 'Icahn School Of Medicine At Mount Sinai',
-    'description' => NULL,
-    'format' => NULL,
+    'name' => 'Icahn School of Medicine at Mount Sinai',
+    'description' => '',
+    'format' => 'full_html',
     'weight' => 0,
     'uuid' => '674d65cc-958e-41a2-bb7a-bfe7fe21adab',
     'vocabulary_machine_name' => 'university_or_institution',
     'field_logo' => array(),
   );
   $terms[] = array(
-    'name' => 'Kent State University At Kent',
-    'description' => NULL,
-    'format' => NULL,
+    'name' => 'Kent State University',
+    'description' => '',
+    'format' => 'full_html',
     'weight' => 0,
     'uuid' => '68439a75-e3aa-4a4b-bd80-9fc574c13d9e',
     'vocabulary_machine_name' => 'university_or_institution',
     'field_logo' => array(),
   );
   $terms[] = array(
-    'name' => 'Ohio University Athens',
-    'description' => NULL,
-    'format' => NULL,
+    'name' => 'Ohio University',
+    'description' => '',
+    'format' => 'full_html',
     'weight' => 0,
     'uuid' => '6c18d222-17b6-44c5-8398-29df4a0f216a',
     'vocabulary_machine_name' => 'university_or_institution',
     'field_logo' => array(),
   );
   $terms[] = array(
-    'name' => 'University Of Houston',
-    'description' => NULL,
-    'format' => NULL,
+    'name' => 'University of Houston',
+    'description' => '',
+    'format' => 'full_html',
     'weight' => 0,
     'uuid' => '6c87c410-e3e1-4e56-a7ea-dc08f3fa79be',
     'vocabulary_machine_name' => 'university_or_institution',
     'field_logo' => array(),
   );
   $terms[] = array(
-    'name' => 'University Of Oregon',
-    'description' => NULL,
-    'format' => NULL,
+    'name' => 'University of Oregon',
+    'description' => '',
+    'format' => 'full_html',
     'weight' => 0,
     'uuid' => '6d7143c4-20c4-4877-b4ab-e1eab554ecc3',
     'vocabulary_machine_name' => 'university_or_institution',
@@ -887,9 +869,9 @@ function bf_taxonomies_uuid_features_default_terms() {
     ),
   );
   $terms[] = array(
-    'name' => 'Tufts University Boston',
-    'description' => NULL,
-    'format' => NULL,
+    'name' => 'Tufts University',
+    'description' => '',
+    'format' => 'full_html',
     'weight' => 0,
     'uuid' => '701da4ee-0149-4ab5-a96d-20c038ffb96e',
     'vocabulary_machine_name' => 'university_or_institution',
@@ -939,7 +921,7 @@ function bf_taxonomies_uuid_features_default_terms() {
   );
   $terms[] = array(
     'name' => 'Technology',
-    'description' => 'Marfa vinyl literally Helvetica roof party, food truck hella +1 Wes Anderson Blue Bottle. Mumblecore post-ironic crucifix try-hard. Kogi letterpress 3 wolf moon. Marfa vinyl literally Helvetica roof party, food truck hella +1 Wes Anderson Blue Bottle. Mumblecore post-ironic crucifix try-hard. Kogi letterpress 3 wolf moon.',
+    'description' => 'Robots, rockets, computers, and wearable technology - research explores cutting-edge ideas, creates new materials, and pushes past limits to introduce new products that will improve our lives. University researchers are working to meet today\'s challenges in high-performance computing, big data, cybersecurity, and so much more.',
     'format' => 'plain_text',
     'weight' => 0,
     'uuid' => '797fa9c6-81a9-4032-b846-763ed1162542',
@@ -999,9 +981,9 @@ function bf_taxonomies_uuid_features_default_terms() {
     'field_logo' => array(),
   );
   $terms[] = array(
-    'name' => 'University Of Missouri-Columbia',
-    'description' => NULL,
-    'format' => NULL,
+    'name' => 'University of Missouri-Columbia',
+    'description' => '',
+    'format' => 'full_html',
     'weight' => 0,
     'uuid' => '8017aedc-81c2-4542-af98-2fbc6c78006d',
     'vocabulary_machine_name' => 'university_or_institution',
@@ -1045,18 +1027,18 @@ function bf_taxonomies_uuid_features_default_terms() {
     'field_logo' => array(),
   );
   $terms[] = array(
-    'name' => 'Baylor College Of Medicine',
-    'description' => NULL,
-    'format' => NULL,
+    'name' => 'Baylor College of Medicine',
+    'description' => '',
+    'format' => 'full_html',
     'weight' => 0,
     'uuid' => '830aa313-7db2-48c1-95a8-8d329e9a4e4b',
     'vocabulary_machine_name' => 'university_or_institution',
     'field_logo' => array(),
   );
   $terms[] = array(
-    'name' => 'University Of Oklahoma Norman',
-    'description' => NULL,
-    'format' => NULL,
+    'name' => 'University of Oklahoma Norman',
+    'description' => '',
+    'format' => 'full_html',
     'weight' => 0,
     'uuid' => '838c4bf7-efdd-4726-9614-2b555d5090d4',
     'vocabulary_machine_name' => 'university_or_institution',
@@ -1132,18 +1114,18 @@ function bf_taxonomies_uuid_features_default_terms() {
     ),
   );
   $terms[] = array(
-    'name' => 'University Of California Santa Barbara',
-    'description' => NULL,
-    'format' => NULL,
+    'name' => 'University of California, Santa Barbara',
+    'description' => '',
+    'format' => 'full_html',
     'weight' => 0,
     'uuid' => '95fa8e78-d1c8-4446-82a3-fd6a07574888',
     'vocabulary_machine_name' => 'university_or_institution',
     'field_logo' => array(),
   );
   $terms[] = array(
-    'name' => 'Temple Univ Of The Commonwealth',
-    'description' => NULL,
-    'format' => NULL,
+    'name' => 'Temple Universiy of the Commonwealth',
+    'description' => '',
+    'format' => 'full_html',
     'weight' => 0,
     'uuid' => '980560eb-bc06-45ac-a5f1-b7c6b6f72364',
     'vocabulary_machine_name' => 'university_or_institution',
@@ -1159,18 +1141,18 @@ function bf_taxonomies_uuid_features_default_terms() {
     'field_logo' => array(),
   );
   $terms[] = array(
-    'name' => 'Rutgers, The State Univ Of N.J.',
-    'description' => NULL,
-    'format' => NULL,
+    'name' => 'Rutgers University',
+    'description' => '',
+    'format' => 'full_html',
     'weight' => 0,
     'uuid' => '99158ef5-0832-4663-a09f-22a9a41c4526',
     'vocabulary_machine_name' => 'university_or_institution',
     'field_logo' => array(),
   );
   $terms[] = array(
-    'name' => 'University Of Alabama At Birmingham',
-    'description' => NULL,
-    'format' => NULL,
+    'name' => 'University of Alabama at Birmingham',
+    'description' => '',
+    'format' => 'full_html',
     'weight' => 0,
     'uuid' => '996b6920-79b0-4a2c-9f9c-eea98c544603',
     'vocabulary_machine_name' => 'university_or_institution',
@@ -1200,9 +1182,9 @@ function bf_taxonomies_uuid_features_default_terms() {
     ),
   );
   $terms[] = array(
-    'name' => 'University Of Florida',
-    'description' => NULL,
-    'format' => NULL,
+    'name' => 'University of Florida',
+    'description' => '',
+    'format' => 'full_html',
     'weight' => 0,
     'uuid' => 'a3b0ac5f-3abc-4c6c-b2d1-4fbb5d0233f9',
     'vocabulary_machine_name' => 'university_or_institution',
@@ -1214,15 +1196,6 @@ function bf_taxonomies_uuid_features_default_terms() {
     'format' => NULL,
     'weight' => 0,
     'uuid' => 'a444bbd2-79de-4492-89d5-28905e07e214',
-    'vocabulary_machine_name' => 'university_or_institution',
-    'field_logo' => array(),
-  );
-  $terms[] = array(
-    'name' => 'State University Of New York At Buffalo',
-    'description' => NULL,
-    'format' => NULL,
-    'weight' => 0,
-    'uuid' => 'a4b9f91c-014d-4d47-9bf3-c02a913f496a',
     'vocabulary_machine_name' => 'university_or_institution',
     'field_logo' => array(),
   );
@@ -1250,18 +1223,9 @@ function bf_taxonomies_uuid_features_default_terms() {
     'field_logo' => array(),
   );
   $terms[] = array(
-    'name' => 'Northwestern University At Chicago',
-    'description' => NULL,
-    'format' => NULL,
-    'weight' => 0,
-    'uuid' => 'a639f954-aae6-4cc3-bb43-c6787374b9a2',
-    'vocabulary_machine_name' => 'university_or_institution',
-    'field_logo' => array(),
-  );
-  $terms[] = array(
-    'name' => 'Univ Of North Carolina Chapel Hill',
-    'description' => NULL,
-    'format' => NULL,
+    'name' => 'University of North Carolina Chapel Hill',
+    'description' => '',
+    'format' => 'full_html',
     'weight' => 0,
     'uuid' => 'a6417b1a-27fd-4544-9137-5d34df63a111',
     'vocabulary_machine_name' => 'university_or_institution',
@@ -1277,9 +1241,9 @@ function bf_taxonomies_uuid_features_default_terms() {
     'field_logo' => array(),
   );
   $terms[] = array(
-    'name' => 'University Of Vermont & St Agric College',
-    'description' => NULL,
-    'format' => NULL,
+    'name' => 'University of Vermont State Agricultural College',
+    'description' => '',
+    'format' => 'full_html',
     'weight' => 0,
     'uuid' => 'aa53ee2e-21e6-4a77-9670-7475c81676e3',
     'vocabulary_machine_name' => 'university_or_institution',
@@ -1323,36 +1287,36 @@ function bf_taxonomies_uuid_features_default_terms() {
     ),
   );
   $terms[] = array(
-    'name' => 'University Of Puerto Rico Med Sciences',
-    'description' => NULL,
-    'format' => NULL,
+    'name' => 'University of Puerto Rico - Medical Sciences',
+    'description' => '',
+    'format' => 'full_html',
     'weight' => 0,
     'uuid' => 'ad850bce-82f8-42da-8eea-cc354a2a76c9',
     'vocabulary_machine_name' => 'university_or_institution',
     'field_logo' => array(),
   );
   $terms[] = array(
-    'name' => 'University Of Massachusetts Amherst',
-    'description' => NULL,
-    'format' => NULL,
+    'name' => 'University of Massachusetts Amherst',
+    'description' => '',
+    'format' => 'full_html',
     'weight' => 0,
     'uuid' => 'affaecea-f0ff-4251-9526-ce71ae588950',
     'vocabulary_machine_name' => 'university_or_institution',
     'field_logo' => array(),
   );
   $terms[] = array(
-    'name' => 'North Carolina State University Raleigh',
-    'description' => NULL,
-    'format' => NULL,
+    'name' => 'North Carolina State University',
+    'description' => '',
+    'format' => 'full_html',
     'weight' => 0,
     'uuid' => 'b2aaf639-bbca-4667-9b38-fd12f17e0d4a',
     'vocabulary_machine_name' => 'university_or_institution',
     'field_logo' => array(),
   );
   $terms[] = array(
-    'name' => 'University Of California San Diego',
-    'description' => NULL,
-    'format' => NULL,
+    'name' => 'University of California, San Diego',
+    'description' => '',
+    'format' => 'full_html',
     'weight' => 0,
     'uuid' => 'b2b09024-ccfd-4e7a-96b2-2cc3b4c81021',
     'vocabulary_machine_name' => 'university_or_institution',
@@ -1401,27 +1365,27 @@ function bf_taxonomies_uuid_features_default_terms() {
     ),
   );
   $terms[] = array(
-    'name' => 'University Of Notre Dame',
-    'description' => NULL,
-    'format' => NULL,
+    'name' => 'University of Notre Dame',
+    'description' => '',
+    'format' => 'full_html',
     'weight' => 0,
     'uuid' => 'c041892d-325b-4f4b-af9e-9eb4c685d0eb',
     'vocabulary_machine_name' => 'university_or_institution',
     'field_logo' => array(),
   );
   $terms[] = array(
-    'name' => 'University Corporation For Atmospheric Research',
-    'description' => NULL,
-    'format' => NULL,
+    'name' => 'University Corporation for Atmospheric Research',
+    'description' => '',
+    'format' => 'full_html',
     'weight' => 0,
     'uuid' => 'c1b1ab24-8cc5-499b-ba82-89cf84958e49',
     'vocabulary_machine_name' => 'university_or_institution',
     'field_logo' => array(),
   );
   $terms[] = array(
-    'name' => 'University Of Maryland College Pk Campus',
-    'description' => NULL,
-    'format' => NULL,
+    'name' => 'University of Maryland College Park Campus',
+    'description' => '',
+    'format' => 'full_html',
     'weight' => 0,
     'uuid' => 'c845aad3-576c-4186-9177-b84c4f8545f9',
     'vocabulary_machine_name' => 'university_or_institution',
@@ -1483,9 +1447,9 @@ function bf_taxonomies_uuid_features_default_terms() {
     'field_logo' => array(),
   );
   $terms[] = array(
-    'name' => 'University Of Southern California',
-    'description' => NULL,
-    'format' => NULL,
+    'name' => 'University of Southern California',
+    'description' => '',
+    'format' => 'full_html',
     'weight' => 0,
     'uuid' => 'cea3ea14-728e-4234-af08-f5a2dfeb91fe',
     'vocabulary_machine_name' => 'university_or_institution',
@@ -1506,9 +1470,9 @@ function bf_taxonomies_uuid_features_default_terms() {
     ),
   );
   $terms[] = array(
-    'name' => 'Carnegie-Mellon University',
-    'description' => NULL,
-    'format' => NULL,
+    'name' => 'Carnegie Mellon University',
+    'description' => '',
+    'format' => 'full_html',
     'weight' => 0,
     'uuid' => 'd1d3eb12-632c-483f-a76d-d1e023beb67a',
     'vocabulary_machine_name' => 'university_or_institution',
@@ -1533,9 +1497,9 @@ function bf_taxonomies_uuid_features_default_terms() {
     'field_logo' => array(),
   );
   $terms[] = array(
-    'name' => 'Virginia Polytechnic Inst And St Univ',
-    'description' => NULL,
-    'format' => NULL,
+    'name' => 'Virginia Polytechnic Institute and State University',
+    'description' => '',
+    'format' => 'full_html',
     'weight' => 0,
     'uuid' => 'd430ed84-5c36-45b9-a9a2-33a94035f736',
     'vocabulary_machine_name' => 'university_or_institution',
@@ -1560,9 +1524,9 @@ function bf_taxonomies_uuid_features_default_terms() {
     'field_logo' => array(),
   );
   $terms[] = array(
-    'name' => 'University Of Arizona',
-    'description' => NULL,
-    'format' => NULL,
+    'name' => 'University of Arizona',
+    'description' => '',
+    'format' => 'full_html',
     'weight' => 0,
     'uuid' => 'd71b4f5a-fc6b-44da-a04e-31397cc78849',
     'vocabulary_machine_name' => 'university_or_institution',
@@ -1592,27 +1556,27 @@ function bf_taxonomies_uuid_features_default_terms() {
     'field_logo' => array(),
   );
   $terms[] = array(
-    'name' => 'University Of Colorado Boulder',
-    'description' => NULL,
-    'format' => NULL,
+    'name' => 'University of Colorado, Boulder',
+    'description' => '',
+    'format' => 'full_html',
     'weight' => 0,
     'uuid' => 'dbafbb54-ed1d-4863-b2dd-c033d9922bbf',
     'vocabulary_machine_name' => 'university_or_institution',
     'field_logo' => array(),
   );
   $terms[] = array(
-    'name' => 'Illinois Institute Of Technology',
-    'description' => NULL,
-    'format' => NULL,
+    'name' => 'Illinois Institute of Technology',
+    'description' => '',
+    'format' => 'full_html',
     'weight' => 0,
     'uuid' => 'e0db649c-51b7-4e7e-bef5-fd596e7a3959',
     'vocabulary_machine_name' => 'university_or_institution',
     'field_logo' => array(),
   );
   $terms[] = array(
-    'name' => 'Colorado School Of Mines',
-    'description' => NULL,
-    'format' => NULL,
+    'name' => 'Colorado School of Mines',
+    'description' => '',
+    'format' => 'full_html',
     'weight' => 0,
     'uuid' => 'e43e32c8-80ff-48cd-b413-886aaabbe3d3',
     'vocabulary_machine_name' => 'university_or_institution',
@@ -1637,9 +1601,9 @@ function bf_taxonomies_uuid_features_default_terms() {
     'field_logo' => array(),
   );
   $terms[] = array(
-    'name' => 'University Of Pittsburgh',
-    'description' => NULL,
-    'format' => NULL,
+    'name' => 'University of Pittsburgh',
+    'description' => '',
+    'format' => 'full_html',
     'weight' => 0,
     'uuid' => 'e6c4b378-73b0-4b27-b328-0d7d3f5a8626',
     'vocabulary_machine_name' => 'university_or_institution',
@@ -1734,9 +1698,9 @@ function bf_taxonomies_uuid_features_default_terms() {
     ),
   );
   $terms[] = array(
-    'name' => 'University Of Alaska Fairbanks',
-    'description' => NULL,
-    'format' => NULL,
+    'name' => 'University of Alaska Fairbanks',
+    'description' => '',
+    'format' => 'full_html',
     'weight' => 0,
     'uuid' => 'f1415454-f3e0-453b-9f44-def50155185f',
     'vocabulary_machine_name' => 'university_or_institution',
@@ -1761,27 +1725,27 @@ function bf_taxonomies_uuid_features_default_terms() {
     'field_logo' => array(),
   );
   $terms[] = array(
-    'name' => 'University Of Minnesota',
-    'description' => NULL,
-    'format' => NULL,
+    'name' => 'University of Minnesota',
+    'description' => '',
+    'format' => 'full_html',
     'weight' => 0,
     'uuid' => 'f702adcf-1df6-4e91-93ad-4f605e598656',
     'vocabulary_machine_name' => 'university_or_institution',
     'field_logo' => array(),
   );
   $terms[] = array(
-    'name' => 'Boston University (Charles River Campus)',
-    'description' => NULL,
-    'format' => NULL,
+    'name' => 'Boston University',
+    'description' => '',
+    'format' => 'full_html',
     'weight' => 0,
     'uuid' => 'f73f05c1-bd92-422e-999c-226814363910',
     'vocabulary_machine_name' => 'university_or_institution',
     'field_logo' => array(),
   );
   $terms[] = array(
-    'name' => 'Georgia Institute Of Technology',
-    'description' => NULL,
-    'format' => NULL,
+    'name' => 'Georgia Institute of Technology',
+    'description' => '',
+    'format' => 'full_html',
     'weight' => 0,
     'uuid' => 'f78a6945-2195-4b58-b6d3-81f5990c3c2d',
     'vocabulary_machine_name' => 'university_or_institution',
@@ -1811,9 +1775,9 @@ function bf_taxonomies_uuid_features_default_terms() {
     'field_logo' => array(),
   );
   $terms[] = array(
-    'name' => 'University Of South Florida',
-    'description' => NULL,
-    'format' => NULL,
+    'name' => 'University of South Florida',
+    'description' => '',
+    'format' => 'full_html',
     'weight' => 0,
     'uuid' => 'f97c6b8e-750c-4dd3-9ed1-313bc791d0f2',
     'vocabulary_machine_name' => 'university_or_institution',
@@ -1871,9 +1835,9 @@ function bf_taxonomies_uuid_features_default_terms() {
     ),
   );
   $terms[] = array(
-    'name' => 'Massachusetts Institute Of Technology',
-    'description' => NULL,
-    'format' => NULL,
+    'name' => 'Massachusetts Institute of Technology',
+    'description' => '',
+    'format' => 'full_html',
     'weight' => 0,
     'uuid' => 'ffa2ed5b-f5a0-4d0c-8f8e-8855f9dab951',
     'vocabulary_machine_name' => 'university_or_institution',
@@ -1889,9 +1853,9 @@ function bf_taxonomies_uuid_features_default_terms() {
     'field_logo' => array(),
   );
   $terms[] = array(
-    'name' => 'University Of Washington',
-    'description' => NULL,
-    'format' => NULL,
+    'name' => 'University of Washington',
+    'description' => '',
+    'format' => 'full_html',
     'weight' => 0,
     'uuid' => 'ffd4c349-9960-4e44-b395-f8e2f5c6e2ce',
     'vocabulary_machine_name' => 'university_or_institution',
