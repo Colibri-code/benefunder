@@ -135,14 +135,15 @@ var general = function() {
           screens = {
 
             tiny:function(){
-              $('.feature-row .feature').css('height', screenWidth / 2);
+              $('.cause-features .feature').css('height', screenWidth / 2);
             },
             smalll: function(){
-              $('#feature-2, #feature-3, #feature-4').css('height', screenWidth / 3);
+              $('#feature-1, #feature-2, #feature-3, #feature-4').css('height', screenWidth / 3);
               $('#feature-5, #feature-6').css('height', screenWidth / 2);
             },
             medium: function(){
               $('.feature-row .feature').css('height', '100%');
+              $('#feature-1').css('height', '200px');
             }
           };
 

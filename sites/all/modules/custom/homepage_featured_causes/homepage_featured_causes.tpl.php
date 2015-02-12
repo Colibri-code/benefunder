@@ -10,7 +10,7 @@
       <h1><?php print $featured_causes_text; ?></h1>
     </div>
     <?php if (isset($causes[0]) && $causes[0]): ?>
-      <div id="feature-1" class="feature col-sm-12 hidden-xs hidden-sm">
+      <div id="feature-1" class="feature col-sm-12">
         <!-- feature #1 -->
         <div class="cause-teaser <?php print $causes[0]['research_area_css_class']; ?>">
           <h2 class="teaser-title"><?php print $causes[0]['title']; ?></h2>
