@@ -197,7 +197,7 @@ function benefunder_preprocess_node(&$variables) {
   
         /* Cause image */
         $jumbotron_image = $wrapper->field_jumbotron_image->value();
-        $variables['hero_image'] = !empty($jumbotron_image) ? file_create_url($jumbotron_image['uri']) : '';
+        $variables['hero_image'] = !empty($jumbotron_image) ? image_style_url('cause_detail_-_jumbotron_image', $jumbotron_image['uri']) : '';
   
         /* Researcher image */
         $researcher_image = $wrapper->field_picture->value();
