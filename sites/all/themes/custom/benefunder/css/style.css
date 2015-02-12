@@ -8432,6 +8432,10 @@ body.page-causes {
     margin: 0 auto;
   }
 }
+.node-type-cause .open-html img {
+  width: 100% !important;
+  height: auto !important;
+}
 .node-type-cause .node-heading-wrapper {
   position: absolute;
   top: 0;
