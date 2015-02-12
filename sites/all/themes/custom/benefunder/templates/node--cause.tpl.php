@@ -101,7 +101,7 @@
 
   <div class="node-content-wrapper">
 
-    <div class="col-sm-4 sidebar-first">
+    <div class="col-md-4 sidebar-first">
       <div class="researcher-intro">
         <?php if (isset($researcher_image)): ?>
           <img class="headshot" src="<?php print $researcher_image; ?>">
@@ -147,7 +147,7 @@
       <?php print render($sidebar_first); ?>
     </div><!-- end .sidebar-first -->
 
-    <div class="col-xs-12 col-sm-7 pull-right main-content">
+    <div class="col-xs-12 col-md-7 pull-right main-content">
       <div id="block-system-main">
         <div class="<?php print $research_area_css_class; ?> cause-meta">
           <div class="title-wrapper">

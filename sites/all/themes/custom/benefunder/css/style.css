@@ -8456,7 +8456,7 @@ body.page-causes {
   position: absolute;
   top: 60%;
 }
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   .node-type-cause .node-content-wrapper > .main-content {
     width: 62%;
     padding-top: 80px;
@@ -8558,7 +8558,7 @@ body.page-causes {
   padding-right: 30px;
   font-size: 44px;
 }
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   .hero-wrapper .sub-heading {
     font-size: 72px;
     padding-left: 40%;
@@ -8658,7 +8658,7 @@ body.page-causes {
 .humanities .request-information-block #request-info {
   background-color: rgba(153, 102, 153, 0.35);
 }
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   body.node-type-cause .sidebar-first {
     margin-top: -121px;
   }
@@ -8681,7 +8681,7 @@ div.sidebar-first .researcher-intro {
   text-align: center;
   background-color: #ffffff;
 }
-@media (max-width: 767px) {
+@media (max-width: 991px) {
   div.sidebar-first .researcher-intro {
     max-width: 320px;
     margin: 0 auto 40px;
