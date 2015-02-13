@@ -7563,6 +7563,7 @@ body.page-causes {
   border-top: 20px solid #fff;
   transition: opacity 0.3s linear 0s;
   opacity: 0;
+  z-index: 50;
 }
 .cause-sectors .sector.life .sector-title {
   color: #339999;
@@ -7584,11 +7585,21 @@ body.page-causes {
   background-position: 0 100%;
   background-repeat: no-repeat;
   background-size: cover;
+  position: relative;
 }
 @media (min-width: 992px) {
   .cause-sectors .drop-shelf {
     display: block;
   }
+}
+.cause-sectors .drop-shelf .darken {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  opacity: 0.3;
 }
 .cause-sectors .drop-shelf .sector-shelf {
   padding-top: 50px;
@@ -7606,13 +7617,11 @@ body.page-causes {
   width: 330px;
   padding-bottom: 20px;
   margin: 0;
-  text-shadow: 3px 2px 5px #000;
 }
 .cause-sectors .drop-shelf .sector-shelf a {
   font-family: 'Chaparral W01 Lt';
   font-size: 20px;
   opacity: 1;
-  text-shadow: 3px 2px 5px #000;
   transition: opacity 0.3s linear 0s;
 }
 .cause-sectors .drop-shelf .sector-shelf a:hover {
@@ -7627,25 +7636,25 @@ body.page-causes {
   padding-left: 5%;
 }
 .cause-sectors .drop-shelf .sector-shelf#life-shelf a {
-  color: #339999;
+  color: #fff;
 }
 .cause-sectors .drop-shelf .sector-shelf#technology-shelf {
   padding-left: 27%;
 }
 .cause-sectors .drop-shelf .sector-shelf#technology-shelf a {
-  color: #cc6600;
+  color: #fff;
 }
 .cause-sectors .drop-shelf .sector-shelf#environment-shelf {
   padding-left: 47%;
 }
 .cause-sectors .drop-shelf .sector-shelf#environment-shelf a {
-  color: #3f9ed4;
+  color: #fff;
 }
 .cause-sectors .drop-shelf .sector-shelf#humanities-shelf {
   padding-left: 67%;
 }
 .cause-sectors .drop-shelf .sector-shelf#humanities-shelf a {
-  color: #9357b2;
+  color: #fff;
 }
 /* ==========================================================================
   Homepage Humble Brag Section
@@ -9026,7 +9035,7 @@ h2.body-intro-text {
 }
 @media (min-width: 992px) {
   h2.body-intro-text {
-    font-size: 54px;
+    font-size: 45px;
   }
 }
 .explore-more-block {
@@ -9391,29 +9400,43 @@ h2.body-intro-text {
   font-family: 'raleway-light';
   color: #000;
   margin-bottom: 20px;
-  font-size: 34px;
-  line-height: 46px;
+  font-size: 28px;
+  line-height: 36px;
 }
 @media (min-width: 992px) {
   .open-html h2,
   .field-name-body h2 {
-    font-size: 40px;
-    line-height: 52px;
+    font-size: 30px;
+    line-height: 42px;
   }
 }
 .open-html h3,
 .field-name-body h3 {
   font-family: 'raleway-medium';
-  font-size: 30px;
+  font-size: 24px;
+  line-height: 34px;
   width: 100%;
   color: #000;
 }
 .open-html h4,
 .field-name-body h4 {
   font-family: 'raleway-medium';
-  font-size: 16px;
+  font-size: 20px;
+  line-height: 28px;
   margin-bottom: 15px;
   color: #000;
+}
+.open-html h5,
+.field-name-body h5 {
+  font-family: 'raleway-bold';
+  font-size: 18px;
+  line-height: 25px;
+}
+.open-html h6,
+.field-name-body h6 {
+  font-family: 'raleway-bold';
+  font-size: 16px;
+  line-height: 25px;
 }
 .open-html img,
 .field-name-body img {
@@ -9601,7 +9624,8 @@ div.sidebar-second .field-name-body p {
 }
 .node-type-page .field-body-label p {
   font-family: 'Chaparral W01 Regular';
-  font-size: 24px;
+  font-size: 28px;
+  line-height: 35px;
   color: #000;
   border-bottom: 2px solid #999933;
   padding-bottom: 15px;
@@ -9727,7 +9751,8 @@ body.node-type-page .subhead-row .feature img {
 }
 body.node-type-page .subhead-row h2 {
   font-family: 'raleway-light';
-  font-size: 32px;
+  font-size: 28px;
+  line-height: 36px;
   margin-top: 10px;
   color: #000;
   text-align: left;
@@ -9934,7 +9959,6 @@ ul.menu li {
 }
 ul.menu li a {
   transition: color 0.3s linear 0s;
-  text-shadow: 3px 2px 5px #000;
 }
 ul.menu li a:hover {
   color: #999933;
@@ -10068,12 +10092,16 @@ footer .copyright-section .reserved {
   display: inline-block;
   font-family: 'raleway-light';
   font-size: 12px;
-  color: #999999;
-  text-shadow: 3px 2px 5px #000;
+  color: #ccc;
 }
 @media (min-width: 768px) {
   footer .copyright-section .reserved {
     padding-top: 15px;
+  }
+}
+@media (min-width: 992px) {
+  footer .copyright-section .reserved {
+    padding-right: 5px;
   }
 }
 @media (min-width: 768px) {
