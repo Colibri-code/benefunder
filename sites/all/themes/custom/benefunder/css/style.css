@@ -8029,6 +8029,10 @@ body.page-causes {
   float: left;
   width: 100%;
 }
+.view-cause-listing .page-intro.slide-down,
+.view-cause-listing .view-content.slide-down {
+  transition: top 0.8s cubic-bezier(0.86, 0, 0.07, 1) 0s;
+}
 .view-filters {
   float: left;
   width: 100%;
@@ -8099,7 +8103,12 @@ body.page-causes {
 }
 @media (min-width: 992px) {
   .view-filters .conditional-filter {
-    padding-top: 63px;
+    top: 63px;
+  }
+}
+@media (min-width: 992px) {
+  .view-filters .conditional-filter {
+    margin-bottom: 60px;
   }
 }
 .view-filters .conditional-filter ul.filter-tags {
@@ -8107,6 +8116,16 @@ body.page-causes {
   list-style: none;
   display: none;
   padding-bottom: 25px;
+  -webkit-transform: translateY(-100%);
+      -ms-transform: translateY(-100%);
+          transform: translateY(-100%);
+  transition: -webkit-transform 0.8s cubic-bezier(0.86, 0, 0.07, 1) 0s;
+  transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1) 0s;
+}
+.view-filters .conditional-filter ul.filter-tags.slide-down {
+  -webkit-transform: translateY(0%);
+      -ms-transform: translateY(0%);
+          transform: translateY(0%);
 }
 @media (max-width: 991px) {
   .view-filters .conditional-filter ul.filter-tags {
@@ -8148,6 +8167,9 @@ body.page-causes {
   color: #000;
   background-color: #ffffff;
   text-decoration: none;
+}
+.view-filters .conditional-filter.secondary {
+  overflow: hidden;
 }
 .view-cause-listing ul.pager {
   display: none;

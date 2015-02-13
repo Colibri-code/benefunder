@@ -206,6 +206,8 @@ var general = function() {
           return '<span class="tid-' + itemData.value + '" data-tid="' + itemData.value + '">' + itemData.text + '</span>';
         },
         onInit: function() {
+          var secondFiltersHeight = $('.conditional-filter.secondary').height();
+          $('.page-intro, .view-content').css('top', '-' + secondFiltersHeight + 'px');
           $('.view-cause-listing .selectric b.button').prepend('<span></span>');
 
           // Add class to selectric to change color of currently selected item
@@ -213,9 +215,12 @@ var general = function() {
           if (primary.length) {
             $('.selectricHideSelect + .selectric .label').addClass(primary);
           }
-        },
-        onChange: function (element) {
-          $('.selectricOpen .selectricItems').css({'max-height':'188px'});
+
+          setTimeout(function() {
+            $('.conditional-filter.secondary .active').addClass('slide-down');
+            $('.page-intro, .view-content').addClass('slide-down').css('top', 0);
+          }, 500)
+          
         },
         disableOnMobile: false
       });
@@ -235,12 +240,30 @@ var general = function() {
         $('.selectricHideSelect + .selectric .label').attr('class', 'label');
         $('.selectricHideSelect + .selectric .label').addClass('tid-' + tid);
 
+        var newPath = '';
         if ((typeof tid) === 'number') {
-          document.location.href = '/causes?term=' + tid + '&primary=' + $('span', this).attr('class');
+          newPath = '/causes?term=' + tid + '&primary=' + $('span', this).attr('class');
         }
         else {
-          document.location.href = '/causes';
+          newPath = '/causes';
         }
+
+        var secondFilterSlideUpDelay = 0;
+        if (getParameterByName('term')) {
+          secondFilterSlideUpDelay = 800;
+        }
+
+        setTimeout(function() {
+          $('.conditional-filter.secondary .active').removeClass('slide-down');
+          var secondFiltersHeight = $('.conditional-filter.secondary').height();
+          $('.page-intro, .view-content').css('top', '-' + secondFiltersHeight + 'px');
+          setTimeout(function() {
+            $('html, body').animate({ scrollTop: 0 }, 'fast', function() {
+              document.location.href = newPath;
+            });
+            
+          }, secondFilterSlideUpDelay);
+        }, 800);
         
       });
     },
