@@ -57,10 +57,10 @@ function homepage_research_areas_contents($which_block) {
       $humanities_image = $humanities->field_term_image->value();
       $life_image = $life->field_term_image->value();
       $technologies_image = $technologies->field_term_image->value();
-      $vars['environment_image'] = file_create_url($environment_image['uri']);
-      $vars['humanities_image'] = file_create_url($humanities_image['uri']);
-      $vars['life_image'] = file_create_url($life_image['uri']);
-      $vars['technologies_image'] = file_create_url($technologies_image['uri']);
+      $vars['environment_image'] = image_style_url('homepage_-_top_level_categories', $environment_image['uri']);
+      $vars['humanities_image'] = image_style_url('homepage_-_top_level_categories', $humanities_image['uri']);
+      $vars['life_image'] = image_style_url('homepage_-_top_level_categories', $life_image['uri']);
+      $vars['technologies_image'] = image_style_url('homepage_-_top_level_categories', $technologies_image['uri']);
 
       // Get text
       $vars['environment_text'] = $environment->description->value();
