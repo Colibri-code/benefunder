@@ -414,7 +414,7 @@ function benefunder_preprocess_node(&$variables) {
           $jumbotron_image = '/' . drupal_get_path('theme', 'benefunder') . '/media/images/nemo_background.jpg';
         }
         else {
-          $jumbotron_image = file_create_url($jumbotron_image['uri']);
+          $jumbotron_image = image_style_url('cause_detail_-_jumbotron_image', $jumbotron_image['uri']);
         }
         $variables['jumbotron_image'] = $jumbotron_image;
 
