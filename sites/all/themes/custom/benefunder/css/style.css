@@ -7636,25 +7636,25 @@ body.page-causes {
   padding-left: 5%;
 }
 .cause-sectors .drop-shelf .sector-shelf#life-shelf a {
-  color: #fff;
+  color: #339999;
 }
 .cause-sectors .drop-shelf .sector-shelf#technology-shelf {
   padding-left: 27%;
 }
 .cause-sectors .drop-shelf .sector-shelf#technology-shelf a {
-  color: #fff;
+  color: #cc6600;
 }
 .cause-sectors .drop-shelf .sector-shelf#environment-shelf {
   padding-left: 47%;
 }
 .cause-sectors .drop-shelf .sector-shelf#environment-shelf a {
-  color: #fff;
+  color: #3f9ed4;
 }
 .cause-sectors .drop-shelf .sector-shelf#humanities-shelf {
   padding-left: 67%;
 }
 .cause-sectors .drop-shelf .sector-shelf#humanities-shelf a {
-  color: #fff;
+  color: #9357b2;
 }
 /* ==========================================================================
   Homepage Humble Brag Section
@@ -9399,7 +9399,7 @@ h2.body-intro-text {
 .field-name-body h2 {
   font-family: 'raleway-light';
   color: #000;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
   font-size: 28px;
   line-height: 36px;
 }
