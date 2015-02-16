@@ -266,6 +266,21 @@ var general = function() {
         }, 800);
         
       });
+
+      $('.conditional-filter.secondary li a').click(function(e) {
+        e.preventDefault();
+        var href = $(this).attr('href');
+
+        $('.conditional-filter.secondary .active').removeClass('slide-down');
+        var secondFiltersHeight = $('.conditional-filter.secondary').height();
+        $('.page-intro, .view-content').css('top', '-' + secondFiltersHeight + 'px');
+        setTimeout(function() {
+          $('html, body').animate({ scrollTop: 0 }, 'fast', function() {
+            document.location.href = href;
+          });
+          
+        }, 800);
+      });
     },
 
     causeDetailVideo: function() {

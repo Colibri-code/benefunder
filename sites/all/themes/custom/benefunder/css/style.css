@@ -6983,6 +6983,28 @@ body.front {
 }
 body.page-causes {
   background-image: url(../media/images/galaxy_background.jpg);
+  background-size: 420% auto;
+  background-position: 50% 0%;
+}
+@media (min-width: 500px) {
+  body.page-causes {
+    background-size: 285% auto;
+  }
+}
+@media (min-width: 750px) {
+  body.page-causes {
+    background-size: 230% auto;
+  }
+}
+@media (min-width: 1000px) {
+  body.page-causes {
+    background-size: 170% auto;
+  }
+}
+@media (min-width: 1400px) {
+  body.page-causes {
+    background-size: 120% auto;
+  }
 }
 .placeholder-content {
   background-color: #fff;
@@ -7988,6 +8010,11 @@ body.page-causes {
 /* ==========================================================================
   Causes Listing Page
    ========================================================================== */
+@media (min-height: 1050px) {
+  .page-causes #block-system-main {
+    min-height: 1200px;
+  }
+}
 .page-title {
   font-family: 'raleway-extralight';
   color: #fff;
@@ -9474,6 +9501,26 @@ div.sidebar-second .field-name-body p {
 /* ==========================================================================
   Content Type: Page
   ========================================================================== */
+@media (max-width: 767px) and (min-height: 700px) {
+  .node-type-page #block-system-main {
+    min-height: 250px;
+  }
+}
+@media (max-width: 767px) and (min-height: 950px) {
+  .node-type-page #block-system-main {
+    min-height: 450px;
+  }
+}
+@media (max-width: 767px) and (min-height: 1050px) {
+  .node-type-page #block-system-main {
+    min-height: 550px;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) and (min-height: 1200px) {
+  .node-type-page #block-system-main {
+    min-height: 450px;
+  }
+}
 .node-type-page .hero-text {
   position: absolute;
   bottom: 50px;

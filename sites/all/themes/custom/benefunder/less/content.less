@@ -18,6 +18,24 @@ body {
 
   &.page-causes {
     background-image:url(../media/images/galaxy_background.jpg);
+    background-size: 420% auto;
+    background-position: 50% 0%;
+
+    @media (min-width: 500px) {
+      background-size: 285% auto;
+    }
+
+    @media (min-width: 750px) {
+      background-size: 230% auto;
+    }
+
+    @media (min-width: 1000px) {
+      background-size: 170% auto;
+    }
+
+    @media (min-width: 1400px) {
+      background-size: 120% auto;
+    }
   }
 }
 
@@ -1016,6 +1034,15 @@ body {
 /* ==========================================================================
   Causes Listing Page
    ========================================================================== */
+
+
+
+.page-causes #block-system-main {
+  @media (min-height: 1050px) {
+    min-height: 1200px;
+  }
+}
+
 .page-title {
   font-family:@raleway-extralight;
   color:#fff;
@@ -2372,6 +2399,21 @@ div.sidebar-second {
   Content Type: Page
   ========================================================================== */
 .node-type-page {
+
+  #block-system-main {
+    @media (max-width: @screen-xs-max) and (min-height: 700px) {
+      min-height: 250px;
+    }
+    @media (max-width: @screen-xs-max) and (min-height: 950px) {
+      min-height: 450px;
+    }
+    @media (max-width: @screen-xs-max) and (min-height: 1050px) {
+      min-height: 550px;
+    }
+    @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) and (min-height: 1200px) {
+      min-height: 450px;
+    }
+  }
 
   .hero-text {
     position: absolute;
