@@ -9171,6 +9171,12 @@ h2.body-intro-text {
 .life .more-publications .publications-link {
   background-color: #339999;
 }
+.life .bio a {
+  color: #339999;
+}
+.life .open-html a {
+  color: #339999 !important;
+}
 .technology .explore-more-wrapper .block-title {
   border-bottom: 2px solid #cc6600;
 }
@@ -9179,6 +9185,12 @@ h2.body-intro-text {
 }
 .technology .more-publications .publications-link {
   background-color: #cc6600;
+}
+.technology .bio a {
+  color: #cc6600;
+}
+.technology .open-html a {
+  color: #cc6600 !important;
 }
 .environment .explore-more-wrapper .block-title {
   border-bottom: 2px solid #3f9ed4;
@@ -9189,6 +9201,12 @@ h2.body-intro-text {
 .environment .more-publications .publications-link {
   background-color: #3f9ed4;
 }
+.environment .bio a {
+  color: #3f9ed4;
+}
+.environment .open-html a {
+  color: #3f9ed4 !important;
+}
 .humanities .explore-more-wrapper .block-title {
   border-bottom: 2px solid #9357b2;
 }
@@ -9197,6 +9215,12 @@ h2.body-intro-text {
 }
 .humanities .more-publications .publications-link {
   background-color: #9357b2;
+}
+.humanities .bio a {
+  color: #9357b2;
+}
+.humanities .open-html a {
+  color: #9357b2 !important;
 }
 .explore-more-wrapper {
   padding-top: 40px;
@@ -9222,6 +9246,9 @@ h2.body-intro-text {
 }
 .explore-more-wrapper .bio {
   margin-bottom: 70px;
+}
+.explore-more-wrapper .bio a {
+  font-size: 16px;
 }
 .explore-more-wrapper .block-title {
   width: 100%;
