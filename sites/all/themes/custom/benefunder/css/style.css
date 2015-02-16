@@ -7812,6 +7812,9 @@ body.page-causes {
 /*======================================================================
   Selectric
 ======================================================================*/
+.selectricInput {
+  display: none;
+}
 .selectricWrapper {
   position: relative;
   margin: 0;

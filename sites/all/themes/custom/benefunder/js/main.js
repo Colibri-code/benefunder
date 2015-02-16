@@ -254,9 +254,9 @@ var general = function() {
         }
 
         setTimeout(function() {
-          $('.conditional-filter.secondary .active').removeClass('slide-down');
           var secondFiltersHeight = $('.conditional-filter.secondary').height();
           $('.page-intro, .view-content').css('top', '-' + secondFiltersHeight + 'px');
+          $('.conditional-filter.secondary .active').removeClass('slide-down');
           setTimeout(function() {
             $('html, body').animate({ scrollTop: 0 }, 'fast', function() {
               document.location.href = newPath;
@@ -271,9 +271,9 @@ var general = function() {
         e.preventDefault();
         var href = $(this).attr('href');
 
-        $('.conditional-filter.secondary .active').removeClass('slide-down');
         var secondFiltersHeight = $('.conditional-filter.secondary').height();
         $('.page-intro, .view-content').css('top', '-' + secondFiltersHeight + 'px');
+        $('.conditional-filter.secondary .active').removeClass('slide-down');
         setTimeout(function() {
           $('html, body').animate({ scrollTop: 0 }, 'fast', function() {
             document.location.href = href;
