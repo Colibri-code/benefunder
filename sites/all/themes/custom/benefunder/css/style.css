@@ -7955,7 +7955,7 @@ body.page-causes {
   top: 100%;
   left: 0;
   z-index: -1;
-  transition: max-height 0.8s cubic-bezier(0.86, 0, 0.07, 1) 0s;
+  transition: max-height 0.5s cubic-bezier(0.86, 0, 0.07, 1) 0s;
   outline: none;
 }
 .selectricItems .selectricScroll {
@@ -8068,7 +8068,7 @@ body.page-causes {
 }
 .view-cause-listing .page-intro.slide-down,
 .view-cause-listing .view-content.slide-down {
-  transition: top 0.8s cubic-bezier(0.86, 0, 0.07, 1) 0s;
+  transition: top 0.3s cubic-bezier(0.86, 0, 0.07, 1) 0s;
 }
 .view-cause-listing .views-row {
   opacity: 0;
@@ -8163,8 +8163,8 @@ body.page-causes {
   -webkit-transform: translateY(-100%);
       -ms-transform: translateY(-100%);
           transform: translateY(-100%);
-  transition: -webkit-transform 0.8s cubic-bezier(0.86, 0, 0.07, 1) 0s;
-  transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1) 0s;
+  transition: -webkit-transform 0.3s cubic-bezier(0.86, 0, 0.07, 1) 0s;
+  transition: transform 0.3s cubic-bezier(0.86, 0, 0.07, 1) 0s;
 }
 .view-filters .conditional-filter ul.filter-tags.slide-down {
   -webkit-transform: translateY(0%);

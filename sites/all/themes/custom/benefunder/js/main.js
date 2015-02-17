@@ -261,7 +261,7 @@ var general = function() {
 
           var secondFilterSlideUpDelay = 0;
           if (getParameterByName('term')) {
-            secondFilterSlideUpDelay = 800;
+            secondFilterSlideUpDelay = 400;
           }
 
           setTimeout(function() {
@@ -274,8 +274,8 @@ var general = function() {
               });
               
             }, secondFilterSlideUpDelay);
-          }, 800);
-        }, 300);
+          }, 400);
+        }, 200);
       });
 
       $('.conditional-filter.secondary li a').click(function(e) {
@@ -290,7 +290,7 @@ var general = function() {
             document.location.href = href;
           });
           
-        }, 800);
+        }, 200);
       });
 
       $('.views-row').addClass('fadeIn');
