@@ -150,7 +150,12 @@ var general = function() {
       if (screenWidth > screenSizeMedium) {
         screens.medium();
       } else {
-        screenWidth < screenSizeSmall ? screens.tiny() :  screens.smalll();
+        if (screenWidth < screenSizeSmall) {
+          screens.tiny();
+        }
+        else {
+          screens.smalll();
+        }  
       }
     },
 
@@ -219,7 +224,7 @@ var general = function() {
           setTimeout(function() {
             $('.conditional-filter.secondary .active').addClass('slide-down');
             $('.page-intro, .view-content').addClass('slide-down').css('top', 0);
-          }, 500)
+          }, 500);
 
           $('.primary-filter .selectricItems li').unbind();
           
