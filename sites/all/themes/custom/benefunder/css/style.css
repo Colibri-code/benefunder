@@ -7843,6 +7843,10 @@ body.page-causes {
   color: #999933;
   font-family: 'raleway-light';
 }
+.selectricHideSelect + .selectric .label {
+  opacity: 1;
+  transition: opacity 0.4s linear 0s;
+}
 .selectricHideSelect + .selectric .label.tid-66 {
   color: #339999;
 }
@@ -7854,6 +7858,9 @@ body.page-causes {
 }
 .selectricHideSelect + .selectric .label.tid-7 {
   color: #9357b2;
+}
+.selectricHideSelect + .selectric .label.fadeOut {
+  opacity: 0;
 }
 .selectric .button {
   display: block;
@@ -8062,6 +8069,13 @@ body.page-causes {
 .view-cause-listing .page-intro.slide-down,
 .view-cause-listing .view-content.slide-down {
   transition: top 0.8s cubic-bezier(0.86, 0, 0.07, 1) 0s;
+}
+.view-cause-listing .views-row {
+  opacity: 0;
+  transition: opacity 0.3s linear 0s;
+}
+.view-cause-listing .views-row.fadeIn {
+  opacity: 1;
 }
 .view-filters {
   float: left;

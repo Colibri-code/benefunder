@@ -220,6 +220,8 @@ var general = function() {
             $('.conditional-filter.secondary .active').addClass('slide-down');
             $('.page-intro, .view-content').addClass('slide-down').css('top', 0);
           }, 500)
+
+          $('.primary-filter .selectricItems li').unbind();
           
         },
         disableOnMobile: false
@@ -236,35 +238,44 @@ var general = function() {
       }
 
       $('.primary-filter .selectricItems li').on('click', function(event) {
+        event.preventDefault();
+
+        $('.selectricHideSelect + .selectric .label').addClass('fadeOut');
         var tid = $('span', this).data('tid');
-        $('.selectricHideSelect + .selectric .label').attr('class', 'label');
-        $('.selectricHideSelect + .selectric .label').addClass('tid-' + tid);
-
-        var newPath = '';
-        if ((typeof tid) === 'number') {
-          newPath = '/causes?term=' + tid + '&primary=' + $('span', this).attr('class');
-        }
-        else {
-          newPath = '/causes';
-        }
-
-        var secondFilterSlideUpDelay = 0;
-        if (getParameterByName('term')) {
-          secondFilterSlideUpDelay = 800;
-        }
+        var researchAreaName = $('span', this).text();
+        var researchAreaClass = $('span', this).attr('class');
+        $('#causes-list-exposed-filter').selectric('close');
 
         setTimeout(function() {
-          var secondFiltersHeight = $('.conditional-filter.secondary').height();
-          $('.page-intro, .view-content').css('top', '-' + secondFiltersHeight + 'px');
-          $('.conditional-filter.secondary .active').removeClass('slide-down');
+          $('.selectricHideSelect + .selectric .label').text(researchAreaName);
+          $('.selectricHideSelect + .selectric .label').attr('class', 'label');
+          $('.selectricHideSelect + .selectric .label').addClass('tid-' + tid);
+
+          var newPath = '';
+          if ((typeof tid) === 'number') {
+            newPath = '/causes?term=' + tid + '&primary=' + researchAreaClass;
+          }
+          else {
+            newPath = '/causes';
+          }
+
+          var secondFilterSlideUpDelay = 0;
+          if (getParameterByName('term')) {
+            secondFilterSlideUpDelay = 800;
+          }
+
           setTimeout(function() {
-            $('html, body').animate({ scrollTop: 0 }, 'fast', function() {
-              document.location.href = newPath;
-            });
-            
-          }, secondFilterSlideUpDelay);
-        }, 800);
-        
+            var secondFiltersHeight = $('.conditional-filter.secondary').height();
+            $('.page-intro, .view-content').css('top', '-' + secondFiltersHeight + 'px');
+            $('.conditional-filter.secondary .active').removeClass('slide-down');
+            setTimeout(function() {
+              $('html, body').animate({ scrollTop: 0 }, 'fast', function() {
+                document.location.href = newPath;
+              });
+              
+            }, secondFilterSlideUpDelay);
+          }, 800);
+        }, 300);
       });
 
       $('.conditional-filter.secondary li a').click(function(e) {
@@ -281,6 +292,14 @@ var general = function() {
           
         }, 800);
       });
+
+      $('.views-row').addClass('fadeIn');
+
+      Drupal.behaviors.benefunder = {
+        attach: function (context, settings) {
+          $('.views-row').addClass('fadeIn');
+        }
+      };
     },
 
     causeDetailVideo: function() {

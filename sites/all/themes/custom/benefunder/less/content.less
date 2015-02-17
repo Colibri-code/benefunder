@@ -864,10 +864,17 @@ body {
   font-family:@raleway-light;
 }
 .selectricHideSelect + .selectric .label {
+  opacity: 1;
+  transition: opacity 0.4s linear 0s;
+
   &.tid-66 {color:@brand-life;}
   &.tid-91 {color:@brand-technology;}
   &.tid-10 {color:@brand-environment;}
   &.tid-7 {color:@brand-humanities;}
+
+  &.fadeOut {
+    opacity: 0;
+  }
 }
 .selectric .button {
   display: block;
@@ -1092,6 +1099,15 @@ body {
 .view-cause-listing .page-intro.slide-down,
 .view-cause-listing .view-content.slide-down {
   transition: top 0.8s cubic-bezier(0.86, 0, 0.07, 1) 0s;
+}
+
+.view-cause-listing .views-row {
+  opacity: 0;
+  transition: opacity 0.3s linear 0s;
+
+  &.fadeIn {
+    opacity: 1;
+  }
 }
 
 .view-filters {
