@@ -74,7 +74,6 @@
  */
 ?>
 
-<?php print $messages; ?>
 <?php if (!empty($tabs)): ?>
   <?php print render($tabs); ?>
 <?php endif; ?>
@@ -88,6 +87,8 @@
 </div>
 
 <div class="node-content-wrapper">
+
+<?php print $messages; ?>
 
   <?php if (isset($page['content']['system_main']['search_results']['search_results'])): ?>
 
