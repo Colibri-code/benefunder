@@ -8070,6 +8070,11 @@ body.page-causes {
     float: right;
   }
 }
+@media (min-width: 992px) {
+  .page-intro {
+    margin-top: 60px;
+  }
+}
 .view-cause-listing {
   float: left;
   width: 100%;
@@ -8133,11 +8138,6 @@ body.page-causes {
     padding-bottom: 5px;
   }
 }
-@media (min-width: 992px) {
-  .view-filters .primary-filter {
-    position: absolute;
-  }
-}
 .view-filters .primary-filter .select-label {
   float: left;
   font-family: 'raleway';
@@ -8152,16 +8152,6 @@ body.page-causes {
 }
 .view-filters .conditional-filter {
   position: relative;
-}
-@media (min-width: 992px) {
-  .view-filters .conditional-filter {
-    top: 63px;
-  }
-}
-@media (min-width: 992px) {
-  .view-filters .conditional-filter {
-    margin-bottom: 60px;
-  }
 }
 .view-filters .conditional-filter ul.filter-tags {
   margin: 0;
