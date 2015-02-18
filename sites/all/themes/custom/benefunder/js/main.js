@@ -295,7 +295,7 @@ var general = function() {
             document.location.href = href;
           });
           
-        }, 200);
+        }, 500);
       });
 
       $('.views-row').addClass('fadeIn');
