@@ -27,7 +27,7 @@
  * @ingroup views_templates
  */
 ?>
-<div class="<?php print $classes; ?>">
+<div>
 
   <?php if ($exposed): ?>
     <div class="view-filters">
@@ -35,26 +35,30 @@
     </div>
   <?php endif; ?>
 
-  <?php print $header; ?>
+  <div class="cause-list-wrapper <?php print $classes; ?>">
 
-  <?php if ($attachment_before): ?>
-    <div class="attachment attachment-before">
-      <?php print $attachment_before; ?>
-    </div>
-  <?php endif; ?>
+    <?php print $header; ?>
 
-  <?php if ($rows): ?>
-    <div class="view-content causes-list gutters col-sm-12">
-      <?php print $rows; ?>
-    </div>
-  <?php elseif ($empty): ?>
-    <div class="view-empty">
-      <?php print $empty; ?>
-    </div>
-  <?php endif; ?>
+    <?php if ($attachment_before): ?>
+      <div class="attachment attachment-before">
+        <?php print $attachment_before; ?>
+      </div>
+    <?php endif; ?>
 
+    <?php if ($rows): ?>
+      <div class="view-content causes-list gutters col-sm-12">
+        <?php print $rows; ?>
+      </div>
+    <?php elseif ($empty): ?>
+      <div class="view-empty">
+        <?php print $empty; ?>
+      </div>
+    <?php endif; ?>
   <?php if ($pager): ?>
     <?php print $pager; ?>
   <?php endif; ?>
+
+  </div>
+
 
 </div><?php /* class view */ ?>

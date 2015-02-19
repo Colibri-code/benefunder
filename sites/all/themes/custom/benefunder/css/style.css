@@ -8079,8 +8079,10 @@ body.page-causes {
   float: left;
   width: 100%;
 }
-.view-cause-listing .page-intro.slide-down,
-.view-cause-listing .view-content.slide-down {
+.cause-list-wrapper {
+  position: relative;
+}
+.cause-list-wrapper.slide-down {
   transition: top 0.5s cubic-bezier(0.86, 0, 0.07, 1) 0s;
 }
 .view-cause-listing .views-row {

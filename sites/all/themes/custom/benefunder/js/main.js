@@ -212,7 +212,7 @@ var general = function() {
         },
         onInit: function() {
           var secondFiltersHeight = $('.conditional-filter.secondary').height();
-          $('.page-intro, .view-content').css('top', '-' + secondFiltersHeight + 'px');
+          $('.cause-list-wrapper').css('top', '-' + secondFiltersHeight + 'px');
           $('.view-cause-listing .selectric b.button').prepend('<span></span>');
 
           // Add class to selectric to change color of currently selected item
@@ -223,7 +223,7 @@ var general = function() {
 
           setTimeout(function() {
             $('.conditional-filter.secondary .active').addClass('slide-down');
-            $('.page-intro, .view-content').addClass('slide-down').css('top', 0);
+            $('.cause-list-wrapper').addClass('slide-down').css('top', 0);
           }, 500);
 
           $('.primary-filter .selectricItems li').unbind();
@@ -271,7 +271,7 @@ var general = function() {
 
           setTimeout(function() {
             var secondFiltersHeight = $('.conditional-filter.secondary').height();
-            $('.page-intro, .view-content').css('top', '-' + secondFiltersHeight + 'px');
+            $('.cause-list-wrapper').css('top', '-' + secondFiltersHeight + 'px');
             $('.conditional-filter.secondary .active').removeClass('slide-down');
             setTimeout(function() {
               $('html, body').animate({ scrollTop: 0 }, 'fast', function() {
@@ -288,7 +288,7 @@ var general = function() {
         var href = $(this).attr('href');
 
         var secondFiltersHeight = $('.conditional-filter.secondary').height();
-        $('.page-intro, .view-content').css('top', '-' + secondFiltersHeight + 'px');
+        $('.cause-list-wrapper').css('top', '-' + secondFiltersHeight + 'px');
         $('.conditional-filter.secondary .active').removeClass('slide-down');
         setTimeout(function() {
           $('html, body').animate({ scrollTop: 0 }, 'fast', function() {
