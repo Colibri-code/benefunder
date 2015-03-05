@@ -6987,9 +6987,10 @@ body.front {
   background-image: url(../media/images/nemo_background.jpg);
 }
 body.page-causes {
-  background-image: url(../media/images/galaxy_background.jpg);
+  background-image: url(../media/images/galaxy_background_fade.jpg);
   background-size: 420% auto;
   background-position: 50% 0%;
+  background-color: #151e25;
 }
 @media (min-width: 500px) {
   body.page-causes {
