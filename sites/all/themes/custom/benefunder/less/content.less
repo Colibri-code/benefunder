@@ -2925,11 +2925,17 @@ h2.search-results-label {
 
 }
 
+.table-striped.pagerer > tbody > tr > td,
+.table-striped.pagerer > tbody > tr > th {
+  background-color: transparent;
+}
+
 ul.pager {
 
   @media(min-width:@screen-md-min) {
     padding-top:70px;
     margin-top:0;
+    float: left;
   }
 
   li {
@@ -2951,7 +2957,9 @@ ul.pager {
     }
 
     &.pager-next,
-    &.pager-last {
+    &.pager-last,
+    &.pager-previous,
+    &.pager-first {
 
       a {
         color:#000;
@@ -2973,5 +2981,10 @@ ul.pager {
         background-color:transparent;
       }
     }
+  }
+
+  &.sticky {
+    position: fixed;
+    top: 0;
   }
 }

@@ -10008,10 +10008,15 @@ h2.search-results-label:before {
 .search-teaser .search-teaser-body {
   line-height: 32px;
 }
+.table-striped.pagerer > tbody > tr > td,
+.table-striped.pagerer > tbody > tr > th {
+  background-color: transparent;
+}
 @media (min-width: 992px) {
   ul.pager {
     padding-top: 70px;
     margin-top: 0;
+    float: left;
   }
 }
 ul.pager li {
@@ -10030,7 +10035,9 @@ ul.pager li.pager-current {
   box-shadow: 0 0 1px 1px #000, inset 0 0 1px #000;
 }
 ul.pager li.pager-next a,
-ul.pager li.pager-last a {
+ul.pager li.pager-last a,
+ul.pager li.pager-previous a,
+ul.pager li.pager-first a {
   color: #000;
   text-transform: capitalize;
 }
@@ -10046,6 +10053,10 @@ ul.pager li a {
 ul.pager li a:hover {
   color: #999933;
   background-color: transparent;
+}
+ul.pager.sticky {
+  position: fixed;
+  top: 0;
 }
 /* ==========================================================================
   Less for footer section

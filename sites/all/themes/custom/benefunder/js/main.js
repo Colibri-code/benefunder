@@ -75,6 +75,30 @@ var general = function() {
       $('footer').css({'background-image': 'url(/sites/all/themes/custom/benefunder/media/images/footer_backgrounds/' + getRandomInt(0,0) + '.jpg)'});
     },
 
+    // Handles footer random background image
+    searchPager: function() {
+      if ($('.page-search .sidebar-second ul.pager').length) {
+        var pager = $('.page-search .sidebar-second ul.pager');
+
+        $(window).scroll(function() {
+          if (viewport.width() >= 992) {
+            if ($(document).scrollTop() < 576) {
+              $(pager).removeClass('sticky');
+            }
+            else if (($(pager).offset().top - $(document).scrollTop()) <= 0) {
+              $(pager).addClass('sticky');
+            }
+          }
+        });
+
+        $(window).resize(function() {
+          if ($(window).width() < 992) {
+            $(pager).removeClass('sticky');
+          }
+        });
+      }
+    },
+
     // Window resize function
     windowResize: function() {
       $(window).resize(function() {
@@ -349,6 +373,7 @@ var Benefunder = {
       general.setNavbar();
       general.windowResize();
       general.setFooter();
+      general.searchPager();
     }
   },
   // Home page
