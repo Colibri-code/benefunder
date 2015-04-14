@@ -10014,9 +10014,8 @@ h2.search-results-label:before {
 }
 @media (min-width: 992px) {
   ul.pager {
+    float: right;
     padding-top: 70px;
-    margin-top: 0;
-    float: left;
   }
 }
 ul.pager li {
@@ -10056,7 +10055,8 @@ ul.pager li a:hover {
 }
 ul.pager.sticky {
   position: fixed;
-  top: 0;
+  top: -15px;
+  right: 45px;
 }
 /* ==========================================================================
   Less for footer section

@@ -79,10 +79,12 @@ var general = function() {
     searchPager: function() {
       if ($('.page-search .sidebar-second ul.pager').length) {
         var pager = $('.page-search .sidebar-second ul.pager');
+        var pagerParent = $('.pagerer-pager');
+        var initialOffset = $(pager).offset().top;
 
         $(window).scroll(function() {
           if (viewport.width() >= 992) {
-            if ($(document).scrollTop() < 576) {
+            if ($(document).scrollTop() < initialOffset) {
               $(pager).removeClass('sticky');
             }
             else if (($(pager).offset().top - $(document).scrollTop()) <= 0) {
@@ -92,7 +94,8 @@ var general = function() {
         });
 
         $(window).resize(function() {
-          if ($(window).width() < 992) {
+          initialOffset = $(pager).offset().top;
+          if (viewport.width() < 992) {
             $(pager).removeClass('sticky');
           }
         });
