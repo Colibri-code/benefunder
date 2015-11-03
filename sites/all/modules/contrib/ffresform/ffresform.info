@@ -1,0 +1,8 @@
+core = "7.x"
+version=7.39
+description = "An Drupal 7 project to collect researchers' information."
+name = ffresform
+
+files[] = ffresform.module
+project="drupal"
+content = 'content'

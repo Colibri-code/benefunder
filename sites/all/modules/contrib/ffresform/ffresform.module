@@ -1,0 +1,4231 @@
+<?php
+function ffresform_menu() {
+    
+    //keywords auto complete declare
+    $items['keywords/autocomplete'] = array(
+      'title' => 'Autocomplete for keywords',
+      'page callback' => '_keywords_autocomplete',
+      'access arguments' => array('access content'),
+      'type' => MENU_CALLBACK
+    );
+    //causes auto complete declare
+    $items['causes/autocomplete'] = array(
+      'title' => 'Autocomplete for causes',
+      'page callback' => '_causes_autocomplete',
+      'access arguments' => array('access content'),
+      'type' => MENU_CALLBACK
+    );
+    
+    //main form-enter point start page
+    $items['ffresform/research_form'] = array( 
+        'title' => 'Benefunder Researcher Questionnaire',
+        'page callback' => 'drupal_get_form',
+        'page arguments'=>array('form_my_research_form'),
+        'access callback' => TRUE,
+        'type' => MENU_CALLBACK
+     );
+     
+     //page 1 main profile page
+    $items['ffresform/research_form_page1'] = array(
+        'title' => 'Basic information',
+        'page callback' => 'drupal_get_form',
+        'page arguments'=>array('form_my_research_form_page1'),
+        'access callback' => TRUE,
+        'type' => MENU_CALLBACK
+     );
+    
+    //page 2
+    $items['ffresform/research_form_page2'] = array(
+        'title' => 'Describing your research at a high level',
+        'page callback' => 'drupal_get_form',
+        'page arguments'=>array('form_my_research_form_page2'),
+        'access callback' => TRUE,
+        'type' => MENU_CALLBACK
+     );
+     
+     //page 3
+    $items['ffresform/research_form_page3'] = array(
+        'title' => 'Arts, Humanities, Education & Social Sciences',
+        'page callback' => 'drupal_get_form',
+        'page arguments'=>array('form_my_research_form_page3'),
+        'access callback' => TRUE,
+        'type' => MENU_CALLBACK
+     );
+     
+     //page 4
+    $items['ffresform/research_form_page4'] = array(
+        'title' => 'Environment & Universe',
+        'page callback' => 'drupal_get_form',
+        'page arguments'=>array('form_my_research_form_page4'),
+        'access callback' => TRUE,
+        'type' => MENU_CALLBACK
+     );
+      //page 5
+    $items['ffresform/research_form_page5'] = array(
+        'title' => 'Life',
+        'page callback' => 'drupal_get_form',
+        'page arguments'=>array('form_my_research_form_page5'),
+        'access callback' => TRUE,
+        'type' => MENU_CALLBACK
+     );
+      //page 6
+    $items['ffresform/research_form_page6'] = array(
+        'title' => 'Technology',
+        'page callback' => 'drupal_get_form',
+        'page arguments'=>array('form_my_research_form_page6'),
+        'access callback' => TRUE,
+        'type' => MENU_CALLBACK
+     );
+     
+     //page 7
+     $items['ffresform/research_form_page7'] = array(
+        'title' => 'Describing your research at a high level',
+        'page callback' => 'drupal_get_form',
+        'page arguments'=>array('form_my_research_form_page7'),
+        'access callback' => TRUE,
+        'type' => MENU_CALLBACK
+     );
+     
+     //page 8
+    $items['ffresform/research_form_page8'] = array(
+        'title' => 'Arts, Humanities, Education & Social Sciences',
+        'page callback' => 'drupal_get_form',
+        'page arguments'=>array('form_my_research_form_page8'),
+        'access callback' => TRUE,
+        'type' => MENU_CALLBACK
+     );
+     
+     //page 9
+    $items['ffresform/research_form_page9'] = array(
+        'title' => 'Environment & Universe',
+        'page callback' => 'drupal_get_form',
+        'page arguments'=>array('form_my_research_form_page9'),
+        'access callback' => TRUE,
+        'type' => MENU_CALLBACK
+     );
+      //page 10
+    $items['ffresform/research_form_page10'] = array(
+        'title' => 'Life',
+        'page callback' => 'drupal_get_form',
+        'page arguments'=>array('form_my_research_form_page10'),
+        'access callback' => TRUE,
+        'type' => MENU_CALLBACK
+     );
+      //page 11
+    $items['ffresform/research_form_page11'] = array(
+        'title' => 'Technology',
+        'page callback' => 'drupal_get_form',
+        'page arguments'=>array('form_my_research_form_page11'),
+        'access callback' => TRUE,
+        'type' => MENU_CALLBACK
+     );
+     
+     //page 12
+     $items['ffresform/research_form_page12'] = array(
+        'title' => 'Describing your research in more detail',
+        'page callback' => 'drupal_get_form',
+        'page arguments'=>array('form_my_research_form_page12'),
+        'access callback' => TRUE,
+        'type' => MENU_CALLBACK
+     );
+     //page 13
+     $items['ffresform/research_form_page13'] = array(
+        'title' => 'Describing your research to a donor: What causes is it relevant to?',
+        'page callback' => 'drupal_get_form',
+        'page arguments'=>array('form_my_research_form_page13'),
+        'access callback' => TRUE,
+        'type' => MENU_CALLBACK
+     );
+     //page 14
+     $items['ffresform/research_form_page14'] = array(
+        'title' => 'Describing the stage of your research',
+        'page callback' => 'drupal_get_form',
+        'page arguments'=>array('form_my_research_form_page14'),
+        'access callback' => TRUE,
+        'type' => MENU_CALLBACK
+     );
+     //page 15
+     $items['ffresform/research_form_page15'] = array(
+        'title' => 'Looking backward and looking forward',
+        'page callback' => 'drupal_get_form',
+        'page arguments'=>array('form_my_research_form_page15'),
+        'access callback' => TRUE,
+        'type' => MENU_CALLBACK
+     );
+     //page 16
+     $items['ffresform/research_form_page16'] = array(
+        'title' => 'Start-ups and spin-offs',
+        'page callback' => 'drupal_get_form',
+        'page arguments'=>array('form_my_research_form_page16'),
+        'access callback' => TRUE,
+        'type' => MENU_CALLBACK
+     );
+      //page 17
+     $items['ffresform/research_form_page17'] = array( 
+        'title' => 'Company',
+        'page callback' => 'drupal_get_form',
+        'page arguments'=>array('form_my_research_form_page17'),
+        'access callback' => TRUE,
+        'type' => MENU_CALLBACK
+     );
+     //page 18
+     $items['ffresform/research_form_page18'] = array(
+        'title' => 'Patents',
+        'page callback' => 'drupal_get_form',
+        'page arguments'=>array('form_my_research_form_page18'),
+        'access callback' => TRUE,
+        'type' => MENU_CALLBACK
+     );
+     //page 19
+     $items['ffresform/research_form_page19'] = array(
+        'title' => 'Patents',
+        'page callback' => 'drupal_get_form',
+        'page arguments'=>array('form_my_research_form_page19'),
+        'access callback' => TRUE,
+        'type' => MENU_CALLBACK
+     );
+     
+     //page 20
+     $items['ffresform/research_form_page20'] = array(
+        'title' => 'Engaging with donors',
+        'page callback' => 'drupal_get_form',
+        'page arguments'=>array('form_my_research_form_page20'),
+        'access callback' => TRUE,
+        'type' => MENU_CALLBACK
+     );
+     //page 21 thank you page
+     $items['ffresform/research_form_page21'] = array(
+        'title' => 'Thanks for your time!',
+        'page callback' => 'drupal_get_form',
+        'page arguments'=>array('form_my_research_form_page21'),
+        'access callback' => TRUE,
+        'type' => MENU_CALLBACK
+     );
+
+    return $items;
+}
+
+function _keywords_autocomplete($string) {
+  $matches = array();
+  $result = db_select('ff_view_keywords', 'k')
+    ->fields('k', array('keyword'))
+    ->condition('keyword', '%' . db_like($string) . '%', 'LIKE')
+    ->execute();
+
+  // save the query to matches
+  foreach ($result as $row) {
+    $matches[$row->keyword] = check_plain($row->keyword);
+  }
+
+  // Return the result to the form in json
+  drupal_json_output($matches);
+}
+
+function _causes_autocomplete($string) {
+  $matches = array();
+  $result = db_select('ff_view_causes', 'c')
+    ->fields('c', array('cause'))
+    ->condition('cause', '%' . db_like($string) . '%', 'LIKE')
+    ->execute();
+
+  // save the query to matches
+  foreach ($result as $row) {
+    $matches[$row->cause] = check_plain($row->cause);
+  }
+
+  // Return the result to the form in json
+  drupal_json_output($matches);
+}
+
+function form_my_research_form($form, &$form_state) {
+    
+    $form['maindescription'] = array( //main description about this questionnaire
+        '#type'=> 'item',
+        '#title' => t('Benefunder connects philanthropists to researchers to support cutting-edge research programs in the sciences and the arts.
+        Like patron funding, Benefunder seeks to create lasting relationships between donors and researchers, to support and engage with a long-term 
+        vision.This process is driven by our scalable matching platform with national reach.<br>
+        <br>
+        Our goal is to connect you with relevant donors. The following questionnaire asks for detailed information about your research, to drive our
+        matching algorithms. It also helps us to present your work clearly to donors who are interested in your studies.<br>
+        <br>
+        It is important that you take the time to answer each question the best you can. Expect to spend 15-25 minutes. It is required that you 
+        complete the questionnaire in one session. If you would like to prepare your answers in advance, you can find an overview of the questions attached 
+        to the email that linked to this form.<br>
+        <br>
+        This questionnaire is the first in a series of questionnaires we will present to you over the next months, to further refine your Benefunder profile.
+        ')
+    );
+    
+    $curuserid=$_SERVER['REQUEST_URI']; //get the current url to find if there is a userid exited
+    if(strpos($curuserid,'userid')){ //strict compare to avoid potential mistakes
+        $curuserid=$_GET['userid']; //if the url contains a userid, then store the userid into the hiddenfield
+    }else{
+        $curuserid=0; //else set the userid to default 0 then generate a new id for this user
+    }
+    
+    //print($curuserid);
+    
+    $form['hiddenuserid']=array(  //initialize a form hidden to store the userid to retrieve in submit
+        '#type' => 'hidden',
+        '#value' => $curuserid
+    );
+    
+    $form['continuenextpage'] = array(  //next page button
+        '#type' => 'submit',
+        '#value' => t('Start'),
+        '#name' => 'continue'
+    );
+   
+    return $form;
+}
+
+
+
+
+function form_my_research_form_submit($form, &$form_state){
+//need add db pass the userid in url
+     $curuserid=$form_state['values']['hiddenuserid']; //get the current userid in the form hiddenuserid
+     if($curuserid==0){
+     //if there is no userid, then generate a new one using ff_rid auto increment
+        $curid=db_query("select max(id) from {ff_rid}")->fetchField();
+        $curid=$curid+1; //add one to insert
+        
+        $dbrid_resultname = db_insert('ff_rid') //insert into the ff_rid table
+        ->fields(array(
+        'id' => $curid
+        ))
+        ->execute();
+        $urloptions = array('query' => array('userid' => $curid));
+        drupal_goto('ffresform/research_form_page1',$urloptions);
+     }else{ //if there is a assigned rid in the url,then use this rid pass to next page
+        $urloptions = array('query' => array('userid' => $curuserid));
+        drupal_goto('ffresform/research_form_page1',$urloptions);
+     }
+     
+}
+
+
+//main form page1 and its submit
+function form_my_research_form_page1($form, &$form_state) {
+    
+   
+    
+    $curuserid=$_GET['userid']; //get the current url to find if there is a userid exited
+    //print($curuserid); 
+    
+    $form['hiddenuserid']=array(  //initialize a form hidden to store the userid to retrieve in submit
+        '#type' => 'hidden',
+        '#value' => $curuserid
+    );
+
+    $form['subdescription'] = array( //sub description about page1
+        '#type'=> 'item',
+        '#title' => t('General information')
+    );
+    
+    $form['fname'] = array( //name tag
+        '#type' => 'textfield',
+        '#title' => 'First name',
+        '#required' => TRUE
+    );
+    $form['lname'] = array( //name tag
+        '#type' => 'textfield',
+        '#title' => 'Last name',
+        '#required' => TRUE
+    );
+    
+    $form['institution'] = array( 
+        '#type' => 'textfield',
+        '#title' => 'Institution',
+        '#required' => TRUE
+    );
+    
+    $form['school'] = array(  //keywords tag
+        '#type' => 'textfield',
+        '#title' => 'School'
+    );
+    $form['department'] = array(  
+        '#type' => 'textfield',
+        '#title' => 'Department'
+    );
+    
+    //start define the radios for researchers position
+    $form['positions'] = array(
+        '#type' => 'item',
+        '#title' => t('Position'),
+        '#required' => TRUE
+    );
+    $form['positions']['assispro'] = array(
+        '#type' => 'radio',
+        '#title' => t('Assistant Professor'),
+        '#default_value' => 0,                    // If there is a default value, this should also be specified for each radio button.
+        '#return_value' => 1,
+        '#parents' => array('positions'),           // You must specify this for each radio button for them to act as a group.
+        '#prefix' => '<div class="form-radios">'  // The first radio button needs to make the style match a normal radios group.
+    );
+    $form['positions']['assopro'] = array(
+        '#type' => 'radio',
+        '#title' => t('Associate Professor'),
+        '#default_value' => 0,
+        '#return_value' => 2,
+        '#parents' => array('positions')
+    );
+    $form['positions']['pro'] = array(
+        '#type' => 'radio',
+        '#title' => t('Professor'),
+        '#default_value' => 0,
+        '#return_value' => 3,
+        '#parents' => array('positions')
+    );
+    $form['positions']['ressci'] = array(
+        '#type' => 'radio',
+        '#title' => t('Research Scientist'),
+        '#default_value' => 0,
+        '#return_value' => 4,
+        '#parents' => array('positions')
+    );
+    $form['positions']['pos_other'] = array(
+        // The 'container-inline' class places elements next to each other, while the 'form-item' class provides the correct spacing between options.
+        '#prefix' => '<div class="container-inline form-item">',
+        '#suffix' => '</div>'
+    );
+    // By supplying the title here, instead of using the '#field_prefix' property of the textfield, clicking the text will also select the radio button.
+    $form['positions']['pos_other']['pos_other_option'] = array(
+        '#type' => 'radio',
+        '#title' => t('Other:'),
+        '#default_value' => 0,
+        '#return_value' => 5,
+        '#parents' => array('positions')
+    );
+    $form['positions']['pos_other']['pos_other_textfield'] = array(
+        '#type' => 'textfield',
+        '#default_value' => '',
+        '#size' => 20,         // The default size is a bit large...
+        '#suffix' => '</div>'  // End of the "form-radios" style.
+        //'#attributes' => array('onClick' => 'jQuery("input[name=positions][value=5]").attr("checked", true)',),
+        
+    );
+    
+    //start the position qualifier radios
+    $form['positionqua'] = array(
+        '#type' => 'item',
+        '#title' => t('Position qualifier (if applicable):')
+    );
+    $form['positionqua']['adj'] = array(
+        '#type' => 'radio',
+        '#title' => t('Adjunct'),
+        '#default_value' => 0,
+        '#return_value' => 1,
+        '#parents' => array('positionqua'),           // You must specify this for each radio button for them to act as a group.
+        '#prefix' => '<div class="form-radios">'  // The first radio button needs to make the style match a normal radios group.
+    );
+    $form['positionqua']['cli'] = array(
+        '#type' => 'radio',
+        '#title' => t('Clinical'),
+        '#default_value' => 0,
+        '#return_value' => 2,
+        '#parents' => array('positionqua')
+    );
+    $form['positionqua']['inr'] = array(
+        '#type' => 'radio',
+        '#title' => t('In Residence'),
+        '#default_value' => 0,
+        '#return_value' => 3,
+        '#parents' => array('positionqua')
+    );
+    $form['positionqua']['positionqua_other'] = array(
+        // The 'container-inline' class places elements next to each other, while the 'form-item' class provides the correct spacing between options.
+        '#prefix' => '<div class="container-inline form-item">',
+        '#suffix' => '</div>'
+    );
+    // By supplying the title here, instead of using the '#field_prefix' property of the textfield, clicking the text will also select the radio button.
+    $form['positionqua']['positionqua_other']['positionqua_other_option'] = array(
+        '#type' => 'radio',
+        '#title' => t('Other:'),
+        '#default_value' => 0,
+        '#return_value' => 4,
+        '#parents' => array('positionqua')
+    );
+    $form['positionqua']['positionqua_other']['positionqua_other_textfield'] = array(
+        '#type' => 'textfield',
+        '#default_value' => '',
+        '#size' => 20,         // The default size is a bit large...
+        '#suffix' => '</div>'  // End of the "form-radios" style.
+    );
+    
+    $form['email'] = array( //research description tag
+        '#type' => 'textfield',
+        '#title' => 'Email',
+        '#required' => TRUE
+    );
+    $form['phonenumber'] = array( //research description tag
+        '#type' => 'textfield',
+        '#title' => 'Phone number (Example: xxx-xxx-xxxx)',
+        '#required' => TRUE
+    );
+    
+    
+    //start the checkbox of session part
+    
+    $sessions_cbop=array(1 => t('I attended a Benefunder seminar (in person)'),
+    2 => t('I participated in a Benefunder conference call'),
+    3 => t('I listened to a Benefunder orientation podcast'),
+    4 => t('A delegate from my lab (student, post doc, tech, assistant) attend one of the above'),
+    5 => t('None of the above')
+    );
+    
+    $form['sessionschoice'] = array(
+        '#type' => 'checkboxes',
+        '#options' => drupal_map_assoc($sessions_cbop),
+        '#title' => t('You are required to attend a Benefunder information session. Which type of session did you attend?'),
+        '#required' => TRUE
+    );
+    
+    $form['standingdes'] = array(
+        '#type' => 'item',
+        '#title' => t('To be eligible for Benefunder, please verify that you are in good standing with your University or Research Institute.'),
+        '#required' => TRUE
+    );
+    $form['standing'] = array(
+        '#type' => 'checkbox',
+        '#title' => t('I certify that I am in a good standing with my University or Research Institute'),
+        '#required' => TRUE
+    );
+    
+    
+    //submit button part
+    
+    
+    $form['continuenextpage'] = array(  //next page button
+        '#type' => 'submit',
+        '#value' => t('Continue'),
+        '#name' => 'continue'
+    );
+   
+    return $form;
+    
+}
+
+function isCell($text) {//match the cell with the regrex to validata
+
+    return preg_match('/^[0-9]{3}-[0-9]{3}-[0-9]{4}$/', str_replace(' ', '', $text));
+}
+function isEmail($text) {//match the email with the regrex to validata
+
+    return preg_match('/^[A-Za-z0-9_\-.]{1,}\@[A-Za-z]{1,}\.[A-Za-z]{2,}$/', str_replace(' ', '', $text));
+}
+
+
+
+
+//custom validate function for page 1
+function form_my_research_form_page1_validate($form, &$form_state) {
+  
+
+  $cell=$form_state['values']['phonenumber'];
+  $email=$form_state['values']['email'];
+  $pos_op=$form_state['values']['positions']; 
+  $pos_tf=$form_state['values']['pos_other_textfield'];
+  $pos_tf=trim($pos_tf);
+  $pos_tf=trim($pos_tf,' '); //before compare repalce all blankspace
+  $pos_tf=trim($pos_tf,"\x00..\x1F");
+  
+  
+  
+  if (!isEmail($email)) { //check email format
+    
+    form_set_error('email', 'Not a valid email address! Please use format like xx@xx.xx');
+  }
+  
+  
+  if (!isCell($cell)) { //check phone number format
+    
+    form_set_error('phonenumber', 'Not a valid phone number! Please use format like xxx-xxx-xxxx');
+  }
+  //check pos other field
+  if($pos_op==0){ //if user didn't choose any radios
+    if($pos_tf ==""){//check other textfield's value
+        form_set_error('pos_other_textfield', "If you don't choose position options, please input other positions!");
+    }
+  }
+  
+}
+
+
+
+function form_my_research_form_page1_submit($form, &$form_state){
+     
+    //get user options
+    //get the position radios value
+    $selected_position=''; //store the user's position choice
+    $select_position_id=$form_state['values']['positions'];
+    
+    switch ($select_position_id) {//need update to dynamic select title value
+    
+        case 1:
+            $select_position=$form['positions']['assispro']['#title'];
+            break;
+        case 2:
+            $select_position=$form['positions']['assopro']['#title']; 
+            break;
+        case 3:
+            $select_position=$form['positions']['pro']['#title'];
+            break;
+        case 4:
+            $select_position=$form['positions']['ressci']['#title'];
+            break;
+        case 5:
+            $select_position=$form_state['values']['pos_other_textfield'];
+            break;
+        //if user don't choose option just input other textfield
+        case 0: 
+            $select_position=$form_state['values']['pos_other_textfield'];
+            $select_position=trim($select_position,' '); //before compare repalce all blankspace
+            $select_position=trim($select_position);
+            $select_position=trim($select_position,"\x00..\x1F");
+            break;
+    }
+    //same operation for positionqualifier
+    $selected_positionqua=''; //store the user's position choice
+    $select_positionqua_id=$form_state['values']['positionqua'];
+    
+    switch ($select_positionqua_id) {//need update to dynamic select title value
+    case 1:
+        $selected_positionqua=$form['positionqua']['adj']['#title'];
+        break;
+    case 2:
+        $selected_positionqua=$form['positionqua']['cli']['#title']; 
+        break;
+    case 3:
+        $selected_positionqua=$form['positionqua']['inr']['#title'];
+        break;
+    case 4:
+        $selected_positionqua=$form_state['values']['positionqua_other_textfield'];
+        break;
+    //if user don't choose option just input other textfield
+    case 0: 
+        $selected_positionqua=$form_state['values']['positionqua_other_textfield'];
+        $selected_positionqua=trim($selected_positionqua,' '); //before compare repalce all blankspace
+        $selected_positionqua=trim($selected_positionqua);
+        $selected_positionqua=trim($selected_positionqua,"\x00..\x1F");
+        break;  
+    }
+
+    //get user input prepare to insert into db
+    $fname=$form_state['values']['fname'];
+    $lname=$form_state['values']['lname'];
+    $institution=$form_state['values']['institution'];
+    $school=$form_state['values']['school'];
+    $department=$form_state['values']['department'];
+    $email=$form_state['values']['email'];
+    $cell=$form_state['values']['phonenumber'];
+    
+    //before insert repalce all blankspace
+    $fname=trim($fname,' '); 
+    $fname=trim($fname);
+    $fname=trim($fname,"\x00..\x1F");
+    
+    $lname=trim($lname,' '); 
+    $lname=trim($lname);
+    $lname=trim($lname,"\x00..\x1F");
+    
+    $institution=trim($institution,' '); 
+    $institution=trim($institution);
+    $institution=trim($institution,"\x00..\x1F");
+    
+    $school=trim($school,' '); 
+    $school=trim($school);
+    $school=trim($school,"\x00..\x1F");
+    
+    $department=trim($department,' '); 
+    $department=trim($department);
+    $department=trim($department,"\x00..\x1F");
+    
+    $email=trim($email,' '); 
+    $email=trim($email);
+    $email=trim($email,"\x00..\x1F");
+    
+    $cell=trim($cell,' '); 
+    $cell=trim($cell);
+    $cell=trim($cell,"\x00..\x1F");
+    
+    $countSDP=0;  //default value od the possible null field number
+    if($school!=null){
+        $countSDP=$countSDP+1;
+    }
+    if($department!=null){
+        $countSDP=$countSDP+2;
+    }
+    if($selected_positionqua!=null){
+        $countSDP=$countSDP+4; 
+    }
+    
+    
+    $rid_current=$form_state['values']['hiddenuserid'];  //get the current id hidden in the form field
+    $curexited=db_query("select count(*) from {ff_researchers} where id=:rid",array(':rid' => $rid_current))->fetchField();
+    
+    //if the user id alredy existed, then update the table,else insert new
+    if($curexited==0){//no previous so insert
+            if($rid_current!=0){
+            $rid_db=$rid_current; //use the current userid to db operation,then update db
+            //check all null possible field to avoid to insert blank into db
+            switch($countSDP){ //base on three possible null field to insert 
+                case 0: //all three possible null field are null
+                    $dbres_resultname = db_merge('ff_researchers')
+                    ->key(array('id' => $rid_db))
+                    ->fields(array(
+                    'id' => $rid_db,
+                    'fname' => $fname,
+                    'lname' => $lname,
+                    'institution' => $institution,
+                    'pos' => $select_position, //need get the radio value of user choice
+                    'email' => $email,
+                    'cell' => $cell,
+                    'standing' => 1,
+                    'primary_cid' => 1     //insert the default value first, then update the corresponding value on page2
+                    ))
+                    ->execute();
+                    break;
+                case 1: //school is not null
+                    $dbres_resultname = db_merge('ff_researchers')
+                    ->key(array('id' => $rid_db))
+                    ->fields(array(
+                    'id' => $rid_db,
+                    'fname' => $fname,
+                    'lname' => $lname,
+                    'institution' => $institution,
+                    'school' => $school,
+                    'pos' => $select_position, //need get the radio value of user choice
+                    'email' => $email,
+                    'cell' => $cell,
+                    'standing' => 1,
+                    'primary_cid' => 1     //insert the default value first, then update the corresponding value on page2
+                    ))
+                    ->execute();
+                    break;
+                case 2: //department is not null
+                    $dbres_resultname = db_merge('ff_researchers')
+                    ->key(array('id' => $rid_db))
+                    ->fields(array(
+                    'id' => $rid_db,
+                    'fname' => $fname,
+                    'lname' => $lname,
+                    'institution' => $institution,
+                    'dept' => $department,
+                    'pos' => $select_position, //need get the radio value of user choice
+                    'email' => $email,
+                    'cell' => $cell,
+                    'standing' => 1,
+                    'primary_cid' => 1     //insert the default value first, then update the corresponding value on page2
+                    ))
+                    ->execute();
+                    break;
+                case 4: //posqual is not null
+                    $dbres_resultname = db_merge('ff_researchers')
+                    ->key(array('id' => $rid_db))
+                    ->fields(array(
+                    'id' => $rid_db,
+                    'fname' => $fname,
+                    'lname' => $lname,
+                    'institution' => $institution,
+                    'pos' => $select_position, //need get the radio value of user choice
+                    'email' => $email,
+                    'cell' => $cell,
+                    'standing' => 1,
+                    'primary_cid' => 1     //insert the default value first, then update the corresponding value on page2
+                    ))
+                    ->execute();
+                    break;
+                case 3://school and department are not null
+                    $dbres_resultname = db_merge('ff_researchers')
+                    ->key(array('id' => $rid_db))
+                    ->fields(array(
+                    'id' => $rid_db,
+                    'fname' => $fname,
+                    'lname' => $lname,
+                    'institution' => $institution,
+                    'school' => $school,
+                    'dept' => $department,
+                    'pos' => $select_position, //need get the radio value of user choice
+                    'email' => $email,
+                    'cell' => $cell,
+                    'standing' => 1,
+                    'primary_cid' => 1     //insert the default value first, then update the corresponding value on page2
+                    ))
+                    ->execute();
+                    break;
+                case 5: //school and posqual are not null
+                    $dbres_resultname = db_merge('ff_researchers')
+                    ->key(array('id' => $rid_db))
+                    ->fields(array(
+                    'id' => $rid_db,
+                    'fname' => $fname,
+                    'lname' => $lname,
+                    'institution' => $institution,
+                    'school' => $school,
+                    'pos' => $select_position, //need get the radio value of user choice
+                    'posqual' => $selected_positionqua,
+                    'email' => $email,
+                    'cell' => $cell,
+                    'standing' => 1,
+                    'primary_cid' => 1     //insert the default value first, then update the corresponding value on page2
+                    ))
+                    ->execute();
+                    break;
+                case 6: //department and posqual are not null
+                    $dbres_resultname = db_merge('ff_researchers')
+                    ->key(array('id' => $rid_db))
+                    ->fields(array(
+                    'id' => $rid_db,
+                    'fname' => $fname,
+                    'lname' => $lname,
+                    'institution' => $institution,
+                    'dept' => $department,
+                    'pos' => $select_position, //need get the radio value of user choice
+                    'posqual' => $selected_positionqua,
+                    'email' => $email,
+                    'cell' => $cell,
+                    'standing' => 1,
+                    'primary_cid' => 1     //insert the default value first, then update the corresponding value on page2
+                    ))
+                    ->execute();
+                    break;
+                case 7:
+                    $dbres_resultname = db_merge('ff_researchers')
+                    ->key(array('id' => $rid_db))
+                    ->fields(array(
+                    'id' => $rid_db,
+                    'fname' => $fname,
+                    'lname' => $lname,
+                    'institution' => $institution,
+                    'school' => $school,
+                    'dept' => $department,
+                    'pos' => $select_position, //need get the radio value of user choice
+                    'posqual' => $selected_positionqua,
+                    'email' => $email,
+                    'cell' => $cell,
+                    'standing' => 1,
+                    'primary_cid' => 1     //insert the default value first, then update the corresponding value on page2
+                    ))
+                    ->execute();
+                    break;
+            }
+            
+        }else{
+            drupal_set_message("User ID not right!");
+        }
+    
+    }else{//update current user profile
+        switch($countSDP){ //base on three possible null field to update 
+                case 0: //all three possible null field are null
+                    $res_updated = db_update('ff_researchers') 
+                      ->fields(array(
+                        'fname' => $fname,
+                        'lname' => $lname,
+                        'institution' => $institution,
+                        'school' => NULL,
+                        'dept' => NULL,
+                        'pos' => $select_position, 
+                        'posqual' => NULL,
+                        'email' => $email,
+                        'cell' => $cell,
+                        'standing' => 1,
+                        'primary_cid' => 1,
+                      ))
+                      ->condition('id', $rid_current , '=')
+                      ->execute();
+                    break;
+                case 1: //school is not null
+                    $res_updated = db_update('ff_researchers') 
+                      ->fields(array(
+                        'fname' => $fname,
+                        'lname' => $lname,
+                        'institution' => $institution,
+                        'school' => $school,
+                        'dept' => NULL,
+                        'pos' => $select_position, 
+                        'posqual' => NULL,
+                        'email' => $email,
+                        'cell' => $cell,
+                        'standing' => 1,
+                        'primary_cid' => 1,
+                      ))
+                      ->condition('id', $rid_current , '=')
+                      ->execute();
+                    break;
+                case 2: //department is not null
+                    $res_updated = db_update('ff_researchers') 
+                      ->fields(array(
+                        'fname' => $fname,
+                        'lname' => $lname,
+                        'institution' => $institution,
+                        'school' => NULL,
+                        'dept' => $department,
+                        'pos' => $select_position, 
+                        'posqual' => NULL,
+                        'email' => $email,
+                        'cell' => $cell,
+                        'standing' => 1,
+                        'primary_cid' => 1,
+                      ))
+                      ->condition('id', $rid_current , '=')
+                      ->execute();
+                    break;
+                case 4: //posqual is not null
+                   $res_updated = db_update('ff_researchers') 
+                      ->fields(array(
+                        'fname' => $fname,
+                        'lname' => $lname,
+                        'institution' => $institution,
+                        'school' => NULL,
+                        'dept' => NULL,
+                        'pos' => $select_position, 
+                        'posqual' => $selected_positionqua,
+                        'email' => $email,
+                        'cell' => $cell,
+                        'standing' => 1,
+                        'primary_cid' => 1,
+                      ))
+                      ->condition('id', $rid_current , '=')
+                      ->execute();
+                    break;
+                case 3://school and department are not null
+                    $res_updated = db_update('ff_researchers') 
+                      ->fields(array(
+                        'fname' => $fname,
+                        'lname' => $lname,
+                        'institution' => $institution,
+                        'school' => $school,
+                        'dept' => $department,
+                        'pos' => $select_position, 
+                        'posqual' => NULL,
+                        'email' => $email,
+                        'cell' => $cell,
+                        'standing' => 1,
+                        'primary_cid' => 1,
+                      ))
+                      ->condition('id', $rid_current , '=')
+                      ->execute();
+                    break;
+                case 5: //school and posqual are not null
+                    $res_updated = db_update('ff_researchers') 
+                      ->fields(array(
+                        'fname' => $fname,
+                        'lname' => $lname,
+                        'institution' => $institution,
+                        'school' => $school,
+                        'dept' => NULL,
+                        'pos' => $select_position, 
+                        'posqual' => $selected_positionqua,
+                        'email' => $email,
+                        'cell' => $cell,
+                        'standing' => 1,
+                        'primary_cid' => 1,
+                      ))
+                      ->condition('id', $rid_current , '=')
+                      ->execute();
+                    break;
+                case 6: //department and posqual are not null
+                    $res_updated = db_update('ff_researchers') 
+                      ->fields(array(
+                        'fname' => $fname,
+                        'lname' => $lname,
+                        'institution' => $institution,
+                        'school' => NULL,
+                        'dept' => $department,
+                        'pos' => $select_position, 
+                        'posqual' => $selected_positionqua,
+                        'email' => $email,
+                        'cell' => $cell,
+                        'standing' => 1,
+                        'primary_cid' => 1,
+                      ))
+                      ->condition('id', $rid_current , '=')
+                      ->execute();
+                    break;
+                case 7:
+                    $res_updated = db_update('ff_researchers') 
+                      ->fields(array(
+                        'fname' => $fname,
+                        'lname' => $lname,
+                        'institution' => $institution,
+                        'school' => $school,
+                        'dept' => $department,
+                        'pos' => $select_position, 
+                        'posqual' => $selected_positionqua,
+                        'email' => $email,
+                        'cell' => $cell,
+                        'standing' => 1,
+                        'primary_cid' => 1,
+                      ))
+                      ->condition('id', $rid_current , '=')
+                      ->execute();
+                    break;
+            }
+    
+    }
+    
+    
+    
+    
+    if(!is_null($rid_current)){  //insert or update info session when db connect successfully
+        
+        //drupal_set_message("Database Connected!");
+        $rid_db=$rid_current; 
+        //insert researchers's session choice into researchers_session table
+        //get the session checkboxs' return value
+        $cb_ids=array_filter($form_state['values']['sessionschoice']);
+        //get the original option array to find the corresponding key value to store into db researchers_info_session table
+        $sessions_cbop_submit=array(1 => t('I attended a Benefunder seminar (in person)'),
+        2 => t('I participated in a Benefunder conference call'),
+        3 => t('I listened to a Benefunder orientation podcast'),
+        4 => t('A delegate from my lab (student, post doc, tech, assistant) attend one of the above'),
+        5 => t('None of the above')
+        );
+        
+        //before insert, first delete all the previous records related with current user if there is records related with this user
+        $db_ridexisted=db_query("select count(*) from {ff_researchers_info_sessions} where rid=:rid",array(':rid' => $rid_db))->fetchField();
+        
+        if($db_ridexisted!=0){//if there is records in info session table, then delete before insert new one
+            $dbinfores_delete = db_delete('ff_researchers_info_sessions')
+            ->condition('rid', $rid_db)
+            ->execute();
+            if($dbinfores_delete){ //if delete successfully, then insert new records
+                foreach($cb_ids as $returncbid){
+                    $cur_key=array_search($returncbid,$sessions_cbop_submit);
+                    //start insert each choice
+                    $dbsession_resultname = db_merge('ff_researchers_info_sessions')
+                    ->key(array('rid' => $rid_db,'sid' => $cur_key))
+                    ->fields(array(
+                    'rid' => $rid_db,
+                    'sid' => $cur_key,
+                    ))
+                    ->execute();
+                }
+        
+            }else{
+                drupal_set_message("Database delete fail!");
+            }
+            
+        }else{//if there is no records then just insert new one
+            foreach($cb_ids as $returncbid){
+                $cur_key=array_search($returncbid,$sessions_cbop_submit);
+                //start insert each choice
+                $dbsession_resultname = db_merge('ff_researchers_info_sessions')
+                ->key(array('rid' => $rid_db,'sid' => $cur_key))
+                ->fields(array(
+                'rid' => $rid_db,
+                'sid' => $cur_key,
+                ))
+                ->execute();
+            }
+        
+        }
+        
+        
+        
+    }else{ //output db fail message
+        drupal_set_message("Database Connection fail!");
+    }
+    
+    $urloptions = array('query' => array('userid' => $rid_current)); //pass current userid to next page
+    drupal_goto('ffresform/research_form_page2',$urloptions);
+
+}
+
+
+//page 2 form and submit 
+function form_my_research_form_page2($form, &$form_state) {
+    
+    $curuserid=$_GET['userid']; //get current user id which passed from the previous url
+    
+    $form['hiddenuserid']=array(  //initialize a form hidden to store the userid to retrieve in submit
+        '#type' => 'hidden',
+        '#value' => $curuserid,
+    );
+    $form['maintitle'] = array(
+        '#type' => 'item',
+        '#title' => t('Which category best fits your research?')
+    );
+    //extract primary research category from db using js 
+    //when js extract the categories then update the radios options i.e. $res_category
+    
+    //radios
+    $res_category = array(1 => t('Arts, Humanities, & Education'), 2 => t('Environment & Universe'),3 => t('Life'),4 => t('Technology'));
+
+    $form['rescategory'] = array(
+        '#type' => 'radios',
+        '#title' => t('Select a primary category. You will be able to select a secondary category later (optional).'),
+        '#options' => $res_category,
+        '#required' => TRUE
+    );
+    $form['back']['#markup'] = "<input type='button' class='form-submit' value='Back' onclick='window.history.go(-1)'/>";
+    
+    
+    
+    $form['continuebutton'] = array( //final submit button
+        '#type' => 'submit',
+        '#value' => t('Continue'),
+        '#name' => 'continue'
+    );
+    
+    return $form;
+}
+
+function form_my_research_form_page2_submit($form, &$form_state){
+    //add the submit function here, the function related with database
+    
+    $curuserid=$form_state['values']['hiddenuserid'];    
+    $urloptions = array('query' => array('userid' => $curuserid)); //pass current userid to next page
+    
+    
+    //base on the choice of user goto the corresponding page
+    $radios_choice=$form_state['values']['rescategory'];
+    
+    //update the primary category id of current user in researchers table
+    //first find if user change their choice
+    //get the previous primary id from ff_researchers
+    $previous_pid=db_query("select primary_cid from {ff_researchers} where id=:rid",array(':rid' => $curuserid))->fetchField();
+    
+    if($radios_choice!=$previous_pid){ //if current choice differ from previous one, then delete previous subcategories related with this pid
+        
+        //if different with previous and previous records existed,then delete all previous primary subcategories i.e. fromid=1
+        $fromid=1; //means this subcategories from primary cid
+        $db_ridexisted=db_query("select count(*) from {ff_researchers_subcategories} where rid=:rid and fromid=:fromid and sid in (select id from ff_subcategories where cid=:cid)",array(':rid' => $curuserid,':fromid' => $fromid,':cid' => $previous_pid))->fetchField();
+        
+        if($db_ridexisted!=0){//if there is records in subcategories table, then delete before insert new one
+            
+            $dbsubcres_delete = db_query("delete from {ff_researchers_subcategories} where rid=:rid and fromid=:fromid 
+            and sid in (select id from ff_subcategories where cid=:cid)",array(':rid' => $curuserid,':fromid' => $fromid,':cid' => $previous_pid));
+        }
+        
+        try{
+        $rescid_updated = db_update('ff_researchers') // Table name no longer needs {}
+        ->fields(array(
+        'primary_cid' => $radios_choice,
+        ))
+        ->condition('id',$curuserid, '=')
+        ->execute();
+        
+        }catch(PDOException $e){
+            drupal_set_message(
+            "An unexpected error has occurred-When Primary cid stored into database");
+        }
+        
+    }
+    
+    
+    $pagegoto_number=$radios_choice+2; //base on page2 
+    $pagegoto_url='ffresform/research_form_page'.$pagegoto_number; //cat url string
+    
+    drupal_goto($pagegoto_url,$urloptions);
+            
+}
+
+
+//page 3 form and submit 
+function form_my_research_form_page3($form, &$form_state) {
+    
+    $curuserid=$_GET['userid']; //get current user id which passed from the previous url
+    
+    
+    $form['hiddenuserid']=array(  //initialize a form hidden to store the userid to retrieve in submit
+        '#type' => 'hidden',
+        '#value' => $curuserid,
+    );
+    $form['maintitle'] = array(
+        '#type' => 'item',
+        '#title' => t('Which of the below subcategories best describe your research?
+        <br>
+        To help donors further understand the depth of your research, please select 1-4 
+        subcategories. Only select a subcategory if it constitutes at least 10% of your research program.'),
+        '#required' => TRUE
+    );
+   
+    //extract research subcategories from db using js 
+    //when js extract the subcategories then update the checkboxs options 
+    
+    //build the checkboxes for the subcategory
+    $subcid_seed=41;
+    
+    $p3_cbop=array(42 => t('Anthropology'),
+    43 => t('Archaeology'),
+    44 => t('Economics'),
+    45 => t('Education'),
+    46 => t('History'),
+    47 => t('Law / Ethics'),
+    48 => t('Linguistics / Language Cognition'),
+    49 => t('Literary Arts'),
+    50 => t('Music'),
+    51 => t('Performing Arts'),
+    52 => t('Political Science'),
+    53 => t('Psychology'),
+    54 => t('Sociology'),
+    55 => t('Visual Arts')
+    );
+    
+    
+    $form['p3cbchoice'] = array(
+        '#type' => 'checkboxes',
+        '#options' => drupal_map_assoc($p3_cbop),
+        '#title' => t('Subcategory options'),
+        '#required' => TRUE
+    );
+    
+    
+    $form['back']['#markup'] = "<input type='button' class='form-submit' value='Back' onclick='window.history.go(-1)'/>";
+    
+    $form['continuebutton'] = array( //final submit button
+        '#type' => 'submit',
+        '#value' => t('Continue')
+        
+    );
+    
+    return $form;
+}
+
+function form_my_research_form_page3_submit($form, &$form_state){
+    //add the submit function here, the function related with database
+    
+    $curuserid=$form_state['values']['hiddenuserid'];    
+    $urloptions = array('query' => array('userid' => $curuserid)); //pass current userid to next page
+    
+    //insert researchers's subcategory choices into researchers_subcategory table
+    //get the subcategory checkboxes' return value
+    $cb_subid=array_filter($form_state['values']['p3cbchoice']);
+    
+    //get the original option array to find the corresponding key value to store into db researchers_subcategory table
+    $cbop_submit=array(42 => t('Anthropology'),
+    43 => t('Archaeology'),
+    44 => t('Economics'),
+    45 => t('Education'),
+    46 => t('History'),
+    47 => t('Law / Ethics'),
+    48 => t('Linguistics / Language Cognition'),
+    49 => t('Literary Arts'),
+    50 => t('Music'),
+    51 => t('Performing Arts'),
+    52 => t('Political Science'),
+    53 => t('Psychology'),
+    54 => t('Sociology'),
+    55 => t('Visual Arts')
+    );
+    
+    //before insert or update the subcategory, delete all the existed records related with this user
+    $curprimary_cid=db_query("select primary_cid from {ff_researchers} where id=:rid",array(':rid' => $curuserid))->fetchField();
+    $curfromid=1; //page3-page6 belong to primary subcategories,so set the fromid to 1 
+    $db_ridexisted=db_query("select count(*) from {ff_researchers_subcategories} where rid=:rid and fromid=:fromid",array(':rid' => $curuserid,':fromid'=>$curfromid))->fetchField();
+        
+    if($db_ridexisted!=0){//if there is records in info session table, then delete before insert new one
+        
+        
+        $dbsubcres_delete = db_query("delete from {ff_researchers_subcategories} where rid=:rid 
+        and fromid=:fromid and sid in (select id from ff_subcategories where cid=:cid)",
+        array(':rid' => $curuserid,':fromid'=>$curfromid,':cid' => $curprimary_cid));
+        
+
+        if($dbsubcres_delete){ //if delete successfully, then insert new records
+            foreach($cb_subid as $returncbid){
+                $cur_key=array_search($returncbid,$cbop_submit);
+                //start insert each choice
+                $dbsubid_resultname = db_merge('ff_researchers_subcategories') 
+                ->key(array('rid' => $curuserid,'sid'=>$cur_key,'fromid'=>$curfromid))
+                ->fields(array(
+                'rid' => $curuserid,
+                'sid' => $cur_key,
+                'fromid' => $curfromid
+                ))
+                ->execute();
+            }
+    
+        }else{
+            drupal_set_message("Database delete fail!");
+        }
+        
+    }else{//if there is no records then just insert new one
+        foreach($cb_subid as $returncbid){
+            $cur_key=array_search($returncbid,$cbop_submit);
+            //start insert each choice
+            $dbsubid_resultname = db_merge('ff_researchers_subcategories') 
+            ->key(array('rid' => $curuserid,'sid'=>$cur_key,'fromid'=>$curfromid))
+            ->fields(array(
+            'rid' => $curuserid,
+            'sid' => $cur_key,
+            'fromid' => $curfromid
+            ))
+            ->execute();
+        }
+    
+    }
+    
+            
+    drupal_goto('ffresform/research_form_page7',$urloptions);  
+   
+}
+
+
+//page 4 form and submit 
+function form_my_research_form_page4($form, &$form_state) {
+    
+    $curuserid=$_GET['userid']; //get current user id which passed from the previous url
+    
+    
+    $form['hiddenuserid']=array(  //initialize a form hidden to store the userid to retrieve in submit
+        '#type' => 'hidden',
+        '#value' => $curuserid,
+    );
+    
+    $form['maintitle'] = array(
+        '#type' => 'item',
+        '#title' => t('Which of the below subcategories best describe your research?
+        <br>
+        To help donors further understand the depth of your research, please select 1-4 
+        subcategories. Only select a subcategory if it constitutes at least 10% of your research program.'),
+        '#required' => TRUE
+    );
+   
+    //extract research subcategories from db using js 
+    //when js extract the subcategories then update the checkboxs options 
+    
+    //build the checkboxes for the subcategory
+    $p4_cbop=array(34 => t('Agriculture'),
+    35 => t('Atmospheric / Space'),
+    36 => t('Chemical'),
+    37 => t('Ecology'),
+    38 => t('Energy'),
+    39 => t('Geology'),
+    40 => t('Oceanic'),
+    41 => t('Remediation / Pollution')
+    );
+    
+    $form['p4cbchoice'] = array(
+        '#type' => 'checkboxes',
+        '#options' => drupal_map_assoc($p4_cbop),
+        '#title' => t('Subcategory options'),
+        '#required' => TRUE
+    );
+    
+    
+    $form['back']['#markup'] = "<input type='button' class='form-submit' value='Back' onclick='window.history.go(-1)'/>";
+    
+    $form['continuebutton'] = array( //final submit button
+        '#type' => 'submit',
+        '#value' => t('Continue')
+        
+    );
+    
+    return $form;
+}
+
+function form_my_research_form_page4_submit($form, &$form_state){
+    //add the submit function here, the function related with database
+    
+    $curuserid=$form_state['values']['hiddenuserid'];    
+    $urloptions = array('query' => array('userid' => $curuserid)); //pass current userid to next page
+    
+    //insert researchers's subcategory choices into researchers_subcategory table
+    //get the subcategory checkboxes' return value
+    $cb_subid=array_filter($form_state['values']['p4cbchoice']);
+    
+    //get the original option array to find the corresponding key value to store into db researchers_subcategory table
+    $cbop_submit=array(34 => t('Agriculture'),
+    35 => t('Atmospheric / Space'),
+    36 => t('Chemical'),
+    37 => t('Ecology'),
+    38 => t('Energy'),
+    39 => t('Geology'),
+    40 => t('Oceanic'),
+    41 => t('Remediation / Pollution')
+    );
+    
+    //before insert or update the subcategory, delete all the existed records related with this user
+    $curprimary_cid=db_query("select primary_cid from {ff_researchers} where id=:rid",array(':rid' => $curuserid))->fetchField();
+    $curfromid=1; //page3-page6 belong to primary subcategories,so set the fromid to 1 
+    $db_ridexisted=db_query("select count(*) from {ff_researchers_subcategories} where rid=:rid and fromid=:fromid",array(':rid' => $curuserid,':fromid'=>$curfromid))->fetchField();
+        
+    if($db_ridexisted!=0){//if there is records in info session table, then delete before insert new one
+        
+        
+        $dbsubcres_delete = db_query("delete from {ff_researchers_subcategories} where rid=:rid 
+        and fromid=:fromid and sid in (select id from ff_subcategories where cid=:cid)",
+        array(':rid' => $curuserid,':fromid'=>$curfromid,':cid' => $curprimary_cid));
+        
+
+        if($dbsubcres_delete){ //if delete successfully, then insert new records
+            foreach($cb_subid as $returncbid){
+                $cur_key=array_search($returncbid,$cbop_submit);
+                //start insert each choice
+                $dbsubid_resultname = db_merge('ff_researchers_subcategories') 
+                ->key(array('rid' => $curuserid,'sid'=>$cur_key,'fromid'=>$curfromid))
+                ->fields(array(
+                'rid' => $curuserid,
+                'sid' => $cur_key,
+                'fromid' => $curfromid
+                ))
+                ->execute();
+            }
+    
+        }else{
+            drupal_set_message("Database delete fail!");
+        }
+        
+    }else{//if there is no records then just insert new one
+        foreach($cb_subid as $returncbid){
+            $cur_key=array_search($returncbid,$cbop_submit);
+            //start insert each choice
+            $dbsubid_resultname = db_merge('ff_researchers_subcategories') 
+            ->key(array('rid' => $curuserid,'sid'=>$cur_key,'fromid'=>$curfromid))
+            ->fields(array(
+            'rid' => $curuserid,
+            'sid' => $cur_key,
+            'fromid' => $curfromid
+            ))
+            ->execute();
+        }
+    
+    }
+            
+    drupal_goto('ffresform/research_form_page7',$urloptions);  
+   
+    
+            
+}
+
+
+
+//page 5 form and submit 
+function form_my_research_form_page5($form, &$form_state) {
+    
+    $curuserid=$_GET['userid']; //get current user id which passed from the previous url
+    
+    $form['hiddenuserid']=array(  //initialize a form hidden to store the userid to retrieve in submit
+        '#type' => 'hidden',
+        '#value' => $curuserid,
+    );
+    $form['maintitle'] = array(
+        '#type' => 'item',
+        '#title' => t('Which of the below subcategories best describe your research?
+        <br>
+        To help donors further understand the depth of your research, please select 1-4 
+        subcategories. Only select a subcategory if it constitutes at least 10% of your research program.'),
+        '#required' => TRUE
+    );
+    
+    
+    //extract research subcategories from db using js 
+    //when js extract the subcategories then update the checkboxs options 
+    
+    //build the checkboxes for the subcategory
+    $p5_cbop=array(1 => t('Cardiovascular (Heart)'),
+    2 => t('Circulatory (Blood)'),
+    3 => t('Diagnostics'),
+    4 => t('Epidemiology / Public Health'),
+    5 => t('Genomics / Congenital'),
+    6 => t('Immunology / Inflammatory'),
+    7 => t('Infectious Disease'),
+    8 => t('Metabolic / Diabetes'),
+    9 => t('Musculoskeletal'),
+    10 => t('Neurological / Cognitive'),
+    11 => t('Oncology / Cancer'),
+    12 => t('Pediatrics (specifically)'),
+    13 => t('Proteomics'),
+    14 => t('Respiratory'),
+    15 => t('Health IT'),
+    16 => t('Telemedicine'),
+    17 => t("Women's Health(specifically)")
+    );
+    
+    
+    $form['p5cbchoice'] = array(
+        '#type' => 'checkboxes',
+        '#options' => drupal_map_assoc($p5_cbop),
+        '#title' => t('Subcategory options'),
+        '#required' => TRUE
+    );
+    
+    
+    $form['back']['#markup'] = "<input type='button' class='form-submit' value='Back' onclick='window.history.go(-1)'/>";
+    
+    $form['continuebutton'] = array( //final submit button
+        '#type' => 'submit',
+        '#value' => t('Continue')
+        
+    );
+    
+    return $form;
+}
+
+function form_my_research_form_page5_submit($form, &$form_state){
+    //add the submit function here, the function related with database
+    
+    $curuserid=$form_state['values']['hiddenuserid'];    
+    $urloptions = array('query' => array('userid' => $curuserid)); //pass current userid to next page
+   
+    //insert researchers's subcategory choices into researchers_subcategory table
+    //get the subcategory checkboxes' return value
+    $cb_subid=array_filter($form_state['values']['p5cbchoice']);
+    
+    //get the original option array to find the corresponding key value to store into db researchers_subcategory table
+    $cbop_submit=array(1 => t('Cardiovascular (Heart)'),
+    2 => t('Circulatory (Blood)'),
+    3 => t('Diagnostics'),
+    4 => t('Epidemiology / Public Health'),
+    5 => t('Genomics / Congenital'),
+    6 => t('Immunology / Inflammatory'),
+    7 => t('Infectious Disease'),
+    8 => t('Metabolic / Diabetes'),
+    9 => t('Musculoskeletal'),
+    10 => t('Neurological / Cognitive'),
+    11 => t('Oncology / Cancer'),
+    12 => t('Pediatrics (specifically)'),
+    13 => t('Proteomics'),
+    14 => t('Respiratory'),
+    15 => t('Health IT'),
+    16 => t('Telemedicine'),
+    17 => t("Women's Health(specifically)")
+    );
+    
+    //before insert or update the subcategory, delete all the existed records related with this user
+    $curprimary_cid=db_query("select primary_cid from {ff_researchers} where id=:rid",array(':rid' => $curuserid))->fetchField();
+    $curfromid=1; //page3-page6 belong to primary subcategories,so set the fromid to 1 
+    $db_ridexisted=db_query("select count(*) from {ff_researchers_subcategories} where rid=:rid and fromid=:fromid",array(':rid' => $curuserid,':fromid'=>$curfromid))->fetchField();
+        
+    if($db_ridexisted!=0){//if there is records in info session table, then delete before insert new one
+        
+        
+        $dbsubcres_delete = db_query("delete from {ff_researchers_subcategories} where rid=:rid 
+        and fromid=:fromid and sid in (select id from ff_subcategories where cid=:cid)",
+        array(':rid' => $curuserid,':fromid'=>$curfromid,':cid' => $curprimary_cid));
+        
+
+        if($dbsubcres_delete){ //if delete successfully, then insert new records
+            foreach($cb_subid as $returncbid){
+                $cur_key=array_search($returncbid,$cbop_submit);
+                //start insert each choice
+                $dbsubid_resultname = db_merge('ff_researchers_subcategories') 
+                ->key(array('rid' => $curuserid,'sid'=>$cur_key,'fromid'=>$curfromid))
+                ->fields(array(
+                'rid' => $curuserid,
+                'sid' => $cur_key,
+                'fromid' => $curfromid
+                ))
+                ->execute();
+            }
+    
+        }else{
+            drupal_set_message("Database delete fail!");
+        }
+        
+    }else{//if there is no records then just insert new one
+        foreach($cb_subid as $returncbid){
+            $cur_key=array_search($returncbid,$cbop_submit);
+            //start insert each choice
+            $dbsubid_resultname = db_merge('ff_researchers_subcategories') 
+            ->key(array('rid' => $curuserid,'sid'=>$cur_key,'fromid'=>$curfromid))
+            ->fields(array(
+            'rid' => $curuserid,
+            'sid' => $cur_key,
+            'fromid' => $curfromid
+            ))
+            ->execute();
+        }
+    
+    }
+    
+    drupal_goto('ffresform/research_form_page7',$urloptions);  
+   
+    
+            
+}
+
+
+//page 6 form and submit 
+function form_my_research_form_page6($form, &$form_state) {
+    
+    $curuserid=$_GET['userid']; //get current user id which passed from the previous url
+    
+    
+    $form['hiddenuserid']=array(  //initialize a form hidden to store the userid to retrieve in submit
+        '#type' => 'hidden',
+        '#value' => $curuserid,
+    );
+    $form['maintitle'] = array(
+        '#type' => 'item',
+        '#title' => t('Which of the below subcategories best describe your research?
+        <br>
+        To help donors further understand the depth of your research, please select 1-4 
+        subcategories. Only select a subcategory if it constitutes at least 10% of your research program.'),
+        '#required' => TRUE
+    );
+   
+    //extract research subcategories from db using js 
+    //when js extract the subcategories then update the checkboxs options 
+    
+    //build the checkboxes for the subcategory
+    $p6_cbop=array(18 => t('Aerospace / Space'),
+    19 => t('Chemistry'),
+    20 => t('Computer Science'),
+    21 => t('Cybersecurity'),
+    22 => t('Electronics / Sensors'),
+    23 => t('Fluidics'),
+    24 => t('Imaging'),
+    25 => t('Information Science / Internet'),
+    26 => t('Mathematics'),
+    27 => t('Materials Science'),
+    28 => t('Nanotechnology / MEMS'),
+    29 => t('Photonics'),
+    30 => t('Physics'),
+    31 => t('Robotics'),
+    32 => t('Semiconductors'),
+    33 => t('Telecommunications')
+    );
+    
+    $form['p6cbchoice'] = array(
+        '#type' => 'checkboxes',
+        '#options' => drupal_map_assoc($p6_cbop),
+        '#title' => t('Subcategory options'),
+        '#required' => TRUE
+    );
+    
+    
+    $form['back']['#markup'] = "<input type='button' class='form-submit' value='Back' onclick='window.history.go(-1)'/>";
+    
+    $form['continuebutton'] = array( //final submit button
+        '#type' => 'submit',
+        '#value' => t('Continue')
+        
+    );
+    
+    return $form;
+}
+
+function form_my_research_form_page6_submit($form, &$form_state){
+    //add the submit function here, the function related with database
+    
+    $curuserid=$form_state['values']['hiddenuserid'];    
+    $urloptions = array('query' => array('userid' => $curuserid)); //pass current userid to next page
+    
+    //insert researchers's subcategory choices into researchers_subcategory table
+    //get the subcategory checkboxes' return value
+    $cb_subid=array_filter($form_state['values']['p6cbchoice']);
+    
+    //get the original option array to find the corresponding key value to store into db researchers_subcategory table
+    $cbop_submit=array(18 => t('Aerospace / Space'),
+    19 => t('Chemistry'),
+    20 => t('Computer Science'),
+    21 => t('Cybersecurity'),
+    22 => t('Electronics / Sensors'),
+    23 => t('Fluidics'),
+    24 => t('Imaging'),
+    25 => t('Information Science / Internet'),
+    26 => t('Mathematics'),
+    27 => t('Materials Science'),
+    28 => t('Nanotechnology / MEMS'),
+    29 => t('Photonics'),
+    30 => t('Physics'),
+    31 => t('Robotics'),
+    32 => t('Semiconductors'),
+    33 => t('Telecommunications')
+    );
+    
+    //before insert or update the subcategory, delete all the existed records related with this user
+    $curprimary_cid=db_query("select primary_cid from {ff_researchers} where id=:rid",array(':rid' => $curuserid))->fetchField();
+    $curfromid=1; //page3-page6 belong to primary subcategories,so set the fromid to 1 
+    $db_ridexisted=db_query("select count(*) from {ff_researchers_subcategories} where rid=:rid and fromid=:fromid",array(':rid' => $curuserid,':fromid'=>$curfromid))->fetchField();
+        
+    if($db_ridexisted!=0){//if there is records in info session table, then delete before insert new one
+        
+        
+        $dbsubcres_delete = db_query("delete from {ff_researchers_subcategories} where rid=:rid 
+        and fromid=:fromid and sid in (select id from ff_subcategories where cid=:cid)",
+        array(':rid' => $curuserid,':fromid'=>$curfromid,':cid' => $curprimary_cid));
+        
+
+        if($dbsubcres_delete){ //if delete successfully, then insert new records
+            foreach($cb_subid as $returncbid){
+                $cur_key=array_search($returncbid,$cbop_submit);
+                //start insert each choice
+                $dbsubid_resultname = db_merge('ff_researchers_subcategories') 
+                ->key(array('rid' => $curuserid,'sid'=>$cur_key,'fromid'=>$curfromid))
+                ->fields(array(
+                'rid' => $curuserid,
+                'sid' => $cur_key,
+                'fromid' => $curfromid
+                ))
+                ->execute();
+            }
+    
+        }else{
+            drupal_set_message("Database delete fail!");
+        }
+        
+    }else{//if there is no records then just insert new one
+        foreach($cb_subid as $returncbid){
+            $cur_key=array_search($returncbid,$cbop_submit);
+            //start insert each choice
+            $dbsubid_resultname = db_merge('ff_researchers_subcategories') 
+            ->key(array('rid' => $curuserid,'sid'=>$cur_key,'fromid'=>$curfromid))
+            ->fields(array(
+            'rid' => $curuserid,
+            'sid' => $cur_key,
+            'fromid' => $curfromid
+            ))
+            ->execute();
+        }
+    
+    }
+    
+    drupal_goto('ffresform/research_form_page7',$urloptions);  
+    
+}
+
+//page 7 form and submit 
+function form_my_research_form_page7($form, &$form_state) {
+    
+    $curuserid=$_GET['userid']; //get current user id which passed from the previous url
+    
+    $form['hiddenuserid']=array(  //initialize a form hidden to store the userid to retrieve in submit
+        '#type' => 'hidden',
+        '#value' => $curuserid,
+    );
+    $form['maintitle'] = array(
+        '#type' => 'item',
+        '#title' => t('If applicable, please provide a secondary category that also fits your research. 
+        If no secondary category, just click "Continue".')
+    );
+    //extract primary research category from db using js 
+    //when js extract the categories then update the radios options i.e. $res_category
+    
+    //radios
+    $res_category = array(1 => t('Arts, Humanities, & Education'), 2 => t('Environment & Universe'),3 => t('Life'),4 => t('Technology'));
+
+    $form['rescategory'] = array(
+        '#type' => 'radios',
+        '#title' => t('This question is optional. Only select a secondary category if it applies to at least 25% of your research program. 
+        Selecting a secondary category will not increase your chances to get matched with a donor. Some donors are interested in very specialized 
+        researchers, others are interested in researchers with a diverse research program.'),
+        '#options' => $res_category,
+    );
+    
+    $form['back']['#markup'] = "<input type='button' class='form-submit' value='Back' onclick='window.history.go(-1)'/>";
+    
+    $form['continuebutton'] = array( //continure button to decide goto page
+        '#type' => 'submit',
+        '#value' => t('Continue')
+        
+    );
+    
+    return $form;
+}
+
+function form_my_research_form_page7_submit($form, &$form_state){
+    //add the submit function here, the function related with database
+    
+    $curuserid=$form_state['values']['hiddenuserid'];    
+    $urloptions = array('query' => array('userid' => $curuserid)); //pass current userid to next page
+    
+    //base on the choice of user goto the corresponding page, if user choose nothing then goto page 12
+    $radios_choice=$form_state['values']['rescategory'];   //Need add click cancel function on radios using js
+    if($radios_choice == null){
+         try{
+            $resscid_updated = db_update('ff_researchers') // if choose nothing, set the secondery cid to 0
+            ->fields(array(
+            'secondary_cid' => null
+            ))
+            ->condition('id',$curuserid, '=')
+            ->execute();
+            
+            //if null and previous records existed,then delete all previous secondary subcategories i.e. fromid=2
+            $fromid=2; //means this subcategories from secondary cid
+            $db_ridexisted=db_query("select count(*) from {ff_researchers_subcategories} where rid=:rid and fromid=:fromid",array(':rid' => $curuserid,':fromid' => $fromid))->fetchField();
+            
+            if($db_ridexisted!=0){//if there is records in subcategories table, then delete before insert new one
+                
+                $dbsubcres_delete = db_query("delete from {ff_researchers_subcategories} where rid=:rid 
+                and fromid=:fromid",array(':rid' => $curuserid,':fromid' => $fromid));
+            }
+        
+            }catch(PDOException $e){
+                drupal_set_message(
+                "An unexpected error has occurred-When secondary cid stored into database");
+            }
+        
+        drupal_goto('ffresform/research_form_page12',$urloptions);  //skip the rescategory options to page 12 if user choose nothing and continue
+    }else{ 
+         
+         //update the secondary category id of current user in researchers table
+        $previous_sid=db_query("select secondary_cid from {ff_researchers} where id=:rid",array(':rid' => $curuserid))->fetchField();
+    
+        if($radios_choice!=$previous_sid){ //if current choice differ from previous one, then delete previous subcategories related with this pid
+            
+            //if different with previous and previous records existed,then delete all previous secondary subcategories i.e. fromid=2
+            $fromid=2; //means this subcategories from secondary cid
+            $db_ridexisted=db_query("select count(*) from {ff_researchers_subcategories} where rid=:rid and fromid=:fromid and sid in (select id from ff_subcategories where cid=:cid)",array(':rid' => $curuserid,':fromid' => $fromid,':cid' => $previous_sid))->fetchField();
+            
+            if($db_ridexisted!=0){//if there is records in info session table, then delete before insert new one
+                
+                $dbsubcres_delete = db_query("delete from {ff_researchers_subcategories} where rid=:rid and fromid=:fromid 
+                and sid in (select id from ff_subcategories where cid=:cid)",array(':rid' => $curuserid,':fromid' => $fromid,':cid' => $previous_sid));
+            }
+            
+            try{
+            $rescid_updated = db_update('ff_researchers') // Table name no longer needs {}
+            ->fields(array(
+            'secondary_cid' => $radios_choice,
+            ))
+            ->condition('id',$curuserid, '=')
+            ->execute();
+            
+            }catch(PDOException $e){
+                drupal_set_message(
+                "An unexpected error has occurred-When secondary cid stored into database");
+            }
+            
+        }
+         
+        $pagegoto_number=$radios_choice+7; //base on page7 if user choose some choice 
+        $pagegoto_url='ffresform/research_form_page'.$pagegoto_number; //cat url string
+        
+        drupal_goto($pagegoto_url,$urloptions); //goto the select page
+    }
+            
+}
+
+//repeat same research subcategory choices from page8-page11
+//page 8 form and submit 
+function form_my_research_form_page8($form, &$form_state) {
+    
+    $curuserid=$_GET['userid']; //get current user id which passed from the previous url
+    
+    
+    $form['hiddenuserid']=array(  //initialize a form hidden to store the userid to retrieve in submit
+        '#type' => 'hidden',
+        '#value' => $curuserid,
+    );
+    $form['maintitle'] = array(
+        '#type' => 'item',
+        '#title' => t('Which of the below subcategories best describe your research?
+        <br>
+        To help donors further understand the depth of your research, please select 1-4 
+        subcategories. Only select a subcategory if it constitutes at least 10% of your research program.'),
+        '#required' => TRUE
+    );
+   
+    //extract research subcategories from db using js 
+    //when js extract the subcategories then update the checkboxs options 
+    
+    //build the checkboxes for the subcategory
+    $p8_cbop=array(42 => t('Anthropology'),
+    43 => t('Archaeology'),
+    44 => t('Economics'),
+    45 => t('Education'),
+    46 => t('History'),
+    47 => t('Law / Ethics'),
+    48 => t('Linguistics / Language Cognition'),
+    49 => t('Literary Arts'),
+    50 => t('Music'),
+    51 => t('Performing Arts'),
+    52 => t('Political Science'),
+    53 => t('Psychology'),
+    54 => t('Sociology'),
+    55 => t('Visual Arts')
+    );
+    
+    $form['p8cbchoice'] = array(
+        '#type' => 'checkboxes',
+        '#options' => drupal_map_assoc($p8_cbop),
+        '#title' => t('Subcategory options'),
+        '#required' => TRUE
+    );
+    
+    
+    $form['back']['#markup'] = "<input type='button' class='form-submit' value='Back' onclick='window.history.go(-1)'/>";
+    
+    $form['continuebutton'] = array( //final submit button
+        '#type' => 'submit',
+        '#value' => t('Continue')
+        
+    );
+    
+    return $form;
+}
+
+function form_my_research_form_page8_submit($form, &$form_state){
+    //add the submit function here, the function related with database
+    
+    $curuserid=$form_state['values']['hiddenuserid'];    
+    $urloptions = array('query' => array('userid' => $curuserid)); //pass current userid to next page
+    
+            
+    //insert researchers's subcategory choices into researchers_subcategory table
+    //get the subcategory checkboxes' return value
+    $cb_subid=array_filter($form_state['values']['p8cbchoice']);
+    
+    //get the original option array to find the corresponding key value to store into db researchers_subcategory table
+    $cbop_submit=array(42 => t('Anthropology'), //try useing hidden field later
+    43 => t('Archaeology'),
+    44 => t('Economics'),
+    45 => t('Education'),
+    46 => t('History'),
+    47 => t('Law / Ethics'),
+    48 => t('Linguistics / Language Cognition'),
+    49 => t('Literary Arts'),
+    50 => t('Music'),
+    51 => t('Performing Arts'),
+    52 => t('Political Science'),
+    53 => t('Psychology'),
+    54 => t('Sociology'),
+    55 => t('Visual Arts')
+    );
+    
+    
+    //before insert or update the subcategory, delete all the existed records related with this user
+    $db_secondcid=db_query("select secondary_cid from {ff_researchers} where id=:rid",array(':rid' => $curuserid))->fetchField();
+    $curfromid=2; //from secondary cid
+    $db_ridexisted=db_query("select count(*) from {ff_researchers_subcategories} where rid=:rid and fromid=:fromid",array(':rid' => $curuserid,':fromid'=>$curfromid))->fetchField();
+        
+    if($db_ridexisted!=0){//if there is records in info session table, then delete before insert new one
+        
+        
+        $dbsubcres_delete = db_query("delete from {ff_researchers_subcategories} where rid=:rid 
+        and fromid=:fromid and sid in (select id from ff_subcategories where cid=:cid)",
+        array(':rid' => $curuserid,':fromid'=>$curfromid,':cid' => $db_secondcid));
+        
+
+        if($dbsubcres_delete){ //if delete successfully, then insert new records
+            foreach($cb_subid as $returncbid){
+                $cur_key=array_search($returncbid,$cbop_submit);
+                //start insert each choice
+                $dbsubid_resultname = db_merge('ff_researchers_subcategories') 
+                ->key(array('rid' => $curuserid,'sid'=>$cur_key,'fromid' => $curfromid))
+                ->fields(array(
+                'rid' => $curuserid,
+                'sid' => $cur_key,
+                'fromid' => $curfromid
+                ))
+                ->execute();
+            }
+    
+        }else{
+            drupal_set_message("Database delete fail!");
+        }
+        
+    }else{//if there is no records then just insert new one
+        foreach($cb_subid as $returncbid){
+            $cur_key=array_search($returncbid,$cbop_submit);
+            //start insert each choice
+            $dbsubid_resultname = db_merge('ff_researchers_subcategories') 
+            ->key(array('rid' => $curuserid,'sid'=>$cur_key,'fromid' => $curfromid))
+            ->fields(array(
+            'rid' => $curuserid,
+            'sid' => $cur_key,
+            'fromid' => $curfromid
+            ))
+            ->execute();
+        }
+    
+    }
+    
+    drupal_goto('ffresform/research_form_page12',$urloptions);  
+   
+}
+
+
+//page 9 form and submit 
+function form_my_research_form_page9($form, &$form_state) {
+    
+    $curuserid=$_GET['userid']; //get current user id which passed from the previous url
+    
+    
+    $form['hiddenuserid']=array(  //initialize a form hidden to store the userid to retrieve in submit
+        '#type' => 'hidden',
+        '#value' => $curuserid,
+    );
+    $form['maintitle'] = array(
+        '#type' => 'item',
+        '#title' => t('Which of the below subcategories best describe your research?
+        <br>
+        To help donors further understand the depth of your research, please select 1-4 
+        subcategories. Only select a subcategory if it constitutes at least 10% of your research program.'),
+        '#required' => TRUE
+    );
+   
+    //extract research subcategories from db using js 
+    //when js extract the subcategories then update the checkboxs options 
+    
+    //build the checkboxes for the subcategory
+    $p9_cbop=array(34 => t('Agriculture'),
+    35 => t('Atmospheric / Space'),
+    36 => t('Chemical'),
+    37 => t('Ecology'),
+    38 => t('Energy'),
+    39 => t('Geology'),
+    40 => t('Oceanic'),
+    41 => t('Remediation / Pollution')
+    );
+    
+    $form['p9cbchoice'] = array(
+        '#type' => 'checkboxes',
+        '#options' => drupal_map_assoc($p9_cbop),
+        '#title' => t('Subcategory options'),
+        '#required' => TRUE
+    );
+    
+    
+    $form['back']['#markup'] = "<input type='button' class='form-submit' value='Back' onclick='window.history.go(-1)'/>";
+    
+    $form['continuebutton'] = array( //final submit button
+        '#type' => 'submit',
+        '#value' => t('Continue')
+        
+    );
+    
+    return $form;
+}
+
+function form_my_research_form_page9_submit($form, &$form_state){
+    //add the submit function here, the function related with database
+    
+    $curuserid=$form_state['values']['hiddenuserid'];    
+    $urloptions = array('query' => array('userid' => $curuserid)); //pass current userid to next page
+    
+    //insert researchers's subcategory choices into researchers_subcategory table
+    //get the subcategory checkboxes' return value
+    $cb_subid=array_filter($form_state['values']['p9cbchoice']);
+    
+    //get the original option array to find the corresponding key value to store into db researchers_subcategory table
+    $cbop_submit=array(34 => t('Agriculture'),
+    35 => t('Atmospheric / Space'),
+    36 => t('Chemical'),
+    37 => t('Ecology'),
+    38 => t('Energy'),
+    39 => t('Geology'),
+    40 => t('Oceanic'),
+    41 => t('Remediation / Pollution')
+    );
+    
+    //before insert or update the subcategory, delete all the existed records related with this user
+    $db_secondcid=db_query("select secondary_cid from {ff_researchers} where id=:rid",array(':rid' => $curuserid))->fetchField();
+    $curfromid=2; //from secondary cid
+    $db_ridexisted=db_query("select count(*) from {ff_researchers_subcategories} where rid=:rid and fromid=:fromid",array(':rid' => $curuserid,':fromid'=>$curfromid))->fetchField();
+        
+    if($db_ridexisted!=0){//if there is records in info session table, then delete before insert new one
+        
+        
+        $dbsubcres_delete = db_query("delete from {ff_researchers_subcategories} where rid=:rid 
+        and fromid=:fromid and sid in (select id from ff_subcategories where cid=:cid)",
+        array(':rid' => $curuserid,':fromid'=>$curfromid,':cid' => $db_secondcid));
+        
+
+        if($dbsubcres_delete){ //if delete successfully, then insert new records
+            foreach($cb_subid as $returncbid){
+                $cur_key=array_search($returncbid,$cbop_submit);
+                //start insert each choice
+                $dbsubid_resultname = db_merge('ff_researchers_subcategories') 
+                ->key(array('rid' => $curuserid,'sid'=>$cur_key,'fromid' => $curfromid))
+                ->fields(array(
+                'rid' => $curuserid,
+                'sid' => $cur_key,
+                'fromid' => $curfromid
+                ))
+                ->execute();
+            }
+    
+        }else{
+            drupal_set_message("Database delete fail!");
+        }
+        
+    }else{//if there is no records then just insert new one
+        foreach($cb_subid as $returncbid){
+            $cur_key=array_search($returncbid,$cbop_submit);
+            //start insert each choice
+            $dbsubid_resultname = db_merge('ff_researchers_subcategories') 
+            ->key(array('rid' => $curuserid,'sid'=>$cur_key,'fromid' => $curfromid))
+            ->fields(array(
+            'rid' => $curuserid,
+            'sid' => $cur_key,
+            'fromid' => $curfromid
+            ))
+            ->execute();
+        }
+    
+    }
+    
+    drupal_goto('ffresform/research_form_page12',$urloptions); 
+            
+}
+
+
+
+
+//page 10 form and submit 
+function form_my_research_form_page10($form, &$form_state) {
+    
+    $curuserid=$_GET['userid']; //get current user id which passed from the previous url
+    
+    
+    $form['hiddenuserid']=array(  //initialize a form hidden to store the userid to retrieve in submit
+        '#type' => 'hidden',
+        '#value' => $curuserid,
+    );
+    $form['maintitle'] = array(
+        '#type' => 'item',
+        '#title' => t('Which of the below subcategories best describe your research?
+        <br>
+        To help donors further understand the depth of your research, please select 1-4 
+        subcategories. Only select a subcategory if it constitutes at least 10% of your research program.'),
+        '#required' => TRUE
+    );
+   
+    //extract research subcategories from db using js 
+    //when js extract the subcategories then update the checkboxs options 
+    
+    //build the checkboxes for the subcategory
+    $p10_cbop=array(1 => t('Cardiovascular (Heart)'),
+    2 => t('Circulatory (Blood)'),
+    3 => t('Diagnostics'),
+    4 => t('Epidemiology / Public Health'),
+    5 => t('Genomics / Congenital'),
+    6 => t('Immunology / Inflammatory'),
+    7 => t('Infectious Disease'),
+    8 => t('Metabolic / Diabetes'),
+    9 => t('Musculoskeletal'),
+    10 => t('Neurological / Cognitive'),
+    11 => t('Oncology / Cancer'),
+    12 => t('Pediatrics (specifically)'),
+    13 => t('Proteomics'),
+    14 => t('Respiratory'),
+    15 => t('Health IT'),
+    16 => t('Telemedicine'),
+    17 => t("Women's Health(specifically)")
+    );
+    
+    $form['p10cbchoice'] = array(
+        '#type' => 'checkboxes',
+        '#options' => drupal_map_assoc($p10_cbop),
+        '#title' => t('Subcategory options'),
+        '#required' => TRUE
+    );
+    
+    
+    $form['back']['#markup'] = "<input type='button' class='form-submit' value='Back' onclick='window.history.go(-1)'/>";
+    
+    $form['continuebutton'] = array( //final submit button
+        '#type' => 'submit',
+        '#value' => t('Continue')
+        
+    );
+    
+    return $form;
+}
+
+function form_my_research_form_page10_submit($form, &$form_state){
+    //add the submit function here, the function related with database
+    
+    $curuserid=$form_state['values']['hiddenuserid'];    
+    $urloptions = array('query' => array('userid' => $curuserid)); //pass current userid to next page
+    
+    //insert researchers's subcategory choices into researchers_subcategory table
+    //get the subcategory checkboxes' return value
+    $cb_subid=array_filter($form_state['values']['p10cbchoice']);
+    
+    //get the original option array to find the corresponding key value to store into db researchers_subcategory table
+    $cbop_submit=array(1 => t('Cardiovascular (Heart)'),
+    2 => t('Circulatory (Blood)'),
+    3 => t('Diagnostics'),
+    4 => t('Epidemiology / Public Health'),
+    5 => t('Genomics / Congenital'),
+    6 => t('Immunology / Inflammatory'),
+    7 => t('Infectious Disease'),
+    8 => t('Metabolic / Diabetes'),
+    9 => t('Musculoskeletal'),
+    10 => t('Neurological / Cognitive'),
+    11 => t('Oncology / Cancer'),
+    12 => t('Pediatrics (specifically)'),
+    13 => t('Proteomics'),
+    14 => t('Respiratory'),
+    15 => t('Health IT'),
+    16 => t('Telemedicine'),
+    17 => t("Women's Health(specifically)")
+    );
+    
+    //before insert or update the subcategory, delete all the existed records related with this user
+    $db_secondcid=db_query("select secondary_cid from {ff_researchers} where id=:rid",array(':rid' => $curuserid))->fetchField();
+    $curfromid=2; //from secondary cid
+    $db_ridexisted=db_query("select count(*) from {ff_researchers_subcategories} where rid=:rid and fromid=:fromid",array(':rid' => $curuserid,':fromid'=>$curfromid))->fetchField();
+        
+    if($db_ridexisted!=0){//if there is records in info session table, then delete before insert new one
+        
+        
+        $dbsubcres_delete = db_query("delete from {ff_researchers_subcategories} where rid=:rid 
+        and fromid=:fromid and sid in (select id from ff_subcategories where cid=:cid)",
+        array(':rid' => $curuserid,':fromid'=>$curfromid,':cid' => $db_secondcid));
+        
+
+        if($dbsubcres_delete){ //if delete successfully, then insert new records
+            foreach($cb_subid as $returncbid){
+                $cur_key=array_search($returncbid,$cbop_submit);
+                //start insert each choice
+                $dbsubid_resultname = db_merge('ff_researchers_subcategories') 
+                ->key(array('rid' => $curuserid,'sid'=>$cur_key,'fromid' => $curfromid))
+                ->fields(array(
+                'rid' => $curuserid,
+                'sid' => $cur_key,
+                'fromid' => $curfromid
+                ))
+                ->execute();
+            }
+    
+        }else{
+            drupal_set_message("Database delete fail!");
+        }
+        
+    }else{//if there is no records then just insert new one
+        foreach($cb_subid as $returncbid){
+            $cur_key=array_search($returncbid,$cbop_submit);
+            //start insert each choice
+            $dbsubid_resultname = db_merge('ff_researchers_subcategories') 
+            ->key(array('rid' => $curuserid,'sid'=>$cur_key,'fromid' => $curfromid))
+            ->fields(array(
+            'rid' => $curuserid,
+            'sid' => $cur_key,
+            'fromid' => $curfromid
+            ))
+            ->execute();
+        }
+    
+    }
+    drupal_goto('ffresform/research_form_page12',$urloptions);  
+}
+
+
+//page 11 form and submit 
+function form_my_research_form_page11($form, &$form_state) {
+    
+    $curuserid=$_GET['userid']; //get current user id which passed from the previous url
+    
+    
+    $form['hiddenuserid']=array(  //initialize a form hidden to store the userid to retrieve in submit
+        '#type' => 'hidden',
+        '#value' => $curuserid,
+    );
+    $form['maintitle'] = array(
+        '#type' => 'item',
+        '#title' => t('Which of the below subcategories best describe your research?
+        <br>
+        To help donors further understand the depth of your research, please select 1-4 
+        subcategories. Only select a subcategory if it constitutes at least 10% of your research program.'),
+        '#required' => TRUE
+    );
+   
+    //extract research subcategories from db using js 
+    //when js extract the subcategories then update the checkboxs options 
+    
+    //build the checkboxes for the subcategory
+    $p11_cbop=array(18 => t('Aerospace / Space'),
+    19 => t('Chemistry'),
+    20 => t('Computer Science'),
+    21 => t('Cybersecurity'),
+    22 => t('Electronics / Sensors'),
+    23 => t('Fluidics'),
+    24 => t('Imaging'),
+    25 => t('Information Science / Internet'),
+    26 => t('Mathematics'),
+    27 => t('Materials Science'),
+    28 => t('Nanotechnology / MEMS'),
+    29 => t('Photonics'),
+    30 => t('Physics'),
+    31 => t('Robotics'),
+    32 => t('Semiconductors'),
+    33 => t('Telecommunications')
+    );
+    
+    $form['p11cbchoice'] = array(
+        '#type' => 'checkboxes',
+        '#options' => drupal_map_assoc($p11_cbop),
+        '#title' => t('Subcategory options'),
+        '#required' => TRUE
+    );
+    
+    $form['back']['#markup'] = "<input type='button' class='form-submit' value='Back' onclick='window.history.go(-1)'/>";
+    
+    $form['continuebutton'] = array( //final submit button
+        '#type' => 'submit',
+        '#value' => t('Continue')
+        
+    );
+    
+    return $form;
+}
+
+function form_my_research_form_page11_submit($form, &$form_state){
+    //add the submit function here, the function related with database
+    
+    $curuserid=$form_state['values']['hiddenuserid'];    
+    $urloptions = array('query' => array('userid' => $curuserid)); //pass current userid to next page
+    
+    //insert researchers's subcategory choices into researchers_subcategory table
+    //get the subcategory checkboxes' return value
+    $cb_subid=array_filter($form_state['values']['p11cbchoice']);
+    
+    //get the original option array to find the corresponding key value to store into db researchers_subcategory table
+    $cbop_submit=array(18 => t('Aerospace / Space'),
+    19 => t('Chemistry'),
+    20 => t('Computer Science'),
+    21 => t('Cybersecurity'),
+    22 => t('Electronics / Sensors'),
+    23 => t('Fluidics'),
+    24 => t('Imaging'),
+    25 => t('Information Science / Internet'),
+    26 => t('Mathematics'),
+    27 => t('Materials Science'),
+    28 => t('Nanotechnology / MEMS'),
+    29 => t('Photonics'),
+    30 => t('Physics'),
+    31 => t('Robotics'),
+    32 => t('Semiconductors'),
+    33 => t('Telecommunications')
+    );
+    
+    //before insert or update the subcategory, delete all the existed records related with this user
+    $db_secondcid=db_query("select secondary_cid from {ff_researchers} where id=:rid",array(':rid' => $curuserid))->fetchField();
+    $curfromid=2; //from secondary cid
+    $db_ridexisted=db_query("select count(*) from {ff_researchers_subcategories} where rid=:rid and fromid=:fromid",array(':rid' => $curuserid,':fromid'=>$curfromid))->fetchField();
+        
+    if($db_ridexisted!=0){//if there is records in info session table, then delete before insert new one
+        
+        
+        $dbsubcres_delete = db_query("delete from {ff_researchers_subcategories} where rid=:rid 
+        and fromid=:fromid and sid in (select id from ff_subcategories where cid=:cid)",
+        array(':rid' => $curuserid,':fromid'=>$curfromid,':cid' => $db_secondcid));
+        
+
+        if($dbsubcres_delete){ //if delete successfully, then insert new records
+            foreach($cb_subid as $returncbid){
+                $cur_key=array_search($returncbid,$cbop_submit);
+                //start insert each choice
+                $dbsubid_resultname = db_merge('ff_researchers_subcategories') 
+                ->key(array('rid' => $curuserid,'sid'=>$cur_key,'fromid' => $curfromid))
+                ->fields(array(
+                'rid' => $curuserid,
+                'sid' => $cur_key,
+                'fromid' => $curfromid
+                ))
+                ->execute();
+            }
+    
+        }else{
+            drupal_set_message("Database delete fail!");
+        }
+        
+    }else{//if there is no records then just insert new one
+        foreach($cb_subid as $returncbid){
+            $cur_key=array_search($returncbid,$cbop_submit);
+            //start insert each choice
+            $dbsubid_resultname = db_merge('ff_researchers_subcategories') 
+            ->key(array('rid' => $curuserid,'sid'=>$cur_key,'fromid' => $curfromid))
+            ->fields(array(
+            'rid' => $curuserid,
+            'sid' => $cur_key,
+            'fromid' => $curfromid
+            ))
+            ->execute();
+        }
+    
+    }
+      
+    drupal_goto('ffresform/research_form_page12',$urloptions);  
+}
+
+
+//page 12 form and submit 
+function form_my_research_form_page12($form, &$form_state) {
+    
+    $curuserid=$_GET['userid']; //get current user id which passed from the previous url
+    
+    $form['hiddenuserid']=array(  //initialize a form hidden to store the userid to retrieve in submit
+        '#type' => 'hidden',
+        '#value' => $curuserid,
+    );
+    $form['maintitle'] = array(
+        '#type' => 'item',
+        '#title' => t('Please provide 7-15 detailed keywords that specifically describe your research.'),
+         '#required' => TRUE
+    );
+    $form['maintitlehelp'] = array(
+        '#type' => 'item',
+        '#title' => t('At least seven. Leave it blank if skip.')
+    );
+    $form['keyword1'] = array( 
+        '#type' => 'textfield',
+        '#title' => 'Keyword #1',
+        '#required' => TRUE,
+        '#autocomplete_path' => 'keywords/autocomplete'
+    );
+    $form['keyword2'] = array( 
+        '#type' => 'textfield',
+        '#title' => 'Keyword #2',
+        '#required' => TRUE,
+        '#autocomplete_path' => 'keywords/autocomplete'
+    );
+    $form['keyword3'] = array( 
+        '#type' => 'textfield',
+        '#title' => 'Keyword #3',
+        '#required' => TRUE,
+        '#autocomplete_path' => 'keywords/autocomplete'
+    );
+    $form['keyword4'] = array( 
+        '#type' => 'textfield',
+        '#title' => 'Keyword #4',
+        '#required' => TRUE,
+        '#autocomplete_path' => 'keywords/autocomplete'
+    );
+    $form['keyword5'] = array( 
+        '#type' => 'textfield',
+        '#title' => 'Keyword #5',
+        '#required' => TRUE,
+        '#autocomplete_path' => 'keywords/autocomplete'
+    );
+    $form['keyword6'] = array( 
+        '#type' => 'textfield',
+        '#title' => 'Keyword #6',
+        '#required' => TRUE,
+        '#autocomplete_path' => 'keywords/autocomplete'
+    );
+    $form['keyword7'] = array( 
+        '#type' => 'textfield',
+        '#title' => 'Keyword #7',
+        '#required' => TRUE,
+        '#autocomplete_path' => 'keywords/autocomplete'
+    );
+    $form['keyword8'] = array( 
+        '#type' => 'textfield',
+        '#title' => 'Keyword #8',
+        '#autocomplete_path' => 'keywords/autocomplete'
+    );
+    $form['keyword9'] = array( 
+        '#type' => 'textfield',
+        '#title' => 'Keyword #9',
+        '#autocomplete_path' => 'keywords/autocomplete'
+    );
+    $form['keyword10'] = array( 
+        '#type' => 'textfield',
+        '#title' => 'Keyword #10',
+        '#autocomplete_path' => 'keywords/autocomplete'
+    );
+    $form['keyword11'] = array( 
+        '#type' => 'textfield',
+        '#title' => 'Keyword #11',
+        '#autocomplete_path' => 'keywords/autocomplete'
+    );
+    $form['keyword12'] = array( 
+        '#type' => 'textfield',
+        '#title' => 'Keyword #12',
+        '#autocomplete_path' => 'keywords/autocomplete'
+    );
+    $form['keyword13'] = array( 
+        '#type' => 'textfield',
+        '#title' => 'Keyword #13',
+        '#autocomplete_path' => 'keywords/autocomplete'
+    );
+    $form['keyword14'] = array( 
+        '#type' => 'textfield',
+        '#title' => 'Keyword #14',
+        '#autocomplete_path' => 'keywords/autocomplete'
+    );
+    $form['keyword15'] = array( 
+        '#type' => 'textfield',
+        '#title' => 'Keyword #15',
+        '#autocomplete_path' => 'keywords/autocomplete'
+    );
+    
+    
+    $form['back']['#markup'] = "<input type='button' class='form-submit' value='Back' onclick='window.history.go(-1)'/>";
+    
+    $form['continuebutton'] = array( 
+        '#type' => 'submit',
+        '#value' => t('Continue')
+        
+    );
+    
+    return $form;
+}
+
+function form_my_research_form_page12_submit($form, &$form_state){
+    //add the submit function here, the function related with database
+    
+    $curuserid=$form_state['values']['hiddenuserid'];    
+    $urloptions = array('query' => array('userid' => $curuserid)); //pass current userid to next page
+    
+    //insert keywords into db
+    $keywordarray=array(); //define the keyword array
+    for ($countkey = 1; $countkey <= 15; $countkey++){
+        $formkey='keyword'.$countkey;
+        $keywordvalue=$form_state['values'][$formkey];
+        if(strlen($keywordvalue)!= 0){  //ignore the empty value of keyword textfield
+            $keywordarray[$countkey]=$keywordvalue;
+        }
+    
+    }
+            
+    $keywordarray=array_unique($keywordarray); //ignore the duplicate keyword to avoid the db insert error
+    $keywordarray=array_values($keywordarray);  //get the value of keyword array
+    
+    foreach($keywordarray as $keyrow){
+        //do the db insert
+        //first generate all the new keywords using merge all keyword to do this avoid to search big keyword table every time     
+        $dbkeymerge_result =db_merge('ff_keywords')
+        ->key(array('keyword' => $keyrow))
+        ->fields(array('keyword' => $keyrow))
+        ->execute();
+    }
+    //before insert researchers_keywords delete the already existed records
+    $db_ridexisted=db_query("select count(*) from {ff_researchers_keywords} where rid=:rid",array(':rid' => $curuserid))->fetchField();
+    
+    if($db_ridexisted!=0){//if there is records in keywords table, then delete before insert new one
+        $dbkey_delete = db_query("delete from {ff_researchers_keywords} where rid=:rid",array(':rid' => $curuserid));
+        if($dbkey_delete){ //delete successfully, then insert new rows
+            foreach($keywordarray as $keyrow){
+                //update researchers_keywords table 
+                $dbkeyinsert_resultname = db_merge('ff_researchers_keywords') //use the db merge to avoid same keyword input
+                ->key(array('rid' => $curuserid,'keyword'=>$keyrow))
+                ->fields(array(
+                'rid' => $curuserid,
+                'keyword' => $keyrow,
+                ))
+                ->execute();
+            }
+        }
+    
+    }else{ //else insert directly
+        foreach($keywordarray as $keyrow){
+            //update researchers_keywords table 
+            $dbkeyinsert_resultname = db_merge('ff_researchers_keywords') //use the db merge to avoid same keyword input
+            ->key(array('rid' => $curuserid,'keyword'=>$keyrow))
+            ->fields(array(
+            'rid' => $curuserid,
+            'keyword' => $keyrow,
+            ))
+            ->execute();
+        }
+    
+    }
+    
+    drupal_goto('ffresform/research_form_page13',$urloptions); //goto the next page
+            
+}
+
+//page 13 form and submit 
+function form_my_research_form_page13($form, &$form_state) {
+    
+    $curuserid=$_GET['userid']; //get current user id which passed from the previous url
+    
+    
+    $form['hiddenuserid']=array(  //initialize a form hidden to store the userid to retrieve in submit
+        '#type' => 'hidden',
+        '#value' => $curuserid,
+    );
+    $form['maindesp'] = array(
+        '#type' => 'item',
+        '#title' => t('Donors often think about philanthropy in terms of "causes" that are close to their 
+        heart or interests: for example, they want to make a difference in "autism therapy" or "green energy".
+        <br>
+        To connect you with donors, it is important you tell us which causes (social, technological, health-related,
+        economical) your research may affect. For example, research on the art and science of music could be relevant 
+        to "autism therapy" or research on soccer playing robots could have an impact on "homecare for the critically ill".
+        <br>
+        To inspire your thinking, some examples are provided below.')
+    );
+    
+    $form['maintitle'] = array(
+        '#type' => 'item',
+        '#title' => t('Think deeply and creatively to provide at least 3 (and up to 7) causes (separated by commas) which 
+        your research is likely to affect.'),
+        '#required' => TRUE
+    );
+    $form['maintitlehelp'] = array(
+        '#type' => 'item',
+        '#title' => t('If any of the examples listed below are relevant, you may add them here.<br>
+        At least three. Leave it blank if skip.')
+    );
+    
+    $form['causes1'] = array( 
+        '#type' => 'textfield',
+        '#title' => 'Causes #1',
+        '#required' => TRUE,
+        '#autocomplete_path' => 'causes/autocomplete'
+    );
+    $form['causes2'] = array( 
+        '#type' => 'textfield',
+        '#title' => 'Causes #2',
+        '#required' => TRUE,
+        '#autocomplete_path' => 'causes/autocomplete'
+    );
+    $form['causes3'] = array( 
+        '#type' => 'textfield',
+        '#title' => 'Causes #3',
+        '#required' => TRUE,
+        '#autocomplete_path' => 'causes/autocomplete'
+    );
+    $form['causes4'] = array( 
+        '#type' => 'textfield',
+        '#title' => 'Causes #4',
+        '#autocomplete_path' => 'causes/autocomplete'
+    );
+    $form['causes5'] = array( 
+        '#type' => 'textfield',
+        '#title' => 'Causes #5',
+        '#autocomplete_path' => 'causes/autocomplete'
+    );
+    $form['causes6'] = array( 
+        '#type' => 'textfield',
+        '#title' => 'Causes #6',
+        '#autocomplete_path' => 'causes/autocomplete'
+    );
+    $form['causes7'] = array( 
+        '#type' => 'textfield',
+        '#title' => 'Causes #7',
+        '#autocomplete_path' => 'causes/autocomplete'
+    );
+    
+    //help examples
+    $form['mainhelptitle'] = array(
+        '#type' => 'item',
+        '#title' => t('To better understand what we mean with "causes", here are some example causes 
+        (in no particular order and with no intent to express research preferences for Benefunder funding).
+        <br>
+        <br>
+        Addiction to alcohol, drugs, etc.<br>
+        Anti Bullying<br>
+        Autism therapy<br>
+        Clean drinking water<br>
+        Climate change<br>
+        Curing breast cancer<br>
+        Data management<br>
+        Disaster relief<br>
+        Diversity in the workplace<br>
+        Early detection of some disease<br>
+        Education<br>
+        Exploring the universe<br>
+        Extraterrestrial life<br>
+        Faith<br>
+        Famine<br>
+        Green energy<br>
+        Home care for the very ill<br>
+        Homelessness<br>
+        Hospice care<br>
+        Obesity<br>
+        Pediatric cochlear implants<br>
+        Philharmonic orchestras<br>
+        Poverty - domestic and foreign<br>
+        Promoting STEM for females<br>
+        Rare diseases<br>
+        Space exploration<br>
+        Societal challenges<br>
+        Supporting females in research<br>
+        Supporting social and economic issues in some state<br>
+        Teen pregnancy<br>
+        Veteran issues<br>
+        ')
+    );
+    
+    
+    $form['back']['#markup'] = "<input type='button' class='form-submit' value='Back' onclick='window.history.go(-1)'/>";
+    
+    $form['continuebutton'] = array( 
+        '#type' => 'submit',
+        '#value' => t('Continue')
+        
+    );
+    
+    return $form;
+}
+
+function form_my_research_form_page13_submit($form, &$form_state){
+    //add the submit function here, the function related with database
+    
+    $curuserid=$form_state['values']['hiddenuserid'];    
+    $urloptions = array('query' => array('userid' => $curuserid)); //pass current userid to next page
+    
+    //insert causes into db
+    $causesarray=array(); //define the causes array
+    for ($countkey = 1; $countkey <= 7; $countkey++){
+        $formkey='causes'.$countkey;
+        $causevalue=$form_state['values'][$formkey];
+        if(strlen($causevalue)!= 0){  //ignore the empty value of causes textfield
+            $causesarray[$countkey]=$causevalue;
+        }
+    
+    }
+            
+    $causesarray=array_unique($causesarray); //ignore the duplicate keyword to avoid the db insert error
+    $causesarray=array_values($causesarray);  //get the value of keyword array
+    
+    foreach($causesarray as $keyrow){
+        //do the db insert
+        //first generate all the new causes using merge all causes to do this avoid to search big causes table every time     
+        $dbcausemerge_result =db_merge('ff_causes')
+        ->key(array('cause' => $keyrow))
+        ->fields(array('cause' => $keyrow))
+        ->execute();
+    }
+    
+    //before insert researchers_causes delete the already existed records
+    $db_ridexisted=db_query("select count(*) from {ff_researchers_causes} where rid=:rid",array(':rid' => $curuserid))->fetchField();
+    
+    if($db_ridexisted!=0){//if there is records in causes table, then delete before insert new one
+        $dbkey_delete = db_query("delete from {ff_researchers_causes} where rid=:rid",array(':rid' => $curuserid));
+        if($dbkey_delete){ //delete successfully, then insert new rows
+            foreach($causesarray as $keyrow){
+                //then update researchers_causes table 
+                $dbcauseinsert_resultname = db_merge('ff_researchers_causes') //use the db merge to avoid same cause input
+                ->key(array('rid' => $curuserid,'cause'=>$keyrow))
+                ->fields(array(
+                'rid' => $curuserid,
+                'cause' => $keyrow,
+                ))
+                ->execute();
+            }
+        }
+    
+    }else{ //else insert directly
+        foreach($causesarray as $keyrow){
+            //then update researchers_causes table 
+            $dbcauseinsert_resultname = db_merge('ff_researchers_causes') //use the db merge to avoid same cause input
+            ->key(array('rid' => $curuserid,'cause'=>$keyrow))
+            ->fields(array(
+            'rid' => $curuserid,
+            'cause' => $keyrow,
+            ))
+            ->execute();
+        }
+    }
+    
+    drupal_goto('ffresform/research_form_page14',$urloptions); //goto the next page
+    
+            
+}
+
+//page 14 form and submit 
+function form_my_research_form_page14($form, &$form_state) {
+    
+    $curuserid=$_GET['userid']; //get current user id which passed from the previous url
+    
+    
+    $form['hiddenuserid']=array(  //initialize a form hidden to store the userid to retrieve in submit
+        '#type' => 'hidden',
+        '#value' => $curuserid,
+    );
+    $form['maindesp'] = array(
+        '#type' => 'item',
+        '#title' => t('Some of our donors are interested in basic research. Others are interested in applied research.
+        <br>
+        <br>
+        With the below questions, we would like to gain more insight into your research program.
+        <br>
+        <br>
+        From the below statements, check all that apply to your research. Not all statements apply to all research disciplines.')
+    );
+    
+    //build the checkboxes for the research descriptors
+    $resdesp1_cbop=array(1 => t('is experimental'),
+    2 => t('includes the development of a proof of concept to commercialize my research'),
+    3 => t('is theoretical'),
+    4 => t('has direct applications to the world around us'),
+    5 => t('does not have direct commercial applications but is used in collaborations with colleagues whose research may get commercialized'),
+    6 => t('will result in me writing a book'),
+    7 => t('helps to understand a real world problem and solve it'),
+    8 => t('acquires new knowledge that is not directly applicable to the world around us, but that enhances our understanding of fundamental 
+    principles underlying phenomena in the world'),
+    9 => t('is conducted in a wet lab'),
+    10 => t('will affect national or international policy')
+    );
+    
+    $form['res1cbchoice'] = array(
+        '#type' => 'checkboxes',
+        '#options' => drupal_map_assoc($resdesp1_cbop),
+        '#title' => t('My research')
+    );
+    
+    $despdev_cbop = array(1 => t('theory'), 
+    2 => t('drug'),
+    3 => t('device (medical)'),
+    4 => t('device (non-medical)'),
+    5 => t('new educational method'),
+    6 => t('software'),
+    7 => t('mobile app'),
+    8 => t('diagnostic (medical)'),
+    9 => t('diagnostic (non-medical)'),
+    10 => t('policy')
+    );
+    
+    $form['resdev_cbchoice'] = array(
+        '#type' => 'checkboxes',
+        '#options' => drupal_map_assoc($despdev_cbop),
+        '#title' => t('My research is developing a')
+    );
+    
+    //start define the checkboxes for research descriptors' developing part
+    
+    $form['resdev_other'] = array(
+        // The 'container-inline' class places elements next to each other, while the 'form-item' class provides the correct spacing between options.
+        '#prefix' => '<div class="container-inline form-item">',
+        '#suffix' => '</div>'
+    );
+    // By supplying the title here, instead of using the '#field_prefix' property of the textfield, clicking the text will also select the radio button.
+    $form['resdev_other']['resdev_other_option'] = array(
+        '#type' => 'checkbox',
+        '#title' => t('Other:'),
+        '#default_value' => 0,
+        '#return_value' => 1,
+        '#parents' => array('resdev_other')
+    );
+    $form['resdev_other']['resdev_other_textfield'] = array(
+        '#type' => 'textfield',
+        '#default_value' => '',
+        '#size' => 20,         // The default size is a bit large...
+    );
+    
+    //start define the checkboxes for research descriptors' testing part
+    
+    $form['restest_cbchoice'] = array(
+        '#type' => 'checkboxes',
+        '#options' => drupal_map_assoc($despdev_cbop),
+        '#title' => t('My research is testing a')
+    );
+    
+    
+    $form['restest_other'] = array(
+        // The 'container-inline' class places elements next to each other, while the 'form-item' class provides the correct spacing between options.
+        '#prefix' => '<div class="container-inline form-item">',
+        '#suffix' => '</div>'
+    );
+    // By supplying the title here, instead of using the '#field_prefix' property of the textfield, clicking the text will also select the radio button.
+    $form['restest_other']['restest_other_option'] = array(
+        '#type' => 'checkbox',
+        '#title' => t('Other:'),
+        '#default_value' => 0,
+        '#return_value' => 1,
+        '#parents' => array('restest_other')
+    );
+    $form['restest_other']['restest_other_textfield'] = array(
+        '#type' => 'textfield',
+        '#default_value' => '',
+        '#size' => 20,         // The default size is a bit large..
+    );
+    
+    
+    $resdesptime_cbop=array(1 => t('within the next year'),
+    2 => t('within 2-5 years'),
+    3 => t('within 5-10 years'),
+    4 => t('in more than 10 years'),
+    5 => t('never')
+    );
+    
+    $form['rescomcbchoice'] = array(
+        '#type' => 'checkboxes',
+        '#options' => drupal_map_assoc($resdesptime_cbop),
+        '#title' => t('I expect outcomes of some of my research to get commercialized')
+    );
+    $form['resaffectcbchoice'] = array(
+        '#type' => 'checkboxes',
+        '#options' => drupal_map_assoc($resdesptime_cbop),
+        '#title' => t('I expect outcomes of some of my research to affect national policy')
+    );
+    
+    //research descriptors radios
+    $resdescribe_op = array(41 => t('basic and/or fundamental research'), 
+    42 => t('mostly basic and/or fundamental, mixed with some applied work'),
+    43 => t('mostly applied and/or translational, mixed with some basic work'),
+    44 => t('applied and/or translational'));
+
+    $form['resdescribe'] = array(
+        '#type' => 'radios',
+        '#title' => t('I would describe my research as'),
+        '#options' => drupal_map_assoc($resdescribe_op),
+        '#required' => TRUE
+    );
+    
+    $form['mainhelp'] = array(
+        '#type' => 'item',
+        '#title' => t("Note:
+        <br>
+        <br>
+        Basic research is a systematic study directed toward greater knowledge or understanding of the fundamental aspects of phenomena around us. 
+        Basic research is often executed without thought of a practical end goal, without specific applications or products in mind. Basic research 
+        is more speculative and takes a long time - often decades - to be applied in any practical context. It often leads to breakthroughs or 
+        paradigm-shifts in practice.
+        <br>
+        <br>
+        Applied Research (referred to as Translational in healthcare and biomedical research) is the systematic inquiry, experimental design and
+        execution of research to create practical applications and/or make findings from basic science useful for practical applications -- 
+        e.g., new art and design, new social policies, products or processes for commercial use, new medicines, diagnostics or clinical 
+        practices. It employs, integrates and further develops some of the research communities' accumulated theories, knowledge, methods, and 
+        techniques. Applied research can have an impact in practice in a relatively short time.")
+    );
+    
+    
+    $form['back']['#markup'] = "<input type='button' class='form-submit' value='Back' onclick='window.history.go(-1)'/>";
+    
+    $form['continuebutton'] = array( 
+        '#type' => 'submit',
+        '#value' => t('Continue')
+        
+    );
+    
+    return $form;
+}
+
+function form_my_research_form_page14_submit($form, &$form_state){
+    //add the submit function here, the function related with database
+    
+    $curuserid=$form_state['values']['hiddenuserid'];    
+    $urloptions = array('query' => array('userid' => $curuserid)); //pass current userid to next page
+    //before insert, delete the existed records related with this user
+    $db_ridexisted=db_query("select count(*) from {ff_researchers_res_descriptors} where rid=:rid",array(':rid' => $curuserid))->fetchField();
+    
+    if($db_ridexisted!=0){//if there is records in descriptors table, then delete before insert new one
+        $dbkey_delete = db_query("delete from {ff_researchers_res_descriptors} where rid=:rid",array(':rid' => $curuserid));
+    }
+    
+    
+    
+    //get the research descriptors checkboxes value
+    //research desp 1
+    $resdesp1cb_ids=array_filter($form_state['values']['res1cbchoice']);
+    //get the original option array to find the corresponding key value to store into db table
+    $resdesp1_cbop_submit=array(1 => t('is experimental'),
+    2 => t('includes the development of a proof of concept to commercialize my research'),
+    3 => t('is theoretical'),
+    4 => t('has direct applications to the world around us'),
+    5 => t('does not have direct commercial applications but is used in collaborations with colleagues whose research may get commercialized'),
+    6 => t('will result in me writing a book'),
+    7 => t('helps to understand a real world problem and solve it'),
+    8 => t('acquires new knowledge that is not directly applicable to the world around us, but that enhances our understanding of fundamental 
+    principles underlying phenomena in the world'),
+    9 => t('is conducted in a wet lab'),
+    10 => t('will affect national or international policy')
+    );
+    
+    foreach($resdesp1cb_ids as $returncbid){
+        $cur_key=array_search($returncbid,$resdesp1_cbop_submit);
+        //start insert each choice
+        $dbresdesp1_resultname = db_merge('ff_researchers_res_descriptors') 
+        ->key(array('rid' => $curuserid,'did'=>$cur_key))
+        ->fields(array(
+        'rid' => $curuserid,
+        'did' => $cur_key,
+        ))
+        ->execute();
+    }
+    
+    
+    //resdesp developing
+    //get the original option array to find the corresponding key value to store into db researchers_res_descriptors table
+    $resdexp_cbop_submit=array(1 => t('theory'), 
+    2 => t('drug'),
+    3 => t('device (medical)'),
+    4 => t('device (non-medical)'),
+    5 => t('new educational method'),
+    6 => t('software'),
+    7 => t('mobile app'),
+    8 => t('diagnostic (medical)'),
+    9 => t('diagnostic (non-medical)'),
+    10 => t('policy')
+    );
+    
+    //insert other textfield first
+    $selectresdevother_tf=$form_state['values']['resdev_other_textfield']; //get the dev descriptors other textfield value if user choose other
+    //delete all blankspace before compare to null
+    $selectresdevother_tf=trim($selectresdevother_tf,' ');
+    $selectresdevother_tf=trim($selectresdevother_tf);
+    $selectresdevother_tf=trim($selectresdevother_tf,"\x00..\x1F");
+    
+    if($selectresdevother_tf!= null){ //if user actually input something in the other textfield
+        $dbnewdid_insert = db_query("select count(id) from {ff_res_descriptors}")->fetchField(); //get the auto increment did
+        $dbnewdid_insert=$dbnewdid_insert+1;
+        
+        $dbnewdid_result=db_insert('ff_res_descriptors') //update the descriptors table
+        ->fields(array(
+        'text' => $selectresdevother_tf,
+        ))
+        ->execute();
+        
+        $dbdespdev_resultname = db_insert('ff_researchers_res_descriptors')  //insert researchers and descriptors table
+        ->fields(array(
+        'rid' => $curuserid,
+        'did' => $dbnewdid_insert,
+        ))
+        ->execute();
+    }
+    //insert all the checkboxes options
+    $selectresdev_id=$form_state['values']['resdev_cbchoice']; 
+    $selectresdev_id=array_diff($selectresdev_id, array(0)); //delete all the zero values
+    foreach($selectresdev_id as $returncbid){
+        $cur_key=array_search($returncbid,$resdexp_cbop_submit);
+        $cur_key=$cur_key+10; //find the db developing did        
+        
+        //start insert each choice
+        $dbdespdev_resultname = db_merge('ff_researchers_res_descriptors') 
+        ->key(array('rid' => $curuserid,'did'=>$cur_key))
+        ->fields(array(
+        'rid' => $curuserid,
+        'did' => $cur_key,
+        ))
+        ->execute();
+    }
+    
+    //same for the test part
+    $selectrestestother_tf=$form_state['values']['restest_other_textfield']; //get the test descriptors other textfield value if user choose other
+    //delete all blankspace before compare to null
+    $selectrestestother_tf=trim($selectrestestother_tf,' ');
+    $selectrestestother_tf=trim($selectrestestother_tf);
+    $selectrestestother_tf=trim($selectrestestother_tf,"\x00..\x1F");
+    
+    
+    if($selectrestestother_tf!= null){ //if user actually input something in the other textfield
+        $dbnewdidtest_insert = db_query("select count(id) from {ff_res_descriptors}")->fetchField(); //get the auto increment did
+        $dbnewdidtest_insert=$dbnewdidtest_insert+1;
+        
+        $dbnewdidtest_result=db_insert('ff_res_descriptors') //update the descriptors table
+        ->fields(array(
+        'text' => $selectrestestother_tf,
+        ))
+        ->execute();
+        
+        $dbdesptest_resultname = db_insert('ff_researchers_res_descriptors')  //insert researchers and descriptors table
+        ->fields(array(
+        'rid' => $curuserid,
+        'did' => $dbnewdidtest_insert,
+        ))
+        ->execute();
+    }
+    $selectrestest_id=$form_state['values']['restest_cbchoice']; 
+    $selectrestest_id=array_diff($selectrestest_id, array(0)); //delete all the zero values
+    foreach($selectrestest_id as $returncbid){
+        $cur_key=array_search($returncbid,$resdexp_cbop_submit);
+        $cur_key=$cur_key+20; //find the db testing did     
+        
+        //start insert each choice
+        $dbdesptest_resultname = db_merge('ff_researchers_res_descriptors') 
+        ->key(array('rid' => $curuserid,'did'=>$cur_key))
+        ->fields(array(
+        'rid' => $curuserid,
+        'did' => $cur_key,
+        ))
+        ->execute();
+    }
+    
+    $resdesp_timeop=array(1 => t('within the next year'),
+    2 => t('within 2-5 years'),
+    3 => t('within 5-10 years'),
+    4 => t('in more than 10 years'),
+    5 => t('never')
+    );
+    //outcome commercialized part 
+    $resdesp_comid=array_filter($form_state['values']['rescomcbchoice']);
+    
+    foreach($resdesp_comid as $returncbid){
+        $cur_key=array_search($returncbid,$resdesp_timeop);
+        $cur_key=$cur_key+30;  //for the commercialized db part
+        //start insert each choice
+        $dbresdespcom_resultname = db_merge('ff_researchers_res_descriptors') 
+        ->key(array('rid' => $curuserid,'did'=>$cur_key))
+        ->fields(array(
+        'rid' => $curuserid,
+        'did' => $cur_key,
+        ))
+        ->execute();
+    }
+    //outcome affect part 
+    $resdesp_affid=array_filter($form_state['values']['resaffectcbchoice']);
+    
+    foreach($resdesp_affid as $returncbid){
+        $cur_key=array_search($returncbid,$resdesp_timeop);
+        $cur_key=$cur_key+35;  //for the commercialized db part
+        //start insert each choice
+        $dbresdespaff_resultname = db_merge('ff_researchers_res_descriptors') 
+        ->key(array('rid' => $curuserid,'did'=>$cur_key))
+        ->fields(array(
+        'rid' => $curuserid,
+        'did' => $cur_key,
+        ))
+        ->execute();
+    }
+    
+    //outcome describe radios part 
+    $resdescribe_op_submit = array(41 => t('basic and/or fundamental research'), 
+    42 => t('mostly basic and/or fundamental, mixed with some applied work'),
+    43 => t('mostly applied and/or translational, mixed with some basic work'),
+    44 => t('applied and/or translational'));
+    $resdesp_desb=$form_state['values']['resdescribe'];
+    $resdesp_desbid=array_keys($resdescribe_op_submit,$resdesp_desb);
+    
+    $dbresdespdesb_resultname = db_merge('ff_researchers_res_descriptors') 
+        ->key(array('rid' => $curuserid,'did'=>$resdesp_desbid))
+        ->fields(array(
+        'rid' => $curuserid,
+        'did' => $resdesp_desbid,
+        ))
+        ->execute();
+    
+    
+    drupal_goto('ffresform/research_form_page15',$urloptions); //goto the next page
+    
+            
+}
+
+//page 15 form and submit 
+function form_my_research_form_page15($form, &$form_state) {
+    
+    $curuserid=$_GET['userid']; //get current user id which passed from the previous url
+    
+    $form['hiddenuserid']=array(  //initialize a form hidden to store the userid to retrieve in submit
+        '#type' => 'hidden',
+        '#value' => $curuserid,
+    );
+    
+    
+    $form['past'] = array(
+        '#type' => 'textfield',
+        '#title' => t('Which significant breakthrough or major insight HAS your research contributed to (in the past)?.')
+    );
+    
+    $form['future'] = array(
+        '#type' => 'textfield',
+        '#title' => t('Which significant breakthrough or major insight MAY your research contribute to (in the future)?.')
+    );
+    $form['potential'] = array(
+        '#type' => 'textfield',
+        '#title' => t('In broad terms, what are some of the potential social outcomes or impacts your research could have?'),
+        '#required' => TRUE
+    );
+    
+    $form['potentialhelp'] = array(
+        '#type' => 'item',
+        '#title' => t('Write 1-2 comprehensive sentences about each outcome or impact. Mention at least one example. 
+        Examples: saving lives, understanding some social behavior, treating or eliminating a disease, new company formation, 
+        job creation, new way of experiencing music, preventing some environmental disaster, etc.')
+    );
+    
+    
+    $form['back']['#markup'] = "<input type='button' class='form-submit' value='Back' onclick='window.history.go(-1)'/>";
+    
+    $form['continuebutton'] = array( 
+        '#type' => 'submit',
+        '#value' => t('Continue')
+        
+    );
+    
+    return $form;
+}
+
+function form_my_research_form_page15_submit($form, &$form_state){
+    //add the submit function here, the function related with database
+    
+    $curuserid=$form_state['values']['hiddenuserid'];    
+    $urloptions = array('query' => array('userid' => $curuserid)); //pass current userid to next page
+    
+    //before insert, delete the existed records related with this user
+    $db_ridexisted=db_query("select count(*) from {ff_researchers_outcomes} where rid=:rid",array(':rid' => $curuserid))->fetchField();
+    
+    if($db_ridexisted!=0){//if there is records in descriptors table, then delete before insert new one
+        $dbkey_delete = db_query("delete from {ff_researchers_outcomes} where rid=:rid",array(':rid' => $curuserid));
+    }
+    
+    
+    //insert user input into researchers_outcomes table
+    $outcomes_past=$form_state['values']['past'];
+    $outcomes_future=$form_state['values']['future'];
+    $outcomes_potential=$form_state['values']['potential'];
+    
+    //replace all the whitespace and hidden placeholder to avoid insert blank into database 
+    
+    //for potential just replace all tab, ascii and enter value
+    $outcomes_potential=trim($outcomes_potential," ");
+    $outcomes_potential=trim($outcomes_potential);  //replace all tab
+    $outcomes_potential=trim($outcomes_potential,"\x00..\x1F");
+    
+    $outcomes_past=trim($outcomes_past," ");
+    $outcomes_past=trim($outcomes_past);   
+    $outcomes_past=trim($outcomes_past,"\x00..\x1F");
+    
+    
+    $outcomes_future=trim($outcomes_future," ");
+    $outcomes_future=trim($outcomes_future);   
+    $outcomes_future=trim($outcomes_future,"\x00..\x1F");
+    
+    if($outcomes_past==null){//if the field is empty then do not insert
+        
+        if($outcomes_future==null){ //just insert potential
+            $dboutcomes_resultname = db_merge('ff_researchers_outcomes') 
+            ->key(array('rid' => $curuserid))
+            ->fields(array(
+            'rid' => $curuserid,
+            'potential' => $outcomes_potential,
+            ))
+            ->execute();
+        }else{//insert future and potential
+            
+            $dboutcomes_resultname = db_merge('ff_researchers_outcomes') 
+            ->key(array('rid' => $curuserid))
+            ->fields(array(
+            'rid' => $curuserid,
+            'future' => $outcomes_future,
+            'potential' => $outcomes_potential,
+            ))
+            ->execute();
+        }
+    }else{//insert all three field
+    		//prepare to insert
+    		
+		    
+        $dboutcomes_resultname = db_merge('ff_researchers_outcomes') 
+        ->key(array('rid' => $curuserid))
+        ->fields(array(
+        'rid' => $curuserid,
+        'past' => $outcomes_past,
+        'future' => $outcomes_future,
+        'potential' => $outcomes_potential,
+        ))
+        ->execute();
+    }
+    
+    drupal_goto('ffresform/research_form_page16',$urloptions); //goto the next page
+    
+            
+}
+
+//page 16 form and submit 
+function form_my_research_form_page16($form, &$form_state) {
+    
+    $curuserid=$_GET['userid']; //get current user id which passed from the previous url
+    
+    
+    $form['hiddenuserid']=array(  //initialize a form hidden to store the userid to retrieve in submit
+        '#type' => 'hidden',
+        '#value' => $curuserid,
+    );
+    
+    $form['maindesp'] = array(
+        '#type' => 'item',
+        '#title' => t('This section pertains to applied research programs.')
+    );
+    
+    //researchers company radios
+    $form['rescompany'] = array(
+        '#type' => 'radios',
+        '#title' => t('Have any companies been successfully spun out of your research lab?'),
+        '#options' => array(1 => 'Yes', 2 => 'No'),
+        '#default_value' => 0
+    );
+    
+    
+    $form['back']['#markup'] = "<input type='button' class='form-submit' value='Back' onclick='window.history.go(-1)'/>";
+    
+    $form['continuebutton'] = array( 
+        '#type' => 'submit',
+        '#value' => t('Continue')
+        
+    );
+    
+    return $form;
+}
+
+function form_my_research_form_page16_submit($form, &$form_state){
+    //add the submit function here, the function related with database
+    
+    $curuserid=$form_state['values']['hiddenuserid'];    
+    $urloptionscom = array('query' => array('userid' => $curuserid,'comid' => 1)); //pass current userid to next page and company initial id if choose company
+    
+    
+    $urloptions = array('query' => array('userid' => $curuserid)); 
+    
+    $userchoice_radios=$form_state['values']['rescompany'];
+    if($userchoice_radios==1){  //split the yes and no-skip to pass company initial id
+        
+        drupal_goto('ffresform/research_form_page17',$urloptionscom); //goto the next page17 if yes
+    }else{
+        //delete the existed this user related companies if there is no or skip
+        $db_ridexisted=db_query("select count(*) from {ff_researchers_companies} where rid=:rid",array(':rid' => $curuserid))->fetchField();
+    
+        if($db_ridexisted!=0){//if there is records in descriptors table, then delete before insert new one
+            $dbkey_delete = db_query("delete from {ff_researchers_companies} where rid=:rid",array(':rid' => $curuserid));
+        }
+        
+        drupal_goto('ffresform/research_form_page18',$urloptions); //if skip/no option to page 18
+    }
+    
+}
+
+//page 17 company page
+function form_my_research_form_page17($form, &$form_state) {
+    $curuserid=$_GET['userid']; //get current user id which passed from the previous url
+    
+    
+    $form['hiddenuserid']=array(  //initialize a form hidden to store the userid to retrieve in submit
+        '#type' => 'hidden',
+        '#value' => $curuserid,
+    );
+    
+    $curcomid=$_GET['comid']; //get current company id which passed from the previous company page
+    
+    
+    
+    $comidtitle='#'.$curcomid.' company information';
+    $form['maincomid'] = array( 
+        '#type'=> 'item',
+        '#title' => $comidtitle,
+        '#required' => TRUE
+    );
+    
+    $curcomid=$curcomid+1;
+    $form['hiddencomid']=array(  //initialize a form hidden to store the next company id to retrieve in rebuild form
+        '#type' => 'hidden',
+        '#value' => $curcomid,
+    );
+    
+    $form['maindescription'] = array( 
+        '#type'=> 'item',
+        '#title' => t('Please provide the following information about one successful venture your research led to. 
+        You will be able to provide the below, detailed information for up to 7 ventures. 
+        You will be able to provide a short description for additional ventures, beyond 7.')
+    );
+    
+    $form['cname'] = array( 
+        '#type' => 'textfield',
+        '#title' => 'Name of the Company',
+        '#required' => TRUE
+    );
+    $form['curl'] = array( //name tag
+        '#type' => 'textfield',
+        '#title' => 'Company website (URL)'
+    );
+    
+    
+    $comstatus_op=array(1 => t('Pre-Series A'),
+    2 => t('Series A'),
+    3 => t('Series B'),
+    4 => t('Series C or more'),
+    5 => t('Revenue'),
+    6 => t('Acquired'),
+    7 => t('IPO')
+    );
+    $form['statustitle1'] = array( 
+        '#type'=> 'item',
+        '#title' => t('Current Status'),
+        '#required' => TRUE
+    );
+    $form['statustitle2'] = array( 
+        '#type'=> 'item',
+        '#title' => t('Check all that apply.')
+    );
+    $form['comstatus'] = array(
+        '#type' => 'checkboxes',
+        '#options' => drupal_map_assoc($comstatus_op),
+        '#title' => t('')
+    );
+    
+    
+    $form['status_other'] = array(
+        // The 'container-inline' class places elements next to each other, while the 'form-item' class provides the correct spacing between options.
+        '#prefix' => '<div class="container-inline form-item">',
+        '#suffix' => '</div>'
+    );
+    // By supplying the title here, instead of using the '#field_prefix' property of the textfield, clicking the text will also select the radio button.
+    $form['status_other']['status_other_option'] = array(
+        '#type' => 'checkbox',
+        '#title' => t('Other:'),
+        '#default_value' => 0,
+        '#return_value' => 1,
+        '#parents' => array('status_other')
+    );
+    $form['status_other']['status_other_textfield'] = array(
+        '#type' => 'textfield',
+        '#default_value' => '',
+        '#size' => 20,         
+    );
+    
+    
+    $sizecom_op = array(1 => t('No employees'), 
+    2 => t('1-5 employees'),
+    3 => t('6-15 employees'),
+    4 => t('16-30 employees'),
+    5 => t('31-75 employees'), 
+    6 => t('76-200 employees'), 
+    7 => t('201-1000 employees'), 
+    8 => t('1000+ employees') 
+    );
+
+    $form['sizeOfCompany'] = array(
+        '#type' => 'radios',
+        '#title' => t('Size of Company'),
+        '#options' => drupal_map_assoc($sizecom_op),
+        '#required' => TRUE
+    );
+    
+    $form['invessum'] = array( 
+        '#type' => 'textfield',
+        '#title' => 'Investment Summary (if available)<br>Paste the investment summary below.'
+    );
+    
+    
+    
+    $comrole_op=array(1 => t('Advisor'),
+    2 => t('Officer (CEO, CTO, CSO, etc.)'),
+    3 => t('Board member'),
+    4 => t('Series C or more'),
+    5 => t('Investor'),
+    6 => t('No role')
+    );
+    $form['roletitle1'] = array( 
+        '#type'=> 'item',
+        '#title' => t('Have you taken a role in the company?'),
+        '#required' => TRUE
+    );
+    $form['roletitle2'] = array( 
+        '#type'=> 'item',
+        '#title' => t('Check all that apply(current or past).')
+    );
+    
+    $form['comrole'] = array(
+        '#type' => 'checkboxes',
+        '#options' => drupal_map_assoc($comrole_op),
+        '#title' => t('')
+    );
+    
+    $form['role_other'] = array(
+        // The 'container-inline' class places elements next to each other, while the 'form-item' class provides the correct spacing between options.
+        '#prefix' => '<div class="container-inline form-item">',
+        '#suffix' => '</div>'
+    );
+    // By supplying the title here, instead of using the '#field_prefix' property of the textfield, clicking the text will also select the radio button.
+    $form['role_other']['role_other_option'] = array(
+        '#type' => 'checkbox',
+        '#title' => t('Other:'),
+        '#default_value' => 0,
+        '#return_value' => 1,
+        '#parents' => array('role_other')
+    );
+    $form['role_other']['role_other_textfield'] = array(
+        '#type' => 'textfield',
+        '#default_value' => '',
+        '#size' => 20,         
+    );
+    
+    $form['back']['#markup'] = "<input type='button' class='form-submit' value='Back' onclick='window.history.go(-1)'/>";
+    
+    $form['addCompany'] = array(
+        '#type' => 'submit',
+        '#value' => t('Add another company'),
+        '#name' => 'add'
+    );
+    $form['continuebutton'] = array(
+        '#type' => 'submit',
+        '#value' => t('Continue'),
+        '#name' => 'continue'
+    );
+   
+    return $form;
+}
+//custom validate function for page 17
+function form_my_research_form_page17_validate($form, &$form_state) {
+  //check status checkboxes
+  $comstatus_ops=$form_state['values']['comstatus'];  //checkboxes options return
+  $comstatus_tf=$form_state['values']['status_other_textfield'];
+  $comstatus_tf=trim($comstatus_tf,' '); //before compare repalce all blankspace
+  $comstatus_tf=trim($comstatus_tf);
+  $comstatus_tf=trim($comstatus_tf,"\x00..\x1F");
+  
+  $comstatus_ops=array_diff($comstatus_ops, array(0)); //delete all the return zero values
+  if(count($comstatus_ops)==0){ //if user didn't choose any checkboxes
+    if($comstatus_tf ==null){//check other textfield's value
+            form_set_error('status_other_textfield', "If you don't choose any company status options, please input other!");
+    }
+  }
+  
+  //do the same check for company role
+  $comrole_ops=$form_state['values']['comrole'];  //checkboxes options return
+  $comrole_tf=$form_state['values']['role_other_textfield'];
+  $comrole_tf=trim($comrole_tf,' '); //before compare repalce all blankspace
+  $comrole_tf=trim($comrole_tf);
+  $comrole_tf=trim($comrole_tf,"\x00..\x1F");
+  
+  $comrole_ops=array_diff($comrole_ops, array(0)); //delete all the return zero values
+  if(count($comrole_ops)==0){ //if user didn't choose any checkboxes
+    if($comrole_tf ==null){//check other textfield's value
+            form_set_error('role_other_textfield', "If you don't choose any company role options, please input other!");
+    }
+  }
+  
+  
+}
+function form_my_research_form_page17_submit($form, &$form_state){
+    //add the submit function here, the function related with database
+    
+    $curuserid=$form_state['values']['hiddenuserid']; 
+    $curcomid=$form_state['values']['hiddencomid'];
+    
+    $urloptions = array('query' => array('userid' => $curuserid)); //pass current userid to next page
+    $urloptionscom = array('query' => array('userid' => $curuserid,'comid' =>$curcomid)); //pass com id to the rebuild company page
+    
+    $button_clicked=$form_state['triggering_element']['#name'];
+    //get current input company information first
+    $comname=$form_state['values']['cname'];
+    $comurl=$form_state['values']['curl'];
+    //trim all blankspace
+    $comname=trim($comname," ");
+	$comname=trim($comname);   
+    $comname=trim($comname,"\x00..\x1F");
+    
+    $comurl=trim($comurl," ");
+	$comurl=trim($comurl);    
+    $comurl=trim($comurl,"\x00..\x1F");
+    
+    //get company size key 
+    $comsize=$form_state['values']['sizeOfCompany'];
+    $sizecom_op = array(1 => t('No employees'), 
+    2 => t('1-5 employees'),
+    3 => t('6-15 employees'),
+    4 => t('16-30 employees'),
+    5 => t('31-75 employees'), 
+    6 => t('76-200 employees'), 
+    7 => t('201-1000 employees'), 
+    8 => t('1000+ employees') 
+    );
+    $comsize=array_keys($sizecom_op,$comsize); //change the company size value string to key to store into db
+    
+    $cominvsum=$form_state['values']['invessum'];
+    $cominvsum=trim($cominvsum," ");
+	$cominvsum=trim($cominvsum);    
+    $cominvsum=trim($cominvsum,"\x00..\x1F");
+    
+    $comstage_op=$form_state['values']['comstatus']; //status checkboxes option 
+    $comstage_othertf=$form_state['values']['status_other_textfield'];  //status other user input
+    $comstage_othertf=trim($comstage_othertf," ");
+	$comstage_othertf=trim($comstage_othertf);    
+    $comstage_othertf=trim($comstage_othertf,"\x00..\x1F");
+    
+    $comrole_op_submit=$form_state['values']['comrole']; //role checkboxes option 
+    $comrole_othertf=$form_state['values']['role_other_textfield'];  //role other user input
+    
+    $comrole_othertf=trim($comrole_othertf," ");
+	$comrole_othertf=trim($comrole_othertf);   
+    $comrole_othertf=trim($comrole_othertf,"\x00..\x1F");
+    
+    $countUI=0;  //default value od the possible null field number
+    if($comurl!=null){
+        $countUI=$countUI+1;
+    }
+    if($cominvsum!=null){
+        $countUI=$countUI+2;
+    }
+    
+    
+    //base on clicked button to connect db and go to related page
+    switch($button_clicked){ 
+        
+        case 'add':
+            //submit all information and rebuild company page
+            //check the company id if it is exited
+            
+            //create company information switch possible null fields
+            switch($countUI){ //base on three possible null field to insert 
+                case 0: //all two possible null field are null
+                    $dbinsertcom_resultname = db_insert('ff_companies') 
+                    ->fields(array(
+                    'name' => $comname,
+                    'comp_size' => $comsize,
+                    ))
+                    ->execute();
+                    break;
+                case 1: //url is not null
+                    $dbinsertcom_resultname = db_insert('ff_companies') 
+                    ->fields(array(
+                    'name' => $comname,
+                    'url' => $comurl,
+                    'comp_size' => $comsize,
+                    ))
+                    ->execute();
+                    break;
+                case 2: //investment is not null
+                    $dbinsertcom_resultname = db_insert('ff_companies') 
+                    ->fields(array(
+                    'name' => $comname,
+                    'comp_size' => $comsize,
+                    'inv_summary' => $cominvsum
+                    ))
+                    ->execute();
+                    break;
+                case 3: //both are not null
+                    $dbinsertcom_resultname = db_insert('ff_companies') 
+                    ->fields(array(
+                    'name' => $comname,
+                    'url' => $comurl,
+                    'comp_size' => $comsize,
+                    'inv_summary' => $cominvsum
+                    ))
+                    ->execute();
+                    break;
+            }
+            
+            if($dbinsertcom_resultname){//if insert company successfully,then update company status table 
+                //update company status table using company id in db
+                $cid_result=db_query("select max(id) from {ff_companies}")->fetchField();  //to keep same with the auto increment comid
+                //company status insert part
+                //insert other textfiled first
+                if($comstage_othertf!= null){ //if user type something in other textfiled then store it even if user didn't choose other option
+                    $dbcomstatot_result=db_merge('ff_companies_status') //update the company status table
+                    ->key(array('id' => $cid_result,'stage'=>$comstage_othertf))
+                    ->fields(array(
+                    'id' =>$cid_result,
+                    'stage' => $comstage_othertf,
+                    ))
+                    ->execute();
+                }
+                //insert checkboxes options to update the company status table
+                $comstage_op=array_diff($comstage_op, array(0)); //delete all the zero values
+                foreach($comstage_op as $returncbid){
+                    //start insert each choice
+                    $dbcomstatcb_resultname = db_merge('ff_companies_status') 
+                    ->key(array('id' => $cid_result,'stage'=>$returncbid))
+                    ->fields(array(
+                    'id' => $cid_result,
+                    'stage' => $returncbid,
+                    ))
+                    ->execute();
+                }
+                //before update, delete exited rows related with this user
+                $db_ridexisted=db_query("select count(*) from {ff_researchers_companies} where rid=:rid 
+                and cid=:cid",array(':rid' => $curuserid,':cid'=>$cid_result))->fetchField();
+    
+		        if($db_ridexisted!=0){//if there is records in company relation table, then delete before insert new one
+		            $dbkey_delete = db_query("delete from {ff_researchers_companies} where rid=:rid and cid=:cid",array(':rid' => $curuserid,':cid'=>$cid_result));
+		        }
+				        
+                //update researchers company table
+                $dbrescom_result = db_merge('ff_researchers_companies')  //insert researchers and company into table
+                ->key(array('rid' => $curuserid,'cid'=>$cid_result))
+                ->fields(array(
+                'rid' => $curuserid,
+                'cid' => $cid_result,
+                ))
+                ->execute();
+                //before insert role relation,delete the existed rows related with this user
+                $db_roleexisted=db_query("select count(*) from {ff_researchers_companies_roles} where rid=:rid and cid=:cid",array(':rid' => $curuserid,':cid'=>$cid_result))->fetchField();
+    
+		        if($db_roleexisted!=0){//if there is records in company role table, then delete before insert new one
+		            $dbkey_delete = db_query("delete from {ff_researchers_companies_roles} where rid=:rid and cid=:cid",array(':rid' => $curuserid,':cid'=>$cid_result));
+		        }
+				        
+                //update researchers company role table
+                //insert role other textfiled first
+                if($comrole_othertf != null){ //if user type something in other role textfiled then store it even user didn't choose other option
+                    $dbcomroleot_result=db_merge('ff_researchers_companies_roles') //update the company status table
+                    ->key(array('rid' => $curuserid,'cid'=>$cid_result,'c_role' =>$comrole_othertf))
+                    ->fields(array(
+                    'rid' => $curuserid,
+                    'cid' =>$cid_result,
+                    'c_role' => $comrole_othertf
+                    ))
+                    ->execute();
+                }
+                //insert checkboxes options to update the company role table
+                $comrole_op_submit=array_diff($comrole_op_submit, array(0)); //delete all the zero values
+                foreach($comrole_op_submit as $returncbid){
+                    //start insert each choice
+                    $dbcomrolecb_resultname = db_merge('ff_researchers_companies_roles') 
+                    ->key(array('rid' => $curuserid,'cid'=>$cid_result,'c_role' =>$returncbid))
+                    ->fields(array(
+                    'rid' => $curuserid,
+                    'cid' =>$cid_result,
+                    'c_role' => $returncbid
+                    ))
+                    ->execute();
+                }
+                
+            }else{
+                drupal_set_message("Insert new company failed !");
+            }
+            
+            drupal_goto('ffresform/research_form_page17',$urloptionscom); //rebuild company page,use url to pass company number
+            break;
+        case 'continue':
+            //similar to add function 
+            //submit all information and go to next page
+            //create company information
+            switch($countUI){ //base on three possible null field to insert 
+                case 0: //all two possible null field are null
+                    $dbinsertcom_resultname = db_insert('ff_companies') 
+                    ->fields(array(
+                    'name' => $comname,
+                    'comp_size' => $comsize,
+                    ))
+                    ->execute();
+                    break;
+                case 1: //url is not null
+                    $dbinsertcom_resultname = db_insert('ff_companies') 
+                    ->fields(array(
+                    'name' => $comname,
+                    'url' => $comurl,
+                    'comp_size' => $comsize,
+                    ))
+                    ->execute();
+                    break;
+                case 2: //investment is not null
+                    $dbinsertcom_resultname = db_insert('ff_companies') 
+                    ->fields(array(
+                    'name' => $comname,
+                    'comp_size' => $comsize,
+                    'inv_summary' => $cominvsum
+                    ))
+                    ->execute();
+                    break;
+                case 3: //both are not null
+                    $dbinsertcom_resultname = db_insert('ff_companies') 
+                    ->fields(array(
+                    'name' => $comname,
+                    'url' => $comurl,
+                    'comp_size' => $comsize,
+                    'inv_summary' => $cominvsum
+                    ))
+                    ->execute();
+                    break;
+            }
+            
+            if($dbinsertcom_resultname){//if insert company successfully,then update company status table 
+                //update company status table using company id in db
+                $cid_result=db_query("select max(id) from {ff_companies}")->fetchField();
+                
+                //insert other first
+                if($comstage_othertf != null){ //if user type something in other textfiled then store it even user didn't choose other option
+                    $dbcomstatot_result=db_merge('ff_companies_status') //update the company status table
+                    ->key(array('id' => $cid_result,'stage'=>$comstage_othertf))
+                    ->fields(array(
+                    'id' =>$cid_result,
+                    'stage' => $comstage_othertf,
+                    ))
+                    ->execute();
+                }
+                //insert checkboxes options to update the company status table
+                $comstage_op=array_diff($comstage_op, array(0)); //delete all the zero values
+                foreach($comstage_op as $returncbid){
+                    //start insert each choice
+                    $dbcomstatcb_resultname = db_merge('ff_companies_status') 
+                    ->key(array('id' => $cid_result,'stage'=>$returncbid))
+                    ->fields(array(
+                    'id' => $cid_result,
+                    'stage' => $returncbid,
+                    ))
+                    ->execute();
+                }
+                //before update, delete exited rows related with this user
+                $db_ridexisted=db_query("select count(*) from {ff_researchers_companies} where rid=:rid and cid=:cid",array(':rid' => $curuserid,':cid'=>$cid_result))->fetchField();
+    
+		        if($db_ridexisted!=0){//if there is records in company table, then delete before insert new one
+		            $dbkey_delete = db_query("delete from {ff_researchers_companies} where rid=:rid and cid=:cid",array(':rid' => $curuserid,':cid'=>$cid_result));
+		        }
+                //update researchers company table
+                $dbrescom_result = db_merge('ff_researchers_companies')  //insert researchers and company into table
+                ->key(array('rid' => $curuserid,'cid'=>$cid_result))
+                ->fields(array(
+                'rid' => $curuserid,
+                'cid' => $cid_result,
+                ))
+                ->execute();
+                //before insert role relation,delete the existed rows related with this user
+                $db_roleexisted=db_query("select count(*) from {ff_researchers_companies_roles} where rid=:rid and cid=:cid",array(':rid' => $curuserid,':cid'=>$cid_result))->fetchField();
+    
+		        if($db_roleexisted!=0){//if there is records in company role table, then delete before insert new one
+		            $dbkey_delete = db_query("delete from {ff_researchers_companies_roles} where rid=:rid and cid=:cid",array(':rid' => $curuserid,':cid'=>$cid_result));
+		        }
+                //update researchers company role table
+                //insert role other textfiled first
+                if($comrole_othertf != null){ //if user type something in other role textfiled then store it even user didn't choose other option
+                    $dbcomroleot_result=db_merge('ff_researchers_companies_roles') //update the company status table
+                    ->key(array('rid' => $curuserid,'cid'=>$cid_result,'c_role' => $comrole_othertf))
+                    ->fields(array(
+                    'rid' => $curuserid,
+                    'cid' =>$cid_result,
+                    'c_role' => $comrole_othertf
+                    ))
+                    ->execute();
+                }
+                //insert checkboxes options to update the company role table
+                $comrole_op_submit=array_diff($comrole_op_submit, array(0)); //delete all the zero values
+                foreach($comrole_op_submit as $returncbid){
+                    //start insert each choice
+                    $dbcomrolecb_resultname = db_merge('ff_researchers_companies_roles') 
+                    ->key(array('rid' => $curuserid,'cid'=>$cid_result,'c_role' => $returncbid))
+                    ->fields(array(
+                    'rid' => $curuserid,
+                    'cid' =>$cid_result,
+                    'c_role' => $returncbid
+                    ))
+                    ->execute();
+                }
+                
+            }else{
+                drupal_set_message("Insert new company failed !");
+            }
+            
+            drupal_goto('ffresform/research_form_page18',$urloptions); //goto the next page
+            break;
+        default: //if needed, add later
+            break;
+    }
+    
+}
+
+//page 18 form and submit 
+function form_my_research_form_page18($form, &$form_state) {
+    
+    $curuserid=$_GET['userid']; //get current user id which passed from the previous url
+    
+    
+    $form['hiddenuserid']=array(  //initialize a form hidden to store the userid to retrieve in submit
+        '#type' => 'hidden',
+        '#value' => $curuserid,
+    );
+
+    //researchers company radios
+    $form['patents'] = array(
+        '#type' => 'radios',
+        '#title' => t('Have you filed disclosures or patents, and/or been awarded patents?'),
+        '#options' => array(1 => 'Yes', 2 => 'No')
+    );
+    
+    $form['back']['#markup'] = "<input type='button' class='form-submit' value='Back' onclick='window.history.go(-1)'/>";
+    
+    $form['continuebutton'] = array( 
+        '#type' => 'submit',
+        '#value' => t('Continue'),
+        '#name' => 'continue'
+        
+    );
+    
+    return $form;
+}
+
+function form_my_research_form_page18_submit($form, &$form_state){
+    //add the submit function here, the function related with database
+    
+    $curuserid=$form_state['values']['hiddenuserid'];    
+    $urloptions = array('query' => array('userid' => $curuserid)); //pass current userid to next page
+    
+    $userchoice_radios=$form_state['values']['patents'];
+    
+    if($userchoice_radios==1){  //split the yes to no and skip to pass company initial id
+        
+        drupal_goto('ffresform/research_form_page19',$urloptions); //goto the next page19 if yes
+    }else{
+        //delete all existed records related with this user
+        //before insert, delete the existed records related with this user
+		    $db_ridexisted=db_query("select count(*) from {ff_researchers_patents} where rid=:rid",array(':rid' => $curuserid))->fetchField();
+		    if($db_ridexisted!=0){//if there is records in patents table, then delete before insert new one
+		        $dbkey_delete = db_query("delete from {ff_researchers_patents} where rid=:rid",array(':rid' => $curuserid));
+		    }
+		    //similar to all patents details table
+		    //patent awarded
+		    $dbpa_ridexisted=db_query("select count(*) from {ff_researchers_patents_awarded} where rid=:rid",array(':rid' => $curuserid))->fetchField();
+		    if($dbpa_ridexisted!=0){//if there is records in patents table, then delete before insert new one
+		        $dbkey_delete = db_query("delete from {ff_researchers_patents_awarded} where rid=:rid",array(':rid' => $curuserid));
+		    }
+		    //patent pending
+		    $dbpp_ridexisted=db_query("select count(*) from {ff_researchers_patents_pending} where rid=:rid",array(':rid' => $curuserid))->fetchField();
+		    if($dbpp_ridexisted!=0){//if there is records in patents table, then delete before insert new one
+		        $dbkey_delete = db_query("delete from {ff_researchers_patents_pending} where rid=:rid",array(':rid' => $curuserid));
+		    }
+		    //patent disclosure
+		    $dbpd_ridexisted=db_query("select count(*) from {ff_researchers_disclosures_filed} where rid=:rid",array(':rid' => $curuserid))->fetchField();
+		    if($dbpd_ridexisted!=0){//if there is records in patents table, then delete before insert new one
+		        $dbkey_delete = db_query("delete from {ff_researchers_disclosures_filed} where rid=:rid",array(':rid' => $curuserid));
+		    }
+		    
+        drupal_goto('ffresform/research_form_page20',$urloptions); //if skip/no option to page 20
+    }
+    
+}
+
+//page 19 form and submit 
+function form_my_research_form_page19($form, &$form_state) {
+    
+    $curuserid=$_GET['userid']; //get current user id which passed from the previous url
+    
+    
+    $form['hiddenuserid']=array(  //initialize a form hidden to store the userid to retrieve in submit
+        '#type' => 'hidden',
+        '#value' => $curuserid,
+    );
+   $numradios_op = array(1 => t('none'), 
+    2 => t('1-3'),
+    3 => t('4-10'),
+    4 => t('more than 10')
+    );
+    
+    $form['patentawarded'] = array(
+        '#type' => 'radios',
+        '#title' => t('Number of patents awarded:'),
+        '#options' => drupal_map_assoc($numradios_op),
+        '#required' => TRUE
+    );
+    $form['patentpending'] = array(
+        '#type' => 'radios',
+        '#title' => t('Number of patents pending (not included above)'),
+        '#options' => drupal_map_assoc($numradios_op),
+        '#required' => TRUE
+    );
+    
+    $form['disclosuresfiled'] = array(
+        '#type' => 'radios',
+        '#title' => t('Number of disclosures filed (not included above) '),
+        '#options' => drupal_map_assoc($numradios_op),
+        '#required' => TRUE
+    );
+    $form['patentawarded_details'] = array(
+        '#type' => 'textarea',
+        '#title' => 'For each patent awarded, please provide title and patent number.'
+    );
+    $form['patentpending_details'] = array(
+        '#type' => 'textarea',
+        '#title' => 'For each patent pending, please provide title and patent number.'
+    );
+    $form['disclosuresfiled_details'] = array(
+        '#type' => 'textarea',
+        '#title' => 'For each disclosure filed, please provide title, provisional number and abstract.'
+    );
+    
+    $form['back']['#markup'] = "<input type='button' class='form-submit' value='Back' onclick='window.history.go(-1)'/>";
+    
+    $form['continuebutton'] = array( 
+        '#type' => 'submit',
+        '#value' => t('Continue')
+        
+    );
+    
+    return $form;
+}
+
+function form_my_research_form_page19_submit($form, &$form_state){
+    //add the submit function here, the function related with database
+    
+    $curuserid=$form_state['values']['hiddenuserid'];    
+    $urloptions = array('query' => array('userid' => $curuserid)); //pass current userid to next page
+    
+            
+    //change the patent number value string to key to store into db
+    
+    $num_op_submit = array(1 => t('none'), 
+    2 => t('1-3'),
+    3 => t('4-10'),
+    4 => t('more than 10')
+    );
+    $patentaward=$form_state['values']['patentawarded'];
+    $patentaward=array_search($patentaward,$num_op_submit); 
+    
+    $patentpending=$form_state['values']['patentpending'];
+    $patentpending=array_search($patentpending,$num_op_submit);
+    
+    $patentdis=$form_state['values']['disclosuresfiled'];
+    $patentdis=array_search($patentdis,$num_op_submit);
+    //before insert, delete the existed one
+    $db_ridexisted=db_query("select count(*) from {ff_researchers_patents} where rid=:rid",array(':rid' => $curuserid))->fetchField();
+    if($db_ridexisted!=0){//if there is records in patents table, then delete before insert new one
+        $dbkey_delete = db_query("delete from {ff_researchers_patents} where rid=:rid",array(':rid' => $curuserid));
+    }
+    
+    //insert all the patents' information into patents table
+    $dbpatent_result = db_merge('ff_researchers_patents')  //insert researchers and company into table
+    ->key(array('rid' => $curuserid))
+    ->fields(array(
+    'rid' => $curuserid,
+    'num_awarded' => $patentaward,
+    'num_pending' => $patentpending,
+    'num_disclosures' => $patentdis
+    ))
+    ->execute();    
+    
+    //before insert delete all old details records
+    //patent awarded details
+    $dbpa_ridexisted=db_query("select count(*) from {ff_researchers_patents_awarded} where rid=:rid",array(':rid' => $curuserid))->fetchField();
+    if($dbpa_ridexisted!=0){//if there is records in patents table, then delete before insert new one
+        $dbkey_delete = db_query("delete from {ff_researchers_patents_awarded} where rid=:rid",array(':rid' => $curuserid));
+    }
+    //patent pending details
+    $dbpp_ridexisted=db_query("select count(*) from {ff_researchers_patents_pending} where rid=:rid",array(':rid' => $curuserid))->fetchField();
+    if($dbpp_ridexisted!=0){//if there is records in patents table, then delete before insert new one
+        $dbkey_delete = db_query("delete from {ff_researchers_patents_pending} where rid=:rid",array(':rid' => $curuserid));
+    }
+    //patent disclosure details
+    $dbpd_ridexisted=db_query("select count(*) from {ff_researchers_disclosures_filed} where rid=:rid",array(':rid' => $curuserid))->fetchField();
+    if($dbpd_ridexisted!=0){//if there is records in patents table, then delete before insert new one
+        $dbkey_delete = db_query("delete from {ff_researchers_disclosures_filed} where rid=:rid",array(':rid' => $curuserid));
+    } 
+    
+    //get patent details
+    $award_details=$form_state['values']['patentawarded_details'];
+    $pending_details=$form_state['values']['patentpending_details'];
+    $disclosure_details=$form_state['values']['disclosuresfiled_details'];
+    
+    //trim users input to avoid insert blank into database
+    //replace all the whitespace and hidden placeholder to avoid insert blank into database
+    
+    $award_detailstrim=trim($award_details," ");
+    if($award_detailstrim!=null){
+        $award_details=trim($award_details," ");
+    	$award_details=trim($award_details);    
+	    $award_details=trim($award_details,"\x00..\x1F");
+    	$dbpatent_result = db_merge('ff_researchers_patents_awarded')  //insert researchers and company into table
+      ->key(array('rid' => $curuserid))
+      ->fields(array(
+      'rid' => $curuserid,
+      'awarded' => $award_details
+      ))
+      ->execute();
+    }
+    $pending_detailstrim=trim($pending_details," ");
+    if($pending_detailstrim!=null){
+        $pending_details=trim($pending_details," ");
+    	$pending_details=trim($pending_details);    
+	    $pending_details=trim($pending_details,"\x00..\x1F");
+    	$dbpatent_result = db_merge('ff_researchers_patents_pending')  //insert researchers and company into table
+      ->key(array('rid' => $curuserid))
+      ->fields(array(
+      'rid' => $curuserid,
+      'pending' => $pending_details
+      ))
+      ->execute();
+    }
+    
+    $disclosure_detailstrim=trim($disclosure_details," ");
+    if($disclosure_detailstrim!=null){
+        $disclosure_details=trim($disclosure_details,' ');
+    	$disclosure_details=trim($disclosure_details);  
+	    $disclosure_details=trim($disclosure_details,"\x00..\x1F");
+    	$dbpatent_result = db_merge('ff_researchers_disclosures_filed')  //insert researchers and company into table
+      ->key(array('rid' => $curuserid))
+      ->fields(array(
+      'rid' => $curuserid,
+      'filed' => $disclosure_details
+      ))
+      ->execute();
+    }
+    
+    drupal_goto('ffresform/research_form_page20',$urloptions); //goto the next page
+}
+
+//page 20 form and submit 
+function form_my_research_form_page20($form, &$form_state) {
+    
+    $curuserid=$_GET['userid']; //get current user id which passed from the previous url
+    
+    
+    $form['hiddenuserid']=array(  //initialize a form hidden to store the userid to retrieve in submit
+        '#type' => 'hidden',
+        '#value' => $curuserid,
+    );
+   
+    $form['maindescription'] = array( 
+        '#type'=> 'item',
+        '#title' => t('How do you envision engaging with donors, besides standard Benefunder updates?')
+    );
+    $form['maindescription'] = array( 
+        '#type'=> 'item',
+        '#title' => t('Indicate which engagement you would be willing to provide.'),
+        '#required' => TRUE
+    );
+    
+    $form['selectedengage1'] = array(
+       '#type' => 'select',
+       '#title' => t('Host donor and their family at an annual open house or lab showcase'),
+       '#options' => array(
+          1 => t('No'),
+          2 => t('Yes, for any donor'),
+          3 => t('Yes, for donations above $25,000'),
+          4 => t('Yes, for donations above $100,000')
+       ),
+       '#default_value' =>2,
+       '#required' => TRUE
+   );
+   $form['selectedengage2'] = array(
+       '#type' => 'select',
+       '#title' => t('Host donor in my lab for a month to "experience" my research'),
+       '#options' => array(
+          1 => t('No'),
+          2 => t('Yes, for any donor'),
+          3 => t('Yes, for donations above $25,000'),
+          4 => t('Yes, for donations above $100,000')
+       ),
+       '#default_value' =>2,
+       '#required' => TRUE
+   );
+   $form['selectedengage3'] = array(
+       '#type' => 'select',
+       '#title' => t('Take donor out in the field where I do my research'),
+       '#options' => array(
+          1 => t('No'),
+          2 => t('Yes, for any donor'),
+          3 => t('Yes, for donations above $25,000'),
+          4 => t('Yes, for donations above $100,000')
+       ),
+       '#default_value' =>2,
+       '#required' => TRUE
+   );
+   $form['selectedengage4'] = array(
+       '#type' => 'select',
+       '#title' => t('Have dinner with donor once a year'),
+       '#options' => array(
+          1 => t('No'),
+          2 => t('Yes, for any donor'),
+          3 => t('Yes, for donations above $25,000'),
+          4 => t('Yes, for donations above $100,000')
+       ),
+       '#default_value' =>2,
+       '#required' => TRUE
+   );
+   $form['selectedengage5'] = array(
+       '#type' => 'select',
+       '#title' => t('Have dinner with donor twice a year'),
+       '#options' => array(
+          1 => t('No'),
+          2 => t('Yes, for any donor'),
+          3 => t('Yes, for donations above $25,000'),
+          4 => t('Yes, for donations above $100,000')
+       ),
+       '#default_value' =>2,
+       '#required' => TRUE
+   );
+   $form['selectedengage6'] = array(
+       '#type' => 'select',
+       '#title' => t('Discuss start-up opportunities (including possible investment) with donors'),
+       '#options' => array(
+          1 => t('No'),
+          2 => t('Yes, for any donor'),
+          3 => t('Yes, for donations above $25,000'),
+          4 => t('Yes, for donations above $100,000')
+       ),
+       '#default_value' =>2,
+       '#required' => TRUE
+   );
+   $form['selectedengage7'] = array(
+       '#type' => 'select',
+       '#title' => t('Provide donor with exclusive access (e.g. add instrument to space mission; scan musical experiences of their brain)'),
+       '#options' => array(
+          1 => t('No'),
+          2 => t('Yes, for any donor'),
+          3 => t('Yes, for donations above $25,000'),
+          4 => t('Yes, for donations above $100,000')
+       ),
+       '#default_value' =>2,
+       '#required' => TRUE
+   );
+   $form['selectedengage8'] = array(
+       '#type' => 'select',
+       '#title' => t('Provide donor pre-publication sneak peek at my latest book or paper'),
+       '#options' => array(
+          1 => t('No'),
+          2 => t('Yes, for any donor'),
+          3 => t('Yes, for donations above $25,000'),
+          4 => t('Yes, for donations above $100,000')
+       ),
+       '#default_value' =>2,
+       '#required' => TRUE
+   );
+    
+    $form['suggestion'] = array( 
+        '#type'=> 'item',
+        '#title' => t('Get creative: add your own suggestions here.')
+    );
+    $form['suggestiontext'] = array( 
+        '#type'=> 'textfield',
+        '#title' => t('Feel free to indicate a minimum donation level 
+        for each suggestion you provide.')
+    );
+    
+    $form['back']['#markup'] = "<input type='button' class='form-submit' value='Back' onclick='window.history.go(-1)'/>";
+    
+    $form['continuebutton'] = array( 
+        '#type' => 'submit',
+        '#value' => t('Submit'),
+        '#name' =>'lastsubmit'
+    );
+    
+    return $form;
+}
+
+function form_my_research_form_page20_submit($form, &$form_state){
+    //add the submit function here, the function related with database
+    
+    $curuserid=$form_state['values']['hiddenuserid'];    
+    $urloptions = array('query' => array('userid' => $curuserid)); //pass current userid to next page
+    
+    //delete existed records related with this user,then insert
+    $db_ridexisted=db_query("select count(*) from {ff_researchers_engagements} where rid=:rid",array(':rid' => $curuserid))->fetchField();
+    if($db_ridexisted!=0){//if there is records in engagements relation table, then delete before insert new one
+        $dbkey_delete = db_query("delete from {ff_researchers_engagements} where rid=:rid",array(':rid' => $curuserid));
+    }
+       
+    //define to store the engagement id
+    $engagement_questionid='';
+    $select_return=0;
+    for($engagement_seed=1;$engagement_seed<=8;$engagement_seed++){
+        $engagement_questionid='selectedengage'.$engagement_seed;
+        $select_return=$form_state['values'][$engagement_questionid];
+        
+        //insert into researchers engagement table
+        $dbengage_result = db_merge('ff_researchers_engagements')  //insert researchers and company into table
+        ->key(array('rid' => $curuserid,'eid' => $engagement_seed))
+        ->fields(array(
+        'rid' => $curuserid,
+        'eid' => $engagement_seed,
+        'oid' => $select_return
+        ))
+        ->execute();
+    }
+    
+    
+    $db_suggexisted=db_query("select count(*) from {ff_researchers_suggestions} where rid=:rid",array(':rid' => $curuserid))->fetchField();
+    if($db_suggexisted!=0){//if there is records in suggestions relation table, then delete before insert new one
+        $dbkey_delete = db_query("delete from {ff_researchers_suggestions} where rid=:rid",array(':rid' => $curuserid));
+    }
+    //insert user suggestiontext    
+    $user_suggestion=$form_state['values']['suggestiontext'];
+    //trim first
+    $user_suggestion=trim($user_suggestion," ");
+    $user_suggestion=trim($user_suggestion);
+    $user_suggestion=trim($user_suggestion,"\x00..\x1F");
+    
+    if($user_suggestion!=null){
+		    
+        $dbsuggest_result = db_merge('ff_researchers_suggestions')  //insert researchers and company into table
+        ->key(array('rid' => $curuserid))
+        ->fields(array(
+        'rid' => $curuserid,
+        'suggestions' => $user_suggestion
+        ))
+        ->execute();
+    }    
+    
+    drupal_goto('ffresform/research_form_page21'); //goto the next page
+}
+
+//page 21 form thank you page
+function form_my_research_form_page21($form, &$form_state) {
+    
+    $form['maindescription'] = array( 
+        '#type'=> 'item',
+        '#title' => t('Your questionnaire has been submitted successfully!')
+    );
+    $form['back']['#markup'] = "<input type='button' class='form-submit' value='Back' onclick='window.history.go(-1)'/>";
+    
+    $form['startnewbutton'] = array( 
+        '#type' => 'submit',
+        '#value' => t('Start a new questionnaire')
+    );
+    
+    return $form;
+}
+
+function form_my_research_form_page21_submit($form, &$form_state){
+    drupal_goto('ffresform/research_form'); //goto the start page
+}
