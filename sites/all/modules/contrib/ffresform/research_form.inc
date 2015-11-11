@@ -3,7 +3,7 @@
 function form_my_research_form($form, &$form_state) {
     $form['maindescription'] = array( //main description about this questionnaire
         '#type'=> 'item',
-        '#title' => t('Benefunderzz connects philanthropists to researchers to support cutting-edge research programs in the sciences and the arts.
+        '#title' => t('Benefunder connects philanthropists to researchers to support cutting-edge research programs in the sciences and the arts.
         Like patron funding, Benefunder seeks to create lasting relationships between donors and researchers, to support and engage with a long-term 
         vision.This process is driven by our scalable matching platform with national reach.<br>
         <br>
