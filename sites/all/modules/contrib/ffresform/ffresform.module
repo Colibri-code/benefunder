@@ -1,0 +1,242 @@
+<?php
+function ffresform_menu() {
+    
+    //keywords auto complete declare
+    $items['keywords/autocomplete'] = array(
+      'title' => 'Autocomplete for keywords',
+      'page callback' => '_keywords_autocomplete',
+      'access arguments' => array('access content'),
+      'type' => MENU_CALLBACK
+    );
+    //causes auto complete declare
+    $items['causes/autocomplete'] = array(
+      'title' => 'Autocomplete for causes',
+      'page callback' => '_causes_autocomplete',
+      'access arguments' => array('access content'),
+      'type' => MENU_CALLBACK
+    );
+    
+    //main form-enter point start page
+    $items['ffresform/research_form'] = array( 
+        'title' => 'Benefunder Researcher Questionnaire',
+        'page callback' => 'drupal_get_form',
+        'page arguments'=> array('form_my_research_form'),
+        'access callback' => TRUE,
+        'file' => 'research_form.inc'
+    );
+     
+     //page 1 main profile page
+    $items['ffresform/research_form_page1'] = array(
+        'title' => 'Basic information',
+        'page callback' => 'drupal_get_form',
+        'page arguments'=>array('form_my_research_form_page1'),
+        'access callback' => TRUE,
+        'file' => 'research_form1.inc'
+     );
+    //page 2
+    $items['ffresform/research_form_page2'] = array(
+        'title' => 'Describing your research at a high level',
+        'page callback' => 'drupal_get_form',
+        'page arguments'=>array('form_my_research_form_page2'),
+        'access callback' => TRUE,
+        'file' => 'research_form2.inc'
+     );
+     
+     //page 3
+    $items['ffresform/research_form_page3'] = array(
+        'title' => 'Arts, Humanities, Education & Social Sciences',
+        'page callback' => 'drupal_get_form',
+        'page arguments'=>array('form_my_research_form_page3'),
+        'access callback' => TRUE,
+        'file' => 'research_form3.inc'
+     );
+     
+     //page 4
+    $items['ffresform/research_form_page4'] = array(
+        'title' => 'Environment & Universe',
+        'page callback' => 'drupal_get_form',
+        'page arguments'=>array('form_my_research_form_page4'),
+        'access callback' => TRUE,
+        'file' => 'research_form4.inc'
+     );
+      //page 5
+    $items['ffresform/research_form_page5'] = array(
+        'title' => 'Life',
+        'page callback' => 'drupal_get_form',
+        'page arguments'=>array('form_my_research_form_page5'),
+        'access callback' => TRUE,
+        'file' => 'research_form5.inc'
+     );
+      //page 6
+    $items['ffresform/research_form_page6'] = array(
+        'title' => 'Technology',
+        'page callback' => 'drupal_get_form',
+        'page arguments'=>array('form_my_research_form_page6'),
+        'access callback' => TRUE,
+        'file' => 'research_form6.inc'
+     );
+     
+     //page 7
+     $items['ffresform/research_form_page7'] = array(
+        'title' => 'Describing your research at a high level',
+        'page callback' => 'drupal_get_form',
+        'page arguments'=>array('form_my_research_form_page7'),
+        'access callback' => TRUE,
+        'file' => 'research_form7.inc'
+     );
+     
+     //page 8
+    $items['ffresform/research_form_page8'] = array(
+        'title' => 'Arts, Humanities, Education & Social Sciences',
+        'page callback' => 'drupal_get_form',
+        'page arguments'=>array('form_my_research_form_page8'),
+        'access callback' => TRUE,
+        'file' => 'research_form8.inc'
+     );
+     
+     //page 9
+    $items['ffresform/research_form_page9'] = array(
+        'title' => 'Environment & Universe',
+        'page callback' => 'drupal_get_form',
+        'page arguments'=>array('form_my_research_form_page9'),
+        'access callback' => TRUE,
+        'file' => 'research_form9.inc'
+     );
+      //page 10
+    $items['ffresform/research_form_page10'] = array(
+        'title' => 'Life',
+        'page callback' => 'drupal_get_form',
+        'page arguments'=>array('form_my_research_form_page10'),
+        'access callback' => TRUE,
+        'file' => 'research_form10.inc'
+     );
+      //page 11
+    $items['ffresform/research_form_page11'] = array(
+        'title' => 'Technology',
+        'page callback' => 'drupal_get_form',
+        'page arguments'=>array('form_my_research_form_page11'),
+        'access callback' => TRUE,
+        'file' => 'research_form11.inc'
+     );
+     
+     //page 12
+     $items['ffresform/research_form_page12'] = array(
+        'title' => 'Describing your research in more detail',
+        'page callback' => 'drupal_get_form',
+        'page arguments'=>array('form_my_research_form_page12'),
+        'access callback' => TRUE,
+        'file' => 'research_form12.inc'
+     );
+     //page 13
+     $items['ffresform/research_form_page13'] = array(
+        'title' => 'Describing your research to a donor: What causes is it relevant to?',
+        'page callback' => 'drupal_get_form',
+        'page arguments'=>array('form_my_research_form_page13'),
+        'access callback' => TRUE,
+        'file' => 'research_form13.inc'
+     );
+     //page 14
+     $items['ffresform/research_form_page14'] = array(
+        'title' => 'Describing the stage of your research',
+        'page callback' => 'drupal_get_form',
+        'page arguments'=>array('form_my_research_form_page14'),
+        'access callback' => TRUE,
+        'file' => 'research_form14.inc'
+     );
+     //page 15
+     $items['ffresform/research_form_page15'] = array(
+        'title' => 'Looking backward and looking forward',
+        'page callback' => 'drupal_get_form',
+        'page arguments'=>array('form_my_research_form_page15'),
+        'access callback' => TRUE,
+        'file' => 'research_form15.inc'
+     );
+     //page 16
+     $items['ffresform/research_form_page16'] = array(
+        'title' => 'Start-ups and spin-offs',
+        'page callback' => 'drupal_get_form',
+        'page arguments'=>array('form_my_research_form_page16'),
+        'access callback' => TRUE,
+        'file' => 'research_form16.inc'
+     );
+      //page 17
+     $items['ffresform/research_form_page17'] = array( 
+        'title' => 'Company',
+        'page callback' => 'drupal_get_form',
+        'page arguments'=>array('form_my_research_form_page17'),
+        'access callback' => TRUE,
+        'file' => 'research_form17.inc'
+     );
+     //page 18
+     $items['ffresform/research_form_page18'] = array(
+        'title' => 'Patents',
+        'page callback' => 'drupal_get_form',
+        'page arguments'=>array('form_my_research_form_page18'),
+        'access callback' => TRUE,
+        'file' => 'research_form18.inc'
+     );
+     //page 19
+     $items['ffresform/research_form_page19'] = array(
+        'title' => 'Patents',
+        'page callback' => 'drupal_get_form',
+        'page arguments'=>array('form_my_research_form_page19'),
+        'access callback' => TRUE,
+        'file' => 'research_form19.inc'
+     );
+     
+     //page 20
+     $items['ffresform/research_form_page20'] = array(
+        'title' => 'Engaging with donors',
+        'page callback' => 'drupal_get_form',
+        'page arguments'=>array('form_my_research_form_page20'),
+        'access callback' => TRUE,
+        'file' => 'research_form20.inc'
+     );
+     //page 21 thank you page
+     $items['ffresform/research_form_page21'] = array(
+        'title' => 'Thanks for your time!',
+        'page callback' => 'drupal_get_form',
+        'page arguments'=>array('form_my_research_form_page21'),
+        'access callback' => TRUE,
+        'file' => 'research_form21.inc'
+     );
+
+    return $items;
+}
+
+function ffresform_init() {
+    // drupal_set_message('something');
+    drupal_add_css(drupal_get_path('module', 'ffresform') . '/ffresform.css');
+}
+
+function _keywords_autocomplete($string) {
+  $matches = array();
+  $result = db_select('ff_view_keywords', 'k')
+    ->fields('k', array('keyword'))
+    ->condition('keyword', '%' . db_like($string) . '%', 'LIKE')
+    ->execute();
+
+  // save the query to matches
+  foreach ($result as $row) {
+    $matches[$row->keyword] = check_plain($row->keyword);
+  }
+
+  // Return the result to the form in json
+  drupal_json_output($matches);
+}
+
+function _causes_autocomplete($string) {
+  $matches = array();
+  $result = db_select('ff_view_causes', 'c')
+    ->fields('c', array('cause'))
+    ->condition('cause', '%' . db_like($string) . '%', 'LIKE')
+    ->execute();
+
+  // save the query to matches
+  foreach ($result as $row) {
+    $matches[$row->cause] = check_plain($row->cause);
+  }
+
+  // Return the result to the form in json
+  drupal_json_output($matches);
+}
