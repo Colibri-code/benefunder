@@ -84,7 +84,7 @@ DirectoryIndex index.php index.html index.htm
 
   # Redirect requests from benefunder.org to benefunder.com
   RewriteCond %{HTTP_HOST} ^(www\.)?benefunder\.org$ [NC]
-  RewriteRule (.*) http://www.benefunder.com/$1 [R=301,L]
+  RewriteRule ^ http://www.benefunder.com/%{REQUEST_URI} [R=301,L]
 
   # If your site can be accessed both with and without the 'www.' prefix, you
   # can use one of the following settings to redirect users to your preferred
