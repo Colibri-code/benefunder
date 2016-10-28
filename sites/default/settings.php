@@ -1,45 +1,22 @@
 <?php
 
-// Remove WWW.
+// Redirect all Benefunder domains to www.benefunder.com
 if (isset($_SERVER['PANTHEON_ENVIRONMENT']) &&
-  $_SERVER['PANTHEON_ENVIRONMENT'] === 'live') {
-  if ($_SERVER['HTTP_HOST'] == 'www.benefunder.org' ||
-      $_SERVER['HTTP_HOST'] == 'live-benefunder.gotpantheon.com') {
-    header('HTTP/1.0 301 Moved Permanently');
-    header('Location: http://benefunder.org'. $_SERVER['REQUEST_URI']);
-    exit();
-  }
-}
+  ($_SERVER['PANTHEON_ENVIRONMENT'] === 'live') &&
+  (php_sapi_name() != "cli")) {
 
-//Redirect benefunder.info
-if (isset($_SERVER['PANTHEON_ENVIRONMENT']) &&
-  $_SERVER['PANTHEON_ENVIRONMENT'] === 'live') {
-  if ($_SERVER['HTTP_HOST'] == 'www.benefunder.info' ||
-      $_SERVER['HTTP_HOST'] == 'benefunder.info') {
+  if (in_array($_SERVER['HTTP_HOST'], array(
+    'benefunder.org',
+    'www.benefunder.org',
+    'benefunder.info',
+    'www.benefunder.info',
+    'benefunder.net',
+    'www.benefunder.net',
+    'http://live-benefunder.pantheonsite.io/',
+    'live-benefunder.gotpantheon.com',
+  ))) {
     header('HTTP/1.0 301 Moved Permanently');
-    header('Location: http://benefunder.org'. $_SERVER['REQUEST_URI']);
-    exit();
-  }
-}
-
-//Redirect benefunder.net
-if (isset($_SERVER['PANTHEON_ENVIRONMENT']) &&
-  $_SERVER['PANTHEON_ENVIRONMENT'] === 'live') {
-  if ($_SERVER['HTTP_HOST'] == 'www.benefunder.net' ||
-      $_SERVER['HTTP_HOST'] == 'benefunder.net') {
-    header('HTTP/1.0 301 Moved Permanently');
-    header('Location: http://benefunder.org'. $_SERVER['REQUEST_URI']);
-    exit();
-  }
-}
-
-//Redirect benefunder.com
-if (isset($_SERVER['PANTHEON_ENVIRONMENT']) &&
-  $_SERVER['PANTHEON_ENVIRONMENT'] === 'live') {
-  if ($_SERVER['HTTP_HOST'] == 'www.benefunder.com' ||
-      $_SERVER['HTTP_HOST'] == 'benefunder.com') {
-    header('HTTP/1.0 301 Moved Permanently');
-    header('Location: http://benefunder.org'. $_SERVER['REQUEST_URI']);
+    header('Location: http://www.benefunder.com'. $_SERVER['REQUEST_URI']);
     exit();
   }
 }
