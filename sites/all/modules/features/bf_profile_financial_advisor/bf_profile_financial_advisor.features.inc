@@ -10,8 +10,8 @@
 function bf_profile_financial_advisor_default_profile2_type() {
   $items = array();
   $items['financial_advisor'] = entity_import('profile2_type', '{
-    "userCategory" : false,
-    "userView" : false,
+    "userCategory" : true,
+    "userView" : true,
     "type" : "financial_advisor",
     "label" : "Financial Advisor",
     "weight" : "0",
