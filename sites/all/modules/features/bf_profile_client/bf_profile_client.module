@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the BF Profile Client feature.
+ */
+
+include_once 'bf_profile_client.features.inc';
