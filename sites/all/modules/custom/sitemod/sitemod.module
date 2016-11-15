@@ -76,6 +76,29 @@ function sitemod_node_link($entity) {
 }
 
 /**
+ * Alter the results of entity_view() for profiles.
+ *
+ * @param $build
+ *   A renderable array representing the profile content.
+ *
+ * This hook is called after the content has been assembled in a structured
+ * array and may be used for doing processing which requires that the complete
+ * profile content structure has been built.
+ *
+ * If the module wishes to act on the rendered HTML of the profile rather than
+ * the structured content array, it may use this hook to add a #post_render
+ * callback. Alternatively, it could also implement hook_preprocess_profile2().
+ * See drupal_render() and theme() documentation respectively for details.
+ *
+ * @see hook_entity_view_alter()
+ */
+function sitemod_profile2_view_alter($build) {
+  if ($build['#view_mode'] == 'account') {
+    $build['#entity']->label = t('Financial Advisor Dashboard');
+  }
+}
+
+/**
  * Implements hook_preprocess_HOOK().
  *
  * Set up additional variables for printing PDFs.
