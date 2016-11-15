@@ -51,7 +51,6 @@ function select_or_other_element_info() {
       '#select_type' => 'select',
       '#input' => TRUE,
       '#multiple' => FALSE,
-      '#disabled' => FALSE,
       '#default_value' => NULL,
       '#process' => array('select_or_other_element_process'),
       '#element_validate' => array('select_or_other_element_validate'),
@@ -79,22 +78,19 @@ function select_or_other_element_process($element, &$form_state) {
   $element['#tree'] = TRUE;
   $element['#processed'] = TRUE;
 
-  unset($element['#type']);
-
   // Load the JS file to hide/show the 'other' box when needed.
   $element['#attached']['js'][] = drupal_get_path('module', 'select_or_other') . '/select_or_other.js';
 
   // Create the main select box
-  // Note that #title, #title_display, #default_value, #disabled, #multiple,
-  // #required, #size, #options, and #attributes are passed to the select box
-  // from the main element automatically.
+  // Note that #title, #title_display, #default_value, #multiple, #required,
+  // #size, #options, and #attributes are passed to the select box from the
+  // main element automatically.
 
   $element['select'] = array(
     '#type' => $element['#select_type'],
     '#title' => $element['#title'],
     '#title_display' => $element['#title_display'],
     '#default_value' => $element['#default_value'],
-    '#disabled' => $element['#disabled'],
     '#multiple' => $element['#multiple'],
     '#required' => $element['#required'],
     '#size' => isset($element['#size']) ? $element['#size'] : NULL,
@@ -103,9 +99,11 @@ function select_or_other_element_process($element, &$form_state) {
     '#weight' => 10,
   );
 
-  if (isset($element['#empty_value'])) {
-    $element['select']['#empty_value'] = $element['#empty_value'];
-  };
+  foreach(array('#empty_option', '#empty_value') as $key){
+    if (isset($element[$key])) {
+      $element['select'][$key] = $element[$key];
+    };
+  }
 
   // Remove the default value on the container level so it doesn't get rendered there.
   $element['#value'] = NULL;
@@ -172,13 +170,12 @@ function select_or_other_element_process($element, &$form_state) {
   // Add in the 'other' option.
   $element['select']['#options']['select_or_other'] = $element['#other'];
 
-  // Create the 'other' textfield.
+  // Create the 'other' textfield without the required attribute, if any.
   $element['other'] = array(
     '#type' => 'textfield',
     '#weight' => 20,
     '#default_value' => $other_default_string,
-    '#disabled' => $element['#disabled'],
-    '#attributes' => $element['#attributes'],
+    '#attributes' => array_diff_key($element['#attributes'], array('required' => NULL)),
   );
 
   // Populate properties set specifically as #select_property or #other_property
@@ -200,10 +197,18 @@ function select_or_other_element_process($element, &$form_state) {
     $element['other']['#size'] = $element['#other_size'];
   }
 
-  // Hide the title from the wrapper.
-  $element['#title_display'] = 'invisible';
-
   return $element;
+}
+
+/**
+ * Implements hook_process_HOOK().
+ */
+function select_or_other_process_form_element(&$variables) {
+  // Hide the title from the wrapper.
+  if (isset($variables['element']['#theme']) &&
+  $variables['element']['#theme'] === 'select_or_other') {
+    $variables['element']['#title'] = NULL;
+  }
 }
 
 /**
@@ -212,21 +217,21 @@ function select_or_other_element_process($element, &$form_state) {
 function select_or_other_element_validate($element, &$form_state) {
   $other_selected = FALSE;
   if (is_array($element['select']['#value']) && isset($element['select']['#value']['select_or_other'])) {
-    // This is a multiselect. assoc arrays
+    // This is a multiselect, which uses associated arrays.
     $other_selected = TRUE;
     $value = $element['select']['#value'];
     unset($value['select_or_other']);
     $value[$element['other']['#value']] = $element['other']['#value'];
   }
   elseif (is_string($element['select']['#value']) && $element['select']['#value'] == 'select_or_other') {
-    // This is a single select.
+    // This is a single select, which uses strings.
     $other_selected = TRUE;
     $value = $element['other']['#value'];
   }
   else {
     $value = $element['select']['#value'];
   }
-  if ($other_selected && !$element['other']['#value']) {
+  if ($other_selected && $element['other']['#value'] === '') {
     form_error($element['other'], t('!title field is required.', array('!title' => $element['select']['#title'])));
   }
   if (isset($value)) {
@@ -245,7 +250,8 @@ function select_or_other_element_validate($element, &$form_state) {
  *   An associative array containing:
  *   - instance: An array representing the widget requesting the options.
  *   - option: An array representing the widget requesting the options.
- *
+ * @return string
+ *  A HTML string for the empty value for options that are not required.
  */
 function theme_select_or_other_none($variables) {
   $instance = $variables['instance'];
@@ -277,7 +283,7 @@ function theme_select_or_other_none($variables) {
  *   The key.
  * @param $haystack
  *   The array to check.
- * @return
+ * @return boolean
  *   Boolean indicating if the key is set.
  */
 function select_or_other_multi_array_key_exists($needle, $haystack) {
