@@ -2,6 +2,8 @@
 
   <input type=hidden name="oid" value="00Do0000000JSTB">
   <input type=hidden name="retURL" value="<?php print $base_url; ?>/thank-you">
+  <input type=hidden id="recordType" name="recordType" value="012o0000000clFV" />
+  <input type=hidden id="lead_source" name="lead_source" value="Web inquiry" />
 
   <div class="form-group"><label for="first_name">First Name</label><input id="request-info-first-name" class="form-control" id="first_name" maxlength="40" name="first_name" size="20" required type="text" placeholder="First Name" /></div>
 
