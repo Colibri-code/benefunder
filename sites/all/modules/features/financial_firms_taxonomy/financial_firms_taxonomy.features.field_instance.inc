@@ -10,7 +10,7 @@
 function financial_firms_taxonomy_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'taxonomy_term-financial_firms-field_org_picture'
+  // Exported field_instance: 'taxonomy_term-financial_firms-field_org_picture'.
   $field_instances['taxonomy_term-financial_firms-field_org_picture'] = array(
     'bundle' => 'financial_firms',
     'deleted' => 0,
@@ -30,7 +30,7 @@ function financial_firms_taxonomy_field_default_field_instances() {
     'ds_extras_field_template' => '',
     'entity_type' => 'taxonomy_term',
     'field_name' => 'field_org_picture',
-    'label' => 'Org Picture',
+    'label' => 'Picture',
     'required' => 0,
     'settings' => array(
       'alt_field' => 0,
@@ -57,7 +57,7 @@ function financial_firms_taxonomy_field_default_field_instances() {
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('Org Picture');
+  t('Picture');
 
   return $field_instances;
 }

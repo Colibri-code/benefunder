@@ -10,21 +10,13 @@
 function financial_firms_taxonomy_field_default_field_bases() {
   $field_bases = array();
 
-  // Exported field_base: 'field_org_picture'
+  // Exported field_base: 'field_org_picture'.
   $field_bases['field_org_picture'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_org_picture',
-    'foreign keys' => array(
-      'fid' => array(
-        'columns' => array(
-          'fid' => 'fid',
-        ),
-        'table' => 'file_managed',
-      ),
-    ),
     'indexes' => array(
       'fid' => array(
         0 => 'fid',

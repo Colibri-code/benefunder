@@ -1,5 +1,7 @@
 <?php
 /**
  * @file
- * Drupal needs this blank file.
+ * Code for the Financial Firms Taxonomy feature.
  */
+
+include_once 'financial_firms_taxonomy.features.inc';
