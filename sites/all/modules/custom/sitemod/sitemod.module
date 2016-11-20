@@ -8,7 +8,6 @@ function sitemod_form_alter(&$form, &$form_state, $form_id) {
     case 'cause_node_form':
       $form['#validate'][] = 'sitemod_cause_node_validate';
       $form['title']['#description'] = t('The First Letter Of Each Word Must Be In Caps. 3-5 word max.');
-
       break;
 
     case 'apachesolr_search_custom_page_search_form':
@@ -16,8 +15,52 @@ function sitemod_form_alter(&$form, &$form_state, $form_id) {
       $form['basic']['submit']['#attributes']['class'][] = 'btn-default';
       $form['basic']['submit']['#value'] = 'Go';
       break;
+
+    case 'client_profile_node_form':
+      $form['field_cause_matches']['#after_build'][] = 'sitemod_client_profile_form_afterbuild';
+      break;
   }
 }
+
+function sitemod_client_profile_form_afterbuild($element) {
+  $element['#prefix'] = <<<ENDHTML
+<div id="cause-markup" class="container">
+<div class="row">
+  <div class="col-sm-3">
+    <p>Quick Start<p>
+    <p>Use our pre-selected examples of Causes to print out
+    sample reports to present to clients during your philanthropy discussions.</p>
+    <p><a href="/node/123">Lorem Ipsum dolor sit amet, sit pulvinar incidunt</a></p>
+    <p><a href="/node/123">Lorem Ipsum dolor sit amet, sit pulvinar incidunt</a></p>
+    <p><a href="/node/123">Lorem Ipsum dolor sit amet, sit pulvinar incidunt</a></p>
+    <p><a href="/node/123">Lorem Ipsum dolor sit amet, sit pulvinar incidunt</a></p>
+    <p><a href="/node/123">Lorem Ipsum dolor sit amet, sit pulvinar incidunt</a></p>
+    <p><a href="/node/123">Lorem Ipsum dolor sit amet, sit pulvinar incidunt</a></p>
+    <p><a href="/node/123">Lorem Ipsum dolor sit amet, sit pulvinar incidunt</a></p>
+    <p><a href="/node/123">Lorem Ipsum dolor sit amet, sit pulvinar incidunt</a></p>
+  </div>
+  <div class="col-sm-3">
+    <p>DIY Matching</p>
+    <p>Know your client's interests? Impress them with a customized proposal of
+    exciting research projects that match their giving history</p>
+  </div>
+  <div class="col-sm-3">
+    <p>Supported Matching</p>
+    <p>Work with our knowledgeable team to tailor a proposal for your customer.
+    Fill out the profile information and we'll give you a custom match.</p>
+  </div>
+  <div class="col-sm-3">
+    <p>Concierge Service</p>
+    <p>For donations of more than $250k, our Strategist will meet with you and
+    your client to select the right Causes for your client.</p>
+  </div>
+</div>
+</div>
+ENDHTML;
+
+  return $element;
+}
+
 
 /**
  * Custom validation for research area field in cause nodes
