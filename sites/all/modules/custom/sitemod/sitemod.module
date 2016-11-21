@@ -17,6 +17,10 @@ function sitemod_form_alter(&$form, &$form_state, $form_id) {
       break;
 
     case 'client_profile_node_form':
+      // Set multi column checkboxes for research areas.
+      $form['field_research_areas'][LANGUAGE_NONE]['#multicolumn'] = array('width' => 8);
+
+      // Add add'l markup to cause matches and provide default values.
       $form['field_cause_matches']['#after_build'][] = 'sitemod_client_profile_form_afterbuild';
       $form['field_cause_matches'][LANGUAGE_NONE]['#default_value'] = variable_get(
         'benefunder_default_matches',
