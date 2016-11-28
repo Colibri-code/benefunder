@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the BF Search feature.
+ */
+
+include_once 'bf_search.features.inc';
