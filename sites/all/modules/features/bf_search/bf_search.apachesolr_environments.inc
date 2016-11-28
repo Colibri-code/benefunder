@@ -16,9 +16,7 @@ function bf_search_apachesolr_environments() {
   $environment->name = 'localhost server';
   $environment->url = 'http://localhost:8983/solr';
   $environment->service_class = '';
-  $environment->conf = array(
-    'apachesolr_search_facet_pages' => '',
-  );
+  $environment->conf = array();
   $environment->index_bundles = array(
     'node' => array(
       0 => 'cause',

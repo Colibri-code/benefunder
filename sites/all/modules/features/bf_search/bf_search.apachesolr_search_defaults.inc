@@ -24,7 +24,7 @@ function bf_search_apachesolr_search_default_searchers() {
     'apachesolr_search_custom_enable' => 0,
     'apachesolr_search_search_type' => 'custom',
     'apachesolr_search_per_page' => 999,
-    'apachesolr_search_spellcheck' => 1,
+    'apachesolr_search_spellcheck' => 0,
     'apachesolr_search_search_box' => 1,
     'apachesolr_search_allow_user_input' => 0,
     'apachesolr_search_browse' => 'browse',
