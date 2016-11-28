@@ -39,7 +39,7 @@ if (defined('PANTHEON_ENVIRONMENT')) {
   // Use Redis for caching.
   $conf['redis_client_interface'] = 'PhpRedis';
   $conf['cache_backends'][] = 'sites/all/modules/contrib/redis/redis.autoload.inc';
-  $conf['cache_default_class'] = 'Redis_Cache';
+  $conf['cache_default_class'] = 'Redis_CacheCompressed';
   $conf['cache_prefix'] = array('default' => 'pantheon-redis');
 
   // Do not use Redis for cache_form (no performance difference).
