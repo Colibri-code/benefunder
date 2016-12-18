@@ -20,85 +20,26 @@ function sitemod_form_alter(&$form, &$form_state, $form_id) {
       // Set multi column checkboxes for research areas.
       $form['field_research_areas'][LANGUAGE_NONE]['#multicolumn'] = array('width' => 8);
 
-      // Add add'l markup to cause matches and provide default values.
-      $form['field_cause_matches']['#after_build'][] = 'sitemod_client_profile_form_afterbuild';
-      foreach (variable_get('benefunder_default_matches', array(117, 72)) as $i => $nid) {
-        $node = node_load($nid);
-        $form['field_cause_matches'][LANGUAGE_NONE][$i]['target_id'] = array(
-          '#type' => 'checkbox',
-          '#delta' => $i,
-          '#return_value' => $nid,
-          '#value' => $nid,
-          '#title_display' => 'after',
-          '#field_suffix' => sprintf('<label class="option" for="edit-field-cause-matches-und-%d">%s</label>', $i, $node->title),
-          '#name' => "field_cause_matches[und][$i][target_id]",
-          '#attributes' => array(
-            'checked' => 'checked',
-            'id' => "edit-field-cause-matches-und-$i",
-            'data-delta' => $i,
-         ));
-      }
+//      $form['field_cause_matches']['#after_build'][] = 'sitemod_client_profile_form_afterbuild';
+//      foreach (variable_get('benefunder_default_matches', array(117, 72)) as $i => $nid) {
+//        $node = node_load($nid);
+//        $form['field_cause_matches'][LANGUAGE_NONE][$i]['target_id'] = array(
+//          '#type' => 'checkbox',
+//          '#delta' => $i,
+//          '#return_value' => $nid,
+//          '#value' => $nid,
+//          '#title_display' => 'after',
+//          '#field_suffix' => sprintf('<label class="option" for="edit-field-cause-matches-und-%d">%s</label>', $i, $node->title),
+//          '#name' => "field_cause_matches[und][$i][target_id]",
+//          '#attributes' => array(
+//            'checked' => 'checked',
+//            'id' => "edit-field-cause-matches-und-$i",
+//            'data-delta' => $i,
+//         ));
+//      }
       break;
   }
 }
-
-function sitemod_client_profile_form_afterbuild($element) {
-//  $element['#prefix'] = <<<ENDHTML
-//<div id="cause-markup" class="container">
-//<div class="row">
-//  <div class="col-sm-3">
-//    <p>Quick Start<p>
-//    <p>Use our pre-selected examples of Causes to print out
-//    sample reports to present to clients during your philanthropy discussions.</p>
-//    <p><a href="/node/123">Lorem Ipsum dolor sit amet, sit pulvinar incidunt</a></p>
-//    <p><a href="/node/123">Lorem Ipsum dolor sit amet, sit pulvinar incidunt</a></p>
-//    <p><a href="/node/123">Lorem Ipsum dolor sit amet, sit pulvinar incidunt</a></p>
-//    <p><a href="/node/123">Lorem Ipsum dolor sit amet, sit pulvinar incidunt</a></p>
-//    <p><a href="/node/123">Lorem Ipsum dolor sit amet, sit pulvinar incidunt</a></p>
-//    <p><a href="/node/123">Lorem Ipsum dolor sit amet, sit pulvinar incidunt</a></p>
-//    <p><a href="/node/123">Lorem Ipsum dolor sit amet, sit pulvinar incidunt</a></p>
-//    <p><a href="/node/123">Lorem Ipsum dolor sit amet, sit pulvinar incidunt</a></p>
-//  </div>
-//  <div class="col-sm-3">
-//    <p>DIY Matching</p>
-//    <p>Know your client's interests? Impress them with a customized proposal of
-//    exciting research projects that match their giving history</p>
-//  </div>
-//  <div class="col-sm-3">
-//    <p>Supported Matching</p>
-//    <p>Work with our knowledgeable team to tailor a proposal for your customer.
-//    Fill out the profile information and we'll give you a custom match.</p>
-//    <p>
-//      <form class="vboutTheme_vbout01_request-a-demo-form" action="" method="post" id="nide68ed891-2d04-d18f-6b21-4583b85d639e">
-//      <div class="request-a-demo-form-Div">
-//        <h3 class="request-a-demo-Form-Title">GET HELP MATCHING CAUSES<br /></h3>
-//      </div>
-//      <div class="request-a-demo-form-input">
-//        <input type="text" name="vbout_EmbedForm[field][id1479391210534-1]" value="" placeholder="Name*" id="nid47af761e-ac40-340f-9ad2-8c46de8b9349" />
-//        <input type="email" name="vbout_EmbedForm[field][id1479391210534-2]" value="" placeholder="Email*" id="nidc3a3cb05-94db-303e-c00d-4a1a8cb66c1a" />
-//        <input type="text" name="vbout_EmbedForm[field][id1479391210534-4]" value="" placeholder="Company Name" id="nid1672f791-2a28-7151-1d33-a5e344687922" />
-//        <input type="tel" name="vbout_EmbedForm[field][id1479391210534-3]" value="" placeholder="Phone" id="nid84963266-4ff8-14cc-e536-8625897e6653" />
-//      </div>
-//      <div class="vbfs-buttons">
-//        <div class="vbfs-submit">
-//          <input type="submit" value="REQUEST SUPPORT" class="vbout_button" id="nidb218e856-7ea6-d758-6370-01ad528bbaa0" name="vbout_EmbedForm[field][id1479391210534-7]" />
-//        </div>
-//      </div>
-//      </form>
-//  </p>
-//  </div>
-//  <div class="col-sm-3">
-//    <p>Concierge Service</p>
-//    <p>For donations of more than $250k, our Strategist will meet with you and
-//    your client to select the right Causes for your client.</p>
-//  </div>
-//</div>
-//</div>
-//ENDHTML;
-  $element['#prefix'] = 'We have added sample causes for you below.';
-  return $element;
-}
-
 
 /**
  * Custom validation for research area field in cause nodes
@@ -138,7 +79,6 @@ function sitemod_service_links_alter(&$links) {
   $links['twitter']['name'] = t('Share on Twitter');
   $links['linkedin']['name'] = t('Share on LinkedIn');
 }
-
 
 /**
  * Used in display suite field "Search result - node link"
