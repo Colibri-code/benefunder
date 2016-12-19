@@ -1,0 +1,46 @@
+diff --git a/sliderfield_element_sliderfield.inc b/sliderfield_element_sliderfield.inc
+index 10190b2..254eb64 100644
+--- a/sliderfield_element_sliderfield.inc
++++ b/sliderfield_element_sliderfield.inc
+@@ -681,7 +681,29 @@ function _sliderfield_field_widget_settings_form_sliderfield($field = NULL, $ins
+       );
+     }
+ 
++    $form['sliderfield_settings']['group'] = array(
++      '#type' => 'textfield',
++      '#title' => t('Group Name'),
++      '#default_value' => $settings['group']
++    );
+ 
++    $form['sliderfield_settings']['group_type'] = array(
++      '#type' => 'select',
++      '#title' => t('Group Type'),
++      '#default_value' => $settings['group_type'],
++      '#options' => array(
++        NULL => 'none',
++        'total' => 'total',
++        'same' => 'same',
++        'lock' => 'lock',
++      ),
++    );
++
++    $form['sliderfield_settings']['group_master'] = array(
++      '#type' => 'checkbox',
++      '#title' => t('Is Group Master?'),
++      '#default_value' => $settings['group'],
++    );
+ 
+     $form['sliderfield_settings']['animate'] = array(
+       '#type' => 'select',
+@@ -899,7 +921,10 @@ function _sliderfield_field_widget_form(&$form, &$form_state, $field, $instance,
+         '#no_value_first_select_slider_effect' => $settings['no_value_first_select_slider_effect'],
+         '#no_value_text' => $settings['no_value_text'],
+         '#no_value_text_auto_hide' => $settings['no_value_text_auto_hide'],
+-        '#fields_to_sync_css_selector' => @$settings['fields_to_sync_css_selector']
++        '#fields_to_sync_css_selector' => @$settings['fields_to_sync_css_selector'],
++        '#group' => $settings['group'],
++        '#group_type' => $settings['group_type'],
++        '#group_master' => $settings['group_master'],
+       );
+       break;
+   }
