@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Charitable Vehicle Type feature.
+ */
+
+include_once 'charitable_vehicle_type.features.inc';

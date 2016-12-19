@@ -1,0 +1,17 @@
+name = Charitable Vehicle Type
+description = Charitable Vehicle Type vocabulary
+core = 7.x
+package = Taxonomy
+version = 7.x-1.0
+dependencies[] = ctools
+dependencies[] = features
+dependencies[] = strongarm
+dependencies[] = taxonomy
+dependencies[] = uuid
+dependencies[] = uuid_features
+features[ctools][] = strongarm:strongarm:1
+features[features_api][] = api:2
+features[taxonomy][] = charitable_vehicle_type
+features[uuid_term][] = 87626b97-3264-46b4-acbe-12d7a3e8da48
+features[uuid_term][] = ea5eaf78-92d3-4697-8545-9162734c53e2
+features[uuid_term][] = ff7d372f-ffa5-4d7f-8de9-f0397b540d27
