@@ -4,6 +4,7 @@ core = 7.x
 package = Benefunder
 version = 7.x-1.0
 dependencies[] = addressfield
+dependencies[] = auto_entitylabel
 dependencies[] = conditional_fields
 dependencies[] = ctools
 dependencies[] = entityreference
