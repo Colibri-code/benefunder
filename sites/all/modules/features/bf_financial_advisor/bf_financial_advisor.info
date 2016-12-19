@@ -1,0 +1,15 @@
+name = BF Financial Advisor
+description = FA role
+core = 7.x
+package = Roles
+version = 7.x-1.0
+dependencies[] = features
+dependencies[] = node
+dependencies[] = profile2
+features[features_api][] = api:2
+features[user_permission][] = create giving_proposal content
+features[user_permission][] = delete own giving_proposal content
+features[user_permission][] = edit own financial_advisor profile
+features[user_permission][] = edit own giving_proposal content
+features[user_permission][] = view own financial_advisor profile
+features[user_role][] = Financial Advisor
