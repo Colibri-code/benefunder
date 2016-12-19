@@ -17,6 +17,13 @@ function bf_giving_proposal_ctools_plugin_api($module = NULL, $api = NULL) {
 }
 
 /**
+ * Implements hook_views_api().
+ */
+function bf_giving_proposal_views_api($module = NULL, $api = NULL) {
+  return array("api" => "3.0");
+}
+
+/**
  * Implements hook_node_info().
  */
 function bf_giving_proposal_node_info() {
