@@ -16,27 +16,9 @@ function sitemod_form_alter(&$form, &$form_state, $form_id) {
       $form['basic']['submit']['#value'] = 'Go';
       break;
 
-    case 'client_profile_node_form':
+    case 'giving_proposal_node_form':
       // Set multi column checkboxes for research areas.
       $form['field_research_areas'][LANGUAGE_NONE]['#multicolumn'] = array('width' => 8);
-
-//      $form['field_cause_matches']['#after_build'][] = 'sitemod_client_profile_form_afterbuild';
-//      foreach (variable_get('benefunder_default_matches', array(117, 72)) as $i => $nid) {
-//        $node = node_load($nid);
-//        $form['field_cause_matches'][LANGUAGE_NONE][$i]['target_id'] = array(
-//          '#type' => 'checkbox',
-//          '#delta' => $i,
-//          '#return_value' => $nid,
-//          '#value' => $nid,
-//          '#title_display' => 'after',
-//          '#field_suffix' => sprintf('<label class="option" for="edit-field-cause-matches-und-%d">%s</label>', $i, $node->title),
-//          '#name' => "field_cause_matches[und][$i][target_id]",
-//          '#attributes' => array(
-//            'checked' => 'checked',
-//            'id' => "edit-field-cause-matches-und-$i",
-//            'data-delta' => $i,
-//         ));
-//      }
       break;
   }
 }
