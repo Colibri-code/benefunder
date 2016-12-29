@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the BF Inspiration Chooser feature.
+ */
+
+include_once 'bf_inspiration_chooser.features.inc';
