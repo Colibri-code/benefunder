@@ -13,27 +13,6 @@ function bf_giving_proposal_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'auto_entitylabel_node_giving_proposal';
-  $strongarm->value = '2';
-  $export['auto_entitylabel_node_giving_proposal'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'auto_entitylabel_pattern_node_giving_proposal';
-  $strongarm->value = '[node:uuid]';
-  $export['auto_entitylabel_pattern_node_giving_proposal'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'auto_entitylabel_php_node_giving_proposal';
-  $strongarm->value = 0;
-  $export['auto_entitylabel_php_node_giving_proposal'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
   $strongarm->name = 'field_bundle_settings_node__giving_proposal';
   $strongarm->value = array(
     'view_modes' => array(),
@@ -93,6 +72,41 @@ function bf_giving_proposal_strongarm() {
   $strongarm->name = 'node_submitted_giving_proposal';
   $strongarm->value = 0;
   $export['node_submitted_giving_proposal'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_giving_proposal_pattern';
+  $strongarm->value = '';
+  $export['pathauto_node_giving_proposal_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_taxonomy_term_charitable_vehicle_type_pattern';
+  $strongarm->value = '';
+  $export['pathauto_taxonomy_term_charitable_vehicle_type_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_taxonomy_term_non_profit_list_pattern';
+  $strongarm->value = '';
+  $export['pathauto_taxonomy_term_non_profit_list_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_taxonomy_term_research_keywords_pattern';
+  $strongarm->value = '';
+  $export['pathauto_taxonomy_term_research_keywords_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_taxonomy_term_research_stages_pattern';
+  $strongarm->value = '';
+  $export['pathauto_taxonomy_term_research_stages_pattern'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
