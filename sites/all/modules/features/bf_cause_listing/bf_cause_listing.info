@@ -1,6 +1,6 @@
 name = BF Cause Listing
 core = 7.x
-package = Benefunder
+package = Views
 version = 7.x-1.2
 project = bf_cause_listing
 dependencies[] = views
