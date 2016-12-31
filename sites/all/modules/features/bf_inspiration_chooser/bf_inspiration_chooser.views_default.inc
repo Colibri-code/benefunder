@@ -33,7 +33,6 @@ function bf_inspiration_chooser_views_default_views() {
   $handler->display->display_options['cache']['output_lifespan_custom'] = '0';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['exposed_form']['options']['autosubmit'] = TRUE;
   $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'grid';
@@ -80,12 +79,15 @@ function bf_inspiration_chooser_views_default_views() {
   $handler->display->display_options['fields']['title']['alter']['target'] = '_blank';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_entity'] = 1;
-  /* Field: Indexed Content: Subtitle */
-  $handler->display->display_options['fields']['field_subtitle']['id'] = 'field_subtitle';
-  $handler->display->display_options['fields']['field_subtitle']['table'] = 'search_api_index_cause_index_solr';
-  $handler->display->display_options['fields']['field_subtitle']['field'] = 'field_subtitle';
-  $handler->display->display_options['fields']['field_subtitle']['label'] = '';
-  $handler->display->display_options['fields']['field_subtitle']['element_label_colon'] = FALSE;
+  /* Field: Indexed Content: University or Institution */
+  $handler->display->display_options['fields']['field_university_or_institution']['id'] = 'field_university_or_institution';
+  $handler->display->display_options['fields']['field_university_or_institution']['table'] = 'search_api_index_cause_index_solr';
+  $handler->display->display_options['fields']['field_university_or_institution']['field'] = 'field_university_or_institution';
+  $handler->display->display_options['fields']['field_university_or_institution']['label'] = '';
+  $handler->display->display_options['fields']['field_university_or_institution']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_university_or_institution']['link_to_entity'] = 0;
+  $handler->display->display_options['fields']['field_university_or_institution']['view_mode'] = 'full';
+  $handler->display->display_options['fields']['field_university_or_institution']['bypass_access'] = 0;
   /* Sort criterion: Search: Relevance */
   $handler->display->display_options['sorts']['search_api_relevance']['id'] = 'search_api_relevance';
   $handler->display->display_options['sorts']['search_api_relevance']['table'] = 'search_api_index_cause_index_solr';
@@ -169,6 +171,7 @@ function bf_inspiration_chooser_views_default_views() {
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Video Inspiration';
   $handler->display->display_options['defaults']['use_ajax'] = FALSE;
+  $handler->display->display_options['use_ajax'] = FALSE;
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'grid';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
