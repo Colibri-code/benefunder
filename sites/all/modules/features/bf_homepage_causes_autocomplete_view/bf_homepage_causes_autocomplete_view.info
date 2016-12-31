@@ -1,6 +1,6 @@
 name = BF Homepage Causes Autocomplete View
 core = 7.x
-package = Benefunder
+package = Views
 version = 7.x-1.0
 project = bf_homepage_causes_autocomplete_view
 dependencies[] = references

@@ -1,7 +1,7 @@
 name = BF Profile: Financial Advisor
 description = Financial Advisor Profile
 core = 7.x
-package = Benefunder
+package = Profiles
 version = 7.x-1.0
 dependencies[] = addressfield
 dependencies[] = bf_taxonomies

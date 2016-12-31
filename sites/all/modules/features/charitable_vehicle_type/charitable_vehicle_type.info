@@ -1,7 +1,7 @@
 name = Charitable Vehicle Type
 description = Charitable Vehicle Type vocabulary
 core = 7.x
-package = Taxonomy
+package = Taxonomies
 version = 7.x-1.0
 dependencies[] = ctools
 dependencies[] = features

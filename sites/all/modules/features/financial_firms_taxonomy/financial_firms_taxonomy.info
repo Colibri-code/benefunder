@@ -1,6 +1,6 @@
 name = Financial Firms Taxonomy
 core = 7.x
-package = Benefunder
+package = Taxonomies
 version = 7.x-1.0
 dependencies[] = ctools
 dependencies[] = features

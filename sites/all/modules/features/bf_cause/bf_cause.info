@@ -1,7 +1,7 @@
 name = BF Cause
 description = Defines the Cause content type
 core = 7.x
-package = Benefunder
+package = Content Types
 version = 7.x-1.10
 project = bf_cause
 dependencies[] = bf_taxonomies
