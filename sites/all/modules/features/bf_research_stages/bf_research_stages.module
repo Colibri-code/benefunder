@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the BF Research Stages feature.
+ */
+
+include_once 'bf_research_stages.features.inc';
