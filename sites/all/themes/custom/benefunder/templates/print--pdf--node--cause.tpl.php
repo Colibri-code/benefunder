@@ -82,30 +82,49 @@
     <link rel='shortcut icon' href='<?php print theme_get_setting('favicon') ?>' type='image/x-icon' />
   <?php endif; ?>
   <?php print $css; ?>
+
+  <style type="text/css">
+    div.pdf_title {
+      font-family: "Arial", "Helvetica", "Verdana", "sans-serif";
+      font-size: 24px;
+      color: #60BFC0;
+      padding: 18px 33px 18px 33px;
+      opacity: 50;
+      background-color: #999999;
+      height: 105px;
+    }
+    div.background {
+      background-image: url(<?php print $background ?>);
+      height: 290px;
+    }
+    div.pdf_info {
+      height: 185px;
+      background-color: #999999;
+      opacity: 50;
+    }
+    div.pdf_info_block div {
+      float: left;
+      display: inline;
+    }
+  </style>
+
 </head>
 
 <body>
 
-<div class="pdf_spotlight">SPOTLIGHT</div>
-<div class="pdf_subhead"><?php print $subtitle ?></div>
-<div class="pdf_name"><?php print $name ?></div>
-<div class="pdf_picture"><?php print $picture ?></div>
-
-<div class="pdf_positions">
-  <div class="pdf_position_header">ACADEMIC POSITION</div>
-  <div class="pdf_position_text"><?php print $academic_positions ?></div>
+<div class="background">
+  <div class="pdf_title"><?php print $title ?></div>
+  <div class="pdf_info">
+    <div class="pdf_institution_logo"><?php print $institution_logo ?></div>
+    <div class="pdf_picture"><?php print $picture ?></div>
+    <div class="pdf_info_block">
+      <div class="pdf_name"><?php print $name ?></div>
+      <div class="pdf_positions">
+        <div class="pdf_position_text"><?php print $academic_positions ?></div>
+      </div>
+    </div>
+  </div>
 </div>
-
-<div class="pdf_current_research">CURRENT RESEARCH<br>
-  <?php print $current_research ?>
-  SUMMARY<br>
-  <?php print $summary ?>
-</div>
-
-<div class="pdf_current_research">AWARDS<br>
-  <?php print $awards ?>
-</div>
-
 
 </body>
 </html>

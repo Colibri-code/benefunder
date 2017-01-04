@@ -107,29 +107,37 @@ function sitemod_profile2_view_alter($build) {
  * Set up additional variables for printing PDFs.
  */
 function sitemod_preprocess_print(&$variables) {
-  $format = $variables['format'];
-  if ($format == 'pdf') {
+  if ($variables['format'] == 'pdf') {
     $node_wrapper = entity_metadata_wrapper('node', $variables['node']);
-    $academic_positions = array();
 
+    // Basic fields.
+    $variables['title'] = $node_wrapper->label();
     $variables['subtitle'] = $node_wrapper->field_subtitle->value();
     $variables['name'] = $node_wrapper->field_first_name->value() . ' ' . $node_wrapper->field_last_name->value();
     $variables['picture'] = $node_wrapper->field_picture->value();
     $variables['current_research'] = $node_wrapper->body->value->value();
     $variables['summary'] = text_summary($node_wrapper->field_summary->value->value(), 'filtered_html', 475);
 
+    // Images.
     $picture = $node_wrapper->field_picture->value();
     $picture_url = file_create_url($picture['uri']);
     $variables['picture'] = '<img src="' . $picture_url . '"/>';
 
+    $variables['background'] = $node_wrapper->field_jumbotron_image->value();
+
+    // Current Position.
+    $academic_positions = array();
     foreach ($node_wrapper->field_academic_position as $position) {
       list($post, $school, $when) = explode('<BR>', $position->value->raw());
       if ($when == 'current') {
         $academic_positions[] = $post . ' at ' . $school;
       }
+    }
+    if (!empty($academic_positions)) {
       $variables['academic_positions'] = implode('<br>', $academic_positions);
     }
 
+    // Awards.
     $awards = array();
     foreach ($node_wrapper->field_awards as $award) {
       $awards[] = $award->field_award_title->value();
