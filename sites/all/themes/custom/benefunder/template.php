@@ -279,7 +279,7 @@ function benefunder_preprocess_node(&$variables) {
           $publications[] = array(
             'title' => $link['title'],
             'link' => l('PDF', $link['url'], array(
-                'query' => $link['query'],
+                'query' => isset($link['query']) ? $link['query'] : NULL,
                 'attributes' => $link['attributes'],
               )),
             'teaser' => $teaser,
