@@ -1,0 +1,464 @@
+<?php
+/**
+ * @file
+ * API implementation of the HelloSign electronic signature API.
+ */
+
+/**
+ * Implements hook_menu().
+ */
+function hellosign_menu() {
+  $items = array(
+    'admin/config/services/hellosign' => array(
+      'title' => 'Hellosign',
+      'description' => 'Edit Hellosign settings',
+      'page callback' => 'drupal_get_form',
+      'page arguments' => array('hellosign_settings_form'),
+      'access arguments' => array('administer site configuration'),
+    ),
+    'process-hellosign-callback' => array(
+      'title' => 'Hellosign callback page',
+      'description' => 'Hellosign callback page',
+      'page callback' => '_hellosign_handle_esign_callback_request',
+      'access arguments' => array('access content'),
+    ),
+  );
+
+  return $items;
+}
+
+
+/**
+ * Includes the hellosign library.
+ */
+function hellosign_include_library() {
+  if (libraries_get_path('hellosign-php-sdk')) {
+    include_once libraries_get_path('hellosign-php-sdk') . '/vendor/autoload.php';
+    return TRUE;
+  }
+  else {
+    drupal_set_message(t('The Hellosign sdk library is missing.'), 'error');
+    return FALSE;
+  }
+}
+
+/**
+ * Implements hook_help().
+ */
+function hellosign_help($path, $arg) {
+  $output = '';
+
+  switch ($path) {
+    case 'admin/help#hellosign':
+      $output .= '<p>' . t('The Hellosign module provides an API to generate and process esignature requests with <a href="!hellosign">HelloSign</a>. To use it, you need a HelloSign account and API key (which can be entered on the <a href="!config">Hellosign configuration page</a>) and need to install the <a href="!sdk">HelloSign PHP SDK</a> library.', array(
+          '!hellosign' => url('https://www.hellosign.com/', array(
+            'external' => TRUE,
+          )),
+          '!config' => url('admin/config/services/hellosign'),
+          '!sdk' => url('https://github.com/HelloFax/hellosign-php-sdk', array(
+            'external' => TRUE,
+          )),
+        )) . '</p>';
+      $output .= '<p>' . t('This module provides a simple API for creating esignature requests and retrieving signed documents. Due to the myriad of uses of esignatures, it does not provide a graphical interface for managing them, but instead includes functions to make creating such an interface easy to suit the needs of your site.') . '</p>';
+      return $output;
+
+    case 'admin/config/services/hellosign':
+      $output .= '<p>' . t('The Hellosign module provides an API to generate and process esignature requests with HelloSign.') . '</p>';
+      return $output;
+  }
+}
+
+/**
+ * Implements hook_form().
+ *
+ * Configuration settings form for hellosign.
+ */
+function hellosign_settings_form($form, &$form_state) {
+  $form['hellosign_api_key'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Hellosign API Key'),
+    '#default_value' => variable_get('hellosign_api_key', ''),
+  );
+  $form['hellosign_client_id'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Hellosign Client ID'),
+    '#default_value' => variable_get('hellosign_client_id', ''),
+  );
+  $form['hellosign_cc_emails'] = array(
+    '#type' => 'textfield',
+    '#title' => t('CC email addresses'),
+    '#description' => t('Email address that will be copied on the requests, but will not have a signer role.'),
+    '#default_value' => variable_get('hellosign_cc_emails', ''),
+  );
+  $form['hellosign_test_mode'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Test mode'),
+    '#default_value' => variable_get('hellosign_test_mode', ''),
+  );
+
+  return system_settings_form($form);
+}
+
+/**
+ * Returns HelloSign API key.
+ *
+ * @return string
+ *   The configured API key.
+ */
+function hellosign_get_api_key() {
+  return variable_get('hellosign_api_key');
+}
+
+/**
+ * Returns HelloSign Client ID.
+ *
+ * @return string
+ *   The configured client ID.
+ */
+function hellosign_get_client_id() {
+  return variable_get('hellosign_client_id');
+}
+
+/**
+ * Returns configured cc emails.
+ *
+ * @return string
+ *   The configured cc emails.
+ */
+function hellosign_get_cc_emails() {
+  return variable_get('hellosign_cc_emails');
+}
+
+/**
+ * Returns configured test mode setting.
+ *
+ * @return mixed
+ *   Whether or not to run in test mode.
+ */
+function hellosign_get_test_mode() {
+  return variable_get('hellosign_test_mode');
+}
+
+/**
+ * Generates a HelloSign signature request.
+ *
+ * @param string $title
+ *   Document title.
+ * @param string $subject
+ *   Email subject.
+ * @param string[] $signers
+ *   Array of email addresses.
+ * @param string $file
+ *   Full path to local system file.
+ * @param string $mode
+ *   Can be embedded or email based signature request.
+ *
+ * @return array
+ *   or "signature_request_id" and "signatures" if 1.
+ */
+function hellosign_generate_esignature_request($title, $subject, array $signers, $file, $mode = 'email') {
+
+  try {
+    $cc_email_text = hellosign_get_cc_emails();
+    $cc_emails = (strlen($cc_email_text) ? explode(',', hellosign_get_cc_emails()) : array());
+
+    // Include library.
+    if (!hellosign_include_library()) {
+      return array('status' => 0, 'message' => t('Could not find hellosign sdk library.'));
+    }
+
+    // Attempt to create connection to HelloSign.
+    $conn_request = hellosign_generate_esignature_connection();
+    if ($conn_request['status'] == 0) {
+      return array(
+        'status' => 0,
+        'message' => t(
+          'Unable to generate connection to hellosign with error @message',
+          array('@message' => $conn_request['message'])
+        ),
+      );
+    }
+    else {
+      $connection = $conn_request['connection'];
+    }
+
+    // Attempt to create new signature request.
+    $request = new HelloSign\SignatureRequest();
+
+    // If selected, place in test mode.
+    if (hellosign_get_test_mode()) {
+      $request->enableTestMode();
+    }
+
+    $request->setTitle($title);
+    $request->setSubject($subject);
+
+    // Add cc emails (non signers).
+    foreach ($cc_emails as $cc_email) {
+      $request->addCC($cc_email);
+    }
+
+    // Add all signers to list.
+    $signer_count = 0;
+    foreach ($signers as $signer_email => $signer_name) {
+      $signer_count += 1;
+      $request->addSigner(
+        new HelloSign\Signer(array(
+          'name' => $signer_name,
+          'email_address' => $signer_email,
+          'order' => $signer_count,
+        ))
+      );
+    }
+
+    // Attach the document.
+    $request->addFile($file);
+
+    // Initiate request.
+    // NOTE: The callback url is not set here as it should be handled within
+    // the HelloSign application settings.
+    if ($mode == 'email') {
+      watchdog('hellosign', 'Generating email signature request.');
+      // Email based signature process.
+      $response = $connection->sendSignatureRequest($request);
+    }
+    else {
+      watchdog('hellosign', 'Generating embedded signature request.');
+      // Embedded signature process.
+      $client_id = hellosign_get_client_id();
+      $embedded_request = new HelloSign\EmbeddedSignatureRequest($request, $client_id);
+      $response = $connection->createEmbeddedSignatureRequest($embedded_request);
+    }
+
+    if ($response->hasError()) {
+      watchdog('hellosign', 'Error generating esignature request for @title. Unknown error in the response.', array('@title' => $title), WATCHDOG_ERROR);
+      return array('status' => 0, 'message' => t('Failed to generate esignature request.'));
+    }
+    else {
+      return array(
+        'status' => 1,
+        'signature_request_id' => $response->getId(),
+        'signatures' => $response->getSignatures()->toArray(),
+      );
+    }
+  }
+  catch (Exception $e) {
+    watchdog('hellosign', 'Error generating esignature request for @title with message: @message',
+      array('@title' => $title, '@message' => $e->getMessage()),
+      WATCHDOG_ERROR);
+    return array('status' => 0, 'message' => $e->getMessage());
+  }
+}
+
+/**
+ * Generates a new connection with Hellosign.
+ *
+ * @return array
+ *   Contains "status" (1 or 0) and either "message" if 0
+ *   or "connection" if 1.
+ */
+function hellosign_generate_esignature_connection() {
+
+  try {
+    // Include library.
+    if (!hellosign_include_library()) {
+      return array('status' => 0, 'message' => t('Could not find hellosign sdk library.'));
+    }
+
+    // Create connection and set callback url.
+    $connection = new HelloSign\Client(hellosign_get_api_key());
+
+    return array('status' => 1, 'connection' => $connection);
+  }
+  catch (Exception $e) {
+    watchdog('hellosign', 'Error creating hellosign connection with message: @message',
+      array('@message' => $e->getMessage()), WATCHDOG_ERROR);
+    return array('status' => 0, 'message' => $e->getMessage());
+  }
+}
+
+/**
+ * Fetches the signed documents for a request from hellosign.
+ *
+ * @param string $signature_request_id
+ *   The ID of the signature request to fetch the document of.
+ *
+ * @return array
+ *   Contains "status" (1 or 0) and either "message" if 0
+ *   or "file_path" if 1.
+ */
+function hellosign_fetch_esignature_document($signature_request_id) {
+
+  watchdog('hellosign', 'Fetching documents for request @request_id', array('@request_id' => $signature_request_id));
+
+  try {
+    // Setup file path with random file name. Then, make it a PDF and delete
+    // the temp file which was not labeled as a PDF.
+    $initial_temp_file_path = drupal_tempnam('temporary://', 'hellosign_document_');
+    $dest_file_path = drupal_realpath($initial_temp_file_path . '.pdf');
+    unlink($initial_temp_file_path);
+
+    // Fetch document and write to tmp directory.
+    $conn_request = hellosign_generate_esignature_connection();
+    if ($conn_request['status'] == 0) {
+      return array(
+        'status' => 0,
+        'message' => t('Unable to generate connection to hellosign with error @message',
+          array('@message' => $conn_request['message'])
+        ),
+      );
+    }
+    else {
+      $connection = $conn_request['connection'];
+    }
+
+    // Write file to local file path.
+    $connection->getFiles($signature_request_id, $dest_file_path);
+
+    return array('status' => 1, 'file_path' => $dest_file_path);
+  }
+  catch (Exception $e) {
+    watchdog('hellosign', 'Error fetching documents for request id @request_id with message: @message',
+      array('@request_id' => $signature_request_id, '@message' => $e->getMessage()), WATCHDOG_ERROR);
+    return array('status' => 0, 'message' => $e->getMessage());
+  }
+}
+
+/**
+ * This handles updates from the Hellosign esign process.
+ *
+ * @return bool|string
+ *   If success, returns the text of "Hello API Event Received"
+ *   which is what the API docs require. If failure, returns FALSE.
+ */
+function _hellosign_handle_esign_callback_request() {
+
+  $response = $_POST['json'];
+
+  $data = json_decode($response);
+
+  watchdog('hellosign', 'Esign callback response received.');
+
+  // Extract needed fields.
+  $event_time = $data->event->event_time;
+  $event_type = $data->event->event_type;
+  $hash = $data->event->event_hash;
+  $signature_request_id = $data->signature_request->signature_request_id;
+
+  // Prevent old requests from being replayed by verifying that the event
+  // timestamp is within the last 24 hours. Note that HelloSign retries failed
+  // event notifications for up to around 20 hours after the first attempt (see
+  // https://www.hellosign.com/api/eventsAndCallbacksWalkthrough#FailuresAndRetries),
+  // so 24 hours should be enough time for any legitimate event to be received.
+  if ($event_time < REQUEST_TIME - 86400) {
+    watchdog('hellosign', 'Event timestamp verification failed for signature request id @request_id (timestamp was @timestamp which is more than 24 hours old)',
+      array('@request_id' => $signature_request_id, '@timestamp' => $event_time), WATCHDOG_ERROR);
+    drupal_access_denied();
+    drupal_exit();
+  }
+
+  // Verify the event hash. If there is no API key, this should always fail
+  // validation (since without an API key, the hash can easily be faked).
+  $api_key = hellosign_get_api_key();
+  $valid = FALSE;
+  if ($api_key) {
+    $expected_hash = hash_hmac("sha256", $event_time . $event_type, $api_key);
+    if ($expected_hash === $hash) {
+      $valid = TRUE;
+    }
+  }
+  if (!$valid) {
+    watchdog('hellosign', 'Hash verification failed for signature request id @request_id',
+      array('@request_id' => $signature_request_id), WATCHDOG_ERROR);
+    drupal_access_denied();
+    drupal_exit();
+  }
+  else {
+    watchdog('hellosign', 'Hash verification succeeded for signature request id @request_id',
+      array('@request_id' => $signature_request_id));
+
+    // Send information to all modules requesting this callback.
+    module_invoke_all('process_hellosign_callback', $data);
+  }
+
+  // This return is per the hellosign api spec and shouldn't be changed.
+  return 'Hello API Event Received';
+}
+
+
+/**
+ * Given the signature ID, returns an embed page URL for that signature.
+ *
+ * @param string $signature_id
+ *   The ID of the signature we want to get the embed URL for.
+ *
+ * @return array
+ *   Contains "status" (1 or 0) and either "message" if 0
+ *   or "url" if 1.
+ */
+function hellosign_get_embed_url($signature_id) {
+  // Attempt to create connection to hellosign.
+  $conn_request = hellosign_generate_esignature_connection();
+  if ($conn_request['status'] == 0) {
+    return array(
+      'status' => 0,
+      'message' => t(
+        'Unable to generate connection to hellosign with error @message',
+        array('@message' => $conn_request['message'])
+      ),
+    );
+  }
+  else {
+    $connection = $conn_request['connection'];
+  }
+
+  $response = $connection->getEmbeddedSignUrl($signature_id);
+
+  return array('status' => 1, 'url' => $response->getSignUrl());
+}
+
+/**
+ * Queues a SignatureRequest to be canceled.
+ *
+ * The cancellation is asynchronous and a successful call to this function will
+ * return a status of 1 if the signature request is eligible to be canceled
+ * and has been successfully queued.
+ *
+ * @param string $signature_request_id
+ *    The ID of the signature we are cancelling.
+ *
+ * @return array
+ *    Contains "status" (1 or 0) and "message" with some information.
+ */
+function hellosign_cancel_esignature_request($signature_request_id) {
+
+  try {
+    // Connecting to hellosign.
+    $conn_request = hellosign_generate_esignature_connection();
+    if ($conn_request['status'] == 0) {
+      return array(
+        'status' => 0,
+        'message' => t('Unable to generate connection to hellosign with error @message',
+          array('@message' => $conn_request['message'])),
+      );
+    }
+    else {
+      // Posting the cancel request.
+      $conn_request['connection']->cancelSignatureRequest($signature_request_id);
+
+      // Success.
+      return array(
+        'status' => 1,
+        'message' => 'Successfully cancelled request.',
+      );
+    }
+  }
+  catch (Exception $e) {
+    watchdog('hellosign', 'Error cancelling request with id @request_id. Message: @message',
+      array(
+        '@request_id' => $signature_request_id,
+        '@message' => $e->getMessage(),
+      ), WATCHDOG_ERROR);
+    return array('status' => 0, 'message' => $e->getMessage());
+  }
+}

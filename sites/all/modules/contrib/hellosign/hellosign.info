@@ -1,0 +1,7 @@
+name = HelloSign
+description = Provides an API to generate and process esignature requests with HelloSign.
+package = HelloSign
+core = 7.x
+configure = admin/config/services/hellosign
+
+dependencies[] = libraries

@@ -1,0 +1,53 @@
+<?php
+
+/**
+ * @file
+ * Requirements for the HelloSign module.
+ */
+
+/**
+ * Implements hook_requirements().
+ */
+function hellosign_requirements($phase) {
+  $requirements = array();
+
+  if ($phase == 'runtime') {
+    $t = get_t();
+    $library_path = libraries_get_path('hellosign-php-sdk');
+
+    if (!$library_path) {
+      // If the library is not at all installed.
+      $requirements['hellosign_sdk'] = array(
+        'title' => $t('HelloSign PHP SDK'),
+        'value' => $t('Missing'),
+        'severity' => REQUIREMENT_ERROR,
+        'description' => $t('You need to download the !sdk_link and include it in the %path folder of your server.', array(
+          '!sdk_link' => l($t('HelloSign PHP SDK'), 'https://github.com/HelloFax/hellosign-php-sdk'),
+          '%path' => '/sites/all/libraries/hellosign-php-sdk',
+        )),
+      );
+    }
+    elseif (!file_exists($library_path . '/vendor/autoload.php')) {
+      // If the library is installed, but the expected file was not found.
+      $requirements['hellosign_sdk'] = array(
+        'title' => $t('HelloSign PHP SDK'),
+        'value' => $t('Misplaced'),
+        'severity' => REQUIREMENT_ERROR,
+        'description' => $t('The HelloSign PHP SDK exists, but appears to be misplaced. The file %path should exist in the library. You can redownload the !sdk_link if necessary.', array(
+          '!sdk_link' => l($t('HelloSign PHP SDK'), 'https://github.com/HelloFax/hellosign-php-sdk'),
+          '%path' => '/vendor/autoload.php',
+        )),
+      );
+    }
+    else {
+      // The SDK is present and located correctly.
+      $requirements['hellosign_sdk'] = array(
+        'title' => $t('HelloSign PHP SDK'),
+        'severity' => REQUIREMENT_OK,
+        'value' => 'Present',
+      );
+    }
+  }
+
+  return $requirements;
+}
