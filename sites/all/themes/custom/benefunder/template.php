@@ -259,7 +259,7 @@ function benefunder_preprocess_node(&$variables) {
   
           $in_the_news[] = array(
             'link' => l(t($link['title']), $link['url'], array(
-                'query' => $link['query'],
+                'query' => isset($link['query']) ? $link['query'] : NULL,
                 'attributes' => $link['attributes'],
               )),
             'teaser' => $teaser,
@@ -308,7 +308,7 @@ function benefunder_preprocess_node(&$variables) {
         foreach ($additional_videos_items as $item) {
           $item['attributes']['class'][] = 'teaser-video';
           $additional_videos[] = l(t($item['title']), $item['url'], array(
-              'query' => $item['query'],
+              'query' => isset($item['query']) ? $item['query'] : NULL,
               'attributes' => $item['attributes'],
             ));
         }
