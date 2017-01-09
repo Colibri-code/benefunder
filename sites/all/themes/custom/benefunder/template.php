@@ -398,7 +398,7 @@ function benefunder_preprocess_node(&$variables) {
             if ($jumbotron_link) {
               $jumbotron_link['attributes']['class'][] = 'call-to-action-link';
               $variables['jumbotron_link'] = l(t($jumbotron_link['title'] . '<i class="bf-arrow bf-arrow-right"></i>'), $jumbotron_link['url'], array(
-                      'query' => $jumbotron_link['query'],
+                      'query' => isset($jumbotron_link['query']) ? $jumbotron_link['query'] : NULL,
                       'attributes' => $jumbotron_link['attributes'],
                       'html' => true,
                     ));
