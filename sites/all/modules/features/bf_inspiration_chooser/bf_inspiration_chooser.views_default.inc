@@ -43,26 +43,18 @@ function bf_inspiration_chooser_views_default_views() {
   );
   $handler->display->display_options['row_options']['separator'] = ' - ';
   /* Field: Indexed Content: Jumbotron Video */
-  $handler->display->display_options['fields']['field_jumbotron_video_1']['id'] = 'field_jumbotron_video_1';
-  $handler->display->display_options['fields']['field_jumbotron_video_1']['table'] = 'search_api_index_cause_index_solr';
-  $handler->display->display_options['fields']['field_jumbotron_video_1']['field'] = 'field_jumbotron_video';
-  $handler->display->display_options['fields']['field_jumbotron_video_1']['label'] = '';
-  $handler->display->display_options['fields']['field_jumbotron_video_1']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_jumbotron_video_1']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_jumbotron_video_1']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_jumbotron_video_1']['type'] = 'file_url_plain';
-  /* Field: Indexed Content: Jumbotron Video */
   $handler->display->display_options['fields']['field_jumbotron_video']['id'] = 'field_jumbotron_video';
   $handler->display->display_options['fields']['field_jumbotron_video']['table'] = 'search_api_index_cause_index_solr';
   $handler->display->display_options['fields']['field_jumbotron_video']['field'] = 'field_jumbotron_video';
   $handler->display->display_options['fields']['field_jumbotron_video']['label'] = '';
-  $handler->display->display_options['fields']['field_jumbotron_video']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['field_jumbotron_video']['alter']['text'] = '<a href="[field_jumbotron_video_1]" target="_blank">[field_jumbotron_video]</a>';
   $handler->display->display_options['fields']['field_jumbotron_video']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_jumbotron_video']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_jumbotron_video']['type'] = 'file_rendered';
+  $handler->display->display_options['fields']['field_jumbotron_video']['type'] = 'magnific_popup_file_field_formatter';
   $handler->display->display_options['fields']['field_jumbotron_video']['settings'] = array(
-    'file_view_mode' => 'media_preview',
+    'gallery_style' => 'all_items',
+    'thumbnail_field' => 'field_jumbotron_video',
+    'thumbnail_style' => 'magnific_popup_thumbnail',
   );
   /* Field: Entity Reference View Widget Checkbox: Indexed Content */
   $handler->display->display_options['fields']['entityreference_view_widget']['id'] = 'entityreference_view_widget';
@@ -111,7 +103,6 @@ function bf_inspiration_chooser_views_default_views() {
   $handler->display->display_options['filters']['search_api_views_fulltext']['expose']['label'] = 'Search';
   $handler->display->display_options['filters']['search_api_views_fulltext']['expose']['operator'] = 'search_api_views_fulltext_op';
   $handler->display->display_options['filters']['search_api_views_fulltext']['expose']['identifier'] = 'search_api_views_fulltext';
-  $handler->display->display_options['filters']['search_api_views_fulltext']['expose']['remember'] = TRUE;
   $handler->display->display_options['filters']['search_api_views_fulltext']['expose']['remember_roles'] = array(
     2 => '2',
     1 => 0,
@@ -171,7 +162,6 @@ function bf_inspiration_chooser_views_default_views() {
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Video Inspiration';
   $handler->display->display_options['defaults']['use_ajax'] = FALSE;
-  $handler->display->display_options['use_ajax'] = FALSE;
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'grid';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
