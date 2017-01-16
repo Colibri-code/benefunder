@@ -1,0 +1,8 @@
+name = Create Proposal
+description = Automatically generate a proposal PDF
+core = 7.x
+version = 7.x-1.0
+package = Benefunder Custom
+dependencies[] = transliteration
+dependencies[] = phpwkhtmltopdf
+dependencies[] = entity_print

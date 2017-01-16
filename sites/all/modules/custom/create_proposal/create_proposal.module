@@ -1,0 +1,83 @@
+<?php
+
+/**
+ * Implements hook_theme().
+ */
+function create_proposal_theme($existing, $type, $theme, $path) {
+  return array(
+    'entity_print__node' => array(
+      'base hook' => 'entity_print',
+      'template' => 'entity-print--node--cause',
+    ),
+  );
+}
+
+/**
+ * Implements hook_node_presave().
+ *
+ * Create a new proposal PDF and attach. Fires on insert/update.
+ */
+function create_proposal_node_presave($node) {
+  $problem_msg = t('There was a problem creating a proposal PDF, please contact Benefunder.');
+  if ($node->type != 'giving_proposal') {
+    return;
+  }
+  if (!isset($node->field_cause[LANGUAGE_NONE][0]['field_cause_name'][LANGUAGE_NONE][0]['target_id'])) {
+    // No causes selected.
+    return;
+  }
+
+  if (($library = libraries_load('phpwkhtmltopdf')) && !empty($library['loaded'])) {
+    $pdf = new WkHtmlToPdf();
+
+    // Add page for each cause.
+    foreach ($node->field_cause[LANGUAGE_NONE] as $collection) {
+      $cause_nid = $collection['field_cause_name'][LANGUAGE_NONE][0]['target_id'];
+      $cause_node = node_load($cause_nid);
+      if (!empty($cause_node)) {
+        $pdf->addPage(_entity_print_get_generated_html('node', $cause_node));
+        $allocations[] = array(
+          $cause_node->title,
+          $collection['field_cause_allocation'][LANGUAGE_NONE]['item']['value'] . '%',
+        );
+      }
+    }
+
+    // Add summary table of cause and allocation percentages.
+    $header = array('Cause', 'Allocation Percantage');
+    $table = theme('table', array('header' => $header, 'rows' => $allocations));
+    $pdf->addPage('<html><body>' . $table . '</body></html>');
+
+    $filename = transliteration_clean_filename($node->title . '_proposal.pdf');
+    $content = $pdf->toString();
+
+    if ($content === FALSE) {
+      watchdog('create_proposal', 'PDF content error: ' . $pdf->getError(), array(), WATCHDOG_ERROR);
+      drupal_set_message($problem_msg, 'error');
+      return;
+    }
+
+    $file = file_save_data($content, 'private://' . $filename, FILE_EXISTS_REPLACE);
+    if (!$file) {
+      watchdog('create_proposal', 'File save error: ' . $pdf->getError(), array(), WATCHDOG_ERROR);
+      drupal_set_message($problem_msg, 'error');
+    }
+    else {
+      $file->display = '1';
+      $node->field_giving_proposal[LANGUAGE_NONE][0] = (array) $file;
+    }
+  }
+//  // Create a new Pdf object with some global PDF options
+//  $pdf = new Pdf(array(
+//    'ignoreWarnings' => TRUE,
+//    'no-outline',
+//    'margin-top'    => 0,
+//    'margin-right'  => 0,
+//    'margin-bottom' => 0,
+//    'margin-left'   => 0,
+//
+//    // Default page options
+//    'disable-smart-shrinking',
+//    //    'user-style-sheet' => '/path/to/pdf.css',
+//  ));
+}
