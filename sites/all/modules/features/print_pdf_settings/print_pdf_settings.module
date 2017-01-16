@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Print PDF feature.
+ */
+
+include_once 'print_pdf_settings.features.inc';

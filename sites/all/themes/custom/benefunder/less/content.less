@@ -1941,10 +1941,40 @@ div.sidebar-first {
     position:relative;
 
     @media(min-width:@screen-sm-min) {
-      width:230px;
+      width:245px;
       float:right;
     }
+    
+    .download-text {
+      font-family:@raleway;
+      color:#000;
+      font-size:16px;
+      display:inline-block;
+      background: transparent;
+      border: none;
+      padding: 2px 6px 3px;
+      &:focus {outline:none;}
+      &:active {outline:none;}
+      &::-moz-focus-inner {outline:none;}
 
+      &:before {
+        content:'';
+        display:inline-block;
+        background-image:url(../media/images/explore_more_arrow.png);
+        background-repeat:no-repeat;
+        background-position:0 0;
+        margin-right:10px;
+        vertical-align:middle;
+        width:21px;
+        height:21px;
+        background-size: 21px;
+      }
+
+      &:hover {
+        cursor:pointer;
+      }
+    }
+    
     .share-text {
       font-family:@raleway;
       color:#000;

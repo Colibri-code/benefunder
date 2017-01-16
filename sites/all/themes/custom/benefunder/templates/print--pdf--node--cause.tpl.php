@@ -66,6 +66,10 @@
  * @see page.tpl.php
  * @ingroup print
  */
+$user = user_load($user->uid);
+$realname = $user->realname;
+$user_image = $user->picture;
+
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
@@ -83,28 +87,175 @@
   <?php endif; ?>
   <?php print $css; ?>
 
+  <script src="https://use.typekit.net/jxh1lif.js"></script>
+  <script>try{Typekit.load({ async: true });}catch(e){}</script>
+
   <style type="text/css">
-    div.pdf_title {
-      font-family: "Arial", "Helvetica", "Verdana", "sans-serif";
-      font-size: 24px;
-      color: #60BFC0;
-      padding: 18px 33px 18px 33px;
-      opacity: 50;
-      background-color: #999999;
-      height: 105px;
+    html {
+      height: 100%;
+    }
+    body {
+      height: 100%;
+      margin: 0;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
     }
     div.background {
       background-image: url(<?php print $background ?>);
       height: 290px;
+      margin: 0;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    div.pdf_title {
+      font-family: 'raleway', "Arial", "Helvetica", "Verdana", "sans-serif";
+      font-size: 28px;
+      line-height: 30px;
+      color: #5CC6CF;
+      padding: 18px 33px 18px 33px;
+      opacity: 0.5;
+      background-color: #999999;
     }
     div.pdf_info {
-      height: 185px;
-      background-color: #999999;
-      opacity: 50;
+      height: 184px;
+      background-color: #1F99A4;
+      opacity: 0.5;
+      padding: 40px 40px 0;
+      color: #fff;
     }
-    div.pdf_info_block div {
+    .pdf_info a {
+      color: #fff;
+    }
+    div.pdf_media {
       float: left;
-      display: inline;
+      width: 45%;
+      text-align: center;
+    }
+    div.pdf_institution_logo {
+      display: inline-block;
+      border: solid 4px #fff;
+      width: 100px;
+    }
+    div.pdf_picture {
+      margin-left: 5px;
+      display: inline-block;
+      border: solid 4px #fff;
+      width: 100px;
+    }
+    .pdf_picture img, .pdf_institution_logo img {
+      max-width: 100%;
+    }
+    div.pdf_info_block {
+      float: left;
+    }
+    div.pdf_name {
+      font-family: 'raleway', "Arial", "Helvetica", "Verdana", "sans-serif";
+      font-size : 20px;
+      line-height : 18px;
+    }
+    div.pdf_positions {
+      clear: both;
+    }
+    div.pdf_position_text {
+      font-family: 'raleway', "Arial", "Helvetica", "Verdana", "sans-serif";
+      font-size : 14px;
+      line-height : 14px;
+    }
+    div.pdf_affiliation_text {
+      font-family: 'raleway', "Arial", "Helvetica", "Verdana", "sans-serif";
+      font-size : 11px;
+      line-height : 19px;
+      font-weight: 300;
+    }
+    div.pdf_body {
+      padding: 40px;
+    }
+    div.pdf_body_content {
+      width: 47.5%;
+      margin-right: 2.5%;
+      float: left;
+    }
+    .read_more_btn {
+      background-color: #1F99A4;
+      font-family: 'raleway', "Arial", "Helvetica", "Verdana", "sans-serif";
+      font-size: 10px;
+      line-height: 15px;
+      color: #FFF;
+      padding: 10px;
+      width: 100%;
+      border: none;
+      margin: 20px 0;
+    }
+    div.pdf_summary {
+      font-family: 'Alegreya', "Arial", "Helvetica", "Verdana", "sans-serif";
+      font-size: 10px;
+      line-height: 15px;
+      font-weight: normal;
+    }
+    div.pdf_body_content_right {
+      width: 47.5%;
+      margin-left: 2.5%;
+      float: left;
+    }
+    div.pdf_awards {
+      font-family: 'Alegreya', "Arial", "Helvetica", "Verdana", "sans-serif";
+      font-size: 10px;
+      line-height: 15px;
+      font-weight: normal;
+    }
+    div.pdf_footer {
+      position: absolute;
+      padding: 40px;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+    div.pdf_footer_media {
+      display: inline-block;
+    }
+    div.pdf_company_logo {
+      display: inline-block;
+    }
+    div.pdf_user_picture {
+      margin-left: 5px;
+      display: inline-block;
+    }
+    div.pdf_company_logo img {
+      width: 55px;
+    }
+    div.pdf_user_picture img {
+      width: 55px;
+    }
+    div.pdf_user_details {
+      margin-left: 5px;
+      display: inline-block;
+      vertical-align: text-top;
+    }
+    div.pdf_user_name {
+      font-family: 'raleway', "Arial", "Helvetica", "Verdana", "sans-serif";
+      color: #1F99A4;
+      font-size : 16px;
+      line-height : 18px;
+    }
+    div.pdf_user_title {
+      font-family: 'raleway', "Arial", "Helvetica", "Verdana", "sans-serif";
+      color: #1F99A4;
+      font-size : 10px;
+      line-height : 19px;
+      font-weight: 100;
+    }
+    .header_title {
+      font-family: 'raleway', "Arial", "Helvetica", "Verdana", "sans-serif";
+      color: #1F99A4;
+      font-size: 11px;
+      line-height: 15px;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+    hr {
+      clear: both;
     }
   </style>
 
@@ -115,14 +266,41 @@
 <div class="background">
   <div class="pdf_title"><?php print $title ?></div>
   <div class="pdf_info">
-    <div class="pdf_institution_logo"><?php print $institution_logo ?></div>
-    <div class="pdf_picture"><?php print $picture ?></div>
+    <div class="pdf_media">
+      <?php if (!empty($affiliation_logo)): ?><div class="pdf_institution_logo"><?php print $affiliation_logo ?></div><?php endif; ?>
+      <?php if (!empty($picture)): ?><div class="pdf_picture"><?php print $picture ?></div><?php endif; ?>
+    </div>
     <div class="pdf_info_block">
       <div class="pdf_name"><?php print $name ?></div>
       <div class="pdf_positions">
-        <div class="pdf_position_text"><?php print $academic_positions ?></div>
+        <?php if (!empty($post)): ?><div class="pdf_position_text"><?php print $post ?></div><?php endif; ?>
+        <?php if (!empty($affiliation)): ?><div class="pdf_affiliation_text"><?php print $affiliation ?></div><?php endif; ?>
       </div>
     </div>
+  </div>
+</div>
+<div class="pdf_body">
+  <div class="pdf_body_content">
+    <h3 class="header_title">Current Research</h3>
+    <div class="pdf_summary"><?php print $body ?><?php print $summary ?></div>
+    <a href="<?php print url(drupal_get_path_alias('node/' . $node->nid)); ?>"><button class="btn read_more_btn">Read More on Benefunder.com</button></a>
+  </div>
+  <div class="pdf_body_content_right">
+    <h3 class="header_title">Awards</h3>
+    <?php if (!empty($awards)): ?><div class="pdf_awards"><?php print $awards ?></div><?php endif; ?>
+    <h3 class="header_title">Stage of Research</h3>
+    <div class="pdf_stage"><ul><?php print $research_stage ?></div>
+  </div>
+</div>
+<div class="pdf_footer">
+  <hr>
+  <div class="pdf_footer_media">
+    <?php if (!empty($company_logo)): ?><div class="pdf_company_logo"><img src="" height="50px" width="70px"><?php print $company_logo ?></div><?php endif; ?>
+    <?php if (!empty($user_picture)): ?><div class="pdf_user_picture"><img src="" height="55px" width="55px"><?php print $user_image ?></div><?php endif; ?>
+  </div>
+  <div class="pdf_user_details">
+    <div class="pdf_user_name"><?php print $realname ?></div>
+    <div class="pdf_user_title"><?php print $company_logo ?></div>
   </div>
 </div>
 
