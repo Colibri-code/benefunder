@@ -1,0 +1,15 @@
+name = Print PDF
+description = Settings related to the PDF download feature of Causes
+core = 7.x
+package = Benefunder
+version = 7.x-1.0
+dependencies[] = ctools
+dependencies[] = print_pdf
+dependencies[] = print_pdf_wkhtmltopdf
+dependencies[] = strongarm
+features[ctools][] = strongarm:strongarm:1
+features[features_api][] = api:2
+features[variable][] = print_pdf_page_orientation
+features[variable][] = print_pdf_paper_size
+features[variable][] = print_pdf_pdf_tool
+features[variable][] = print_pdf_wkhtmltopdf_options
