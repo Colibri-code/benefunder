@@ -106,49 +106,47 @@ function sitemod_profile2_view_alter($build) {
  *
  * Set up additional variables for printing PDFs.
  */
-function sitemod_preprocess_print(&$variables) {
-  if (TRUE || $variables['format'] == 'pdf') {
-    dsm('sitemod_preprocess_print');
-    dsm($variables['node']);
-    $node_wrapper = entity_metadata_wrapper('node', $variables['node']);
+function sitemod_preprocess_entity_print(&$variables) {
+  $node_wrapper = entity_metadata_wrapper('node', $variables['entity']);
 
-    // Basic fields.
-    $variables['title'] = $node_wrapper->label();
-    $variables['subtitle'] = $node_wrapper->field_subtitle->value();
-    $variables['name'] = $node_wrapper->field_first_name->value() . ' ' . $node_wrapper->field_last_name->value();
-    $variables['picture'] = $node_wrapper->field_picture->value();
-    $variables['current_research'] = $node_wrapper->body->value->value();
-    $variables['body'] = $node_wrapper->body->value->value();
-    $variables['summary'] = text_summary($node_wrapper->field_summary->value->value(), 'filtered_html', 750);
+  $variables['fa_name'] = $variables['user']->name;
 
-    // Images.
-    $picture = $node_wrapper->field_picture->value();
-    $picture_url = file_create_url($picture['uri']);
-    $variables['picture'] = '<img src="' . $picture_url . '"/>';
+  // Basic fields.
+  $variables['title'] = $node_wrapper->label();
+  $variables['subtitle'] = $node_wrapper->field_subtitle->value();
+  $variables['name'] = $node_wrapper->field_first_name->value() . ' ' . $node_wrapper->field_last_name->value();
+  $variables['picture'] = $node_wrapper->field_picture->value();
+  $variables['current_research'] = $node_wrapper->body->value->value();
+  $variables['body'] = $node_wrapper->body->value->value();
+  $variables['summary'] = text_summary($node_wrapper->field_summary->value->value(), 'filtered_html', 750);
 
-    $variables['background'] = $node_wrapper->field_jumbotron_image->value();
-    
-    // Current Position.
-    $variables['affiliation'] = $node_wrapper->field_university_or_institution->label();
+  // Images.
+  $picture = $node_wrapper->field_picture->value();
+  $picture_url = file_create_url($picture['uri']);
+  $variables['picture'] = '<img src="' . $picture_url . '"/>';
 
-    $academic_positions = array();
-    foreach ($node_wrapper->field_academic_position as $position) {
-      list($post, $school, $when) = explode('<BR>', $position->value->raw());
-      if ($when == 'current') {
-        $academic_positions[] = $post . ' at ' . $school;
-      }
+  $variables['background'] = $node_wrapper->field_jumbotron_image->value();
+
+  // Current Position.
+  $variables['affiliation'] = $node_wrapper->field_university_or_institution->label();
+
+  $academic_positions = array();
+  foreach ($node_wrapper->field_academic_position as $position) {
+    list($post, $school, $when) = explode('<BR>', $position->value()['safe_value']);
+    if (stripos($when, 'current') !== FALSE) {
+      $academic_positions[] = $post . ' at ' . $school;
     }
-    if (!empty($academic_positions)) {
-      $variables['academic_positions'] = implode('<br>', $academic_positions);
-    }
+  }
+  if (!empty($academic_positions)) {
+    $variables['academic_positions'] = implode('<br>', $academic_positions);
+  }
 
-    // Awards.
-    $awards = array();
-    foreach ($node_wrapper->field_awards as $award) {
-      $awards[] = $award->field_award_title->value();
-    }
-    if (!empty($awards)) {
-      $variables['awards'] = "<ul><li>" . implode("</li><li>", $awards) . "</li></ul>";
-    }
+  // Awards.
+  $awards = array();
+  foreach ($node_wrapper->field_awards as $award) {
+    $awards[] = $award->field_award_title->value();
+  }
+  if (!empty($awards)) {
+    $variables['awards'] = "<ul><li>" . implode("</li><li>", $awards) . "</li></ul>";
   }
 }
