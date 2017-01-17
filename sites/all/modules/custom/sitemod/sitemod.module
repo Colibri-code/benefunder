@@ -132,8 +132,8 @@ function sitemod_preprocess_entity_print(&$variables) {
 
   $academic_positions = array();
   foreach ($node_wrapper->field_academic_position as $position) {
-    list($post, $school, $when) = explode('<BR>', $position->value()['safe_value']);
-    if (stripos($when, 'current') !== FALSE) {
+    list($post, $school, $when) = preg_split('/\<br\s?\/?>/i', $position->value()['safe_value']);
+    if (isset($when) && stripos($when, 'current') !== FALSE) {
       $academic_positions[] = $post . ' at ' . $school;
     }
   }

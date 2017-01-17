@@ -35,7 +35,8 @@ function create_proposal_node_presave($node) {
       $cause_nid = $collection['field_cause_name'][LANGUAGE_NONE][0]['target_id'];
       $cause_node = node_load($cause_nid);
       if (!empty($cause_node)) {
-        $pdf->addPage(_entity_print_get_generated_html('node', $cause_node));
+        $html = _entity_print_get_generated_html('node', $cause_node);
+        $pdf->addPage($html);
         $allocations[] = array(
           $cause_node->title,
           $collection['field_cause_allocation'][LANGUAGE_NONE]['item']['value'] . '%',
