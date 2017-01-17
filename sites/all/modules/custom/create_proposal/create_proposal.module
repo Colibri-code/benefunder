@@ -41,6 +41,9 @@ function create_proposal_node_presave($node) {
       //    'user-style-sheet' => '/path/to/pdf.css',
     ));
 
+    $options = array('run-script' => array('https://use.typekit.net/jxh1lif.js'));
+    $pdf->setOptions($options);
+
     // Add page for each cause.
     foreach ($node->field_cause[LANGUAGE_NONE] as $collection) {
       $cause_nid = $collection['field_cause_name'][LANGUAGE_NONE][0]['target_id'];
