@@ -28,7 +28,18 @@ function create_proposal_node_presave($node) {
   }
 
   if (($library = libraries_load('phpwkhtmltopdf')) && !empty($library['loaded'])) {
-    $pdf = new WkHtmlToPdf();
+    $pdf = new WkHtmlToPdf(array(
+      'ignoreWarnings' => TRUE,
+      'no-outline',
+      'margin-top'    => 0,
+      'margin-right'  => 0,
+      'margin-bottom' => 0,
+      'margin-left'   => 0,
+
+      // Default page options
+      'disable-smart-shrinking',
+      //    'user-style-sheet' => '/path/to/pdf.css',
+    ));
 
     // Add page for each cause.
     foreach ($node->field_cause[LANGUAGE_NONE] as $collection) {
@@ -36,6 +47,7 @@ function create_proposal_node_presave($node) {
       $cause_node = node_load($cause_nid);
       if (!empty($cause_node)) {
         $html = _entity_print_get_generated_html('node', $cause_node);
+//        dsm($html);
         $pdf->addPage($html);
         $allocations[] = array(
           $cause_node->title,
@@ -68,17 +80,4 @@ function create_proposal_node_presave($node) {
       $node->field_giving_proposal[LANGUAGE_NONE][0] = (array) $file;
     }
   }
-//  // Create a new Pdf object with some global PDF options
-//  $pdf = new Pdf(array(
-//    'ignoreWarnings' => TRUE,
-//    'no-outline',
-//    'margin-top'    => 0,
-//    'margin-right'  => 0,
-//    'margin-bottom' => 0,
-//    'margin-left'   => 0,
-//
-//    // Default page options
-//    'disable-smart-shrinking',
-//    //    'user-style-sheet' => '/path/to/pdf.css',
-//  ));
 }

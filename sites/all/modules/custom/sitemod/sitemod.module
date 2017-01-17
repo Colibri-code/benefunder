@@ -122,10 +122,9 @@ function sitemod_preprocess_entity_print(&$variables) {
 
   // Images.
   $picture = $node_wrapper->field_picture->value();
-  $picture_url = file_create_url($picture['uri']);
-  $variables['picture'] = '<img src="' . $picture_url . '"/>';
-
-  $variables['background'] = $node_wrapper->field_jumbotron_image->value();
+  $variables['picture'] = 'data:' . $picture['filemime'] . ';base64,' . base64_encode(file_get_contents($picture['uri']));
+  $background = $node_wrapper->field_jumbotron_image->value();
+  $variables['background'] = 'data:' . $background['filemime'] . ';base64,' . base64_encode(file_get_contents($background['uri']));
 
   // Current Position.
   $variables['affiliation'] = $node_wrapper->field_university_or_institution->label();
@@ -134,7 +133,7 @@ function sitemod_preprocess_entity_print(&$variables) {
   foreach ($node_wrapper->field_academic_position as $position) {
     list($post, $school, $when) = preg_split('/\<br\s?\/?>/i', $position->value()['safe_value']);
     if (isset($when) && stripos($when, 'current') !== FALSE) {
-      $academic_positions[] = $post . ' at ' . $school;
+      $academic_positions[] = $post;
     }
   }
   if (!empty($academic_positions)) {
