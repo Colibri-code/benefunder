@@ -924,7 +924,7 @@ function _sliderfield_field_widget_form(&$form, &$form_state, $field, $instance,
         '#fields_to_sync_css_selector' => @$settings['fields_to_sync_css_selector'],
         '#group' => $settings['group'],
         '#group_type' => $settings['group_type'],
-        '#group_master' => $settings['group_master'],
+        '#group_master' => isset($settings['group_master']) ? $settings['group_master'] : NULL,
       );
       break;
   }
