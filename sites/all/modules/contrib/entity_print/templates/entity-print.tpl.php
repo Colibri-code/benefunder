@@ -15,12 +15,11 @@
 <head>
   <meta charset="UTF-8">
   <title>PDF</title>
+  <?php print drupal_get_css($entity_print_css);?>
 </head>
 <body>
 <div class="page">
-  Module Smurf :( <br/>
-  <?php print get_class($entity); ?><br/>
-  <?php print $entity->title ?>
+  <?php print render($entity_array); ?>
 </div>
 </body>
 </html>
