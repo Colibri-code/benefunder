@@ -1,6 +1,32 @@
 <?php
 
 /**
+ * Implements hook_menu().
+ */
+function create_proposal_menu() {
+  $items['execute_proposal/%node'] = array(
+    'page callback' => 'create_proposal_execute',
+    'page arguments' => array(1),
+    'type' => MENU_CALLBACK,
+  );
+  return $items;
+}
+
+function create_proposal_execute($proposal) {
+  global $user;
+
+  if (!user_access('administer nodes') && ($proposal->uid != $user->uid)) {
+    return;
+  }
+
+  $wrapper = entity_metadata_wrapper('node', $proposal);
+
+  // Create a giving plan node in status pending.
+  // Unpublish giving proposal.
+  // Send giving plan to Hellosign.
+}
+
+/**
  * Implements hook_theme().
  */
 function create_proposal_theme($existing, $type, $theme, $path) {

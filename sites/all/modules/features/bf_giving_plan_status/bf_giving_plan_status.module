@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the BF Giving Plan Status feature.
+ */
+
+include_once 'bf_giving_plan_status.features.inc';
