@@ -81,6 +81,11 @@ function bf_my_proposals_views_default_views() {
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
+  /* Field: Content: Status */
+  $handler->display->display_options['fields']['field_proposal_status']['id'] = 'field_proposal_status';
+  $handler->display->display_options['fields']['field_proposal_status']['table'] = 'field_data_field_proposal_status';
+  $handler->display->display_options['fields']['field_proposal_status']['field'] = 'field_proposal_status';
+  $handler->display->display_options['fields']['field_proposal_status']['type'] = 'taxonomy_term_reference_plain';
   /* Field: Content: Giving Proposal */
   $handler->display->display_options['fields']['field_giving_proposal']['id'] = 'field_giving_proposal';
   $handler->display->display_options['fields']['field_giving_proposal']['table'] = 'field_data_field_giving_proposal';
@@ -98,7 +103,7 @@ function bf_my_proposals_views_default_views() {
   $handler->display->display_options['fields']['views_conditional']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['views_conditional']['if'] = 'field_giving_proposal';
   $handler->display->display_options['fields']['views_conditional']['condition'] = '6';
-  $handler->display->display_options['fields']['views_conditional']['then'] = '<a href="/execute_proposal/[nid]?destination=user" class="btn btn-default">Send for Approval</a>';
+  $handler->display->display_options['fields']['views_conditional']['then'] = '<a href="/execute_proposal/[nid]" class="btn btn-default">Send for Approval</a>';
   $handler->display->display_options['fields']['views_conditional']['strip_tags'] = 0;
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
