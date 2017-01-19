@@ -43,10 +43,6 @@ function create_proposal_execute_confirm_submit($form, &$form_state) {
 
   $wrapper = entity_metadata_wrapper('node', $form_state['values']['proposal_nid']);
 
-  // Unpublish giving proposal.
-//  $wrapper->status = 0;
-//  $wrapper->save();
-
   // Create a giving plan node in status pending.
   $plan = new stdClass();
   $plan->type = 'giving_plan';
@@ -80,11 +76,31 @@ function create_proposal_execute_confirm_submit($form, &$form_state) {
     $fc_wrapper->save();
   }
 
-  // TODO: Send giving plan to HelloSign.
+  // Send giving proposal to HelloSign.
+  $title = $wrapper->label();
+  $subject = 'Signature required for Benefunder giving proposal';
+  $signers = array(
+    // TODO: use actual client email.
+    'karl@benefunder.com' => 'Karl Scheirer',
+  );
+  // CC emails are configured on the site.
+  $file = $wrapper->field_giving_proposal->value()['uri'];
+  $mode = 'email';
+
+  $result = hellosign_generate_esignature_request($title, $subject, $signers, $file, $mode);
+
+  if ($result['status'] != 1) {
+    $problem_msg = t('There was a problem sending the proposal to HelloSign, please contact Benefunder.');
+    drupal_set_message($problem_msg, 'error');
+  }
+  else {
+    // Success! Unpublish giving proposal.
+    $wrapper->status = 0;
+    $wrapper->save();
+  }
 
   // Send user back to dashboard.
   drupal_goto('user');
-
 }
 
 /**
