@@ -4,26 +4,87 @@
  * Implements hook_menu().
  */
 function create_proposal_menu() {
-  $items['execute_proposal/%node'] = array(
-    'page callback' => 'create_proposal_execute',
-    'page arguments' => array(1),
+  $items['execute_proposal/%'] = array(
+    'title' => 'Send Proposal',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('create_proposal_execute_confirm', 1),
+    'access callback' => array('create_proposal_execute_access'),
+    'access arguments' => array(1),
     'type' => MENU_CALLBACK,
   );
   return $items;
 }
 
-function create_proposal_execute($proposal) {
+function create_proposal_execute_access($proposal_nid) {
   global $user;
 
-  if (!user_access('administer nodes') && ($proposal->uid != $user->uid)) {
-    return;
-  }
+  $proposal = node_load($proposal_nid);
 
-  $wrapper = entity_metadata_wrapper('node', $proposal);
+  return (!empty($proposal) && ($proposal->uid == $user->uid) || user_access('administer nodes'));
+}
+
+function create_proposal_execute_confirm($form, &$form_state, $proposal_nid) {
+  $form['proposal_nid'] = array(
+    '#type' => 'value',
+    '#value' => $proposal_nid,
+  );
+
+  return confirm_form(
+    $form,
+    t('Are you sure you want to send this proposal?'),
+    'user',
+    t('Are you sure you want to send this proposal? This will convert the proposal to a Giving Plan and sent it via HelloSign. This action cannot be undone.'),
+    t('Send Proposal'),
+    t('Cancel')
+  );
+}
+
+function create_proposal_execute_confirm_submit($form, &$form_state) {
+
+  $wrapper = entity_metadata_wrapper('node', $form_state['values']['proposal_nid']);
+
+  // Unpublish giving proposal.
+//  $wrapper->status = 0;
+//  $wrapper->save();
 
   // Create a giving plan node in status pending.
-  // Unpublish giving proposal.
-  // Send giving plan to Hellosign.
+  $plan = new stdClass();
+  $plan->type = 'giving_plan';
+  $plan->title = $wrapper->label();
+  $plan->language = LANGUAGE_NONE;
+  $plan->uid = $wrapper->author->raw();
+  node_object_prepare($plan);
+  $plan->field_planned_initial_contributi[$plan->language][0]['value'] = $wrapper->field_planned_initial_contributi->value();
+  $plan->field_planned_annual_contributio[$plan->language][0]['value'] = $wrapper->field_planned_annual_contributio->value();
+
+  // Set to pending status.
+  $term_array = taxonomy_get_term_by_name('Pending', 'plan_status');
+  $plan->field_plan_status[$plan->language][]['tid'] = array_pop($term_array)->tid;
+
+  // Save Plan.
+  node_save($plan);
+
+  // Add Causes and Allocations.
+  foreach ($wrapper->field_cause as $collection) {
+    $c = $collection->value();
+    $target_id = $c->field_cause_name[LANGUAGE_NONE][0]['target_id'];
+    $alloc = $c->field_cause_allocation[LANGUAGE_NONE][0]['value'];
+
+    $fc = entity_create('field_collection_item', array('field_name' => 'field_cause'));
+    $fc->setHostEntity('node', $plan);
+    $fc->save(TRUE);
+
+    $fc_wrapper = entity_metadata_wrapper('field_collection_item', $fc);
+    $fc_wrapper->field_cause_name = $target_id;
+    $fc_wrapper->field_cause_allocation = $alloc;
+    $fc_wrapper->save();
+  }
+
+  // TODO: Send giving plan to HelloSign.
+
+  // Send user back to dashboard.
+  drupal_goto('user');
+
 }
 
 /**
@@ -76,7 +137,6 @@ function create_proposal_node_presave($node) {
       $cause_node = node_load($cause_nid);
       if (!empty($cause_node)) {
         $html = _entity_print_get_generated_html('node', $cause_node);
-//        dsm($html);
         $pdf->addPage($html);
         $allocations[] = array(
           $cause_node->title,
