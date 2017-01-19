@@ -78,8 +78,10 @@ function create_proposal_execute_confirm_submit($form, &$form_state) {
   }
   else {
     // Success! Set to pending status.
-    $term_array = taxonomy_get_term_by_name('Pending', 'plan_status');
+    drupal_set_message(t('Proposal %name sent out for signatures at HelloSign', array('%name' => $title)));
+    $term_array = taxonomy_get_term_by_name('Pending Acceptance', 'plan_status');
     $wrapper->field_proposal_status = array_pop($term_array)->tid;
+    $wrapper->save();
   }
 
   // Send user back to dashboard.
