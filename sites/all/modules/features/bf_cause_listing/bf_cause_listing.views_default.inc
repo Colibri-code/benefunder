@@ -201,7 +201,7 @@ function bf_cause_listing_views_default_views() {
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
-  $handler->display->display_options['path'] = 'philanthropic-causes';
+  $handler->display->display_options['path'] = 'causes';
   $export['cause_listing'] = $view;
 
   return $export;
