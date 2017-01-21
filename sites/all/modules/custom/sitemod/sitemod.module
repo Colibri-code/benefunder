@@ -17,8 +17,9 @@ function sitemod_form_alter(&$form, &$form_state, $form_id) {
       break;
 
     case 'giving_proposal_node_form':
-      // Set multi column checkboxes for research areas.
-      $form['field_research_areas'][LANGUAGE_NONE]['#multicolumn'] = array('width' => 8);
+      if (!user_access('administer nodes')) {
+        unset($form['field_proposal_status']);
+      }
       break;
   }
 }
