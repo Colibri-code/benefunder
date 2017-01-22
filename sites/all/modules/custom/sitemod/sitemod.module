@@ -118,7 +118,7 @@ function sitemod_preprocess_entity_print(&$variables) {
   $variables['picture'] = $node_wrapper->field_picture->value();
   $variables['current_research'] = $node_wrapper->body->value->value();
   $variables['body'] = $node_wrapper->body->value->value();
-  $variables['summary'] = text_summary($node_wrapper->field_summary->value->value(), 'filtered_html', 750);
+  $variables['summary'] = text_summary($node_wrapper->field_summary->value->value(), 'filtered_html', 450);
 
   // Images.
   $picture = $node_wrapper->field_picture->value();

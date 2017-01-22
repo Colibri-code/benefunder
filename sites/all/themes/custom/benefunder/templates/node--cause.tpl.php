@@ -156,7 +156,7 @@
           </div>
           <?php $block = module_invoke('service_links', 'block_view', 'service_links'); ?>
           <div class="share-block">
-            <a href="/printpdf/<?php print $nid; ?>" class="download-text">Download PDF</a>
+            <a href="/entityprint/node/<?php print $nid; ?>" class="download-text">Download PDF</a>
             <button class="share-text collapsed" data-toggle="collapse" data-target=".share-wrapper">Share</button>
             <div class="share-wrapper collapse">
               <i class="carrot"></i>
