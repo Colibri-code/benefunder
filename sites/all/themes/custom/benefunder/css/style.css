@@ -10166,6 +10166,59 @@ ul.pager.sticky {
   top: -15px;
   right: 45px;
 }
+/* Financial Planner Dashboard */
+.header-buttons {
+  display: inline-block;
+}
+.btn-black {
+  background: #000;
+  color: #fff;
+  display: inline-block;
+  vertical-align: text-bottom;
+  margin-bottom: 10px;
+}
+.btn-black:hover {
+  color: #ddd;
+}
+.btn-purple {
+  background: purple;
+  display: inline-block;
+  margin-left: 10px;
+  color: #fff;
+  vertical-align: text-bottom;
+  margin-bottom: 10px;
+}
+.btn-purple:hover {
+  color: #ddd;
+}
+.pane-user-picture {
+  display: inline-block;
+}
+.pane-user-picture img {
+  width: auto;
+  height: 50px;
+  border-radius: 25px;
+  max-width: 65px;
+}
+.panel-col-top .panel-separator {
+  display: none;
+}
+.panel-pane.pane-custom.pane-6 {
+  display: inline-block;
+}
+.pane-linkedin-profile {
+  display: inline-block;
+}
+.panel-panel.panel-col-top {
+  width: auto !important;
+  float: right;
+}
+.page-user .navbar-default {
+  position: relative;
+}
+.page-user .region-content {
+  padding-top: 5px !important;
+}
 /* ==========================================================================
   Less for footer section
    ========================================================================== */
