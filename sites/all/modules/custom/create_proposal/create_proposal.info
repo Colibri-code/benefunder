@@ -6,3 +6,4 @@ package = Benefunder Custom
 dependencies[] = transliteration
 dependencies[] = phpwkhtmltopdf
 dependencies[] = entity_print
+dependencies[] = hellosign

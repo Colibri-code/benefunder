@@ -148,15 +148,15 @@ function hellosign_get_test_mode() {
  *   Email subject.
  * @param string[] $signers
  *   Array of email addresses.
- * @param string $file
- *   Full path to local system file.
+ * @param string|array $files
+ *   Full path to local system file or files.
  * @param string $mode
  *   Can be embedded or email based signature request.
  *
  * @return array
  *   or "signature_request_id" and "signatures" if 1.
  */
-function hellosign_generate_esignature_request($title, $subject, array $signers, $file, $mode = 'email') {
+function hellosign_generate_esignature_request($title, $subject, array $signers, $files, $mode = 'email') {
 
   try {
     $cc_email_text = hellosign_get_cc_emails();
@@ -212,7 +212,12 @@ function hellosign_generate_esignature_request($title, $subject, array $signers,
     }
 
     // Attach the document.
-    $request->addFile($file);
+    if (!is_array($files)) {
+      $files = array($files);
+    }
+    foreach ($files as $file) {
+      $request->addFile($file);
+    }
 
     // Initiate request.
     // NOTE: The callback url is not set here as it should be handled within

@@ -17,8 +17,9 @@ function sitemod_form_alter(&$form, &$form_state, $form_id) {
       break;
 
     case 'giving_proposal_node_form':
-      // Set multi column checkboxes for research areas.
-      $form['field_research_areas'][LANGUAGE_NONE]['#multicolumn'] = array('width' => 8);
+      if (!user_access('administer nodes')) {
+        unset($form['field_proposal_status']);
+      }
       break;
   }
 }
@@ -115,7 +116,6 @@ function sitemod_preprocess_entity_print(&$variables) {
   $variables['title'] = $node_wrapper->label();
   $variables['subtitle'] = $node_wrapper->field_subtitle->value();
   $variables['name'] = $node_wrapper->field_first_name->value() . ' ' . $node_wrapper->field_last_name->value();
-  $variables['picture'] = $node_wrapper->field_picture->value();
   $variables['current_research'] = $node_wrapper->body->value->value();
   $variables['body'] = $node_wrapper->body->value->value();
   $variables['summary'] = text_summary($node_wrapper->field_summary->value->value(), 'filtered_html', 450);

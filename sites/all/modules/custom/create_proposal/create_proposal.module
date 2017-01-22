@@ -1,6 +1,94 @@
 <?php
 
 /**
+ * Implements hook_menu().
+ */
+function create_proposal_menu() {
+  $items['execute_proposal/%'] = array(
+    'title' => 'Send Proposal',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('create_proposal_execute_confirm', 1),
+    'access callback' => array('create_proposal_execute_access'),
+    'access arguments' => array(1),
+    'type' => MENU_CALLBACK,
+  );
+  return $items;
+}
+
+/**
+ * Menu access to execute a proposal.
+ */
+function create_proposal_execute_access($proposal_nid) {
+  global $user;
+
+  $proposal = node_load($proposal_nid);
+
+  return (!empty($proposal) && ($proposal->uid == $user->uid) || user_access('administer nodes'));
+}
+
+/**
+ * Confirm proposal execute.
+ */
+function create_proposal_execute_confirm($form, &$form_state, $proposal_nid) {
+  $form['proposal_nid'] = array(
+    '#type' => 'value',
+    '#value' => $proposal_nid,
+  );
+
+  return confirm_form(
+    $form,
+    t('Are you sure you want to send this proposal?'),
+    'user',
+    t('Are you sure you want to send this proposal? This will convert the proposal to a Giving Plan and sent it via HelloSign. This action cannot be undone.'),
+    t('Send Proposal'),
+    t('Cancel')
+  );
+}
+
+/**
+ * Proposal execution confirmed, time to do it.
+ *
+ * @throws \EntityMetadataWrapperException
+ */
+function create_proposal_execute_confirm_submit($form, &$form_state) {
+
+  $wrapper = entity_metadata_wrapper('node', $form_state['values']['proposal_nid']);
+  create_proposal_generate_additional_documents($wrapper->value());
+
+  // Send giving proposal to HelloSign.
+  $title = $wrapper->label();
+  $subject = 'Signature required for Benefunder giving proposal';
+  $signers = array(
+    // TODO: use actual client email.
+    'karl.scheirer@gmail.com' => 'Karl Scheirer',
+  );
+  // CC emails are configured on the site.
+
+  // Attach files, these will appear as 1 document to sign.
+  $files[] = $wrapper->field_giving_proposal->value()['uri'];
+  $files[] = $wrapper->field_additional_documents->value()['uri'];
+  $mode = 'email';
+
+  $result = hellosign_generate_esignature_request($title, $subject, $signers, $files, $mode);
+
+  if ($result['status'] != 1) {
+    $problem_msg = t('There was a problem sending the proposal to HelloSign, please contact Benefunder.');
+    drupal_set_message($problem_msg, 'error');
+  }
+  else {
+    // TODO: store the signature_request_id.
+    // Success! Set to pending status.
+    drupal_set_message(t('Proposal %name sent out for signatures at HelloSign', array('%name' => $title)));
+    $term_array = taxonomy_get_term_by_name('Pending Acceptance', 'plan_status');
+    $wrapper->field_proposal_status = array_pop($term_array)->tid;
+    $wrapper->save();
+  }
+
+  // Send user back to dashboard.
+  drupal_goto('user');
+}
+
+/**
  * Implements hook_theme().
  */
 function create_proposal_theme($existing, $type, $theme, $path) {
@@ -9,7 +97,70 @@ function create_proposal_theme($existing, $type, $theme, $path) {
       'base hook' => 'entity_print',
       'template' => 'entity-print--node--cause',
     ),
+    'proposal_extra' => array(
+      'template' => 'proposal-extra',
+      'variables' => array('proposal_wrapper' => NULL),
+    ),
   );
+}
+
+/**
+ * Implements hook_preprocess_hook() for proposal-extra.tpl.php.
+ */
+function create_proposal_preprocess_proposal_extra(&$variables) {
+  $node_wrapper = entity_metadata_wrapper('node', $variables[0]);
+
+  $bank_address = $node_wrapper->field_bank_address->value();
+
+  $variables['aba_number'] = $node_wrapper->field_aba_number_for_wires->value();
+  $variables['ach_number'] = $node_wrapper->field_ach->value();
+  $variables['bank_name'] = $node_wrapper->field_bank_name->value();
+  $variables['account_holder'] = $node_wrapper->field_account_holder->value();
+  $variables['account_number'] = $node_wrapper->field_account_number->value();
+  $variables['bank_street'] = $node_wrapper->field_bank_address->thoroughfare->value();
+  $variables['bank_city_state'] = implode(', ', array(
+    $bank_address['locality'],
+    $bank_address['administrative_area'],
+    $bank_address['postal_code'],
+    $bank_address['country'],
+  ));
+  $variables['swift_code'] = $node_wrapper->field_swift_code->value();
+}
+
+/**
+ * Create addendum PDF document and attach to node.
+ *
+ * @throws \Exception
+ */
+function create_proposal_generate_additional_documents($proposal) {
+  $problem_msg = t('There was a problem creating a proposal addendum, please contact Benefunder.');
+
+  if (($library = libraries_load('phpwkhtmltopdf')) && !empty($library['loaded'])) {
+    $pdf = new WkHtmlToPdf();
+
+    $html = theme('proposal_extra', array($proposal));
+    $pdf->addPage($html);
+
+    $filename = transliteration_clean_filename($proposal->title . '_addendum.pdf');
+    $content = $pdf->toString();
+
+    if ($content === FALSE) {
+      watchdog('create_proposal', 'PDF content error: ' . $pdf->getError(), array(), WATCHDOG_ERROR);
+      drupal_set_message($problem_msg, 'error');
+      return;
+    }
+
+    $file = file_save_data($content, 'private://' . $filename, FILE_EXISTS_REPLACE);
+    if (!$file) {
+      watchdog('create_proposal', 'File save error: ' . $pdf->getError(), array(), WATCHDOG_ERROR);
+      drupal_set_message($problem_msg, 'error');
+    }
+    else {
+      $file->display = '1';
+      $proposal->field_additional_documents[LANGUAGE_NONE][0] = (array) $file;
+      node_save($proposal);
+    }
+  }
 }
 
 /**
@@ -50,7 +201,6 @@ function create_proposal_node_presave($node) {
       $cause_node = node_load($cause_nid);
       if (!empty($cause_node)) {
         $html = _entity_print_get_generated_html('node', $cause_node);
-//        dsm($html);
         $pdf->addPage($html);
         $allocations[] = array(
           $cause_node->title,
@@ -83,4 +233,22 @@ function create_proposal_node_presave($node) {
       $node->field_giving_proposal[LANGUAGE_NONE][0] = (array) $file;
     }
   }
+}
+
+/**
+ * HelloSign Callback Hook.
+ *
+ * @param array $data
+ *   The data sent by HelloSign.
+ */
+function create_proposal_process_hellosign_callback(array $data) {
+//  dd($data);
+//
+//  // Get event info.
+//  $event_type = $data->event->event_type;
+//
+//  if ($event_type == 'signature_request_all_signed') {
+//    drupal_set_message(t('Everybody has signed HelloSign esignature request @request_id.',
+//      array('@request_id' => $data->signature_request->signature_request_id)));
+//  }
 }

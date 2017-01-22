@@ -70,24 +70,27 @@ function bf_my_proposals_views_default_views() {
   $handler->display->display_options['fields']['nid']['label'] = '';
   $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
   $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
-  /* Field: Content: Edit link */
-  $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
-  $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
-  $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
-  $handler->display->display_options['fields']['edit_node']['label'] = '';
-  $handler->display->display_options['fields']['edit_node']['element_label_colon'] = FALSE;
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['label'] = 'Name';
+  $handler->display->display_options['fields']['title']['label'] = 'Proposal Name';
+  $handler->display->display_options['fields']['title']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['title']['alter']['path'] = 'node/[nid]/edit?destination=user';
+  $handler->display->display_options['fields']['title']['alter']['alt'] = 'Edit [title]';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
+  /* Field: Content: Status */
+  $handler->display->display_options['fields']['field_proposal_status']['id'] = 'field_proposal_status';
+  $handler->display->display_options['fields']['field_proposal_status']['table'] = 'field_data_field_proposal_status';
+  $handler->display->display_options['fields']['field_proposal_status']['field'] = 'field_proposal_status';
+  $handler->display->display_options['fields']['field_proposal_status']['type'] = 'taxonomy_term_reference_plain';
   /* Field: Content: Giving Proposal */
   $handler->display->display_options['fields']['field_giving_proposal']['id'] = 'field_giving_proposal';
   $handler->display->display_options['fields']['field_giving_proposal']['table'] = 'field_data_field_giving_proposal';
   $handler->display->display_options['fields']['field_giving_proposal']['field'] = 'field_giving_proposal';
-  $handler->display->display_options['fields']['field_giving_proposal']['label'] = 'Download';
+  $handler->display->display_options['fields']['field_giving_proposal']['label'] = 'Download Proposal';
   $handler->display->display_options['fields']['field_giving_proposal']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_giving_proposal']['settings'] = array(
     'file_view_mode' => 'media_small',
@@ -100,7 +103,7 @@ function bf_my_proposals_views_default_views() {
   $handler->display->display_options['fields']['views_conditional']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['views_conditional']['if'] = 'field_giving_proposal';
   $handler->display->display_options['fields']['views_conditional']['condition'] = '6';
-  $handler->display->display_options['fields']['views_conditional']['then'] = '<a href="/execute_proposal/[nid]?destination=user" class="button">Send for Approval</a>';
+  $handler->display->display_options['fields']['views_conditional']['then'] = '<a href="/execute_proposal/[nid]" class="btn btn-default">Send for Approval</a>';
   $handler->display->display_options['fields']['views_conditional']['strip_tags'] = 0;
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
