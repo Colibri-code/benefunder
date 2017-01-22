@@ -11,7 +11,7 @@ while ($row = fgetcsv($f)) {
     $current_term = $row[0];
     $current_tid = array_pop($taxonomy_array)->tid;
     if (empty($current_tid)) {
-      echo 'Could not find term id for: ' . $row[0] . PHP_EOL;
+      echo 'Could not find TERM id for: ' . $row[0] . PHP_EOL;
       continue;
     }
   }
@@ -22,7 +22,7 @@ while ($row = fgetcsv($f)) {
   )->fetchField();
 
   if (empty($cause_nid)) {
-    echo 'Could not find node ID for: ' . $row[1] . PHP_EOL;
+    echo 'Could not find NODE id for: ' . $row[1] . PHP_EOL;
   }
   else {
     $cause_wrapper = entity_metadata_wrapper('node', $cause_nid);
