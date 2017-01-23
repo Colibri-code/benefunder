@@ -131,9 +131,9 @@ function sitemod_preprocess_entity_print(&$variables) {
 
   $academic_positions = array();
   foreach ($node_wrapper->field_academic_position as $position) {
-    list($post, $school, $when) = preg_split('/\<br\s?\/?>/i', $position->value()['safe_value']);
-    if (isset($when) && stripos($when, 'current') !== FALSE) {
-      $academic_positions[] = $post;
+    $post_array = preg_split('/\<br\s?\/?>/i', $position->value()['safe_value']);
+    if (!isset($post_array[2]) || (isset($post_array[2]) && stripos($post_array[2], 'current') !== FALSE)) {
+      $academic_positions[] = $post_array[0];
     }
   }
   if (!empty($academic_positions)) {
