@@ -173,10 +173,14 @@
     <button class="btn read_more_btn">Read More on Benefunder.com</button>
   </div>
   <div class="pdf_body_content_right">
-    <h3 class="header_title">Awards</h3>
-    <?php if (!empty($awards)): ?><div class="pdf_awards"><?php print $awards ?></div><?php endif; ?>
-    <h3 class="header_title">Stage of Research</h3>
-    <div class="pdf_stage">Translational</div>
+    <?php if (!empty($awards)): ?>
+      <h3 class="header_title">Awards</h3>
+      <div class="pdf_awards"><?php print $awards ?></div>
+    <?php endif; ?>
+    <?php if (!empty($research_stage)): ?>
+      <h3 class="header_title">Stage of Research</h3>
+      <div class="pdf_stage"><?php print $research_stage ?></div>
+    <?php endif; ?>
   </div>
 </div>
 
