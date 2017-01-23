@@ -33,6 +33,16 @@ if (isset($_SERVER['PANTHEON_ENVIRONMENT']) &&
   }
 }
 
+// Per-Environment variables for Pantheon only.
+if (isset($_SERVER['PANTHEON_ENVIRONMENT'])) {
+
+  // Only on dev web environment.
+  if ($_SERVER['PANTHEON_ENVIRONMENT'] == 'dev') {
+    $conf['linkedin_consumer_key'] = '78k2ndkgahdokm';
+    $conf['linkedin_consumer_secret'] = 'zE89nodVnoHgYlt6';
+  }
+}
+
 // All Pantheon Environments.
 if (defined('PANTHEON_ENVIRONMENT')) {
 
