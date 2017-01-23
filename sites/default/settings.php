@@ -61,6 +61,7 @@ if (defined('PANTHEON_ENVIRONMENT')) {
   // Hellosign credentials.
   $conf['hellosign_api_key'] = '224e350f27213febd04b7c272e3fb7b0482fdc06163cd6e59ed333c5e4d0d630';
   $conf['hellosign_client_id'] = '04a26a2e01407f7b0ccfeea8e7965d86';
+  $conf['hellosign_test_mode'] = 1;
 
   // Use Redis for caching.
   $conf['redis_client_interface'] = 'PhpRedis';
