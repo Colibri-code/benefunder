@@ -817,6 +817,250 @@ function bf_giving_proposal_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-giving_proposal-field_aba_number_for_wires'.
+  $field_instances['node-giving_proposal-field_aba_number_for_wires'] = array(
+    'bundle' => 'giving_proposal',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 34,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'ds_extras_field_template' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_aba_number_for_wires',
+    'label' => 'ABA Number for Wires',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 12,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 48,
+    ),
+  );
+
+  // Exported field_instance: 'node-giving_proposal-field_account_holder'.
+  $field_instances['node-giving_proposal-field_account_holder'] = array(
+    'bundle' => 'giving_proposal',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 38,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'ds_extras_field_template' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_account_holder',
+    'label' => 'Account Holder',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 25,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 52,
+    ),
+  );
+
+  // Exported field_instance: 'node-giving_proposal-field_account_number'.
+  $field_instances['node-giving_proposal-field_account_number'] = array(
+    'bundle' => 'giving_proposal',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 37,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'ds_extras_field_template' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_account_number',
+    'label' => 'Account Number',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 12,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 51,
+    ),
+  );
+
+  // Exported field_instance: 'node-giving_proposal-field_ach'.
+  $field_instances['node-giving_proposal-field_ach'] = array(
+    'bundle' => 'giving_proposal',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 35,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'ds_extras_field_template' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_ach',
+    'label' => 'ACH',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 12,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 49,
+    ),
+  );
+
+  // Exported field_instance: 'node-giving_proposal-field_addendum'.
+  $field_instances['node-giving_proposal-field_addendum'] = array(
+    'bundle' => 'giving_proposal',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'markup',
+        'settings' => array(),
+        'type' => 'markup_default',
+        'weight' => 44,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'ds_extras_field_template' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_addendum',
+    'label' => 'Addendum',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'markup',
+      'settings' => array(),
+      'type' => 'markup',
+      'weight' => 61,
+    ),
+  );
+
+  // Exported field_instance: 'node-giving_proposal-field_additional_documents'.
+  $field_instances['node-giving_proposal-field_additional_documents'] = array(
+    'bundle' => 'giving_proposal',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'file',
+        'settings' => array(),
+        'type' => 'file_default',
+        'weight' => 33,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'ds_extras_field_template' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_additional_documents',
+    'label' => 'Additional Documents',
+    'required' => 0,
+    'settings' => array(
+      'description_field' => 0,
+      'file_directory' => '',
+      'file_extensions' => 'pdf',
+      'max_filesize' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'file',
+      'settings' => array(
+        'progress_indicator' => 'throbber',
+      ),
+      'type' => 'file_generic',
+      'weight' => 3,
+    ),
+  );
+
   // Exported field_instance: 'node-giving_proposal-field_already_have_daf'.
   $field_instances['node-giving_proposal-field_already_have_daf'] = array(
     'bundle' => 'giving_proposal',
@@ -898,7 +1142,7 @@ function bf_giving_proposal_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 34,
+      'weight' => 58,
     ),
   );
 
@@ -943,8 +1187,8 @@ function bf_giving_proposal_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-giving_proposal-field_analyst_feedback_2'.
-  $field_instances['node-giving_proposal-field_analyst_feedback_2'] = array(
+  // Exported field_instance: 'node-giving_proposal-field_bank_address'.
+  $field_instances['node-giving_proposal-field_bank_address'] = array(
     'bundle' => 'giving_proposal',
     'default_value' => NULL,
     'deleted' => 0,
@@ -952,10 +1196,15 @@ function bf_giving_proposal_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'text',
-        'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 28,
+        'module' => 'addressfield',
+        'settings' => array(
+          'format_handlers' => array(
+            0 => 'address',
+          ),
+          'use_widget_handlers' => 1,
+        ),
+        'type' => 'addressfield_default',
+        'weight' => 39,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -966,8 +1215,61 @@ function bf_giving_proposal_field_default_field_instances() {
     ),
     'ds_extras_field_template' => '',
     'entity_type' => 'node',
-    'field_name' => 'field_analyst_feedback_2',
-    'label' => 'Advisor Feedback',
+    'field_name' => 'field_bank_address',
+    'label' => 'Bank Address',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'addressfield',
+      'settings' => array(
+        'available_countries' => array(
+          'US' => 'US',
+        ),
+        'default_country' => 'site_default',
+        'format_handlers' => array(
+          'address' => 'address',
+          'address-optional' => 'address-optional',
+          'address-hide-postal-code' => 0,
+          'address-hide-street' => 0,
+          'address-hide-country' => 0,
+          'organisation' => 0,
+          'name-full' => 0,
+          'name-oneline' => 0,
+        ),
+      ),
+      'type' => 'addressfield_standard',
+      'weight' => 53,
+    ),
+  );
+
+  // Exported field_instance: 'node-giving_proposal-field_bank_name'.
+  $field_instances['node-giving_proposal-field_bank_name'] = array(
+    'bundle' => 'giving_proposal',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 36,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'ds_extras_field_template' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_bank_name',
+    'label' => 'Bank Name',
     'required' => 0,
     'settings' => array(
       'text_processing' => 0,
@@ -977,10 +1279,10 @@ function bf_giving_proposal_field_default_field_instances() {
       'active' => 1,
       'module' => 'text',
       'settings' => array(
-        'rows' => 5,
+        'size' => 25,
       ),
-      'type' => 'text_textarea',
-      'weight' => 38,
+      'type' => 'text_textfield',
+      'weight' => 50,
     ),
   );
 
@@ -1072,6 +1374,50 @@ function bf_giving_proposal_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-giving_proposal-field_client_approval'.
+  $field_instances['node-giving_proposal-field_client_approval'] = array(
+    'bundle' => 'giving_proposal',
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 42,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'ds_extras_field_template' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_client_approval',
+    'label' => 'Client Approval',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'display_label' => 1,
+      ),
+      'type' => 'options_onoff',
+      'weight' => 56,
+    ),
+  );
+
   // Exported field_instance: 'node-giving_proposal-field_client_feedback'.
   $field_instances['node-giving_proposal-field_client_feedback'] = array(
     'bundle' => 'giving_proposal',
@@ -1109,7 +1455,7 @@ function bf_giving_proposal_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 33,
+      'weight' => 57,
     ),
   );
 
@@ -1151,47 +1497,6 @@ function bf_giving_proposal_field_default_field_instances() {
       ),
       'type' => 'text_textarea',
       'weight' => 35,
-    ),
-  );
-
-  // Exported field_instance: 'node-giving_proposal-field_client_feedback_2'.
-  $field_instances['node-giving_proposal-field_client_feedback_2'] = array(
-    'bundle' => 'giving_proposal',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'text',
-        'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 27,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'ds_extras_field_template' => '',
-    'entity_type' => 'node',
-    'field_name' => 'field_client_feedback_2',
-    'label' => 'Client Feedback',
-    'required' => 0,
-    'settings' => array(
-      'text_processing' => 0,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'text',
-      'settings' => array(
-        'rows' => 5,
-      ),
-      'type' => 'text_textarea',
-      'weight' => 37,
     ),
   );
 
@@ -1266,7 +1571,44 @@ function bf_giving_proposal_field_default_field_instances() {
       'module' => 'markup',
       'settings' => array(),
       'type' => 'markup',
-      'weight' => 40,
+      'weight' => 41,
+    ),
+  );
+
+  // Exported field_instance: 'node-giving_proposal-field_distribution'.
+  $field_instances['node-giving_proposal-field_distribution'] = array(
+    'bundle' => 'giving_proposal',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'markup',
+        'settings' => array(),
+        'type' => 'markup_default',
+        'weight' => 45,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'ds_extras_field_template' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_distribution',
+    'label' => 'Distribution',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'markup',
+      'settings' => array(),
+      'type' => 'markup',
+      'weight' => 8,
     ),
   );
 
@@ -1617,6 +1959,176 @@ function bf_giving_proposal_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-giving_proposal-field_proposal_status'.
+  $field_instances['node-giving_proposal-field_proposal_status'] = array(
+    'bundle' => 'giving_proposal',
+    'default_value' => array(
+      0 => array(
+        'tid' => 297,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 32,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'ds_extras_field_template' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_proposal_status',
+    'label' => 'Status',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'apply_chosen' => '',
+      ),
+      'type' => 'options_select',
+      'weight' => 1,
+    ),
+  );
+
+  // Exported field_instance: 'node-giving_proposal-field_ready_to_send'.
+  $field_instances['node-giving_proposal-field_ready_to_send'] = array(
+    'bundle' => 'giving_proposal',
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => 'Is this proposal ready to go out to Benefunder and HelloSign? Check this box and click the "Save" button, and Benefunder will take care of the rest!',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 43,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'ds_extras_field_template' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_ready_to_send',
+    'label' => 'Ready to Send',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'display_label' => 1,
+      ),
+      'type' => 'options_onoff',
+      'weight' => 59,
+    ),
+  );
+
+  // Exported field_instance: 'node-giving_proposal-field_signature_request_id'.
+  $field_instances['node-giving_proposal-field_signature_request_id'] = array(
+    'bundle' => 'giving_proposal',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 41,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'ds_extras_field_template' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_signature_request_id',
+    'label' => 'Signature Request ID',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 25,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 60,
+    ),
+  );
+
+  // Exported field_instance: 'node-giving_proposal-field_swift_code'.
+  $field_instances['node-giving_proposal-field_swift_code'] = array(
+    'bundle' => 'giving_proposal',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 40,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'ds_extras_field_template' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_swift_code',
+    'label' => 'SWIFT Code',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 12,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 54,
+    ),
+  );
+
   // Exported field_instance: 'node-giving_proposal-field_vehicle_name'.
   $field_instances['node-giving_proposal-field_vehicle_name'] = array(
     'bundle' => 'giving_proposal',
@@ -1707,17 +2219,27 @@ function bf_giving_proposal_field_default_field_instances() {
 
   // Translatables
   // Included for use with string extractors like potx.
+  t('ABA Number for Wires');
+  t('ACH');
+  t('Account Holder');
+  t('Account Number');
+  t('Addendum');
+  t('Additional Documents');
   t('Advisor Feedback');
   t('Age');
   t('Allocation');
   t('Already Have DAF');
   t('Alumni Affiliations');
   t('Are they giving on behalf of others?');
+  t('Bank Address');
+  t('Bank Name');
   t('Cause');
   t('Charitable Vehicle');
+  t('Client Approval');
   t('Client Feedback');
   t('Contribution Funding');
   t('DAF Forms');
+  t('Distribution');
   t('Do they like conceptual or concrete Causes?');
   t('Do they want to be engaged with their Causes?');
   t('Do they want to give locally or nationally?');
@@ -1731,6 +2253,7 @@ function bf_giving_proposal_field_default_field_instances() {
   t('Inspiration');
   t('Intro Text');
   t('Is there a history of chronic or genetic illness in the family?');
+  t('Is this proposal ready to go out to Benefunder and HelloSign? Check this box and click the "Save" button, and Benefunder will take care of the rest!');
   t('Mother\'s name, In memoriam, etc.');
   t('Museums, Church, School, Cultural, etc.');
   t('Music, Literature, etc');
@@ -1739,11 +2262,15 @@ function bf_giving_proposal_field_default_field_instances() {
   t('Planned Annual Contributions');
   t('Planned Annual Distribution');
   t('Planned Initial Contribution');
+  t('Ready to Send');
   t('Relationship');
   t('Research Areas');
   t('Research Stage');
+  t('SWIFT Code');
+  t('Signature Request ID');
   t('Site visits, Events, Meetings, Calls, etc.');
   t('Sports, Dance, etc');
+  t('Status');
   t('Vehicle Name');
   t('Vehicle Type');
   t('What are their areas of expertise, skills or aptitudes?');

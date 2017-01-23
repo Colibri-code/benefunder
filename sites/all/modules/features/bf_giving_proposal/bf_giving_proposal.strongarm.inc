@@ -22,13 +22,13 @@ function bf_giving_proposal_strongarm() {
           'weight' => '0',
         ),
         'path' => array(
-          'weight' => '4',
+          'weight' => '5',
         ),
         'redirect' => array(
-          'weight' => '2',
+          'weight' => '3',
         ),
         'xmlsitemap' => array(
-          'weight' => '3',
+          'weight' => '4',
         ),
       ),
       'display' => array(),
@@ -79,34 +79,6 @@ function bf_giving_proposal_strongarm() {
   $strongarm->name = 'pathauto_node_giving_proposal_pattern';
   $strongarm->value = '';
   $export['pathauto_node_giving_proposal_pattern'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'pathauto_taxonomy_term_charitable_vehicle_type_pattern';
-  $strongarm->value = '';
-  $export['pathauto_taxonomy_term_charitable_vehicle_type_pattern'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'pathauto_taxonomy_term_non_profit_list_pattern';
-  $strongarm->value = '';
-  $export['pathauto_taxonomy_term_non_profit_list_pattern'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'pathauto_taxonomy_term_research_keywords_pattern';
-  $strongarm->value = '';
-  $export['pathauto_taxonomy_term_research_keywords_pattern'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'pathauto_taxonomy_term_research_stages_pattern';
-  $strongarm->value = '';
-  $export['pathauto_taxonomy_term_research_stages_pattern'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
