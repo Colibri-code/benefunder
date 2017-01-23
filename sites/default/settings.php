@@ -55,6 +55,9 @@ if (isset($_SERVER['PANTHEON_ENVIRONMENT'])) {
 // All Pantheon Environments.
 if (defined('PANTHEON_ENVIRONMENT')) {
 
+  // Set path to wkhtmltopdf.
+  $conf['entity_print_wkhtmltopdf'] = '/srv/bin/wkhtmltopdf';
+
   // Use Redis for caching.
   $conf['redis_client_interface'] = 'PhpRedis';
   $conf['cache_backends'][] = 'sites/all/modules/contrib/redis/redis.autoload.inc';
