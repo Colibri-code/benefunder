@@ -10169,6 +10169,10 @@ ul.pager.sticky {
 /* Financial Planner Dashboard */
 .header-buttons {
   display: inline-block;
+  font-size: 10px;
+}
+.header-buttons .btn {
+  font-size: 10px;
 }
 .btn-black {
   background: #000;
@@ -10193,6 +10197,7 @@ ul.pager.sticky {
 }
 .pane-user-picture {
   display: inline-block;
+  margin: 0 10px;
 }
 .pane-user-picture img {
   width: auto;
@@ -10208,16 +10213,92 @@ ul.pager.sticky {
 }
 .pane-linkedin-profile {
   display: inline-block;
+  text-align: left;
+  vertical-align: bottom;
+}
+.linkedin-profile {
+  font-size: 10px;
+}
+.linkedin-profile ul {
+  list-style-type: none;
+  list-style-image: none;
+  -webkit-padding-start: 0;
 }
 .panel-panel.panel-col-top {
-  width: auto !important;
+  text-align: right;
   float: right;
+  margin-bottom: 35px;
+  margin-top: 5px;
+}
+.pane-views-my-clients-block {
+  padding-top: 50px;
+}
+.pane-views-my-clients-block .btn-purple {
+  margin-left: 0;
+}
+body.page-user {
+  background-color: #fff;
 }
 .page-user .navbar-default {
   position: relative;
 }
 .page-user .region-content {
   padding-top: 5px !important;
+}
+.page-user .nav-tabs {
+  position: absolute;
+  right: 0;
+  z-index: 1000;
+  border: none;
+}
+.page-user .nav-tabs a.active {
+  display: none;
+}
+.page-user .nav-tabs > li > a {
+  border: none;
+  border-radius: 0;
+  font-size: 10px;
+}
+.fa-dashboard-links {
+  display: flex;
+  justify-content: space-between;
+  margin: 50px 0px;
+}
+@media (max-width: 767px) {
+  .fa-dashboard-links {
+    display: block;
+    margin: 25px 0px;
+  }
+}
+@media (max-width: 768px) {
+  .fa-links {
+    width: 100%;
+    display: block;
+  }
+}
+.fa:before {
+  padding-right: 5px;
+}
+.sample_proposals img {
+  max-width: 100%;
+}
+/* Vimeo Videos styles */
+.videoWrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  /* 16:9 */
+  padding-top: 25px;
+  height: 0;
+}
+.videoWrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.video_wrapper {
+  text-align: center;
 }
 /* ==========================================================================
   Less for footer section
@@ -10397,5 +10478,4 @@ footer .copyright-section .privacy-menu li a:hover {
   text-decoration: none;
   color: #999933;
 }
-
 /*# sourceMappingURL=style.css.map */
