@@ -9,6 +9,7 @@ dependencies[] = linkedin_profile
 dependencies[] = page_manager
 dependencies[] = panels
 dependencies[] = panels_extra_layouts
+dependencies[] = create_proposal
 features[ctools][] = page_manager:pages_default:1
 features[fe_block_settings][] = linkedin_profile-linkedin_profile
 features[features_api][] = api:2
