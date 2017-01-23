@@ -119,25 +119,13 @@ function bf_fa_dashboard_default_page_manager_handlers() {
   $display->content['new-f4f6b5c8-11b6-4542-8408-1b3bc421a547'] = $pane;
   $display->panels['left_above'][0] = 'new-f4f6b5c8-11b6-4542-8408-1b3bc421a547';
   $pane = new stdClass();
-  $pane->pid = 'new-010d57d4-28b1-450b-bf8d-e5e8498be38c';
+  $pane->pid = 'new-42aa948c-a67f-41c1-ae4c-ff36c53e1b51';
   $pane->panel = 'middle';
-  $pane->type = 'views';
-  $pane->subtype = 'my_clients';
+  $pane->type = 'block';
+  $pane->subtype = 'views-my_clients-block';
   $pane->shown = TRUE;
   $pane->access = array();
   $pane->configuration = array(
-    'override_pager_settings' => 0,
-    'use_pager' => 0,
-    'nodes_per_page' => '0',
-    'pager_id' => '0',
-    'offset' => '0',
-    'more_link' => 0,
-    'feed_icons' => 0,
-    'panel_args' => 0,
-    'link_to_view' => 0,
-    'args' => '',
-    'url' => '',
-    'display' => 'default',
     'override_title' => 0,
     'override_title_text' => '',
     'override_title_heading' => 'h2',
@@ -150,9 +138,9 @@ function bf_fa_dashboard_default_page_manager_handlers() {
   $pane->extras = array();
   $pane->position = 0;
   $pane->locks = array();
-  $pane->uuid = '010d57d4-28b1-450b-bf8d-e5e8498be38c';
-  $display->content['new-010d57d4-28b1-450b-bf8d-e5e8498be38c'] = $pane;
-  $display->panels['middle'][0] = 'new-010d57d4-28b1-450b-bf8d-e5e8498be38c';
+  $pane->uuid = '42aa948c-a67f-41c1-ae4c-ff36c53e1b51';
+  $display->content['new-42aa948c-a67f-41c1-ae4c-ff36c53e1b51'] = $pane;
+  $display->panels['middle'][0] = 'new-42aa948c-a67f-41c1-ae4c-ff36c53e1b51';
   $pane = new stdClass();
   $pane->pid = 'new-1f09da26-89e1-4579-bb58-24771112ebeb';
   $pane->panel = 'middle';
@@ -164,11 +152,27 @@ function bf_fa_dashboard_default_page_manager_handlers() {
     'admin_title' => 'FA Dash Links',
     'title' => '<none>',
     'title_heading' => 'h2',
-    'body' => '<a href="/">Client Facing Materials</a>
-<a href="/">Advisor Materials</a>
-<a href="/search/site">Search All Causes</a>
-<a href="/">Request a Cause</a>
-<a href="/">Help Desk/Tutortials</a>
+    'body' => '<div class="fa-dashboard-links">
+<div class="fa-links">
+<div class="fa fa-comments">&nbsp;<a href="/">Client Facing Materials</a></div>
+</div>
+
+<div class="fa-links">
+<div class="fa fa-file">&nbsp;<a href="/">Advisor Materials</a></div>
+</div>
+
+<div class="fa-links">
+<div class="fa fa-map-marker">&nbsp;<a href="/search/site">Search All Causes</a></div>
+</div>
+
+<div class="fa-links">
+<div class="fa fa-heart">&nbsp;<a href="/">Request a Cause</a></div>
+</div>
+
+<div class="fa-links">
+<div class="fa fa-phone">&nbsp;<a href="“/">Help Desk/Tutorials</a></div>
+</div>
+</div>
 ',
     'format' => 'full_html',
     'substitute' => 0,
@@ -195,10 +199,17 @@ function bf_fa_dashboard_default_page_manager_handlers() {
     'admin_title' => 'FA Dash Sample Proposals',
     'title' => '<none>',
     'title_heading' => 'h2',
-    'body' => '<p>Use these sample proposals to get a philanthropy conversation started with your clients. Download the brochure and talking points here. Need more help? Contact us for more.</p>
-<p><a href="/sites/default/files/John%20Legacy%20Giving%20Plan.pdf">John Legacy Giving Plan</a> 
-<a href="/sites/default/files/John%20Legacy%20Giving%20Plan.pdf">Clean Energy</a> 
-<a href="/sites/default/files/John%20Legacy%20Giving%20Plan.pdf">Veterans Impact Fund</a></p>
+    'body' => '<div class="col-sm-6">
+<p>Use these sample proposals to get a philanthropy conversation started with your clients. Download the brochure and talking points here. Need more help? Contact us for more.</p>
+</div>
+
+<div class="col-sm-6">
+<div class="col-sm-4"><a href="/sites/default/files/John%20Legacy%20Giving%20Plan.pdf"><img alt="John Legacy Giving Plan" src="/sites/all/themes/custom/benefunder/media/images/John_Legacy_Giving_Plan.png" /></a></div>
+
+<div class="col-sm-4"><a href="/sites/default/files/John%20Legacy%20Giving%20Plan.pdf"><img alt="Clean Energy" src="/sites/all/themes/custom/benefunder/media/images/Issuu_Clean_Energy_Impact_Fund.png" /></a></div>
+
+<div class="col-sm-4"><a href="/sites/default/files/John%20Legacy%20Giving%20Plan.pdf"><img alt="Veterans Impact Fund" src="/sites/all/themes/custom/benefunder/media/images/Veteran_Impact_Fund.png" /></a></div>
+</div>
 ',
     'format' => 'full_html',
     'substitute' => 0,
@@ -207,7 +218,10 @@ function bf_fa_dashboard_default_page_manager_handlers() {
   $pane->style = array(
     'settings' => NULL,
   );
-  $pane->css = array();
+  $pane->css = array(
+    'css_id' => '',
+    'css_class' => 'row sample_proposals',
+  );
   $pane->extras = array();
   $pane->position = 2;
   $pane->locks = array();
@@ -241,6 +255,35 @@ function bf_fa_dashboard_default_page_manager_handlers() {
   $display->content['new-202f6fa5-a98a-4e33-98cf-22cd45956b63'] = $pane;
   $display->panels['right_above'][0] = 'new-202f6fa5-a98a-4e33-98cf-22cd45956b63';
   $pane = new stdClass();
+  $pane->pid = 'new-e688a1d8-91d4-459c-b4fd-5601f8417943';
+  $pane->panel = 'top';
+  $pane->type = 'custom';
+  $pane->subtype = 'custom';
+  $pane->shown = TRUE;
+  $pane->access = array();
+  $pane->configuration = array(
+    'admin_title' => 'Header Action Buttons',
+    'title' => '',
+    'title_heading' => 'h2',
+    'body' => '<div><a class="btn btn-black" href="#">Help Desk</a><a class="btn btn-purple" href="/node/add/giving-proposal">+ Create a Proposal</a></div>',
+    'format' => 'full_html',
+    'substitute' => 1,
+  );
+  $pane->cache = array();
+  $pane->style = array(
+    'settings' => NULL,
+  );
+  $pane->css = array(
+    'css_id' => '',
+    'css_class' => 'header-buttons',
+  );
+  $pane->extras = array();
+  $pane->position = 0;
+  $pane->locks = array();
+  $pane->uuid = 'e688a1d8-91d4-459c-b4fd-5601f8417943';
+  $display->content['new-e688a1d8-91d4-459c-b4fd-5601f8417943'] = $pane;
+  $display->panels['top'][0] = 'new-e688a1d8-91d4-459c-b4fd-5601f8417943';
+  $pane = new stdClass();
   $pane->pid = 'new-56dd288f-68a5-46b0-afee-689063d8cc21';
   $pane->panel = 'top';
   $pane->type = 'user_picture';
@@ -259,34 +302,11 @@ function bf_fa_dashboard_default_page_manager_handlers() {
   );
   $pane->css = array();
   $pane->extras = array();
-  $pane->position = 0;
+  $pane->position = 1;
   $pane->locks = array();
   $pane->uuid = '56dd288f-68a5-46b0-afee-689063d8cc21';
   $display->content['new-56dd288f-68a5-46b0-afee-689063d8cc21'] = $pane;
-  $display->panels['top'][0] = 'new-56dd288f-68a5-46b0-afee-689063d8cc21';
-  $pane = new stdClass();
-  $pane->pid = 'new-757f5856-b01f-44b5-b286-f0575d57b7ea';
-  $pane->panel = 'top';
-  $pane->type = 'block';
-  $pane->subtype = 'linkedin_profile-linkedin_profile';
-  $pane->shown = TRUE;
-  $pane->access = array();
-  $pane->configuration = array(
-    'override_title' => 1,
-    'override_title_text' => '<none>',
-    'override_title_heading' => 'h2',
-  );
-  $pane->cache = array();
-  $pane->style = array(
-    'settings' => NULL,
-  );
-  $pane->css = array();
-  $pane->extras = array();
-  $pane->position = 1;
-  $pane->locks = array();
-  $pane->uuid = '757f5856-b01f-44b5-b286-f0575d57b7ea';
-  $display->content['new-757f5856-b01f-44b5-b286-f0575d57b7ea'] = $pane;
-  $display->panels['top'][1] = 'new-757f5856-b01f-44b5-b286-f0575d57b7ea';
+  $display->panels['top'][1] = 'new-56dd288f-68a5-46b0-afee-689063d8cc21';
   $pane = new stdClass();
   $pane->pid = 'new-bfe099a5-a857-43d5-9304-c075c0ee779a';
   $pane->panel = 'top';

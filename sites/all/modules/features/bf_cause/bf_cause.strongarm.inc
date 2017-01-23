@@ -50,6 +50,12 @@ function bf_cause_strongarm() {
         'path' => array(
           'weight' => '5',
         ),
+        'redirect' => array(
+          'weight' => '30',
+        ),
+        'xmlsitemap' => array(
+          'weight' => '30',
+        ),
       ),
       'display' => array(),
     ),
@@ -93,6 +99,37 @@ function bf_cause_strongarm() {
   $strongarm->name = 'node_submitted_cause';
   $strongarm->value = 0;
   $export['node_submitted_cause'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_cause_pattern';
+  $strongarm->value = 'causes/[node:nid]/[node:field_first_name]-[node:field_last_name]';
+  $export['pathauto_node_cause_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_taxonomy_term_research_area_pattern';
+  $strongarm->value = 'hidden/[term:name]';
+  $export['pathauto_taxonomy_term_research_area_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_taxonomy_term_university_or_institution_pattern';
+  $strongarm->value = 'hidden/[term:name]';
+  $export['pathauto_taxonomy_term_university_or_institution_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'xmlsitemap_settings_node_cause';
+  $strongarm->value = array(
+    'status' => '1',
+    'priority' => '0.5',
+  );
+  $export['xmlsitemap_settings_node_cause'] = $strongarm;
 
   return $export;
 }
