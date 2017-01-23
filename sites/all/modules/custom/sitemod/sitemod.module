@@ -18,7 +18,9 @@ function sitemod_form_alter(&$form, &$form_state, $form_id) {
 
     case 'giving_proposal_node_form':
       if (!user_access('administer nodes')) {
+        // Private fields.
         unset($form['field_proposal_status']);
+        unset($form['field_signature_request_id']);
       }
       break;
   }
