@@ -151,3 +151,16 @@ function sitemod_preprocess_entity_print(&$variables) {
     $variables['awards'] = "<ul><li>" . implode("</li><li>", $awards) . "</li></ul>";
   }
 }
+
+/**
+ * Implements hook_preprocess_HOOK().
+ *
+ * Set up additional variables for printing PDFs.
+ */
+function sitemod_preprocess_search_result(&$variables) {
+  $result = $variables[‘search_teaser’];
+if(strlen($result[‘snippet’]) < 10) {
+    $variables[‘snippet’] = drupal_substr($result[‘node’]->body[‘und’][0][‘value’], 160);
+  }
+}
+

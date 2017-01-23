@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the BF FA Dashboard feature.
+ */
+
+include_once 'bf_fa_dashboard.features.inc';

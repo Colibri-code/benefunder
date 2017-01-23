@@ -342,8 +342,10 @@ function bf_cause_field_default_field_instances() {
       'search_result' => array(
         'label' => 'hidden',
         'module' => 'text',
-        'settings' => array(),
-        'type' => 'text_default',
+        'settings' => array(
+          'trim_length' => 350,
+        ),
+        'type' => 'text_summary_or_trimmed',
         'weight' => 2,
       ),
       'teaser' => array(
