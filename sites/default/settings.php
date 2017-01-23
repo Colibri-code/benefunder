@@ -35,11 +35,20 @@ if (isset($_SERVER['PANTHEON_ENVIRONMENT']) &&
 
 // Per-Environment variables for Pantheon only.
 if (isset($_SERVER['PANTHEON_ENVIRONMENT'])) {
-
-  // Only on dev web environment.
+  // DEV environment.
   if ($_SERVER['PANTHEON_ENVIRONMENT'] == 'dev') {
     $conf['linkedin_consumer_key'] = '78k2ndkgahdokm';
     $conf['linkedin_consumer_secret'] = 'zE89nodVnoHgYlt6';
+  }
+  // TEST environment.
+  elseif ($_SERVER['PANTHEON_ENVIRONMENT'] == 'test') {
+    $conf['linkedin_consumer_key'] = '78jvscf2g0zcsu';
+    $conf['linkedin_consumer_secret'] = 'VFxrlvr4lJRaaJil';
+  }
+  // PROD environment.
+  elseif ($_SERVER['PANTHEON_ENVIRONMENT'] == 'live') {
+    $conf['linkedin_consumer_key'] = '781hc8muzcmorx';
+    $conf['linkedin_consumer_secret'] = '0nYYDfzJt0vfTdtC';
   }
 }
 
