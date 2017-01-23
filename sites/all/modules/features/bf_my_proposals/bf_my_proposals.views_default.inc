@@ -90,7 +90,8 @@ function bf_my_proposals_views_default_views() {
   $handler->display->display_options['fields']['field_giving_proposal']['id'] = 'field_giving_proposal';
   $handler->display->display_options['fields']['field_giving_proposal']['table'] = 'field_data_field_giving_proposal';
   $handler->display->display_options['fields']['field_giving_proposal']['field'] = 'field_giving_proposal';
-  $handler->display->display_options['fields']['field_giving_proposal']['label'] = 'Download Proposal';
+  $handler->display->display_options['fields']['field_giving_proposal']['label'] = 'Download';
+  $handler->display->display_options['fields']['field_giving_proposal']['empty'] = 'N/A';
   $handler->display->display_options['fields']['field_giving_proposal']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_giving_proposal']['settings'] = array(
     'file_view_mode' => 'media_small',
@@ -102,7 +103,8 @@ function bf_my_proposals_views_default_views() {
   $handler->display->display_options['fields']['views_conditional']['label'] = '';
   $handler->display->display_options['fields']['views_conditional']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['views_conditional']['if'] = 'field_giving_proposal';
-  $handler->display->display_options['fields']['views_conditional']['condition'] = '6';
+  $handler->display->display_options['fields']['views_conditional']['condition'] = '2';
+  $handler->display->display_options['fields']['views_conditional']['equalto'] = 'N/A';
   $handler->display->display_options['fields']['views_conditional']['then'] = '<a href="/execute_proposal/[nid]" class="btn btn-default">Send for Approval</a>';
   $handler->display->display_options['fields']['views_conditional']['strip_tags'] = 0;
   /* Sort criterion: Content: Post date */

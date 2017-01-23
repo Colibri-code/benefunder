@@ -33,8 +33,35 @@ if (isset($_SERVER['PANTHEON_ENVIRONMENT']) &&
   }
 }
 
+// Per-Environment variables for Pantheon only.
+if (isset($_SERVER['PANTHEON_ENVIRONMENT'])) {
+  // DEV environment.
+  if ($_SERVER['PANTHEON_ENVIRONMENT'] == 'dev') {
+    $conf['linkedin_consumer_key'] = '78k2ndkgahdokm';
+    $conf['linkedin_consumer_secret'] = 'zE89nodVnoHgYlt6';
+  }
+  // TEST environment.
+  elseif ($_SERVER['PANTHEON_ENVIRONMENT'] == 'test') {
+    $conf['linkedin_consumer_key'] = '78jvscf2g0zcsu';
+    $conf['linkedin_consumer_secret'] = 'VFxrlvr4lJRaaJil';
+  }
+  // PROD environment.
+  elseif ($_SERVER['PANTHEON_ENVIRONMENT'] == 'live') {
+    $conf['linkedin_consumer_key'] = '781hc8muzcmorx';
+    $conf['linkedin_consumer_secret'] = '0nYYDfzJt0vfTdtC';
+  }
+}
+
 // All Pantheon Environments.
 if (defined('PANTHEON_ENVIRONMENT')) {
+
+  // Set path to wkhtmltopdf.
+  $conf['entity_print_wkhtmltopdf'] = '/srv/bin/wkhtmltopdf';
+
+  // Hellosign credentials.
+  $conf['hellosign_api_key'] = '224e350f27213febd04b7c272e3fb7b0482fdc06163cd6e59ed333c5e4d0d630';
+  $conf['hellosign_client_id'] = '04a26a2e01407f7b0ccfeea8e7965d86';
+  $conf['hellosign_test_mode'] = 1;
 
   // Use Redis for caching.
   $conf['redis_client_interface'] = 'PhpRedis';
