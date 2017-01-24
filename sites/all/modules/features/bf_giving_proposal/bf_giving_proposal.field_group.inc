@@ -107,17 +107,17 @@ function bf_giving_proposal_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = 'group_proposal_planned';
   $field_group->data = array(
-    'label' => 'Current Charitable Giving',
+    'label' => 'Giving Profile',
     'weight' => '46',
     'children' => array(
-      0 => 'field_charitable_vehicle',
-      1 => 'field_non_profits_supported',
-      2 => 'field_vehicle_name',
-      3 => 'field_vehicle_type',
+      0 => 'field_non_profits_supported',
+      1 => 'field_what_did_the_client_like_d',
+      2 => 'field_program_targets',
+      3 => 'field_giving_targets',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
-      'label' => 'Current Charitable Giving',
+      'label' => 'Giving Profile',
       'instance_settings' => array(
         'required_fields' => 1,
         'id' => '',
@@ -197,17 +197,21 @@ function bf_giving_proposal_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = 'group_proposal_planned';
   $field_group->data = array(
-    'label' => 'Anticipated Giving Plan',
+    'label' => 'Account Details & Funding Information',
     'weight' => '47',
     'children' => array(
-      0 => 'field_contribution_funding',
-      1 => 'field_planned_annual_contributio',
-      2 => 'field_planned_annual_distributio',
+      0 => 'field_charitable_vehicle',
+      1 => 'field_contribution_funding',
+      2 => 'field_planned_annual_contributio',
       3 => 'field_planned_initial_contributi',
+      4 => 'field_vehicle_name',
+      5 => 'field_vehicle_type',
+      6 => 'field_how_does_the_client_plan_o',
+      7 => 'field_what_is_the_intended_distr',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
-      'label' => 'Anticipated Giving Plan',
+      'label' => 'Account Details & Funding Information',
       'instance_settings' => array(
         'required_fields' => 1,
         'id' => '',
@@ -604,17 +608,17 @@ function bf_giving_proposal_field_group_info() {
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('Anticipated Giving Plan');
+  t('Account Details & Funding Information');
   t('Benefunder Addendum');
   t('Benefunder Check');
   t('Benefunder Check 3');
   t('Causes Portfolio & Allocation');
   t('Client\'s Current Giving History');
-  t('Current Charitable Giving');
   t('DAF Account Setup / Verification');
   t('Donor Information');
   t('Donor Profile');
   t('Final Proposal');
+  t('Giving Profile');
   t('Initial Distributions');
   t('Introduction');
   t('Needs Assessment');
