@@ -291,6 +291,12 @@ function magnific_popup_field_formatter_view($entity_type, $entity, $field, $ins
   return $element;
 }
 
+/**
+ * Utility function returning list of gallery options.
+ *
+ * @return array
+ *  An associative array of option names (keys) and labels (values).
+ */
 function _magnific_popup_gallery_options() {
   return array(
     'all_items' => t('Gallery: All Items Displayed'),
@@ -300,7 +306,21 @@ function _magnific_popup_gallery_options() {
   );
 }
 
-
+/**
+ * Utility function returning all possible thumbnail fields.
+ *
+ * A field is considered a potential thumbnail field if its type is "image" or
+ * "file".
+ *
+ * @param array $all_fields
+ *  An array of all fields on the entity.
+ *
+ * @param string $field_bundle
+ *  The entity's bundle machine name.
+ *
+ * @return array
+ *  An associative array of field machine names (keys) and labels (values).
+ */
 function _magnific_popup_thumbnail_field_options($all_fields, $field_bundle) {
   $file_fields = array();
   if (!empty($all_fields)) {
@@ -318,7 +338,13 @@ function _magnific_popup_thumbnail_field_options($all_fields, $field_bundle) {
   return $file_fields;
 }
 
-function _magnific_popup_image_style_options($all_fields, $field_bundle) {
+/**
+ * Utility function returning all available image styles.
+ *
+ * @return array
+ *  An associative array of image style names (keys) and labels (values).
+ */
+function _magnific_popup_image_style_options() {
   $image_styles = array();
   $all_styles = image_styles();
 

@@ -1,4 +1,12 @@
 (function ($) {
+  // Sanity check because sometimes we might be included on a page with jQuery
+  // < 1.7, in which case Magnific Popup's use of $().on/$().off will blow up.
+  if (!("off" in $.fn)) {
+    if (window.console) {
+      console.log('Magnific Popup disabled: legacy jQuery detected (no "off" method).');
+    }
+    return;
+  }
   Drupal.settings.magnific_popup = Drupal.settings.magnific_popup || {};
   Drupal.settings.magnific_popup_api = Drupal.settings.magnific_popup_api || {};
   Drupal.settings.magnific_popup.common_options = {
@@ -28,6 +36,19 @@
       video_params = video_params.replace(/&autoplay=.*?(?=$|&)/gi, '');
       // Convert "t" to "start" param.
       video_params = video_params.replace(/&t=/gi, '&start=');
+      // Adjust "start" param; the YT share GUI generates URLs like ?t=1h2m3s
+      // but the embed endpoint requires time in seconds with no units or text
+      // chars of any kind.
+      var start_times = /&start=((\d+h)?(\d+m)?(\d+s)?)/i.exec(video_params);
+      if (start_times && start_times.length && start_times[1] !== '') {
+        var time = 0;
+        for (var i = 2; i < start_times.length; ++i) {
+          if (typeof start_times[i] !== 'undefined') {
+            time += parseInt(start_times[i]) * Math.pow(60, 4 - i);
+          }
+        }
+        video_params = video_params.replace(/&start=.*?(?=$|&)/gi, '&start=' + time);
+      }
     }
     return video_ID[3] + '?autoplay=1' + video_params;
   };
