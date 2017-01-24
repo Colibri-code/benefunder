@@ -103,7 +103,7 @@ function bf_fa_dashboard_default_page_manager_handlers() {
     'admin_title' => 'FA Dash Video 1',
     'title' => '<none>',
     'title_heading' => 'h2',
-    'body' => '<div class="video_wrapper"><iframe src="https://player.vimeo.com/video/117639472" width="320" height="180" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div>',
+    'body' => '<div class="video_wrapper"><iframe src="https://player.vimeo.com/video/114405202" width="400" height="225" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div>',
     'format' => 'full_html',
     'substitute' => 0,
   );
@@ -239,7 +239,7 @@ function bf_fa_dashboard_default_page_manager_handlers() {
     'admin_title' => 'FA Dash Video 2',
     'title' => '<none>',
     'title_heading' => 'h2',
-    'body' => '<div class="video_wrapper"><iframe src="https://player.vimeo.com/video/133803634" width="320" height="180" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div>',
+    'body' => '<div class="video_wrapper"><iframe src="https://player.vimeo.com/video/133803634" width="400" height="225" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div>',
     'format' => 'full_html',
     'substitute' => 0,
   );
