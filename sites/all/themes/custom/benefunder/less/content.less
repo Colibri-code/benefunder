@@ -3144,6 +3144,7 @@ body.page-user {
 }
 
 .fa-links {
+  font-size: 16px;
   @media(max-width: @screen-sm-min) {
     width: 100%;
     display: block;
@@ -3179,53 +3180,104 @@ body.page-user {
   text-align: center;
 }
 
+
 /* Giving Proposal */
+.group-proposal-tabs .tabs-left > .nav-tabs > li > a {
+  color: #333;
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+}
+
 .vertical-tab-button.first {
   background-color: purple;
   text-align: center;
   font-size: 16px;
   letter-spacing: 0.05em;
+  pointer-events: none;
   &:hover {
     background-color: #5f015f;
   }
-  a:hover {
-    border-color: #5f015f !important;
-    background-color: transparent;
+  a {
+    color: #fff !important;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    &:before {
+      margin-right: 5px;
+      content: "\f007";
+    }
+    &:hover {
+      border-color: #5f015f !important;
+      background-color: transparent;
+    }
   }
 }
 
-.vertical-tab-button:nth-of-type(6), .vertical-tab-button:nth-of-type(9) {
+.vertical-tab-button:nth-of-type(6), .vertical-tab-button:nth-of-type(10) {
   background: #993;
   text-align: center;
   font-size: 16px;
   letter-spacing: 0.05em;
+  pointer-events: none;
   &:hover {
     background-color: #848425;
   }
-  a:hover {
-    border-color: #848425 !important;
+  a {
+    color: #fff !important;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    &:before {
+      margin-right: 5px;
+      content: "\f013";
+    }
+    &:hover {
+      border-color: #848425 !important;
+      background-color: transparent;
+    }
+  }
+}
+
+form#giving-proposal-node-form {
+  background-color: #fff;
+  padding: 10px;
+}
+
+.page-node-add-giving-proposal {
+  fieldset .panel-heading {
+    border: none !important;
+    padding-top: 0;
+    padding-bottom: 0;
     background-color: transparent;
+    a.panel-title {
+      margin-top: 0px;
+      border-bottom: 2px none rgba(153, 153, 51, .31);
+      font-size: 34px;
+      line-height: 44px;
+      font-weight: 400;
+      &:focus {
+        text-decoration: none;
+        outline: none;
+      }
+    }
   }
-}
-
-.vertical-tab-button.first a {
-  color: #fff;
-  font: normal normal normal 14px/1 FontAwesome;
-  font-size: inherit;
-  text-rendering: auto;
-  &:before {
-    margin-right: 5px;
-    content: "\f007";
+  .panel {
+    border: none;
   }
-}
+  .form-group label {
+    padding-bottom: 14px;
+    border-bottom: 2px solid #993;
+    font-size: 24px;
+    display: block;
+  }
+  legend {
+    border: none;
+  }
+  .form-item label {
+    font-size: 16px;
+    border: none;
+    padding: 0;
 
-.vertical-tab-button:nth-of-type(6) a, .vertical-tab-button:nth-of-type(9) a {
-  color: #fff;
-  font: normal normal normal 14px/1 FontAwesome;
-  font-size: inherit;
-  text-rendering: auto;
-  &:before {
-    margin-right: 5px;
-    content: "\f013";
   }
 }
