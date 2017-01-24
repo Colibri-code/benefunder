@@ -3178,3 +3178,54 @@ body.page-user {
 .video_wrapper {
   text-align: center;
 }
+
+/* Giving Proposal */
+.vertical-tab-button.first {
+  background-color: purple;
+  text-align: center;
+  font-size: 16px;
+  letter-spacing: 0.05em;
+  &:hover {
+    background-color: #5f015f;
+  }
+  a:hover {
+    border-color: #5f015f !important;
+    background-color: transparent;
+  }
+}
+
+.vertical-tab-button:nth-of-type(6), .vertical-tab-button:nth-of-type(9) {
+  background: #993;
+  text-align: center;
+  font-size: 16px;
+  letter-spacing: 0.05em;
+  &:hover {
+    background-color: #848425;
+  }
+  a:hover {
+    border-color: #848425 !important;
+    background-color: transparent;
+  }
+}
+
+.vertical-tab-button.first a {
+  color: #fff;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  &:before {
+    margin-right: 5px;
+    content: "\f007";
+  }
+}
+
+.vertical-tab-button:nth-of-type(6) a, .vertical-tab-button:nth-of-type(9) a {
+  color: #fff;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  &:before {
+    margin-right: 5px;
+    content: "\f013";
+  }
+}
