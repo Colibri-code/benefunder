@@ -67,6 +67,10 @@ function create_proposal_execute_confirm_submit($form, &$form_state) {
   // Attach files, these will appear as 1 document to sign.
   $files[] = $wrapper->field_giving_proposal->value()['uri'];
   $files[] = $wrapper->field_additional_documents->value()['uri'];
+
+  // TODO: Add static content.
+//  $files[] = drupal_get_path('module', 'create_proposal') . '/proposal_static.pdf';
+
   $mode = 'email';
 
   $result = hellosign_generate_esignature_request($title, $subject, $signers, $files, $mode);
