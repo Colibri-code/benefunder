@@ -10300,6 +10300,58 @@ body.page-user {
 .video_wrapper {
   text-align: center;
 }
+/* Giving Proposal */
+.vertical-tab-button.first {
+  background-color: purple;
+  text-align: center;
+  font-size: 16px;
+  letter-spacing: 0.05em;
+}
+.vertical-tab-button.first:hover {
+  background-color: #5f015f;
+}
+.vertical-tab-button.first a:hover {
+  border-color: #5f015f !important;
+  background-color: transparent;
+}
+.vertical-tab-button:nth-of-type(6),
+.vertical-tab-button:nth-of-type(9) {
+  background: #993;
+  text-align: center;
+  font-size: 16px;
+  letter-spacing: 0.05em;
+}
+.vertical-tab-button:nth-of-type(6):hover,
+.vertical-tab-button:nth-of-type(9):hover {
+  background-color: #848425;
+}
+.vertical-tab-button:nth-of-type(6) a:hover,
+.vertical-tab-button:nth-of-type(9) a:hover {
+  border-color: #848425 !important;
+  background-color: transparent;
+}
+.vertical-tab-button.first a {
+  color: #fff;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+}
+.vertical-tab-button.first a:before {
+  margin-right: 5px;
+  content: "\f007";
+}
+.vertical-tab-button:nth-of-type(6) a,
+.vertical-tab-button:nth-of-type(9) a {
+  color: #fff;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+}
+.vertical-tab-button:nth-of-type(6) a:before,
+.vertical-tab-button:nth-of-type(9) a:before {
+  margin-right: 5px;
+  content: "\f013";
+}
 /* ==========================================================================
   Less for footer section
    ========================================================================== */
