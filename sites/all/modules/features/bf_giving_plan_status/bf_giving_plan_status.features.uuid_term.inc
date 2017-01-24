@@ -27,9 +27,9 @@ function bf_giving_plan_status_uuid_features_default_terms() {
     'vocabulary_machine_name' => 'plan_status',
   );
   $terms[] = array(
-    'name' => 'Pending',
-    'description' => NULL,
-    'format' => NULL,
+    'name' => 'Pending Acceptance',
+    'description' => '',
+    'format' => 'full_html',
     'weight' => -2,
     'uuid' => '83357b11-7990-4976-9fa6-90a967354f29',
     'vocabulary_machine_name' => 'plan_status',
