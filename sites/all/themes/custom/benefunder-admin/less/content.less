@@ -1,0 +1,318 @@
+/* ==========================================================================
+  General styles and overrides
+   ========================================================================== */
+body {
+  background-position:0 0;
+  background-repeat:no-repeat;
+  background-color:@bodybg;
+  background-size:auto;
+  overflow-x:hidden;
+
+  &.front {
+    background-image:url(../media/images/nemo_background.jpg);
+  }
+
+  &.page-causes {
+    background-image:url(../media/images/galaxy_background_fade.jpg);
+    background-size: 420% auto;
+    background-position: 50% 0%;
+    background-color: #151e25;
+  }
+}
+
+#cause-markup div {
+  width: 25%;
+  min-width: 25%;
+  display: inline;
+}
+
+.placeholder-content {
+  background-color:#fff;
+}
+
+.form-control {
+  border-radius:0;
+  border:none;
+
+  &::-webkit-input-placeholder {color:@grey-6;}
+  &:-moz-placeholder {color:@grey-6;}
+  &::-moz-placeholder {color:@grey-6;}
+  &:-ms-input-placeholder {color:@grey-6;}
+}
+
+#header-search-form-mobile,
+#header-search-form {
+
+  .form-control {
+    color:#fff;
+
+    &::-webkit-input-placeholder {color:#fff;}
+    &:-moz-placeholder {color:#fff;}
+    &::-moz-placeholder {color:#fff;}
+    &:-ms-input-placeholder {color:#fff;}
+  }
+}
+
+#search-block-form input.form-text {
+  &::-webkit-input-placeholder {color:#fff;}
+  &:-moz-placeholder {color:#fff;}
+  &::-moz-placeholder {color:#fff;}
+  &:-ms-input-placeholder {color:#fff;}
+}
+
+.region-content {
+  position: relative;
+}
+.top-spacer + .region-content {
+  padding: 140px 40px 40px;
+}
+
+
+/* Financial Planner Dashboard */
+.header-buttons {
+    display: inline-block;
+    font-size: 10px;
+  .btn {
+    font-size: 10px;
+  }
+}
+
+.btn-black {
+    background: #000;
+    color: #fff;
+    display: inline-block;    
+    vertical-align: text-bottom;
+    margin-bottom: 10px;
+    &:hover {
+        color: #ddd;
+    }
+}
+
+.btn-purple {
+    background: purple;
+    display: inline-block;
+    margin-left: 10px;
+    color: #fff;
+    vertical-align: text-bottom;
+    margin-bottom: 10px;
+    &:hover {
+        color: #ddd;
+    }
+}
+
+.pane-user-picture {
+    display: inline-block;
+    margin: 0 10px;
+    img {
+        width: auto;
+        height: 50px;
+        border-radius: 25px;
+        max-width: 65px;
+    }
+}
+
+.panel-col-top .panel-separator {
+  display: none;
+}
+
+
+.panel-pane.pane-custom.pane-6 {
+  display: inline-block;
+}
+
+.pane-linkedin-profile {
+  display: inline-block;
+  text-align: left;
+  vertical-align: bottom;
+}
+
+.linkedin-profile {
+  font-size: 10px;
+  ul {
+    list-style-type: none;
+    list-style-image: none;
+    -webkit-padding-start: 0;
+  }
+}
+
+.panel-panel.panel-col-top {
+  text-align: right;
+  float: right;
+  margin-bottom: 35px;
+  margin-top: 5px;
+}
+
+.pane-views-my-clients-block {
+  padding-top: 50px;
+  .btn-purple {
+    margin-left: 0;
+  }
+}
+
+body.page-user {
+  background-color: #fff;
+}
+
+.page-user {
+    .navbar-default {
+        position: relative;
+    }
+    .region-content {
+        padding-top: 5px !important;
+    }
+    .nav-tabs {
+      position: absolute;
+      right: 0;
+      z-index: 1000;
+      border: none;
+      a.active {
+        display: none;
+      }
+      > li > a {
+        border: none;
+        border-radius: 0;
+        font-size: 10px;
+      }
+    }
+}
+
+.fa-dashboard-links {
+  display: flex;
+  justify-content: space-between;
+  margin: 50px 0px;
+}
+
+.fa-links {
+  font-size: 16px;
+}
+
+.fa:before {
+  padding-right: 5px;
+}
+
+.sample_proposals img {
+   max-width: 100%;
+ }
+
+
+/* Vimeo Videos styles */
+.videoWrapper {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  padding-top: 25px;
+  height: 0;
+}
+
+.videoWrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.video_wrapper {
+  text-align: center;
+}
+
+
+/* Giving Proposal */
+.group-proposal-tabs .tabs-left > .nav-tabs > li > a {
+  color: #333;
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.vertical-tab-button.first {
+  background-color: purple;
+  text-align: center;
+  font-size: 16px;
+  letter-spacing: 0.05em;
+  pointer-events: none;
+  &:hover {
+    background-color: #5f015f;
+  }
+  a {
+    color: #fff !important;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    &:before {
+      margin-right: 5px;
+      content: "\f007";
+    }
+    &:hover {
+      border-color: #5f015f !important;
+      background-color: transparent;
+    }
+  }
+}
+
+.vertical-tab-button:nth-of-type(6), .vertical-tab-button:nth-of-type(10) {
+  background: #993;
+  text-align: center;
+  font-size: 16px;
+  letter-spacing: 0.05em;
+  pointer-events: none;
+  &:hover {
+    background-color: #848425;
+  }
+  a {
+    color: #fff !important;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    &:before {
+      margin-right: 5px;
+      content: "\f013";
+    }
+    &:hover {
+      border-color: #848425 !important;
+      background-color: transparent;
+    }
+  }
+}
+
+form#giving-proposal-node-form {
+  background-color: #fff;
+  padding: 10px;
+}
+
+.page-node-add-giving-proposal {
+  fieldset .panel-heading {
+    border: none !important;
+    padding-top: 0;
+    padding-bottom: 0;
+    background-color: transparent;
+    a.panel-title {
+      margin-top: 0px;
+      border-bottom: 2px none rgba(153, 153, 51, .31);
+      font-size: 34px;
+      line-height: 44px;
+      font-weight: 400;
+      &:focus {
+        text-decoration: none;
+        outline: none;
+      }
+    }
+  }
+  .panel {
+    border: none;
+  }
+  .form-group label {
+    padding-bottom: 14px;
+    border-bottom: 2px solid #993;
+    font-size: 24px;
+    display: block;
+  }
+  legend {
+    border: none;
+  }
+  .form-item label {
+    font-size: 16px;
+    border: none;
+    padding: 0;
+
+  }
+}

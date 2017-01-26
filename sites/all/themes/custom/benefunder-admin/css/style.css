@@ -1,0 +1,532 @@
+/* ==========================================================================
+    Custom Theme Specific Typography
+   ========================================================================== */
+@import url("http://fast.fonts.net/t/1.css?apiType=css&projectid=fe05cabc-3663-4842-8519-7dce9ba9155b");
+@font-face {
+  font-family: "Proxima N W01 Reg";
+  src: url("../media/fonts/7e90123f-e4a7-4689-b41f-6bcfe331c00a.eot?#iefix");
+  src: url("../media/fonts/7e90123f-e4a7-4689-b41f-6bcfe331c00a.eot?#iefix") format("eot"), url("../media/fonts/e56ecb6d-da41-4bd9-982d-2d295bec9ab0.woff") format("woff"), url("../media/fonts/2aff4f81-3e97-4a83-9e6c-45e33c024796.ttf") format("truetype"), url("../media/fonts/ab9cd062-380f-4b53-b1a7-c0bec7402235.svg#ab9cd062-380f-4b53-b1a7-c0bec7402235") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Proxima N W01 Smbd";
+  src: url("../media/fonts/87e4b4fc-cdf1-450a-8bed-dd818cba908d.eot?#iefix");
+  src: url("../media/fonts/87e4b4fc-cdf1-450a-8bed-dd818cba908d.eot?#iefix") format("eot"), url("../media/fonts/70ae52ec-d89b-4c6a-9402-854ebe423c54.woff") format("woff"), url("../media/fonts/6a35571c-ea14-4dac-9ae1-0e7af0abeec8.ttf") format("truetype"), url("../media/fonts/ac2bdafc-d4a8-49d0-8a10-4e2f16bf7e3c.svg#ac2bdafc-d4a8-49d0-8a10-4e2f16bf7e3c") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Chaparral W01 Regular';
+  src: url("../media/fonts/f8e524a2-7c8a-45cd-a96f-d025b3d36c6f.eot?#iefix");
+  src: url("../media/fonts/f8e524a2-7c8a-45cd-a96f-d025b3d36c6f.eot?#iefix") format("eot"), url("../media/fonts/dc5612da-e3d5-4147-a72c-34fe4ff936b1.woff") format("woff"), url("../media/fonts/67ef1020-e3c7-4c21-a853-130961370f48.ttf") format("truetype"), url("../media/fonts/9d2bab39-1cc0-4fe8-85c1-fb8c533b04e2.svg#9d2bab39-1cc0-4fe8-85c1-fb8c533b04e2") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Chaparral W01 Lt";
+  src: url("../media/fonts/cff5eded-4d36-4eb4-8cc4-3a52ac5503de.eot?#iefix");
+  src: url("../media/fonts/cff5eded-4d36-4eb4-8cc4-3a52ac5503de.eot?#iefix") format("eot"), url("../media/fonts/61e46292-8cb0-4f32-891b-77274dc1bc87.woff") format("woff"), url("../media/fonts/b833ed45-e1a0-43f2-8d76-30a4d01ff6f7.ttf") format("truetype"), url("../media/fonts/5d11a84f-30d9-4578-988d-bd8d5c396b5d.svg#5d11a84f-30d9-4578-988d-bd8d5c396b5d") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Chaparral W01 Lt It";
+  src: url("../media/fonts/45c82410-e920-4201-b050-dc239b316257.eot?#iefix");
+  src: url("../media/fonts/45c82410-e920-4201-b050-dc239b316257.eot?#iefix") format("eot"), url("../media/fonts/8cfd4d8a-c50c-467f-8aa2-bc1de1bdc1a7.woff") format("woff"), url("../media/fonts/372e44b2-765d-4a1d-ac1d-c18ff514750d.ttf") format("truetype"), url("../media/fonts/2a38a29b-3a49-4e31-bd6c-d307f13ba256.svg#2a38a29b-3a49-4e31-bd6c-d307f13ba256") format("svg");
+}
+@font-face {
+  font-family: 'raleway';
+  src: url('../media/fonts/raleway-regular-webfont.eot');
+  src: url('../media/fonts/raleway-regular-webfont.eot?#iefix') format('embedded-opentype'), url('../media/fonts/raleway-regular-webfont.woff2') format('woff2'), url('../media/fonts/raleway-regular-webfont.woff') format('woff'), url('../media/fonts/raleway-regular-webfont.ttf') format('truetype'), url('../media/fonts/raleway-regular-webfont.svg#ralewayregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'raleway-extralight';
+  src: url('../media/fonts/raleway-extralight-webfont.eot');
+  src: url('../media/fonts/raleway-extralight-webfont.eot?#iefix') format('embedded-opentype'), url('../media/fonts/raleway-extralight-webfont.woff2') format('woff2'), url('../media/fonts/raleway-extralight-webfont.woff') format('woff'), url('../media/fonts/raleway-extralight-webfont.ttf') format('truetype'), url('../media/fonts/raleway-extralight-webfont.svg#ralewayextralight') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'raleway-bold';
+  src: url('../media/fonts/raleway-bold-webfont.eot');
+  src: url('../media/fonts/raleway-bold-webfont.eot?#iefix') format('embedded-opentype'), url('../media/fonts/raleway-bold-webfont.woff2') format('woff2'), url('../media/fonts/raleway-bold-webfont.woff') format('woff'), url('../media/fonts/raleway-bold-webfont.ttf') format('truetype'), url('../media/fonts/raleway-bold-webfont.svg#ralewaybold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'raleway-semibold';
+  src: url('../media/fonts/raleway-semibold-webfont.eot');
+  src: url('../media/fonts/raleway-semibold-webfont.eot?#iefix') format('embedded-opentype'), url('../media/fonts/raleway-semibold-webfont.woff2') format('woff2'), url('../media/fonts/raleway-semibold-webfont.woff') format('woff'), url('../media/fonts/raleway-semibold-webfont.ttf') format('truetype'), url('../media/fonts/raleway-semibold-webfont.svg#ralewaysemibold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'raleway-light';
+  src: url('../media/fonts/raleway-light-webfont.eot');
+  src: url('../media/fonts/raleway-light-webfont.eot?#iefix') format('embedded-opentype'), url('../media/fonts/raleway-light-webfont.woff2') format('woff2'), url('../media/fonts/raleway-light-webfont.woff') format('woff'), url('../media/fonts/raleway-light-webfont.ttf') format('truetype'), url('../media/fonts/raleway-light-webfont.svg#ralewaylight') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'raleway-medium';
+  src: url('../media/fonts/raleway-medium-webfont.eot');
+  src: url('../media/fonts/raleway-medium-webfont.eot?#iefix') format('embedded-opentype'), url('../media/fonts/raleway-medium-webfont.woff2') format('woff2'), url('../media/fonts/raleway-medium-webfont.woff') format('woff'), url('../media/fonts/raleway-medium-webfont.ttf') format('truetype'), url('../media/fonts/raleway-medium-webfont.svg#ralewaymedium') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'latoregular';
+  src: url('../media/fonts/lato-regular-webfont.eot');
+  src: url('../media/fonts/lato-regular-webfont.eot?#iefix') format('embedded-opentype'), url('../media/fonts/lato-regular-webfont.woff2') format('woff2'), url('../media/fonts/lato-regular-webfont.woff') format('woff'), url('../media/fonts/lato-regular-webfont.ttf') format('truetype'), url('../media/fonts/lato-regular-webfont.svg#latoregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+/* ==========================================================================
+  Colors
+   ========================================================================== */
+/* ==========================================================================
+  Typography
+   ========================================================================== */
+body {
+  background-color: #fff;
+  color: #444;
+  font-family: 'raleway', Arial, Helvetica, sans-serif;
+}
+h1 {
+  font-size: 28px;
+}
+h1.page-title {
+  font-size: 52px;
+}
+h2 {
+  font-size: 20px;
+}
+strong {
+  font-weight: normal;
+}
+a {
+  color: #999933;
+  opacity: 1;
+  transition: opacity 0.3s linear 0s;
+}
+a:hover {
+  text-decoration: none;
+  color: #999933;
+}
+p {
+  color: #444;
+  font-size: 16px;
+  line-height: 25px;
+}
+.btn-default {
+  background-color: #999933;
+  border-color: #999933;
+  color: #fff;
+  font-family: 'Proxima N W01 Smbd';
+  font-size: 12px;
+  padding: 13px 30px;
+  border: none;
+  text-transform: uppercase;
+  border-radius: 0;
+  line-height: 9px;
+  transition: opacity 0.3s linear 0s;
+}
+.btn-default:hover {
+  opacity: 0.75;
+  background-color: #999933;
+  border-color: #999933;
+  color: #fff;
+}
+/* ==========================================================================
+  Header Background for Interior Pages
+   ========================================================================== */
+body.not-front .navbar-default {
+  background-color: rgba(51, 51, 51, 0.75);
+}
+body.not-front .navbar-default .navbar-collapse {
+  background-color: rgba(51, 51, 51, 0.98);
+}
+body.node-type-cause .navbar-default,
+body.front .navbar-default {
+  background-color: rgba(51, 51, 51, 0);
+}
+body.node-type-cause .navbar-collapse,
+body.front .navbar-collapse {
+  background-color: rgba(51, 51, 51, 0.98);
+}
+/* ==========================================================================
+  General styles and overrides
+   ========================================================================== */
+body {
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-color: #ebebeb;
+  background-size: auto;
+  overflow-x: hidden;
+}
+body.front {
+  background-image: url(../media/images/nemo_background.jpg);
+}
+body.page-causes {
+  background-image: url(../media/images/galaxy_background_fade.jpg);
+  background-size: 420% auto;
+  background-position: 50% 0%;
+  background-color: #151e25;
+}
+#cause-markup div {
+  width: 25%;
+  min-width: 25%;
+  display: inline;
+}
+.placeholder-content {
+  background-color: #fff;
+}
+.form-control {
+  border-radius: 0;
+  border: none;
+}
+.form-control::-webkit-input-placeholder {
+  color: #666;
+}
+.form-control:-moz-placeholder {
+  color: #666;
+}
+.form-control::-moz-placeholder {
+  color: #666;
+}
+.form-control:-ms-input-placeholder {
+  color: #666;
+}
+#header-search-form-mobile .form-control,
+#header-search-form .form-control {
+  color: #fff;
+}
+#header-search-form-mobile .form-control::-webkit-input-placeholder,
+#header-search-form .form-control::-webkit-input-placeholder {
+  color: #fff;
+}
+#header-search-form-mobile .form-control:-moz-placeholder,
+#header-search-form .form-control:-moz-placeholder {
+  color: #fff;
+}
+#header-search-form-mobile .form-control::-moz-placeholder,
+#header-search-form .form-control::-moz-placeholder {
+  color: #fff;
+}
+#header-search-form-mobile .form-control:-ms-input-placeholder,
+#header-search-form .form-control:-ms-input-placeholder {
+  color: #fff;
+}
+#search-block-form input.form-text::-webkit-input-placeholder {
+  color: #fff;
+}
+#search-block-form input.form-text:-moz-placeholder {
+  color: #fff;
+}
+#search-block-form input.form-text::-moz-placeholder {
+  color: #fff;
+}
+#search-block-form input.form-text:-ms-input-placeholder {
+  color: #fff;
+}
+.region-content {
+  position: relative;
+}
+.top-spacer + .region-content {
+  padding: 140px 40px 40px;
+}
+/* Financial Planner Dashboard */
+.header-buttons {
+  display: inline-block;
+  font-size: 10px;
+}
+.header-buttons .btn {
+  font-size: 10px;
+}
+.btn-black {
+  background: #000;
+  color: #fff;
+  display: inline-block;
+  vertical-align: text-bottom;
+  margin-bottom: 10px;
+}
+.btn-black:hover {
+  color: #ddd;
+}
+.btn-purple {
+  background: purple;
+  display: inline-block;
+  margin-left: 10px;
+  color: #fff;
+  vertical-align: text-bottom;
+  margin-bottom: 10px;
+}
+.btn-purple:hover {
+  color: #ddd;
+}
+.pane-user-picture {
+  display: inline-block;
+  margin: 0 10px;
+}
+.pane-user-picture img {
+  width: auto;
+  height: 50px;
+  border-radius: 25px;
+  max-width: 65px;
+}
+.panel-col-top .panel-separator {
+  display: none;
+}
+.panel-pane.pane-custom.pane-6 {
+  display: inline-block;
+}
+.pane-linkedin-profile {
+  display: inline-block;
+  text-align: left;
+  vertical-align: bottom;
+}
+.linkedin-profile {
+  font-size: 10px;
+}
+.linkedin-profile ul {
+  list-style-type: none;
+  list-style-image: none;
+  -webkit-padding-start: 0;
+}
+.panel-panel.panel-col-top {
+  text-align: right;
+  float: right;
+  margin-bottom: 35px;
+  margin-top: 5px;
+}
+.pane-views-my-clients-block {
+  padding-top: 50px;
+}
+.pane-views-my-clients-block .btn-purple {
+  margin-left: 0;
+}
+body.page-user {
+  background-color: #fff;
+}
+.page-user .navbar-default {
+  position: relative;
+}
+.page-user .region-content {
+  padding-top: 5px !important;
+}
+.page-user .nav-tabs {
+  position: absolute;
+  right: 0;
+  z-index: 1000;
+  border: none;
+}
+.page-user .nav-tabs a.active {
+  display: none;
+}
+.page-user .nav-tabs > li > a {
+  border: none;
+  border-radius: 0;
+  font-size: 10px;
+}
+.fa-dashboard-links {
+  display: flex;
+  justify-content: space-between;
+  margin: 50px 0px;
+}
+.fa-links {
+  font-size: 16px;
+}
+.fa:before {
+  padding-right: 5px;
+}
+.sample_proposals img {
+  max-width: 100%;
+}
+/* Vimeo Videos styles */
+.videoWrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  /* 16:9 */
+  padding-top: 25px;
+  height: 0;
+}
+.videoWrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.video_wrapper {
+  text-align: center;
+}
+/* Giving Proposal */
+.group-proposal-tabs .tabs-left > .nav-tabs > li > a {
+  color: #333;
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+}
+.vertical-tab-button.first {
+  background-color: purple;
+  text-align: center;
+  font-size: 16px;
+  letter-spacing: 0.05em;
+  pointer-events: none;
+}
+.vertical-tab-button.first:hover {
+  background-color: #5f015f;
+}
+.vertical-tab-button.first a {
+  color: #fff !important;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+}
+.vertical-tab-button.first a:before {
+  margin-right: 5px;
+  content: "\f007";
+}
+.vertical-tab-button.first a:hover {
+  border-color: #5f015f !important;
+  background-color: transparent;
+}
+.vertical-tab-button:nth-of-type(6),
+.vertical-tab-button:nth-of-type(10) {
+  background: #993;
+  text-align: center;
+  font-size: 16px;
+  letter-spacing: 0.05em;
+  pointer-events: none;
+}
+.vertical-tab-button:nth-of-type(6):hover,
+.vertical-tab-button:nth-of-type(10):hover {
+  background-color: #848425;
+}
+.vertical-tab-button:nth-of-type(6) a,
+.vertical-tab-button:nth-of-type(10) a {
+  color: #fff !important;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+}
+.vertical-tab-button:nth-of-type(6) a:before,
+.vertical-tab-button:nth-of-type(10) a:before {
+  margin-right: 5px;
+  content: "\f013";
+}
+.vertical-tab-button:nth-of-type(6) a:hover,
+.vertical-tab-button:nth-of-type(10) a:hover {
+  border-color: #848425 !important;
+  background-color: transparent;
+}
+form#giving-proposal-node-form {
+  background-color: #fff;
+  padding: 10px;
+}
+.page-node-add-giving-proposal fieldset .panel-heading {
+  border: none !important;
+  padding-top: 0;
+  padding-bottom: 0;
+  background-color: transparent;
+}
+.page-node-add-giving-proposal fieldset .panel-heading a.panel-title {
+  margin-top: 0px;
+  border-bottom: 2px none rgba(153, 153, 51, 0.31);
+  font-size: 34px;
+  line-height: 44px;
+  font-weight: 400;
+}
+.page-node-add-giving-proposal fieldset .panel-heading a.panel-title:focus {
+  text-decoration: none;
+  outline: none;
+}
+.page-node-add-giving-proposal .panel {
+  border: none;
+}
+.page-node-add-giving-proposal .form-group label {
+  padding-bottom: 14px;
+  border-bottom: 2px solid #993;
+  font-size: 24px;
+  display: block;
+}
+.page-node-add-giving-proposal legend {
+  border: none;
+}
+.page-node-add-giving-proposal .form-item label {
+  font-size: 16px;
+  border: none;
+  padding: 0;
+}
+/* ==========================================================================
+  Less for footer section
+   ========================================================================== */
+ul.menu {
+  margin: 0;
+  padding: 0;
+}
+ul.menu li {
+  list-style: none;
+}
+ul.menu li a {
+  transition: color 0.3s linear 0s;
+}
+ul.menu li a:hover {
+  color: #999933;
+}
+ul.menu li a.active {
+  color: #999933;
+}
+footer {
+  float: left;
+  width: 100%;
+  padding: 30px 0;
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
+}
+footer .footer-menu {
+  text-align: left;
+}
+footer .footer-menu li a {
+  color: #fff;
+  font-family: 'raleway-light';
+  font-size: 16px;
+  text-decoration: none;
+  padding-bottom: 6px;
+  display: block;
+}
+footer .footer-menu li a:hover {
+  text-decoration: none;
+}
+footer .copyright-section {
+  padding-top: 20px;
+}
+footer .copyright-section .reserved {
+  display: inline-block;
+  font-family: 'raleway-light';
+  font-size: 12px;
+  color: #ccc;
+}
+footer .copyright-section .privacy-menu li {
+  display: inline;
+}
+footer .copyright-section .privacy-menu li a {
+  display: inline-block;
+  padding: 0 10px 0 0;
+  color: #fff;
+  text-decoration: none;
+  font-family: 'raleway-light';
+  font-size: 12px;
+  transition: color 0.3s linear 0s;
+}
+footer .copyright-section .privacy-menu li a:hover {
+  text-decoration: none;
+  color: #999933;
+}
+
+/*# sourceMappingURL=style.css.map */

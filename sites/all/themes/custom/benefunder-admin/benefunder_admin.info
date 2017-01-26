@@ -1,0 +1,47 @@
+name = Benefunder Admin
+description = A Adminimal Administration Sub-Theme.
+core = 7.x
+base theme = adminimal
+
+
+;;;;;;;;;;;;;;;;;;;;;
+;; Regions
+;;;;;;;;;;;;;;;;;;;;;
+
+regions[hidden] 		= 'Hidden'
+regions[navigation]     = 'Navigation'
+regions[header]         = 'Top Bar'
+regions[highlighted]    = 'Highlighted'
+regions[help]           = 'Help'
+regions[content_before] = 'Before Content'
+regions[content]        = 'Content'
+regions[content_after]  = 'After Content'
+regions[sidebar_first]  = 'Primary'
+regions[sidebar_second] = 'Secondary'
+regions[footer]         = 'Footer'
+regions[page_top]       = 'Page top'
+regions[page_bottom]    = 'Page bottom'
+
+
+;;;;;;;;;;;;;;;;;;;;;
+;; Stylesheets
+;;;;;;;;;;;;;;;;;;;;;
+
+stylesheets[all][] = css/style.css
+
+
+;;;;;;;;;;;;;;;;;;;;;
+;; Scripts
+;;;;;;;;;;;;;;;;;;;;;
+
+;scripts[all][] = js/main.js
+
+
+;;;;;;;;;;;;;;;;;;;;;
+;; Settings
+;;;;;;;;;;;;;;;;;;;;;
+
+settings[media_query_mobile] = only screen and (max-width: 480px)
+settings[media_query_tablet] = only screen and (min-width : 481px) and (max-width : 1024px)
+
+
