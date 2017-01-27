@@ -22,6 +22,8 @@ function sitemod_form_alter(&$form, &$form_state, $form_id) {
         unset($form['field_proposal_status']);
         unset($form['field_signature_request_id']);
       }
+      $form['field_giving_proposal']['#disabled'] = TRUE;
+      $form['field_additional_documents']['#disabled'] = TRUE;
       break;
   }
 }
