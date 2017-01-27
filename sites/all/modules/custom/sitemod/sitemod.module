@@ -114,8 +114,6 @@ function sitemod_profile2_view_alter($build) {
 function sitemod_preprocess_entity_print(&$variables) {
   $node_wrapper = entity_metadata_wrapper('node', $variables['entity']);
 
-  $variables['fa_name'] = $variables['user']->name;
-
   // Basic fields.
   $variables['title'] = $node_wrapper->label();
   $variables['subtitle'] = $node_wrapper->field_subtitle->value();
@@ -136,7 +134,7 @@ function sitemod_preprocess_entity_print(&$variables) {
   $academic_positions = array();
   foreach ($node_wrapper->field_academic_position as $position) {
     $post_array = preg_split('/\<br\s?\/?>/i', $position->value()['safe_value']);
-    if (!isset($post_array[2]) || (isset($post_array[2]) && stripos($post_array[2], 'current') !== FALSE)) {
+    if (!isset($post_array[2]) || stripos($post_array[2], 'current') !== FALSE) {
       $academic_positions[] = $post_array[0];
     }
   }
