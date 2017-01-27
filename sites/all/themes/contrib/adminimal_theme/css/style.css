@@ -3062,11 +3062,11 @@ body.adminimal-skin-alternative.adminimal-theme.page-admin-structure-features #e
  * Benefunder Additional Styles
  * by Chuck Dowe
  */
-/* ==========================================================================
+ /* ==========================================================================
     Custom Theme Specific Typography
    ========================================================================== */
 @import url("http://fast.fonts.net/t/1.css?apiType=css&projectid=fe05cabc-3663-4842-8519-7dce9ba9155b");
-@import url('http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css');
+
 @font-face {
   font-family: "Proxima N W01 Reg";
   src: url("/sites/all/themes/custom/benefunder/media/fonts/7e90123f-e4a7-4689-b41f-6bcfe331c00a.eot?#iefix");
@@ -3447,7 +3447,7 @@ form#giving-proposal-node-form {
   border: none;
   padding: 0;
 }
-.page-node-add-giving-proposal div.vertical-tabs .field-group-tab fieldset {
+.page-node-add-giving-proposal div.vertical-tabs fieldset {
   border-top-width: 1px;
   border-top-color: #993;
   box-shadow: 0px -1px 0 #993;
@@ -3544,4 +3544,3 @@ form#giving-proposal-node-form {
   padding: 8px 12px;
 }
 
-/*# sourceMappingURL=style.css.map */
