@@ -68,7 +68,7 @@ function create_proposal_execute_confirm_submit($form, &$form_state) {
   $files[] = $wrapper->field_giving_proposal->value()['uri'];
   $files[] = $wrapper->field_additional_documents->value()['uri'];
 
-  // TODO: Add static content.
+  // TODO: Add static content?
 //  $files[] = drupal_get_path('module', 'create_proposal') . '/proposal_static.pdf';
 
   $mode = 'email';
@@ -251,13 +251,25 @@ function create_proposal_node_presave($node) {
  *   The data sent by HelloSign.
  */
 function create_proposal_process_hellosign_callback(array $data) {
-//  dd($data);
-//
-//  // Get event info.
-//  $event_type = $data->event->event_type;
-//
-//  if ($event_type == 'signature_request_all_signed') {
-//    drupal_set_message(t('Everybody has signed HelloSign esignature request @request_id.',
-//      array('@request_id' => $data->signature_request->signature_request_id)));
-//  }
+
+  $signature_request_id = $data->signature_request->signature_request_id;
+  $event = $data->event->event_type;
+
+  $q = new EntityFieldQuery();
+  $q->fieldCondition('field_signature_id', $signature_request_id);
+  $q->entityCondition('bundle', 'giving_proposal');
+  $q->range(0, 1);
+  $result = $q->execute();
+
+  if (isset($result['node'])) {
+    $wrapper = entity_metadata_wrapper('node', current(array_keys($result['node'])));
+  }
+
+  if ($event == 'signature_request_all_signed') {
+    // Update proposal to Continuing.
+    // Log callback?
+    // Execute initial disbursements.
+  }
+
+  // Handle signature rejection.
 }
