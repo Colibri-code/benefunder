@@ -4167,23 +4167,27 @@ form#giving-proposal-node-form {
   background-color: #fff;
   padding: 10px;
 }
-.page-node-add-giving-proposal .group-proposal-tabs .tabs-left > .nav-tabs > li > a {
+.page-node-add-giving-proposal .group-proposal-tabs .tabs-left > .nav-tabs > li > a,
+.page-node-edit.node-type-giving-proposal .group-proposal-tabs .tabs-left > .nav-tabs > li > a {
   color: #333;
   font-size: 15px;
   font-weight: 500;
   text-decoration: none;
 }
-.page-node-add-giving-proposal .group-proposal-tabs .vertical-tab-button.first {
+.page-node-add-giving-proposal .group-proposal-tabs .vertical-tab-button.first,
+.page-node-edit.node-type-giving-proposal .group-proposal-tabs .vertical-tab-button.first {
   text-align: center;
   font-size: 16px;
   letter-spacing: 0.05em;
   pointer-events: none;
   color: #fff;
 }
-.page-node-add-giving-proposal .group-proposal-tabs .vertical-tab-button.first:hover {
+.page-node-add-giving-proposal .group-proposal-tabs .vertical-tab-button.first:hover,
+.page-node-edit.node-type-giving-proposal .group-proposal-tabs .vertical-tab-button.first:hover {
   background-color: #5f015f;
 }
-.page-node-add-giving-proposal .group-proposal-tabs .vertical-tab-button.first a {
+.page-node-add-giving-proposal .group-proposal-tabs .vertical-tab-button.first a,
+.page-node-edit.node-type-giving-proposal .group-proposal-tabs .vertical-tab-button.first a {
   background-color: purple !important;
   color: #fff !important;
   font: normal normal normal 14px/1 FontAwesome;
@@ -4191,62 +4195,78 @@ form#giving-proposal-node-form {
   text-rendering: auto;
   border-left: 1px solid purple !important;
 }
-.page-node-add-giving-proposal .group-proposal-tabs .vertical-tab-button.first a:before {
+.page-node-add-giving-proposal .group-proposal-tabs .vertical-tab-button.first a:before,
+.page-node-edit.node-type-giving-proposal .group-proposal-tabs .vertical-tab-button.first a:before {
   margin-right: 5px;
   content: "\f007";
 }
-.page-node-add-giving-proposal .group-proposal-tabs .vertical-tab-button.first a:hover {
+.page-node-add-giving-proposal .group-proposal-tabs .vertical-tab-button.first a:hover,
+.page-node-edit.node-type-giving-proposal .group-proposal-tabs .vertical-tab-button.first a:hover {
   border-color: #5f015f !important;
   background-color: transparent;
 }
-.page-node-add-giving-proposal .group-proposal-tabs .vertical-tab-button:nth-of-type(6),
-.page-node-add-giving-proposal .group-proposal-tabs .vertical-tab-button:nth-of-type(10) {
+.page-node-add-giving-proposal .group-proposal-tabs .vertical-tab-button:nth-of-type(5),
+.page-node-edit.node-type-giving-proposal .group-proposal-tabs .vertical-tab-button:nth-of-type(5),
+.page-node-add-giving-proposal .group-proposal-tabs .vertical-tab-button:nth-of-type(9),
+.page-node-edit.node-type-giving-proposal .group-proposal-tabs .vertical-tab-button:nth-of-type(9) {
   color: #fff;
   text-align: center;
   font-size: 16px;
   letter-spacing: 0.05em;
   pointer-events: none;
 }
-.page-node-add-giving-proposal .group-proposal-tabs .vertical-tab-button:nth-of-type(6):hover,
-.page-node-add-giving-proposal .group-proposal-tabs .vertical-tab-button:nth-of-type(10):hover {
+.page-node-add-giving-proposal .group-proposal-tabs .vertical-tab-button:nth-of-type(5):hover,
+.page-node-edit.node-type-giving-proposal .group-proposal-tabs .vertical-tab-button:nth-of-type(5):hover,
+.page-node-add-giving-proposal .group-proposal-tabs .vertical-tab-button:nth-of-type(9):hover,
+.page-node-edit.node-type-giving-proposal .group-proposal-tabs .vertical-tab-button:nth-of-type(9):hover {
   background-color: #848425;
 }
-.page-node-add-giving-proposal .group-proposal-tabs .vertical-tab-button:nth-of-type(6) a,
-.page-node-add-giving-proposal .group-proposal-tabs .vertical-tab-button:nth-of-type(10) a {
+.page-node-add-giving-proposal .group-proposal-tabs .vertical-tab-button:nth-of-type(5) a,
+.page-node-edit.node-type-giving-proposal .group-proposal-tabs .vertical-tab-button:nth-of-type(5) a,
+.page-node-add-giving-proposal .group-proposal-tabs .vertical-tab-button:nth-of-type(9) a,
+.page-node-edit.node-type-giving-proposal .group-proposal-tabs .vertical-tab-button:nth-of-type(9) a {
   background: #993 !important;
   color: #fff !important;
   font: normal normal normal 14px/1 FontAwesome;
   font-size: inherit;
   text-rendering: auto;
 }
-.page-node-add-giving-proposal .group-proposal-tabs .vertical-tab-button:nth-of-type(6) a:before,
-.page-node-add-giving-proposal .group-proposal-tabs .vertical-tab-button:nth-of-type(10) a:before {
+.page-node-add-giving-proposal .group-proposal-tabs .vertical-tab-button:nth-of-type(5) a:before,
+.page-node-edit.node-type-giving-proposal .group-proposal-tabs .vertical-tab-button:nth-of-type(5) a:before,
+.page-node-add-giving-proposal .group-proposal-tabs .vertical-tab-button:nth-of-type(9) a:before,
+.page-node-edit.node-type-giving-proposal .group-proposal-tabs .vertical-tab-button:nth-of-type(9) a:before {
   margin-right: 5px;
   content: "\f013";
 }
-.page-node-add-giving-proposal .group-proposal-tabs .vertical-tab-button:nth-of-type(6) a:hover,
-.page-node-add-giving-proposal .group-proposal-tabs .vertical-tab-button:nth-of-type(10) a:hover {
+.page-node-add-giving-proposal .group-proposal-tabs .vertical-tab-button:nth-of-type(5) a:hover,
+.page-node-edit.node-type-giving-proposal .group-proposal-tabs .vertical-tab-button:nth-of-type(5) a:hover,
+.page-node-add-giving-proposal .group-proposal-tabs .vertical-tab-button:nth-of-type(9) a:hover,
+.page-node-edit.node-type-giving-proposal .group-proposal-tabs .vertical-tab-button:nth-of-type(9) a:hover {
   border-color: #848425 !important;
   background-color: transparent;
 }
-.page-node-add-giving-proposal fieldset .panel-heading {
+.page-node-add-giving-proposal fieldset .panel-heading,
+.page-node-edit.node-type-giving-proposal fieldset .panel-heading {
   border: none !important;
   padding-top: 0;
   padding-bottom: 0;
   background-color: transparent;
 }
-.page-node-add-giving-proposal fieldset .panel-heading a.panel-title {
+.page-node-add-giving-proposal fieldset .panel-heading a.panel-title,
+.page-node-edit.node-type-giving-proposal fieldset .panel-heading a.panel-title {
   margin-top: 0px;
   border-bottom: 2px none rgba(153, 153, 51, 0.31);
   font-size: 34px;
   line-height: 44px;
   font-weight: 400;
 }
-.page-node-add-giving-proposal fieldset .panel-heading a.panel-title:focus {
+.page-node-add-giving-proposal fieldset .panel-heading a.panel-title:focus,
+.page-node-edit.node-type-giving-proposal fieldset .panel-heading a.panel-title:focus {
   text-decoration: none;
   outline: none;
 }
-.page-node-add-giving-proposal .panel {
+.page-node-add-giving-proposal .panel,
+.page-node-edit.node-type-giving-proposal .panel {
   border: none;
 }
 /* Form Styles */
