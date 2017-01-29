@@ -4268,7 +4268,7 @@ input.form-text {
   color: #333333;
   vertical-align: middle;
   display: block;
-  height: 2.5em;
+  height: 30px;
   padding: 8px 12px;
 }
 .form-group label {
@@ -4317,7 +4317,7 @@ option {
   font-size: 14px;
 }
 select.form-select:not([multiple]) {
-  height: 2.5em;
+  height: 50px;
   margin-bottom: 24px;
   border: 2px solid #dfdfdf;
   font-weight: 400;
