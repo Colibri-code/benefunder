@@ -49,7 +49,7 @@ function bf_giving_proposal_field_group_info() {
   $field_group->parent_name = 'group_proposal_tabs';
   $field_group->data = array(
     'label' => 'Benefunder Check',
-    'weight' => '38',
+    'weight' => '68',
     'children' => array(
       0 => 'field_analyst_feedback_1',
       1 => 'field_client_feedback_1',
@@ -78,7 +78,7 @@ function bf_giving_proposal_field_group_info() {
   $field_group->parent_name = 'group_proposal_tabs';
   $field_group->data = array(
     'label' => 'Proposal Review & Approval',
-    'weight' => '40',
+    'weight' => '71',
     'children' => array(
       0 => 'field_analyst_feedback',
       1 => 'field_client_feedback',
@@ -135,17 +135,17 @@ function bf_giving_proposal_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = 'group_proposal_planned';
   $field_group->data = array(
-    'label' => 'Giving Profile',
+    'label' => 'Current Charitable Giving',
     'weight' => '46',
     'children' => array(
-      0 => 'field_non_profits_supported',
-      1 => 'field_what_did_the_client_like_d',
-      2 => 'field_program_targets',
-      3 => 'field_giving_targets',
+      0 => 'field_charitable_vehicle',
+      1 => 'field_non_profits_supported',
+      2 => 'field_vehicle_name',
+      3 => 'field_vehicle_type',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
-      'label' => 'Giving Profile',
+      'label' => 'Current Charitable Giving',
       'instance_settings' => array(
         'required_fields' => 1,
         'id' => '',
@@ -168,7 +168,7 @@ function bf_giving_proposal_field_group_info() {
   $field_group->parent_name = 'group_proposal_tabs';
   $field_group->data = array(
     'label' => 'DAF Account Setup / Verification',
-    'weight' => '42',
+    'weight' => '74',
     'children' => array(
       0 => 'field_already_have_daf',
       1 => 'field_daf_forms',
@@ -252,21 +252,17 @@ function bf_giving_proposal_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = 'group_proposal_planned';
   $field_group->data = array(
-    'label' => 'Account Details & Funding Information',
+    'label' => 'Anticipated Giving Plan',
     'weight' => '47',
     'children' => array(
-      0 => 'field_charitable_vehicle',
-      1 => 'field_contribution_funding',
-      2 => 'field_planned_annual_contributio',
+      0 => 'field_contribution_funding',
+      1 => 'field_planned_annual_contributio',
+      2 => 'field_planned_annual_distributio',
       3 => 'field_planned_initial_contributi',
-      4 => 'field_vehicle_name',
-      5 => 'field_vehicle_type',
-      6 => 'field_how_does_the_client_plan_o',
-      7 => 'field_what_is_the_intended_distr',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
-      'label' => 'Account Details & Funding Information',
+      'label' => 'Anticipated Giving Plan',
       'instance_settings' => array(
         'required_fields' => 1,
         'id' => '',
@@ -289,7 +285,7 @@ function bf_giving_proposal_field_group_info() {
   $field_group->parent_name = 'group_proposal_tabs';
   $field_group->data = array(
     'label' => 'Initial Distributions',
-    'weight' => '45',
+    'weight' => '77',
     'children' => array(
       0 => 'field_distribution',
     ),
@@ -306,7 +302,7 @@ function bf_giving_proposal_field_group_info() {
   $field_groups['group_initial_distributions|node|giving_proposal|form'] = $field_group;
 
   $field_group = new stdClass();
-  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->disabled = TRUE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
   $field_group->identifier = 'group_introduction|node|giving_proposal|form';
   $field_group->group_name = 'group_introduction';
@@ -316,7 +312,7 @@ function bf_giving_proposal_field_group_info() {
   $field_group->parent_name = 'group_proposal_tabs';
   $field_group->data = array(
     'label' => 'Introduction',
-    'weight' => '35',
+    'weight' => '65',
     'children' => array(
       0 => 'field_intro_text',
     ),
@@ -343,7 +339,7 @@ function bf_giving_proposal_field_group_info() {
   $field_group->parent_name = 'group_proposal_tabs';
   $field_group->data = array(
     'label' => 'Benefunder Addendum',
-    'weight' => '43',
+    'weight' => '75',
     'children' => array(
       0 => 'field_addendum',
     ),
@@ -458,7 +454,7 @@ function bf_giving_proposal_field_group_info() {
   $field_group->parent_name = 'group_proposal_tabs';
   $field_group->data = array(
     'label' => 'Causes Portfolio & Allocation',
-    'weight' => '39',
+    'weight' => '70',
     'children' => array(
       0 => 'field_cause',
     ),
@@ -486,7 +482,7 @@ function bf_giving_proposal_field_group_info() {
   $field_group->parent_name = 'group_proposal_tabs';
   $field_group->data = array(
     'label' => 'Philanthropic Profile',
-    'weight' => '36',
+    'weight' => '66',
     'children' => array(
       0 => 'group_current_giving',
       1 => 'group_donor_profile',
@@ -516,7 +512,7 @@ function bf_giving_proposal_field_group_info() {
   $field_group->parent_name = 'group_proposal_tabs';
   $field_group->data = array(
     'label' => 'Final Proposal',
-    'weight' => '41',
+    'weight' => '72',
     'children' => array(
       0 => 'field_giving_proposal',
       1 => 'field_additional_documents',
@@ -612,10 +608,10 @@ function bf_giving_proposal_field_group_info() {
   $field_group->parent_name = 'group_proposal_tabs';
   $field_group->data = array(
     'label' => 'Send for Signatures',
-    'weight' => '46',
+    'weight' => '78',
     'children' => array(
-      0 => 'field_signature_request_id',
-      1 => 'field_ready_to_send',
+      0 => 'field_ready_to_send',
+      1 => 'field_signature_request_id',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -640,7 +636,7 @@ function bf_giving_proposal_field_group_info() {
   $field_group->parent_name = 'group_proposal_tabs';
   $field_group->data = array(
     'label' => 'Preliminary Cause Selection',
-    'weight' => '37',
+    'weight' => '67',
     'children' => array(
       0 => 'field_inspiration',
     ),
@@ -668,14 +664,14 @@ function bf_giving_proposal_field_group_info() {
   $field_group->parent_name = 'group_proposal_tabs';
   $field_group->data = array(
     'label' => 'Routing Instructions',
-    'weight' => '44',
+    'weight' => '76',
     'children' => array(
       0 => 'field_aba_number_for_wires',
-      1 => 'field_ach',
-      2 => 'field_bank_name',
-      3 => 'field_account_number',
-      4 => 'field_account_holder',
-      5 => 'field_bank_address',
+      1 => 'field_account_holder',
+      2 => 'field_account_number',
+      3 => 'field_ach',
+      4 => 'field_bank_address',
+      5 => 'field_bank_name',
       6 => 'field_swift_code',
     ),
     'format_type' => 'tab',
