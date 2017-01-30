@@ -3221,6 +3221,94 @@ body.node-type-cause .navbar-collapse,
 body.front .navbar-collapse {
   background-color: rgba(51, 51, 51, 0.98);
 }
+/* ==========================================================================
+  Logo
+========================================================================== */
+.navbar-brand {
+  background-image: url(../../../custom/benefunder/media/images/benefunder_logo.png);
+  background-position: center center;
+  background-repeat: no-repeat;
+  display: inline-block;
+  color: transparent;
+  width: 190px;
+  height: 31px;
+  margin: 15px;
+  position: relative;
+  z-index: 2;
+}
+@media (min-width: 991px) {
+  .navbar-brand {
+    margin-left: 15px;
+  }
+}
+/* ==========================================================================
+  Default Navbar Customizations
+========================================================================== */
+.nav {
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style: none;
+}
+.nav > li {
+  position: relative;
+  display: inline-block;
+}
+.nav > li > a {
+  position: relative;
+  display: block;
+  padding: 15px;
+  color: #fff;
+}
+.nav > li > a:hover,
+.nav > li > a:focus {
+  text-decoration: none;
+}
+.nav > li.disabled > a {
+  color: #fff;
+}
+.nav > li.disabled > a:hover,
+.nav > li.disabled > a:focus {
+  color: transparent;
+  text-decoration: none;
+  background-color: transparent;
+  cursor: not-allowed;
+}
+.navbar {
+  position: relative;
+  min-height: 25px;
+  margin-bottom: 15px;
+  border: none;
+}
+.navbar-default {
+  border-radius: 0;
+  overflow: hidden;
+  margin-bottom: 0;
+  position: absolute;
+  width: 100%;
+  z-index: 5;
+}
+@media (min-width: 991px) {
+  .navbar-default.activated li a {
+    opacity: 0;
+  }
+}
+.navbar-right {
+  float: none;
+}
+@media (min-width: 991px) {
+  .navbar-right {
+    float: right !important;
+  }
+}
+#branding .page-title {
+  display: none;
+}
+.pull-left {
+  float: left !important;
+}
+.pull-right {
+  float: right !important;
+}
 /* Grid */
 .container {
   margin-right: auto;

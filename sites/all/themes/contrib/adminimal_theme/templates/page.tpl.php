@@ -7,15 +7,9 @@
 
 <div id="branding" class="clearfix">
 
-	<?php print $breadcrumb; ?>
+	<a class="navbar-brand" href="/">Benefunder</a>
 
-	<?php print render($title_prefix); ?>
-
-	<?php if ($title): ?>
-		<h1 class="page-title"><?php print $title; ?></h1>
-	<?php endif; ?>
-
-	<?php print render($title_suffix); ?>
+	<?php print theme('links', array('links' => menu_navigation_links('main-menu'), 'attributes' => array('class'=> array('nav', 'navbar-nav', 'navbar-right')) ));?>
 
 </div>
 
