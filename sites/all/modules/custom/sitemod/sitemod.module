@@ -118,9 +118,11 @@ function sitemod_preprocess_entity_print(&$variables) {
   $variables['title'] = $node_wrapper->label();
   $variables['subtitle'] = $node_wrapper->field_subtitle->value();
   $variables['name'] = $node_wrapper->field_first_name->value() . ' ' . $node_wrapper->field_last_name->value();
-  $variables['current_research'] = $node_wrapper->body->value->value();
   $variables['body'] = $node_wrapper->body->value->value();
-  $variables['summary'] = text_summary($node_wrapper->field_summary->value->value(), 'filtered_html', 450);
+
+  // Summary field may be empty.
+  $summary = $node_wrapper->field_summary->value();
+  $variables['summary'] = !empty($summary) ? text_summary($summary['value'], 'filtered_html', 450) : '';
 
   // Images.
   $picture = $node_wrapper->field_picture->value();
@@ -136,6 +138,9 @@ function sitemod_preprocess_entity_print(&$variables) {
     $post_array = preg_split('/\<br\s?\/?>/i', $position->value()['safe_value']);
     if (!isset($post_array[2]) || stripos($post_array[2], 'current') !== FALSE) {
       $academic_positions[] = $post_array[0];
+    }
+    elseif (isset($post_array[4]) && stripos($post_array[4], 'current') !== FALSE) {
+      $academic_positions[] = $post_array[0] . ', ' . $post_array[1];
     }
   }
   if (!empty($academic_positions)) {
