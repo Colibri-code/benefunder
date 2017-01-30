@@ -159,6 +159,9 @@ function adminimal_preprocess_page(&$vars) {
     '#secondary' => $vars['tabs']['#secondary'],
   );
   unset($vars['page']['hidden']);
+
+  // Admins dont need the additional benefunder main menu.
+  $vars['hide_benefunder_menu'] = user_access('administer nodes');
 }
 
 /**

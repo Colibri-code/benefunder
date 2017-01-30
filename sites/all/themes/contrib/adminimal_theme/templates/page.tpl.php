@@ -9,7 +9,9 @@
 
 	<a class="navbar-brand" href="/">Benefunder</a>
 
+	<?php if (!$hide_benefunder_menu): ?>
 	<?php print theme('links', array('links' => menu_navigation_links('main-menu'), 'attributes' => array('class'=> array('nav', 'navbar-nav', 'navbar-right')) ));?>
+	<?php endif; ?>
 
 </div>
 
