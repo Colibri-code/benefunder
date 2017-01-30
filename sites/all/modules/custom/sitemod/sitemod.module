@@ -136,13 +136,13 @@ function sitemod_preprocess_entity_print(&$variables) {
   $academic_positions = array();
   foreach ($node_wrapper->field_academic_position as $position) {
     $post_array = preg_split('/\<br\s?\/?>/i', $position->value()['safe_value']);
-    if (!isset($post_array[2]) || stripos($post_array[2], 'current') !== FALSE || is_int($post_array[2])) {
+    if (!isset($post_array[2]) || stripos($post_array[2], 'current') !== FALSE || preg_match('/\d{4}/', strip_tags($post_array[2]))) {
       $academic_positions[] = $post_array[0];
     }
-    elseif (isset($post_array[3]) && (stripos($post_array[3], 'current') !== FALSE || is_int($post_array[3]))) {
+    elseif (isset($post_array[3]) && (stripos($post_array[3], 'current') !== FALSE || preg_match('/\d{4}/', strip_tags($post_array[3])))) {
       $academic_positions[] = $post_array[0] . ', ' . $post_array[1];
     }
-    elseif (isset($post_array[4]) && (stripos($post_array[4], 'current') !== FALSE || is_int($post_array[4]))) {
+    elseif (isset($post_array[4]) && (stripos($post_array[4], 'current') !== FALSE || preg_match('/\d{4}/', strip_tags($post_array[4])))) {
       $academic_positions[] = $post_array[0] . ', ' . $post_array[1];
     }
   }
