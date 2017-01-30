@@ -3233,6 +3233,7 @@ body.front .navbar-collapse {
   width: 190px;
   height: 31px;
   margin: 15px;
+  text-indent: -9999px;
   position: relative;
   z-index: 2;
 }
@@ -4376,7 +4377,6 @@ input.form-text {
   color: #333333;
   vertical-align: middle;
   display: block;
-  height: 30px;
   padding: 8px 12px;
 }
 .form-group label {
@@ -4407,7 +4407,6 @@ input.form-text:active {
   color: #333;
 }
 select[multiple].form-select {
-  width: 100%;
   padding: 10px 11px;
   border: 2px solid #dfdfdf;
   border-radius: 3px;
@@ -4415,7 +4414,7 @@ select[multiple].form-select {
 }
 option {
   margin-bottom: 0px;
-  padding: 12px 17px;
+  padding: 10px 5px;
   border-bottom: 1px solid #e2e2e2;
   line-height: 16px;
   font-weight: normal;
@@ -4425,7 +4424,7 @@ option {
   font-size: 14px;
 }
 select.form-select:not([multiple]) {
-  height: 50px;
+  height: 36px;
   margin-bottom: 24px;
   border: 2px solid #dfdfdf;
   font-weight: 400;
