@@ -35,6 +35,13 @@ function benefunder_preprocess_page(&$vars, $hook) {
 }
 
 /**
+ * Overrides theme_menu_tree().
+ */
+function benefunder_menu_tree__primary(&$variables) {
+  return '<ul class="navbar-right nav navbar-nav">' . $variables['tree'] . '</ul>';
+}
+
+/**
  * Implements theme_pager().
  */
 function benefunder_pager($variables) {

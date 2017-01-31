@@ -24,7 +24,7 @@
 
       <button type="button" class="search-toggle" data-target="#header-search-form"><span></span></button>
 
-      <?php print theme('links', array('links' => menu_navigation_links('main-menu'), 'attributes' => array('class'=> array('nav', 'navbar-nav', 'navbar-right')) ));?>
+      <?php print render($primary_nav); ?>
 
       <div class="footer-menu hidden-md hidden-lg">
         <?php print theme('links', array('links' => menu_navigation_links('menu-footer-menu'), 'attributes' => array('class'=> array('menu')) ));?>
