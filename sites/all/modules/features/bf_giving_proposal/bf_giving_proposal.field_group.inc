@@ -50,7 +50,7 @@ function bf_giving_proposal_field_group_info() {
   $field_group->parent_name = 'group_proposal_tabs';
   $field_group->data = array(
     'label' => 'Proposal Review & Approval',
-    'weight' => '40',
+    'weight' => '41',
     'children' => array(
       0 => 'field_analyst_feedback',
       1 => 'field_client_feedback',
@@ -140,7 +140,7 @@ function bf_giving_proposal_field_group_info() {
   $field_group->parent_name = 'group_proposal_tabs';
   $field_group->data = array(
     'label' => 'DAF Account Setup / Verification',
-    'weight' => '42',
+    'weight' => '44',
     'children' => array(
       0 => 'field_already_have_daf',
       1 => 'field_daf_forms',
@@ -190,6 +190,33 @@ function bf_giving_proposal_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
+  $field_group->identifier = 'group_execution|node|giving_proposal|form';
+  $field_group->group_name = 'group_execution';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'giving_proposal';
+  $field_group->mode = 'form';
+  $field_group->parent_name = 'group_proposal_tabs';
+  $field_group->data = array(
+    'label' => 'Execution',
+    'weight' => '43',
+    'children' => array(
+      0 => 'field_execution_area',
+    ),
+    'format_type' => 'tab',
+    'format_settings' => array(
+      'formatter' => 'closed',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => 'group-execution field-group-tab',
+        'required_fields' => 1,
+      ),
+    ),
+  );
+  $field_groups['group_execution|node|giving_proposal|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
   $field_group->identifier = 'group_giving_plan|node|giving_proposal|form';
   $field_group->group_name = 'group_giving_plan';
   $field_group->entity_type = 'node';
@@ -234,7 +261,7 @@ function bf_giving_proposal_field_group_info() {
   $field_group->parent_name = 'group_proposal_tabs';
   $field_group->data = array(
     'label' => 'Initial Distributions',
-    'weight' => '45',
+    'weight' => '47',
     'children' => array(
       0 => 'field_distribution',
     ),
@@ -260,19 +287,20 @@ function bf_giving_proposal_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = 'group_proposal_tabs';
   $field_group->data = array(
-    'label' => 'Introduction',
+    'label' => 'Needs Assessment',
     'weight' => '35',
     'children' => array(
       0 => 'field_intro_text',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
-      'formatter' => 'closed',
+      'label' => 'Needs Assessment',
       'instance_settings' => array(
-        'description' => '',
-        'classes' => 'group-introduction field-group-tab',
         'required_fields' => 1,
+        'classes' => 'group-introduction field-group-tab',
+        'description' => '',
       ),
+      'formatter' => 'closed',
     ),
   );
   $field_groups['group_introduction|node|giving_proposal|form'] = $field_group;
@@ -288,7 +316,7 @@ function bf_giving_proposal_field_group_info() {
   $field_group->parent_name = 'group_proposal_tabs';
   $field_group->data = array(
     'label' => 'Benefunder Addendum',
-    'weight' => '43',
+    'weight' => '45',
     'children' => array(
       0 => 'field_addendum',
     ),
@@ -403,7 +431,7 @@ function bf_giving_proposal_field_group_info() {
   $field_group->parent_name = 'group_proposal_tabs';
   $field_group->data = array(
     'label' => 'Causes Portfolio & Allocation',
-    'weight' => '39',
+    'weight' => '40',
     'children' => array(
       0 => 'field_cause',
     ),
@@ -461,7 +489,7 @@ function bf_giving_proposal_field_group_info() {
   $field_group->parent_name = 'group_proposal_tabs';
   $field_group->data = array(
     'label' => 'Final Proposal',
-    'weight' => '41',
+    'weight' => '42',
     'children' => array(
       0 => 'field_giving_proposal',
       1 => 'field_additional_documents',
@@ -492,18 +520,20 @@ function bf_giving_proposal_field_group_info() {
     'label' => 'Needs Assessment',
     'weight' => '2',
     'children' => array(
-      0 => 'group_check_1',
-      1 => 'group_check_2',
-      2 => 'group_daf_funded',
-      3 => 'group_introduction',
-      4 => 'group_proposal_matches',
-      5 => 'group_proposal_planned',
-      6 => 'group_proposal_proposal',
-      7 => 'group_videos',
-      8 => 'group_wire_and_ach',
-      9 => 'group_send_signatures',
-      10 => 'group_proposal_addendum',
-      11 => 'group_initial_distributions',
+      0 => 'group_execution',
+      1 => 'group_proposal',
+      2 => 'group_check_1',
+      3 => 'group_check_2',
+      4 => 'group_daf_funded',
+      5 => 'group_initial_distributions',
+      6 => 'group_introduction',
+      7 => 'group_proposal_addendum',
+      8 => 'group_proposal_matches',
+      9 => 'group_proposal_planned',
+      10 => 'group_proposal_proposal',
+      11 => 'group_send_signatures',
+      12 => 'group_videos',
+      13 => 'group_wire_and_ach',
     ),
     'format_type' => 'tabs',
     'format_settings' => array(
@@ -519,6 +549,33 @@ function bf_giving_proposal_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
+  $field_group->identifier = 'group_proposal|node|giving_proposal|form';
+  $field_group->group_name = 'group_proposal';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'giving_proposal';
+  $field_group->mode = 'form';
+  $field_group->parent_name = 'group_proposal_tabs';
+  $field_group->data = array(
+    'label' => 'Proposal',
+    'weight' => '39',
+    'children' => array(
+      0 => 'field_proposal',
+    ),
+    'format_type' => 'tab',
+    'format_settings' => array(
+      'formatter' => 'closed',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => 'group-proposal field-group-tab',
+        'required_fields' => 1,
+      ),
+    ),
+  );
+  $field_groups['group_proposal|node|giving_proposal|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
   $field_group->identifier = 'group_send_signatures|node|giving_proposal|form';
   $field_group->group_name = 'group_send_signatures';
   $field_group->entity_type = 'node';
@@ -527,7 +584,7 @@ function bf_giving_proposal_field_group_info() {
   $field_group->parent_name = 'group_proposal_tabs';
   $field_group->data = array(
     'label' => 'Send for Signatures',
-    'weight' => '46',
+    'weight' => '48',
     'children' => array(
       0 => 'field_signature_request_id',
       1 => 'field_ready_to_send',
@@ -583,7 +640,7 @@ function bf_giving_proposal_field_group_info() {
   $field_group->parent_name = 'group_proposal_tabs';
   $field_group->data = array(
     'label' => 'Routing Instructions',
-    'weight' => '44',
+    'weight' => '46',
     'children' => array(
       0 => 'field_aba_number_for_wires',
       1 => 'field_ach',
@@ -617,13 +674,14 @@ function bf_giving_proposal_field_group_info() {
   t('DAF Account Setup / Verification');
   t('Donor Information');
   t('Donor Profile');
+  t('Execution');
   t('Final Proposal');
   t('Giving Profile');
   t('Initial Distributions');
-  t('Introduction');
   t('Needs Assessment');
   t('Philanthropic Profile');
   t('Preliminary Cause Selection');
+  t('Proposal');
   t('Proposal Review & Approval');
   t('Research Interests');
   t('Routing Instructions');

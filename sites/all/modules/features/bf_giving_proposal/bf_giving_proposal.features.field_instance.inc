@@ -127,48 +127,6 @@ function bf_giving_proposal_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'field_collection_item-field_donor_profile-field_age'.
-  $field_instances['field_collection_item-field_donor_profile-field_age'] = array(
-    'bundle' => 'field_donor_profile',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'number',
-        'settings' => array(
-          'decimal_separator' => '.',
-          'prefix_suffix' => TRUE,
-          'scale' => 0,
-          'thousand_separator' => '',
-        ),
-        'type' => 'number_integer',
-        'weight' => 3,
-      ),
-    ),
-    'ds_extras_field_template' => '',
-    'entity_type' => 'field_collection_item',
-    'field_name' => 'field_age',
-    'label' => 'Age',
-    'required' => 0,
-    'settings' => array(
-      'max' => '',
-      'min' => '',
-      'prefix' => '',
-      'suffix' => '',
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 0,
-      'module' => 'number',
-      'settings' => array(),
-      'type' => 'number',
-      'weight' => 1,
-    ),
-  );
-
-  // Exported field_instance:
   // 'field_collection_item-field_donor_profile-field_alumni_affiliations'.
   $field_instances['field_collection_item-field_donor_profile-field_alumni_affiliations'] = array(
     'bundle' => 'field_donor_profile',
@@ -205,7 +163,7 @@ function bf_giving_proposal_field_default_field_instances() {
         'sort_options' => 0,
       ),
       'type' => 'select_or_other',
-      'weight' => 6,
+      'weight' => 9,
     ),
   );
 
@@ -258,7 +216,7 @@ function bf_giving_proposal_field_default_field_instances() {
         ),
       ),
       'type' => 'addressfield_standard',
-      'weight' => 2,
+      'weight' => 3,
     ),
   );
 
@@ -336,7 +294,7 @@ function bf_giving_proposal_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 11,
+      'weight' => 17,
     ),
   );
 
@@ -372,7 +330,7 @@ function bf_giving_proposal_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 5,
+      'weight' => 8,
     ),
   );
 
@@ -382,7 +340,7 @@ function bf_giving_proposal_field_default_field_instances() {
     'bundle' => 'field_donor_profile',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Employed, Financially Independent, Business Owner, Investor, etc',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -408,7 +366,7 @@ function bf_giving_proposal_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 4,
+      'weight' => 7,
     ),
   );
 
@@ -441,7 +399,7 @@ function bf_giving_proposal_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_buttons',
-      'weight' => 8,
+      'weight' => 13,
     ),
   );
 
@@ -477,7 +435,7 @@ function bf_giving_proposal_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 3,
+      'weight' => 5,
     ),
   );
 
@@ -513,7 +471,7 @@ function bf_giving_proposal_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 10,
+      'weight' => 15,
     ),
   );
 
@@ -549,7 +507,7 @@ function bf_giving_proposal_field_default_field_instances() {
         'rows' => 2,
       ),
       'type' => 'text_textarea',
-      'weight' => 9,
+      'weight' => 14,
     ),
   );
 
@@ -585,7 +543,49 @@ function bf_giving_proposal_field_default_field_instances() {
         'rows' => 2,
       ),
       'type' => 'text_textarea',
-      'weight' => 7,
+      'weight' => 10,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'field_collection_item-field_donor_profile-field_year_of_birth'.
+  $field_instances['field_collection_item-field_donor_profile-field_year_of_birth'] = array(
+    'bundle' => 'field_donor_profile',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_integer',
+        'weight' => 26,
+      ),
+    ),
+    'ds_extras_field_template' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_year_of_birth',
+    'label' => 'Year of Birth',
+    'required' => 0,
+    'settings' => array(
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 1,
     ),
   );
 
@@ -1428,6 +1428,43 @@ function bf_giving_proposal_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-giving_proposal-field_execution_area'.
+  $field_instances['node-giving_proposal-field_execution_area'] = array(
+    'bundle' => 'giving_proposal',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'markup',
+        'settings' => array(),
+        'type' => 'markup_default',
+        'weight' => 47,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'ds_extras_field_template' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_execution_area',
+    'label' => 'Execution Area',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'markup',
+      'settings' => array(),
+      'type' => 'markup',
+      'weight' => 63,
+    ),
+  );
+
   // Exported field_instance: 'node-giving_proposal-field_giving_proposal'.
   $field_instances['node-giving_proposal-field_giving_proposal'] = array(
     'bundle' => 'giving_proposal',
@@ -1807,6 +1844,43 @@ function bf_giving_proposal_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-giving_proposal-field_proposal'.
+  $field_instances['node-giving_proposal-field_proposal'] = array(
+    'bundle' => 'giving_proposal',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'markup',
+        'settings' => array(),
+        'type' => 'markup_default',
+        'weight' => 48,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'ds_extras_field_template' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_proposal',
+    'label' => 'Proposal',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'markup',
+      'settings' => array(),
+      'type' => 'markup',
+      'weight' => 64,
+    ),
+  );
+
   // Exported field_instance: 'node-giving_proposal-field_proposal_status'.
   $field_instances['node-giving_proposal-field_proposal_status'] = array(
     'bundle' => 'giving_proposal',
@@ -2158,7 +2232,6 @@ function bf_giving_proposal_field_default_field_instances() {
   t('Addendum');
   t('Additional Documents');
   t('Advisor Feedback');
-  t('Age');
   t('Allocation');
   t('Already Have DAF');
   t('Bank Address');
@@ -2170,6 +2243,8 @@ function bf_giving_proposal_field_default_field_instances() {
   t('DAF Forms');
   t('Distribution');
   t('Donor Profiles');
+  t('Employed, Financially Independent, Business Owner, Investor, etc');
+  t('Execution Area');
   t('Giving Proposal');
   t('Giving Targets');
   t('Giving Vehicle');
@@ -2185,6 +2260,7 @@ function bf_giving_proposal_field_default_field_instances() {
   t('Occupation');
   t('Philanthropic Interests');
   t('Program Targets');
+  t('Proposal');
   t('Ready to Send');
   t('Relationship');
   t('SWIFT Code');
@@ -2203,6 +2279,7 @@ function bf_giving_proposal_field_default_field_instances() {
   t('What is your primary motivation behind your philanthropy?');
   t('What organizations has the client/family given to in the past?');
   t('What problems are you most interested in solving?');
+  t('Year of Birth');
 
   return $field_instances;
 }

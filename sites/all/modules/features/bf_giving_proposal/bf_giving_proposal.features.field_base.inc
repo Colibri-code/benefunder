@@ -159,23 +159,6 @@ function bf_giving_proposal_field_default_field_bases() {
     'type' => 'addressfield',
   );
 
-  // Exported field_base: 'field_age'.
-  $field_bases['field_age'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_age',
-    'indexes' => array(),
-    'locked' => 0,
-    'module' => 'number',
-    'settings' => array(
-      'profile2_private' => FALSE,
-    ),
-    'translatable' => 0,
-    'type' => 'number_integer',
-  );
-
   // Exported field_base: 'field_already_have_daf'.
   $field_bases['field_already_have_daf'] = array(
     'active' => 1,
@@ -621,6 +604,28 @@ function bf_giving_proposal_field_default_field_bases() {
     'type' => 'field_collection',
   );
 
+  // Exported field_base: 'field_execution_area'.
+  $field_bases['field_execution_area'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_execution_area',
+    'indexes' => array(),
+    'locked' => 0,
+    'module' => 'markup',
+    'settings' => array(
+      'markup' => array(
+        'format' => 'full_html',
+        'value' => '<div class="hidden">Execution</div>
+',
+      ),
+      'profile2_private' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'markup',
+  );
+
   // Exported field_base: 'field_giving_proposal'.
   $field_bases['field_giving_proposal'] = array(
     'active' => 1,
@@ -942,6 +947,28 @@ function bf_giving_proposal_field_default_field_bases() {
     'type' => 'list_text',
   );
 
+  // Exported field_base: 'field_proposal'.
+  $field_bases['field_proposal'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_proposal',
+    'indexes' => array(),
+    'locked' => 0,
+    'module' => 'markup',
+    'settings' => array(
+      'markup' => array(
+        'format' => 'full_html',
+        'value' => '<div class="hidden">Proposal</div>
+',
+      ),
+      'profile2_private' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'markup',
+  );
+
   // Exported field_base: 'field_proposal_status'.
   $field_bases['field_proposal_status'] = array(
     'active' => 1,
@@ -1240,6 +1267,23 @@ function bf_giving_proposal_field_default_field_bases() {
     ),
     'translatable' => 0,
     'type' => 'text_long',
+  );
+
+  // Exported field_base: 'field_year_of_birth'.
+  $field_bases['field_year_of_birth'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_year_of_birth',
+    'indexes' => array(),
+    'locked' => 0,
+    'module' => 'number',
+    'settings' => array(
+      'profile2_private' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'number_integer',
   );
 
   return $field_bases;
