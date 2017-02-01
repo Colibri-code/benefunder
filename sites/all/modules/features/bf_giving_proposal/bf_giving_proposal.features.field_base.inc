@@ -871,8 +871,7 @@ function bf_giving_proposal_field_default_field_bases() {
     'settings' => array(
       'markup' => array(
         'format' => 'full_html',
-        'value' => '<p><span style="font-size:18px">Benefunder is a first-of-its-kind marketplace that matches philanthropists directly with research and other programs at top institutions. We bring access, efficiency, and engagement to donors, facilitating greater impact while providing a scalable source of funding for principal investigators.</span></p>
-',
+        'value' => '<p><span style="font-size:18px">Using Benefunder\'s first-of-its-kind wealth advisor Philanthropic Portal, we will create a custom giving plan tailored to your client\'s philanthropic interests, assets, and desired impact. Our web portal makes it easy to develop a completely custom proposal, matching a client with a curated selection of research programs that address the causes they’re most passionate about, selected from our database of over 650 programs from top academic research institutions across the country.</span></p>',
       ),
       'profile2_private' => FALSE,
     ),
