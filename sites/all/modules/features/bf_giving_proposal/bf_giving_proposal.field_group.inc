@@ -235,6 +235,10 @@ function bf_giving_proposal_field_group_info() {
       5 => 'field_vehicle_type',
       6 => 'field_how_does_the_client_plan_o',
       7 => 'field_what_is_the_intended_distr',
+      8 => 'field_how_does_the_client_decide',
+      9 => 'field_who_will_be_involved_in_ma',
+      10 => 'field_interested_in_learning_abo',
+      11 => 'field_currently_making_impact_in',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(

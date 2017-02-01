@@ -257,8 +257,8 @@ function bf_giving_proposal_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'field_collection_item-field_donor_profile-field_in_addition_to_funding_how'.
-  $field_instances['field_collection_item-field_donor_profile-field_in_addition_to_funding_how'] = array(
+  // 'field_collection_item-field_donor_profile-field_in_addition_to_providing_f'.
+  $field_instances['field_collection_item-field_donor_profile-field_in_addition_to_providing_f'] = array(
     'bundle' => 'field_donor_profile',
     'default_value' => NULL,
     'deleted' => 0,
@@ -266,35 +266,29 @@ function bf_giving_proposal_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'number',
-        'settings' => array(
-          'decimal_separator' => '.',
-          'prefix_suffix' => TRUE,
-          'scale' => 2,
-          'thousand_separator' => '',
-        ),
-        'type' => 'number_decimal',
-        'weight' => 25,
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 27,
       ),
     ),
     'ds_extras_field_template' => '',
     'entity_type' => 'field_collection_item',
-    'field_name' => 'field_in_addition_to_funding_how',
-    'label' => 'In addition to funding, how many hours would you like to spend volunteering?',
+    'field_name' => 'field_in_addition_to_providing_f',
+    'label' => 'In addition to providing financial support, would it also be important to you to volunteer or get personally involved?',
     'required' => 0,
     'settings' => array(
-      'max' => '',
-      'min' => '',
-      'prefix' => '',
-      'suffix' => '',
+      'text_processing' => 0,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
-      'active' => 0,
-      'module' => 'number',
-      'settings' => array(),
-      'type' => 'number',
-      'weight' => 17,
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 2,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 16,
     ),
   );
 
@@ -445,7 +439,7 @@ function bf_giving_proposal_field_default_field_instances() {
     'bundle' => 'field_donor_profile',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => 'Sports, Dance, etc',
+    'description' => 'When you\'re doing it, you lose all track of time, forget to eat, or get completely lost in the activity?',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -458,7 +452,7 @@ function bf_giving_proposal_field_default_field_instances() {
     'ds_extras_field_template' => '',
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_what_are_their_personal_in',
-    'label' => 'What are their personal interests or hobbies?',
+    'label' => 'What do you most like doing when you have free time available?',
     'required' => 0,
     'settings' => array(
       'text_processing' => 0,
@@ -494,7 +488,7 @@ function bf_giving_proposal_field_default_field_instances() {
     'ds_extras_field_template' => '',
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_what_is_your_primary_motiv',
-    'label' => 'What is your primary motivation behind your philanthropy?',
+    'label' => 'What is it about those problems that makes them the most important?',
     'required' => 0,
     'settings' => array(
       'text_processing' => 0,
@@ -1310,6 +1304,51 @@ function bf_giving_proposal_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance:
+  // 'node-giving_proposal-field_currently_making_impact_in'.
+  $field_instances['node-giving_proposal-field_currently_making_impact_in'] = array(
+    'bundle' => 'giving_proposal',
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 54,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'ds_extras_field_template' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_currently_making_impact_in',
+    'label' => 'Currently making impact investments?',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'display_label' => 1,
+      ),
+      'type' => 'options_onoff',
+      'weight' => 20,
+    ),
+  );
+
   // Exported field_instance: 'node-giving_proposal-field_daf_forms'.
   $field_instances['node-giving_proposal-field_daf_forms'] = array(
     'bundle' => 'giving_proposal',
@@ -1547,6 +1586,58 @@ function bf_giving_proposal_field_default_field_instances() {
   );
 
   // Exported field_instance:
+  // 'node-giving_proposal-field_how_does_the_client_decide'.
+  $field_instances['node-giving_proposal-field_how_does_the_client_decide'] = array(
+    'bundle' => 'giving_proposal',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 51,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'ds_extras_field_template' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_how_does_the_client_decide',
+    'label' => 'How does the client decide the level at which they will give each year?',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'select_or_other',
+      'settings' => array(
+        'apply_chosen' => '',
+        'available_options' => 'Percentage of Income
+Tax Impact
+How well I do that year
+The funding opportunities
+Random',
+        'other' => 'Other',
+        'other_size' => 60,
+        'other_title' => '',
+        'other_unknown_defaults' => 'other',
+        'sort_options' => 0,
+      ),
+      'type' => 'select_or_other',
+      'weight' => 14,
+    ),
+  );
+
+  // Exported field_instance:
   // 'node-giving_proposal-field_how_does_the_client_plan_o'.
   $field_instances['node-giving_proposal-field_how_does_the_client_plan_o'] = array(
     'bundle' => 'giving_proposal',
@@ -1629,6 +1720,51 @@ function bf_giving_proposal_field_default_field_instances() {
       ),
       'type' => 'entityreference_view_widget',
       'weight' => 31,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'node-giving_proposal-field_interested_in_learning_abo'.
+  $field_instances['node-giving_proposal-field_interested_in_learning_abo'] = array(
+    'bundle' => 'giving_proposal',
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 53,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'ds_extras_field_template' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_interested_in_learning_abo',
+    'label' => 'Interested in learning about a way to include your kids or other family members in a giving experience?',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'display_label' => 1,
+      ),
+      'type' => 'options_onoff',
+      'weight' => 19,
     ),
   );
 
@@ -1754,7 +1890,7 @@ function bf_giving_proposal_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 15,
+      'weight' => 16,
     ),
   );
 
@@ -1802,7 +1938,7 @@ function bf_giving_proposal_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 14,
+      'weight' => 15,
     ),
   );
 
@@ -2219,7 +2355,59 @@ function bf_giving_proposal_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 16,
+      'weight' => 17,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'node-giving_proposal-field_who_will_be_involved_in_ma'.
+  $field_instances['node-giving_proposal-field_who_will_be_involved_in_ma'] = array(
+    'bundle' => 'giving_proposal',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 52,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'ds_extras_field_template' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_who_will_be_involved_in_ma',
+    'label' => 'Who will be involved in making your philanthropic investment decisions?',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'select_or_other',
+      'settings' => array(
+        'apply_chosen' => '',
+        'available_options' => 'You
+Spouse
+Children
+Grandchildren
+Other Advisors',
+        'other' => 'Other',
+        'other_size' => 60,
+        'other_title' => '',
+        'other_unknown_defaults' => 'other',
+        'sort_options' => 0,
+      ),
+      'type' => 'select_or_other_buttons',
+      'weight' => 18,
     ),
   );
 
@@ -2240,6 +2428,7 @@ function bf_giving_proposal_field_default_field_instances() {
   t('City & State');
   t('Client Feedback');
   t('Client approves of this proposal');
+  t('Currently making impact investments?');
   t('DAF Forms');
   t('Distribution');
   t('Donor Profiles');
@@ -2248,11 +2437,13 @@ function bf_giving_proposal_field_default_field_instances() {
   t('Giving Proposal');
   t('Giving Targets');
   t('Giving Vehicle');
+  t('How does the client decide the level at which they will give each year?');
   t('How does the client plan on funding the account?');
   t('Illiquid assets include private equity, real estate, and alternative assets.');
-  t('In addition to funding, how many hours would you like to spend volunteering?');
+  t('In addition to providing financial support, would it also be important to you to volunteer or get personally involved?');
   t('Industry');
   t('Inspiration');
+  t('Interested in learning about a way to include your kids or other family members in a giving experience?');
   t('Intro Text');
   t('Is there a currently a giving vehicle in place?');
   t('Is this proposal ready to go out to Benefunder and HelloSign? Check this box and click the "Save" button, and Benefunder will take care of the rest!');
@@ -2265,20 +2456,21 @@ function bf_giving_proposal_field_default_field_instances() {
   t('Relationship');
   t('SWIFT Code');
   t('Signature Request ID');
-  t('Sports, Dance, etc');
   t('Status');
   t('University Affiliations');
   t('Vehicle Name');
   t('Vehicle Type');
-  t('What are their personal interests or hobbies?');
   t('What did the client like/dislike about their past funding relationships?');
+  t('What do you most like doing when you have free time available?');
+  t('What is it about those problems that makes them the most important?');
   t('What is the anticipated annual contribution?');
   t('What is the estimated value of planned initial contribution?');
   t('What is the intended distribution (%) or spend down period?');
   t('What is the source of funding for this account?');
-  t('What is your primary motivation behind your philanthropy?');
   t('What organizations has the client/family given to in the past?');
   t('What problems are you most interested in solving?');
+  t('When you\'re doing it, you lose all track of time, forget to eat, or get completely lost in the activity?');
+  t('Who will be involved in making your philanthropic investment decisions?');
   t('Year of Birth');
 
   return $field_instances;

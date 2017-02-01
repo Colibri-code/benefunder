@@ -511,6 +511,32 @@ function bf_giving_proposal_field_default_field_bases() {
     'type' => 'list_text',
   );
 
+  // Exported field_base: 'field_currently_making_impact_in'.
+  $field_bases['field_currently_making_impact_in'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_currently_making_impact_in',
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        0 => '',
+        1 => '',
+      ),
+      'allowed_values_function' => '',
+      'profile2_private' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'list_boolean',
+  );
+
   // Exported field_base: 'field_daf_forms'.
   $field_bases['field_daf_forms'] = array(
     'active' => 1,
@@ -678,6 +704,28 @@ function bf_giving_proposal_field_default_field_bases() {
     'type' => 'list_text',
   );
 
+  // Exported field_base: 'field_how_does_the_client_decide'.
+  $field_bases['field_how_does_the_client_decide'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_how_does_the_client_decide',
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(
+      'max_length' => 255,
+      'profile2_private' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'text',
+  );
+
   // Exported field_base: 'field_how_does_the_client_plan_o'.
   $field_bases['field_how_does_the_client_plan_o'] = array(
     'active' => 1,
@@ -705,22 +753,25 @@ function bf_giving_proposal_field_default_field_bases() {
     'type' => 'list_text',
   );
 
-  // Exported field_base: 'field_in_addition_to_funding_how'.
-  $field_bases['field_in_addition_to_funding_how'] = array(
+  // Exported field_base: 'field_in_addition_to_providing_f'.
+  $field_bases['field_in_addition_to_providing_f'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_in_addition_to_funding_how',
-    'indexes' => array(),
+    'field_name' => 'field_in_addition_to_providing_f',
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
     'locked' => 0,
-    'module' => 'number',
+    'module' => 'text',
     'settings' => array(
-      'decimal_separator' => '.',
       'profile2_private' => FALSE,
     ),
     'translatable' => 0,
-    'type' => 'number_float',
+    'type' => 'text_long',
   );
 
   // Exported field_base: 'field_industry'.
@@ -779,6 +830,32 @@ function bf_giving_proposal_field_default_field_bases() {
     ),
     'translatable' => 0,
     'type' => 'entityreference',
+  );
+
+  // Exported field_base: 'field_interested_in_learning_abo'.
+  $field_bases['field_interested_in_learning_abo'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_interested_in_learning_abo',
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        0 => '',
+        1 => '',
+      ),
+      'allowed_values_function' => '',
+      'profile2_private' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'list_boolean',
   );
 
   // Exported field_base: 'field_intro_text'.
@@ -1267,6 +1344,28 @@ function bf_giving_proposal_field_default_field_bases() {
     ),
     'translatable' => 0,
     'type' => 'text_long',
+  );
+
+  // Exported field_base: 'field_who_will_be_involved_in_ma'.
+  $field_bases['field_who_will_be_involved_in_ma'] = array(
+    'active' => 1,
+    'cardinality' => -1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_who_will_be_involved_in_ma',
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(
+      'max_length' => 255,
+      'profile2_private' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'text',
   );
 
   // Exported field_base: 'field_year_of_birth'.
