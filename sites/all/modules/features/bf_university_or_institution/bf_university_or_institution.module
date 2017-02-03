@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the BF University or Institution feature.
+ */
+
+include_once 'bf_university_or_institution.features.inc';
