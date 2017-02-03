@@ -252,9 +252,13 @@ function create_proposal_node_presave($node) {
  */
 function create_proposal_process_hellosign_callback(array $data) {
 
+  // Log callback.
+  watchdog('proposal', 'HelloSign event received: @event', array('@event' => print_r($data, 1)));
+
   $signature_request_id = $data->signature_request->signature_request_id;
   $event = $data->event->event_type;
 
+  // Find proposal node with matching request id.
   $q = new EntityFieldQuery();
   $q->fieldCondition('field_signature_id', $signature_request_id);
   $q->entityCondition('bundle', 'giving_proposal');
@@ -262,14 +266,53 @@ function create_proposal_process_hellosign_callback(array $data) {
   $result = $q->execute();
 
   if (isset($result['node'])) {
-    $wrapper = entity_metadata_wrapper('node', current(array_keys($result['node'])));
+    $proposal_nid = current(array_keys($result['node']));
+
+    switch ($event) {
+      // Execute initial disbursements.
+      case 'signature_request_all_signed':
+        create_proposal_signature_all_signed($proposal_nid);
+        break;
+
+      // Handle signature rejection.
+      case 'signature_request_declined':
+        create_proposal_signature_declined($proposal_nid);
+        break;
+    }
+  }
+}
+
+/**
+ * Sends a disbursement letter to each school involved.
+ *
+ * @param $proposal_nid
+ */
+function create_proposal_signature_all_signed($proposal_nid) {
+  $wrapper = entity_metadata_wrapper('node', $proposal_nid);
+
+  $proposal_schools = array();
+  foreach ($wrapper->field_cause as $collection) {
+    $schools = $collection->field_cause->field_university_or_institution->value();
+    $proposal_schools[$schools[0]->id][] = $wrapper->id();
   }
 
-  if ($event == 'signature_request_all_signed') {
-    // Update proposal to Continuing.
-    // Log callback?
-    // Execute initial disbursements.
+  foreach ($proposal_schools as $school) {
+    // Send email to DAF to disburse funds to school.
+    // Include gift letter somehow. pdf attachment?
   }
 
-  // Handle signature rejection.
+}
+
+function create_proposal_signature_declined($proposal_nid) {
+  // Alert Benefunder.
+}
+
+/**
+ * Implements hook_mail().
+ */
+function create_proposal_mail($key, &$message, $params) {
+  switch ($key) {
+    case '';
+      break;
+  }
 }

@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the BF DAF Provider feature.
+ */
+
+include_once 'bf_daf_provider.features.inc';
