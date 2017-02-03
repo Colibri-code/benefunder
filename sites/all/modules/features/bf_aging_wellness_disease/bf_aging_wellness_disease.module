@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the BF Aging Wellness Disease feature.
+ */
+
+include_once 'bf_aging_wellness_disease.features.inc';
