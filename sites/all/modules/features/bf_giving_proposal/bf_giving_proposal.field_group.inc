@@ -53,8 +53,8 @@ function bf_giving_proposal_field_group_info() {
     'weight' => '41',
     'children' => array(
       0 => 'field_analyst_feedback',
-      1 => 'field_client_feedback',
-      2 => 'field_client_approval',
+      1 => 'field_client_approval',
+      2 => 'field_client_feedback',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -110,10 +110,10 @@ function bf_giving_proposal_field_group_info() {
     'label' => 'Giving Profile',
     'weight' => '46',
     'children' => array(
-      0 => 'field_non_profits_supported',
-      1 => 'field_what_did_the_client_like_d',
+      0 => 'field_giving_targets',
+      1 => 'field_non_profits_supported',
       2 => 'field_program_targets',
-      3 => 'field_giving_targets',
+      3 => 'field_what_did_the_client_like_d',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -144,6 +144,8 @@ function bf_giving_proposal_field_group_info() {
     'children' => array(
       0 => 'field_already_have_daf',
       1 => 'field_daf_forms',
+      2 => 'field_daf_provider',
+      3 => 'field_disbursement_frequency',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -199,9 +201,7 @@ function bf_giving_proposal_field_group_info() {
   $field_group->data = array(
     'label' => 'Execution',
     'weight' => '43',
-    'children' => array(
-      0 => 'field_execution_area',
-    ),
+    'children' => array(),
     'format_type' => 'tab',
     'format_settings' => array(
       'formatter' => 'closed',
@@ -229,16 +229,12 @@ function bf_giving_proposal_field_group_info() {
     'children' => array(
       0 => 'field_charitable_vehicle',
       1 => 'field_contribution_funding',
-      2 => 'field_planned_annual_contributio',
-      3 => 'field_planned_initial_contributi',
-      4 => 'field_vehicle_name',
-      5 => 'field_vehicle_type',
-      6 => 'field_how_does_the_client_plan_o',
+      2 => 'field_how_does_the_client_plan_o',
+      3 => 'field_planned_annual_contributio',
+      4 => 'field_planned_initial_contributi',
+      5 => 'field_vehicle_name',
+      6 => 'field_vehicle_type',
       7 => 'field_what_is_the_intended_distr',
-      8 => 'field_how_does_the_client_decide',
-      9 => 'field_who_will_be_involved_in_ma',
-      10 => 'field_interested_in_learning_abo',
-      11 => 'field_currently_making_impact_in',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -495,8 +491,8 @@ function bf_giving_proposal_field_group_info() {
     'label' => 'Final Proposal',
     'weight' => '42',
     'children' => array(
-      0 => 'field_giving_proposal',
-      1 => 'field_additional_documents',
+      0 => 'field_additional_documents',
+      1 => 'field_giving_proposal',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -524,20 +520,19 @@ function bf_giving_proposal_field_group_info() {
     'label' => 'Needs Assessment',
     'weight' => '2',
     'children' => array(
-      0 => 'group_execution',
-      1 => 'group_proposal',
-      2 => 'group_check_1',
-      3 => 'group_check_2',
-      4 => 'group_daf_funded',
-      5 => 'group_initial_distributions',
-      6 => 'group_introduction',
-      7 => 'group_proposal_addendum',
-      8 => 'group_proposal_matches',
-      9 => 'group_proposal_planned',
-      10 => 'group_proposal_proposal',
+      0 => 'group_check_1',
+      1 => 'group_check_2',
+      2 => 'group_daf_funded',
+      3 => 'group_execution',
+      4 => 'group_initial_distributions',
+      5 => 'group_introduction',
+      6 => 'group_proposal_addendum',
+      7 => 'group_proposal_matches',
+      8 => 'group_proposal_planned',
+      9 => 'group_proposal_proposal',
+      10 => 'group_proposal',
       11 => 'group_send_signatures',
       12 => 'group_videos',
-      13 => 'group_wire_and_ach',
     ),
     'format_type' => 'tabs',
     'format_settings' => array(
@@ -562,9 +557,7 @@ function bf_giving_proposal_field_group_info() {
   $field_group->data = array(
     'label' => 'Proposal',
     'weight' => '39',
-    'children' => array(
-      0 => 'field_proposal',
-    ),
+    'children' => array(),
     'format_type' => 'tab',
     'format_settings' => array(
       'formatter' => 'closed',
@@ -590,8 +583,10 @@ function bf_giving_proposal_field_group_info() {
     'label' => 'Send for Signatures',
     'weight' => '48',
     'children' => array(
-      0 => 'field_signature_request_id',
-      1 => 'field_ready_to_send',
+      0 => 'field_ready_to_send',
+      1 => 'field_signature_request_id',
+      2 => 'field_daf_disbursement_confirmed',
+      3 => 'field_disbursement_tracking_numb',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -634,7 +629,7 @@ function bf_giving_proposal_field_group_info() {
   $field_groups['group_videos|node|giving_proposal|form'] = $field_group;
 
   $field_group = new stdClass();
-  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->disabled = TRUE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
   $field_group->identifier = 'group_wire_and_ach|node|giving_proposal|form';
   $field_group->group_name = 'group_wire_and_ach';
