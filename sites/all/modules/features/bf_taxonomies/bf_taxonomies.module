@@ -1,5 +1,7 @@
 <?php
 /**
  * @file
- * Drupal needs this blank file.
+ * Code for the BF Research Areas feature.
  */
+
+include_once 'bf_taxonomies.features.inc';
