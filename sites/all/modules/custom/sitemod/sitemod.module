@@ -118,7 +118,10 @@ function sitemod_preprocess_entity_print(&$variables) {
   $variables['title'] = $node_wrapper->label();
   $variables['subtitle'] = $node_wrapper->field_subtitle->value();
   $variables['name'] = $node_wrapper->field_first_name->value() . ' ' . $node_wrapper->field_last_name->value();
-  $variables['body'] = $node_wrapper->body->value->value();
+
+  // Body field may be empty.
+  $body = $node_wrapper->body->value();
+  $variables['body'] = !empty($body) ? $body['value'] : '';
 
   // Summary field may be empty.
   $summary = $node_wrapper->field_summary->value();
