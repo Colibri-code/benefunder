@@ -341,6 +341,42 @@ function bf_giving_proposal_field_default_field_instances() {
   );
 
   // Exported field_instance:
+  // 'field_collection_item-field_donor_profile-field_in_addition_to_providing_f'.
+  $field_instances['field_collection_item-field_donor_profile-field_in_addition_to_providing_f'] = array(
+    'bundle' => 'field_donor_profile',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 27,
+      ),
+    ),
+    'ds_extras_field_template' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_in_addition_to_providing_f',
+    'label' => 'In addition to providing financial support, would it also be important to you to volunteer or get personally involved?',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 2,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 16,
+    ),
+  );
+
+  // Exported field_instance:
   // 'field_collection_item-field_donor_profile-field_industry'.
   $field_instances['field_collection_item-field_donor_profile-field_industry'] = array(
     'bundle' => 'field_donor_profile',
@@ -586,6 +622,48 @@ function bf_giving_proposal_field_default_field_instances() {
       ),
       'type' => 'text_textarea',
       'weight' => 7,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'field_collection_item-field_donor_profile-field_year_of_birth'.
+  $field_instances['field_collection_item-field_donor_profile-field_year_of_birth'] = array(
+    'bundle' => 'field_donor_profile',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_integer',
+        'weight' => 26,
+      ),
+    ),
+    'ds_extras_field_template' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_year_of_birth',
+    'label' => 'Year of Birth',
+    'required' => 0,
+    'settings' => array(
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 1,
     ),
   );
 
@@ -1335,6 +1413,43 @@ function bf_giving_proposal_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-giving_proposal-field_execution_markup'.
+  $field_instances['node-giving_proposal-field_execution_markup'] = array(
+    'bundle' => 'giving_proposal',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'markup',
+        'settings' => array(),
+        'type' => 'markup_default',
+        'weight' => 55,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'ds_extras_field_template' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_execution_markup',
+    'label' => 'Execution Markup',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'markup',
+      'settings' => array(),
+      'type' => 'markup',
+      'weight' => 66,
+    ),
+  );
+
   // Exported field_instance: 'node-giving_proposal-field_giving_proposal'.
   $field_instances['node-giving_proposal-field_giving_proposal'] = array(
     'bundle' => 'giving_proposal',
@@ -1714,6 +1829,43 @@ function bf_giving_proposal_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-giving_proposal-field_proposal_markup'.
+  $field_instances['node-giving_proposal-field_proposal_markup'] = array(
+    'bundle' => 'giving_proposal',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'markup',
+        'settings' => array(),
+        'type' => 'markup_default',
+        'weight' => 56,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'ds_extras_field_template' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_proposal_markup',
+    'label' => 'Proposal Markup',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'markup',
+      'settings' => array(),
+      'type' => 'markup',
+      'weight' => 67,
+    ),
+  );
+
   // Exported field_instance: 'node-giving_proposal-field_proposal_status'.
   $field_instances['node-giving_proposal-field_proposal_status'] = array(
     'bundle' => 'giving_proposal',
@@ -2034,12 +2186,14 @@ function bf_giving_proposal_field_default_field_instances() {
   t('Disbursement Tracking Number');
   t('Distribution');
   t('Donor Profiles');
+  t('Execution Markup');
   t('Giving Proposal');
   t('Giving Targets');
   t('Giving Vehicle');
   t('How does the client plan on funding the account?');
   t('Illiquid assets include private equity, real estate, and alternative assets.');
   t('In addition to funding, how many hours would you like to spend volunteering?');
+  t('In addition to providing financial support, would it also be important to you to volunteer or get personally involved?');
   t('Industry');
   t('Inspiration');
   t('Intro Text');
@@ -2049,6 +2203,7 @@ function bf_giving_proposal_field_default_field_instances() {
   t('Occupation');
   t('Philanthropic Interests');
   t('Program Targets');
+  t('Proposal Markup');
   t('Ready to Send');
   t('Relationship');
   t('Signature Request ID');
@@ -2066,6 +2221,7 @@ function bf_giving_proposal_field_default_field_instances() {
   t('What is your primary motivation behind your philanthropy?');
   t('What organizations has the client/family given to in the past?');
   t('What problems are you most interested in solving?');
+  t('Year of Birth');
 
   return $field_instances;
 }
