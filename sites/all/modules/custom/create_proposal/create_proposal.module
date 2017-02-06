@@ -87,9 +87,7 @@ function create_proposal_execute_confirm_submit($form, &$form_state) {
     $wrapper->field_signature_request_id = $result['signature_request_id'];
 
     // Set to pending status.
-    $term_array = taxonomy_get_term_by_name('Pending Acceptance', 'plan_status');
-    $wrapper->field_proposal_status = array_pop($term_array)->tid;
-
+    create_proposal_set_status('Pending Acceptance', $wrapper);
     $wrapper->save();
   }
 
@@ -255,10 +253,8 @@ function create_proposal_process_hellosign_callback(array $data) {
   // Log callback.
   watchdog('proposal', 'HelloSign event received: @event', array('@event' => print_r($data, 1)));
 
-  $signature_request_id = $data->signature_request->signature_request_id;
-  $event = $data->event->event_type;
-
   // Find proposal node with matching request id.
+  $signature_request_id = $data->signature_request->signature_request_id;
   $q = new EntityFieldQuery();
   $q->fieldCondition('field_signature_id', $signature_request_id);
   $q->entityCondition('bundle', 'giving_proposal');
@@ -267,19 +263,34 @@ function create_proposal_process_hellosign_callback(array $data) {
 
   if (isset($result['node'])) {
     $proposal_nid = current(array_keys($result['node']));
+    $wrapper = entity_metadata_wrapper('node', $proposal_nid);
+    $event = $data->event->event_type;
 
     switch ($event) {
       // Execute initial disbursements.
       case 'signature_request_all_signed':
         create_proposal_signature_all_signed($proposal_nid);
+        create_proposal_set_status('Continuing', $wrapper);
         break;
 
       // Handle signature rejection.
       case 'signature_request_declined':
         create_proposal_signature_declined($proposal_nid);
+        create_proposal_set_status('Rejected', $wrapper);
         break;
     }
+    $wrapper->save();
   }
+  else {
+    watchdog('proposal', 'No proposal found with signature request id %id', array(
+      '%id' => $signature_request_id,
+    ), WATCHDOG_ERROR);
+  }
+}
+
+function create_proposal_set_status($status, $wrapper) {
+  $term_array = taxonomy_get_term_by_name($status, 'plan_status');
+  $wrapper->field_proposal_status = array_pop($term_array)->tid;
 }
 
 /**
@@ -288,22 +299,57 @@ function create_proposal_process_hellosign_callback(array $data) {
  * @param $proposal_nid
  */
 function create_proposal_signature_all_signed($proposal_nid) {
-  $wrapper = entity_metadata_wrapper('node', $proposal_nid);
+  $proposal_wrapper = entity_metadata_wrapper('node', $proposal_nid);
 
+  // Group causes by school.
   $proposal_schools = array();
-  foreach ($wrapper->field_cause as $collection) {
-    $schools = $collection->field_cause->field_university_or_institution->value();
-    $proposal_schools[$schools[0]->id][] = $wrapper->id();
+  foreach ($proposal_wrapper->field_cause as $collection) {
+    $schools = $collection->field_cause_name->field_university_or_institution->value();
+    foreach($schools as $school) {
+      $proposal_schools[$school->tid][] = $collection->field_cause_name->getIdentifier();
+    }
   }
 
-  foreach ($proposal_schools as $school) {
-    // Send email to DAF to disburse funds to school.
-    // Include gift letter somehow. pdf attachment?
-  }
+  // Send email to DAF to disburse funds to each school.
+  $daf_email = $proposal_wrapper->field_daf_provider->field_daf_email->value();
+  foreach ($proposal_schools as $school_tid => $cause_nids) {
+    $school_wrapper = entity_metadata_wrapper('taxonomy_term', $school_tid);
 
+    // Calculate amount to disburse initially.
+    setlocale(LC_MONETARY, 'en_US');
+    $amount = $proposal_wrapper->field_planned_initial_contributi->value();
+    $frequency = $proposal_wrapper->field_disbursement_frequency->value();
+    if ($frequency == 'Quarterly') {
+      $amount = $amount / 4;
+      $amount = $amount * ($proposal_wrapper->field_what_is_the_intended_distr->value() / 100);
+    }
+
+    // TODO: Split amount by the various cause allocation percentages.
+
+    $params = array(
+      'proposal_nid' => $proposal_wrapper->getIdentifier(),
+      'school_tid' => $school_tid,
+      'cause_nids' => $cause_nids,
+      //////
+      '@institution_name' => $school_wrapper->label(),
+      '@freq' => $frequency,
+      '@aba' => $school_wrapper->field_daf_aba->value(),
+      '@ach' => $school_wrapper->field_daf_ach->value(),
+      '@account_num' => $school_wrapper->field_daf_account_number->value(),
+      '@money_amount' => money_format('%i', $amount),
+    );
+    // TODO: Include gift letter somehow. PDF attachment?
+    drupal_mail('create_proposal', 'disburse', $daf_email, LANGUAGE_NONE, $params);
+  }
 }
 
+/**
+ * Proposal declined by at least one signer.
+ *
+ * @param $proposal_nid
+ */
 function create_proposal_signature_declined($proposal_nid) {
+  $wrapper = entity_metadata_wrapper('node', $proposal_nid);
   // Alert Benefunder.
 }
 
@@ -312,7 +358,19 @@ function create_proposal_signature_declined($proposal_nid) {
  */
 function create_proposal_mail($key, &$message, $params) {
   switch ($key) {
-    case '';
+    case 'disburse';
+      $body = <<<ENDBODY
+Please send @money_amount to @institution_name.\n
+Frequency: @freq\n
+ABA: @aba\n
+ACH: @ach\n
+Account Number: @account_num\n
+\n
+Thank You,\n
+Benefunder Staff\n
+ENDBODY;
+      $message['subject'] = t('Disbursement request to @school', array('@school' => $params['@institution_name']));
+      $message['body'] = strtr($body, $params);
       break;
   }
 }
