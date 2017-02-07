@@ -369,7 +369,8 @@ function create_proposal_signature_declined($proposal_nid) {
 function create_proposal_mail($key, &$message, $params) {
   switch ($key) {
     case 'disburse';
-      $body = <<<ENDBODY
+      $message['subject'] = t('Disbursement request to @school', array('@school' => $params['@institution_name']));
+      $body = <<<ENDDISBURSE
 Please send @money_amount to @institution_name.\n
 Frequency: @freq\n
 ABA: @aba\n
@@ -378,9 +379,91 @@ Account Number: @account_num\n
 \n
 Thank You,\n
 Benefunder Staff\n
-ENDBODY;
-      $message['subject'] = t('Disbursement request to @school', array('@school' => $params['@institution_name']));
-      $message['body'] = strtr($body, $params);
+ENDDISBURSE;
+      break;
+
+    case 'researcher-confirmation':
+      $message['subject'] = t('Good news! Funding arrived through Benefunder.com');
+      $body = <<<ENDCONFIRMATION
+Dear @researcher,\n
+\n
+Benefunder is pleased to let you know that @amount has been donated to your lab. Funding is expected
+to arrive within 30 days, please contact us at @benefunder.com if you have any questions.\n
+\n
+A funds transfer request was provided to @bankname on @date with the following details:\n
+Transfer request number: @reqnum\n
+Amount: @amount\n
+Payee: @payee\n
+\n
+Congratulations,\n
+Benefunder Staff\n
+ENDCONFIRMATION;
+      break;
+
+    case 'donor-thank-you':
+      $message['subject'] = t('Thank you for your donation');
+      $body = <<<ENDTHANKYOU
+Dear @names,\n
+\n
+Thank you! We are elated by your decision to support research through Benefunder.com. Your gift will have a big impact on
+their work. It will also serve as an example for others to connect - through Benefunder  - to researchers more directly
+than was ever possible before.\n
+\n
+We would love to arrange a lab visit including a tour and discussion, and an opportunity to meet the students
+and postdocs involved. Benefunder will arrange the details if you would like to take advantage of this opportunity.\n
+\n
+Again, thank you so much for your generous gift. We hope that today marks the beginning of a long and fulfilling
+relationship.\n
+\n
+Best wishes,\n
+@researcher and Benefunder Staff\n
+ENDTHANKYOU;
       break;
   }
+  $message['body'] = strtr($body, $params);
+}
+
+/**
+ * Get Gift Letter body.
+ *
+ * Not in hook_mail since we never send this letter directly.
+ *
+ * @return string
+ */
+function _create_proposal_get_gift_letter_body() {
+  return <<<ENDGIFT
+@payee_name\n
+c/o @payee_contact_name\n
+@payee_address\n
+@payee_city, @payee_state @payee_zip\n
+\n
+@date\n
+\n
+Dear @payee_contact_name,\n
+\n
+I am pleased to attach a grant from Benefunder Foundation to @payee_name. An account advisor has recommended the following grant:\n
+\n
+Donor Advised Account Name: @source\n
+Grantee Organization: @payee_name\n
+Amount: @amount\n
+Grant Purpose: For @researcher lab\n
+\n
+The grant is a gift from Benefunder Foundation and must be used for the purposes outlined in @researcher's profile as
+presented on the Benefunder website:\n
+\n
+@profile_url\n
+\n
+A funds transfer request was provided to @bankname on @date with the following details:\n
+Transfer request number: @reqnum\n
+Amount: @amount\n
+Payee: @payee_name\n
+\n
+Sincerely,
+Christian Braemer, CEO\n
+\n
+Benefunder Foundation Tax Identification Number: 46-430321\n
+4790 Eastgate Mall Suite #125\n
+San Diego, CA 92121\n
+(858) 215-1136\n
+ENDGIFT;
 }
