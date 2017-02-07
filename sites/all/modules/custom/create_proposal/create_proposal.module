@@ -270,13 +270,11 @@ function create_proposal_process_hellosign_callback(array $data) {
       // Execute initial disbursements.
       case 'signature_request_all_signed':
         create_proposal_signature_all_signed($proposal_nid, $event->signatures);
-        create_proposal_set_status('Continuing', $wrapper);
         break;
 
       // Handle signature rejection.
       case 'signature_request_declined':
         create_proposal_signature_declined($proposal_nid);
-        create_proposal_set_status('Rejected', $wrapper);
         break;
     }
     $wrapper->save();
@@ -351,6 +349,9 @@ function create_proposal_signature_all_signed($proposal_nid, $signatures_array) 
     // TODO: Include gift letter somehow. PDF attachment?
     drupal_mail('create_proposal', 'disburse', $daf_email, LANGUAGE_NONE, $params);
   }
+
+  $status = ($frequency == 'Quarterly') ? 'Continuing' : 'Complete';
+  create_proposal_set_status($status, $proposal_wrapper);
 }
 
 /**
@@ -360,6 +361,7 @@ function create_proposal_signature_all_signed($proposal_nid, $signatures_array) 
  */
 function create_proposal_signature_declined($proposal_nid) {
   $wrapper = entity_metadata_wrapper('node', $proposal_nid);
+  create_proposal_set_status('Rejected', $wrapper);
   // Alert Benefunder.
 }
 
