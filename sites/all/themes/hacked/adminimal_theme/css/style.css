@@ -3185,7 +3185,7 @@ p {
   font-size: 16px;
   line-height: 25px;
 }
-.btn-default {
+.btn-default, input#edit-field-donor-profile-und-add-more {
   background-color: #999933;
   border-color: #999933;
   color: #fff;

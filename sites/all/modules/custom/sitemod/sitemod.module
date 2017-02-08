@@ -17,13 +17,26 @@ function sitemod_form_alter(&$form, &$form_state, $form_id) {
       break;
 
     case 'giving_proposal_node_form':
+      $lang = $form['language']['#value'];
+
+      // Private fields.
       if (!user_access('administer nodes')) {
-        // Private fields.
         unset($form['field_proposal_status']);
         unset($form['field_signature_request_id']);
       }
+
+      // Never user accessible, these fields will be generated.
       $form['field_giving_proposal']['#disabled'] = TRUE;
       $form['field_additional_documents']['#disabled'] = TRUE;
+
+      // Change all button values "Remove" => "Remove this profile".
+      for ($i = 0; $i <= $form['field_donor_profile'][$lang]['#max_delta']; $i++) {
+        $form['field_donor_profile'][$lang][$i]['remove_button']['#value'] = t('Remove this profile');
+      }
+
+      // Change "Add another item" => "Add another profile" + button class.
+      $form['field_donor_profile'][$lang]['add_more']['#value'] = t('Add another profile');
+      $form['field_donor_profile'][$lang]['add_more']['#attributes']['class'][] = 'btn btn-default';
       break;
   }
 }
