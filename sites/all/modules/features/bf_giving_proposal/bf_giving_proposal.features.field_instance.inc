@@ -118,7 +118,7 @@ function bf_giving_proposal_field_default_field_instances() {
         'pass_argument' => 1,
         'pass_arguments' => '',
         'rendered_entity' => 0,
-        'view' => 'cause_chooser|entityreference_view_widget_1',
+        'view' => 'cause_chooser_fulltext|entityreference_view_widget_1',
         'view_mode' => 'full',
       ),
       'type' => 'entityreference_view_widget',
