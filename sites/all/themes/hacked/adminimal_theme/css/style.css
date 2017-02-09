@@ -4132,7 +4132,7 @@ body.front .navbar-collapse {
 .btn-black:hover {
   color: #ddd;
 }
-.btn-purple {
+.btn-purple, input#edit-ervw-submit {
   background: purple;
   display: inline-block;
   margin-left: 10px;
@@ -4467,10 +4467,4 @@ fieldset {
 .adminimal-theme tr.even:hover,
 .adminimal-theme tr.odd:hover {
   background: transparent;
-}
-
-input#edit-ervw-submit {
-  position: absolute;
-  top: 25px;
-  right: 20px;
 }
