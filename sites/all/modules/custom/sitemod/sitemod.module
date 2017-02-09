@@ -16,6 +16,14 @@ function sitemod_form_alter(&$form, &$form_state, $form_id) {
       $form['basic']['submit']['#value'] = 'Go';
       break;
 
+    case 'views_form_cause_chooser_fulltext_entityreference_view_widget_1':
+      // Add submit button on top.
+      $form['actions_ervw']['cc_extra_button']['#type'] = 'submit';
+      $form['actions_ervw']['cc_extra_button']['#value'] = t('Submit');
+      $form['actions_ervw']['cc_extra_button']['#attributes'] = array('class' => array('btn', 'btn-purple'));
+      $form['actions_ervw']['cc_extra_button']['#ajax'] = array('callback' => 'entityreference_view_widget_ajax');
+      break;
+
     case 'giving_proposal_node_form':
       $lang = $form['language']['#value'];
 
