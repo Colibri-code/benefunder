@@ -1,0 +1,12 @@
+name = BF Search API
+description = search_api module based solr search
+core = 7.x
+package = Benefunder
+version = 7.x-1.0
+dependencies[] = entity
+dependencies[] = search_api
+dependencies[] = search_api_solr
+dependencies[] = search_api_views
+features[features_api][] = api:2
+features[search_api_index][] = cause_index_solr
+features[search_api_server][] = cause_index_solr_server
