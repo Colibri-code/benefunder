@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the BF Cause Chooser Fulltext feature.
+ */
+
+include_once 'bf_cause_chooser_fulltext.features.inc';

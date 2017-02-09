@@ -4468,3 +4468,9 @@ fieldset {
 .adminimal-theme tr.odd:hover {
   background: transparent;
 }
+
+input#edit-ervw-submit {
+  position: absolute;
+  top: 25px;
+  right: 20px;
+}

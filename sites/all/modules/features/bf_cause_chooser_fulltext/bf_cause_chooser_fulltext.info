@@ -1,0 +1,11 @@
+name = BF Cause Chooser Fulltext
+description = Fulltext search enabled version of cause chooser
+core = 7.x
+package = Views
+version = 7.x-1.0
+dependencies[] = entityreference_view_widget
+dependencies[] = views
+features[ctools][] = views:views_default:3.0
+features[features_api][] = api:2
+features[views_view][] = cause_chooser_fulltext
+features_exclude[dependencies][ctools] = ctools
