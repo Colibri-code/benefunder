@@ -784,33 +784,6 @@ function bf_giving_proposal_field_default_field_bases() {
     'type' => 'markup',
   );
 
-  // Exported field_base: 'field_non_profits_supported'.
-  $field_bases['field_non_profits_supported'] = array(
-    'active' => 1,
-    'cardinality' => -1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_non_profits_supported',
-    'indexes' => array(
-      'tid' => array(
-        0 => 'tid',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'taxonomy',
-    'settings' => array(
-      'allowed_values' => array(
-        0 => array(
-          'vocabulary' => 'university_or_institution',
-          'parent' => 0,
-        ),
-      ),
-      'profile2_private' => FALSE,
-    ),
-    'translatable' => 0,
-    'type' => 'taxonomy_term_reference',
-  );
-
   // Exported field_base: 'field_philanthropic_interests'.
   $field_bases['field_philanthropic_interests'] = array(
     'active' => 1,
@@ -1171,6 +1144,27 @@ function bf_giving_proposal_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_what_is_your_primary_motiv',
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(
+      'profile2_private' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'text_long',
+  );
+
+  // Exported field_base: 'field_what_organizations_has_the'.
+  $field_bases['field_what_organizations_has_the'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_what_organizations_has_the',
     'indexes' => array(
       'format' => array(
         0 => 'format',

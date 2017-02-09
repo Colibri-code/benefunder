@@ -1371,7 +1371,7 @@ function bf_giving_proposal_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_buttons',
-      'weight' => 9,
+      'weight' => 70,
     ),
   );
 
@@ -1495,47 +1495,6 @@ function bf_giving_proposal_field_default_field_instances() {
       'settings' => array(),
       'type' => 'markup',
       'weight' => 32,
-    ),
-  );
-
-  // Exported field_instance:
-  // 'node-giving_proposal-field_non_profits_supported'.
-  $field_instances['node-giving_proposal-field_non_profits_supported'] = array(
-    'bundle' => 'giving_proposal',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'taxonomy',
-        'settings' => array(),
-        'type' => 'taxonomy_term_reference_link',
-        'weight' => 11,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'ds_extras_field_template' => '',
-    'entity_type' => 'node',
-    'field_name' => 'field_non_profits_supported',
-    'label' => 'What organizations has the client/family given to in the past?',
-    'required' => 0,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(
-        'apply_chosen' => '',
-      ),
-      'type' => 'options_select',
-      'weight' => 7,
     ),
   );
 
@@ -1669,7 +1628,7 @@ function bf_giving_proposal_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_buttons',
-      'weight' => 10,
+      'weight' => 71,
     ),
   );
 
@@ -1952,7 +1911,7 @@ function bf_giving_proposal_field_default_field_instances() {
     'ds_extras_field_template' => '',
     'entity_type' => 'node',
     'field_name' => 'field_what_did_the_client_like_d',
-    'label' => 'What did the client like/dislike about their past funding relationships?',
+    'label' => 'What did the client like/dislike about their past funding experiences?',
     'required' => 0,
     'settings' => array(
       'text_processing' => 0,
@@ -1965,7 +1924,7 @@ function bf_giving_proposal_field_default_field_instances() {
         'rows' => 2,
       ),
       'type' => 'text_textarea',
-      'weight' => 8,
+      'weight' => 69,
     ),
   );
 
@@ -2008,6 +1967,48 @@ function bf_giving_proposal_field_default_field_instances() {
       ),
       'type' => 'text_textfield',
       'weight' => 16,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'node-giving_proposal-field_what_organizations_has_the'.
+  $field_instances['node-giving_proposal-field_what_organizations_has_the'] = array(
+    'bundle' => 'giving_proposal',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 57,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'ds_extras_field_template' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_what_organizations_has_the',
+    'label' => 'What organizations has the client/family given to in the past?',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 2,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 68,
     ),
   );
 
@@ -2055,7 +2056,7 @@ function bf_giving_proposal_field_default_field_instances() {
   t('Vehicle Name');
   t('Vehicle Type');
   t('What are your personal interests or hobbies?');
-  t('What did the client like/dislike about their past funding relationships?');
+  t('What did the client like/dislike about their past funding experiences?');
   t('What is the anticipated annual contribution?');
   t('What is the estimated value of planned initial contribution?');
   t('What is the intended distribution (%) or spend down period?');

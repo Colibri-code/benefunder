@@ -111,9 +111,9 @@ function bf_giving_proposal_field_group_info() {
     'weight' => '37',
     'children' => array(
       0 => 'field_giving_targets',
-      1 => 'field_non_profits_supported',
-      2 => 'field_program_targets',
-      3 => 'field_what_did_the_client_like_d',
+      1 => 'field_program_targets',
+      2 => 'field_what_did_the_client_like_d',
+      3 => 'field_what_organizations_has_the',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
