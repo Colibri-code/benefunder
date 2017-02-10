@@ -16,6 +16,63 @@ function create_proposal_menu() {
 }
 
 /**
+ * Implements hook_form_alter().
+ */
+function create_proposal_form_alter(&$form, &$form_state, $form_id) {
+  if ($form_id == 'giving_proposal_node_form') {
+    $form['ajax_feedback'] = array(
+      '#type' => 'container'
+    );
+    $form['ajax_feedback']['ajax_text'] = array(
+      '#type' => 'textarea',
+      '#title' => t('Get Help'),
+      '#description' => t('Alert Benefunder right away!'),
+      '#weight' => 10,
+    );
+    $form['ajax_feedback']['ajax_submit'] = array(
+      '#type' => 'submit',
+      '#value' => t('Submit'),
+      '#ajax' => array(
+        'callback' => 'create_proposal_ajax_checkin',
+        'wrapper' => 'edit-ajax-feedback',
+        'effect' => 'fade',
+        'speed' => 2000,
+      ),
+      '#weight' => 20,
+    );
+    $form['#group_children']['ajax_feedback'] = 'group_check_1';
+
+    // Second feedback form.
+    $form['ajax_feedback2'] = $form['ajax_feedback'];
+    $form['ajax_feedback2']['ajax_text2'] = $form['ajax_feedback2']['ajax_text'];
+    unset($form['ajax_feedback2']['ajax_text']);
+    $form['ajax_feedback2']['ajax_submit']['#ajax']['wrapper'] = 'edit-ajax-feedback2';
+    $form['#group_children']['ajax_feedback2'] = 'group_check_2';
+  }
+}
+
+/**
+ * Handle the ajax request to get help on a proposal.
+ */
+function create_proposal_ajax_checkin($form, $form_state) {
+  global $user;
+
+  $text = $form_state['values']['ajax_text'];
+  if (empty($text)) {
+    $text = $form_state['values']['ajax_text2'];
+  }
+  // TODO: correct email address.
+  $to = 'karl.scheirer@gmail.com';
+  $language =  user_preferred_language($user);
+
+  drupal_mail('create_proposal', 'proposal_help', $to, $language, array(
+    '@text' => $text,
+  ));
+
+  return 'Thanks for your feedback, Benefunder staff will be in touch soon!';
+}
+
+/**
  * Menu access to execute a proposal.
  */
 function create_proposal_execute_access($proposal_nid) {
@@ -362,7 +419,7 @@ function create_proposal_signature_all_signed($proposal_nid, $signatures_array) 
 function create_proposal_signature_declined($proposal_nid) {
   $wrapper = entity_metadata_wrapper('node', $proposal_nid);
   create_proposal_set_status('Rejected', $wrapper);
-  // Alert Benefunder.
+  // TODO: Alert Benefunder.
 }
 
 /**
@@ -370,7 +427,12 @@ function create_proposal_signature_declined($proposal_nid) {
  */
 function create_proposal_mail($key, &$message, $params) {
   switch ($key) {
-    case 'disburse';
+    case 'proposal_help':
+      $message['subject'] = t('Help has been requested');
+      $body = "Request:\n @text";
+      break;
+
+    case 'disburse':
       $message['subject'] = t('Disbursement request to @school', array('@school' => $params['@institution_name']));
       $body = <<<ENDDISBURSE
 Please send @money_amount to @institution_name.\n
@@ -422,7 +484,7 @@ Best wishes,\n
 ENDTHANKYOU;
       break;
   }
-  $message['body'] = strtr($body, $params);
+  $message['body'][] = strtr($body, $params);
 }
 
 /**
