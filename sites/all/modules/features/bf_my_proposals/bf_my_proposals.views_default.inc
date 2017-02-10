@@ -54,7 +54,7 @@ function bf_my_proposals_views_default_views() {
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
   $handler->display->display_options['header']['area']['empty'] = TRUE;
-  $handler->display->display_options['header']['area']['content'] = '<a href="/node/add/giving-proposal?destination=user" class="btn btn-purple">Start a Proposal</a>';
+  $handler->display->display_options['header']['area']['content'] = '<a href="/node/add/giving-proposal?destination=user" class="btn btn-purple">Create a Proposal</a>';
   $handler->display->display_options['header']['area']['format'] = 'full_html';
   /* No results behavior: Global: Text area */
   $handler->display->display_options['empty']['area']['id'] = 'area';
