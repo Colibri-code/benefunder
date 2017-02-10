@@ -10250,6 +10250,8 @@ body.page-user {
   right: 0;
   z-index: 1000;
   border: none;
+  width: auto;
+  background: transparent;
 }
 .page-user .nav-tabs a.active {
   display: none;
@@ -10258,6 +10260,7 @@ body.page-user {
   border: none;
   border-radius: 0;
   font-size: 10px;
+  padding: 15px 12px 5px;
 }
 .fa-dashboard-links {
   display: flex;
@@ -10312,7 +10315,7 @@ body.page-user {
 }
 .vertical-tab-button.first {
   background-color: purple;
-  text-align: center;
+  text-align: left;
   font-size: 16px;
   letter-spacing: 0.05em;
   pointer-events: none;
@@ -10337,7 +10340,7 @@ body.page-user {
 .vertical-tab-button:nth-of-type(6),
 .vertical-tab-button:nth-of-type(10) {
   background: #993;
-  text-align: center;
+  text-align: left;
   font-size: 16px;
   letter-spacing: 0.05em;
   pointer-events: none;
@@ -10400,6 +10403,14 @@ form#giving-proposal-node-form {
   font-size: 16px;
   border: none;
   padding: 0;
+}
+.fieldset-wrapper .field-group-fieldset:not(.collapsed) .fieldset-title {
+  color: purple;
+  font-weight: bold;
+}
+.fieldset-wrapper fieldset:not(.collapsed) {
+  border-top-color: purple !important;
+  box-shadow: 0px -1px 0 purple;
 }
 /* ==========================================================================
   Less for footer section

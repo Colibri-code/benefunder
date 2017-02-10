@@ -4117,14 +4117,11 @@ body.front .navbar-collapse {
 /* Financial Planner Dashboard */
 .header-buttons {
   display: inline-block;
-  font-size: 10px;
-}
-.header-buttons .btn {
-  font-size: 10px;
 }
 .btn-black {
   background: #000;
   color: #fff;
+  font-size: 16px;
   display: inline-block;
   vertical-align: text-bottom;
   margin-bottom: 10px;
@@ -4140,8 +4137,11 @@ body.front .navbar-collapse {
   vertical-align: text-bottom;
   margin-bottom: 10px;
 }
-.btn-purple:hover {
-  color: #ddd;
+.btn-purple {
+  font-size: 16px;
+  &:hover {
+     color: #ddd;
+   }
 }
 .pane-user-picture {
   display: inline-block;
@@ -4222,13 +4222,16 @@ body.front .navbar-collapse {
 .fa-dashboard-links {
   display: flex;
   justify-content: space-between;
-  margin: 50px 0px;
+  margin: 75px 0px;
 }
 .fa-links {
-  font-size: 16px;
+  font-size: 20px;
 }
 .fa:before {
   padding-right: 5px;
+}
+.fa-dashboard-links .fa {
+  color: #993;
 }
 .sample_proposals img {
   max-width: 100%;
@@ -4265,7 +4268,7 @@ form#giving-proposal-node-form {
 }
 .page-node-add-giving-proposal .group-proposal-tabs .vertical-tab-button.first,
 .page-node-edit.node-type-giving-proposal .group-proposal-tabs .vertical-tab-button.first {
-  text-align: center;
+  text-align: left;
   font-size: 16px;
   letter-spacing: 0.05em;
   pointer-events: none;
@@ -4299,7 +4302,7 @@ form#giving-proposal-node-form {
 .page-node-add-giving-proposal .group-proposal-tabs .vertical-tab-button:nth-of-type(11),
 .page-node-edit.node-type-giving-proposal .group-proposal-tabs .vertical-tab-button:nth-of-type(11) {
   color: #fff;
-  text-align: center;
+  text-align: left;
   font-size: 16px;
   letter-spacing: 0.05em;
   pointer-events: none;
@@ -4363,8 +4366,9 @@ div.vertical-tabs ul li.selected a,
 div.vertical-tabs ul li.selected a:hover,
 div.vertical-tabs ul li.selected a:focus,
 div.vertical-tabs ul li.selected a:active {
-  border-left: 3px solid #993;
+  border-left: 5px solid purple;
   margin: 0;
+  color: purple;
 }
 input.form-text {
   border-color: #dfdfdf;
@@ -4473,4 +4477,14 @@ input#edit-cc-extra-button {
   position: absolute;
   top: 25px;
   right: 20px;
+}
+
+.fieldset-wrapper .field-group-fieldset:not(.collapsed) .fieldset-title {
+  color: purple;
+  font-weight: bold;
+}
+
+.fieldset-wrapper fieldset:not(.collapsed) {
+  border-top-color: purple !important;
+  box-shadow: 0px -1px 0 purple;
 }

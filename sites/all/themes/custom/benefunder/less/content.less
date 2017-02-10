@@ -3111,26 +3111,29 @@ body.page-user {
 }
 
 .page-user {
-    .navbar-default {
-        position: relative;
+  .navbar-default {
+      position: relative;
+  }
+  .region-content {
+      padding-top: 5px !important;
+  }
+  .nav-tabs {
+    position: absolute;
+    right: 0;
+    z-index: 1000;
+    border: none;
+    width: auto;
+    background: transparent;
+    a.active {
+      display: none;
     }
-    .region-content {
-        padding-top: 5px !important;
-    }
-    .nav-tabs {
-      position: absolute;
-      right: 0;
-      z-index: 1000;
+    > li > a {
       border: none;
-      a.active {
-        display: none;
-      }
-      > li > a {
-        border: none;
-        border-radius: 0;
-        font-size: 10px;
-      }
+      border-radius: 0;
+      font-size: 10px;
+      padding: 15px 12px 5px;
     }
+  }
 }
 
 .fa-dashboard-links {
@@ -3191,7 +3194,7 @@ body.page-user {
 
 .vertical-tab-button.first {
   background-color: purple;
-  text-align: center;
+  text-align: left;
   font-size: 16px;
   letter-spacing: 0.05em;
   pointer-events: none;
@@ -3216,7 +3219,7 @@ body.page-user {
 
 .vertical-tab-button:nth-of-type(6), .vertical-tab-button:nth-of-type(10) {
   background: #993;
-  text-align: center;
+  text-align: left;
   font-size: 16px;
   letter-spacing: 0.05em;
   pointer-events: none;
@@ -3280,4 +3283,15 @@ form#giving-proposal-node-form {
     padding: 0;
 
   }
+}
+
+
+.fieldset-wrapper .field-group-fieldset:not(.collapsed) .fieldset-title {
+  color: purple;
+  font-weight: bold;
+}
+
+.fieldset-wrapper fieldset:not(.collapsed) {
+  border-top-color: purple !important;
+  box-shadow: 0px -1px 0 purple;
 }
