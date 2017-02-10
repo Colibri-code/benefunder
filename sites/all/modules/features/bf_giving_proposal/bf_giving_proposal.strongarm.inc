@@ -13,6 +13,13 @@ function bf_giving_proposal_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'autosave_giving_proposal';
+  $strongarm->value = 1;
+  $export['autosave_giving_proposal'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'field_bundle_settings_node__giving_proposal';
   $strongarm->value = array(
     'view_modes' => array(),
