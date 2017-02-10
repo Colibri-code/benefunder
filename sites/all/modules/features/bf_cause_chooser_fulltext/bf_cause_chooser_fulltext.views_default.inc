@@ -24,7 +24,11 @@ function bf_cause_chooser_fulltext_views_default_views() {
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
-  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['cache']['type'] = 'time';
+  $handler->display->display_options['cache']['results_lifespan'] = '3600';
+  $handler->display->display_options['cache']['results_lifespan_custom'] = '0';
+  $handler->display->display_options['cache']['output_lifespan'] = '3600';
+  $handler->display->display_options['cache']['output_lifespan_custom'] = '0';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'full';
@@ -36,7 +40,7 @@ function bf_cause_chooser_fulltext_views_default_views() {
   $handler->display->display_options['fields']['entityreference_view_widget']['field'] = 'entityreference_view_widget';
   $handler->display->display_options['fields']['entityreference_view_widget']['label'] = '';
   $handler->display->display_options['fields']['entityreference_view_widget']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['entityreference_view_widget']['ervw']['force_single'] = 0;
+  $handler->display->display_options['fields']['entityreference_view_widget']['ervw']['force_single'] = 1;
   /* Field: Indexed Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'search_api_index_cause_index_solr';
@@ -110,6 +114,7 @@ function bf_cause_chooser_fulltext_views_default_views() {
     'title' => 'title',
     'field_subtitle' => 'title',
     'field_last_name' => 'field_last_name',
+    'field_research_area' => 'field_research_area',
     'field_university_or_institution' => 'field_university_or_institution',
   );
   $handler->display->display_options['style_options']['default'] = '-1';
@@ -134,12 +139,18 @@ function bf_cause_chooser_fulltext_views_default_views() {
       'separator' => '',
       'empty_column' => 0,
     ),
+    'field_research_area' => array(
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
     'field_university_or_institution' => array(
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
     ),
   );
+  $handler->display->display_options['style_options']['sticky'] = TRUE;
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
