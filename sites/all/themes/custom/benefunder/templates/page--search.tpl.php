@@ -93,7 +93,7 @@
   <?php if (isset($page['content']['system_main']['search_results']['search_results'])): ?>
 
     <?php if (isset($page['content']['system_main']['search_results']['search_pager']) || isset($page['sidebar_second'])): ?>
-      <div class="col-xs-12 col-md-4 col-md-offset-1 col-lg-3 sidebar-second">
+      <div class="col-xs-12 col-md-4 col-lg-3 sidebar-second">
         <?php print render($page['content']['system_main']['search_results']['search_pager']); ?>
         <?php print render($page['sidebar_second']); ?>
       </div>
