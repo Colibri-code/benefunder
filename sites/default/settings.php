@@ -81,8 +81,9 @@ if (defined('PANTHEON_ENVIRONMENT')) {
   // High performance - no hook_boot(), no hook_exit(), ignores Drupal IP blacklists.
   $conf['page_cache_without_database'] = TRUE;
   $conf['page_cache_invoke_hooks'] = FALSE;
-  // Explicitly set page_cache_maximum_age as database won't be available.
-  $conf['page_cache_maximum_age'] = 900;
+
+  // Explicitly set page_cache_maximum_age to 1 day as database won't be available.
+  $conf['page_cache_maximum_age'] = 86400;
 }
 
 /**
