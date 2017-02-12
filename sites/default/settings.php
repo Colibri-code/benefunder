@@ -39,16 +39,19 @@ if (isset($_SERVER['PANTHEON_ENVIRONMENT'])) {
   if ($_SERVER['PANTHEON_ENVIRONMENT'] == 'dev') {
     $conf['linkedin_consumer_key'] = '78k2ndkgahdokm';
     $conf['linkedin_consumer_secret'] = 'zE89nodVnoHgYlt6';
+    $cookie_domain = '.dev-benefunder.pantheonsite.io';
   }
   // TEST environment.
   elseif ($_SERVER['PANTHEON_ENVIRONMENT'] == 'test') {
     $conf['linkedin_consumer_key'] = '78jvscf2g0zcsu';
     $conf['linkedin_consumer_secret'] = 'VFxrlvr4lJRaaJil';
+    $cookie_domain = '.test-benefunder.pantheonsite.io';
   }
   // PROD environment.
   elseif ($_SERVER['PANTHEON_ENVIRONMENT'] == 'live') {
     $conf['linkedin_consumer_key'] = '781hc8muzcmorx';
     $conf['linkedin_consumer_secret'] = '0nYYDfzJt0vfTdtC';
+    $cookie_domain = '.benefunder.com';
   }
 }
 
@@ -78,8 +81,9 @@ if (defined('PANTHEON_ENVIRONMENT')) {
   // High performance - no hook_boot(), no hook_exit(), ignores Drupal IP blacklists.
   $conf['page_cache_without_database'] = TRUE;
   $conf['page_cache_invoke_hooks'] = FALSE;
-  // Explicitly set page_cache_maximum_age as database won't be available.
-  $conf['page_cache_maximum_age'] = 900;
+
+  // Explicitly set page_cache_maximum_age to 1 day as database won't be available.
+  $conf['page_cache_maximum_age'] = 86400;
 }
 
 /**
