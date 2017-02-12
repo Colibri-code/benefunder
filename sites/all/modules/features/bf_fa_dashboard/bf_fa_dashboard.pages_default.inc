@@ -35,7 +35,7 @@ function bf_fa_dashboard_default_page_manager_handlers() {
           'name' => 'role',
           'settings' => array(
             'rids' => array(
-              0 => 6,
+              0 => 8,
             ),
           ),
           'context' => 'argument_entity_id:user_1',
@@ -204,11 +204,11 @@ function bf_fa_dashboard_default_page_manager_handlers() {
 </div>
 
 <div class="col-sm-6">
-<div class="col-sm-4"><a href="/sites/default/files/John%20Legacy%20Giving%20Plan.pdf"><img alt="John Legacy Giving Plan" src="/sites/all/themes/custom/benefunder/media/images/John_Legacy_Giving_Plan.png" /></a></div>
+<div class="col-sm-4"><h2><a href="/sites/default/files/John%20Legacy%20Giving%20Plan.pdf"><img alt="John Legacy Giving Plan" src="/sites/all/themes/custom/benefunder/media/images/John_Legacy_Giving_Plan.png" /></a></h2></div>
 
-<div class="col-sm-4"><a href="/sites/default/files/John%20Legacy%20Giving%20Plan.pdf"><img alt="Clean Energy" src="/sites/all/themes/custom/benefunder/media/images/Issuu_Clean_Energy_Impact_Fund.png" /></a></div>
+<div class="col-sm-4"><h2><a href="/sites/default/files/John%20Legacy%20Giving%20Plan.pdf"><img alt="Clean Energy" src="/sites/all/themes/custom/benefunder/media/images/Issuu_Clean_Energy_Impact_Fund.png" /></a></h2></div>
 
-<div class="col-sm-4"><a href="/sites/default/files/John%20Legacy%20Giving%20Plan.pdf"><img alt="Veterans Impact Fund" src="/sites/all/themes/custom/benefunder/media/images/Veteran_Impact_Fund.png" /></a></div>
+<div class="col-sm-4"><h2><a href="/sites/default/files/John%20Legacy%20Giving%20Plan.pdf"><img alt="Veterans Impact Fund" src="/sites/all/themes/custom/benefunder/media/images/Veteran_Impact_Fund.png" /></a></h2></div>
 </div>
 ',
     'format' => 'full_html',
@@ -255,6 +255,33 @@ function bf_fa_dashboard_default_page_manager_handlers() {
   $display->content['new-202f6fa5-a98a-4e33-98cf-22cd45956b63'] = $pane;
   $display->panels['right_above'][0] = 'new-202f6fa5-a98a-4e33-98cf-22cd45956b63';
   $pane = new stdClass();
+  $pane->pid = 'new-734f354d-9ce0-4bc2-bb8d-ad0ed8c1f1e2';
+  $pane->panel = 'top';
+  $pane->type = 'custom';
+  $pane->subtype = 'custom';
+  $pane->shown = TRUE;
+  $pane->access = array();
+  $pane->configuration = array(
+    'admin_title' => '',
+    'title' => '',
+    'title_heading' => 'h2',
+    'body' => '<div class="pull-left"><p><span style="font-size:20px">DASHBOARD</span> (alpha)</p></div>
+',
+    'format' => 'full_html',
+    'substitute' => 1,
+  );
+  $pane->cache = array();
+  $pane->style = array(
+    'settings' => NULL,
+  );
+  $pane->css = array();
+  $pane->extras = array();
+  $pane->position = 0;
+  $pane->locks = array();
+  $pane->uuid = '734f354d-9ce0-4bc2-bb8d-ad0ed8c1f1e2';
+  $display->content['new-734f354d-9ce0-4bc2-bb8d-ad0ed8c1f1e2'] = $pane;
+  $display->panels['top'][0] = 'new-734f354d-9ce0-4bc2-bb8d-ad0ed8c1f1e2';
+  $pane = new stdClass();
   $pane->pid = 'new-e688a1d8-91d4-459c-b4fd-5601f8417943';
   $pane->panel = 'top';
   $pane->type = 'custom';
@@ -278,11 +305,11 @@ function bf_fa_dashboard_default_page_manager_handlers() {
     'css_class' => 'header-buttons',
   );
   $pane->extras = array();
-  $pane->position = 0;
+  $pane->position = 1;
   $pane->locks = array();
   $pane->uuid = 'e688a1d8-91d4-459c-b4fd-5601f8417943';
   $display->content['new-e688a1d8-91d4-459c-b4fd-5601f8417943'] = $pane;
-  $display->panels['top'][0] = 'new-e688a1d8-91d4-459c-b4fd-5601f8417943';
+  $display->panels['top'][1] = 'new-e688a1d8-91d4-459c-b4fd-5601f8417943';
   $pane = new stdClass();
   $pane->pid = 'new-56dd288f-68a5-46b0-afee-689063d8cc21';
   $pane->panel = 'top';
@@ -302,11 +329,11 @@ function bf_fa_dashboard_default_page_manager_handlers() {
   );
   $pane->css = array();
   $pane->extras = array();
-  $pane->position = 1;
+  $pane->position = 2;
   $pane->locks = array();
   $pane->uuid = '56dd288f-68a5-46b0-afee-689063d8cc21';
   $display->content['new-56dd288f-68a5-46b0-afee-689063d8cc21'] = $pane;
-  $display->panels['top'][1] = 'new-56dd288f-68a5-46b0-afee-689063d8cc21';
+  $display->panels['top'][2] = 'new-56dd288f-68a5-46b0-afee-689063d8cc21';
   $pane = new stdClass();
   $pane->pid = 'new-bfe099a5-a857-43d5-9304-c075c0ee779a';
   $pane->panel = 'top';
@@ -327,11 +354,11 @@ function bf_fa_dashboard_default_page_manager_handlers() {
   );
   $pane->css = array();
   $pane->extras = array();
-  $pane->position = 2;
+  $pane->position = 3;
   $pane->locks = array();
   $pane->uuid = 'bfe099a5-a857-43d5-9304-c075c0ee779a';
   $display->content['new-bfe099a5-a857-43d5-9304-c075c0ee779a'] = $pane;
-  $display->panels['top'][2] = 'new-bfe099a5-a857-43d5-9304-c075c0ee779a';
+  $display->panels['top'][3] = 'new-bfe099a5-a857-43d5-9304-c075c0ee779a';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
