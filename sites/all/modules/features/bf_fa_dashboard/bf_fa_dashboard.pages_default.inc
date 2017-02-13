@@ -197,7 +197,7 @@ function bf_fa_dashboard_default_page_manager_handlers() {
   $pane->access = array();
   $pane->configuration = array(
     'admin_title' => 'FA Dash Sample Proposals',
-    'title' => '<none>',
+    'title' => 'Quick Sample Proposals',
     'title_heading' => 'h2',
     'body' => '<div class="col-sm-6">
 <p>Use these sample proposals to get a philanthropy conversation started with your clients. Download the brochure and talking points here. Need more help? Contact us for more.</p>
