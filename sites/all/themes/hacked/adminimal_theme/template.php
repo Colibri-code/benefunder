@@ -6,6 +6,110 @@
  */
 
 /**
+ * Override theme function for Cause widget.
+ *
+ * @param $variables
+ *
+ * @return string
+ * @throws \Exception
+ */
+function adminimal_entityreference_view_widget_widget($variables) {
+  $widget = $variables['widget'];
+  $settings = $widget['add_more']['#ervw_settings'];
+  $order_class = drupal_html_class($settings['element'] . '-delta-order');
+  $required = !empty($settings['instance']['required']) ? theme('form_required_marker', $variables) : '';
+
+  $header = array(
+    array(
+      'data' => '<label>' . t('!title !required', array('!title' => $widget['#title'], '!required' => $required)) . "</label>",
+      'colspan' => 2,
+      'class' => array('field-label'),
+    ),
+  );
+  if ($settings['field']['cardinality'] !== '1') {
+    $header[] = array(
+      'data' => t('Order'),
+      'class' => array('tabledrag-hide'),
+    );
+  }
+  $rows = array();
+
+  // Sort items according to '_weight' (needed when the form comes back after
+  // preview or failed validation)
+  $items = array();
+  foreach (element_children($widget) as $key) {
+    if ($key === 'add_more') {
+      $add_more_button = &$widget[$key];
+    }
+    else {
+      $items[] = &$widget[$key];
+    }
+  }
+  usort($items, '_field_sort_items_value_helper');
+
+  // Add the items as table rows.
+  foreach ($items as $item) {
+    $item['_weight']['#attributes']['class'] = array($order_class);
+    $delta_element = drupal_render($item['_weight']);
+    $cells = array(
+      array('data' => '', 'class' => array('field-multiple-drag')),
+      drupal_render($item),
+    );
+    if ($settings['field']['cardinality'] !== '1') {
+      $cells[] = array('data' => $delta_element, 'class' => array('delta-order'));
+    }
+    $rows[] = array(
+      'data' => $cells,
+      'class' => array('draggable'),
+    );
+  }
+
+  $output = '<div class="form-item">';
+  $form_errors = form_get_errors();
+  $classes = array('field-multiple-table');
+
+  // Add an error class to the table in case of error.
+  if (isset($form_errors[$settings['element']])) {
+    $classes[] = 'error';
+  }
+
+  // Customization begins here.
+  if ($widget['#field_name'] == 'field_cause_name') {
+    $header = NULL;
+    $widget['add_more']['#value'] = t('Select Cause');
+  }
+  elseif (empty($rows)) {
+    $rows[][] = array(
+      'data' => t('No items have been added yet. Click "Add items" to launch the widget.'),
+      'colspan' => '3',
+    );
+  }
+
+  if ($widget['#field_name'] == 'field_inspiration') {
+    $widget['add_more']['#value'] = t('Select Causes');
+  }
+  // Customization ends here.
+
+  $output .= theme('table', array(
+    'header' => $header,
+    'rows' => $rows,
+    'attributes' => array(
+      'id' => $settings['table_id'],
+      'class' => $classes,
+    ),
+  ));
+  $output .= $widget['#description'] ? '<div class="description">' . $widget['#description'] . '</div>' : '';
+  $output .= '<div class="clearfix">' . drupal_render($add_more_button) . '</div>';
+  $output .= '</div>';
+
+  if ($settings['field']['cardinality'] !== '1') {
+    drupal_add_tabledrag($settings['table_id'], 'order', 'sibling', $order_class);
+  }
+
+  return $output;
+}
+
+/**
  * Override or insert variables into the maintenance page template.
  */
 function adminimal_preprocess_maintenance_page(&$vars) {

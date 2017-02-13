@@ -753,10 +753,12 @@ function bf_giving_proposal_field_default_field_instances() {
       'user_register_form' => FALSE,
     ),
     'widget' => array(
-      'active' => 0,
-      'module' => 'field_collection',
-      'settings' => array(),
-      'type' => 'field_collection_embed',
+      'active' => 1,
+      'module' => 'field_collection_table',
+      'settings' => array(
+        'nodragging' => 1,
+      ),
+      'type' => 'field_collection_table',
       'weight' => 10,
     ),
   );

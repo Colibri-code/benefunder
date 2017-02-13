@@ -362,50 +362,59 @@ function create_proposal_set_status($status, $wrapper) {
 function create_proposal_signature_all_signed($proposal_nid, $signatures_array) {
   $proposal_wrapper = entity_metadata_wrapper('node', $proposal_nid);
 
+  // Calculate amount to disburse initially.
+  setlocale(LC_MONETARY, 'en_US');
+  $frequency = $proposal_wrapper->field_disbursement_frequency->value();
+  $dist_percent = $proposal_wrapper->field_what_is_the_intended_distr->value() / 100;
+  $amount = $proposal_wrapper->field_planned_initial_contributi->value() * $dist_percent;
+  switch ($frequency) {
+    case 'Quarterly':
+      $amount /= 4;
+      break;
+
+    case '6 Months':
+      $amount /= 2;
+
+    case 'One Time':
+    case 'Annually':
+      // No-op.
+      break;
+
+    default:
+      throw new Exception('Unknown frequency');
+  }
+
   // Group causes by school.
   $proposal_schools = array();
   foreach ($proposal_wrapper->field_cause as $collection) {
-    $schools = $collection->field_cause_name->field_university_or_institution->value();
-    foreach($schools as $school) {
-      $proposal_schools[$school->tid][] = array(
-        'cause_id' => $collection->field_cause_name->getIdentifier(),
-        'cause_alloc' => $collection->field_cause_allocation->value(),
-      );
-    }
+    $uni = array_pop($collection->field_cause_name->field_university_or_institution->value());
+    $proposal_schools[$uni->tid][$collection->field_cause_name->label()] =
+      number_format($amount * $collection->field_cause_allocation->value(), 2);
   }
 
-  // Send email to DAF to disburse funds to each school.
+  // Send email to DAF to disburse funds.
   $daf_email = $proposal_wrapper->field_daf_provider->field_daf_email->value();
-  foreach ($proposal_schools as $school_tid => $cause_arrays) {
-    $school_wrapper = entity_metadata_wrapper('taxonomy_term', $school_tid);
-
-    // Calculate amount to disburse initially.
-    setlocale(LC_MONETARY, 'en_US');
-    $amount = $proposal_wrapper->field_planned_initial_contributi->value();
-    $frequency = $proposal_wrapper->field_disbursement_frequency->value();
-    if ($frequency == 'Quarterly') {
-      $amount = $amount / 4;
-      // TODO: Better calculation for the initial disbursement amount?
-      $amount = $amount * ($proposal_wrapper->field_what_is_the_intended_distr->value() / 100);
-    }
-
-    // TODO: Split amount by the various cause allocation percentages?
-//    foreach ($cause_arrays as $cause_array) {
-//      $cause_amount *= number_format($amount * $cause_array['cause_alloc'] / 100, 2);
-//      $params['causes'][] = array();
+//  foreach ($proposal_schools as $school_tid) {
+//    $school_wrapper = entity_metadata_wrapper('taxonomy_term', $school_tid);
+//
+//    foreach ($proposal_schools[$school_tid] as $cause_title => $cause_amount) {
 //    }
 
-    $params = array(
-      '@institution_name' => $school_wrapper->label(),
-      '@freq' => $frequency,
-      '@aba' => $school_wrapper->field_daf_aba->value(),
-      '@ach' => $school_wrapper->field_daf_ach->value(),
-      '@account_num' => $school_wrapper->field_daf_account_number->value(),
-      '@money_amount' => money_format('%i', $amount),
-    );
-    // TODO: Include gift letter somehow. PDF attachment?
-    drupal_mail('create_proposal', 'disburse', $daf_email, LANGUAGE_NONE, $params);
-  }
+//    $params = array(
+//      '@institution_name' => $school_wrapper->label(),
+//      '@freq' => $frequency,
+//      '@aba' => $school_wrapper->field_daf_aba->value(),
+//      '@ach' => $school_wrapper->field_daf_ach->value(),
+//      '@account_num' => $school_wrapper->field_daf_account_number->value(),
+//      '@money_amount' => money_format('%i', $amount),
+//    );
+//  }
+  // TODO: Include gift letter somehow. PDF attachment?
+  $params = array(
+    '@frequency' => $frequency,
+    'schools' => $proposal_schools,
+  );
+  drupal_mail('create_proposal', 'disburse', $daf_email, LANGUAGE_NONE, $params);
 
   $status = ($frequency == 'Quarterly') ? 'Continuing' : 'Complete';
   create_proposal_set_status($status, $proposal_wrapper);
@@ -430,19 +439,28 @@ function create_proposal_mail($key, &$message, $params) {
     case 'proposal_help':
       $message['subject'] = t('Help has been requested');
       $body = "Request:\n @text";
+      $message['body'][] = strtr($body, $params);
       break;
 
     case 'disburse':
       $message['subject'] = t('Disbursement request to @school', array('@school' => $params['@institution_name']));
+      // TODO: contains grant information for each recipient.
+      $body[] = 'Disbursement frequency: ' . $params['@frequency'];
+      foreach ($params['schools'] as $school_tid) {
+        $school_wrapper = entity_metadata_wrapper('taxonomy_term', $school_tid);
+        $body[] = 'University or Institution Name: ' . $school_wrapper->label();
+        $body[] = 'University or Institution ABA Number: ' . $school_wrapper->field_daf_aba->value();
+        $body[] = 'University or Institution ACH Number: ' . $school_wrapper->field_daf_ach->value();
+        $body[] = 'University or Institution Account Number: ' . $school_wrapper->field_account_number->value();
+      }
+
+
       $body = <<<ENDDISBURSE
 Please send @money_amount to @institution_name.\n
 Frequency: @freq\n
 ABA: @aba\n
 ACH: @ach\n
 Account Number: @account_num\n
-\n
-Thank You,\n
-Benefunder Staff\n
 ENDDISBURSE;
       break;
 
@@ -462,6 +480,7 @@ Payee: @payee\n
 Congratulations,\n
 Benefunder Staff\n
 ENDCONFIRMATION;
+      $message['body'][] = strtr($body, $params);
       break;
 
     case 'donor-thank-you':
@@ -483,8 +502,8 @@ Best wishes,\n
 @researcher and Benefunder Staff\n
 ENDTHANKYOU;
       break;
+      $message['body'][] = strtr($body, $params);
   }
-  $message['body'][] = strtr($body, $params);
 }
 
 /**
