@@ -20,6 +20,12 @@ function create_proposal_menu() {
  */
 function create_proposal_form_alter(&$form, &$form_state, $form_id) {
   if ($form_id == 'giving_proposal_node_form') {
+    // Second save button up top, both read Save & Continue.
+    $form['actions']['submit']['#value'] = t('Save & Continue');
+    $form['submit-top'] = $form['actions']['submit'];
+    $form['submit-top']['#weight'] = 0;
+
+    // Add ajax feedback form.
     $form['ajax_feedback'] = array(
       '#type' => 'container'
     );
