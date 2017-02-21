@@ -359,6 +359,29 @@ function bf_fa_dashboard_default_page_manager_handlers() {
   $pane->uuid = 'bfe099a5-a857-43d5-9304-c075c0ee779a';
   $display->content['new-bfe099a5-a857-43d5-9304-c075c0ee779a'] = $pane;
   $display->panels['top'][3] = 'new-bfe099a5-a857-43d5-9304-c075c0ee779a';
+  $pane = new stdClass();
+  $pane->pid = 'new-0af9caf8-edf4-444c-a4e8-365490c3f020';
+  $pane->panel = 'top';
+  $pane->type = 'block';
+  $pane->subtype = 'block-1';
+  $pane->shown = TRUE;
+  $pane->access = array();
+  $pane->configuration = array(
+    'override_title' => 1,
+    'override_title_text' => '<none>',
+    'override_title_heading' => 'h2',
+  );
+  $pane->cache = array();
+  $pane->style = array(
+    'settings' => NULL,
+  );
+  $pane->css = array();
+  $pane->extras = array();
+  $pane->position = 4;
+  $pane->locks = array();
+  $pane->uuid = '0af9caf8-edf4-444c-a4e8-365490c3f020';
+  $display->content['new-0af9caf8-edf4-444c-a4e8-365490c3f020'] = $pane;
+  $display->panels['top'][4] = 'new-0af9caf8-edf4-444c-a4e8-365490c3f020';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
