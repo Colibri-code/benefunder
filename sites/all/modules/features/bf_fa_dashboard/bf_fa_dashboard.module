@@ -5,3 +5,37 @@
  */
 
 include_once 'bf_fa_dashboard.features.inc';
+
+/**
+ * Implements hook_block_info().
+ */
+function bf_fa_dashboard_block_info() {
+  $blocks['fa_menu'] = array(
+    'info' => 'Financial Advisor Menu',
+    'cache' => DRUPAL_CACHE_PER_ROLE,
+    'region' => 'content_before',
+  );
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function bf_fa_dashboard_block_view($delta = '') {
+  global $user;
+
+  if ($delta == 'fa_menu') {
+    $node = menu_get_object('node');
+    if ($node->type == 'giving_proposal' || $_GET['q'] == 'node/add/giving-proposal') {
+      $block['content'] = array(
+        array('#markup' => '<div><a class="btn btn-black" href="#">Help Desk</a><a class="btn btn-purple" href="/node/add/giving-proposal">+ Create a Proposal</a></div>'),
+        array('#markup' => '<div class="user-picture">' . theme('image_style', array(
+          'style_name' => 'thumbnail',
+          'path' => $user->picture,
+        )) . '</div>'),
+        array('#markup' => l('edit', 'user/' . $user->uid . '/edit')),
+      );
+    }
+  }
+  return $block;
+}
