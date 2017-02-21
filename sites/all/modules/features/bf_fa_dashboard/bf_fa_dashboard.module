@@ -13,7 +13,6 @@ function bf_fa_dashboard_block_info() {
   $blocks['fa_menu'] = array(
     'info' => 'Financial Advisor Menu',
     'cache' => DRUPAL_CACHE_PER_ROLE,
-    'region' => 'content_before',
   );
   return $blocks;
 }
@@ -31,7 +30,6 @@ function bf_fa_dashboard_block_view($delta = '') {
     );
 
     if (!empty($user->picture)) {
-      dsm($user->picture);
       $block['content'][] = array('#markup' => '<div class="user-picture">' . theme('image_style', array(
           'style_name' => 'thumbnail',
           'path' => $user->picture,
