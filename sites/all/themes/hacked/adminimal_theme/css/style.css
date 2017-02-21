@@ -4139,10 +4139,12 @@ body.front .navbar-collapse {
 }
 .btn-purple {
   font-size: 16px;
-  &:hover {
-     color: #ddd;
-   }
 }
+
+.btn-purple:hover {
+  color: #ddd;
+}
+
 .pane-user-picture {
   display: inline-block;
   margin: 0 10px;
@@ -4487,4 +4489,17 @@ input#edit-cc-extra-button {
 .fieldset-wrapper fieldset:not(.collapsed) {
   border-top-color: purple !important;
   box-shadow: 0px -1px 0 purple;
+}
+
+div#block-bf-fa-dashboard-fa-menu {
+  text-align: right;
+  float: right;
+}
+
+div#block-bf-fa-dashboard-fa-menu div {
+  display: inline;
+}
+
+div#block-bf-fa-dashboard-fa-menu .btn {
+  margin-left: 10px;
 }

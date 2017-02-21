@@ -25,17 +25,22 @@ function bf_fa_dashboard_block_view($delta = '') {
   global $user;
 
   if ($delta == 'fa_menu') {
-    $node = menu_get_object('node');
-    if ($node->type == 'giving_proposal' || $_GET['q'] == 'node/add/giving-proposal') {
-      $block['content'] = array(
-        array('#markup' => '<div><a class="btn btn-black" href="#">Help Desk</a><a class="btn btn-purple" href="/node/add/giving-proposal">+ Create a Proposal</a></div>'),
-        array('#markup' => '<div class="user-picture">' . theme('image_style', array(
+    $block['subject'] = '';
+    $block['content'] = array(
+      array('#markup' => '<div><a class="btn btn-black" href="/user">Dashboard</a><a class="btn btn-black" href="#">Help Desk</a><a class="btn btn-purple" href="/node/add/giving-proposal">+ Create a Proposal</a></div>'),
+    );
+
+    if (!empty($user->picture)) {
+      dsm($user->picture);
+      $block['content'][] = array('#markup' => '<div class="user-picture">' . theme('image_style', array(
           'style_name' => 'thumbnail',
           'path' => $user->picture,
-        )) . '</div>'),
-        array('#markup' => l('edit', 'user/' . $user->uid . '/edit')),
-      );
+        )) . '</div>');
     }
+
+    $block['content'][] = array('#markup' => '<div>' . l('Edit Profile', 'user/' . $user->uid . '/edit', array(
+        'attributes' => array('class' => array('btn', 'btn-black')),
+      )) . '</div>');
   }
   return $block;
 }
