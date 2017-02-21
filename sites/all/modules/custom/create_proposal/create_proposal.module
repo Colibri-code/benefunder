@@ -400,21 +400,7 @@ function create_proposal_signature_all_signed($proposal_nid, $signatures_array) 
 
   // Send email to DAF to disburse funds.
   $daf_email = $proposal_wrapper->field_daf_provider->field_daf_email->value();
-//  foreach ($proposal_schools as $school_tid) {
-//    $school_wrapper = entity_metadata_wrapper('taxonomy_term', $school_tid);
-//
-//    foreach ($proposal_schools[$school_tid] as $cause_title => $cause_amount) {
-//    }
 
-//    $params = array(
-//      '@institution_name' => $school_wrapper->label(),
-//      '@freq' => $frequency,
-//      '@aba' => $school_wrapper->field_daf_aba->value(),
-//      '@ach' => $school_wrapper->field_daf_ach->value(),
-//      '@account_num' => $school_wrapper->field_daf_account_number->value(),
-//      '@money_amount' => money_format('%i', $amount),
-//    );
-//  }
   // TODO: Include gift letter somehow. PDF attachment?
   $params = array(
     '@frequency' => $frequency,
@@ -422,7 +408,7 @@ function create_proposal_signature_all_signed($proposal_nid, $signatures_array) 
   );
   drupal_mail('create_proposal', 'disburse', $daf_email, LANGUAGE_NONE, $params);
 
-  $status = ($frequency == 'Quarterly') ? 'Continuing' : 'Complete';
+  $status = ($frequency == 'One Time') ? 'Complete' : 'Continuing';
   create_proposal_set_status($status, $proposal_wrapper);
 }
 
@@ -443,31 +429,35 @@ function create_proposal_signature_declined($proposal_nid) {
 function create_proposal_mail($key, &$message, $params) {
   switch ($key) {
     case 'proposal_help':
-      $message['subject'] = t('Help has been requested');
+      $message['subject'] = t('Proposal help has been requested');
       $body = "Request:\n @text";
       $message['body'][] = strtr($body, $params);
       break;
 
     case 'disburse':
-      $message['subject'] = t('Disbursement request to @school', array('@school' => $params['@institution_name']));
-      // TODO: contains grant information for each recipient.
+      $message['subject'] = t('Disbursement request');
       $body[] = 'Disbursement frequency: ' . $params['@frequency'];
+      $i = 0;
       foreach ($params['schools'] as $school_tid) {
         $school_wrapper = entity_metadata_wrapper('taxonomy_term', $school_tid);
         $body[] = 'University or Institution Name: ' . $school_wrapper->label();
         $body[] = 'University or Institution ABA Number: ' . $school_wrapper->field_daf_aba->value();
         $body[] = 'University or Institution ACH Number: ' . $school_wrapper->field_daf_ach->value();
         $body[] = 'University or Institution Account Number: ' . $school_wrapper->field_account_number->value();
+        foreach ($params['schools'][$school_tid] as $title => $amount) {
+          $body[] = t('Grant #@count Lab: @lab', array(
+            '@count' => $i,
+            '@lab' => $title)
+          );
+          $body[] = t('Grant #@count Amount: @amt', array(
+            '@count' => $i,
+            '@amt' => $amount)
+          );
+          $i++;
+        }
+        $body[] = '';
       }
-
-
-      $body = <<<ENDDISBURSE
-Please send @money_amount to @institution_name.\n
-Frequency: @freq\n
-ABA: @aba\n
-ACH: @ach\n
-Account Number: @account_num\n
-ENDDISBURSE;
+      $message['body'] = $body;
       break;
 
     case 'researcher-confirmation':
