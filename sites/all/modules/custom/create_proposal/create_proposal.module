@@ -244,6 +244,11 @@ function create_proposal_node_presave($node) {
     return;
   }
 
+  // No causes selected.
+  if (!isset($node->field_cause[LANGUAGE_NONE][0]['field_cause_name'][LANGUAGE_NONE][0]['target_id'])) {
+    return;
+  }
+
   // DAF Disbursement confirmed.
   if ($node->field_daf_confirmed[LANGUAGE_NONE]['value']) {
     $amount = create_proposal_calculate_disbusement_amount($node);
@@ -266,17 +271,10 @@ function create_proposal_node_presave($node) {
 
     // Send thank-you to each donor.
     // TODO: use actual client email.
-    $params = array(
-      '@names' => '',
-      '@researcher' => '',
-    );
+    drupal_mail('create_proposal', 'donor-thank-you', 'karl.scheirer@gmail.com', LANGUAGE_NONE);
   }
 
   // Generate proposal PDF and attach to node.
-  if (!isset($node->field_cause[LANGUAGE_NONE][0]['field_cause_name'][LANGUAGE_NONE][0]['target_id'])) {
-    // No causes selected.
-    return;
-  }
   if (($library = libraries_load('phpwkhtmltopdf')) && !empty($library['loaded'])) {
     $pdf = new WkHtmlToPdf(array(
       'ignoreWarnings' => TRUE,
@@ -519,7 +517,7 @@ ENDCONFIRMATION;
     case 'donor-thank-you':
       $message['subject'] = t('Thank you for your donation');
       $body = <<<ENDTHANKYOU
-Dear @names,\n
+Dear Funder,\n
 \n
 Thank you! We are elated by your decision to support research through Benefunder.com. Your gift will have a big impact on
 their work. It will also serve as an example for others to connect - through Benefunder  - to researchers more directly
@@ -532,7 +530,7 @@ Again, thank you so much for your generous gift. We hope that today marks the be
 relationship.\n
 \n
 Best wishes,\n
-@researcher and Benefunder Staff\n
+Benefunder Staff\n
 ENDTHANKYOU;
       break;
       $message['body'][] = strtr($body, $params);
@@ -544,10 +542,26 @@ ENDTHANKYOU;
  *
  * Not in hook_mail since we never send this letter directly.
  *
+ * @payee_name
+ * @payee_contact_name
+ * @payee_address
+ * @payee_city
+ * @payee_state
+ * @payee_zip
+ * @date
+ * @payee_contact_name
+ * @payee_name
+ * @source
+ * @amount
+ * @researcher
+ * @profile_url
+ * @bankname
+ * @reqnum
+ *
  * @return string
  */
-function _create_proposal_get_gift_letter_body() {
-  return <<<ENDGIFT
+function _create_proposal_get_gift_letter_body($params) {
+  $body = <<<ENDGIFT
 @payee_name\n
 c/o @payee_contact_name\n
 @payee_address\n
@@ -582,4 +596,5 @@ Benefunder Foundation Tax Identification Number: 46-430321\n
 San Diego, CA 92121\n
 (858) 215-1136\n
 ENDGIFT;
+  return strtr($body, $params);
 }
