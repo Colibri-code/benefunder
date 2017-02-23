@@ -246,17 +246,22 @@ function create_proposal_node_presave($node) {
 
   // DAF Disbursement confirmed.
   if ($node->field_daf_confirmed[LANGUAGE_NONE]['value']) {
+    $amount = create_proposal_calculate_disbusement_amount($node);
 
     // Send confirmation to each researcher.
-    $params = array(
-      '@researcher' => '',
-      '@bankname' => '',
-      '@reqnum' => '',
-      '@amount' => '',
-      '@payee' => '',
-    );
-    foreach ($node->field_causes as $cause) {
-      drupal_mail('create_proposal', 'researcher-confirmation', $cause->field_email, LANGUAGE_NONE, $params);
+    foreach ($node->field_cause[LANGUAGE_NONE] as $collection) {
+      $cause_nid = $collection['field_cause_name'][LANGUAGE_NONE][0]['target_id'];
+      $cause_node = node_load($cause_nid);
+      if (!empty($cause_node)) {
+        $params = array(
+          '@researcher' => $cause_node->field_first_name->value(),
+          '@date' => new Date('m/d/Y'),
+          '@reqnum' => $node->field_disbursement_tracking_numb[LANGUAGE_NONE]['value'],
+          '@amount' => money_format('%i', number_format($amount * $collection->field_cause_allocation->value(), 2)),
+          '@payee' => $node->title[LANGUAGE_NONE]['value'],
+        );
+        drupal_mail('create_proposal', 'researcher-confirmation', $cause_node->field_email->value(), LANGUAGE_NONE, $params);
+      }
     }
 
     // Send thank-you to each donor.
@@ -265,8 +270,6 @@ function create_proposal_node_presave($node) {
       '@names' => '',
       '@researcher' => '',
     );
-
-
   }
 
   // Generate proposal PDF and attach to node.
@@ -386,13 +389,8 @@ function create_proposal_set_status($status, $wrapper) {
   $wrapper->field_proposal_status = array_pop($term_array)->tid;
 }
 
-/**
- * Sends a disbursement letter to each school involved.
- *
- * @param $proposal_nid
- */
-function create_proposal_signature_all_signed($proposal_nid, $signatures_array) {
-  $proposal_wrapper = entity_metadata_wrapper('node', $proposal_nid);
+function create_proposal_calculate_disbusement_amount($proposal_wrapper) {
+  $proposal_wrapper = entity_metadata_wrapper('node', $proposal_wrapper);
 
   // Calculate amount to disburse initially.
   setlocale(LC_MONETARY, 'en_US');
@@ -415,6 +413,19 @@ function create_proposal_signature_all_signed($proposal_nid, $signatures_array) 
     default:
       throw new Exception('Unknown frequency');
   }
+  return $amount;
+}
+
+/**
+ * Sends a disbursement letter to each school involved.
+ *
+ * @param $proposal_nid
+ */
+function create_proposal_signature_all_signed($proposal_nid, $signatures_array) {
+  $proposal_wrapper = entity_metadata_wrapper('node', $proposal_nid);
+
+  $amount = create_proposal_calculate_disbusement_amount($proposal_wrapper);
+  $frequency = $proposal_wrapper->field_disbursement_frequency->value();
 
   // Group causes by school.
   $proposal_schools = array();
@@ -492,9 +503,9 @@ function create_proposal_mail($key, &$message, $params) {
 Dear @researcher,\n
 \n
 Benefunder is pleased to let you know that @amount has been donated to your lab. Funding is expected
-to arrive within 30 days, please contact us at @benefunder.com if you have any questions.\n
+to arrive within 30 days, please contact us at info@benefunder.com if you have any questions.\n
 \n
-A funds transfer request was provided to @bankname on @date with the following details:\n
+A funds transfer request has been provided on @date with the following details:\n
 Transfer request number: @reqnum\n
 Amount: @amount\n
 Payee: @payee\n
