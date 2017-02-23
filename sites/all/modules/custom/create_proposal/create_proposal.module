@@ -243,11 +243,37 @@ function create_proposal_node_presave($node) {
   if ($node->type != 'giving_proposal') {
     return;
   }
+
+  // DAF Disbursement confirmed.
+  if ($node->field_daf_confirmed[LANGUAGE_NONE]['value']) {
+
+    // Send confirmation to each researcher.
+    $params = array(
+      '@researcher' => '',
+      '@bankname' => '',
+      '@reqnum' => '',
+      '@amount' => '',
+      '@payee' => '',
+    );
+    foreach ($node->field_causes as $cause) {
+      drupal_mail('create_proposal', 'researcher-confirmation', $cause->field_email, LANGUAGE_NONE, $params);
+    }
+
+    // Send thank-you to each donor.
+    // TODO: use actual client email.
+    $params = array(
+      '@names' => '',
+      '@researcher' => '',
+    );
+
+
+  }
+
+  // Generate proposal PDF and attach to node.
   if (!isset($node->field_cause[LANGUAGE_NONE][0]['field_cause_name'][LANGUAGE_NONE][0]['target_id'])) {
     // No causes selected.
     return;
   }
-
   if (($library = libraries_load('phpwkhtmltopdf')) && !empty($library['loaded'])) {
     $pdf = new WkHtmlToPdf(array(
       'ignoreWarnings' => TRUE,
