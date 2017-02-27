@@ -436,7 +436,7 @@ function create_proposal_signature_all_signed($proposal_nid, $signatures_array) 
   // Send email to DAF to disburse funds.
   $daf_email = $proposal_wrapper->field_daf_provider->field_daf_email->value();
 
-  // TODO: Include gift letter somehow. PDF attachment?
+  // TODO: Include gift letter somehow. PDF attachment? Send multiple emails?
   $params = array(
     '@frequency' => $frequency,
     'schools' => $proposal_schools,
