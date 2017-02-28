@@ -100,7 +100,6 @@ function create_proposal_submit($form, &$form_state) {
   $wrapper = entity_metadata_wrapper('node', $form_state['values']['proposal_nid']);
 
   if ($wrapper->field_ready_to_send->value()) {
-    create_proposal_generate_additional_documents($wrapper->value());
 
     // Send giving proposal to HelloSign.
     $title = $wrapper->label();
@@ -111,9 +110,17 @@ function create_proposal_submit($form, &$form_state) {
 
     // Attach files, these will appear as 1 document to sign.
     $files[] = $wrapper->field_giving_proposal->value()['uri'];
-    $files[] = $wrapper->field_additional_documents->value()['uri'];
 
-    // TODO: Add static content?
+    // If using addendum attach here.
+    if ($wrapper->field_already_have_daf->value()) {
+      $files[] = $wrapper->field_daf_provider->field_benefunder_addendum->value()['uri'];
+    }
+
+    // Attach additional files?
+//    create_proposal_generate_additional_documents($wrapper->value());
+//    $files[] = $wrapper->field_additional_documents->value()['uri'];
+
+    // Add static content?
 //  $files[] = drupal_get_path('module', 'create_proposal') . '/proposal_static.pdf';
 
     $mode = 'email';
