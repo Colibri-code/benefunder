@@ -61,7 +61,7 @@ function bf_my_proposals_views_default_views() {
   $handler->display->display_options['empty']['area']['table'] = 'views';
   $handler->display->display_options['empty']['area']['field'] = 'area';
   $handler->display->display_options['empty']['area']['empty'] = TRUE;
-  $handler->display->display_options['empty']['area']['content'] = 'No proposals yet. <a href="/node/add/giving-proposal?destination=user">Start a Proposal!</a>';
+  $handler->display->display_options['empty']['area']['content'] = 'No proposals yet. <a href="/node/add/giving-proposal?destination=user">Create a Proposal!</a>';
   $handler->display->display_options['empty']['area']['format'] = 'full_html';
   /* Field: Content: Nid */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
@@ -96,17 +96,6 @@ function bf_my_proposals_views_default_views() {
   $handler->display->display_options['fields']['field_giving_proposal']['settings'] = array(
     'file_view_mode' => 'media_small',
   );
-  /* Field: Views: Views Conditional */
-  $handler->display->display_options['fields']['views_conditional']['id'] = 'views_conditional';
-  $handler->display->display_options['fields']['views_conditional']['table'] = 'views_conditional';
-  $handler->display->display_options['fields']['views_conditional']['field'] = 'views_conditional';
-  $handler->display->display_options['fields']['views_conditional']['label'] = '';
-  $handler->display->display_options['fields']['views_conditional']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['views_conditional']['if'] = 'field_giving_proposal';
-  $handler->display->display_options['fields']['views_conditional']['condition'] = '2';
-  $handler->display->display_options['fields']['views_conditional']['equalto'] = 'N/A';
-  $handler->display->display_options['fields']['views_conditional']['then'] = '<a href="/execute_proposal/[nid]" class="btn btn-default">Send for Approval</a>';
-  $handler->display->display_options['fields']['views_conditional']['strip_tags'] = 0;
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
