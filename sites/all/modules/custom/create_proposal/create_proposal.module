@@ -54,6 +54,19 @@ function create_proposal_form_alter(&$form, &$form_state, $form_id) {
     unset($form['ajax_feedback2']['ajax_text']);
     $form['ajax_feedback2']['ajax_submit']['#ajax']['wrapper'] = 'edit-ajax-feedback2';
     $form['#group_children']['ajax_feedback2'] = 'group_check_2';
+
+    // Additional validation.
+    $form['#validate'][] = 'create_proposal_validate';
+  }
+}
+
+/**
+ * Validate a giving proposal form.
+ */
+function create_proposal_validate($form, $form_state) {
+  // If ready to send, make sure we have some emails.
+  if ($form_state['values']['field_ready_to_send'] && empty($form_state['values']['field_signer_emails'])) {
+    form_set_error('field_signer_emails', t('You must provide all signer emails before the proposal can be processed.'));
   }
 }
 
