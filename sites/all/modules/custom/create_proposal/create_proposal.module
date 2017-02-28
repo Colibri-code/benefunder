@@ -75,7 +75,7 @@ function create_proposal_ajax_checkin($form, $form_state) {
     '@text' => $text,
   ));
 
-  return 'Thanks for your feedback, Benefunder staff will be in touch soon!';
+  return t('Thanks for your feedback, Benefunder staff will be in touch soon!');
 }
 
 /**
@@ -109,6 +109,17 @@ function create_proposal_execute_confirm($form, &$form_state, $proposal_nid) {
 }
 
 /**
+ * Extract array of signers suitable to sending to hellosign.
+ */
+function create_proposal_get_signers($proposal_wrapper) {
+  $signers = array();
+  foreach ($proposal_wrapper->field_signer_emails as $collection) {
+    $signers[$collection->field_signer_email->value()] = $collection->field_signer_name->value();
+  }
+  return $signers;
+}
+
+/**
  * Proposal execution confirmed, time to do it.
  *
  * @throws \EntityMetadataWrapperException
@@ -121,10 +132,7 @@ function create_proposal_execute_confirm_submit($form, &$form_state) {
   // Send giving proposal to HelloSign.
   $title = $wrapper->label();
   $subject = 'Signature required for Benefunder giving proposal';
-  $signers = array(
-    // TODO: use actual client email.
-    'karl.scheirer@gmail.com' => 'Karl Scheirer',
-  );
+  $signers = create_proposal_get_signers($wrapper);
   // CC emails are configured on the site.
 
   // Attach files, these will appear as 1 document to sign.
