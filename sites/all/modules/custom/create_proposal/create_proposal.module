@@ -342,6 +342,15 @@ function create_proposal_process_hellosign_callback(array $data) {
 
   // Log callback.
   watchdog('proposal', 'HelloSign event received: @event', array('@event' => print_r($data, 1)));
+  $event = $data->event->event_type;
+
+  // Alert Benefunder for these events.
+  $email_events = [
+    'signature_request_sent',
+    'signature_request_declined',
+    'signature_request_all_signed',
+    'signature_request_email_bounce',
+  ];
 
   // Find proposal node with matching request id.
   $signature_request_id = $data->signature_request->signature_request_id;
@@ -354,25 +363,37 @@ function create_proposal_process_hellosign_callback(array $data) {
   if (isset($result['node'])) {
     $proposal_nid = current(array_keys($result['node']));
     $wrapper = entity_metadata_wrapper('node', $proposal_nid);
-    $event = $data->event->event_type;
-
-    switch ($event) {
-      // Execute initial disbursements.
-      case 'signature_request_all_signed':
-        create_proposal_signature_all_signed($proposal_nid, $event->signatures);
-        break;
-
-      // Handle signature rejection.
-      case 'signature_request_declined':
-        create_proposal_signature_declined($proposal_nid);
-        break;
-    }
-    $wrapper->save();
   }
   else {
     watchdog('proposal', 'No proposal found with signature request id %id', array(
       '%id' => $signature_request_id,
     ), WATCHDOG_ERROR);
+  }
+
+  if (in_array($event, $email_events)) {
+    $params = [
+      'event' => $event,
+      'proposal_name' => $wrapper->label(),
+      'proposal_url' => url('node/' . $proposal_nid . '/edit', array(
+        'absolute' => TRUE,
+        'https' => TRUE,
+      )),
+    ];
+    drupal_mail('create_proposal', 'hellosign-event', 'hellosign@benefunder.com', LANGUAGE_NONE, $params);
+  }
+
+  switch ($event) {
+    // Execute initial disbursements.
+    case 'signature_request_all_signed':
+      create_proposal_signature_all_signed($proposal_nid, $event->signatures);
+      $wrapper->save();
+      break;
+
+    // Update proposal status.
+    case 'signature_request_declined':
+      create_proposal_set_status('Rejected', $wrapper);
+      $wrapper->save();
+      break;
   }
 }
 
@@ -448,21 +469,23 @@ function create_proposal_signature_all_signed($proposal_nid, $signatures_array) 
 }
 
 /**
- * Proposal declined by at least one signer.
- *
- * @param $proposal_nid
- */
-function create_proposal_signature_declined($proposal_nid) {
-  $wrapper = entity_metadata_wrapper('node', $proposal_nid);
-  create_proposal_set_status('Rejected', $wrapper);
-  // TODO: Alert Benefunder.
-}
-
-/**
  * Implements hook_mail().
  */
 function create_proposal_mail($key, &$message, $params) {
   switch ($key) {
+    case 'hellosign-event':
+      $message['subject'] = t('Proposal @name HelloSign @event', array(
+        '@name' => $params['proposal_name'],
+        '@event' => $params['event'],
+      ));
+      $message['body'][] = t('This proposal has received the HelloSign event @event.', array(
+        '@event' => $params['event'],
+      ));
+      $message['body'][] = t('You may edit this proposal at @url.', array(
+        '@url' => $params['proposal_url'],
+      ));
+      break;
+
     case 'proposal_help':
       $message['subject'] = t('Proposal help has been requested');
       $body = "Request:\n @text";
@@ -478,9 +501,9 @@ function create_proposal_mail($key, &$message, $params) {
         $school_wrapper = entity_metadata_wrapper('taxonomy_term', $school_tid);
         $body[] = 'Benefunder Charitable Innovation Fund Account Name: ';
         $body[] = 'University or Institution Name: ' . $school_wrapper->label();
-//        $body[] = 'University or Institution ABA Number: ' . $school_wrapper->field_daf_aba->value();
-//        $body[] = 'University or Institution ACH Number: ' . $school_wrapper->field_daf_ach->value();
-//        $body[] = 'University or Institution Account Number: ' . $school_wrapper->field_account_number->value();
+        $body[] = 'University or Institution ABA Number: ' . $school_wrapper->field_daf_aba->value();
+        $body[] = 'University or Institution ACH Number: ' . $school_wrapper->field_daf_ach->value();
+        $body[] = 'University or Institution Account Number: ' . $school_wrapper->field_account_number->value();
         foreach ($params['schools'][$school_tid] as $title => $amount) {
           $body[] = t('Grant #@count Lab: @lab', array(
             '@count' => $i,
