@@ -257,8 +257,11 @@ function create_proposal_node_presave($node) {
     }
 
     // Send thank-you to each donor.
-    // TODO: use actual client email.
-    drupal_mail('create_proposal', 'donor-thank-you', 'karl.scheirer@gmail.com', LANGUAGE_NONE);
+    foreach ($node->field_email_signers[LANGUAGE_NONE] as $collection) {
+      $params = array('@name' => $collection['field_signer_name'][LANGUAGE_NONE][0]['value']);
+      $email = $params['@name'] . '<' . $collection['field_signer_email'][LANGUAGE_NONE][0]['value'] . '>';
+      drupal_mail('create_proposal', 'donor-thank-you', $email, LANGUAGE_NONE, $params);
+    }
   }
 
   // Generate proposal PDF and attach to node.
@@ -529,7 +532,7 @@ ENDCONFIRMATION;
     case 'donor-thank-you':
       $message['subject'] = t('Thank you for your donation');
       $body = <<<ENDTHANKYOU
-Dear Funder,\n
+Dear @name,\n
 \n
 Thank you! We are elated by your decision to support research through Benefunder.com. Your gift will have a big impact on
 their work. It will also serve as an example for others to connect - through Benefunder  - to researchers more directly
