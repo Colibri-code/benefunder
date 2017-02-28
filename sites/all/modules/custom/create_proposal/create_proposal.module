@@ -1,21 +1,6 @@
 <?php
 
 /**
- * Implements hook_menu().
- */
-function create_proposal_menu() {
-  $items['execute_proposal/%'] = array(
-    'title' => 'Send Proposal',
-    'page callback' => 'drupal_get_form',
-    'page arguments' => array('create_proposal_execute_confirm', 1),
-    'access callback' => array('create_proposal_execute_access'),
-    'access arguments' => array(1),
-    'type' => MENU_CALLBACK,
-  );
-  return $items;
-}
-
-/**
  * Implements hook_form_alter().
  */
 function create_proposal_form_alter(&$form, &$form_state, $form_id) {
@@ -57,6 +42,9 @@ function create_proposal_form_alter(&$form, &$form_state, $form_id) {
 
     // Additional validation.
     $form['#validate'][] = 'create_proposal_validate';
+
+    // Additional submit.
+    $form['#submit'][] = 'create_proposal_submit';
   }
 }
 
@@ -92,36 +80,6 @@ function create_proposal_ajax_checkin($form, $form_state) {
 }
 
 /**
- * Menu access to execute a proposal.
- */
-function create_proposal_execute_access($proposal_nid) {
-  global $user;
-
-  $proposal = node_load($proposal_nid);
-
-  return (!empty($proposal) && ($proposal->uid == $user->uid) || user_access('administer nodes'));
-}
-
-/**
- * Confirm proposal execute.
- */
-function create_proposal_execute_confirm($form, &$form_state, $proposal_nid) {
-  $form['proposal_nid'] = array(
-    '#type' => 'value',
-    '#value' => $proposal_nid,
-  );
-
-  return confirm_form(
-    $form,
-    t('Are you sure you want to send this proposal?'),
-    'user',
-    t('Are you sure you want to send this proposal? This will convert the proposal to a Giving Plan and sent it via HelloSign. This action cannot be undone.'),
-    t('Send Proposal'),
-    t('Cancel')
-  );
-}
-
-/**
  * Extract array of signers suitable to sending to hellosign.
  */
 function create_proposal_get_signers($proposal_wrapper) {
@@ -137,46 +95,47 @@ function create_proposal_get_signers($proposal_wrapper) {
  *
  * @throws \EntityMetadataWrapperException
  */
-function create_proposal_execute_confirm_submit($form, &$form_state) {
+function create_proposal_submit($form, &$form_state) {
 
   $wrapper = entity_metadata_wrapper('node', $form_state['values']['proposal_nid']);
-  create_proposal_generate_additional_documents($wrapper->value());
 
-  // Send giving proposal to HelloSign.
-  $title = $wrapper->label();
-  $subject = 'Signature required for Benefunder giving proposal';
-  $signers = create_proposal_get_signers($wrapper);
-  // CC emails are configured on the site.
+  if ($wrapper->field_ready_to_send->value()) {
+    create_proposal_generate_additional_documents($wrapper->value());
 
-  // Attach files, these will appear as 1 document to sign.
-  $files[] = $wrapper->field_giving_proposal->value()['uri'];
-  $files[] = $wrapper->field_additional_documents->value()['uri'];
+    // Send giving proposal to HelloSign.
+    $title = $wrapper->label();
+    $subject = 'Signature required for Benefunder giving proposal';
+    $signers = create_proposal_get_signers($wrapper);
+    // TODO: cc per DAF
+    // CC emails are configured on the site.
 
-  // TODO: Add static content?
+    // Attach files, these will appear as 1 document to sign.
+    $files[] = $wrapper->field_giving_proposal->value()['uri'];
+    $files[] = $wrapper->field_additional_documents->value()['uri'];
+
+    // TODO: Add static content?
 //  $files[] = drupal_get_path('module', 'create_proposal') . '/proposal_static.pdf';
 
-  $mode = 'email';
+    $mode = 'email';
 
-  $result = hellosign_generate_esignature_request($title, $subject, $signers, $files, $mode);
+    $result = hellosign_generate_esignature_request($title, $subject, $signers, $files, $mode);
 
-  if ($result['status'] != 1) {
-    $problem_msg = t('There was a problem sending the proposal to HelloSign, please contact Benefunder.');
-    drupal_set_message($problem_msg, 'error');
+    if ($result['status'] != 1) {
+      $problem_msg = t('There was a problem sending the proposal to HelloSign, please contact Benefunder.');
+      drupal_set_message($problem_msg, 'error');
+    }
+    else {
+      // Success!
+      drupal_set_message(t('Proposal %name sent out for signatures at HelloSign', array('%name' => $title)));
+
+      // Store the signature_request_id.
+      $wrapper->field_signature_request_id = $result['signature_request_id'];
+
+      // Set to pending status.
+      create_proposal_set_status('Pending Acceptance', $wrapper);
+      $wrapper->save();
+    }
   }
-  else {
-    // Success!
-    drupal_set_message(t('Proposal %name sent out for signatures at HelloSign', array('%name' => $title)));
-
-    // Store the signature_request_id.
-    $wrapper->field_signature_request_id = $result['signature_request_id'];
-
-    // Set to pending status.
-    create_proposal_set_status('Pending Acceptance', $wrapper);
-    $wrapper->save();
-  }
-
-  // Send user back to dashboard.
-  drupal_goto('user');
 }
 
 /**
