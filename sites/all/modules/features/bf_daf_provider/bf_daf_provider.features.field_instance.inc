@@ -10,19 +10,17 @@
 function bf_daf_provider_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance:
-  // 'node-daf_provider-field_benefunder_addendum_templa'.
-  $field_instances['node-daf_provider-field_benefunder_addendum_templa'] = array(
+  // Exported field_instance: 'node-daf_provider-field_benefunder_addendum'.
+  $field_instances['node-daf_provider-field_benefunder_addendum'] = array(
     'bundle' => 'daf_provider',
-    'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'text',
+        'module' => 'file',
         'settings' => array(),
-        'type' => 'text_default',
+        'type' => 'file_default',
         'weight' => 8,
       ),
       'teaser' => array(
@@ -34,20 +32,23 @@ function bf_daf_provider_field_default_field_instances() {
     ),
     'ds_extras_field_template' => '',
     'entity_type' => 'node',
-    'field_name' => 'field_benefunder_addendum_templa',
-    'label' => 'Benefunder Addendum Template',
+    'field_name' => 'field_benefunder_addendum',
+    'label' => 'Benefunder Addendum',
     'required' => 0,
     'settings' => array(
-      'text_processing' => 0,
+      'description_field' => 0,
+      'file_directory' => '',
+      'file_extensions' => 'doc docx pdf ppsx ppt pptx tif jpg jpeg png xls xlsx txt html gif',
+      'max_filesize' => '',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
       'active' => 1,
-      'module' => 'text',
+      'module' => 'file',
       'settings' => array(
-        'rows' => 15,
+        'progress_indicator' => 'throbber',
       ),
-      'type' => 'text_textarea',
+      'type' => 'file_generic',
       'weight' => 40,
     ),
   );
@@ -369,7 +370,7 @@ function bf_daf_provider_field_default_field_instances() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Address');
-  t('Benefunder Addendum Template');
+  t('Benefunder Addendum');
   t('Contact Email');
   t('Contact Name');
   t('Contact Phone');
