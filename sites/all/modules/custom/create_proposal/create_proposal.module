@@ -257,7 +257,7 @@ function create_proposal_node_presave($node) {
     }
 
     // Send thank-you to each donor.
-    foreach ($node->field_email_signers[LANGUAGE_NONE] as $collection) {
+    foreach ($node->field_signer_emails[LANGUAGE_NONE] as $collection) {
       $params = array('@name' => $collection['field_signer_name'][LANGUAGE_NONE][0]['value']);
       $email = $params['@name'] . '<' . $collection['field_signer_email'][LANGUAGE_NONE][0]['value'] . '>';
       drupal_mail('create_proposal', 'donor-thank-you', $email, LANGUAGE_NONE, $params);
