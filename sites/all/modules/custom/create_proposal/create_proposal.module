@@ -470,15 +470,17 @@ function create_proposal_mail($key, &$message, $params) {
       break;
 
     case 'disburse':
+      // TODO: where are funds being dispersed *from*?
       $message['subject'] = t('Disbursement request');
       $body[] = 'Disbursement frequency: ' . $params['@frequency'];
       $i = 0;
       foreach ($params['schools'] as $school_tid) {
         $school_wrapper = entity_metadata_wrapper('taxonomy_term', $school_tid);
+        $body[] = 'Benefunder Charitable Innovation Fund Account Name: ';
         $body[] = 'University or Institution Name: ' . $school_wrapper->label();
-        $body[] = 'University or Institution ABA Number: ' . $school_wrapper->field_daf_aba->value();
-        $body[] = 'University or Institution ACH Number: ' . $school_wrapper->field_daf_ach->value();
-        $body[] = 'University or Institution Account Number: ' . $school_wrapper->field_account_number->value();
+//        $body[] = 'University or Institution ABA Number: ' . $school_wrapper->field_daf_aba->value();
+//        $body[] = 'University or Institution ACH Number: ' . $school_wrapper->field_daf_ach->value();
+//        $body[] = 'University or Institution Account Number: ' . $school_wrapper->field_account_number->value();
         foreach ($params['schools'][$school_tid] as $title => $amount) {
           $body[] = t('Grant #@count Lab: @lab', array(
             '@count' => $i,
