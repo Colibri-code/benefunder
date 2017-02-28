@@ -511,6 +511,78 @@ function bf_giving_proposal_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance:
+  // 'field_collection_item-field_signer_emails-field_signer_email'.
+  $field_instances['field_collection_item-field_signer_emails-field_signer_email'] = array(
+    'bundle' => 'field_signer_emails',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 1,
+      ),
+    ),
+    'ds_extras_field_template' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_signer_email',
+    'label' => 'Email',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 20,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 2,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'field_collection_item-field_signer_emails-field_signer_name'.
+  $field_instances['field_collection_item-field_signer_emails-field_signer_name'] = array(
+    'bundle' => 'field_signer_emails',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 0,
+      ),
+    ),
+    'ds_extras_field_template' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_signer_name',
+    'label' => 'Name',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 20,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 1,
+    ),
+  );
+
   // Exported field_instance: 'node-giving_proposal-field_addendum'.
   $field_instances['node-giving_proposal-field_addendum'] = array(
     'bundle' => 'giving_proposal',
@@ -757,6 +829,7 @@ function bf_giving_proposal_field_default_field_instances() {
       'module' => 'field_collection_table',
       'settings' => array(
         'nodragging' => 1,
+        'title_on_top' => TRUE,
       ),
       'type' => 'field_collection_table',
       'weight' => 10,
@@ -1012,7 +1085,7 @@ function bf_giving_proposal_field_default_field_instances() {
         'display_label' => 1,
       ),
       'type' => 'options_onoff',
-      'weight' => 61,
+      'weight' => 62,
     ),
   );
 
@@ -1174,7 +1247,7 @@ function bf_giving_proposal_field_default_field_instances() {
         'size' => 20,
       ),
       'type' => 'text_textfield',
-      'weight' => 62,
+      'weight' => 63,
     ),
   );
 
@@ -1796,6 +1869,53 @@ function bf_giving_proposal_field_default_field_instances() {
         'size' => 25,
       ),
       'type' => 'text_textfield',
+      'weight' => 61,
+    ),
+  );
+
+  // Exported field_instance: 'node-giving_proposal-field_signer_emails'.
+  $field_instances['node-giving_proposal-field_signer_emails'] = array(
+    'bundle' => 'giving_proposal',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'field_collection',
+        'settings' => array(
+          'add' => 'Add',
+          'delete' => 'Delete',
+          'description' => TRUE,
+          'edit' => 'Edit',
+          'view_mode' => 'full',
+        ),
+        'type' => 'field_collection_view',
+        'weight' => 58,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'ds_extras_field_template' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_signer_emails',
+    'label' => 'Signer Emails',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'field_collection_table',
+      'settings' => array(
+        'nodragging' => 1,
+        'title_on_top' => 1,
+      ),
+      'type' => 'field_collection_table',
       'weight' => 60,
     ),
   );
@@ -2032,6 +2152,7 @@ function bf_giving_proposal_field_default_field_instances() {
   t('Disbursement Tracking Number');
   t('Distribution');
   t('Donor Profiles');
+  t('Email');
   t('Execution Markup');
   t('Giving Proposal');
   t('Giving Targets');
@@ -2052,6 +2173,7 @@ function bf_giving_proposal_field_default_field_instances() {
   t('Ready to Send');
   t('Relationship');
   t('Signature Request ID');
+  t('Signer Emails');
   t('Sports, Dance, etc');
   t('Status');
   t('University Affiliations');

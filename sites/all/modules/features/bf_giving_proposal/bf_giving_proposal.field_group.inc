@@ -587,6 +587,7 @@ function bf_giving_proposal_field_group_info() {
       1 => 'field_signature_request_id',
       2 => 'field_daf_disbursement_confirmed',
       3 => 'field_disbursement_tracking_numb',
+      4 => 'field_signer_emails',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
