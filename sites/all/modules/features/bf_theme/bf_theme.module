@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the BF Theme feature.
+ */
+
+include_once 'bf_theme.features.inc';

@@ -1,0 +1,10 @@
+name = BF Theme
+description = themekey module settings
+core = 7.x
+package = Settings
+version = 7.x-1.0
+dependencies[] = themekey
+dependencies[] = themekey_features
+features[features_api][] = api:2
+features[themekey_features_rule_chain][] = drupal:path = user >>> adminimal
+features[themekey_features_rule_chain][] = node:type = giving_proposal >>> adminimal
