@@ -5,6 +5,7 @@ package = Dashboards
 version = 7.x-1.11
 dependencies[] = bf_giving_proposal
 dependencies[] = context
+dependencies[] = context_layouts
 dependencies[] = ctools
 dependencies[] = fe_block
 dependencies[] = linkedin_profile
