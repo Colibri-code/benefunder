@@ -4199,12 +4199,7 @@ body.front .navbar-collapse {
   padding-top: 5px !important;
 }
 .page-user .tabs.primary {
-  position: absolute;
-  right: 0;
-  z-index: 1000;
-  border: none;
-  width: auto;
-  background: transparent;
+  display: none;
 }
 .page-user .tabs.primary > li > a {
   border: none;
@@ -4494,6 +4489,14 @@ input#edit-cc-extra-button {
 div#block-bf-fa-dashboard-fa-menu {
   text-align: right;
   float: right;
+}
+
+div.pane-bf-fa-dashboard-fa-menu div {
+    display: inline;
+}
+
+div.pane-bf-fa-dashboard-fa-menu .btn {
+    margin-left: 10px;
 }
 
 div#block-bf-fa-dashboard-fa-menu div {
