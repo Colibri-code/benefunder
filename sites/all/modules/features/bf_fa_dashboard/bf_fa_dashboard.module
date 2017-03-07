@@ -30,9 +30,10 @@ function bf_fa_dashboard_block_view($delta = '') {
     );
 
     if (!empty($user->picture)) {
+      $picture = file_load($user->picture);
       $block['content'][] = array('#markup' => '<div class="user-picture">' . theme('image_style', array(
           'style_name' => 'thumbnail',
-          'path' => $user->picture,
+          'path' => $picture->uri,
         )) . '</div>');
     }
 
