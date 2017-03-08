@@ -21,3 +21,45 @@ function bf_cause_media_browser_plugins_alter(&$plugins) {
     unset($plugins['upload']);
   }
 }
+
+/**
+ * Implements hook_token_info().
+ */
+function bf_cause_token_info() {
+  $info['tokens']['node']['top_research_area'] = array(
+    'name' => t('Top Research Area'),
+    'description' => t('One of Life, Technology, Humanities, Environment.'),
+  );
+  return $info;
+}
+
+/**
+ * Implements hook_tokens().
+ */
+function bf_cause_tokens($type, $tokens, array $data = array(), array $options = array()) {
+  $replacements = array();
+  if ($type == 'node' && !empty($data['node'])) {
+    $node = $data['node'];
+
+    // Top-level terms in Research Area vocabulary.
+    $depth = 1;
+    $vocabulary = taxonomy_vocabulary_machine_name_load('research_area');
+    $terms = taxonomy_get_tree($vocabulary->vid, 0, $depth);
+    foreach ($terms as $term) {
+      // Convert Life to Life Science.
+      $top_level[$term->tid] = ($term->name == 'Life') ? 'Life Science' : $term->name;
+    }
+
+    foreach ($tokens as $name => $original) {
+      if ($name == 'top_research_area') {
+        foreach ($node->field_research_area[LANGUAGE_NONE] as $delta => $value) {
+          if (isset($top_level[$value['tid']])) {
+            $replacements[$original] = $top_level[$value['tid']];
+            break;
+          }
+        }
+      }
+    }
+  }
+  return $replacements;
+}
