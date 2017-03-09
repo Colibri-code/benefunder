@@ -4273,7 +4273,6 @@ form#giving-proposal-node-form {
   text-align: left;
   font-size: 16px;
   letter-spacing: 0.05em;
-  pointer-events: none;
   color: #fff;
 }
 .page-node-add-giving-proposal .group-proposal-tabs .vertical-tab-button.first:hover,
