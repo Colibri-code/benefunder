@@ -166,7 +166,7 @@ function bf_fa_dashboard_default_page_manager_handlers() {
 </div>
 
 <div class="fa-links">
-<div class="fa fa-heart">&nbsp;<a href="/">Request a Cause</a></div>
+<div class="fa fa-heart">&nbsp;<a href="/request-a-cause">Request a Cause</a></div>
 </div>
 
 <div class="fa-links">
