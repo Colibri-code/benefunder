@@ -4221,6 +4221,10 @@ div.user-picture img {
   display: flex;
   justify-content: space-between;
   margin: 75px 0px;
+  border-bottom: 1px;
+  border-top: 1px;
+  border-style: solid;
+  padding: 10px;
 }
 .fa-links {
   font-size: 20px;
