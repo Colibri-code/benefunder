@@ -776,7 +776,7 @@ function bf_giving_proposal_field_default_field_bases() {
       'markup' => array(
         'format' => 'full_html',
         'value' => '<p><span style="font-size:18px">Benefunder is a first-of-its-kind marketplace that matches philanthropists directly with research and other programs at top institutions. We bring access, efficiency, and engagement to donors, facilitating greater impact while providing a scalable source of funding for principal investigators.</span></p>
-',
+<p><iframe width="560" height="315" src="https://www.youtube.com/embed/V2xLjUnBek0" frameborder="0" allowfullscreen></iframe></p>',
       ),
       'profile2_private' => FALSE,
     ),
