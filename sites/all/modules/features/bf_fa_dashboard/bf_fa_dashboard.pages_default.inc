@@ -204,11 +204,11 @@ function bf_fa_dashboard_default_page_manager_handlers() {
 </div>
 
 <div class="col-sm-6">
-<div class="col-sm-4"><h2><a href="/sites/default/files/John%20Legacy%20Giving%20Plan.pdf"><img alt="John Legacy Giving Plan" src="/sites/all/themes/custom/benefunder/media/images/John_Legacy_Giving_Plan.png" /></a></h2></div>
+<div class="col-sm-4"><h2><a href="https://issuu.com/benefunder/docs/the_john_legacy_fund?e=18358491/14519161"><img alt="John Legacy Giving Plan" src="/sites/all/themes/custom/benefunder/media/images/John_Legacy_Giving_Plan.png" /></a></h2></div>
 
-<div class="col-sm-4"><h2><a href="/sites/default/files/John%20Legacy%20Giving%20Plan.pdf"><img alt="Clean Energy" src="/sites/all/themes/custom/benefunder/media/images/Issuu_Clean_Energy_Impact_Fund.png" /></a></h2></div>
+<div class="col-sm-4"><h2><a href="https://issuu.com/benefunder/docs/the_clean_energy_fund?e=18358491/14175431"><img alt="Clean Energy" src="/sites/all/themes/custom/benefunder/media/images/Issuu_Clean_Energy_Impact_Fund.png" /></a></h2></div>
 
-<div class="col-sm-4"><h2><a href="/sites/default/files/John%20Legacy%20Giving%20Plan.pdf"><img alt="Veterans Impact Fund" src="/sites/all/themes/custom/benefunder/media/images/Veteran_Impact_Fund.png" /></a></h2></div>
+<div class="col-sm-4"><h2><a href="https://issuu.com/benefunder/docs/veteran_impact_fund_bf?e=18358491/14519161"><img alt="Veterans Impact Fund" src="/sites/all/themes/custom/benefunder/media/images/Veteran_Impact_Fund.png" /></a></h2></div>
 </div>
 ',
     'format' => 'full_html',
