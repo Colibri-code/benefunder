@@ -170,7 +170,7 @@ function bf_fa_dashboard_default_page_manager_handlers() {
 </div>
 
 <div class="fa-links">
-<div class="fa fa-phone">&nbsp;<a href="“/">Help Desk/Tutorials</a></div>
+<div class="fa fa-phone">&nbsp;<a href="/">Help Desk/Tutorials</a></div>
 </div>
 </div>
 ',
@@ -282,106 +282,28 @@ function bf_fa_dashboard_default_page_manager_handlers() {
   $display->content['new-734f354d-9ce0-4bc2-bb8d-ad0ed8c1f1e2'] = $pane;
   $display->panels['top'][0] = 'new-734f354d-9ce0-4bc2-bb8d-ad0ed8c1f1e2';
   $pane = new stdClass();
-  $pane->pid = 'new-e688a1d8-91d4-459c-b4fd-5601f8417943';
+  $pane->pid = 'new-88c4c748-7a3c-4746-9b53-8a5aa0a5135e';
   $pane->panel = 'top';
-  $pane->type = 'custom';
-  $pane->subtype = 'custom';
+  $pane->type = 'block';
+  $pane->subtype = 'bf_fa_dashboard-fa_menu';
   $pane->shown = TRUE;
   $pane->access = array();
   $pane->configuration = array(
-    'admin_title' => 'Header Action Buttons',
-    'title' => '',
-    'title_heading' => 'h2',
-    'body' => '<div><a class="btn btn-black" href="#">Help Desk</a><a class="btn btn-purple" href="/node/add/giving-proposal">+ Create a Proposal</a></div>',
-    'format' => 'full_html',
-    'substitute' => 1,
+    'override_title' => 0,
+    'override_title_text' => '',
+    'override_title_heading' => 'h2',
   );
   $pane->cache = array();
   $pane->style = array(
     'settings' => NULL,
   );
-  $pane->css = array(
-    'css_id' => '',
-    'css_class' => 'header-buttons',
-  );
+  $pane->css = array();
   $pane->extras = array();
   $pane->position = 1;
   $pane->locks = array();
-  $pane->uuid = 'e688a1d8-91d4-459c-b4fd-5601f8417943';
-  $display->content['new-e688a1d8-91d4-459c-b4fd-5601f8417943'] = $pane;
-  $display->panels['top'][1] = 'new-e688a1d8-91d4-459c-b4fd-5601f8417943';
-  $pane = new stdClass();
-  $pane->pid = 'new-56dd288f-68a5-46b0-afee-689063d8cc21';
-  $pane->panel = 'top';
-  $pane->type = 'user_picture';
-  $pane->subtype = 'user_picture';
-  $pane->shown = TRUE;
-  $pane->access = array();
-  $pane->configuration = array(
-    'context' => 'argument_entity_id:user_1',
-    'override_title' => 1,
-    'override_title_text' => '<none>',
-    'override_title_heading' => 'h2',
-  );
-  $pane->cache = array();
-  $pane->style = array(
-    'settings' => NULL,
-  );
-  $pane->css = array();
-  $pane->extras = array();
-  $pane->position = 2;
-  $pane->locks = array();
-  $pane->uuid = '56dd288f-68a5-46b0-afee-689063d8cc21';
-  $display->content['new-56dd288f-68a5-46b0-afee-689063d8cc21'] = $pane;
-  $display->panels['top'][2] = 'new-56dd288f-68a5-46b0-afee-689063d8cc21';
-  $pane = new stdClass();
-  $pane->pid = 'new-bfe099a5-a857-43d5-9304-c075c0ee779a';
-  $pane->panel = 'top';
-  $pane->type = 'user_links';
-  $pane->subtype = 'user_links';
-  $pane->shown = TRUE;
-  $pane->access = array();
-  $pane->configuration = array(
-    'override_title' => 1,
-    'override_title_text' => '<none>',
-    'build_mode' => 'full',
-    'context' => 'argument_entity_id:user_1',
-    'override_title_heading' => 'h2',
-  );
-  $pane->cache = array();
-  $pane->style = array(
-    'settings' => NULL,
-  );
-  $pane->css = array();
-  $pane->extras = array();
-  $pane->position = 3;
-  $pane->locks = array();
-  $pane->uuid = 'bfe099a5-a857-43d5-9304-c075c0ee779a';
-  $display->content['new-bfe099a5-a857-43d5-9304-c075c0ee779a'] = $pane;
-  $display->panels['top'][3] = 'new-bfe099a5-a857-43d5-9304-c075c0ee779a';
-  $pane = new stdClass();
-  $pane->pid = 'new-0af9caf8-edf4-444c-a4e8-365490c3f020';
-  $pane->panel = 'top';
-  $pane->type = 'block';
-  $pane->subtype = 'block-1';
-  $pane->shown = TRUE;
-  $pane->access = array();
-  $pane->configuration = array(
-    'override_title' => 1,
-    'override_title_text' => '<none>',
-    'override_title_heading' => 'h2',
-  );
-  $pane->cache = array();
-  $pane->style = array(
-    'settings' => NULL,
-  );
-  $pane->css = array();
-  $pane->extras = array();
-  $pane->position = 4;
-  $pane->locks = array();
-  $pane->uuid = '0af9caf8-edf4-444c-a4e8-365490c3f020';
-  $display->content['new-0af9caf8-edf4-444c-a4e8-365490c3f020'] = $pane;
-  $display->panels['top'][4] = 'new-0af9caf8-edf4-444c-a4e8-365490c3f020';
+  $pane->uuid = '88c4c748-7a3c-4746-9b53-8a5aa0a5135e';
+  $display->content['new-88c4c748-7a3c-4746-9b53-8a5aa0a5135e'] = $pane;
+  $display->panels['top'][1] = 'new-88c4c748-7a3c-4746-9b53-8a5aa0a5135e';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
