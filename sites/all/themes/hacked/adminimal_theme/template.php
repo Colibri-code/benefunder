@@ -74,19 +74,16 @@ function adminimal_entityreference_view_widget_widget($variables) {
   }
 
   // Customization begins here.
-  if ($widget['#field_name'] == 'field_cause_name') {
+  if ($widget['#field_name'] == 'field_cause_name' || $widget['#field_name'] == 'field_inspiration') {
     $header = NULL;
     $widget['add_more']['#value'] = t('Select Cause');
+    $widget['add_more']['#attributes'] = array('class' => array('btn btn-purple'));
   }
   elseif (empty($rows)) {
     $rows[][] = array(
       'data' => t('No items have been added yet. Click "Add items" to launch the widget.'),
       'colspan' => '3',
     );
-  }
-
-  if ($widget['#field_name'] == 'field_inspiration') {
-    $widget['add_more']['#value'] = t('Select Causes');
   }
   // Customization ends here.
 
