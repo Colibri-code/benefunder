@@ -583,43 +583,6 @@ function bf_giving_proposal_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-giving_proposal-field_addendum'.
-  $field_instances['node-giving_proposal-field_addendum'] = array(
-    'bundle' => 'giving_proposal',
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'markup',
-        'settings' => array(),
-        'type' => 'markup_default',
-        'weight' => 44,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'ds_extras_field_template' => '',
-    'entity_type' => 'node',
-    'field_name' => 'field_addendum',
-    'label' => 'Addendum',
-    'required' => 0,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 0,
-      'module' => 'markup',
-      'settings' => array(),
-      'type' => 'markup',
-      'weight' => 61,
-    ),
-  );
-
   // Exported field_instance: 'node-giving_proposal-field_additional_documents'.
   $field_instances['node-giving_proposal-field_additional_documents'] = array(
     'bundle' => 'giving_proposal',
@@ -2136,7 +2099,6 @@ function bf_giving_proposal_field_default_field_instances() {
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('Addendum');
   t('Additional Documents');
   t('Advisor Feedback');
   t('Allocation');

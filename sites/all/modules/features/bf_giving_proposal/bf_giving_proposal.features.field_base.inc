@@ -10,28 +10,6 @@
 function bf_giving_proposal_field_default_field_bases() {
   $field_bases = array();
 
-  // Exported field_base: 'field_addendum'.
-  $field_bases['field_addendum'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_addendum',
-    'indexes' => array(),
-    'locked' => 0,
-    'module' => 'markup',
-    'settings' => array(
-      'markup' => array(
-        'format' => 'full_html',
-        'value' => '<p>BENEFUNDER Addendum goes here.</p>
-',
-      ),
-      'profile2_private' => FALSE,
-    ),
-    'translatable' => 0,
-    'type' => 'markup',
-  );
-
   // Exported field_base: 'field_additional_documents'.
   $field_bases['field_additional_documents'] = array(
     'active' => 1,
@@ -776,6 +754,7 @@ function bf_giving_proposal_field_default_field_bases() {
       'markup' => array(
         'format' => 'full_html',
         'value' => '<p><span style="font-size:18px">Benefunder is a first-of-its-kind marketplace that matches philanthropists directly with research and other programs at top institutions. We bring access, efficiency, and engagement to donors, facilitating greater impact while providing a scalable source of funding for principal investigators.</span></p>
+
 <p><iframe width="560" height="315" src="https://www.youtube.com/embed/V2xLjUnBek0" frameborder="0" allowfullscreen></iframe></p>',
       ),
       'profile2_private' => FALSE,
