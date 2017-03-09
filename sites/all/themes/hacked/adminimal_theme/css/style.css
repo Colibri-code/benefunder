@@ -4261,6 +4261,12 @@ form#giving-proposal-node-form {
   background-color: #fff;
   padding: 10px;
 }
+
+.page-node-add-giving-proposal .fieldset-legend, .page-node-edit.node-type-giving-proposal .fieldset-legend {
+  color: purple;
+  font-weight: bold;
+}
+
 .page-node-add-giving-proposal .group-proposal-tabs .tabs-left > .nav-tabs > li > a,
 .page-node-edit.node-type-giving-proposal .group-proposal-tabs .tabs-left > .nav-tabs > li > a {
   color: #333;
