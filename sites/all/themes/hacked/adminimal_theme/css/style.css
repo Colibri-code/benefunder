@@ -4515,3 +4515,19 @@ div#block-bf-fa-dashboard-fa-menu div {
 div#block-bf-fa-dashboard-fa-menu .btn {
   margin-left: 10px;
 }
+
+div#edit-ajax-feedback,
+div#edit-ajax-feedback2 {
+  float: right;
+  width: 50%;
+  border: 3px solid purple;
+  padding: 20px;
+}
+
+div.field-name-field-client-feedback,
+div.field-name-field-client-feedback-1,
+div.field-name-field-analyst-feedback,
+div.field-name-field-analyst-feedback-1 {
+  float: left;
+  width: 50%;
+}
