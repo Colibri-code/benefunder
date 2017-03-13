@@ -104,22 +104,8 @@ function bf_cause_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'pathauto_node_cause_pattern';
-  $strongarm->value = 'causes/[node:nid]/[node:field_first_name]-[node:field_last_name]';
+  $strongarm->value = '[node:top_research_area]-causes/[node:field_aging_wellness_disease]/[node:field_first_name]-[node:field_last_name]/[node:title]';
   $export['pathauto_node_cause_pattern'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'pathauto_taxonomy_term_research_area_pattern';
-  $strongarm->value = 'hidden/[term:name]';
-  $export['pathauto_taxonomy_term_research_area_pattern'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'pathauto_taxonomy_term_university_or_institution_pattern';
-  $strongarm->value = 'hidden/[term:name]';
-  $export['pathauto_taxonomy_term_university_or_institution_pattern'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
