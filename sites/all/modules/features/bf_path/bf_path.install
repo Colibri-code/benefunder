@@ -1,9 +1,11 @@
 <?php
 
 /**
+ * Implements hook_install().
+ *
  * Re-check the "Generate automatic URL alias" checkbox on Cause nodes with this disabled.
  */
-function bf_path_updated_7100() {
+function bf_path_install() {
   $sql = "UPDATE pathauto_state SET pathauto = 1 WHERE entity_id IN (SELECT nid FROM node WHERE TYPE = 'cause' AND status = 1)";
   db_query($sql);
 }
