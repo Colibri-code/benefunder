@@ -1,0 +1,15 @@
+name = BF Path
+description = Pathauto global settings
+core = 7.x
+package = Settings
+version = 7.x-1.0
+dependencies[] = ctools
+dependencies[] = pathauto
+dependencies[] = strongarm
+features[ctools][] = strongarm:strongarm:1
+features[features_api][] = api:2
+features[variable][] = pathauto_ignore_words
+features[variable][] = pathauto_max_component_length
+features[variable][] = pathauto_max_length
+features[variable][] = pathauto_transliterate
+features[variable][] = pathauto_update_action
