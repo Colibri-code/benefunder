@@ -63,3 +63,60 @@ function bf_cause_tokens($type, $tokens, array $data = array(), array $options =
   }
   return $replacements;
 }
+
+/**
+ * Implements hook_node_update().
+ */
+function bf_cause_node_update($node) {
+  if ($node->type == 'cause') {
+    $language = $node->language;
+    $first_changed = ($node->original->field_first_name[$language][0]['value'] != $node->field_first_name[$language][0]['value']);
+    $last_changed = ($node->original->field_last_name[$language][0]['value'] != $node->field_last_name[$language][0]['value']);
+
+    if ($first_changed || $last_changed) {
+      _bf_cause_make_first_last_redirect($node);
+    }
+  }
+}
+
+/**
+ * Implements hook_node_insert().
+ */
+function bf_cause_node_insert($node) {
+  if ($node->type == 'cause') {
+    _bf_cause_make_first_last_redirect($node);
+  }
+}
+
+/**
+ * Create a redirect from [first]-[last] to cause node if needed.
+ *
+ * @param $node
+ *
+ * @throws \Exception
+ */
+function _bf_cause_make_first_last_redirect($node) {
+
+  // Use pathauto to create redirect path from tokens.
+  module_load_include('inc', 'pathauto', 'pathauto');
+  $pattern = '[node:field_first_name]-[node:field_last_name]';
+  $data = array('node' => $node);
+  $language = $node->language;
+  $alias = token_replace($pattern, $data, array(
+    'sanitize' => FALSE,
+    'clear' => TRUE,
+    'callback' => 'pathauto_clean_token_values',
+    'language' => (object) array('language' => $language),
+    'pathauto' => TRUE,
+  ));
+  $firstlast = pathauto_clean_alias($alias);
+
+  // Create [first]-[last] redirect if it doesn't already exist.
+  if (redirect_load_by_source($firstlast, $language) === FALSE) {
+    $redirect = new stdClass();
+    redirect_object_prepare($redirect);
+    $redirect->source = $firstlast;
+    $redirect->redirect = 'node/' . $node->nid;
+    redirect_save($redirect);
+  }
+}
