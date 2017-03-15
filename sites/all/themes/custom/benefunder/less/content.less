@@ -2837,6 +2837,10 @@ body.page-search-site {
   .hero-wrapper {
     max-height: 466px;
   }
+
+  .pager {
+    margin: 0 0 10px 0;
+  }
 }
 
 #search-form {
@@ -2885,12 +2889,10 @@ body.page-search-site {
 }
 
 h2.search-results-label {
-  padding-top:50px;
   font-family:@chaparral-regular;
   font-size:24px;
   color:#000;
   border-bottom:2px solid @primary;
-  padding-bottom:20px;
   margin-bottom:25px;
   margin-top:0;
   padding-left: 0;
@@ -2901,7 +2903,6 @@ h2.search-results-label {
   }
 
   @media(min-width:@screen-md-min) {
-    padding-top:70px;
   }
 
   &:before {
@@ -2937,6 +2938,7 @@ h2.search-results-label {
   .teaser-title {
     font-family:@raleway-light;
     font-size:32px;
+    margin-top: 0;
 
     a {
       color:#000;
@@ -2959,6 +2961,15 @@ h2.search-results-label {
     line-height:32px;
   }
 
+  .field-name-field-picture {
+    float: left;
+    margin-right: 10px;
+
+    img {
+      border-radius: 25px;
+      border: 1px solid purple;
+    }
+  }
 }
 
 .table-striped.pagerer > tbody > tr > td,
@@ -2969,8 +2980,6 @@ h2.search-results-label {
 ul.pager {
 
   @media(min-width:@screen-md-min) {
-    float: right;
-    padding-top: 70px;
   }
 
   li {
@@ -3016,12 +3025,6 @@ ul.pager {
         background-color:transparent;
       }
     }
-  }
-
-  &.sticky {
-    position: fixed;
-    top: -15px;
-    right: 45px;
   }
 }
 

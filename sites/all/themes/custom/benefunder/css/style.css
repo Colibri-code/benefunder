@@ -10010,6 +10010,9 @@ body.page-search-site .hero {
 body.page-search-site .hero-wrapper {
   max-height: 466px;
 }
+body.page-search-site .pager {
+  margin: 0 0 10px 0;
+}
 #search-form {
   position: absolute;
   top: 58%;
@@ -10049,12 +10052,10 @@ body.page-search-site .hero-wrapper {
   width: 100%;
 }
 h2.search-results-label {
-  padding-top: 50px;
   font-family: 'Chaparral W01 Regular';
   font-size: 24px;
   color: #000;
   border-bottom: 2px solid #999933;
-  padding-bottom: 20px;
   margin-bottom: 25px;
   margin-top: 0;
   padding-left: 0;
@@ -10063,11 +10064,6 @@ h2.search-results-label {
 @media (max-width: 767px) {
   h2.search-results-label {
     padding-top: 15px;
-  }
-}
-@media (min-width: 992px) {
-  h2.search-results-label {
-    padding-top: 70px;
   }
 }
 h2.search-results-label:before {
@@ -10099,6 +10095,7 @@ h2.search-results-label:before {
 .search-teaser .teaser-title {
   font-family: 'raleway-light';
   font-size: 32px;
+  margin-top: 0;
 }
 .search-teaser .teaser-title a {
   color: #000;
@@ -10116,15 +10113,17 @@ h2.search-results-label:before {
 .search-teaser .search-teaser-body {
   line-height: 32px;
 }
+.search-teaser .field-name-field-picture {
+  float: left;
+  margin-right: 10px;
+}
+.search-teaser .field-name-field-picture img {
+  border-radius: 25px;
+  border: 1px solid purple;
+}
 .table-striped.pagerer > tbody > tr > td,
 .table-striped.pagerer > tbody > tr > th {
   background-color: transparent;
-}
-@media (min-width: 992px) {
-  ul.pager {
-    float: right;
-    padding-top: 70px;
-  }
 }
 ul.pager li {
   font-family: 'Chaparral W01 Regular';
@@ -10160,11 +10159,6 @@ ul.pager li a {
 ul.pager li a:hover {
   color: #999933;
   background-color: transparent;
-}
-ul.pager.sticky {
-  position: fixed;
-  top: -15px;
-  right: 45px;
 }
 /* Financial Planner Dashboard */
 .header-buttons {

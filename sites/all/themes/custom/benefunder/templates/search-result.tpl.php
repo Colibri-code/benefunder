@@ -70,7 +70,6 @@
     <a href="<?php print $url; ?>"><?php print $title; ?></a>
   </h2>
   <?php print render($title_suffix); ?>
-  <a href="<?php print $url; ?>" class="search-teaser-link"><?php print $url; ?></a>
   <div class="search-snippet-info">
     <?php if ($snippet): ?>
       <p class="search-teaser-body"><?php print $snippet; ?></p>
