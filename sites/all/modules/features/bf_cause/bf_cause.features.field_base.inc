@@ -10,7 +10,7 @@
 function bf_cause_field_default_field_bases() {
   $field_bases = array();
 
-  // Exported field_base: 'body'
+  // Exported field_base: 'body'.
   $field_bases['body'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -19,14 +19,6 @@ function bf_cause_field_default_field_bases() {
       0 => 'node',
     ),
     'field_name' => 'body',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -39,21 +31,13 @@ function bf_cause_field_default_field_bases() {
     'type' => 'text_with_summary',
   );
 
-  // Exported field_base: 'field_academic_position'
+  // Exported field_base: 'field_academic_position'.
   $field_bases['field_academic_position'] = array(
     'active' => 1,
     'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_academic_position',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -68,14 +52,13 @@ function bf_cause_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_additional_videos'
+  // Exported field_base: 'field_additional_videos'.
   $field_bases['field_additional_videos'] = array(
     'active' => 1,
     'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_additional_videos',
-    'foreign keys' => array(),
     'indexes' => array(),
     'locked' => 0,
     'module' => 'link',
@@ -98,21 +81,39 @@ function bf_cause_field_default_field_bases() {
     'type' => 'link_field',
   );
 
-  // Exported field_base: 'field_award_description'
+  // Exported field_base: 'field_aging_wellness_disease'.
+  $field_bases['field_aging_wellness_disease'] = array(
+    'active' => 1,
+    'cardinality' => 6,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_aging_wellness_disease',
+    'indexes' => array(
+      'tid' => array(
+        0 => 'tid',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'taxonomy',
+    'settings' => array(
+      'allowed_values' => array(
+        0 => array(
+          'vocabulary' => 'aging_wellness_disease',
+          'parent' => 0,
+        ),
+      ),
+    ),
+    'translatable' => 0,
+    'type' => 'taxonomy_term_reference',
+  );
+
+  // Exported field_base: 'field_award_description'.
   $field_bases['field_award_description'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_award_description',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -125,21 +126,13 @@ function bf_cause_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_award_title'
+  // Exported field_base: 'field_award_title'.
   $field_bases['field_award_title'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_award_title',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -154,44 +147,39 @@ function bf_cause_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_awards'
+  // Exported field_base: 'field_awards'.
   $field_bases['field_awards'] = array(
     'active' => 1,
     'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_awards',
-    'foreign keys' => array(),
     'indexes' => array(
       'revision_id' => array(
         0 => 'revision_id',
+      ),
+      'value' => array(
+        0 => 'value',
       ),
     ),
     'locked' => 0,
     'module' => 'field_collection',
     'settings' => array(
       'hide_blank_items' => 1,
+      'hide_initial_item' => FALSE,
       'path' => '',
     ),
     'translatable' => 0,
     'type' => 'field_collection',
   );
 
-  // Exported field_base: 'field_bio'
+  // Exported field_base: 'field_bio'.
   $field_bases['field_bio'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_bio',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -204,21 +192,13 @@ function bf_cause_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_call_to_action'
+  // Exported field_base: 'field_call_to_action'.
   $field_bases['field_call_to_action'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_call_to_action',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -231,21 +211,13 @@ function bf_cause_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_education'
+  // Exported field_base: 'field_education'.
   $field_bases['field_education'] = array(
     'active' => 1,
     'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_education',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -260,21 +232,13 @@ function bf_cause_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_email'
+  // Exported field_base: 'field_email'.
   $field_bases['field_email'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_email',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -289,21 +253,13 @@ function bf_cause_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_first_name'
+  // Exported field_base: 'field_first_name'.
   $field_bases['field_first_name'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_first_name',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -318,37 +274,39 @@ function bf_cause_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_in_the_news'
+  // Exported field_base: 'field_in_the_news'.
   $field_bases['field_in_the_news'] = array(
     'active' => 1,
     'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_in_the_news',
-    'foreign keys' => array(),
     'indexes' => array(
       'revision_id' => array(
         0 => 'revision_id',
+      ),
+      'value' => array(
+        0 => 'value',
       ),
     ),
     'locked' => 0,
     'module' => 'field_collection',
     'settings' => array(
       'hide_blank_items' => 1,
+      'hide_initial_item' => FALSE,
       'path' => '',
     ),
     'translatable' => 0,
     'type' => 'field_collection',
   );
 
-  // Exported field_base: 'field_in_the_news_link'
+  // Exported field_base: 'field_in_the_news_link'.
   $field_bases['field_in_the_news_link'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_in_the_news_link',
-    'foreign keys' => array(),
     'indexes' => array(),
     'locked' => 0,
     'module' => 'link',
@@ -371,21 +329,13 @@ function bf_cause_field_default_field_bases() {
     'type' => 'link_field',
   );
 
-  // Exported field_base: 'field_in_the_news_teaser'
+  // Exported field_base: 'field_in_the_news_teaser'.
   $field_bases['field_in_the_news_teaser'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_in_the_news_teaser',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -398,21 +348,13 @@ function bf_cause_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_jumbotron_copy'
+  // Exported field_base: 'field_jumbotron_copy'.
   $field_bases['field_jumbotron_copy'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_jumbotron_copy',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -425,21 +367,13 @@ function bf_cause_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_jumbotron_image'
+  // Exported field_base: 'field_jumbotron_image'.
   $field_bases['field_jumbotron_image'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_jumbotron_image',
-    'foreign keys' => array(
-      'fid' => array(
-        'columns' => array(
-          'fid' => 'fid',
-        ),
-        'table' => 'file_managed',
-      ),
-    ),
     'indexes' => array(
       'fid' => array(
         0 => 'fid',
@@ -455,21 +389,13 @@ function bf_cause_field_default_field_bases() {
     'type' => 'image',
   );
 
-  // Exported field_base: 'field_jumbotron_video'
+  // Exported field_base: 'field_jumbotron_video'.
   $field_bases['field_jumbotron_video'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_jumbotron_video',
-    'foreign keys' => array(
-      'fid' => array(
-        'columns' => array(
-          'fid' => 'fid',
-        ),
-        'table' => 'file_managed',
-      ),
-    ),
     'indexes' => array(
       'fid' => array(
         0 => 'fid',
@@ -486,21 +412,13 @@ function bf_cause_field_default_field_bases() {
     'type' => 'file',
   );
 
-  // Exported field_base: 'field_keywords'
+  // Exported field_base: 'field_keywords'.
   $field_bases['field_keywords'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_keywords',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -513,21 +431,13 @@ function bf_cause_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_last_name'
+  // Exported field_base: 'field_last_name'.
   $field_bases['field_last_name'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_last_name',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -542,21 +452,13 @@ function bf_cause_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_overlay_copy'
+  // Exported field_base: 'field_overlay_copy'.
   $field_bases['field_overlay_copy'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_overlay_copy',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -569,21 +471,13 @@ function bf_cause_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_patent_description'
+  // Exported field_base: 'field_patent_description'.
   $field_bases['field_patent_description'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_patent_description',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -596,21 +490,13 @@ function bf_cause_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_patent_title'
+  // Exported field_base: 'field_patent_title'.
   $field_bases['field_patent_title'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_patent_title',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -625,44 +511,39 @@ function bf_cause_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_patents'
+  // Exported field_base: 'field_patents'.
   $field_bases['field_patents'] = array(
     'active' => 1,
     'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_patents',
-    'foreign keys' => array(),
     'indexes' => array(
       'revision_id' => array(
         0 => 'revision_id',
+      ),
+      'value' => array(
+        0 => 'value',
       ),
     ),
     'locked' => 0,
     'module' => 'field_collection',
     'settings' => array(
       'hide_blank_items' => 1,
+      'hide_initial_item' => FALSE,
       'path' => '',
     ),
     'translatable' => 0,
     'type' => 'field_collection',
   );
 
-  // Exported field_base: 'field_picture'
+  // Exported field_base: 'field_picture'.
   $field_bases['field_picture'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_picture',
-    'foreign keys' => array(
-      'fid' => array(
-        'columns' => array(
-          'fid' => 'fid',
-        ),
-        'table' => 'file_managed',
-      ),
-    ),
     'indexes' => array(
       'fid' => array(
         0 => 'fid',
@@ -678,21 +559,13 @@ function bf_cause_field_default_field_bases() {
     'type' => 'image',
   );
 
-  // Exported field_base: 'field_publication_description'
+  // Exported field_base: 'field_publication_description'.
   $field_bases['field_publication_description'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_publication_description',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -705,14 +578,13 @@ function bf_cause_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_publication_link'
+  // Exported field_base: 'field_publication_link'.
   $field_bases['field_publication_link'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_publication_link',
-    'foreign keys' => array(),
     'indexes' => array(),
     'locked' => 0,
     'module' => 'link',
@@ -735,44 +607,39 @@ function bf_cause_field_default_field_bases() {
     'type' => 'link_field',
   );
 
-  // Exported field_base: 'field_publications'
+  // Exported field_base: 'field_publications'.
   $field_bases['field_publications'] = array(
     'active' => 1,
     'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_publications',
-    'foreign keys' => array(),
     'indexes' => array(
       'revision_id' => array(
         0 => 'revision_id',
+      ),
+      'value' => array(
+        0 => 'value',
       ),
     ),
     'locked' => 0,
     'module' => 'field_collection',
     'settings' => array(
       'hide_blank_items' => 1,
+      'hide_initial_item' => FALSE,
       'path' => '',
     ),
     'translatable' => 0,
     'type' => 'field_collection',
   );
 
-  // Exported field_base: 'field_research_area'
+  // Exported field_base: 'field_research_area'.
   $field_bases['field_research_area'] = array(
     'active' => 1,
     'cardinality' => 4,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_research_area',
-    'foreign keys' => array(
-      'tid' => array(
-        'columns' => array(
-          'tid' => 'tid',
-        ),
-        'table' => 'taxonomy_term_data',
-      ),
-    ),
     'indexes' => array(
       'tid' => array(
         0 => 'tid',
@@ -792,21 +659,13 @@ function bf_cause_field_default_field_bases() {
     'type' => 'taxonomy_term_reference',
   );
 
-  // Exported field_base: 'field_share_lines'
+  // Exported field_base: 'field_share_lines'.
   $field_bases['field_share_lines'] = array(
     'active' => 1,
     'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_share_lines',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -821,21 +680,13 @@ function bf_cause_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_subtitle'
+  // Exported field_base: 'field_subtitle'.
   $field_bases['field_subtitle'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_subtitle',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -850,21 +701,13 @@ function bf_cause_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_summary'
+  // Exported field_base: 'field_summary'.
   $field_bases['field_summary'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_summary',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -877,21 +720,13 @@ function bf_cause_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_university_or_institution'
+  // Exported field_base: 'field_university_or_institution'.
   $field_bases['field_university_or_institution'] = array(
     'active' => 1,
     'cardinality' => 3,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_university_or_institution',
-    'foreign keys' => array(
-      'tid' => array(
-        'columns' => array(
-          'tid' => 'tid',
-        ),
-        'table' => 'taxonomy_term_data',
-      ),
-    ),
     'indexes' => array(
       'tid' => array(
         0 => 'tid',
@@ -909,6 +744,42 @@ function bf_cause_field_default_field_bases() {
     ),
     'translatable' => 0,
     'type' => 'taxonomy_term_reference',
+  );
+
+  // Exported field_base: 'meta_description'.
+  $field_bases['meta_description'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'meta_description',
+    'indexes' => array(),
+    'locked' => 0,
+    'module' => 'metatags_quick',
+    'settings' => array(
+      'max_length' => 160,
+      'meta_name' => 'description',
+    ),
+    'translatable' => 0,
+    'type' => 'metatags_quick',
+  );
+
+  // Exported field_base: 'meta_keywords'.
+  $field_bases['meta_keywords'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'meta_keywords',
+    'indexes' => array(),
+    'locked' => 0,
+    'module' => 'metatags_quick',
+    'settings' => array(
+      'max_length' => 160,
+      'meta_name' => 'keywords',
+    ),
+    'translatable' => 0,
+    'type' => 'metatags_quick',
   );
 
   return $field_bases;

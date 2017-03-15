@@ -10,7 +10,8 @@
 function bf_cause_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'field_collection_item-field_awards-field_award_description'
+  // Exported field_instance:
+  // 'field_collection_item-field_awards-field_award_description'.
   $field_instances['field_collection_item-field_awards-field_award_description'] = array(
     'bundle' => 'field_awards',
     'default_value' => NULL,
@@ -45,7 +46,8 @@ function bf_cause_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'field_collection_item-field_awards-field_award_title'
+  // Exported field_instance:
+  // 'field_collection_item-field_awards-field_award_title'.
   $field_instances['field_collection_item-field_awards-field_award_title'] = array(
     'bundle' => 'field_awards',
     'default_value' => NULL,
@@ -80,7 +82,8 @@ function bf_cause_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'field_collection_item-field_in_the_news-field_in_the_news_link'
+  // Exported field_instance:
+  // 'field_collection_item-field_in_the_news-field_in_the_news_link'.
   $field_instances['field_collection_item-field_in_the_news-field_in_the_news_link'] = array(
     'bundle' => 'field_in_the_news',
     'default_value' => NULL,
@@ -132,7 +135,8 @@ function bf_cause_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'field_collection_item-field_in_the_news-field_in_the_news_teaser'
+  // Exported field_instance:
+  // 'field_collection_item-field_in_the_news-field_in_the_news_teaser'.
   $field_instances['field_collection_item-field_in_the_news-field_in_the_news_teaser'] = array(
     'bundle' => 'field_in_the_news',
     'default_value' => NULL,
@@ -167,7 +171,8 @@ function bf_cause_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'field_collection_item-field_patents-field_patent_description'
+  // Exported field_instance:
+  // 'field_collection_item-field_patents-field_patent_description'.
   $field_instances['field_collection_item-field_patents-field_patent_description'] = array(
     'bundle' => 'field_patents',
     'default_value' => NULL,
@@ -203,7 +208,8 @@ function bf_cause_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'field_collection_item-field_patents-field_patent_title'
+  // Exported field_instance:
+  // 'field_collection_item-field_patents-field_patent_title'.
   $field_instances['field_collection_item-field_patents-field_patent_title'] = array(
     'bundle' => 'field_patents',
     'default_value' => NULL,
@@ -238,7 +244,8 @@ function bf_cause_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'field_collection_item-field_publications-field_publication_description'
+  // Exported field_instance:
+  // 'field_collection_item-field_publications-field_publication_description'.
   $field_instances['field_collection_item-field_publications-field_publication_description'] = array(
     'bundle' => 'field_publications',
     'default_value' => NULL,
@@ -273,7 +280,8 @@ function bf_cause_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'field_collection_item-field_publications-field_publication_link'
+  // Exported field_instance:
+  // 'field_collection_item-field_publications-field_publication_link'.
   $field_instances['field_collection_item-field_publications-field_publication_link'] = array(
     'bundle' => 'field_publications',
     'default_value' => NULL,
@@ -325,7 +333,7 @@ function bf_cause_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-cause-body'
+  // Exported field_instance: 'node-cause-body'.
   $field_instances['node-cause-body'] = array(
     'bundle' => 'cause',
     'default_value' => NULL,
@@ -343,9 +351,9 @@ function bf_cause_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'text',
         'settings' => array(
-          'trim_length' => 350,
+          'trim_length' => 300,
         ),
-        'type' => 'text_summary_or_trimmed',
+        'type' => 'text_trimmed',
         'weight' => 2,
       ),
       'teaser' => array(
@@ -376,11 +384,11 @@ function bf_cause_field_default_field_instances() {
         'summary_rows' => 5,
       ),
       'type' => 'text_textarea_with_summary',
-      'weight' => 8,
+      'weight' => 55,
     ),
   );
 
-  // Exported field_instance: 'node-cause-field_academic_position'
+  // Exported field_instance: 'node-cause-field_academic_position'.
   $field_instances['node-cause-field_academic_position'] = array(
     'bundle' => 'cause',
     'default_value' => NULL,
@@ -401,7 +409,7 @@ University of California, San Diego<br />
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 28,
+        'weight' => 31,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -430,7 +438,7 @@ University of California, San Diego<br />
     ),
   );
 
-  // Exported field_instance: 'node-cause-field_additional_videos'
+  // Exported field_instance: 'node-cause-field_additional_videos'.
   $field_instances['node-cause-field_additional_videos'] = array(
     'bundle' => 'cause',
     'default_value' => NULL,
@@ -448,7 +456,7 @@ University of California, San Diego<br />
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 33,
+        'weight' => 35,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -494,7 +502,53 @@ University of California, San Diego<br />
     ),
   );
 
-  // Exported field_instance: 'node-cause-field_awards'
+  // Exported field_instance: 'node-cause-field_aging_wellness_disease'.
+  $field_instances['node-cause-field_aging_wellness_disease'] = array(
+    'bundle' => 'cause',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 35,
+      ),
+      'search_result' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 15,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'ds_extras_field_template' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_aging_wellness_disease',
+    'label' => 'Aging, Wellness & Disease',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'apply_chosen' => '',
+      ),
+      'type' => 'options_select',
+      'weight' => 49,
+    ),
+  );
+
+  // Exported field_instance: 'node-cause-field_awards'.
   $field_instances['node-cause-field_awards'] = array(
     'bundle' => 'cause',
     'default_value' => NULL,
@@ -518,7 +572,7 @@ University of California, San Diego<br />
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 6,
+        'weight' => 19,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -544,7 +598,7 @@ University of California, San Diego<br />
     ),
   );
 
-  // Exported field_instance: 'node-cause-field_bio'
+  // Exported field_instance: 'node-cause-field_bio'.
   $field_instances['node-cause-field_bio'] = array(
     'bundle' => 'cause',
     'default_value' => NULL,
@@ -562,7 +616,7 @@ University of California, San Diego<br />
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 30,
+        'weight' => 33,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -591,7 +645,7 @@ University of California, San Diego<br />
     ),
   );
 
-  // Exported field_instance: 'node-cause-field_call_to_action'
+  // Exported field_instance: 'node-cause-field_call_to_action'.
   $field_instances['node-cause-field_call_to_action'] = array(
     'bundle' => 'cause',
     'default_value' => NULL,
@@ -609,7 +663,7 @@ University of California, San Diego<br />
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 25,
+        'weight' => 29,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -634,11 +688,11 @@ University of California, San Diego<br />
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 10,
+      'weight' => 57,
     ),
   );
 
-  // Exported field_instance: 'node-cause-field_education'
+  // Exported field_instance: 'node-cause-field_education'.
   $field_instances['node-cause-field_education'] = array(
     'bundle' => 'cause',
     'default_value' => NULL,
@@ -660,7 +714,7 @@ Researcher Bio – Write in paragraph form.</p>',
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 29,
+        'weight' => 32,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -689,7 +743,7 @@ Researcher Bio – Write in paragraph form.</p>',
     ),
   );
 
-  // Exported field_instance: 'node-cause-field_email'
+  // Exported field_instance: 'node-cause-field_email'.
   $field_instances['node-cause-field_email'] = array(
     'bundle' => 'cause',
     'default_value' => NULL,
@@ -707,7 +761,7 @@ Researcher Bio – Write in paragraph form.</p>',
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 27,
+        'weight' => 30,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -732,11 +786,11 @@ Researcher Bio – Write in paragraph form.</p>',
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 53,
+      'weight' => 56,
     ),
   );
 
-  // Exported field_instance: 'node-cause-field_first_name'
+  // Exported field_instance: 'node-cause-field_first_name'.
   $field_instances['node-cause-field_first_name'] = array(
     'bundle' => 'cause',
     'default_value' => NULL,
@@ -754,7 +808,7 @@ Researcher Bio – Write in paragraph form.</p>',
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 36,
+        'weight' => 38,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -783,7 +837,7 @@ Researcher Bio – Write in paragraph form.</p>',
     ),
   );
 
-  // Exported field_instance: 'node-cause-field_in_the_news'
+  // Exported field_instance: 'node-cause-field_in_the_news'.
   $field_instances['node-cause-field_in_the_news'] = array(
     'bundle' => 'cause',
     'default_value' => NULL,
@@ -807,7 +861,7 @@ Researcher Bio – Write in paragraph form.</p>',
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 18,
+        'weight' => 22,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -832,7 +886,7 @@ Researcher Bio – Write in paragraph form.</p>',
     ),
   );
 
-  // Exported field_instance: 'node-cause-field_jumbotron_copy'
+  // Exported field_instance: 'node-cause-field_jumbotron_copy'.
   $field_instances['node-cause-field_jumbotron_copy'] = array(
     'bundle' => 'cause',
     'default_value' => NULL,
@@ -850,7 +904,7 @@ Researcher Bio – Write in paragraph form.</p>',
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 35,
+        'weight' => 37,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -879,7 +933,7 @@ Researcher Bio – Write in paragraph form.</p>',
     ),
   );
 
-  // Exported field_instance: 'node-cause-field_jumbotron_image'
+  // Exported field_instance: 'node-cause-field_jumbotron_image'.
   $field_instances['node-cause-field_jumbotron_image'] = array(
     'bundle' => 'cause',
     'deleted' => 0,
@@ -899,7 +953,7 @@ Researcher Bio – Write in paragraph form.</p>',
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 23,
+        'weight' => 27,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -947,7 +1001,7 @@ Researcher Bio – Write in paragraph form.</p>',
     ),
   );
 
-  // Exported field_instance: 'node-cause-field_jumbotron_video'
+  // Exported field_instance: 'node-cause-field_jumbotron_video'.
   $field_instances['node-cause-field_jumbotron_video'] = array(
     'bundle' => 'cause',
     'deleted' => 0,
@@ -964,7 +1018,7 @@ Researcher Bio – Write in paragraph form.</p>',
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 22,
+        'weight' => 26,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -1008,7 +1062,7 @@ Researcher Bio – Write in paragraph form.</p>',
     ),
   );
 
-  // Exported field_instance: 'node-cause-field_keywords'
+  // Exported field_instance: 'node-cause-field_keywords'.
   $field_instances['node-cause-field_keywords'] = array(
     'bundle' => 'cause',
     'default_value' => NULL,
@@ -1026,7 +1080,7 @@ Researcher Bio – Write in paragraph form.</p>',
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 20,
+        'weight' => 24,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -1050,11 +1104,11 @@ Researcher Bio – Write in paragraph form.</p>',
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 52,
+      'weight' => 55,
     ),
   );
 
-  // Exported field_instance: 'node-cause-field_last_name'
+  // Exported field_instance: 'node-cause-field_last_name'.
   $field_instances['node-cause-field_last_name'] = array(
     'bundle' => 'cause',
     'default_value' => NULL,
@@ -1072,7 +1126,7 @@ Researcher Bio – Write in paragraph form.</p>',
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 37,
+        'weight' => 39,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -1101,7 +1155,7 @@ Researcher Bio – Write in paragraph form.</p>',
     ),
   );
 
-  // Exported field_instance: 'node-cause-field_overlay_copy'
+  // Exported field_instance: 'node-cause-field_overlay_copy'.
   $field_instances['node-cause-field_overlay_copy'] = array(
     'bundle' => 'cause',
     'default_value' => NULL,
@@ -1119,7 +1173,7 @@ Researcher Bio – Write in paragraph form.</p>',
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 21,
+        'weight' => 25,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -1148,7 +1202,7 @@ Researcher Bio – Write in paragraph form.</p>',
     ),
   );
 
-  // Exported field_instance: 'node-cause-field_patents'
+  // Exported field_instance: 'node-cause-field_patents'.
   $field_instances['node-cause-field_patents'] = array(
     'bundle' => 'cause',
     'default_value' => NULL,
@@ -1172,7 +1226,7 @@ Researcher Bio – Write in paragraph form.</p>',
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 7,
+        'weight' => 20,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -1197,7 +1251,7 @@ Researcher Bio – Write in paragraph form.</p>',
     ),
   );
 
-  // Exported field_instance: 'node-cause-field_picture'
+  // Exported field_instance: 'node-cause-field_picture'.
   $field_instances['node-cause-field_picture'] = array(
     'bundle' => 'cause',
     'deleted' => 0,
@@ -1214,10 +1268,14 @@ Researcher Bio – Write in paragraph form.</p>',
         'weight' => 6,
       ),
       'search_result' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 26,
+        'label' => 'hidden',
+        'module' => 'image',
+        'settings' => array(
+          'image_link' => 'content',
+          'image_style' => 'thumbnail',
+        ),
+        'type' => 'image',
+        'weight' => 1,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -1265,7 +1323,7 @@ Researcher Bio – Write in paragraph form.</p>',
     ),
   );
 
-  // Exported field_instance: 'node-cause-field_publications'
+  // Exported field_instance: 'node-cause-field_publications'.
   $field_instances['node-cause-field_publications'] = array(
     'bundle' => 'cause',
     'default_value' => NULL,
@@ -1289,7 +1347,7 @@ Researcher Bio – Write in paragraph form.</p>',
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 8,
+        'weight' => 21,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -1314,7 +1372,7 @@ Researcher Bio – Write in paragraph form.</p>',
     ),
   );
 
-  // Exported field_instance: 'node-cause-field_research_area'
+  // Exported field_instance: 'node-cause-field_research_area'.
   $field_instances['node-cause-field_research_area'] = array(
     'bundle' => 'cause',
     'default_value' => NULL,
@@ -1332,7 +1390,7 @@ Researcher Bio – Write in paragraph form.</p>',
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 32,
+        'weight' => 34,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -1360,7 +1418,7 @@ Researcher Bio – Write in paragraph form.</p>',
     ),
   );
 
-  // Exported field_instance: 'node-cause-field_share_lines'
+  // Exported field_instance: 'node-cause-field_share_lines'.
   $field_instances['node-cause-field_share_lines'] = array(
     'bundle' => 'cause',
     'default_value' => NULL,
@@ -1378,7 +1436,7 @@ Researcher Bio – Write in paragraph form.</p>',
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 19,
+        'weight' => 23,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -1403,11 +1461,56 @@ Researcher Bio – Write in paragraph form.</p>',
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 51,
+      'weight' => 54,
     ),
   );
 
-  // Exported field_instance: 'node-cause-field_subtitle'
+  // Exported field_instance: 'node-cause-field_sidebar_text'.
+  $field_instances['node-cause-field_sidebar_text'] = array(
+    'bundle' => 'cause',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 34,
+      ),
+      'search_result' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 16,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_sidebar_text',
+    'label' => 'Questionnaire Response',
+    'required' => FALSE,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 57,
+    ),
+  );
+
+  // Exported field_instance: 'node-cause-field_subtitle'.
   $field_instances['node-cause-field_subtitle'] = array(
     'bundle' => 'cause',
     'default_value' => NULL,
@@ -1425,7 +1528,7 @@ Researcher Bio – Write in paragraph form.</p>',
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 34,
+        'weight' => 36,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -1450,11 +1553,11 @@ Researcher Bio – Write in paragraph form.</p>',
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 7,
+      'weight' => 53,
     ),
   );
 
-  // Exported field_instance: 'node-cause-field_summary'
+  // Exported field_instance: 'node-cause-field_summary'.
   $field_instances['node-cause-field_summary'] = array(
     'bundle' => 'cause',
     'default_value' => NULL,
@@ -1472,7 +1575,7 @@ Researcher Bio – Write in paragraph form.</p>',
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 24,
+        'weight' => 28,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -1497,11 +1600,11 @@ Researcher Bio – Write in paragraph form.</p>',
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 9,
+      'weight' => 56,
     ),
   );
 
-  // Exported field_instance: 'node-cause-field_university_or_institution'
+  // Exported field_instance: 'node-cause-field_university_or_institution'.
   $field_instances['node-cause-field_university_or_institution'] = array(
     'bundle' => 'cause',
     'default_value' => NULL,
@@ -1516,10 +1619,10 @@ Researcher Bio – Write in paragraph form.</p>',
         'weight' => 17,
       ),
       'search_result' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 31,
+        'weight' => 14,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -1555,7 +1658,7 @@ Researcher Bio – Write in paragraph form.</p>',
     ),
   );
 
-  // Exported field_instance: 'node-cause-meta_description'
+  // Exported field_instance: 'node-cause-meta_description'.
   $field_instances['node-cause-meta_description'] = array(
     'bundle' => 'cause',
     'default_value' => NULL,
@@ -1573,7 +1676,7 @@ Researcher Bio – Write in paragraph form.</p>',
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 5,
+        'weight' => 18,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -1598,7 +1701,7 @@ Researcher Bio – Write in paragraph form.</p>',
     ),
   );
 
-  // Exported field_instance: 'node-cause-meta_keywords'
+  // Exported field_instance: 'node-cause-meta_keywords'.
   $field_instances['node-cause-meta_keywords'] = array(
     'bundle' => 'cause',
     'default_value' => NULL,
@@ -1616,7 +1719,7 @@ Researcher Bio – Write in paragraph form.</p>',
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 3,
+        'weight' => 17,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -1659,6 +1762,7 @@ Researcher Bio – Write in paragraph form.</p>');
 <ul><li>U.S. Patent No. 7,138,569: "Nucleic acids encoding <br />Pseudomonas Hop proteins and use thereof". <br />Inventors: Alan R. Collmer, James R. Alfano, Xiaoyan<br /> Tang, Robin C. Buell, and Gregory B. Martin. <br />Issued November 21, 2006 to Cornell Research<br /> Foundation, Boyce Thompson Institute, <br />Kansas State University, The Institute<br /> for Genomics Research, and the University<br /> of Nebraska.</li></ul>');
   t('Add URL for a video');
   t('Add any additional copy researcher provided in this section. Do not use ending punctuation.');
+  t('Aging, Wellness & Disease');
   t('Awards');
   t('Benefunder video only. Use vimeo url link.');
   t('Bio');
@@ -1687,6 +1791,7 @@ Researcher Bio – Write in paragraph form.</p>');
   t('Patents');
   t('Picture');
   t('Publications');
+  t('Questionnaire Response');
   t('Research Area');
   t('Researcher first name (not nickname)');
   t('Researcher headshot should be 402x402 pixels square.  ');

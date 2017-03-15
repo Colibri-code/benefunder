@@ -8,7 +8,7 @@
  * Implements hook_field_group_info().
  */
 function bf_cause_field_group_info() {
-  $export = array();
+  $field_groups = array();
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -27,6 +27,7 @@ function bf_cause_field_group_info() {
       1 => 'field_university_or_institution',
       2 => 'field_first_name',
       3 => 'field_last_name',
+      4 => 'field_aging_wellness_disease',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -38,7 +39,7 @@ function bf_cause_field_group_info() {
       ),
     ),
   );
-  $export['group_basic|node|cause|form'] = $field_group;
+  $field_groups['group_basic|node|cause|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -67,7 +68,7 @@ function bf_cause_field_group_info() {
       ),
     ),
   );
-  $export['group_cause_media|node|cause|form'] = $field_group;
+  $field_groups['group_cause_media|node|cause|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -98,7 +99,7 @@ function bf_cause_field_group_info() {
       ),
     ),
   );
-  $export['group_cause|node|cause|form'] = $field_group;
+  $field_groups['group_cause|node|cause|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -116,6 +117,7 @@ function bf_cause_field_group_info() {
       0 => 'field_email',
       1 => 'field_keywords',
       2 => 'field_share_lines',
+      3 => 'field_sidebar_text',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -127,7 +129,7 @@ function bf_cause_field_group_info() {
       ),
     ),
   );
-  $export['group_hidden|node|cause|form'] = $field_group;
+  $field_groups['group_hidden|node|cause|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -154,7 +156,7 @@ function bf_cause_field_group_info() {
       ),
     ),
   );
-  $export['group_overlay|node|cause|form'] = $field_group;
+  $field_groups['group_overlay|node|cause|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -182,7 +184,7 @@ function bf_cause_field_group_info() {
       ),
     ),
   );
-  $export['group_researcher_bio|node|cause|form'] = $field_group;
+  $field_groups['group_researcher_bio|node|cause|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -213,7 +215,7 @@ function bf_cause_field_group_info() {
       ),
     ),
   );
-  $export['group_researcher_links|node|cause|form'] = $field_group;
+  $field_groups['group_researcher_links|node|cause|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -241,7 +243,7 @@ function bf_cause_field_group_info() {
       ),
     ),
   );
-  $export['group_researcher|node|cause|form'] = $field_group;
+  $field_groups['group_researcher|node|cause|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -269,7 +271,7 @@ function bf_cause_field_group_info() {
       ),
     ),
   );
-  $export['group_seo|node|cause|form'] = $field_group;
+  $field_groups['group_seo|node|cause|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -302,7 +304,20 @@ function bf_cause_field_group_info() {
       ),
     ),
   );
-  $export['group_tabs|node|cause|form'] = $field_group;
+  $field_groups['group_tabs|node|cause|form'] = $field_group;
 
-  return $export;
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('Basic Info');
+  t('Cause');
+  t('Cause Media');
+  t('Cause Overlay');
+  t('Horizontal Tabs');
+  t('Not Displayed');
+  t('Researcher');
+  t('Researcher Bio');
+  t('Researcher Links');
+  t('SEO');
+
+  return $field_groups;
 }

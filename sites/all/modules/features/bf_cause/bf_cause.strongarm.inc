@@ -45,7 +45,7 @@ function bf_cause_strongarm() {
     'extra_fields' => array(
       'form' => array(
         'title' => array(
-          'weight' => '6',
+          'weight' => '52',
         ),
         'path' => array(
           'weight' => '5',
