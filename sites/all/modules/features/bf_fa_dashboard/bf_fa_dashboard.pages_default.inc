@@ -239,7 +239,7 @@ function bf_fa_dashboard_default_page_manager_handlers() {
     'admin_title' => 'FA Dash Video 2',
     'title' => '<none>',
     'title_heading' => 'h2',
-    'body' => '<div class="video_wrapper"><iframe src="https://player.vimeo.com/video/133803634" width="400" height="225" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div>',
+    'body' => '<iframe width="400" height="225" src="https://www.youtube.com/embed/WPuo5Gg-yZY" frameborder="0" allowfullscreen></iframe>',
     'format' => 'full_html',
     'substitute' => 0,
   );
