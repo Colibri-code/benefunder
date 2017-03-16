@@ -47,7 +47,7 @@ function bf_cause_tokens($type, $tokens, array $data = array(), array $options =
     $terms = taxonomy_get_tree($vocabulary->vid, 0, $depth);
     foreach ($terms as $term) {
       // Convert Life to Life Science.
-      $top_level[$term->tid] = ($term->name == 'Life') ? 'Life Science' : $term->name;
+      $top_level[$term->tid] = $term->name;
     }
 
     foreach ($tokens as $name => $original) {

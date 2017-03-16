@@ -25,7 +25,7 @@
       <a class="sector-link" href="/causes?term=66&amp;primary=tid-66" data-shelf="life-shelf">
         <div class="sector life col-xs-6 col-md-3">
           <img class="sector-icon" src="<?php print $life_icon; ?>">
-          <h2 class="sector-title">Life</h2>
+          <h2 class="sector-title">Life Science</h2>
           <div class="triangle-clip"></div>
         </div>
       </a>
@@ -57,7 +57,7 @@
     <div class="darken"></div>
     <div id="life-shelf" class="sector-shelf">
       <?php print $life_text; ?>
-      <a href="/causes?term=66&amp;primary=tid-66">See All Life Causes<i class="fa fa-long-arrow-right"></i></a>
+      <a href="/causes?term=66&amp;primary=tid-66">See All Life Science Causes<i class="fa fa-long-arrow-right"></i></a>
     </div>
     <div id="technology-shelf" class="sector-shelf">
       <?php print $technologies_text; ?>
