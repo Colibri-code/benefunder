@@ -1,8 +1,8 @@
 name = BF Inspiration Chooser
-description = Views for entity reference field Inspiration to use for modal popup.
+description = Views for entity reference field Inspiration to use for modal popup. Also research-videos page.
 core = 7.x
 package = Views
-version = 7.x-1.0
+version = 7.x-1.01
 dependencies[] = entityreference_view_widget
 dependencies[] = views
 features[ctools][] = views:views_default:3.0

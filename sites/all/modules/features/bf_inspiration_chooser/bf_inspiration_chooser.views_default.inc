@@ -168,6 +168,69 @@ function bf_inspiration_chooser_views_default_views() {
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
+
+  /* Display: Page */
+  $handler = $view->new_display('page', 'Page', 'page_1');
+  $handler->display->display_options['title'] = 'Research Videos';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'grid';
+  $handler->display->display_options['style_options']['columns'] = '5';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_options']['inline'] = array(
+    'title' => 'title',
+    'field_subtitle' => 'field_subtitle',
+  );
+  $handler->display->display_options['row_options']['separator'] = ' - ';
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Indexed Content: Jumbotron Video */
+  $handler->display->display_options['fields']['field_jumbotron_video']['id'] = 'field_jumbotron_video';
+  $handler->display->display_options['fields']['field_jumbotron_video']['table'] = 'search_api_index_cause_index_solr';
+  $handler->display->display_options['fields']['field_jumbotron_video']['field'] = 'field_jumbotron_video';
+  $handler->display->display_options['fields']['field_jumbotron_video']['label'] = '';
+  $handler->display->display_options['fields']['field_jumbotron_video']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_jumbotron_video']['alter']['text'] = '<a href="[field_jumbotron_video_1]" target="_blank">[field_jumbotron_video]</a>';
+  $handler->display->display_options['fields']['field_jumbotron_video']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_jumbotron_video']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_jumbotron_video']['type'] = 'file_url_plain';
+  $handler->display->display_options['fields']['field_jumbotron_video']['settings'] = array(
+    'gallery_style' => 'all_items',
+    'thumbnail_field' => 'field_jumbotron_video',
+    'thumbnail_style' => 'magnific_popup_thumbnail',
+  );
+  /* Field: Indexed Content: Jumbotron Image */
+  $handler->display->display_options['fields']['field_jumbotron_image']['id'] = 'field_jumbotron_image';
+  $handler->display->display_options['fields']['field_jumbotron_image']['table'] = 'search_api_index_cause_index_solr';
+  $handler->display->display_options['fields']['field_jumbotron_image']['field'] = 'field_jumbotron_image';
+  $handler->display->display_options['fields']['field_jumbotron_image']['label'] = '';
+  $handler->display->display_options['fields']['field_jumbotron_image']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_jumbotron_image']['alter']['text'] = '<a href="[field_jumbotron_video]" target="_blank">[field_jumbotron_image]</a>';
+  $handler->display->display_options['fields']['field_jumbotron_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_jumbotron_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_jumbotron_image']['settings'] = array(
+    'image_style' => 'medium',
+    'image_link' => '',
+  );
+  /* Field: Indexed Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'search_api_index_cause_index_solr';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['target'] = '_blank';
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['link_to_entity'] = 1;
+  /* Field: Indexed Content: University or Institution */
+  $handler->display->display_options['fields']['field_university_or_institution']['id'] = 'field_university_or_institution';
+  $handler->display->display_options['fields']['field_university_or_institution']['table'] = 'search_api_index_cause_index_solr';
+  $handler->display->display_options['fields']['field_university_or_institution']['field'] = 'field_university_or_institution';
+  $handler->display->display_options['fields']['field_university_or_institution']['label'] = '';
+  $handler->display->display_options['fields']['field_university_or_institution']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_university_or_institution']['link_to_entity'] = 0;
+  $handler->display->display_options['fields']['field_university_or_institution']['view_mode'] = 'full';
+  $handler->display->display_options['fields']['field_university_or_institution']['bypass_access'] = 0;
+  $handler->display->display_options['path'] = 'research-videos';
   $export['inspiration_chooser'] = $view;
 
   return $export;
