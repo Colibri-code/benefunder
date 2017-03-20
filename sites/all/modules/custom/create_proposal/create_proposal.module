@@ -7,6 +7,7 @@ function create_proposal_form_alter(&$form, &$form_state, $form_id) {
   if ($form_id == 'giving_proposal_node_form') {
     // Second save button up top, both read Save & Continue.
     $form['actions']['submit']['#value'] = t('Save & Continue');
+    $form['actions']['submit']['#attributes']['class'][] = 'action-blue';
     $form['submit-top'] = $form['actions']['submit'];
     $form['submit-top']['#weight'] = 0;
 

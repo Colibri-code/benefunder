@@ -4265,6 +4265,15 @@ form#giving-proposal-node-form .field-widget-file-generic .form-button-disabled 
     display: none;
 }
 
+form#giving-proposal-node-form input.action-blue {
+  background-color: rgba(51,153,204,0.95);
+  color: white;
+  font-size: 16px;
+  border-radius: 4px;
+  padding: 6px 12px;
+  line-height: 1.42857143;
+}
+
 .page-node-add-giving-proposal .fieldset-legend, .page-node-edit.node-type-giving-proposal .fieldset-legend {
   color: purple;
   font-weight: bold;
