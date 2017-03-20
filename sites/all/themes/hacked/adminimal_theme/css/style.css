@@ -4261,6 +4261,10 @@ form#giving-proposal-node-form {
   padding: 10px;
 }
 
+form#giving-proposal-node-form .field-widget-file-generic .form-button-disabled {
+    display: none;
+}
+
 .page-node-add-giving-proposal .fieldset-legend, .page-node-edit.node-type-giving-proposal .fieldset-legend {
   color: purple;
   font-weight: bold;
