@@ -622,7 +622,7 @@ function bf_giving_proposal_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'file_generic',
-      'weight' => 3,
+      'weight' => 67,
     ),
   );
 
@@ -1085,7 +1085,7 @@ function bf_giving_proposal_field_default_field_instances() {
       'module' => 'markup',
       'settings' => array(),
       'type' => 'markup',
-      'weight' => 65,
+      'weight' => 66,
     ),
   );
 
@@ -1332,6 +1332,41 @@ function bf_giving_proposal_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-giving_proposal-field_file_explanation'.
+  $field_instances['node-giving_proposal-field_file_explanation'] = array(
+    'bundle' => 'giving_proposal',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'markup',
+        'settings' => array(),
+        'type' => 'markup_default',
+        'weight' => 59,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_file_explanation',
+    'label' => 'File Explanation',
+    'required' => FALSE,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'module' => 'markup',
+      'settings' => array(),
+      'type' => 'markup',
+      'weight' => 65,
+    ),
+  );
+
   // Exported field_instance: 'node-giving_proposal-field_giving_proposal'.
   $field_instances['node-giving_proposal-field_giving_proposal'] = array(
     'bundle' => 'giving_proposal',
@@ -1371,7 +1406,7 @@ function bf_giving_proposal_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'file_generic',
-      'weight' => 2,
+      'weight' => 66,
     ),
   );
 
@@ -2116,6 +2151,7 @@ function bf_giving_proposal_field_default_field_instances() {
   t('Donor Profiles');
   t('Email');
   t('Execution Markup');
+  t('File Explanation');
   t('Giving Proposal');
   t('Giving Targets');
   t('Giving Vehicle');

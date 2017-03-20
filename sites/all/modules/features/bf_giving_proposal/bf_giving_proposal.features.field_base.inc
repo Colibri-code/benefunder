@@ -586,6 +586,27 @@ function bf_giving_proposal_field_default_field_bases() {
     'type' => 'markup',
   );
 
+  // Exported field_base: 'field_file_explanation'.
+  $field_bases['field_file_explanation'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_file_explanation',
+    'indexes' => array(),
+    'locked' => 0,
+    'module' => 'markup',
+    'settings' => array(
+      'markup' => array(
+        'format' => 'full_html',
+        'value' => '<p><span style="font-size:14px">Once you have selected some causes and saved your proposal, your Giving Proposal PDF will appear here.</span></p>
+',
+      ),
+    ),
+    'translatable' => 0,
+    'type' => 'markup',
+  );
+
   // Exported field_base: 'field_giving_proposal'.
   $field_bases['field_giving_proposal'] = array(
     'active' => 1,

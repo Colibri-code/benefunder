@@ -489,6 +489,7 @@ function bf_giving_proposal_field_group_info() {
     'children' => array(
       0 => 'field_additional_documents',
       1 => 'field_giving_proposal',
+      2 => 'field_file_explanation',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -525,12 +526,11 @@ function bf_giving_proposal_field_group_info() {
       6 => 'group_giving_plan',
       7 => 'group_initial_distributions',
       8 => 'group_introduction',
-      9 => 'group_proposal_addendum',
-      10 => 'group_proposal_matches',
-      11 => 'group_proposal_proposal',
-      12 => 'group_proposal',
-      13 => 'group_send_signatures',
-      14 => 'group_videos',
+      9 => 'group_proposal_matches',
+      10 => 'group_proposal_proposal',
+      11 => 'group_proposal',
+      12 => 'group_send_signatures',
+      13 => 'group_videos',
     ),
     'format_type' => 'tabs',
     'format_settings' => array(
