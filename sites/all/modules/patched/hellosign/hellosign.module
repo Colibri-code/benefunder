@@ -152,15 +152,20 @@ function hellosign_get_test_mode() {
  *   Full path to local system file or files.
  * @param string $mode
  *   Can be embedded or email based signature request.
+ * @param string[] $cc
+ *   Array of additional email addresses to cc.
  *
  * @return array
  *   or "signature_request_id" and "signatures" if 1.
  */
-function hellosign_generate_esignature_request($title, $subject, array $signers, $files, $mode = 'email') {
+function hellosign_generate_esignature_request($title, $subject, array $signers, $files, $mode = 'email', $cc = array()) {
 
   try {
     $cc_email_text = hellosign_get_cc_emails();
     $cc_emails = (strlen($cc_email_text) ? explode(',', hellosign_get_cc_emails()) : array());
+    if (!empty($cc)) {
+      $cc_emails += $cc;
+    }
 
     // Include library.
     if (!hellosign_include_library()) {
