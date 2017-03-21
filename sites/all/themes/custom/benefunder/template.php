@@ -226,7 +226,7 @@ function benefunder_preprocess_node(&$variables) {
           $logo = $affiliation->field_logo->value();
           $variables['affiliation_logo'] = file_create_url($logo['uri']);
         }
-  
+
         /* Academic Position */
         $academic_positions = $wrapper->field_academic_position->value();
         $variables['academic_positions'] = !empty($academic_positions) ? $academic_positions : '';

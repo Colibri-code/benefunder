@@ -8913,6 +8913,9 @@ div.sidebar-first .researcher-body:after {
 div.sidebar-first .researcher-body .affiliation-logo {
   padding-bottom: 20px;
 }
+div.sidebar-first .researcher-body .affiliation-logo img {
+  width: 220px;
+}
 .request-information-block {
   width: 100%;
 }
