@@ -139,14 +139,17 @@ function sitemod_preprocess_entity_print(&$variables) {
   $variables['title'] = $node_wrapper->label();
   $variables['subtitle'] = $node_wrapper->field_subtitle->value();
   $variables['name'] = $node_wrapper->field_first_name->value() . ' ' . $node_wrapper->field_last_name->value();
+  $variables['short_url'] = bf_cause_get_short_alias($variables['entity']);
 
-  // Body field may be empty.
+  // Body + Summary, they are sometimes empty.
   $body = $node_wrapper->body->value();
-  $variables['body'] = !empty($body) ? $body['value'] : '';
-
-  // Summary field may be empty.
   $summary = $node_wrapper->field_summary->value();
-  $variables['summary'] = !empty($summary) ? text_summary($summary['value'], 'filtered_html', 450) : '';
+  $variables['summary'] = views_trim_text(array(
+    'max_length' => 2000,
+    'word_boundary' => TRUE,
+    'ellipsis' => TRUE,
+    'html' => TRUE,
+  ), $body['value'] . $summary['value']);
 
   // Images.
   $picture = $node_wrapper->field_picture->value();
@@ -156,6 +159,11 @@ function sitemod_preprocess_entity_print(&$variables) {
 
   // Current Position.
   $variables['affiliation'] = $node_wrapper->field_university_or_institution->label();
+  $affiliation = entity_metadata_wrapper('taxonomy_term', $node_wrapper->field_university_or_institution[0]->raw());
+  $logo = $affiliation->field_logo->value();
+  if (!empty($logo)) {
+    $variables['affiliation_logo'] = 'data:' . $logo['filemime'] . ';base64,' . base64_encode(file_get_contents($logo['uri']));
+  }
 
   $academic_positions = array();
   foreach ($node_wrapper->field_academic_position as $position) {
@@ -180,8 +188,50 @@ function sitemod_preprocess_entity_print(&$variables) {
     $awards[] = $award->field_award_title->value();
   }
   if (!empty($awards)) {
-    $variables['awards'] = "<ul><li>" . implode("</li><li>", $awards) . "</li></ul>";
+    $variables['awards'] = theme('item_list', array('items' => $awards));
   }
+
+  // Education.
+  $education = array();
+  foreach ($node_wrapper->field_education as $degree) {
+    $education[] = strtr($degree->value()['value'], array(
+      '<br>' => ',',
+      '<br/>' => ',',
+      '<br />' => ',',
+    ));
+  }
+  if (!empty($education)) {
+    $variables['education'] = theme('item_list', array('items' => $education));
+  }
+
+  // Research Categories.
+  $categories = array();
+  foreach ($node_wrapper->field_research_area as $area) {
+    $categories[] = $area->label();
+  }
+  if (!empty($categories)) {
+    $variables['research_areas'] = theme('item_list', array('items' => $categories));
+  }
+
+  // Contribution.
+  $contribution = $node_wrapper->field_call_to_action->value();
+  $variables['contribution'] = $contribution['value'];
+}
+
+/**
+ * Implements hook_entity_print_pdf_alter().
+ */
+function sitemod_entity_print_pdf_alter(WkHtmlToPdf $pdf, $entity_type, $entity) {
+  $options = array(
+    'ignoreWarnings' => TRUE,
+    'no-outline',
+    'margin-top'    => 10,
+    'margin-right'  => 5,
+    'margin-bottom' => 0,
+    'margin-left'   => 10,
+//    'disable-smart-shrinking',
+  );
+  $pdf->setOptions($options);
 }
 
 /**

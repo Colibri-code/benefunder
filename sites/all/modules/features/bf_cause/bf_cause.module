@@ -96,20 +96,8 @@ function bf_cause_node_insert($node) {
  * @throws \Exception
  */
 function _bf_cause_make_first_last_redirect($node) {
-
-  // Use pathauto to create redirect path from tokens.
-  module_load_include('inc', 'pathauto', 'pathauto');
-  $pattern = '[node:field_first_name]-[node:field_last_name]';
-  $data = array('node' => $node);
+  $firstlast = bf_cause_get_short_alias($node);
   $language = $node->language;
-  $alias = token_replace($pattern, $data, array(
-    'sanitize' => FALSE,
-    'clear' => TRUE,
-    'callback' => 'pathauto_clean_token_values',
-    'language' => (object) array('language' => $language),
-    'pathauto' => TRUE,
-  ));
-  $firstlast = pathauto_clean_alias($alias);
 
   // Create [first]-[last] redirect if it doesn't already exist.
   if (redirect_load_by_source($firstlast, $language) === FALSE) {
@@ -118,5 +106,26 @@ function _bf_cause_make_first_last_redirect($node) {
     $redirect->source = $firstlast;
     $redirect->redirect = 'node/' . $node->nid;
     redirect_save($redirect);
+  }
+}
+
+/**
+ * Gets the short name alias for a cause, [first]-[last].
+ */
+function bf_cause_get_short_alias($node) {
+  if ($node->type == 'cause') {
+    // Use pathauto to create redirect path from tokens.
+    module_load_include('inc', 'pathauto', 'pathauto');
+    $pattern = '[node:field_first_name]-[node:field_last_name]';
+    $data = array('node' => $node);
+    $language = $node->language;
+    $alias = token_replace($pattern, $data, array(
+      'sanitize' => FALSE,
+      'clear' => TRUE,
+      'callback' => 'pathauto_clean_token_values',
+      'language' => (object) array('language' => $language),
+      'pathauto' => TRUE,
+    ));
+    return pathauto_clean_alias($alias);
   }
 }

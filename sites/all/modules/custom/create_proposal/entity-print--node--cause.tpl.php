@@ -14,6 +14,8 @@
 <html>
 <head>
   <meta charset="UTF-8">
+  <script src="https://use.typekit.net/jxh1lif.js"></script>
+  <script>try{Typekit.load({ async: true });}catch(e){}</script>
   <style type="text/css">
     html {
       height: 100%;
@@ -32,18 +34,22 @@
       margin: 0;
       background-repeat: no-repeat;
       background-size: cover;
+      overflow: hidden;
     }
     .pdf_title {
       font-family: 'raleway', "Arial", "Helvetica", "Verdana", "sans-serif";
       font-size: 28px;
       line-height: 30px;
-      color: #5CC6CF;
+      color: #fff;
       padding: 18px 33px 18px 33px;
       background-color: rgba(0, 0, 0, 0.5);
     }
+    .pdf_subtitle {
+      font-family: 'raleway', "Arial", "Helvetica", "Verdana", "sans-serif";
+    }
     .pdf_info {
       height: 184px;
-      background-color: rgba(31, 153, 164, 0.5);
+      background-color: rgba(9, 50, 97, 0.75);
       padding: 40px 40px 0;
       color: #fff;
       position: relative;
@@ -53,8 +59,8 @@
     }
     .pdf_media {
       float: left;
-      width: 50%;
-      text-align: center;
+      text-align: left;
+      margin-right: 20px;
     }
     .pdf_picture {
       margin-left: 5px;
@@ -66,8 +72,7 @@
       max-width: 100%;
     }
     .pdf_info_block {
-      float: left;
-      width: 50%;
+      margin-top: 25px;
     }
     .pdf_name {
       font-family: 'raleway', "Arial", "Helvetica", "Verdana", "sans-serif";
@@ -75,21 +80,14 @@
       line-height : 18px;
     }
     .pdf_positions {
-      clear: both;
     }
     .pdf_position_text {
       font-family: 'raleway', "Arial", "Helvetica", "Verdana", "sans-serif";
-      font-size : 12px;
+      font-size : 14px;
       line-height : 14px;
     }
-    .pdf_affiliation_text {
-      font-family: 'raleway', "Arial", "Helvetica", "Verdana", "sans-serif";
-      font-size : 11px;
-      line-height : 19px;
-      font-weight: 300;
-    }
     .pdf_body {
-      padding: 40px;
+      padding: 20px 0;
     }
     .pdf_body_content {
       width: 47.5%;
@@ -108,7 +106,7 @@
       margin: 20px 0;
     }
     .pdf_summary {
-      font-family: 'Alegreya', "Arial", "Helvetica", "Verdana", "sans-serif";
+      font-family: 'raleway', "Arial", "Helvetica", "Verdana", "sans-serif";
       font-size: 10px;
       line-height: 15px;
       font-weight: normal;
@@ -119,11 +117,10 @@
       float: left;
     }
     .pdf_awards {
-      font-family: 'Alegreya', "Arial", "Helvetica", "Verdana", "sans-serif";
+      font-family: 'raleway', "Arial", "Helvetica", "Verdana", "sans-serif";
       font-size: 10px;
       line-height: 15px;
       font-weight: normal;
-
     }
     .pdf_awards ul {
       -webkit-padding-start: 0;
@@ -132,19 +129,23 @@
     .header_title {
       font-family: 'raleway', "Arial", "Helvetica", "Verdana", "sans-serif";
       color: #1F99A4;
-      font-size: 11px;
       line-height: 15px;
       font-weight: 600;
       text-transform: uppercase;
-    }
-    .pdf_stage {
-      font-family: 'Alegreya', "Arial", "Helvetica", "Verdana", "sans-serif";
-      font-size: 10px;
-      line-height: 15px;
-      font-weight: normal;
+      margin-bottom: 10px;
     }
     hr {
       clear: both;
+    }
+    .pdf_affiliation_logo {
+      width: 25px;
+      float: left;
+      margin-right: 10px;
+    }
+    .pdf_footer {
+      font-family: 'raleway', "Arial", "Helvetica", "Verdana", "sans-serif";
+      font-size: 8px;
+      margin-top: 20px;
     }
   </style>
 </head>
@@ -161,7 +162,6 @@
       <div class="pdf_name"><?php print $name ?></div>
       <div class="pdf_positions">
         <?php if (!empty($academic_positions)): ?><div class="pdf_position_text"><?php print $academic_positions ?></div><?php endif; ?>
-        <?php if (!empty($affiliation)): ?><div class="pdf_affiliation_text"><?php print $affiliation ?></div><?php endif; ?>
       </div>
     </div>
   </div>
@@ -169,20 +169,45 @@
 <div class="pdf_body">
   <div class="pdf_body_content">
     <h3 class="header_title">Current Research</h3>
-    <div class="pdf_summary"><?php print $body ?><?php print $summary ?></div>
-    <button class="btn read_more_btn">Read More on Benefunder.com</button>
+    <div class="pdf_subtitle"><?php print $subtitle ?></div>
+    <div class="pdf_summary"><?php print $summary ?></div>
+    <a href="http://www.benefunder.com/<?php print $short_url ?>"><button class="btn read_more_btn">Read More at benefunder.com/<?php print $short_url ?></button></a>
   </div>
   <div class="pdf_body_content_right">
+    <?php if (!empty($affiliation)): ?>
+      <h3 class="header_title">Affiliation</h3>
+      <?php if (!empty($affiliation_logo)): ?>
+        <div class="pdf_affiliation_logo"><img src="<?php print $affiliation_logo ?>"/></div>
+      <?php endif; ?>
+      <div class="pdf_awards"><?php print $affiliation ?></div>
+    <?php endif; ?>
+
+    <?php if (!empty($education)): ?>
+      <h3 class="header_title">Education</h3>
+      <div class="pdf_awards"><?php print $education ?></div>
+    <?php endif; ?>
+
     <?php if (!empty($awards)): ?>
       <h3 class="header_title">Awards</h3>
       <div class="pdf_awards"><?php print $awards ?></div>
     <?php endif; ?>
-    <?php if (!empty($research_stage)): ?>
-      <h3 class="header_title">Stage of Research</h3>
-      <div class="pdf_stage"><?php print $research_stage ?></div>
+
+    <?php if (!empty($research_areas)): ?>
+      <h3 class="header_title">Research Areas</h3>
+      <div class="pdf_awards"><?php print $research_areas ?></div>
     <?php endif; ?>
+
+    <?php if (!empty($contribution)): ?>
+      <h3 class="header_title">Funding Request</h3>
+      <div class="pdf_awards"><?php print $contribution ?></div>
+    <?php endif; ?>
+
+    <hr size="1"/>
+
+    <div class="pdf_footer">
+      Copyright &copy; 2017 / Benefunder 4790 Eastgate Mall, Ste 125, San Diego, CA 92121 / info@benefunder.com / (858) 215-1136
+    </div>
   </div>
 </div>
-
 </body>
 </html>
