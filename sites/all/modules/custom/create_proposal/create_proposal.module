@@ -97,7 +97,7 @@ function create_proposal_get_signers($proposal_wrapper) {
  */
 function create_proposal_submit($form, &$form_state) {
 
-  $wrapper = entity_metadata_wrapper('node', $form_state['values']['proposal_nid']);
+  $wrapper = entity_metadata_wrapper('node', $form_state['values']['nid']);
 
   if ($wrapper->field_ready_to_send->value()) {
 
@@ -238,7 +238,7 @@ function create_proposal_node_presave($node) {
   }
 
   // DAF Disbursement confirmed.
-  if ($node->field_daf_confirmed[LANGUAGE_NONE]['value']) {
+  if ($node->field_daf_disbursement_confirmed[LANGUAGE_NONE][0]['value']) {
     $amount = create_proposal_calculate_disbusement_amount($node);
 
     // Send confirmation to each researcher.
