@@ -69,8 +69,7 @@ function create_proposal_ajax_checkin($form, $form_state) {
   if (empty($text)) {
     $text = $form_state['values']['ajax_text2'];
   }
-  // TODO: correct email address.
-  $to = 'karl.scheirer@gmail.com';
+  $to = 'info@benefunder.com';
   $language =  user_preferred_language($user);
 
   drupal_mail('create_proposal', 'proposal_help', $to, $language, array(
