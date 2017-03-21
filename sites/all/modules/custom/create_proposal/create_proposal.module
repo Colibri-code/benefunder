@@ -105,8 +105,9 @@ function create_proposal_submit($form, &$form_state) {
     $title = $wrapper->label();
     $subject = 'Signature required for Benefunder giving proposal';
     $signers = create_proposal_get_signers($wrapper);
-    // TODO: cc per DAF
-    // CC emails are configured on the site.
+
+    // CC the DAF provider.
+    $cc_emails = array($wrapper->field_daf_provider->field_daf_email->value());
 
     // Attach files, these will appear as 1 document to sign.
     $files[] = $wrapper->field_giving_proposal->value()['uri'];
@@ -125,7 +126,7 @@ function create_proposal_submit($form, &$form_state) {
 
     $mode = 'email';
 
-    $result = hellosign_generate_esignature_request($title, $subject, $signers, $files, $mode);
+    $result = hellosign_generate_esignature_request($title, $subject, $signers, $files, $mode, $cc_emails);
 
     if ($result['status'] != 1) {
       $problem_msg = t('There was a problem sending the proposal to HelloSign, please contact Benefunder.');
