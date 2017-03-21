@@ -154,11 +154,11 @@ function bf_fa_dashboard_default_page_manager_handlers() {
     'title_heading' => 'h2',
     'body' => '<div class="fa-dashboard-links">
 <div class="fa-links">
-<div class="fa fa-comments">&nbsp;<a href="/">Client Facing Materials</a></div>
+<div class="fa fa-comments">&nbsp;<a href="https://benefunder-service.atlassian.net/wiki/x/Toc">Client Facing Materials</a></div>
 </div>
 
 <div class="fa-links">
-<div class="fa fa-file">&nbsp;<a href="/">Advisor Materials</a></div>
+<div class="fa fa-file">&nbsp;<a href="https://benefunder-service.atlassian.net/wiki/x/boc">Advisor Materials</a></div>
 </div>
 
 <div class="fa-links">
@@ -170,7 +170,7 @@ function bf_fa_dashboard_default_page_manager_handlers() {
 </div>
 
 <div class="fa-links">
-<div class="fa fa-phone">&nbsp;<a href="/">Help Desk/Tutorials</a></div>
+<div class="fa fa-phone">&nbsp;<a href="https://benefunder-service.atlassian.net/servicedesk/customer/portal/1">Help Desk/Tutorials</a></div>
 </div>
 </div>
 ',
