@@ -1,7 +1,7 @@
 name = BF Cause Listing
 core = 7.x
 package = Views
-version = 7.x-1.2
+version = 7.x-1.21
 project = bf_cause_listing
 dependencies[] = views
 dependencies[] = views_infinite_scroll

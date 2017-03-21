@@ -69,6 +69,23 @@ function bf_cause_listing_views_default_views() {
   $handler->display->display_options['relationships']['field_term_icon_fid']['field'] = 'field_term_icon_fid';
   $handler->display->display_options['relationships']['field_term_icon_fid']['relationship'] = 'field_research_area_tid';
   $handler->display->display_options['relationships']['field_term_icon_fid']['required'] = TRUE;
+  /* Relationship: Content: University or Institution (field_university_or_institution) */
+  $handler->display->display_options['relationships']['field_university_or_institution_tid']['id'] = 'field_university_or_institution_tid';
+  $handler->display->display_options['relationships']['field_university_or_institution_tid']['table'] = 'field_data_field_university_or_institution';
+  $handler->display->display_options['relationships']['field_university_or_institution_tid']['field'] = 'field_university_or_institution_tid';
+  /* Field: Field: Logo */
+  $handler->display->display_options['fields']['field_logo']['id'] = 'field_logo';
+  $handler->display->display_options['fields']['field_logo']['table'] = 'field_data_field_logo';
+  $handler->display->display_options['fields']['field_logo']['field'] = 'field_logo';
+  $handler->display->display_options['fields']['field_logo']['relationship'] = 'field_university_or_institution_tid';
+  $handler->display->display_options['fields']['field_logo']['label'] = '';
+  $handler->display->display_options['fields']['field_logo']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_logo']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_logo']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_logo']['settings'] = array(
+    'image_style' => 'cause_listing_-_researcher_photo',
+    'image_link' => '',
+  );
   /* Field: Content: Path */
   $handler->display->display_options['fields']['path']['id'] = 'path';
   $handler->display->display_options['fields']['path']['table'] = 'node';
@@ -146,7 +163,8 @@ function bf_cause_listing_views_default_views() {
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['label'] = '';
-  $handler->display->display_options['fields']['nothing']['alter']['text'] = '<a href="[path]" class="content-link">Link</a>
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class="affiliation-logo">[field_logo]</div>
+<a href="[path]" class="content-link">Link</a>
 <h2 class="teaser-title">[title]</h2>
 <img class="cause-image-white" src="[uri_1]" />
 <div class="lifestyle">[field_jumbotron_image]</div>
