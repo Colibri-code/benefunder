@@ -87,6 +87,10 @@
       font-size : 14px;
       line-height : 14px;
     }
+    .pdf_position_text p {
+      -webkit-margin-after: 0em;
+      -webkit-margin-before: 0.5em;
+    }
     .pdf_body {
       padding: 20px 0;
     }
