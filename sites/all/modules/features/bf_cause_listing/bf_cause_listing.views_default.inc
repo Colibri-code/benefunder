@@ -163,8 +163,7 @@ function bf_cause_listing_views_default_views() {
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['label'] = '';
-  $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class="affiliation-logo">[field_logo]</div>
-<a href="[path]" class="content-link">Link</a>
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = '<a href="[path]" class="content-link">Link</a>
 <h2 class="teaser-title">[title]</h2>
 <img class="cause-image-white" src="[uri_1]" />
 <div class="lifestyle">[field_jumbotron_image]</div>
