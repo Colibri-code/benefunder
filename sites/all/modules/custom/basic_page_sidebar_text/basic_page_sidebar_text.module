@@ -37,8 +37,19 @@ function basic_page_sidebar_text_contents($which_block) {
       $arg1 = arg(1);
 
       if ((arg(0) == 'node') && !empty($arg1)) {
+        global $user;
+
         $wrapper = entity_metadata_wrapper('node', $arg1);
         $field_sidebar_text = $wrapper->field_sidebar_text->value();
+
+        // TODO: remove this.
+        watchdog('sidebar text', 'Sidebar display for NID %nid, UID %uid (%roles): !text', array(
+          '%nid' => $arg1,
+          '%uid' => $user->uid,
+          '%roles' => implode(',', $user->roles),
+          '!text' => '<pre>' . htmlspecialchars($field_sidebar_text['value']) . '</pre>,'
+        ), WATCHDOG_INFO);
+
         if (!empty($field_sidebar_text)) {
           return $field_sidebar_text['value'];
         }
