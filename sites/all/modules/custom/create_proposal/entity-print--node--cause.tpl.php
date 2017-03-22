@@ -61,6 +61,7 @@
       float: left;
       text-align: left;
       margin-right: 20px;
+      height: 100%;
     }
     .pdf_picture {
       margin-left: 5px;
