@@ -8,7 +8,7 @@
  * Implements hook_field_group_info().
  */
 function bf_basic_page_field_group_info() {
-  $export = array();
+  $field_groups = array();
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -39,7 +39,7 @@ function bf_basic_page_field_group_info() {
       'formatter' => 'closed',
     ),
   );
-  $export['group_body_text|node|page|form'] = $field_group;
+  $field_groups['group_body_text|node|page|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -70,7 +70,7 @@ function bf_basic_page_field_group_info() {
       ),
     ),
   );
-  $export['group_jumbotron|node|page|form'] = $field_group;
+  $field_groups['group_jumbotron|node|page|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -98,7 +98,7 @@ function bf_basic_page_field_group_info() {
       ),
     ),
   );
-  $export['group_page_tabs|node|page|form'] = $field_group;
+  $field_groups['group_page_tabs|node|page|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -126,7 +126,7 @@ function bf_basic_page_field_group_info() {
       ),
     ),
   );
-  $export['group_seo|node|page|form'] = $field_group;
+  $field_groups['group_seo|node|page|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -141,7 +141,6 @@ function bf_basic_page_field_group_info() {
     'label' => 'Sidebar',
     'weight' => '4',
     'children' => array(
-      0 => 'field_sidebar_text',
       1 => 'field_show_request_information_f',
     ),
     'format_type' => 'tab',
@@ -154,7 +153,15 @@ function bf_basic_page_field_group_info() {
       ),
     ),
   );
-  $export['group_sidebar|node|page|form'] = $field_group;
+  $field_groups['group_sidebar|node|page|form'] = $field_group;
 
-  return $export;
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('Body Text');
+  t('Jumbotron');
+  t('SEO');
+  t('Sidebar');
+  t('Tabs');
+
+  return $field_groups;
 }

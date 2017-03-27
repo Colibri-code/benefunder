@@ -10,7 +10,8 @@
 function bf_basic_page_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'field_collection_item-field_50_50_image_text_alternati-field_50_50_image'
+  // Exported field_instance:
+  // 'field_collection_item-field_50_50_image_text_alternati-field_50_50_image'.
   $field_instances['field_collection_item-field_50_50_image_text_alternati-field_50_50_image'] = array(
     'bundle' => 'field_50_50_image_text_alternati',
     'deleted' => 0,
@@ -66,7 +67,8 @@ function bf_basic_page_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'field_collection_item-field_50_50_image_text_alternati-field_50_50_text'
+  // Exported field_instance:
+  // 'field_collection_item-field_50_50_image_text_alternati-field_50_50_text'.
   $field_instances['field_collection_item-field_50_50_image_text_alternati-field_50_50_text'] = array(
     'bundle' => 'field_50_50_image_text_alternati',
     'default_value' => NULL,
@@ -100,7 +102,7 @@ function bf_basic_page_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-page-body'
+  // Exported field_instance: 'node-page-body'.
   $field_instances['node-page-body'] = array(
     'bundle' => 'page',
     'default_value' => NULL,
@@ -150,7 +152,7 @@ function bf_basic_page_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-page-field_50_50_image_text_alternati'
+  // Exported field_instance: 'node-page-field_50_50_image_text_alternati'.
   $field_instances['node-page-field_50_50_image_text_alternati'] = array(
     'bundle' => 'page',
     'default_value' => NULL,
@@ -204,7 +206,7 @@ Text | Image<br /></p>',
     ),
   );
 
-  // Exported field_instance: 'node-page-field_bottom_text'
+  // Exported field_instance: 'node-page-field_bottom_text'.
   $field_instances['node-page-field_bottom_text'] = array(
     'bundle' => 'page',
     'default_value' => NULL,
@@ -251,7 +253,7 @@ Text | Image<br /></p>',
     ),
   );
 
-  // Exported field_instance: 'node-page-field_jumbotron_fields'
+  // Exported field_instance: 'node-page-field_jumbotron_fields'.
   $field_instances['node-page-field_jumbotron_fields'] = array(
     'bundle' => 'page',
     'default_value' => NULL,
@@ -296,7 +298,7 @@ Text | Image<br /></p>',
     ),
   );
 
-  // Exported field_instance: 'node-page-field_jumbotron_link'
+  // Exported field_instance: 'node-page-field_jumbotron_link'.
   $field_instances['node-page-field_jumbotron_link'] = array(
     'bundle' => 'page',
     'default_value' => NULL,
@@ -359,7 +361,7 @@ Text | Image<br /></p>',
     ),
   );
 
-  // Exported field_instance: 'node-page-field_jumbotron_teaser'
+  // Exported field_instance: 'node-page-field_jumbotron_teaser'.
   $field_instances['node-page-field_jumbotron_teaser'] = array(
     'bundle' => 'page',
     'default_value' => NULL,
@@ -405,7 +407,7 @@ Text | Image<br /></p>',
     ),
   );
 
-  // Exported field_instance: 'node-page-field_page_hero'
+  // Exported field_instance: 'node-page-field_page_hero'.
   $field_instances['node-page-field_page_hero'] = array(
     'bundle' => 'page',
     'deleted' => 0,
@@ -473,7 +475,7 @@ Text | Image<br /></p>',
     ),
   );
 
-  // Exported field_instance: 'node-page-field_show_request_information_f'
+  // Exported field_instance: 'node-page-field_show_request_information_f'.
   $field_instances['node-page-field_show_request_information_f'] = array(
     'bundle' => 'page',
     'default_value' => array(
@@ -523,68 +525,7 @@ Text | Image<br /></p>',
     ),
   );
 
-  // Exported field_instance: 'node-page-field_sidebar_text'
-  $field_instances['node-page-field_sidebar_text'] = array(
-    'bundle' => 'page',
-    'default_value' => array(
-      0 => array(
-        'value' => '<h4>Benefunder Location</h4>
-
-<p>3580 Carmel Mountain Road,<br />
-Suite 300<br />
-San Diego, California 92123</p>
-
-<h4>Call Us</h4>
-
-<p>(858) 215-1136</p>
-',
-        'format' => 'full_html',
-      ),
-    ),
-    'deleted' => 0,
-    'description' => 'Enter text that you would like to appear in the right sidebar.',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'text',
-        'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 8,
-      ),
-      'full' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 4,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'ds_extras_field_template' => '',
-    'entity_type' => 'node',
-    'field_name' => 'field_sidebar_text',
-    'label' => 'Sidebar Text',
-    'required' => 0,
-    'settings' => array(
-      'text_processing' => 1,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'text',
-      'settings' => array(
-        'rows' => 5,
-      ),
-      'type' => 'text_textarea',
-      'weight' => 9,
-    ),
-  );
-
-  // Exported field_instance: 'node-page-field_subtitle'
+  // Exported field_instance: 'node-page-field_subtitle'.
   $field_instances['node-page-field_subtitle'] = array(
     'bundle' => 'page',
     'default_value' => NULL,
@@ -631,7 +572,7 @@ San Diego, California 92123</p>
     ),
   );
 
-  // Exported field_instance: 'node-page-meta_description'
+  // Exported field_instance: 'node-page-meta_description'.
   $field_instances['node-page-meta_description'] = array(
     'bundle' => 'page',
     'default_value' => NULL,
@@ -675,7 +616,7 @@ San Diego, California 92123</p>
     ),
   );
 
-  // Exported field_instance: 'node-page-meta_keywords'
+  // Exported field_instance: 'node-page-meta_keywords'.
   $field_instances['node-page-meta_keywords'] = array(
     'bundle' => 'page',
     'default_value' => NULL,
@@ -736,7 +677,6 @@ Text | Image<br /></p>');
   t('Check this box if you want the "Request Information" form to appear in the right sidebar.');
   t('Enter a description. Limit your description to about 20 words, with a maximum of 255 characters. It should not contain any HTML tags or other formatting.');
   t('Enter a short abstract. Typically it is one sentence.');
-  t('Enter text that you would like to appear in the right sidebar.');
   t('Ideally the image should be at least 1400 pixels wide.  Also keep in mind that the top and bottom of the image will be cut off at some resolutions.');
   t('Ideally this image should be at least 700 pixels wide.');
   t('Image');
@@ -745,7 +685,6 @@ Text | Image<br /></p>');
   t('Jumbotron Link');
   t('Jumbotron Teaser');
   t('Show Request Information form');
-  t('Sidebar Text');
   t('Subtitle');
   t('Text');
   t('The subtitle appears above the body text and is underlined in green.');
