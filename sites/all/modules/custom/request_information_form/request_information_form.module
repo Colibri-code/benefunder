@@ -2,12 +2,12 @@
 
 /**
  * Implements hook_block_info().
- *
- * This hook declares what blocks are provided by the module.
  */
 function request_information_form_block_info() {
   $blocks['request_information_form'] = array(
     'info' => t('Request Information Form'),
+    // Cache per page, since this changes based on a page field value.
+    'cache' => DRUPAL_CACHE_PER_PAGE,
   );
 
   return $blocks;
@@ -15,11 +15,8 @@ function request_information_form_block_info() {
 
 /**
  * Implements hook_block_view().
- *
- * This hook generates the contents of the blocks themselves.
  */
 function request_information_form_block_view($delta = '') {
-  // The $delta parameter tells us which block is being requested.
   switch ($delta) {
     case 'request_information_form':
       $block['subject'] = t('Request Information');
