@@ -2,14 +2,12 @@
 
 /**
  * Implements hook_block_info().
- *
- * This hook declares what blocks are provided by the module.
  */
 function basic_page_sidebar_text_block_info() {
   $blocks['basic_page_sidebar_text'] = array(
     'info' => t('Basic Page Sidebar Text'),
-    // Cache per page, this block is used by many pages.
-    'cache' => DRUPAL_CACHE_PER_PAGE,
+    // This block never changes anymore.
+    'cache' => DRUPAL_CACHE_GLOBAL,
   );
 
   return $blocks;
@@ -17,44 +15,18 @@ function basic_page_sidebar_text_block_info() {
 
 /**
  * Implements hook_block_view().
- *
- * This hook generates the contents of the blocks themselves.
  */
 function basic_page_sidebar_text_block_view($delta = '') {
-  // The $delta parameter tells us which block is being requested.
   switch ($delta) {
     case 'basic_page_sidebar_text':
-      $block['content'] = basic_page_sidebar_text_contents($delta);
+      $block['content'] = '<h4>San Diego Location</h4>
+<p><span style="font-size:14px">Benefunder<br />
+4790 Eastgate Mall, Suite 125<br />
+San Diego, CA 92121</span><br />
+<br />
+(858) 215-1136<br />
+</p>';
       break;
   }
   return $block;
-}
-
-/**
- * A module-defined block content function.
- */
-function basic_page_sidebar_text_contents($which_block) {
-  switch ($which_block) {
-    case 'basic_page_sidebar_text':
-      $arg1 = arg(1);
-
-      if ((arg(0) == 'node') && !empty($arg1)) {
-        global $user;
-
-        $wrapper = entity_metadata_wrapper('node', $arg1);
-        $field_sidebar_text = $wrapper->field_sidebar_text->value();
-
-        // TODO: remove this.
-        watchdog('sidebar text', 'Sidebar display for NID %nid, UID %uid (%roles): !text', array(
-          '%nid' => $arg1,
-          '%uid' => $user->uid,
-          '%roles' => implode(',', $user->roles),
-          '!text' => '<pre>' . htmlspecialchars($field_sidebar_text['value']) . '</pre>,'
-        ), WATCHDOG_INFO);
-
-        if (!empty($field_sidebar_text)) {
-          return $field_sidebar_text['value'];
-        }
-      }
-  }
 }
