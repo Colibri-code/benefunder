@@ -246,3 +246,17 @@ function sitemod_preprocess_search_result(&$variables) {
   }
 }
 
+/**
+ * Implements hook_page_build().
+ *
+ * Injects the HubSpot JavaScript tracking code into the page footer, just
+ * before </body>. Taken from HubSpot module, http://cgit.drupalcode.org/hubspot/tree/hubspot.module?h=7.x-3.x
+ */
+function sitemod_page_build(&$page) {
+  $page['page_bottom']['hubspot_code'] = array(
+    '#type' => 'markup',
+    '#markup' => variable_get('hubspot_log_code', '<!-- Start of HubSpot Embed Code -->
+      <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/3065600.js"></script>
+      <!-- End of HubSpot Embed Code -->'),
+  );
+}
