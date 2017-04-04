@@ -103,7 +103,7 @@ function bf_fa_dashboard_default_page_manager_handlers() {
     'admin_title' => 'FA Dash Video 1',
     'title' => '<none>',
     'title_heading' => 'h2',
-    'body' => '<div class="video_wrapper"><iframe src="https://player.vimeo.com/video/114405202" width="400" height="225" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div>',
+    'body' => '<div class="video_wrapper"><iframe src="https://player.vimeo.com/video/114405202" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div>',
     'format' => 'full_html',
     'substitute' => 0,
   );
@@ -123,7 +123,7 @@ function bf_fa_dashboard_default_page_manager_handlers() {
   $pane->panel = 'middle';
   $pane->type = 'block';
   $pane->subtype = 'views-my_clients-block';
-  $pane->shown = TRUE;
+  $pane->shown = FALSE;
   $pane->access = array();
   $pane->configuration = array(
     'override_title' => 0,
@@ -166,12 +166,21 @@ function bf_fa_dashboard_default_page_manager_handlers() {
 </div>
 
 <div class="fa-links">
-<div class="fa fa-heart">&nbsp;<a href="/request-a-cause">Request a Cause</a></div>
+<div class="fa fa-plus-circle">&nbsp;<a href="/request-a-cause">Request a Cause</a></div>
 </div>
 
 <div class="fa-links">
 <div class="fa fa-phone">&nbsp;<a href="https://benefunder-service.atlassian.net/servicedesk/customer/portal/1">Help Desk/Tutorials</a></div>
 </div>
+</div>
+
+<div class="fa-solo-button"><a href="/node/add/giving-proposal?destination=user" class="btn btn-purple">Add a Client Profile</a></div>
+
+<div class="fa-dashboard-links">
+<div class="fa-links fa-box"><div class="fa fa-lightbulb-o fa-lg">&nbsp;</div><div class="fa-black"><a href="">See Assessments</a></div></div>
+<div class="fa-links fa-box"><div class="fa fa-usd fa-lg">&nbsp;</div><div class="fa-black"><a href="">See Proposals</a></div></div>
+<div class="fa-links fa-box"><div class="fa fa-usd fa-lg">&nbsp;</div><div class="fa-black"><a href="">See Giving Plans</a></div></div>
+<div class="fa-links fa-box"><div class="fa fa-heart-o fa-lg">&nbsp;</div><div class="fa-black"><a href="">My Favorites</a></div></div>
 </div>
 ',
     'format' => 'full_html',
@@ -239,7 +248,7 @@ function bf_fa_dashboard_default_page_manager_handlers() {
     'admin_title' => 'FA Dash Video 2',
     'title' => '<none>',
     'title_heading' => 'h2',
-    'body' => '<iframe width="400" height="225" src="https://www.youtube.com/embed/WPuo5Gg-yZY" frameborder="0" allowfullscreen></iframe>',
+    'body' => '<iframe width="500" height="281" src="https://www.youtube.com/embed/WPuo5Gg-yZY" frameborder="0" allowfullscreen></iframe>',
     'format' => 'full_html',
     'substitute' => 0,
   );
