@@ -4288,6 +4288,7 @@ div.user-picture img {
 }
 .video_wrapper {
   text-align: center;
+  margin-bottom: 50px;
 }
 /* Giving Proposal */
 form#giving-proposal-node-form {
