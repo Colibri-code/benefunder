@@ -206,18 +206,38 @@ function bf_fa_dashboard_default_page_manager_handlers() {
   $pane->access = array();
   $pane->configuration = array(
     'admin_title' => 'FA Dash Sample Proposals',
-    'title' => 'Quick Sample Proposals',
+    'title' => '<none>',
     'title_heading' => 'h2',
-    'body' => '<div class="col-sm-6">
-<p>Use these sample proposals to get a philanthropy conversation started with your clients. Download the brochure and talking points here. Need more help? Contact us for more.</p>
-</div>
+    'body' => '<div class="fa-dashboard-products">
+<div class="fa-see-products-box"><div class="fa fa-bookmark fa-2x">&nbsp;</div><div class="fa-white">See Products</div></div>
 
-<div class="col-sm-6">
-<div class="col-sm-4"><h2><a href="https://issuu.com/benefunder/docs/the_john_legacy_fund?e=18358491/14519161"><img alt="John Legacy Giving Plan" src="/sites/all/themes/custom/benefunder/media/images/John_Legacy_Giving_Plan.png" /></a></h2></div>
+<p class="proposal-text">Use these sample proposals to jumpstart a philanthropy conversation with your clients.
+Download the brochure with talking points. Need more support?
+Visit the Help Desk or contact us.</p>
 
-<div class="col-sm-4"><h2><a href="https://issuu.com/benefunder/docs/the_clean_energy_fund?e=18358491/14175431"><img alt="Clean Energy" src="/sites/all/themes/custom/benefunder/media/images/Issuu_Clean_Energy_Impact_Fund.png" /></a></h2></div>
+<hr style="clear: both; visibility: hidden; margin: 40px;"/>
 
-<div class="col-sm-4"><h2><a href="https://issuu.com/benefunder/docs/veteran_impact_fund_bf?e=18358491/14519161"><img alt="Veterans Impact Fund" src="/sites/all/themes/custom/benefunder/media/images/Veteran_Impact_Fund.png" /></a></h2></div>
+<div class="col-sm-4">
+    <h4>Mission Impact Funds</h4>
+    <div class="details">No minimum required<br/>Style: Mutual Fund</div>
+    <p>Sed elementum eget nec sodales. Nam feugiat mauris aliquet neque posuere, ornare ullamcorper erat mattis. Cras malesuada, est in tincidunt congue, lacus mauris euismod ex, sit amet congue ante leo quis lectus. Praesent scelerisque</p>
+    <p><a href="https://issuu.com/benefunder/docs/the_clean_energy_fund?e=18358491/14175431"><img alt="Clean Energy" src="/sites/all/themes/custom/benefunder/media/images/Issuu_Clean_Energy_Impact_Fund.png" /></a></p>
+    <p><a href="https://issuu.com/benefunder/docs/veteran_impact_fund_bf?e=18358491/14519161"><img alt="Veterans Impact Fund" src="/sites/all/themes/custom/benefunder/media/images/Veteran_Impact_Fund.png" /></a></p>
+    </div>
+
+<div class="col-sm-4">
+    <h4>Charitable Impact Funds</h4>
+    <div class="details">$250k Annual Distribution<br/>Style: Self-directed</div>
+    <p>Nam feugiat mauris aliquet neque posuere, ornare ullamcorper erat mattis. Cras malesuada, est in tincidunt congue, lacus mauris euismod ex, sit amet congue ante leo quis lectus. Praesent scelerisque elementum bibendum. Fusce finibus malesuada nunc, id consequat</p>
+    <p><a href="https://issuu.com/benefunder/docs/the_john_legacy_fund?e=18358491/14519161"><img alt="John Legacy Giving Plan" src="/sites/all/themes/custom/benefunder/media/images/John_Legacy_Giving_Plan.png" /></a></p>
+    </div>
+
+<div class="col-sm-4">
+    <h4>Patron Impact Funds</h4>
+    <div class="details">$2.5M Annual Distribution<br/>Style: Fully-supported, concierge services</div>
+    <p>Sed elementum eget eros nec sodales. Nam feugiat mauris aliquet neque posuere, ornare ullamcorper erat mattis. Cras malesuada, est in tincidunt congue, lacus mauris euismod ex, sit amet congue ante leo quis lectus. Praesent malesuada nunc, id consequat</p>
+    <p><a href="https://issuu.com/benefunder/docs/private_philanthropy_services_pre-p?e=18358491/14519161"><img alt="Sarah and Evan Schuman Longevity Fund" src="/sites/all/themes/custom/benefunder/media/images/Schuman_Longevity_Fund.png" /></a></p>
+    </div>
 </div>
 ',
     'format' => 'full_html',
@@ -229,7 +249,7 @@ function bf_fa_dashboard_default_page_manager_handlers() {
   );
   $pane->css = array(
     'css_id' => '',
-    'css_class' => 'row sample_proposals',
+    'css_class' => 'row',
   );
   $pane->extras = array();
   $pane->position = 2;
