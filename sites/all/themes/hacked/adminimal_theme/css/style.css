@@ -4266,6 +4266,13 @@ div.user-picture img {
   font-weight: bold;
 }
 
+.fa-solo-button .tooltip {
+  position: relative;
+  top: -36px;
+  margin-left: 10px;
+  color: #A9C3C6;
+}
+
 .fa-see-products-box {
   min-width: 223px;
   min-height: 133px;
