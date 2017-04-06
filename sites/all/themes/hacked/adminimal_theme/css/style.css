@@ -4311,6 +4311,8 @@ div.user-picture img {
 
 .fa-dashboard-products img {
   max-width: 157px;
+  float: left;
+  margin-right: 25px;
 }
 
 .fa-links {
