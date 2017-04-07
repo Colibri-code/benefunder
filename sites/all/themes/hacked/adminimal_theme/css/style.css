@@ -4327,6 +4327,14 @@ div.user-picture img {
 .sample_proposals img {
   max-width: 100%;
 }
+
+.group-proposal-tabs fieldset.vertical-tabs-pane {
+  border-right-width: 0px;
+  border-left-width: 0px;
+  border-bottom-width: 0px;
+  margin: 25px;
+}
+
 /* Vimeo Videos styles */
 .videoWrapper {
   position: relative;
