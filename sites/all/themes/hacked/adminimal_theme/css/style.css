@@ -4129,12 +4129,11 @@ body.front .navbar-collapse {
 .btn-black:hover {
   color: #ddd;
 }
-.btn-purple, input#edit-ervw-submit, input#edit-cc-extra-button,
-input#edit-field-inspiration-und-add-more, input#edit-field-cause-und-0-field-cause-name-und-add-more {
-  background: purple;
+.btn-purple, input#edit-ervw-submit, input#edit-cc-extra-button {
+  background: purple !important;
   display: inline-block;
   margin-left: 10px;
-  color: #fff;
+  color: #fff !important;
   vertical-align: text-bottom;
   margin-bottom: 10px;
   font-size: 16px;
