@@ -20,7 +20,7 @@ function bf_giving_proposal_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = 'group_proposal_tabs';
   $field_group->data = array(
-    'label' => 'Benefunder Check',
+    'label' => 'Notes/Feedback',
     'weight' => '40',
     'children' => array(
       0 => 'field_analyst_feedback_1',
@@ -107,7 +107,7 @@ function bf_giving_proposal_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = 'group_proposal_tabs';
   $field_group->data = array(
-    'label' => 'Giving Profile',
+    'label' => 'Client Giving History',
     'weight' => '37',
     'children' => array(
       0 => 'field_giving_targets',
@@ -168,7 +168,7 @@ function bf_giving_proposal_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = 'group_proposal_tabs';
   $field_group->data = array(
-    'label' => 'Philanthropic Profile',
+    'label' => 'Client Profile',
     'weight' => '36',
     'children' => array(
       0 => 'field_donor_profile',
