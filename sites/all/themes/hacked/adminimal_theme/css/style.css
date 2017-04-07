@@ -4335,6 +4335,10 @@ div.user-picture img {
   margin: 25px;
 }
 
+.field-widget-entityreference-view-widget table.field-multiple-table th {
+  display: none;
+}
+
 /* Vimeo Videos styles */
 .videoWrapper {
   position: relative;

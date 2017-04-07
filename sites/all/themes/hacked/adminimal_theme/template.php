@@ -74,8 +74,7 @@ function adminimal_entityreference_view_widget_widget($variables) {
   }
 
   // Customization begins here.
-  if ($widget['#field_name'] == 'field_cause_name' || $widget['#field_name'] == 'field_inspiration') {
-    $header = NULL;
+  if ($widget['#field_name'] == 'field_cause_name') {
     $widget['add_more']['#value'] = t('Select Cause');
     $widget['add_more']['#attributes'] = array('class' => array('btn btn-purple'));
   }
