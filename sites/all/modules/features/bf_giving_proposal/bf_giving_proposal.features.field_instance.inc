@@ -16,10 +16,10 @@ function bf_giving_proposal_field_default_field_instances() {
     'bundle' => 'field_cause',
     'default_value' => array(
       0 => array(
-        'value' => 1,
+        'value' => 25,
         'container' => array(
-          'max_value' => 100,
-          'min_value' => 1,
+          'max_value' => 250,
+          'min_value' => 25,
         ),
       ),
     ),
@@ -45,10 +45,10 @@ function bf_giving_proposal_field_default_field_instances() {
     'label' => 'Allocation',
     'required' => 0,
     'settings' => array(
-      'max' => 100,
-      'min' => 1,
-      'prefix' => '',
-      'suffix' => '%',
+      'max' => 250,
+      'min' => 25,
+      'prefix' => '$',
+      'suffix' => '',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -62,11 +62,12 @@ function bf_giving_proposal_field_default_field_instances() {
           'display_bubble' => 0,
           'display_bubble_format' => '%{value}%',
           'display_ignore_button' => 0,
-          'display_values' => 0,
-          'display_values_format' => '%{value}%',
-          'group' => 'allocations',
-          'group_type' => 'total',
-          'hide_inputs' => 0,
+          'display_values' => 1,
+          'display_values_format' => '$%{value}%K',
+          'group' => '',
+          'group_master' => 0,
+          'group_type' => '',
+          'hide_inputs' => 1,
           'hide_slider_handle_when_no_value' => 0,
           'multi_value' => 0,
           'no_value_first_select_slider_effect' => 1,
@@ -748,7 +749,7 @@ function bf_giving_proposal_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 36,
+      'weight' => 37,
     ),
   );
 
@@ -792,10 +793,47 @@ function bf_giving_proposal_field_default_field_instances() {
       'module' => 'field_collection_table',
       'settings' => array(
         'nodragging' => 1,
-        'title_on_top' => TRUE,
+        'title_on_top' => 0,
       ),
       'type' => 'field_collection_table',
-      'weight' => 10,
+      'weight' => 69,
+    ),
+  );
+
+  // Exported field_instance: 'node-giving_proposal-field_cause_markup'.
+  $field_instances['node-giving_proposal-field_cause_markup'] = array(
+    'bundle' => 'giving_proposal',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'markup',
+        'settings' => array(),
+        'type' => 'markup_default',
+        'weight' => 60,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'ds_extras_field_template' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_cause_markup',
+    'label' => 'Cause Markup',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'markup',
+      'settings' => array(),
+      'type' => 'markup',
+      'weight' => 68,
     ),
   );
 
@@ -1003,7 +1041,7 @@ function bf_giving_proposal_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_buttons',
-      'weight' => 12,
+      'weight' => 13,
     ),
   );
 
@@ -1048,7 +1086,7 @@ function bf_giving_proposal_field_default_field_instances() {
         'display_label' => 1,
       ),
       'type' => 'options_onoff',
-      'weight' => 62,
+      'weight' => 76,
     ),
   );
 
@@ -1210,44 +1248,7 @@ function bf_giving_proposal_field_default_field_instances() {
         'size' => 20,
       ),
       'type' => 'text_textfield',
-      'weight' => 63,
-    ),
-  );
-
-  // Exported field_instance: 'node-giving_proposal-field_distribution'.
-  $field_instances['node-giving_proposal-field_distribution'] = array(
-    'bundle' => 'giving_proposal',
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'markup',
-        'settings' => array(),
-        'type' => 'markup_default',
-        'weight' => 45,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'ds_extras_field_template' => '',
-    'entity_type' => 'node',
-    'field_name' => 'field_distribution',
-    'label' => 'Distribution',
-    'required' => 0,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 0,
-      'module' => 'markup',
-      'settings' => array(),
-      'type' => 'markup',
-      'weight' => 8,
+      'weight' => 77,
     ),
   );
 
@@ -1483,54 +1484,7 @@ function bf_giving_proposal_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_buttons',
-      'weight' => 13,
-    ),
-  );
-
-  // Exported field_instance: 'node-giving_proposal-field_inspiration'.
-  $field_instances['node-giving_proposal-field_inspiration'] = array(
-    'bundle' => 'giving_proposal',
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'entityreference',
-        'settings' => array(
-          'link' => FALSE,
-        ),
-        'type' => 'entityreference_label',
-        'weight' => 21,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'ds_extras_field_template' => '',
-    'entity_type' => 'node',
-    'field_name' => 'field_inspiration',
-    'label' => 'Inspiration',
-    'required' => 0,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'entityreference_view_widget',
-      'settings' => array(
-        'allow_duplicates' => 0,
-        'close_modal' => 1,
-        'pass_argument' => 1,
-        'pass_arguments' => '',
-        'rendered_entity' => 0,
-        'view' => 'inspiration_chooser|entityreference_view_widget_1',
-        'view_mode' => 'full',
-      ),
-      'type' => 'entityreference_view_widget',
-      'weight' => 31,
+      'weight' => 14,
     ),
   );
 
@@ -1615,7 +1569,7 @@ function bf_giving_proposal_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 15,
+      'weight' => 16,
     ),
   );
 
@@ -1663,7 +1617,7 @@ function bf_giving_proposal_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 14,
+      'weight' => 15,
     ),
   );
 
@@ -1826,7 +1780,7 @@ function bf_giving_proposal_field_default_field_instances() {
         'display_label' => 1,
       ),
       'type' => 'options_onoff',
-      'weight' => 59,
+      'weight' => 73,
     ),
   );
 
@@ -1867,7 +1821,7 @@ function bf_giving_proposal_field_default_field_instances() {
         'size' => 25,
       ),
       'type' => 'text_textfield',
-      'weight' => 61,
+      'weight' => 75,
     ),
   );
 
@@ -1914,7 +1868,7 @@ function bf_giving_proposal_field_default_field_instances() {
         'title_on_top' => 1,
       ),
       'type' => 'field_collection_table',
-      'weight' => 60,
+      'weight' => 74,
     ),
   );
 
@@ -1955,7 +1909,7 @@ function bf_giving_proposal_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 11,
+      'weight' => 12,
     ),
   );
 
@@ -2002,7 +1956,7 @@ function bf_giving_proposal_field_default_field_instances() {
         'other_unknown_defaults' => 'other',
       ),
       'type' => 'select_or_other_buttons',
-      'weight' => 10,
+      'weight' => 11,
     ),
   );
 
@@ -2086,7 +2040,7 @@ function bf_giving_proposal_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 16,
+      'weight' => 17,
     ),
   );
 
@@ -2139,6 +2093,7 @@ function bf_giving_proposal_field_default_field_instances() {
   t('Allocation');
   t('Already Have DAF');
   t('Cause');
+  t('Cause Markup');
   t('City & State');
   t('Client Feedback');
   t('Client approves of this proposal');
@@ -2147,7 +2102,6 @@ function bf_giving_proposal_field_default_field_instances() {
   t('DAF Provider');
   t('Disbursement Frequency');
   t('Disbursement Tracking Number');
-  t('Distribution');
   t('Donor Profiles');
   t('Email');
   t('Execution Markup');
@@ -2160,7 +2114,6 @@ function bf_giving_proposal_field_default_field_instances() {
   t('Illiquid assets include private equity, real estate, and alternative assets.');
   t('In addition to funding, how many hours would you like to spend volunteering?');
   t('In addition to your gift, would you like to volunteer or get involved?');
-  t('Inspiration');
   t('Intro Text');
   t('Is there a currently a giving vehicle in place?');
   t('Is this proposal ready to go out to Benefunder and HelloSign? Check this box and click the "Save" button, and Benefunder will take care of the rest!');

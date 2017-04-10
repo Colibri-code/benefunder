@@ -20,15 +20,15 @@ function bf_giving_proposal_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = 'group_proposal_tabs';
   $field_group->data = array(
-    'label' => 'Notes/Feedback',
-    'weight' => '40',
+    'label' => 'Proposal Review & Approval',
+    'weight' => '42',
     'children' => array(
       0 => 'field_analyst_feedback_1',
       1 => 'field_client_feedback_1',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
-      'label' => 'Benefunder Check',
+      'label' => 'Proposal Review & Approval',
       'instance_settings' => array(
         'required_fields' => 1,
         'classes' => 'group-check-1 field-group-tab',
@@ -49,16 +49,16 @@ function bf_giving_proposal_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = 'group_proposal_tabs';
   $field_group->data = array(
-    'label' => 'Proposal Review & Approval',
-    'weight' => '43',
+    'label' => 'Ready for Benefunder',
+    'weight' => '40',
     'children' => array(
       0 => 'field_analyst_feedback',
-      1 => 'field_client_approval',
-      2 => 'field_client_feedback',
+      1 => 'field_client_feedback',
+      2 => 'field_client_approval',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
-      'label' => 'Proposal Review & Approval',
+      'label' => 'Ready for Benefunder',
       'instance_settings' => array(
         'required_fields' => 1,
         'classes' => 'group-check-2 field-group-tab',
@@ -110,9 +110,9 @@ function bf_giving_proposal_field_group_info() {
     'label' => 'Client Giving History',
     'weight' => '37',
     'children' => array(
-      0 => 'field_giving_targets',
+      0 => 'field_what_did_the_client_like_d',
       1 => 'field_program_targets',
-      2 => 'field_what_did_the_client_like_d',
+      2 => 'field_giving_targets',
       3 => 'field_what_organizations_has_the',
     ),
     'format_type' => 'tab',
@@ -138,7 +138,7 @@ function bf_giving_proposal_field_group_info() {
   $field_group->parent_name = 'group_proposal_tabs';
   $field_group->data = array(
     'label' => 'DAF Account Setup / Verification',
-    'weight' => '46',
+    'weight' => '45',
     'children' => array(
       0 => 'field_already_have_daf',
       1 => 'field_daf_forms',
@@ -196,7 +196,7 @@ function bf_giving_proposal_field_group_info() {
   $field_group->parent_name = 'group_proposal_tabs';
   $field_group->data = array(
     'label' => 'Execution',
-    'weight' => '45',
+    'weight' => '43',
     'children' => array(
       0 => 'field_execution_markup',
     ),
@@ -223,15 +223,15 @@ function bf_giving_proposal_field_group_info() {
   $field_group->parent_name = 'group_proposal_tabs';
   $field_group->data = array(
     'label' => 'Account Details & Funding Information',
-    'weight' => '38',
+    'weight' => '44',
     'children' => array(
       0 => 'field_charitable_vehicle',
       1 => 'field_contribution_funding',
-      2 => 'field_how_does_the_client_plan_o',
-      3 => 'field_planned_annual_contributio',
-      4 => 'field_planned_initial_contributi',
-      5 => 'field_vehicle_name',
-      6 => 'field_vehicle_type',
+      2 => 'field_planned_annual_contributio',
+      3 => 'field_planned_initial_contributi',
+      4 => 'field_vehicle_name',
+      5 => 'field_vehicle_type',
+      6 => 'field_how_does_the_client_plan_o',
       7 => 'field_what_is_the_intended_distr',
     ),
     'format_type' => 'tab',
@@ -247,7 +247,7 @@ function bf_giving_proposal_field_group_info() {
   $field_groups['group_giving_plan|node|giving_proposal|form'] = $field_group;
 
   $field_group = new stdClass();
-  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->disabled = TRUE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
   $field_group->identifier = 'group_initial_distributions|node|giving_proposal|form';
   $field_group->group_name = 'group_initial_distributions';
@@ -426,14 +426,15 @@ function bf_giving_proposal_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = 'group_proposal_tabs';
   $field_group->data = array(
-    'label' => 'Causes Portfolio & Allocation',
-    'weight' => '42',
+    'label' => 'Causes & Allocations',
+    'weight' => '38',
     'children' => array(
       0 => 'field_cause',
+      1 => 'field_cause_markup',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
-      'label' => 'Causes Portfolio & Allocation',
+      'label' => 'Causes & Allocations',
       'instance_settings' => array(
         'required_fields' => 1,
         'classes' => 'group-proposal-matches field-group-tab',
@@ -484,16 +485,16 @@ function bf_giving_proposal_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = 'group_proposal_tabs';
   $field_group->data = array(
-    'label' => 'Final Proposal',
-    'weight' => '44',
+    'label' => 'Ready to Print',
+    'weight' => '39',
     'children' => array(
-      0 => 'field_additional_documents',
-      1 => 'field_giving_proposal',
+      0 => 'field_giving_proposal',
+      1 => 'field_additional_documents',
       2 => 'field_file_explanation',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
-      'label' => 'Final Proposal',
+      'label' => 'Ready to Print',
       'instance_settings' => array(
         'required_fields' => 1,
         'classes' => 'group-proposal-proposal field-group-tab',
@@ -524,13 +525,11 @@ function bf_giving_proposal_field_group_info() {
       4 => 'group_donor_profile',
       5 => 'group_execution',
       6 => 'group_giving_plan',
-      7 => 'group_initial_distributions',
-      8 => 'group_introduction',
-      9 => 'group_proposal_matches',
-      10 => 'group_proposal_proposal',
-      11 => 'group_proposal',
-      12 => 'group_send_signatures',
-      13 => 'group_videos',
+      7 => 'group_introduction',
+      8 => 'group_proposal_matches',
+      9 => 'group_proposal_proposal',
+      10 => 'group_proposal',
+      11 => 'group_send_signatures',
     ),
     'format_type' => 'tabs',
     'format_settings' => array(
@@ -581,10 +580,10 @@ function bf_giving_proposal_field_group_info() {
   $field_group->parent_name = 'group_proposal_tabs';
   $field_group->data = array(
     'label' => 'Send for Signatures',
-    'weight' => '49',
+    'weight' => '46',
     'children' => array(
-      0 => 'field_ready_to_send',
-      1 => 'field_signature_request_id',
+      0 => 'field_signature_request_id',
+      1 => 'field_ready_to_send',
       2 => 'field_daf_disbursement_confirmed',
       3 => 'field_disbursement_tracking_numb',
       4 => 'field_signer_emails',
@@ -602,7 +601,7 @@ function bf_giving_proposal_field_group_info() {
   $field_groups['group_send_signatures|node|giving_proposal|form'] = $field_group;
 
   $field_group = new stdClass();
-  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->disabled = TRUE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
   $field_group->identifier = 'group_videos|node|giving_proposal|form';
   $field_group->group_name = 'group_videos';
@@ -667,21 +666,22 @@ function bf_giving_proposal_field_group_info() {
   // Included for use with string extractors like potx.
   t('Account Details & Funding Information');
   t('Benefunder Addendum');
-  t('Benefunder Check');
   t('Benefunder Check 3');
-  t('Causes Portfolio & Allocation');
+  t('Causes & Allocations');
+  t('Client Giving History');
+  t('Client Profile');
   t('Client\'s Current Giving History');
   t('DAF Account Setup / Verification');
   t('Donor Information');
   t('Execution');
-  t('Final Proposal');
-  t('Giving Profile');
   t('Initial Distributions');
   t('Needs Assessment');
   t('Philanthropic Profile');
   t('Preliminary Cause Selection');
   t('Proposal');
   t('Proposal Review & Approval');
+  t('Ready for Benefunder');
+  t('Ready to Print');
   t('Research Interests');
   t('Routing Instructions');
   t('Send for Signatures');

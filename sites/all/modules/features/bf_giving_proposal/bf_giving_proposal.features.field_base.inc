@@ -188,6 +188,35 @@ function bf_giving_proposal_field_default_field_bases() {
     'type' => 'number_integer',
   );
 
+  // Exported field_base: 'field_cause_markup'.
+  $field_bases['field_cause_markup'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_cause_markup',
+    'indexes' => array(),
+    'locked' => 0,
+    'module' => 'markup',
+    'settings' => array(
+      'markup' => array(
+        'format' => 'full_html',
+        'value' => '<div class="intro-text">Before entering the Cause selection phase, you may wish to browse with our full-featured, faceted search.</div>
+
+<div class="full-search"><a class="btn btn-purple" href="/search/site" target="_blank">Full Search</a></div>
+
+<hr class="text-break" />
+<div class="total-allocation"><input class="text-full form-text" id="total-allocations" maxlength="255" name="total_allocations" size="30" type="text" /><label class="total-allocations-label" for="total-allocations">Total Allocations</label></div>
+
+<div class="cause-detail-text">Select a Cause, once selected that Cause will appear on the list below. You may select the level of giving and the box will show the total allocations selected.</div>
+',
+      ),
+      'profile2_private' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'markup',
+  );
+
   // Exported field_base: 'field_cause_name'.
   $field_bases['field_cause_name'] = array(
     'active' => 1,
@@ -493,28 +522,6 @@ function bf_giving_proposal_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_distribution'.
-  $field_bases['field_distribution'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_distribution',
-    'indexes' => array(),
-    'locked' => 0,
-    'module' => 'markup',
-    'settings' => array(
-      'markup' => array(
-        'format' => 'full_html',
-        'value' => '<p>BENEFUNDER Initial distributions go here.</p>
-',
-      ),
-      'profile2_private' => FALSE,
-    ),
-    'translatable' => 0,
-    'type' => 'markup',
-  );
-
   // Exported field_base: 'field_donor_name'.
   $field_bases['field_donor_name'] = array(
     'active' => 1,
@@ -725,42 +732,6 @@ function bf_giving_proposal_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_inspiration'.
-  $field_bases['field_inspiration'] = array(
-    'active' => 1,
-    'cardinality' => -1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_inspiration',
-    'indexes' => array(
-      'target_id' => array(
-        0 => 'target_id',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'entityreference',
-    'settings' => array(
-      'handler' => 'base',
-      'handler_settings' => array(
-        'behaviors' => array(
-          'views-select-list' => array(
-            'status' => 0,
-          ),
-        ),
-        'sort' => array(
-          'type' => 'none',
-        ),
-        'target_bundles' => array(
-          'cause' => 'cause',
-        ),
-      ),
-      'profile2_private' => FALSE,
-      'target_type' => 'node',
-    ),
-    'translatable' => 0,
-    'type' => 'entityreference',
-  );
-
   // Exported field_base: 'field_intro_text'.
   $field_bases['field_intro_text'] = array(
     'active' => 1,
@@ -800,12 +771,11 @@ function bf_giving_proposal_field_default_field_bases() {
     'module' => 'list',
     'settings' => array(
       'allowed_values' => array(
-        'Health/Disease Areas' => 'Health/Disease Areas',
-        'Disadvantaged or Underserved Populations' => 'Disadvantaged or Underserved Populations',
+        'Life Science' => 'Life Science',
+        'Technology' => 'Technology',
+        'Humanities' => 'Humanities',
         'Environment' => 'Environment',
-        'Arts/Humanities' => 'Arts/Humanities',
-        'Physical Sciences/Technologies' => 'Physical Sciences/Technologies',
-        'Education' => 'Education',
+        'Aging, Wellness & Disease' => 'Aging, Wellness & Disease',
       ),
       'allowed_values_function' => '',
       'profile2_private' => FALSE,
