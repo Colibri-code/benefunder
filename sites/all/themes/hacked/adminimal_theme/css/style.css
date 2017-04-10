@@ -4314,6 +4314,52 @@ div.user-picture img {
   margin-right: 25px;
 }
 
+.intro-text {
+    font-size: 18px;
+    color: #0F92A0;
+    font-family: 'raleway', "Arial", "Helvetica", "Verdana", "sans-serif";
+    padding: 25px;
+    width: 75%;
+    display: inline-block;
+}
+
+.cause-detail-text {
+    font-size: 18px;
+    color: #0F92A0;
+    font-family: 'raleway', "Arial", "Helvetica", "Verdana", "sans-serif";
+}
+
+.full-search {
+  display: inline-block;
+}
+
+.total-allocation {
+  float: left;
+  margin-right: 75px;
+}
+
+.total-allocations-label {
+  margin-top: -24px;
+}
+
+input#total-allocations {
+    font-size: 18px;
+    color: #0F92A0;
+    font-family: 'raleway', "Arial", "Helvetica", "Verdana", "sans-serif";
+}
+
+div#field-cause-markup-add-more-wrapper {
+  margin-bottom: 50px;
+}
+
+hr.text-break {
+  clear: both;
+  background-color: #0F929F;
+  font-family: 'raleway', "Arial", "Helvetica", "Verdana", "sans-serif";
+  height: 2px;
+  margin: 5px 0 20px 0;
+}
+
 .fa-links {
   font-size: 20px;
 }
