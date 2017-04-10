@@ -156,6 +156,7 @@
           </div>
           <?php $block = module_invoke('service_links', 'block_view', 'service_links'); ?>
           <div class="share-block">
+            <?php if (user_is_logged_in()): flag_create_link('bookmark', $node->nid); endif; ?>
             <a href="/entityprint/node/<?php print $nid; ?>" class="download-text">Download PDF</a>
             <button class="share-text collapsed" data-toggle="collapse" data-target=".share-wrapper">Share</button>
             <div class="share-wrapper collapse">
