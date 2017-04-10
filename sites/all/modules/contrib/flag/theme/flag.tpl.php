@@ -47,9 +47,6 @@
  * NOTE: This template spaces out the <span> tags for clarity only. When doing
  * some advanced theming you may have to remove all the whitespace.
  */
-
-// Open or filled heart icons.
-$flag_classes .= ' fa ' . ($action == 'flag') ? 'fa-heart-o' : 'fa-heart';
 ?>
 
 <?php if ($needs_wrapping_element): ?>
