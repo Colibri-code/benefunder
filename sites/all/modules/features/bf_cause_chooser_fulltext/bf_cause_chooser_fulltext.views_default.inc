@@ -67,6 +67,22 @@ function bf_cause_chooser_fulltext_views_default_views() {
   $handler->display->display_options['fields']['field_university_or_institution']['id'] = 'field_university_or_institution';
   $handler->display->display_options['fields']['field_university_or_institution']['table'] = 'search_api_index_cause_index_solr';
   $handler->display->display_options['fields']['field_university_or_institution']['field'] = 'field_university_or_institution';
+  /* Field: Indexed Content: Jumbotron Video */
+  $handler->display->display_options['fields']['field_jumbotron_video']['id'] = 'field_jumbotron_video';
+  $handler->display->display_options['fields']['field_jumbotron_video']['table'] = 'search_api_index_cause_index_solr';
+  $handler->display->display_options['fields']['field_jumbotron_video']['field'] = 'field_jumbotron_video';
+  $handler->display->display_options['fields']['field_jumbotron_video']['label'] = 'Video';
+  $handler->display->display_options['fields']['field_jumbotron_video']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_jumbotron_video']['settings'] = array(
+    'gallery_style' => 'all_items',
+    'thumbnail_field' => 'field_jumbotron_video',
+    'thumbnail_style' => 'magnific_popup_thumbnail',
+  );
+  /* Sort criterion: Jumbotron Video: The file. (indexed) */
+  $handler->display->display_options['sorts']['field_jumbotron_video_file']['id'] = 'field_jumbotron_video_file';
+  $handler->display->display_options['sorts']['field_jumbotron_video_file']['table'] = 'search_api_index_cause_index_solr';
+  $handler->display->display_options['sorts']['field_jumbotron_video_file']['field'] = 'field_jumbotron_video_file';
+  $handler->display->display_options['sorts']['field_jumbotron_video_file']['order'] = 'DESC';
   /* Sort criterion: Search: Relevance */
   $handler->display->display_options['sorts']['search_api_relevance']['id'] = 'search_api_relevance';
   $handler->display->display_options['sorts']['search_api_relevance']['table'] = 'search_api_index_cause_index_solr';
@@ -101,6 +117,69 @@ function bf_cause_chooser_fulltext_views_default_views() {
     8 => 0,
     7 => 0,
   );
+  /* Filter criterion: Indexed Content: Research Area */
+  $handler->display->display_options['filters']['field_research_area']['id'] = 'field_research_area';
+  $handler->display->display_options['filters']['field_research_area']['table'] = 'search_api_index_cause_index_solr';
+  $handler->display->display_options['filters']['field_research_area']['field'] = 'field_research_area';
+  $handler->display->display_options['filters']['field_research_area']['value'] = array();
+  $handler->display->display_options['filters']['field_research_area']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_research_area']['expose']['operator_id'] = 'field_research_area_op';
+  $handler->display->display_options['filters']['field_research_area']['expose']['label'] = 'Research Area';
+  $handler->display->display_options['filters']['field_research_area']['expose']['operator'] = 'field_research_area_op';
+  $handler->display->display_options['filters']['field_research_area']['expose']['identifier'] = 'field_research_area';
+  $handler->display->display_options['filters']['field_research_area']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+    5 => 0,
+    6 => 0,
+    8 => 0,
+    7 => 0,
+  );
+  $handler->display->display_options['filters']['field_research_area']['expose']['reduce'] = 0;
+  /* Filter criterion: Indexed Content: University or Institution */
+  $handler->display->display_options['filters']['field_university_or_institution']['id'] = 'field_university_or_institution';
+  $handler->display->display_options['filters']['field_university_or_institution']['table'] = 'search_api_index_cause_index_solr';
+  $handler->display->display_options['filters']['field_university_or_institution']['field'] = 'field_university_or_institution';
+  $handler->display->display_options['filters']['field_university_or_institution']['value'] = array();
+  $handler->display->display_options['filters']['field_university_or_institution']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_university_or_institution']['expose']['operator_id'] = 'field_university_or_institution_op';
+  $handler->display->display_options['filters']['field_university_or_institution']['expose']['label'] = 'University or Institution';
+  $handler->display->display_options['filters']['field_university_or_institution']['expose']['operator'] = 'field_university_or_institution_op';
+  $handler->display->display_options['filters']['field_university_or_institution']['expose']['identifier'] = 'field_university_or_institution';
+  $handler->display->display_options['filters']['field_university_or_institution']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+    5 => 0,
+    6 => 0,
+    8 => 0,
+    7 => 0,
+  );
+  $handler->display->display_options['filters']['field_university_or_institution']['expose']['reduce'] = 0;
+  /* Filter criterion: Indexed Content: Aging, Wellness &amp; Disease */
+  $handler->display->display_options['filters']['field_aging_wellness_disease']['id'] = 'field_aging_wellness_disease';
+  $handler->display->display_options['filters']['field_aging_wellness_disease']['table'] = 'search_api_index_cause_index_solr';
+  $handler->display->display_options['filters']['field_aging_wellness_disease']['field'] = 'field_aging_wellness_disease';
+  $handler->display->display_options['filters']['field_aging_wellness_disease']['value'] = array();
+  $handler->display->display_options['filters']['field_aging_wellness_disease']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_aging_wellness_disease']['expose']['operator_id'] = 'field_aging_wellness_disease_op';
+  $handler->display->display_options['filters']['field_aging_wellness_disease']['expose']['label'] = 'Aging, Wellness &amp; Disease';
+  $handler->display->display_options['filters']['field_aging_wellness_disease']['expose']['operator'] = 'field_aging_wellness_disease_op';
+  $handler->display->display_options['filters']['field_aging_wellness_disease']['expose']['identifier'] = 'field_aging_wellness_disease';
+  $handler->display->display_options['filters']['field_aging_wellness_disease']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+    5 => 0,
+    6 => 0,
+    8 => 0,
+    7 => 0,
+  );
+  $handler->display->display_options['filters']['field_aging_wellness_disease']['expose']['reduce'] = 0;
 
   /* Display: Entity Reference View Widget */
   $handler = $view->new_display('entityreference_view_widget', 'Entity Reference View Widget', 'entityreference_view_widget_1');
