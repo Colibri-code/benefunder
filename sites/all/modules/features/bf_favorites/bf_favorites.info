@@ -1,0 +1,11 @@
+name = BF Favorites
+description = Settings for flag bookmarks/favorites
+core = 7.x
+package = Settings
+version = 7.x-1.0
+dependencies[] = features
+dependencies[] = flag
+features[features_api][] = api:2
+features[flag][] = bookmarks
+features[user_permission][] = flag bookmarks
+features[user_permission][] = unflag bookmarks
