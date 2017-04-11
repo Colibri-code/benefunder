@@ -1954,10 +1954,21 @@ div.sidebar-first {
     position:relative;
 
     @media(min-width:@screen-sm-min) {
-      width:245px;
       float:right;
     }
-    
+
+    .favorite-link {
+      display: inline-block;
+      padding: 2px 6px 3px;
+      color: #0F92A0;
+
+      .flag-wrapper a {
+        font-family: @raleway;
+        font-size: 16px;
+        color: #0F92A0;
+      }
+    }
+
     .download-text {
       font-family:@raleway;
       color:#000;

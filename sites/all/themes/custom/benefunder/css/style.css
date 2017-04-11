@@ -9071,9 +9071,18 @@ div.sidebar-first .researcher-body .affiliation-logo img {
 }
 @media (min-width: 768px) {
   .cause-meta .share-block {
-    width: 245px;
     float: right;
   }
+}
+.cause-meta .share-block .favorite-link {
+  display: inline-block;
+  padding: 2px 6px 3px;
+  color: #0F92A0;
+}
+.cause-meta .share-block .favorite-link .flag-wrapper a {
+  font-family: 'raleway';
+  font-size: 16px;
+  color: #0F92A0;
 }
 .cause-meta .share-block .download-text {
   font-family: 'raleway';

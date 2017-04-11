@@ -49,7 +49,8 @@
  */
 
 // Open or filled heart icons.
-$flag_classes .= ' fa ' . ($action == 'flag') ? 'fa-heart-o' : 'fa-heart';
+$flag_wrapper_classes .= ' fa ';
+$flag_wrapper_classes .= ($action == 'flag') ? 'fa-heart-o' : 'fa-heart';
 ?>
 
 <?php if ($needs_wrapping_element): ?>
