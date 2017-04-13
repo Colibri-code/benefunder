@@ -77,7 +77,7 @@ function bf_giving_proposal_field_default_field_instances() {
           'range' => 0,
           'slider_length' => '',
           'slider_style' => 'wild-blue-yonder',
-          'step' => 1,
+          'step' => 5,
         ),
       ),
       'type' => 'sliderfield',
@@ -671,47 +671,6 @@ function bf_giving_proposal_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-giving_proposal-field_analyst_feedback'.
-  $field_instances['node-giving_proposal-field_analyst_feedback'] = array(
-    'bundle' => 'giving_proposal',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'text',
-        'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 24,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'ds_extras_field_template' => '',
-    'entity_type' => 'node',
-    'field_name' => 'field_analyst_feedback',
-    'label' => 'Advisor Feedback',
-    'required' => 0,
-    'settings' => array(
-      'text_processing' => 0,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'text',
-      'settings' => array(
-        'rows' => 5,
-      ),
-      'type' => 'text_textarea',
-      'weight' => 58,
-    ),
-  );
-
   // Exported field_instance: 'node-giving_proposal-field_analyst_feedback_1'.
   $field_instances['node-giving_proposal-field_analyst_feedback_1'] = array(
     'bundle' => 'giving_proposal',
@@ -909,7 +868,7 @@ function bf_giving_proposal_field_default_field_instances() {
     'ds_extras_field_template' => '',
     'entity_type' => 'node',
     'field_name' => 'field_client_approval',
-    'label' => 'Client approves of this proposal',
+    'label' => 'Approved by Client, ready to execute',
     'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -921,7 +880,7 @@ function bf_giving_proposal_field_default_field_instances() {
         'display_label' => 1,
       ),
       'type' => 'options_onoff',
-      'weight' => 56,
+      'weight' => 80,
     ),
   );
 
@@ -949,7 +908,7 @@ function bf_giving_proposal_field_default_field_instances() {
     'ds_extras_field_template' => '',
     'entity_type' => 'node',
     'field_name' => 'field_client_feedback',
-    'label' => 'Client Feedback',
+    'label' => 'Comments & Feedback from Client ',
     'required' => 0,
     'settings' => array(
       'text_processing' => 0,
@@ -959,10 +918,10 @@ function bf_giving_proposal_field_default_field_instances() {
       'active' => 1,
       'module' => 'text',
       'settings' => array(
-        'rows' => 5,
+        'rows' => 3,
       ),
       'type' => 'text_textarea',
-      'weight' => 57,
+      'weight' => 81,
     ),
   );
 
@@ -1164,6 +1123,63 @@ function bf_giving_proposal_field_default_field_instances() {
       ),
       'type' => 'options_select',
       'weight' => 62,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'node-giving_proposal-field_date_of_client_meeting'.
+  $field_instances['node-giving_proposal-field_date_of_client_meeting'] = array(
+    'bundle' => 'giving_proposal',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'date',
+        'settings' => array(
+          'format_type' => 'long',
+          'fromto' => 'both',
+          'multiple_from' => '',
+          'multiple_number' => '',
+          'multiple_to' => '',
+          'show_remaining_days' => FALSE,
+        ),
+        'type' => 'date_default',
+        'weight' => 62,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'ds_extras_field_template' => 'theme_ds_field_minimal',
+    'entity_type' => 'node',
+    'field_name' => 'field_date_of_client_meeting',
+    'label' => 'Date of client meeting',
+    'required' => 0,
+    'settings' => array(
+      'default_value' => 'now',
+      'default_value2' => 'same',
+      'default_value_code' => '',
+      'default_value_code2' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'date',
+      'settings' => array(
+        'increment' => 15,
+        'input_format' => 'm/d/Y - H:i:s',
+        'input_format_custom' => '',
+        'label_position' => 'above',
+        'no_fieldset' => 0,
+        'text_parts' => array(),
+        'year_range' => '-3:+3',
+      ),
+      'type' => 'date_popup',
+      'weight' => 79,
     ),
   );
 
@@ -1740,6 +1756,43 @@ function bf_giving_proposal_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-giving_proposal-field_ready_markup'.
+  $field_instances['node-giving_proposal-field_ready_markup'] = array(
+    'bundle' => 'giving_proposal',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'markup',
+        'settings' => array(),
+        'type' => 'markup_default',
+        'weight' => 61,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'ds_extras_field_template' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_ready_markup',
+    'label' => 'Ready Markup',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'markup',
+      'settings' => array(),
+      'type' => 'markup',
+      'weight' => 78,
+    ),
+  );
+
   // Exported field_instance: 'node-giving_proposal-field_ready_to_send'.
   $field_instances['node-giving_proposal-field_ready_to_send'] = array(
     'bundle' => 'giving_proposal',
@@ -2092,14 +2145,16 @@ function bf_giving_proposal_field_default_field_instances() {
   t('Advisor Feedback');
   t('Allocation');
   t('Already Have DAF');
+  t('Approved by Client, ready to execute');
   t('Cause');
   t('Cause Markup');
   t('City & State');
   t('Client Feedback');
-  t('Client approves of this proposal');
+  t('Comments & Feedback from Client ');
   t('DAF Disbursement Confirmed');
   t('DAF Forms');
   t('DAF Provider');
+  t('Date of client meeting');
   t('Disbursement Frequency');
   t('Disbursement Tracking Number');
   t('Donor Profiles');
@@ -2121,6 +2176,7 @@ function bf_giving_proposal_field_default_field_instances() {
   t('Philanthropic Interests');
   t('Program Targets');
   t('Proposal Markup');
+  t('Ready Markup');
   t('Ready to Send');
   t('Relationship');
   t('Signature Request ID');

@@ -52,9 +52,10 @@ function bf_giving_proposal_field_group_info() {
     'label' => 'Ready for Benefunder',
     'weight' => '40',
     'children' => array(
-      0 => 'field_analyst_feedback',
-      1 => 'field_client_feedback',
-      2 => 'field_client_approval',
+      0 => 'field_client_feedback',
+      1 => 'field_client_approval',
+      2 => 'field_ready_markup',
+      3 => 'field_date_of_client_meeting',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
