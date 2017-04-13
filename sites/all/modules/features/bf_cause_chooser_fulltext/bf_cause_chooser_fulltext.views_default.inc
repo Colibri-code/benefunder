@@ -32,6 +32,10 @@ function bf_cause_chooser_fulltext_views_default_views() {
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '10';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['pager']['options']['id'] = '0';
+  $handler->display->display_options['pager']['options']['quantity'] = '9';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
   /* Field: Entity Reference View Widget Checkbox: Indexed Content */
@@ -78,11 +82,42 @@ function bf_cause_chooser_fulltext_views_default_views() {
     'thumbnail_field' => 'field_jumbotron_video',
     'thumbnail_style' => 'magnific_popup_thumbnail',
   );
-  /* Sort criterion: Jumbotron Video: The file. (indexed) */
-  $handler->display->display_options['sorts']['field_jumbotron_video_file']['id'] = 'field_jumbotron_video_file';
-  $handler->display->display_options['sorts']['field_jumbotron_video_file']['table'] = 'search_api_index_cause_index_solr';
-  $handler->display->display_options['sorts']['field_jumbotron_video_file']['field'] = 'field_jumbotron_video_file';
-  $handler->display->display_options['sorts']['field_jumbotron_video_file']['order'] = 'DESC';
+  /* Field: Indexed Content: Node ID */
+  $handler->display->display_options['fields']['nid']['id'] = 'nid';
+  $handler->display->display_options['fields']['nid']['table'] = 'search_api_index_cause_index_solr';
+  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid']['label'] = '';
+  $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['nid']['link_to_entity'] = 0;
+  /* Sort criterion: Global: PHP */
+  $handler->display->display_options['sorts']['php']['id'] = 'php';
+  $handler->display->display_options['sorts']['php']['table'] = 'views';
+  $handler->display->display_options['sorts']['php']['field'] = 'php';
+  $handler->display->display_options['sorts']['php']['use_php_setup'] = 1;
+  $handler->display->display_options['sorts']['php']['php_setup'] = 'global $user;
+$static = db_query(\'SELECT entity_id FROM flagging WHERE fid = 1 AND uid = :uid\', array(\':uid\' => $user->uid))->fetchCol();
+';
+  $handler->display->display_options['sorts']['php']['php_sort'] = '$row1_flagged = in_array($row1->nid, $static);
+$row2_flagged = in_array($row2->nid, $static);
+
+//die(print_r($row1));
+
+if ($row1_flagged && !$row2_flagged) {
+  return -1;
+}
+elseif ($row2_flagged && !$row1_flagged) {
+  return 1;
+}
+
+if ($row1->field_jumbotron_video && !$row2->field_jumbotron_video) {
+  return -1;
+}
+elseif ($row2->field_jumbotron_video && !$row1->field_jumbotron_video) {
+  return 1;
+}
+
+return 0;';
   /* Sort criterion: Search: Relevance */
   $handler->display->display_options['sorts']['search_api_relevance']['id'] = 'search_api_relevance';
   $handler->display->display_options['sorts']['search_api_relevance']['table'] = 'search_api_index_cause_index_solr';
