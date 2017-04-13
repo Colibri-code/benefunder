@@ -4360,6 +4360,12 @@ hr.text-break {
   margin: 5px 0 20px 0;
 }
 
+.ready-markup p {
+  font-size: 18px;
+  color: #0F92A0;
+  font-family: 'raleway', "Arial", "Helvetica", "Verdana", "sans-serif";
+}
+
 .fa-links {
   font-size: 20px;
 }
@@ -4683,6 +4689,7 @@ div#edit-ajax-feedback2 {
   width: 50%;
   border: 3px solid purple;
   padding: 20px;
+  margin-left: 40px;
 }
 
 div.field-name-field-client-feedback,
