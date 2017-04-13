@@ -1,0 +1,51 @@
+diff --git a/plugins/views/views_php_handler_sort.inc b/plugins/views/views_php_handler_sort.inc
+index cca24ba..ee74949 100644
+--- a/plugins/views/views_php_handler_sort.inc
++++ b/plugins/views/views_php_handler_sort.inc
+@@ -14,6 +14,7 @@ class views_php_handler_sort extends views_handler_sort {
+    */
+   function option_definition() {
+     $options = parent::option_definition();
++    $options['use_normalized_rows'] = array('default' => TRUE);
+     $options['use_php_setup'] = array('default' => FALSE);
+     $options['php_setup'] = array('default' => '');
+     $options['php_sort'] = array('default' => '');
+@@ -26,6 +27,15 @@ class views_php_handler_sort extends views_handler_sort {
+   function options_form(&$form, &$form_state) {
+     parent::options_form($form, $form_state);
+ 
++    $form += array(
++      'use_normalized_rows' => array(
++        '#type' => 'checkbox',
++        '#title' => t('Use normalized rows'),
++        '#description' => t('If checked, the $row1 and $row2 variables avaialble on the Sort code are normalized. Otherwise the rows are passed through exactly as they appears in $view->result. This is useful when the format isn\'t set to fields or in a search index view.'),
++        '#default_value' => $this->options['use_normalized_rows'],
++      ),
++    );
++
+     $form += views_php_form_element($this,
+       array('use_php_setup', t('Use setup code'), t('If checked, you can provide PHP code to be run once right before execution of the view. This may be useful to define functions to be re-used in the value and/or output code.')),
+       array('php_setup', t('Setup code'), t('Code to run right before execution of the view.'), FALSE),
+@@ -83,12 +93,18 @@ class views_php_handler_sort extends views_handler_sort {
+   function php_sort($row1, $row2) {
+     $factor = strtoupper($this->options['order']) == 'ASC' ? 1 : -1;
+     $function = $this->php_sort_function;
+-    foreach (array('row1' => 'normalized_row1', 'row2' => 'normalized_row2') as $name => $normalized_name) {
+-      $$normalized_name = new stdClass;
+-      foreach ($this->view->display_handler->get_handlers('field') as $field => $handler) {
+-        $$normalized_name->$field = isset($$name->{$handler->field_alias}) ? $$name->{$handler->field_alias} : NULL;
++    if ($this->options['use_normalized_rows']) {
++      foreach (array('row1' => 'normalized_row1', 'row2' => 'normalized_row2') as $name => $normalized_name) {
++        $$normalized_name = new stdClass;
++        foreach ($this->view->display_handler->get_handlers('field') as $field => $handler) {
++          $$normalized_name->$field = isset($$name->{$handler->field_alias}) ? $$name->{$handler->field_alias} : NULL;
++        }
+       }
+     }
++    else {
++      $normalized_row1 = $row1;
++      $normalized_row2 = $row2;
++    }
+     $result = (int)$function($this->view, $this, $this->php_static_variable, $normalized_row1, $normalized_row2);
+     return $factor * $result;
+   }
