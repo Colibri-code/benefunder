@@ -73,10 +73,20 @@ function homepage_featured_causes_contents($which_block) {
           $causes[$key]['research_area_name'] = $top_level_research_area->name;
 
           /* Research area icon (white) */
-          $causes[$key]['research_area_icon_white'] = file_create_url($top_level_research_area->field_term_icon['und'][0]['uri']);
+          if (isset($top_level_research_area->field_term_icon['und'])) {
+            $causes[$key]['research_area_icon_white'] = file_create_url($top_level_research_area->field_term_icon['und'][0]['uri']);
+          }
+          else {
+            $causes[$key]['research_area_icon_white'] = NULL;
+          }
 
           /* Research area icon (color) */
-          $causes[$key]['research_area_icon_color'] = file_create_url($top_level_research_area->field_term_icon_with_color_['und'][0]['uri']);
+          if (isset($top_level_research_area->field_term_icon_with_color_['und'])) {
+            $causes[$key]['research_area_icon_color'] = file_create_url($top_level_research_area->field_term_icon_with_color_['und'][0]['uri']);
+          }
+          else {
+            $causes[$key]['research_area_icon_color'] = NULL;
+          }
 
           /* Cause image */
           $jumbotron_image = $cause->field_jumbotron_image->value();
