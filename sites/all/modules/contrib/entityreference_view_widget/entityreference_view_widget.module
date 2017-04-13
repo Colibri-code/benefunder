@@ -369,6 +369,9 @@ function entityreference_view_widget_form_views_form_alter(&$form, &$form_state,
   $form['actions_ervw']['select_all'] = array(
     '#markup' => l(t('Select all'), '', array('attributes' => array('id' => 'entityreference-view-widget-select-all'))),
   );
+  // Ensure that the js is attached to the form.
+  $module_path = drupal_get_path('module', 'entityreference_view_widget');
+  $form['#attached']['js'][] = $module_path . '/entityreference_view_widget.js';
 }
 
 /**
