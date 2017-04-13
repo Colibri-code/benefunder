@@ -213,7 +213,9 @@ function entityreference_view_widget_field_widget_form(&$form, &$form_state, $fi
 
   $entity_ids = array();
   foreach ($items as $item) {
-    $entity_ids[] = $item[$settings['column']];
+    if (isset($item[$settings['column']])) {
+      $entity_ids[] = $item[$settings['column']];
+    }
   }
   $element += entityreference_view_widget_rows($entity_ids, $settings);
 
@@ -263,7 +265,7 @@ function entityreference_view_widget_add_more_ajax($form, $form_state) {
       $settings = array(
         'entityReferenceViewWidget' => array(
           'settings' => $settings,
-          'serialized' => serialize($settings),
+          'serialized' => json_encode($settings),
         ),
       );
       drupal_add_js($settings, 'setting');
@@ -337,7 +339,8 @@ function entityreference_view_widget_validate($element, &$form_state, $form) {
       form_set_error($settings['element'], t('@f field is required.', array('@f' => $settings['instance']['label'])));
     }
     else {
-      // Modules utilizing #field_parents like Inline Entity Form requires different sort of form error.
+      // Modules utilizing #field_parents like Inline Entity Form
+      // requires different sort of form error.
       form_error($element, t('@f field is required.', array('@f' => $settings['instance']['label'])));
     }
   }
@@ -386,7 +389,7 @@ function entityreference_view_widget_ajax($form, $form_state) {
   $form_state['values']['entityreference_view_widget'] = is_array($form_state['values']['entityreference_view_widget']) ? array_filter($form_state['values']['entityreference_view_widget']) : array($form_state['values']['entityreference_view_widget']);
   if (!empty($form_state['values']['ervw_settings']) && !empty($form_state['values']['entityreference_view_widget'])) {
     // Retrieve the settings array.
-    $widget_settings = unserialize($form_state['values']['ervw_settings']);
+    $widget_settings = (array) json_decode($form_state['values']['ervw_settings']);
     $selected_entity_ids = !empty($form_state['values']['selected_entity_ids']) ? explode(';', $form_state['values']['selected_entity_ids']) : array();
     $input_ids = array_merge($selected_entity_ids, $form_state['values']['entityreference_view_widget']);
     $entity_ids = !empty($widget_settings['allow_duplicates']) ? $input_ids : array_unique($input_ids);
@@ -396,7 +399,7 @@ function entityreference_view_widget_ajax($form, $form_state) {
     // If the user selected too many items...
     if ($cardinality > 0 && $cardinality < $selected_amount && $cardinality !== 1) {
       $error_message = t('Please select no more than @cardinality values', array('@cardinality' => $cardinality));
-      $commands[] = ajax_command_prepend('#modal-content', '<div class="messages error">' . $error_message  . '</div>');
+      $commands[] = ajax_command_prepend('#modal-content', '<div class="messages error">' . $error_message . '</div>');
     }
     else {
       $rows['#theme'] = 'entityreference_view_widget_rows';
@@ -434,7 +437,7 @@ function entityreference_view_widget_rows($entity_ids, $settings) {
   $entities = entity_load($settings['target_type'], $entity_ids);
   if (!empty($entity_ids)) {
     $max_delta = count($entity_ids);
-    $weight_options = drupal_map_assoc(range(- $max_delta, $max_delta));
+    $weight_options = drupal_map_assoc(range(-$max_delta, $max_delta));
     $delta = 0;
     foreach ($entity_ids as $entity_id) {
       if (!isset($entities[$entity_id])) {
@@ -513,7 +516,7 @@ function theme_entityreference_view_widget_widget($variables) {
   $rows = array();
 
   // Sort items according to '_weight' (needed when the form comes back after
-  // preview or failed validation)
+  // preview or failed validation).
   $items = array();
   foreach (element_children($widget) as $key) {
     if ($key === 'add_more') {
