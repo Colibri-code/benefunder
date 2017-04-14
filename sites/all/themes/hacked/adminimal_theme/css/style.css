@@ -4179,9 +4179,6 @@ div.user-picture img {
   margin-bottom: 35px;
   margin-top: 5px;
 }
-.pane-views-my-clients-block {
-  padding-top: 50px;
-}
 .pane-views-my-clients-block .btn-purple {
   margin-left: 0;
 }
@@ -4698,4 +4695,41 @@ div.field-name-field-analyst-feedback,
 div.field-name-field-analyst-feedback-1 {
   float: left;
   width: 50%;
+}
+
+.views-widget-filter-field_proposal_status_tid .form-type-bef-link {
+    min-width: 223px;
+    min-height: 133px;
+    background-color: #CCE4E7;
+    padding: 25px;
+    color: black;
+    margin: 25px 50px 25px 0;
+    display: inline-block;
+    text-align: center;
+}
+
+.views-widget-filter-field_proposal_status_tid .form-type-bef-link .fa-bef {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 15px;
+    color: #0F92A0;
+}
+
+.views-widget-filter-field_proposal_status_tid .form-type-bef-link a {
+    font-family: 'raleway', "Arial", "Helvetica", "Verdana", "sans-serif";
+    color: black;
+    font-size: 20px;
+    padding: 5px;
+}
+
+.views-widget-filter-field_proposal_status_tid .form-type-bef-link a.active {
+    font-family: 'raleway', "Arial", "Helvetica", "Verdana", "sans-serif";
+    color: #0EABBB;
+    border: 1px solid #0EABBB;
+    font-size: 20px;
+    padding: 5px;
+}
+
+#views-exposed-form-my-clients-block .views-exposed-form {
+    border-top: 1px solid #0EABBB;
 }
