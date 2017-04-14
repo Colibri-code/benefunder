@@ -22,12 +22,50 @@ function bf_my_proposals_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'My Clients';
+  $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
-  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['type'] = 'better_exposed_filters';
+  $handler->display->display_options['exposed_form']['options']['expose_sort_order'] = FALSE;
+  $handler->display->display_options['exposed_form']['options']['bef'] = array(
+    'general' => array(
+      'input_required' => 0,
+      'text_input_required' => array(
+        'text_input_required' => array(
+          'value' => '',
+          'format' => 'full_html',
+        ),
+      ),
+      'allow_secondary' => 0,
+      'secondary_label' => 'Advanced options',
+      'secondary_collapse_override' => '0',
+    ),
+    'field_proposal_status_tid' => array(
+      'bef_format' => 'bef_links',
+      'more_options' => array(
+        'bef_select_all_none' => FALSE,
+        'bef_collapsible' => 0,
+        'autosubmit' => 0,
+        'is_secondary' => 0,
+        'any_label' => 'See All',
+        'bef_filter_description' => '',
+        'tokens' => array(
+          'available' => array(
+            0 => 'global_types',
+            1 => 'vocabulary',
+          ),
+        ),
+        'rewrite' => array(
+          'filter_rewrite_values' => 'Needs Assessment|See Assessments
+Giving Proposal|See Proposals
+Giving Plan|See Giving Plans
+- All -|See All',
+        ),
+      ),
+    ),
+  );
   $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['style_plugin'] = 'table';
   $handler->display->display_options['style_options']['columns'] = array(
@@ -49,20 +87,6 @@ function bf_my_proposals_views_default_views() {
       'empty_column' => 0,
     ),
   );
-  /* Header: Global: Text area */
-  $handler->display->display_options['header']['area']['id'] = 'area';
-  $handler->display->display_options['header']['area']['table'] = 'views';
-  $handler->display->display_options['header']['area']['field'] = 'area';
-  $handler->display->display_options['header']['area']['empty'] = TRUE;
-  $handler->display->display_options['header']['area']['content'] = '<a href="/node/add/giving-proposal?destination=user" class="btn btn-purple">Create a Proposal</a>';
-  $handler->display->display_options['header']['area']['format'] = 'full_html';
-  /* No results behavior: Global: Text area */
-  $handler->display->display_options['empty']['area']['id'] = 'area';
-  $handler->display->display_options['empty']['area']['table'] = 'views';
-  $handler->display->display_options['empty']['area']['field'] = 'area';
-  $handler->display->display_options['empty']['area']['empty'] = TRUE;
-  $handler->display->display_options['empty']['area']['content'] = 'No proposals yet. <a href="/node/add/giving-proposal?destination=user">Create a Proposal!</a>';
-  $handler->display->display_options['empty']['area']['format'] = 'full_html';
   /* Field: Content: Nid */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
   $handler->display->display_options['fields']['nid']['table'] = 'node';
@@ -125,6 +149,32 @@ function bf_my_proposals_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'giving_proposal' => 'giving_proposal',
   );
+  /* Filter criterion: Content: Status (field_proposal_status) */
+  $handler->display->display_options['filters']['field_proposal_status_tid']['id'] = 'field_proposal_status_tid';
+  $handler->display->display_options['filters']['field_proposal_status_tid']['table'] = 'field_data_field_proposal_status';
+  $handler->display->display_options['filters']['field_proposal_status_tid']['field'] = 'field_proposal_status_tid';
+  $handler->display->display_options['filters']['field_proposal_status_tid']['value'] = array(
+    297 => '297',
+    278 => '278',
+    279 => '279',
+  );
+  $handler->display->display_options['filters']['field_proposal_status_tid']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_proposal_status_tid']['expose']['operator_id'] = 'field_proposal_status_tid_op';
+  $handler->display->display_options['filters']['field_proposal_status_tid']['expose']['operator'] = 'field_proposal_status_tid_op';
+  $handler->display->display_options['filters']['field_proposal_status_tid']['expose']['identifier'] = 'field_proposal_status_tid';
+  $handler->display->display_options['filters']['field_proposal_status_tid']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+    5 => 0,
+    6 => 0,
+    8 => 0,
+    7 => 0,
+  );
+  $handler->display->display_options['filters']['field_proposal_status_tid']['expose']['reduce'] = TRUE;
+  $handler->display->display_options['filters']['field_proposal_status_tid']['type'] = 'select';
+  $handler->display->display_options['filters']['field_proposal_status_tid']['vocabulary'] = 'plan_status';
 
   /* Display: Block */
   $handler = $view->new_display('block', 'Block', 'block');
