@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the BF My Favorites feature.
+ */
+
+include_once 'bf_my_favorites.features.inc';
