@@ -123,7 +123,7 @@ function bf_fa_dashboard_default_page_manager_handlers() {
   $pane->panel = 'middle';
   $pane->type = 'block';
   $pane->subtype = 'views-my_clients-block';
-  $pane->shown = FALSE;
+  $pane->shown = TRUE;
   $pane->access = array();
   $pane->configuration = array(
     'override_title' => 0,
@@ -174,13 +174,7 @@ function bf_fa_dashboard_default_page_manager_handlers() {
 </div>
 </div>
 
-<div class="fa-solo-button"><a href="/node/add/giving-proposal?destination=user" class="btn btn-purple">Add a Client Profile</a><span class="fa fa-question-circle fa-2x tooltip" title="To start a needs assessment and begin the Cause matching process, add a Client Profile. You\'ll be able to enter basic client information, their giving history and select some preliminary Causes. Once your needs assessment is done, send it to Benefunder to provide a comprehensive set of Causes tailored just for your client.">&nbsp;</span></div>
-
-<div class="fa-dashboard-links">
-<div class="fa-links fa-box"><div class="fa fa-lightbulb-o fa-lg">&nbsp;</div><div class="fa-black"><a href="">See Assessments</a></div></div>
-<div class="fa-links fa-box"><div class="fa fa-usd fa-lg">&nbsp;</div><div class="fa-black"><a href="">See Proposals</a></div></div>
-<div class="fa-links fa-box"><div class="fa fa-usd fa-lg">&nbsp;</div><div class="fa-black"><a href="">See Giving Plans</a></div></div>
-<div class="fa-links fa-box"><div class="fa fa-heart-o fa-lg">&nbsp;</div><div class="fa-black"><a href="">My Favorites</a></div></div>
+<div class="fa-solo-button"><a href="/node/add/giving-proposal?destination=user" class="btn btn-purple">Add a Client Profile / Assessment</a><span class="fa fa-question-circle fa-2x tooltip" title="To start a needs assessment and begin the Cause matching process, add a Client Profile. You\'ll be able to enter basic client information, their giving history and select some preliminary Causes. Once your needs assessment is done, send it to Benefunder to provide a comprehensive set of Causes tailored just for your client.">&nbsp;</span></div>
 </div>
 ',
     'format' => 'full_html',
