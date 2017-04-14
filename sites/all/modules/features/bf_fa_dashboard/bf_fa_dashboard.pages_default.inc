@@ -119,29 +119,6 @@ function bf_fa_dashboard_default_page_manager_handlers() {
   $display->content['new-f4f6b5c8-11b6-4542-8408-1b3bc421a547'] = $pane;
   $display->panels['left_above'][0] = 'new-f4f6b5c8-11b6-4542-8408-1b3bc421a547';
   $pane = new stdClass();
-  $pane->pid = 'new-42aa948c-a67f-41c1-ae4c-ff36c53e1b51';
-  $pane->panel = 'middle';
-  $pane->type = 'block';
-  $pane->subtype = 'views-my_clients-block';
-  $pane->shown = TRUE;
-  $pane->access = array();
-  $pane->configuration = array(
-    'override_title' => 0,
-    'override_title_text' => '',
-    'override_title_heading' => 'h2',
-  );
-  $pane->cache = array();
-  $pane->style = array(
-    'settings' => NULL,
-  );
-  $pane->css = array();
-  $pane->extras = array();
-  $pane->position = 0;
-  $pane->locks = array();
-  $pane->uuid = '42aa948c-a67f-41c1-ae4c-ff36c53e1b51';
-  $display->content['new-42aa948c-a67f-41c1-ae4c-ff36c53e1b51'] = $pane;
-  $display->panels['middle'][0] = 'new-42aa948c-a67f-41c1-ae4c-ff36c53e1b51';
-  $pane = new stdClass();
   $pane->pid = 'new-1f09da26-89e1-4579-bb58-24771112ebeb';
   $pane->panel = 'middle';
   $pane->type = 'custom';
@@ -174,7 +151,8 @@ function bf_fa_dashboard_default_page_manager_handlers() {
 </div>
 </div>
 
-<div class="fa-solo-button"><a href="/node/add/giving-proposal?destination=user" class="btn btn-purple">Add a Client Profile / Assessment</a><span class="fa fa-question-circle fa-2x tooltip" title="To start a needs assessment and begin the Cause matching process, add a Client Profile. You\'ll be able to enter basic client information, their giving history and select some preliminary Causes. Once your needs assessment is done, send it to Benefunder to provide a comprehensive set of Causes tailored just for your client.">&nbsp;</span></div>
+<div class="fa-solo-button"><a class="btn btn-purple" href="/node/add/giving-proposal?destination=user">Add a Client Profile / Assessment</a><span class="fa fa-question-circle fa-2x tooltip" title="To start a needs assessment and begin the Cause matching process, add a Client Profile. You\'ll be able to enter basic client information, their giving history and select some preliminary Causes. Once your needs assessment is done, send it to Benefunder to provide a comprehensive set of Causes tailored just for your client.">&nbsp;</span></div>
+
 </div>
 ',
     'format' => 'full_html',
@@ -186,11 +164,34 @@ function bf_fa_dashboard_default_page_manager_handlers() {
   );
   $pane->css = array();
   $pane->extras = array();
-  $pane->position = 1;
+  $pane->position = 0;
   $pane->locks = array();
   $pane->uuid = '1f09da26-89e1-4579-bb58-24771112ebeb';
   $display->content['new-1f09da26-89e1-4579-bb58-24771112ebeb'] = $pane;
-  $display->panels['middle'][1] = 'new-1f09da26-89e1-4579-bb58-24771112ebeb';
+  $display->panels['middle'][0] = 'new-1f09da26-89e1-4579-bb58-24771112ebeb';
+  $pane = new stdClass();
+  $pane->pid = 'new-42aa948c-a67f-41c1-ae4c-ff36c53e1b51';
+  $pane->panel = 'middle';
+  $pane->type = 'block';
+  $pane->subtype = 'views-my_clients-block';
+  $pane->shown = TRUE;
+  $pane->access = array();
+  $pane->configuration = array(
+    'override_title' => 0,
+    'override_title_text' => '',
+    'override_title_heading' => 'h2',
+  );
+  $pane->cache = array();
+  $pane->style = array(
+    'settings' => NULL,
+  );
+  $pane->css = array();
+  $pane->extras = array();
+  $pane->position = 1;
+  $pane->locks = array();
+  $pane->uuid = '42aa948c-a67f-41c1-ae4c-ff36c53e1b51';
+  $display->content['new-42aa948c-a67f-41c1-ae4c-ff36c53e1b51'] = $pane;
+  $display->panels['middle'][1] = 'new-42aa948c-a67f-41c1-ae4c-ff36c53e1b51';
   $pane = new stdClass();
   $pane->pid = 'new-f2b2bd2c-9c87-487c-b318-1585f781f1b3';
   $pane->panel = 'middle';
