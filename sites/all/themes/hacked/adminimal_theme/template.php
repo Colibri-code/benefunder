@@ -565,3 +565,169 @@ function adminimal_table($variables) {
   $output .= "</div>\n";
   return $output;
 }
+
+/**
+ * Override BEF theme_select_as_links().
+ */
+function adminimal_select_as_links($vars) {
+  $element = $vars['element'];
+
+  $output = '';
+  $name = $element['#name'];
+
+  // Collect selected values so we can properly style the links later.
+  $selected_options = array();
+  if (isset($element['#value'])) {
+    $selected_options[] = $element['#value'];
+  }
+  else {
+    if (isset($element['#default_value'])) {
+      $selected_options[] = $element['#default_value'];
+    }
+  }
+
+  // Add to the selected options specified by Views whatever options are in the
+  // URL query string, but only for this filter.
+  $urllist = parse_url(request_uri());
+  if (isset($urllist['query'])) {
+    $query = array();
+    parse_str($urllist['query'], $query);
+    foreach ($query as $key => $value) {
+      if ($key != $name) {
+        continue;
+      }
+      if (is_array($value)) {
+        // This filter allows multiple selections, so put each one on the
+        // selected_options array.
+        foreach ($value as $option) {
+          $selected_options[] = $option;
+        }
+      }
+      else {
+        $selected_options[] = $value;
+      }
+    }
+  }
+
+  // Clean incoming values to prevent XSS attacks.
+  if (is_array($element['#value'])) {
+    foreach ($element['#value'] as $index => $item) {
+      unset($element['#value'][$index]);
+      $element['#value'][check_plain($index)] = check_plain($item);
+    }
+  }
+  elseif (is_string($element['#value'])) {
+    $element['#value'] = check_plain($element['#value']);
+  }
+
+  // Go through each filter option and build the appropriate link or plain text.
+  foreach ($element['#options'] as $option => $elem) {
+    if (!empty($element['#hidden_options'][$option])) {
+      continue;
+    }
+    // Check for Taxonomy-based filters.
+    if (is_object($elem)) {
+      $slice = array_slice($elem->option, 0, 1, TRUE);
+      list($option, $elem) = each($slice);
+    }
+
+    // Check for optgroups.  Put subelements in the $element_set array and add
+    // a group heading. Otherwise, just add the element to the set.
+    $element_set = array();
+    if (is_array($elem)) {
+      $element_set = $elem;
+    }
+    else {
+      $element_set[$option] = $elem;
+    }
+
+    $links = array();
+    $multiple = !empty($element['#multiple']);
+
+    // If we're in an exposed block, we'll get passed a path to use for the
+    // Views results page.
+    $path = '';
+    if (!empty($element['#bef_path'])) {
+      $path = $element['#bef_path'];
+    }
+
+    foreach ($element_set as $key => $value) {
+      $element_output = '';
+      // Custom ID for each link based on the <select>'s original ID.
+      $id = drupal_html_id($element['#id'] . '-' . $key);
+      $elem = array(
+        '#id' => $id,
+        '#markup' => '',
+        '#type' => 'bef-link',
+        '#name' => $id,
+      );
+
+      $link_options = array();
+      // Add "active" class to the currently active filter link.
+      if (in_array((string) $key, $selected_options)) {
+        $link_options['attributes'] = array('class' => array('active'));
+      }
+      $url = bef_replace_query_string_arg($name, $key, $multiple, FALSE, $path);
+
+      switch ($key) {
+        case 297:
+          $icon = 'fa-lightbulb-o';
+          break;
+
+        case 278:
+          $icon = 'fa-folder-o';
+          break;
+
+        case 279:
+          $icon = 'fa-usd';
+          break;
+
+        case 'All':
+          $icon = 'fa-database';
+          break;
+      }
+      $icon .= ' fa-lg';
+
+      $elem['#children'] = '<div class="fa-bef fa ' . $icon . ' fa-2x"></div>' . l($value, $url, $link_options);
+      $element_output = theme('form_element', array('element' => $elem));
+
+      if (!empty($element['#settings']['combine_param']) && $element['#name'] == $element['#settings']['combine_param'] && !empty($element['#settings']['toggle_links'])) {
+        $sort_pair = explode(' ', $key);
+        if (count($sort_pair) == 2) {
+          // Highlight the link if it is the selected sort_by (can be either
+          // asc or desc, it doesn't matter).
+          if (strpos($selected_options[0], $sort_pair[0]) === 0) {
+            $element_output = str_replace('form-item', 'form-item selected', $element_output);
+          }
+        }
+      }
+      $output .= $element_output;
+
+    }
+  }
+
+  $properties = array(
+    '#description' => isset($element['#bef_description']) ? $element['#bef_description'] : '',
+    '#children' => $output,
+  );
+
+  $output = '<div class="bef-select-as-links">';
+  $output .= theme('form_element', array('element' => $properties));
+
+  // Add attribute that hides the select form element.
+  $vars['element']['#attributes']['style'] = 'display: none;';
+  $output .= theme('select', array('element' => $vars['element']));
+  if (!empty($element['#value'])) {
+    if (is_array($element['#value'])) {
+      foreach ($element['#value'] as $value) {
+        $output .= '<input type="hidden" class="bef-new-value" name="' . $name . '[]" value="' . $value . '" />';
+      }
+    }
+    else {
+      $output .= '<input type="hidden" class="bef-new-value" name="' . $name . '" value="' . $element['#value'] . '" />';
+    }
+  }
+  $output .= '</div>';
+
+  return $output;
+}
