@@ -253,11 +253,34 @@ Visit the Help Desk or contact us.</p>
   $display->content['new-f2b2bd2c-9c87-487c-b318-1585f781f1b3'] = $pane;
   $display->panels['middle'][2] = 'new-f2b2bd2c-9c87-487c-b318-1585f781f1b3';
   $pane = new stdClass();
+  $pane->pid = 'new-98a46d8f-99bd-4bf5-8738-727084670618';
+  $pane->panel = 'right_above';
+  $pane->type = 'block';
+  $pane->subtype = 'views-my_favorites-block_1';
+  $pane->shown = TRUE;
+  $pane->access = array();
+  $pane->configuration = array(
+    'override_title' => 0,
+    'override_title_text' => '',
+    'override_title_heading' => 'h2',
+  );
+  $pane->cache = array();
+  $pane->style = array(
+    'settings' => NULL,
+  );
+  $pane->css = array();
+  $pane->extras = array();
+  $pane->position = 0;
+  $pane->locks = array();
+  $pane->uuid = '98a46d8f-99bd-4bf5-8738-727084670618';
+  $display->content['new-98a46d8f-99bd-4bf5-8738-727084670618'] = $pane;
+  $display->panels['right_above'][0] = 'new-98a46d8f-99bd-4bf5-8738-727084670618';
+  $pane = new stdClass();
   $pane->pid = 'new-202f6fa5-a98a-4e33-98cf-22cd45956b63';
   $pane->panel = 'right_above';
   $pane->type = 'custom';
   $pane->subtype = 'custom';
-  $pane->shown = TRUE;
+  $pane->shown = FALSE;
   $pane->access = array();
   $pane->configuration = array(
     'admin_title' => 'FA Dash Video 2',
@@ -273,11 +296,11 @@ Visit the Help Desk or contact us.</p>
   );
   $pane->css = array();
   $pane->extras = array();
-  $pane->position = 0;
+  $pane->position = 1;
   $pane->locks = array();
   $pane->uuid = '202f6fa5-a98a-4e33-98cf-22cd45956b63';
   $display->content['new-202f6fa5-a98a-4e33-98cf-22cd45956b63'] = $pane;
-  $display->panels['right_above'][0] = 'new-202f6fa5-a98a-4e33-98cf-22cd45956b63';
+  $display->panels['right_above'][1] = 'new-202f6fa5-a98a-4e33-98cf-22cd45956b63';
   $pane = new stdClass();
   $pane->pid = 'new-734f354d-9ce0-4bc2-bb8d-ad0ed8c1f1e2';
   $pane->panel = 'top';
