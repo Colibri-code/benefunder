@@ -99,7 +99,8 @@ function create_proposal_submit($form, &$form_state) {
 
   $wrapper = entity_metadata_wrapper('node', $form_state['values']['nid']);
 
-  if ($wrapper->field_ready_to_send->value()) {
+  // TODO: fix field names.
+  if (FALSE && $wrapper->field_ready_to_send->value()) {
 
     // Send giving proposal to HelloSign.
     $title = $wrapper->label();
@@ -155,34 +156,46 @@ function create_proposal_theme($existing, $type, $theme, $path) {
       'base hook' => 'entity_print',
       'template' => 'entity-print--node--cause',
     ),
-    'proposal_extra' => array(
-      'template' => 'proposal-extra',
+    'proposal_needs_assessment' => array(
+      'template' => 'proposal-needs-assessment',
+      'variables' => array('donor_profile' => NULL),
+    ),
+    'proposal_cover' => array(
+      'template' => 'proposal-cover',
       'variables' => array('proposal_wrapper' => NULL),
     ),
   );
 }
 
 /**
- * Implements hook_preprocess_hook() for proposal-extra.tpl.php.
+ * Implements hook_preprocess_hook() for proposal-cover.tpl.php.
  */
-function create_proposal_preprocess_proposal_extra(&$variables) {
-  $node_wrapper = entity_metadata_wrapper('node', $variables[0]);
+function create_proposal_preprocess_proposal_cover(&$variables) {
+  $proposal_wrapper = entity_metadata_wrapper('node', $variables[0]);
 
-  $bank_address = $node_wrapper->field_bank_address->value();
+  $variables['name'] = $proposal_wrapper->title->value();
 
-  $variables['aba_number'] = $node_wrapper->field_aba_number_for_wires->value();
-  $variables['ach_number'] = $node_wrapper->field_ach->value();
-  $variables['bank_name'] = $node_wrapper->field_bank_name->value();
-  $variables['account_holder'] = $node_wrapper->field_account_holder->value();
-  $variables['account_number'] = $node_wrapper->field_account_number->value();
-  $variables['bank_street'] = $node_wrapper->field_bank_address->thoroughfare->value();
-  $variables['bank_city_state'] = implode(', ', array(
-    $bank_address['locality'],
-    $bank_address['administrative_area'],
-    $bank_address['postal_code'],
-    $bank_address['country'],
-  ));
-  $variables['swift_code'] = $node_wrapper->field_swift_code->value();
+  $background = base64_encode(file_get_contents(drupal_get_path('module', 'create_proposal') . '/proposal-cover.png'));
+  $variables['background'] = 'data:png;base64,' . $background;
+}
+
+/**
+ * Implements hook_preprocess_hook() for proposal-needs-assessment.tpl.php.
+ */
+function create_proposal_preprocess_proposal_needs_assessment(&$variables) {
+  $donor_profile = entity_metadata_wrapper('field_collection_item', $variables['donor_profile']);
+
+  $background = base64_encode(file_get_contents(drupal_get_path('module', 'create_proposal') . '/proposal-cover.png'));
+  $variables['background'] = 'data:png;base64,' . $background;
+
+//  $address = $proposal_wrapper->field_city_state->value();
+
+  $variables['name'] = $donor_profile->field_donor_name->value();
+//  $variables['alumni_associations'] = implode(',', $proposal_wrapper->field_alumni_affiliations->value());
+//  $variables['citystate'] = implode(', ', array(
+//    $address['locality'],
+//    $address['administrative_area'],
+//  ));
 }
 
 /**
@@ -267,21 +280,20 @@ function create_proposal_node_presave($node) {
 
   // Generate proposal PDF and attach to node.
   if (($library = libraries_load('phpwkhtmltopdf')) && !empty($library['loaded'])) {
-    $pdf = new WkHtmlToPdf(array(
-      'ignoreWarnings' => TRUE,
-      'no-outline',
-      'margin-top'    => 0,
-      'margin-right'  => 0,
-      'margin-bottom' => 0,
-      'margin-left'   => 0,
+    $pdf = new WkHtmlToPdf();
 
-      // Default page options
-      'disable-smart-shrinking',
-      //    'user-style-sheet' => '/path/to/pdf.css',
-    ));
+    // Attach cover page.
+    $pdf->addCover(theme('proposal_cover', array($node)));
 
-    $options = array('run-script' => array('https://use.typekit.net/jxh1lif.js'));
-    $pdf->setOptions($options);
+    // Attach needs assessment.
+    foreach ($node->field_donor_profile[LANGUAGE_NONE] as $donor_profile) {
+      $pdf->addPage(theme('proposal_needs_assessment', array('donor_profile' => $donor_profile)));
+    }
+
+    // TODO: Attach sample pages.
+//    $pdf->addPage(file_get_contents(drupal_get_path('module', 'create_proposal') . '/proposal_static.pdf'));
+
+
 
     // Add page for each cause.
     foreach ($node->field_cause[LANGUAGE_NONE] as $collection) {
