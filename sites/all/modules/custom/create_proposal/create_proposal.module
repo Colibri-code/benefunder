@@ -80,70 +80,177 @@ function create_proposal_ajax_checkin($form, $form_state) {
 }
 
 /**
- * Extract array of signers suitable to sending to hellosign.
- */
-function create_proposal_get_signers($proposal_wrapper) {
-  $signers = array();
-  foreach ($proposal_wrapper->field_signer_emails as $collection) {
-    $signers[$collection->field_signer_email->value()] = $collection->field_signer_name->value();
-  }
-  return $signers;
-}
-
-/**
  * Proposal execution confirmed, time to do it.
  *
  * @throws \EntityMetadataWrapperException
  */
 function create_proposal_submit($form, &$form_state) {
-
   $wrapper = entity_metadata_wrapper('node', $form_state['values']['nid']);
 
   // TODO: fix field names.
   if (FALSE && $wrapper->field_ready_to_send->value()) {
+    create_proposal_send_to_hellosign($wrapper);
+  }
 
-    // Send giving proposal to HelloSign.
-    $title = $wrapper->label();
-    $subject = 'Signature required for Benefunder giving proposal';
-    $signers = create_proposal_get_signers($wrapper);
+  // DAF Disbursement confirmed.
+  if ($wrapper->field_daf_disbursement_confirmed->value()) {
+    create_proposal_send_confirmations($wrapper);
+  }
 
-    // CC the DAF provider.
-    $cc_emails = array($wrapper->field_daf_provider->field_daf_email->value());
+  // Generate proposal PDF.
+  create_proposal_generate_pdf($wrapper);
+}
 
-    // Attach files, these will appear as 1 document to sign.
-    $files[] = $wrapper->field_giving_proposal->value()['uri'];
+/**
+ * Generate proposal PDF.
+ *
+ * @param $wrapper
+ *
+ * @throws \Exception
+ */
+function create_proposal_generate_pdf($wrapper) {
+// Generate proposal PDF and attach to node.
+  if (($library = libraries_load('phpwkhtmltopdf')) && !empty($library['loaded'])) {
+    $problem_msg = t('There was a problem creating a proposal PDF, please contact Benefunder.');
+    $pdf = new WkHtmlToPdf();
 
-    // If using addendum attach here.
-    if ($wrapper->field_already_have_daf->value()) {
-      $files[] = $wrapper->field_daf_provider->field_benefunder_addendum->value()['uri'];
+    // Attach cover page.
+    $pdf->addCover(theme('proposal_cover', array('proposal_wrapper' => $wrapper)));
+
+    // Attach needs assessment.
+    foreach ($wrapper->field_donor_profile->value() as $donor_profile) {
+//      $donor_profile = entity_metadata_wrapper('field_item_collection', $donor_profile);
+      $pdf->addPage(theme('proposal_needs_assessment', array('donor_profile' => $donor_profile)));
     }
 
-    // Attach additional files?
-//    create_proposal_generate_additional_documents($wrapper->value());
-//    $files[] = $wrapper->field_additional_documents->value()['uri'];
+    // TODO: Attach sample pages.
+//    $pdf->addPage(file_get_contents(drupal_get_path('module', 'create_proposal') . '/proposal_static.pdf'));
 
-    // Add static content?
-//  $files[] = drupal_get_path('module', 'create_proposal') . '/proposal_static.pdf';
 
-    $mode = 'email';
+    // Add page for each cause.
+    foreach ($wrapper->field_cause->value() as $collection) {
+      $cause_nid = $collection->field_cause_name[LANGUAGE_NONE][0]['target_id'];
+      $cause_node = node_load($cause_nid);
+      if (!empty($cause_node)) {
+        $html = _entity_print_get_generated_html('node', $cause_node);
+        $pdf->addPage(trim($html));
+        $a[] = array(
+          $cause_node->title,
+          $collection->field_cause_allocation[LANGUAGE_NONE]['item']['value'] . '%',
+        );
+      }
+    }
 
-    $result = hellosign_generate_esignature_request($title, $subject, $signers, $files, $mode, $cc_emails);
+    // Add summary table of cause and allocation percentages.
+    $header = array('Cause', 'Allocation Percentage');
+    $table = theme('table', array('header' => $header, 'rows' => $a));
+    $pdf->addPage('<html><body>' . $table . '</body></html>');
 
-    if ($result['status'] != 1) {
-      $problem_msg = t('There was a problem sending the proposal to HelloSign, please contact Benefunder.');
+    $filename = transliteration_clean_filename($wrapper->title . '_proposal.pdf');
+    $content = $pdf->toString();
+
+    if ($content === FALSE) {
+      watchdog('create_proposal', 'PDF content error: ' . $pdf->getError(), array(), WATCHDOG_ERROR);
+      drupal_set_message($problem_msg, 'error');
+      return;
+    }
+
+    $file = file_save_data($content, 'private://' . $filename, FILE_EXISTS_REPLACE);
+    if (!$file) {
+      watchdog('create_proposal', 'File save error: ' . $pdf->getError(), array(), WATCHDOG_ERROR);
       drupal_set_message($problem_msg, 'error');
     }
     else {
-      // Success!
-      drupal_set_message(t('Proposal %name sent out for signatures at HelloSign', array('%name' => $title)));
-
-      // Store the signature_request_id.
-      $wrapper->field_signature_request_id = $result['signature_request_id'];
-
-      // Set to pending status.
-      create_proposal_set_status('Pending Acceptance', $wrapper);
+      $file->display = '1';
+      $file->description = 'a PDF';
+      $wrapper->field_giving_proposal = (array) $file;
       $wrapper->save();
     }
+  }
+}
+
+/**
+ * DAF Disbursement confirmed, send confirmation emails.
+ *
+ * @param $wrapper
+ *
+ * @return array
+ * @throws \Exception
+ */
+function create_proposal_send_confirmations($wrapper) {
+  $amount = _create_proposal_calculate_disbusement_amount($wrapper);
+
+  // Send confirmation to each researcher.
+  foreach ($wrapper->field_cause[LANGUAGE_NONE] as $collection) {
+    $cause_nid = $collection['field_cause_name'][LANGUAGE_NONE][0]['target_id'];
+    $cause_node = node_load($cause_nid);
+    if (!empty($cause_node)) {
+      $params = array(
+        '@researcher' => $cause_node->field_first_name->value(),
+        '@date' => new Date('m/d/Y'),
+        '@reqnum' => $wrapper->field_disbursement_tracking_numb[LANGUAGE_NONE]['value'],
+        '@amount' => money_format('%i', number_format($amount * $collection->field_cause_allocation->value(), 2)),
+        '@payee' => $wrapper->title[LANGUAGE_NONE]['value'],
+      );
+      drupal_mail('create_proposal', 'researcher-confirmation', $cause_node->field_email->value(), LANGUAGE_NONE, $params);
+    }
+  }
+
+  // Send thank-you to each donor.
+  foreach ($wrapper->field_signer_emails[LANGUAGE_NONE] as $collection) {
+    $params = array('@name' => $collection['field_signer_name'][LANGUAGE_NONE][0]['value']);
+    $email = $params['@name'] . '<' . $collection['field_signer_email'][LANGUAGE_NONE][0]['value'] . '>';
+    drupal_mail('create_proposal', 'donor-thank-you', $email, LANGUAGE_NONE, $params);
+  }
+}
+
+/**
+ * Send giving proposal to HelloSign.
+ *
+ * @param $wrapper
+ *
+ * @return null|string
+ */
+function create_proposal_send_to_hellosign($wrapper) {
+  $title = $wrapper->label();
+  $subject = 'Signature required for Benefunder giving proposal';
+  $signers = _create_proposal_get_signers($wrapper);
+
+  // CC the DAF provider.
+  $cc_emails = array($wrapper->field_daf_provider->field_daf_email->value());
+
+  // Attach files, these will appear as 1 document to sign.
+  $files[] = $wrapper->field_giving_proposal->value()['uri'];
+
+  // If using addendum attach here.
+  if ($wrapper->field_already_have_daf->value()) {
+    $files[] = $wrapper->field_daf_provider->field_benefunder_addendum->value()['uri'];
+  }
+
+  // Attach additional files?
+//    create_proposal_generate_additional_documents($wrapper->value());
+//    $files[] = $wrapper->field_additional_documents->value()['uri'];
+
+  // Add static content?
+//  $files[] = drupal_get_path('module', 'create_proposal') . '/proposal_static.pdf';
+
+  $mode = 'email';
+
+  $result = hellosign_generate_esignature_request($title, $subject, $signers, $files, $mode, $cc_emails);
+
+  if ($result['status'] != 1) {
+    drupal_set_message(t('There was a problem sending the proposal to HelloSign, please contact Benefunder.'), 'error');
+  }
+  else {
+    // Success!
+    drupal_set_message(t('Proposal %name sent out for signatures at HelloSign', array('%name' => $title)));
+
+    // Store the signature_request_id.
+    $wrapper->field_signature_request_id = $result['signature_request_id'];
+
+    // Set to pending status.
+    _create_proposal_set_status('Pending Acceptance', $wrapper);
+    $wrapper->save();
   }
 }
 
@@ -171,7 +278,7 @@ function create_proposal_theme($existing, $type, $theme, $path) {
  * Implements hook_preprocess_hook() for proposal-cover.tpl.php.
  */
 function create_proposal_preprocess_proposal_cover(&$variables) {
-  $proposal_wrapper = entity_metadata_wrapper('node', $variables[0]);
+  $proposal_wrapper = entity_metadata_wrapper('node', $variables['proposal_wrapper']);
 
   $variables['name'] = $proposal_wrapper->title->value();
 
@@ -183,155 +290,24 @@ function create_proposal_preprocess_proposal_cover(&$variables) {
  * Implements hook_preprocess_hook() for proposal-needs-assessment.tpl.php.
  */
 function create_proposal_preprocess_proposal_needs_assessment(&$variables) {
-  $donor_profile = entity_metadata_wrapper('field_collection_item', $variables['donor_profile']);
+  $donor_profile = $variables['donor_profile'];
 
   $background = base64_encode(file_get_contents(drupal_get_path('module', 'create_proposal') . '/proposal-cover.png'));
   $variables['background'] = 'data:png;base64,' . $background;
 
-//  $address = $proposal_wrapper->field_city_state->value();
+  $address = $donor_profile->field_city_state[LANGUAGE_NONE][0];
 
-  $variables['name'] = $donor_profile->field_donor_name->value();
+  if (isset($donor_profile->field_donor_name[LANGUAGE_NONE])) {
+    $variables['name'] = $donor_profile->field_donor_name[LANGUAGE_NONE][0]['value'];
+  }
+
+
 //  $variables['alumni_associations'] = implode(',', $proposal_wrapper->field_alumni_affiliations->value());
-//  $variables['citystate'] = implode(', ', array(
-//    $address['locality'],
-//    $address['administrative_area'],
-//  ));
-}
-
-/**
- * Create addendum PDF document and attach to node.
- *
- * @throws \Exception
- */
-function create_proposal_generate_additional_documents($proposal) {
-  $problem_msg = t('There was a problem creating a proposal addendum, please contact Benefunder.');
-
-  if (($library = libraries_load('phpwkhtmltopdf')) && !empty($library['loaded'])) {
-    $pdf = new WkHtmlToPdf();
-
-    $html = theme('proposal_extra', array($proposal));
-    $pdf->addPage($html);
-
-    $filename = transliteration_clean_filename($proposal->title . '_addendum.pdf');
-    $content = $pdf->toString();
-
-    if ($content === FALSE) {
-      watchdog('create_proposal', 'PDF content error: ' . $pdf->getError(), array(), WATCHDOG_ERROR);
-      drupal_set_message($problem_msg, 'error');
-      return;
-    }
-
-    $file = file_save_data($content, 'private://' . $filename, FILE_EXISTS_REPLACE);
-    if (!$file) {
-      watchdog('create_proposal', 'File save error: ' . $pdf->getError(), array(), WATCHDOG_ERROR);
-      drupal_set_message($problem_msg, 'error');
-    }
-    else {
-      $file->display = '1';
-      $proposal->field_additional_documents[LANGUAGE_NONE][0] = (array) $file;
-      node_save($proposal);
-    }
-  }
-}
-
-/**
- * Implements hook_node_presave().
- *
- * Create a new proposal PDF and attach. Fires on insert/update.
- */
-function create_proposal_node_presave($node) {
-  $problem_msg = t('There was a problem creating a proposal PDF, please contact Benefunder.');
-  if ($node->type != 'giving_proposal') {
-    return;
-  }
-
-  // No causes selected.
-  if (!isset($node->field_cause[LANGUAGE_NONE][0]['field_cause_name'][LANGUAGE_NONE][0]['target_id'])) {
-    return;
-  }
-
-  // DAF Disbursement confirmed.
-  if ($node->field_daf_disbursement_confirmed[LANGUAGE_NONE][0]['value']) {
-    $amount = create_proposal_calculate_disbusement_amount($node);
-
-    // Send confirmation to each researcher.
-    foreach ($node->field_cause[LANGUAGE_NONE] as $collection) {
-      $cause_nid = $collection['field_cause_name'][LANGUAGE_NONE][0]['target_id'];
-      $cause_node = node_load($cause_nid);
-      if (!empty($cause_node)) {
-        $params = array(
-          '@researcher' => $cause_node->field_first_name->value(),
-          '@date' => new Date('m/d/Y'),
-          '@reqnum' => $node->field_disbursement_tracking_numb[LANGUAGE_NONE]['value'],
-          '@amount' => money_format('%i', number_format($amount * $collection->field_cause_allocation->value(), 2)),
-          '@payee' => $node->title[LANGUAGE_NONE]['value'],
-        );
-        drupal_mail('create_proposal', 'researcher-confirmation', $cause_node->field_email->value(), LANGUAGE_NONE, $params);
-      }
-    }
-
-    // Send thank-you to each donor.
-    foreach ($node->field_signer_emails[LANGUAGE_NONE] as $collection) {
-      $params = array('@name' => $collection['field_signer_name'][LANGUAGE_NONE][0]['value']);
-      $email = $params['@name'] . '<' . $collection['field_signer_email'][LANGUAGE_NONE][0]['value'] . '>';
-      drupal_mail('create_proposal', 'donor-thank-you', $email, LANGUAGE_NONE, $params);
-    }
-  }
-
-  // Generate proposal PDF and attach to node.
-  if (($library = libraries_load('phpwkhtmltopdf')) && !empty($library['loaded'])) {
-    $pdf = new WkHtmlToPdf();
-
-    // Attach cover page.
-    $pdf->addCover(theme('proposal_cover', array($node)));
-
-    // Attach needs assessment.
-    foreach ($node->field_donor_profile[LANGUAGE_NONE] as $donor_profile) {
-      $pdf->addPage(theme('proposal_needs_assessment', array('donor_profile' => $donor_profile)));
-    }
-
-    // TODO: Attach sample pages.
-//    $pdf->addPage(file_get_contents(drupal_get_path('module', 'create_proposal') . '/proposal_static.pdf'));
-
-
-
-    // Add page for each cause.
-    foreach ($node->field_cause[LANGUAGE_NONE] as $collection) {
-      $cause_nid = $collection['field_cause_name'][LANGUAGE_NONE][0]['target_id'];
-      $cause_node = node_load($cause_nid);
-      if (!empty($cause_node)) {
-        $html = _entity_print_get_generated_html('node', $cause_node);
-        $pdf->addPage($html);
-        $allocations[] = array(
-          $cause_node->title,
-          $collection['field_cause_allocation'][LANGUAGE_NONE]['item']['value'] . '%',
-        );
-      }
-    }
-
-    // Add summary table of cause and allocation percentages.
-    $header = array('Cause', 'Allocation Percantage');
-    $table = theme('table', array('header' => $header, 'rows' => $allocations));
-    $pdf->addPage('<html><body>' . $table . '</body></html>');
-
-    $filename = transliteration_clean_filename($node->title . '_proposal.pdf');
-    $content = $pdf->toString();
-
-    if ($content === FALSE) {
-      watchdog('create_proposal', 'PDF content error: ' . $pdf->getError(), array(), WATCHDOG_ERROR);
-      drupal_set_message($problem_msg, 'error');
-      return;
-    }
-
-    $file = file_save_data($content, 'private://' . $filename, FILE_EXISTS_REPLACE);
-    if (!$file) {
-      watchdog('create_proposal', 'File save error: ' . $pdf->getError(), array(), WATCHDOG_ERROR);
-      drupal_set_message($problem_msg, 'error');
-    }
-    else {
-      $file->display = '1';
-      $node->field_giving_proposal[LANGUAGE_NONE][0] = (array) $file;
-    }
+  if (!empty($address['locality'])) {
+    $variables['citystate'] = implode(', ', array(
+      $address['locality'],
+      $address['administrative_area'],
+    ));
   }
 }
 
@@ -394,49 +370,13 @@ function create_proposal_process_hellosign_callback(array $data) {
 
     // Update proposal status.
     case 'signature_request_declined':
-      create_proposal_set_status('Rejected', $wrapper);
+      _create_proposal_set_status('Rejected', $wrapper);
       $wrapper->save();
       break;
   }
 }
 
-/**
- * Lookup and set proposal status field on a giving proposal.
- *
- * @param $status
- * @param $wrapper
- */
-function create_proposal_set_status($status, $wrapper) {
-  $term_array = taxonomy_get_term_by_name($status, 'plan_status');
-  $wrapper->field_proposal_status = array_pop($term_array)->tid;
-}
 
-function create_proposal_calculate_disbusement_amount($proposal_wrapper) {
-  $proposal_wrapper = entity_metadata_wrapper('node', $proposal_wrapper);
-
-  // Calculate amount to disburse initially.
-  setlocale(LC_MONETARY, 'en_US');
-  $frequency = $proposal_wrapper->field_disbursement_frequency->value();
-  $dist_percent = $proposal_wrapper->field_what_is_the_intended_distr->value() / 100;
-  $amount = $proposal_wrapper->field_planned_initial_contributi->value() * $dist_percent;
-  switch ($frequency) {
-    case 'Quarterly':
-      $amount /= 4;
-      break;
-
-    case '6 Months':
-      $amount /= 2;
-
-    case 'One Time':
-    case 'Annually':
-      // No-op.
-      break;
-
-    default:
-      throw new Exception('Unknown frequency');
-  }
-  return $amount;
-}
 
 /**
  * Sends a disbursement letter to each school involved.
@@ -446,7 +386,7 @@ function create_proposal_calculate_disbusement_amount($proposal_wrapper) {
 function create_proposal_signature_all_signed($proposal_nid, $signatures_array) {
   $proposal_wrapper = entity_metadata_wrapper('node', $proposal_nid);
 
-  $amount = create_proposal_calculate_disbusement_amount($proposal_wrapper);
+  $amount = _create_proposal_calculate_disbusement_amount($proposal_wrapper);
   $frequency = $proposal_wrapper->field_disbursement_frequency->value();
 
   // Group causes by school.
@@ -468,7 +408,7 @@ function create_proposal_signature_all_signed($proposal_nid, $signatures_array) 
   drupal_mail('create_proposal', 'disburse', $daf_email, LANGUAGE_NONE, $params);
 
   $status = ($frequency == 'One Time') ? 'Complete' : 'Continuing';
-  create_proposal_set_status($status, $proposal_wrapper);
+  _create_proposal_set_status($status, $proposal_wrapper);
 }
 
 /**
@@ -625,4 +565,53 @@ San Diego, CA 92121\n
 (858) 215-1136\n
 ENDGIFT;
   return strtr($body, $params);
+}
+
+/**
+ * Extract array of signers suitable to sending to hellosign.
+ */
+function _create_proposal_get_signers($proposal_wrapper) {
+  $signers = array();
+  foreach ($proposal_wrapper->field_signer_emails as $collection) {
+    $signers[$collection->field_signer_email->value()] = $collection->field_signer_name->value();
+  }
+  return $signers;
+}
+
+/**
+ * Lookup and set proposal status field on a giving proposal.
+ *
+ * @param $status
+ * @param $wrapper
+ */
+function _create_proposal_set_status($status, $wrapper) {
+  $term_array = taxonomy_get_term_by_name($status, 'plan_status');
+  $wrapper->field_proposal_status = array_pop($term_array)->tid;
+}
+
+function _create_proposal_calculate_disbusement_amount($proposal_wrapper) {
+  $proposal_wrapper = entity_metadata_wrapper('node', $proposal_wrapper);
+
+  // Calculate amount to disburse initially.
+  setlocale(LC_MONETARY, 'en_US');
+  $frequency = $proposal_wrapper->field_disbursement_frequency->value();
+  $dist_percent = $proposal_wrapper->field_what_is_the_intended_distr->value() / 100;
+  $amount = $proposal_wrapper->field_planned_initial_contributi->value() * $dist_percent;
+  switch ($frequency) {
+    case 'Quarterly':
+      $amount /= 4;
+      break;
+
+    case '6 Months':
+      $amount /= 2;
+
+    case 'One Time':
+    case 'Annually':
+      // No-op.
+      break;
+
+    default:
+      throw new Exception('Unknown frequency');
+  }
+  return $amount;
 }

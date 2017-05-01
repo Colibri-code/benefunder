@@ -36,7 +36,7 @@ function sitemod_form_alter(&$form, &$form_state, $form_id) {
 
       // Never user accessible, these fields will be generated.
       $form['field_giving_proposal']['#disabled'] = TRUE;
-      $form['field_additional_documents']['#disabled'] = TRUE;
+//      $form['field_additional_documents']['#disabled'] = TRUE;
 
       // Change all button values "Remove" => "Remove this profile".
       for ($i = 0; $i <= $form['field_donor_profile'][$lang]['#max_delta']; $i++) {
