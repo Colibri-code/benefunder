@@ -46,6 +46,15 @@ function create_proposal_form_alter(&$form, &$form_state, $form_id) {
 
     // Additional submit.
     $form['#submit'][] = 'create_proposal_submit';
+
+    // Add descriptions to Research Stages field.
+    foreach ($form['field_donor_profile'][LANGUAGE_NONE] as $key => $profile) {
+      foreach ($profile['field_research_stages'][LANGUAGE_NONE]['#options'] as $tid => $option) {
+        $term = taxonomy_term_load($tid);
+        $form['field_donor_profile'][LANGUAGE_NONE][$key]['field_research_stages'][LANGUAGE_NONE]['#options'][$tid] .= ' - <i>' . $term->description . '</i>';
+      }
+    }
+
   }
 }
 
@@ -88,48 +97,64 @@ function create_proposal_submit($form, &$form_state) {
   $wrapper = entity_metadata_wrapper('node', $form_state['values']['nid']);
 
   // TODO: fix field names.
-  if (FALSE && $wrapper->field_ready_to_send->value()) {
+  if (FALSE && $wrapper->field_ready_to_send->value() && !create_proposal_sent_to_hellosign($wrapper)) {
     create_proposal_send_to_hellosign($wrapper);
   }
 
   // DAF Disbursement confirmed.
-  if ($wrapper->field_daf_disbursement_confirmed->value()) {
+  if (FALSE && $wrapper->field_daf_disbursement_confirmed->value() && !create_proposal_sent_confirmations($wrapper)) {
     create_proposal_send_confirmations($wrapper);
   }
+}
 
+/**
+ * Implements hook_node_presave().
+ */
+function create_proposal_node_presave($node) {
   // Generate proposal PDF.
-  create_proposal_generate_pdf($wrapper);
+  create_proposal_generate_pdf($node);
+}
+
+function create_proposal_sent_confirmation() {
+  // TODO: FIX.
+  return FALSE;
+}
+
+function create_proposal_sent_to_hellosign($wrapper) {
+  return ($wrapper->field_signature_request_id->value() > 0);
 }
 
 /**
  * Generate proposal PDF.
  *
- * @param $wrapper
+ * @param $node
  *
  * @throws \Exception
  */
-function create_proposal_generate_pdf($wrapper) {
+function create_proposal_generate_pdf($node) {
 // Generate proposal PDF and attach to node.
   if (($library = libraries_load('phpwkhtmltopdf')) && !empty($library['loaded'])) {
     $problem_msg = t('There was a problem creating a proposal PDF, please contact Benefunder.');
     $pdf = new WkHtmlToPdf();
 
     // Attach cover page.
-    $pdf->addCover(theme('proposal_cover', array('proposal_wrapper' => $wrapper)));
+//    $pdf->addCover(theme('proposal_cover', array('proposal' => $node)));
+
+    $pdf->addPage('<html><body>This page intentionally left blank.</body></html>');
 
     // Attach needs assessment.
-    foreach ($wrapper->field_donor_profile->value() as $donor_profile) {
-//      $donor_profile = entity_metadata_wrapper('field_item_collection', $donor_profile);
-      $pdf->addPage(theme('proposal_needs_assessment', array('donor_profile' => $donor_profile)));
+    foreach ($node->field_donor_profile[LANGUAGE_NONE] as $donor_profile) {
+      $pdf->addPage(trim(theme('proposal_needs_assessment', array('donor_profile' => $donor_profile))));
     }
+    $pdf->addPage('<html><body>This page intentionally left blank.</body></html>');
 
-    // TODO: Attach sample pages.
+    // TODO: Attach sample pages - this does not work. Add as HTML or use something else to combine pdfs?
 //    $pdf->addPage(file_get_contents(drupal_get_path('module', 'create_proposal') . '/proposal_static.pdf'));
 
 
     // Add page for each cause.
-    foreach ($wrapper->field_cause->value() as $collection) {
-      $cause_nid = $collection->field_cause_name[LANGUAGE_NONE][0]['target_id'];
+    foreach ($node->field_cause[LANGUAGE_NONE] as $collection) {
+      $cause_nid = $collection['field_cause_name'][LANGUAGE_NONE][0]['target_id'];
       $cause_node = node_load($cause_nid);
       if (!empty($cause_node)) {
         $html = _entity_print_get_generated_html('node', $cause_node);
@@ -140,13 +165,14 @@ function create_proposal_generate_pdf($wrapper) {
         );
       }
     }
+    $pdf->addPage('<html><body>This page intentionally left blank.</body></html>');
 
     // Add summary table of cause and allocation percentages.
     $header = array('Cause', 'Allocation Percentage');
     $table = theme('table', array('header' => $header, 'rows' => $a));
     $pdf->addPage('<html><body>' . $table . '</body></html>');
 
-    $filename = transliteration_clean_filename($wrapper->title . '_proposal.pdf');
+    $filename = transliteration_clean_filename($node->title . '_proposal.pdf');
     $content = $pdf->toString();
 
     if ($content === FALSE) {
@@ -162,9 +188,7 @@ function create_proposal_generate_pdf($wrapper) {
     }
     else {
       $file->display = '1';
-      $file->description = 'a PDF';
-      $wrapper->field_giving_proposal = (array) $file;
-      $wrapper->save();
+      $node->field_giving_proposal[LANGUAGE_NONE][0] = (array) $file;
     }
   }
 }
@@ -269,7 +293,7 @@ function create_proposal_theme($existing, $type, $theme, $path) {
     ),
     'proposal_cover' => array(
       'template' => 'proposal-cover',
-      'variables' => array('proposal_wrapper' => NULL),
+      'variables' => array('proposal' => NULL),
     ),
   );
 }
@@ -278,9 +302,9 @@ function create_proposal_theme($existing, $type, $theme, $path) {
  * Implements hook_preprocess_hook() for proposal-cover.tpl.php.
  */
 function create_proposal_preprocess_proposal_cover(&$variables) {
-  $proposal_wrapper = entity_metadata_wrapper('node', $variables['proposal_wrapper']);
+  $proposal = $variables['proposal'];
 
-  $variables['name'] = $proposal_wrapper->title->value();
+  $variables['name'] = $proposal->title;
 
   $background = base64_encode(file_get_contents(drupal_get_path('module', 'create_proposal') . '/proposal-cover.png'));
   $variables['background'] = 'data:png;base64,' . $background;
@@ -300,7 +324,6 @@ function create_proposal_preprocess_proposal_needs_assessment(&$variables) {
   if (isset($donor_profile->field_donor_name[LANGUAGE_NONE])) {
     $variables['name'] = $donor_profile->field_donor_name[LANGUAGE_NONE][0]['value'];
   }
-
 
 //  $variables['alumni_associations'] = implode(',', $proposal_wrapper->field_alumni_affiliations->value());
   if (!empty($address['locality'])) {
