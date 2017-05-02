@@ -111,10 +111,18 @@ function bf_giving_proposal_field_group_info() {
     'label' => 'Client Giving History',
     'weight' => '37',
     'children' => array(
-      0 => 'field_what_did_the_client_like_d',
-      1 => 'field_program_targets',
-      2 => 'field_giving_targets',
+      0 => 'field_charitable_vehicle',
+      1 => 'field_vehicle_name',
+      2 => 'field_what_did_the_client_like_d',
       3 => 'field_what_organizations_has_the',
+      4 => 'field_how_many_hours_per_year_di',
+      5 => 'field_does_the_family_have_an_es',
+      6 => 'field_does_the_family_currently_',
+      7 => 'field_advisor_name',
+      8 => 'field_advisor_firm',
+      9 => 'field_advisor_contact',
+      10 => 'field_giving_vehicle_type',
+      11 => 'field_what_does_the_client_like_',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -138,17 +146,16 @@ function bf_giving_proposal_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = 'group_proposal_tabs';
   $field_group->data = array(
-    'label' => 'DAF Account Setup / Verification',
+    'label' => 'New Account or Addendum',
     'weight' => '45',
     'children' => array(
-      0 => 'field_already_have_daf',
-      1 => 'field_daf_forms',
-      2 => 'field_daf_provider',
-      3 => 'field_disbursement_frequency',
+      0 => 'field_daf_forms',
+      1 => 'field_daf_provider',
+      2 => 'field_disbursement_frequency',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
-      'label' => 'DAF Account Setup / Verification',
+      'label' => 'New Account or Addendum',
       'instance_settings' => array(
         'required_fields' => 1,
         'classes' => 'group-daf-funded field-group-tab',
@@ -226,14 +233,11 @@ function bf_giving_proposal_field_group_info() {
     'label' => 'Account Details & Funding Information',
     'weight' => '44',
     'children' => array(
-      0 => 'field_charitable_vehicle',
-      1 => 'field_contribution_funding',
-      2 => 'field_planned_annual_contributio',
-      3 => 'field_planned_initial_contributi',
-      4 => 'field_vehicle_name',
-      5 => 'field_vehicle_type',
-      6 => 'field_how_does_the_client_plan_o',
-      7 => 'field_what_is_the_intended_distr',
+      0 => 'field_contribution_funding',
+      1 => 'field_planned_annual_contributio',
+      2 => 'field_planned_initial_contributi',
+      3 => 'field_how_does_the_client_plan_o',
+      4 => 'field_what_is_the_intended_distr',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -580,7 +584,7 @@ function bf_giving_proposal_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = 'group_proposal_tabs';
   $field_group->data = array(
-    'label' => 'Send for Signatures',
+    'label' => 'Kickoff',
     'weight' => '46',
     'children' => array(
       0 => 'field_signature_request_id',
@@ -591,12 +595,13 @@ function bf_giving_proposal_field_group_info() {
     ),
     'format_type' => 'tab',
     'format_settings' => array(
-      'formatter' => 'closed',
+      'label' => 'Kickoff',
       'instance_settings' => array(
-        'description' => '',
-        'classes' => 'group-send-signatures field-group-tab',
         'required_fields' => 1,
+        'classes' => 'group-send-signatures field-group-tab',
+        'description' => '',
       ),
+      'formatter' => 'closed',
     ),
   );
   $field_groups['group_send_signatures|node|giving_proposal|form'] = $field_group;
@@ -672,11 +677,12 @@ function bf_giving_proposal_field_group_info() {
   t('Client Giving History');
   t('Client Profile');
   t('Client\'s Current Giving History');
-  t('DAF Account Setup / Verification');
   t('Donor Information');
   t('Execution');
   t('Initial Distributions');
+  t('Kickoff');
   t('Needs Assessment');
+  t('New Account or Addendum');
   t('Philanthropic Profile');
   t('Preliminary Cause Selection');
   t('Proposal');
@@ -685,7 +691,6 @@ function bf_giving_proposal_field_group_info() {
   t('Ready to Print');
   t('Research Interests');
   t('Routing Instructions');
-  t('Send for Signatures');
 
   return $field_groups;
 }

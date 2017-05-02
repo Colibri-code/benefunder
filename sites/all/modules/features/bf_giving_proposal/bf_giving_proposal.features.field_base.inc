@@ -10,6 +10,34 @@
 function bf_giving_proposal_field_default_field_bases() {
   $field_bases = array();
 
+  // Exported field_base: 'field_accomplishments'.
+  $field_bases['field_accomplishments'] = array(
+    'active' => 1,
+    'cardinality' => -1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_accomplishments',
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        'Highly Recognized' => 'Highly Recognized - <i>Less risk, lots of funding & awards, more senior scientists</i>',
+        'Mid Career' => 'Mid Career - <i>May have funding, close to achieving tenure</i>',
+        'Undiscovered' => 'Undiscovered - <i>Early career, higher risk</i>',
+        'Capacity Building' => 'Capacity Building - <i>Infrastructure, Centers, Scholarships & Career Awards</i>',
+      ),
+      'allowed_values_function' => '',
+      'profile2_private' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'list_text',
+  );
+
   // Exported field_base: 'field_additional_documents'.
   $field_bases['field_additional_documents'] = array(
     'active' => 1,
@@ -49,30 +77,70 @@ function bf_giving_proposal_field_default_field_bases() {
     'type' => 'addressfield',
   );
 
-  // Exported field_base: 'field_already_have_daf'.
-  $field_bases['field_already_have_daf'] = array(
+  // Exported field_base: 'field_advisor_contact'.
+  $field_bases['field_advisor_contact'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_already_have_daf',
+    'field_name' => 'field_advisor_contact',
     'indexes' => array(
-      'value' => array(
-        0 => 'value',
+      'format' => array(
+        0 => 'format',
       ),
     ),
     'locked' => 0,
-    'module' => 'list',
+    'module' => 'text',
     'settings' => array(
-      'allowed_values' => array(
-        0 => '',
-        1 => '',
-      ),
-      'allowed_values_function' => '',
+      'max_length' => 255,
       'profile2_private' => FALSE,
     ),
     'translatable' => 0,
-    'type' => 'list_boolean',
+    'type' => 'text',
+  );
+
+  // Exported field_base: 'field_advisor_firm'.
+  $field_bases['field_advisor_firm'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_advisor_firm',
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(
+      'max_length' => 255,
+      'profile2_private' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'text',
+  );
+
+  // Exported field_base: 'field_advisor_name'.
+  $field_bases['field_advisor_name'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_advisor_name',
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(
+      'max_length' => 255,
+      'profile2_private' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'text',
   );
 
   // Exported field_base: 'field_alumni_affiliations'.
@@ -248,8 +316,8 @@ function bf_giving_proposal_field_default_field_bases() {
     'module' => 'list',
     'settings' => array(
       'allowed_values' => array(
-        0 => 'No',
-        1 => 'Yes',
+        0 => '',
+        1 => '',
       ),
       'allowed_values_function' => '',
       'profile2_private' => FALSE,
@@ -531,6 +599,53 @@ function bf_giving_proposal_field_default_field_bases() {
     'type' => 'text',
   );
 
+  // Exported field_base: 'field_does_the_family_currently_'.
+  $field_bases['field_does_the_family_currently_'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_does_the_family_currently_',
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        0 => '',
+        1 => '',
+      ),
+      'allowed_values_function' => '',
+      'profile2_private' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'list_boolean',
+  );
+
+  // Exported field_base: 'field_does_the_family_have_an_es'.
+  $field_bases['field_does_the_family_have_an_es'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_does_the_family_have_an_es',
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(
+      'profile2_private' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'text_long',
+  );
+
   // Exported field_base: 'field_donor_name'.
   $field_bases['field_donor_name'] = array(
     'active' => 1,
@@ -578,6 +693,33 @@ function bf_giving_proposal_field_default_field_bases() {
     ),
     'translatable' => 0,
     'type' => 'field_collection',
+  );
+
+  // Exported field_base: 'field_engagements'.
+  $field_bases['field_engagements'] = array(
+    'active' => 1,
+    'cardinality' => -1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_engagements',
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        'Low' => 'Low - <i>Periodic reports</i>',
+        'Medium' => 'Medium - <i>Lab visits and webinars</i>',
+        'High' => 'High - <i>Volunteering, field work, regular check-ins</i>',
+      ),
+      'allowed_values_function' => '',
+      'profile2_private' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'list_text',
   );
 
   // Exported field_base: 'field_execution_markup'.
@@ -647,32 +789,26 @@ function bf_giving_proposal_field_default_field_bases() {
     'type' => 'file',
   );
 
-  // Exported field_base: 'field_giving_targets'.
-  $field_bases['field_giving_targets'] = array(
+  // Exported field_base: 'field_giving_vehicle_type'.
+  $field_bases['field_giving_vehicle_type'] = array(
     'active' => 1,
-    'cardinality' => -1,
+    'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_giving_targets',
+    'field_name' => 'field_giving_vehicle_type',
     'indexes' => array(
-      'value' => array(
-        0 => 'value',
+      'format' => array(
+        0 => 'format',
       ),
     ),
     'locked' => 0,
-    'module' => 'list',
+    'module' => 'text',
     'settings' => array(
-      'allowed_values' => array(
-        'New Discoveries/Big Breakthroughs' => 'New Discoveries/Big Breakthroughs',
-        'Advancing Promising Discoveries' => 'Advancing Promising Discoveries',
-        'Late Stage (bringing existing discoveries to market/implementation immediate impact)' => 'Late Stage (bringing existing discoveries to market/implementation immediate impact)',
-        'Impact Investing (market stage, helping companies commercialize new technologies)' => 'Impact Investing (market stage, helping companies commercialize new technologies)',
-      ),
-      'allowed_values_function' => '',
+      'max_length' => 255,
       'profile2_private' => FALSE,
     ),
     'translatable' => 0,
-    'type' => 'list_text',
+    'type' => 'text',
   );
 
   // Exported field_base: 'field_how_does_the_client_plan_o'.
@@ -702,13 +838,13 @@ function bf_giving_proposal_field_default_field_bases() {
     'type' => 'list_text',
   );
 
-  // Exported field_base: 'field_in_addition_to_funding_how'.
-  $field_bases['field_in_addition_to_funding_how'] = array(
+  // Exported field_base: 'field_how_many_hours_per_year_di'.
+  $field_bases['field_how_many_hours_per_year_di'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_in_addition_to_funding_how',
+    'field_name' => 'field_how_many_hours_per_year_di',
     'indexes' => array(),
     'locked' => 0,
     'module' => 'number',
@@ -825,37 +961,6 @@ function bf_giving_proposal_field_default_field_bases() {
     ),
     'translatable' => 0,
     'type' => 'number_integer',
-  );
-
-  // Exported field_base: 'field_program_targets'.
-  $field_bases['field_program_targets'] = array(
-    'active' => 1,
-    'cardinality' => -1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_program_targets',
-    'indexes' => array(
-      'value' => array(
-        0 => 'value',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'list',
-    'settings' => array(
-      'allowed_values' => array(
-        'Highly Recognized/Existing Funding sources' => 'Highly Recognized/Existing Funding sources',
-        'Emerging/Undiscovered Talent' => 'Emerging/Undiscovered Talent',
-        'By Location' => 'By Location',
-        'By Ethnicity' => 'By Ethnicity',
-        'By University Affiliation' => 'By University Affiliation',
-        'High Engagement Level (in person visits, regular check ins)' => 'High Engagement Level (in person visits, regular check ins)',
-        'Low Engagement Level (annual impact summary)' => 'Low Engagement Level (annual impact summary)',
-      ),
-      'allowed_values_function' => '',
-      'profile2_private' => FALSE,
-    ),
-    'translatable' => 0,
-    'type' => 'list_text',
   );
 
   // Exported field_base: 'field_proposal_markup'.
@@ -1007,6 +1112,33 @@ function bf_giving_proposal_field_default_field_bases() {
     'type' => 'taxonomy_term_reference',
   );
 
+  // Exported field_base: 'field_research_stages'.
+  $field_bases['field_research_stages'] = array(
+    'active' => 1,
+    'cardinality' => -1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_research_stages',
+    'indexes' => array(
+      'tid' => array(
+        0 => 'tid',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'taxonomy',
+    'settings' => array(
+      'allowed_values' => array(
+        0 => array(
+          'vocabulary' => 'research_stages',
+          'parent' => 0,
+        ),
+      ),
+      'profile2_private' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'taxonomy_term_reference',
+  );
+
   // Exported field_base: 'field_signature_request_id'.
   $field_bases['field_signature_request_id'] = array(
     'active' => 1,
@@ -1116,54 +1248,6 @@ function bf_giving_proposal_field_default_field_bases() {
     'module' => 'text',
     'settings' => array(
       'max_length' => 255,
-    ),
-    'translatable' => 0,
-    'type' => 'text',
-  );
-
-  // Exported field_base: 'field_vehicle_type'.
-  $field_bases['field_vehicle_type'] = array(
-    'active' => 1,
-    'cardinality' => -1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_vehicle_type',
-    'indexes' => array(
-      'tid' => array(
-        0 => 'tid',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'taxonomy',
-    'settings' => array(
-      'allowed_values' => array(
-        0 => array(
-          'vocabulary' => 'charitable_vehicle_type',
-          'parent' => 0,
-        ),
-      ),
-      'profile2_private' => FALSE,
-    ),
-    'translatable' => 0,
-    'type' => 'taxonomy_term_reference',
-  );
-
-  // Exported field_base: 'field_what_are_their_personal_in'.
-  $field_bases['field_what_are_their_personal_in'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_what_are_their_personal_in',
-    'indexes' => array(
-      'format' => array(
-        0 => 'format',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'text',
-    'settings' => array(
-      'max_length' => 255,
       'profile2_private' => FALSE,
     ),
     'translatable' => 0,
@@ -1177,6 +1261,27 @@ function bf_giving_proposal_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_what_did_the_client_like_d',
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(
+      'profile2_private' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'text_long',
+  );
+
+  // Exported field_base: 'field_what_does_the_client_like_'.
+  $field_bases['field_what_does_the_client_like_'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_what_does_the_client_like_',
     'indexes' => array(
       'format' => array(
         0 => 'format',

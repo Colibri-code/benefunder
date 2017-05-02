@@ -33,7 +33,7 @@ function bf_giving_proposal_node_info() {
       'base' => 'node_content',
       'description' => t('A proposal for a Giving Plan for a client.'),
       'has_title' => '1',
-      'title_label' => t('Name'),
+      'title_label' => t('Client Giving Account Name'),
       'help' => '',
     ),
   );
