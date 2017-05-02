@@ -1898,6 +1898,53 @@ Trust',
     ),
   );
 
+  // Exported field_instance: 'node-giving_proposal-field_preliminary_causes'.
+  $field_instances['node-giving_proposal-field_preliminary_causes'] = array(
+    'bundle' => 'giving_proposal',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 71,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'ds_extras_field_template' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_preliminary_causes',
+    'label' => 'Preliminary Causes',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'entityreference_view_widget',
+      'settings' => array(
+        'allow_duplicates' => 0,
+        'close_modal' => 1,
+        'pass_argument' => 1,
+        'pass_arguments' => '',
+        'rendered_entity' => 0,
+        'view' => 'cause_chooser_fulltext|entityreference_view_widget_1',
+        'view_mode' => 'full',
+      ),
+      'type' => 'entityreference_view_widget',
+      'weight' => 82,
+    ),
+  );
+
   // Exported field_instance: 'node-giving_proposal-field_proposal_markup'.
   $field_instances['node-giving_proposal-field_proposal_markup'] = array(
     'bundle' => 'giving_proposal',
@@ -2399,6 +2446,7 @@ Trust',
   t('Is this proposal ready to go out to Benefunder and HelloSign? Check this box and click the "Save" button, and Benefunder will take care of the rest!');
   t('Name');
   t('Philanthropic Interests');
+  t('Preliminary Causes');
   t('Proposal Markup');
   t('Ready Markup');
   t('Ready to Send');
