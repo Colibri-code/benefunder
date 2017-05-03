@@ -54,5 +54,16 @@ function bf_giving_plan_status_uuid_features_default_terms() {
       'pathauto' => 1,
     ),
   );
+  $terms[] = array(
+    'name' => 'Needs Assessment',
+    'description' => '',
+    'format' => 'full_html',
+    'weight' => -3,
+    'uuid' => 'eaaf0dc2-7e8c-495d-9d6c-c352de67ebf8',
+    'vocabulary_machine_name' => 'plan_status',
+    'path' => array(
+      'pathauto' => 1,
+    ),
+  );
   return $terms;
 }
