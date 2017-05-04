@@ -132,7 +132,7 @@ function create_proposal_sent_to_hellosign($wrapper) {
  * @throws \Exception
  */
 function create_proposal_generate_pdf($node) {
-// Generate proposal PDF and attach to node.
+  // Generate proposal PDF and attach to node.
   if (($library = libraries_load('phpwkhtmltopdf')) && !empty($library['loaded'])) {
     $problem_msg = t('There was a problem creating a proposal PDF, please contact Benefunder.');
     $pdf = new WkHtmlToPdf();
@@ -155,23 +155,22 @@ function create_proposal_generate_pdf($node) {
       $cause_node = node_load($cause_nid);
       if (!empty($cause_node)) {
         $html = _entity_print_get_generated_html('node', $cause_node);
+
+        // Remove script tags, the cover page includes this already.
         $html = strtr($html, array(
           '<script src="https://use.typekit.net/jxh1lif.js"></script>' => '',
           '<script>try{Typekit.load({ async: true });}catch(e){}</script>' => '',
         ));
         $pdf->addPage(trim($html));
-//        $pdf->addPage('<html><body>This is a cause page.</body></html>');
-        $a[] = array(
-          $cause_node->title,
-          $collection['field_cause_allocation'][LANGUAGE_NONE]['item']['value'] . '%',
-        );
+//        $a[] = array(
+//          $cause_node->title,
+//          $collection['field_cause_allocation'][LANGUAGE_NONE]['item']['value'] . '%',
+//        );
       }
     }
 
-    // Add summary table of cause and allocation percentages.
-    $header = array('Cause', 'Allocation Percentage');
-    $table = theme('table', array('header' => $header, 'rows' => $a));
-    $pdf->addPage('<html><body>' . $table . '</body></html>');
+    // Add proposed giving plan.
+    $pdf->addPage(trim(theme('proposal_giving_plan', array('proposal' => $node))));
 
     $filename = transliteration_clean_filename($node->title . '_proposal.pdf');
     $content = $pdf->toString();
@@ -298,6 +297,10 @@ function create_proposal_theme($existing, $type, $theme, $path) {
     ),
     'proposal_giving_history' => array(
       'template' => 'proposal-giving-history',
+      'variables' => array('proposal' => NULL),
+    ),
+    'proposal_giving_plan' => array(
+      'template' => 'proposal-giving-plan',
       'variables' => array('proposal' => NULL),
     )
   );

@@ -5,9 +5,6 @@
     body {
       font-family: "Raleway", sans-serif;
     }
-    .header {
-      background: url(<?php print $background; ?>);
-    }
     h2 {
       position: fixed;
       top: 150px;
