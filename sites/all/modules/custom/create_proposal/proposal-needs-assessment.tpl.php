@@ -39,8 +39,6 @@
 research that supports your charitable interests in an efficient, cost effective manner.</p>
 </div>
 
-<h3>Donor</h3>
-
 <table>
   <tr>
     <td>Name</td>
@@ -87,10 +85,5 @@ research that supports your charitable interests in an efficient, cost effective
     <td><?php print $engagements; ?></td>
   </tr>
 </table>
-
-<!--<h3>Categories of Research Interests</h3>-->
-<h3>Current Charitable Giving</h3>
-<h3>Anticipated Giving Plan</h3>
-
 </body>
 </html>

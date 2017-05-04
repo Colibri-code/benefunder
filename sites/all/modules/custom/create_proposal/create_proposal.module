@@ -144,12 +144,10 @@ function create_proposal_generate_pdf($node) {
     // Attach needs assessment.
     foreach ($node->field_donor_profile[LANGUAGE_NONE] as $donor_profile) {
       $pdf->addPage(trim(theme('proposal_needs_assessment', array('donor_profile' => $donor_profile))));
-//      $pdf->addPage('<html><body>This is the donor profile page.</body></html>');
     }
 
-    // TODO: Attach sample pages - this does not work. Add as HTML or use something else to combine pdfs?
-//    $pdf->addPage(file_get_contents(drupal_get_path('module', 'create_proposal') . '/proposal_static.pdf'));
-
+    // Attach giving history.
+    $pdf->addPage(trim(theme('proposal_giving_history', array('proposal' => $node))));
 
     // Add page for each cause.
     foreach ($node->field_cause[LANGUAGE_NONE] as $collection) {
@@ -157,8 +155,12 @@ function create_proposal_generate_pdf($node) {
       $cause_node = node_load($cause_nid);
       if (!empty($cause_node)) {
         $html = _entity_print_get_generated_html('node', $cause_node);
-//        $pdf->addPage(trim($html));
-        $pdf->addPage('<html><body>This is a cause page.</body></html>');
+        $html = strtr($html, array(
+          '<script src="https://use.typekit.net/jxh1lif.js"></script>' => '',
+          '<script>try{Typekit.load({ async: true });}catch(e){}</script>' => '',
+        ));
+        $pdf->addPage(trim($html));
+//        $pdf->addPage('<html><body>This is a cause page.</body></html>');
         $a[] = array(
           $cause_node->title,
           $collection['field_cause_allocation'][LANGUAGE_NONE]['item']['value'] . '%',
@@ -294,6 +296,10 @@ function create_proposal_theme($existing, $type, $theme, $path) {
       'template' => 'proposal-cover',
       'variables' => array('proposal' => NULL),
     ),
+    'proposal_giving_history' => array(
+      'template' => 'proposal-giving-history',
+      'variables' => array('proposal' => NULL),
+    )
   );
 }
 
@@ -317,7 +323,6 @@ function create_proposal_preprocess_proposal_needs_assessment(&$variables) {
 
   $background = base64_encode(file_get_contents(drupal_get_path('module', 'create_proposal') . '/proposal-cover.png'));
   $variables['background'] = 'data:png;base64,' . $background;
-
 
   if (isset($donor_profile['field_donor_name'][LANGUAGE_NONE])) {
     $variables['name'] = $donor_profile['field_donor_name'][LANGUAGE_NONE][0]['value'];
@@ -350,8 +355,6 @@ function create_proposal_preprocess_proposal_needs_assessment(&$variables) {
     $variables['in_addition_to_providing_f'] = $donor_profile['field_in_addition_to_providing_f'][LANGUAGE_NONE][0]['value'];
   }
 
-
-
   if (isset($donor_profile['field_research_stages'][LANGUAGE_NONE])) {
     foreach ($donor_profile['field_research_stages'][LANGUAGE_NONE] as $stage) {
       $term = taxonomy_term_load($stage['tid']);
@@ -379,10 +382,38 @@ function create_proposal_preprocess_proposal_needs_assessment(&$variables) {
       $address['administrative_area'],
     ));
   }
+}
 
+/**
+ * Implements hook_preprocess_hook() for proposal-giving-history.tpl.php.
+ */
+function create_proposal_preprocess_proposal_giving_history(&$variables) {
+  $proposal = $variables['proposal'];
 
+  $variables['what_organizations_has_the'] = $proposal->field_what_organizations_has_the[LANGUAGE_NONE][0]['value'];
+  $variables['what_did_the_client_like_d'] = $proposal->field_what_did_the_client_like_d[LANGUAGE_NONE][0]['value'];
+  $variables['how_many_hours_per_year_di'] = $proposal->field_how_many_hours_per_year_di[LANGUAGE_NONE][0]['value'];
+  $variables['does_the_family_have_an_es'] = $proposal->field_does_the_family_have_an_es[LANGUAGE_NONE][0]['value'];
+  $variables['what_does_the_client_like_'] = $proposal->field_what_does_the_client_like_[LANGUAGE_NONE][0]['value'];
 
+  if ($proposal->field_does_the_family_currently_[LANGUAGE_NONE][0]['value']) {
+    $variables['advisor_name'] = $proposal->field_advisor_name[LANGUAGE_NONE][0]['value'];
+    $variables['advisor_firm'] = $proposal->field_advisor_firm[LANGUAGE_NONE][0]['value'];
+    $variables['advisor_contact'] = $proposal->field_advisor_contact[LANGUAGE_NONE][0]['value'];
+  }
 
+  if ($proposal->field_charitable_vehicle[LANGUAGE_NONE][0]['value']) {
+    $variables['vehicle_name'] = $proposal->field_vehicle_name[LANGUAGE_NONE][0]['value'];
+    $variables['giving_vehicle_type'] = $proposal->field_giving_vehicle_type[LANGUAGE_NONE][0]['value'];
+  }
+
+  $variables['contribution_funding'] = $proposal->field_contribution_funding[LANGUAGE_NONE][0]['value'];
+  $variables['how_does_the_client_plan_o'] = $proposal->field_how_does_the_client_plan_o[LANGUAGE_NONE][0]['value'];
+  $variables['what_is_the_intended_distr'] = $proposal->field_what_is_the_intended_distr[LANGUAGE_NONE][0]['value'];
+
+  setlocale(LC_MONETARY, 'en_US');
+  $variables['planned_initial_contributi'] = money_format('%n', $proposal->field_planned_initial_contributi[LANGUAGE_NONE][0]['value']);
+  $variables['planned_annual_contributio'] = money_format('%n', $proposal->field_planned_annual_contributio[LANGUAGE_NONE][0]['value']);
 }
 
 /**
