@@ -1666,7 +1666,10 @@ Family',
         'apply_chosen' => '',
         'available_options' => 'Donor Advised Fund
 Private Foundation
-Trust',
+Trust
+CRT
+Family Office
+Corporation',
         'other' => 'Other',
         'other_size' => 60,
         'other_title' => '',
