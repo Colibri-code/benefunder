@@ -4467,43 +4467,43 @@ form#giving-proposal-node-form input.action-blue {
   border-color: #5f015f !important;
   background-color: transparent;
 }
-.page-node-add-giving-proposal .group-proposal-tabs .vertical-tab-button:nth-of-type(7),
-.page-node-edit.node-type-giving-proposal .group-proposal-tabs .vertical-tab-button:nth-of-type(7),
-.page-node-add-giving-proposal .group-proposal-tabs .vertical-tab-button:nth-of-type(10),
-.page-node-edit.node-type-giving-proposal .group-proposal-tabs .vertical-tab-button:nth-of-type(10) {
+.page-node-add-giving-proposal .group-proposal-tabs .vertical-tab-button:nth-of-type(8),
+.page-node-edit.node-type-giving-proposal .group-proposal-tabs .vertical-tab-button:nth-of-type(8),
+.page-node-add-giving-proposal .group-proposal-tabs .vertical-tab-button:nth-of-type(11),
+.page-node-edit.node-type-giving-proposal .group-proposal-tabs .vertical-tab-button:nth-of-type(11) {
   color: #fff;
   text-align: left;
   font-size: 16px;
   letter-spacing: 0.05em;
   pointer-events: none;
 }
-.page-node-add-giving-proposal .group-proposal-tabs .vertical-tab-button:nth-of-type(7):hover,
-.page-node-edit.node-type-giving-proposal .group-proposal-tabs .vertical-tab-button:nth-of-type(7):hover,
-.page-node-add-giving-proposal .group-proposal-tabs .vertical-tab-button:nth-of-type(10):hover,
-.page-node-edit.node-type-giving-proposal .group-proposal-tabs .vertical-tab-button:nth-of-type(10):hover {
+.page-node-add-giving-proposal .group-proposal-tabs .vertical-tab-button:nth-of-type(8):hover,
+.page-node-edit.node-type-giving-proposal .group-proposal-tabs .vertical-tab-button:nth-of-type(8):hover,
+.page-node-add-giving-proposal .group-proposal-tabs .vertical-tab-button:nth-of-type(11):hover,
+.page-node-edit.node-type-giving-proposal .group-proposal-tabs .vertical-tab-button:nth-of-type(11):hover {
   background-color: #848425;
 }
-.page-node-add-giving-proposal .group-proposal-tabs .vertical-tab-button:nth-of-type(7) a,
-.page-node-edit.node-type-giving-proposal .group-proposal-tabs .vertical-tab-button:nth-of-type(7) a,
-.page-node-add-giving-proposal .group-proposal-tabs .vertical-tab-button:nth-of-type(10) a,
-.page-node-edit.node-type-giving-proposal .group-proposal-tabs .vertical-tab-button:nth-of-type(10) a {
+.page-node-add-giving-proposal .group-proposal-tabs .vertical-tab-button:nth-of-type(8) a,
+.page-node-edit.node-type-giving-proposal .group-proposal-tabs .vertical-tab-button:nth-of-type(8) a,
+.page-node-add-giving-proposal .group-proposal-tabs .vertical-tab-button:nth-of-type(11) a,
+.page-node-edit.node-type-giving-proposal .group-proposal-tabs .vertical-tab-button:nth-of-type(11) a {
   background: #993 !important;
   color: #fff !important;
   font: normal normal normal 14px/1 FontAwesome;
   font-size: inherit;
   text-rendering: auto;
 }
-.page-node-add-giving-proposal .group-proposal-tabs .vertical-tab-button:nth-of-type(7) a:before,
-.page-node-edit.node-type-giving-proposal .group-proposal-tabs .vertical-tab-button:nth-of-type(7) a:before,
-.page-node-add-giving-proposal .group-proposal-tabs .vertical-tab-button:nth-of-type(10) a:before,
-.page-node-edit.node-type-giving-proposal .group-proposal-tabs .vertical-tab-button:nth-of-type(10) a:before {
+.page-node-add-giving-proposal .group-proposal-tabs .vertical-tab-button:nth-of-type(8) a:before,
+.page-node-edit.node-type-giving-proposal .group-proposal-tabs .vertical-tab-button:nth-of-type(8) a:before,
+.page-node-add-giving-proposal .group-proposal-tabs .vertical-tab-button:nth-of-type(11) a:before,
+.page-node-edit.node-type-giving-proposal .group-proposal-tabs .vertical-tab-button:nth-of-type(11) a:before {
   margin-right: 5px;
   content: "\f013";
 }
-.page-node-add-giving-proposal .group-proposal-tabs .vertical-tab-button:nth-of-type(7) a:hover,
-.page-node-edit.node-type-giving-proposal .group-proposal-tabs .vertical-tab-button:nth-of-type(7) a:hover,
-.page-node-add-giving-proposal .group-proposal-tabs .vertical-tab-button:nth-of-type(10) a:hover,
-.page-node-edit.node-type-giving-proposal .group-proposal-tabs .vertical-tab-button:nth-of-type(10) a:hover {
+.page-node-add-giving-proposal .group-proposal-tabs .vertical-tab-button:nth-of-type(8) a:hover,
+.page-node-edit.node-type-giving-proposal .group-proposal-tabs .vertical-tab-button:nth-of-type(8) a:hover,
+.page-node-add-giving-proposal .group-proposal-tabs .vertical-tab-button:nth-of-type(11) a:hover,
+.page-node-edit.node-type-giving-proposal .group-proposal-tabs .vertical-tab-button:nth-of-type(11) a:hover {
   border-color: #848425 !important;
   background-color: transparent;
 }
