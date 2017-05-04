@@ -138,15 +138,14 @@ function create_proposal_generate_pdf($node) {
     $pdf = new WkHtmlToPdf();
 
     // Attach cover page.
-//    $pdf->addCover(theme('proposal_cover', array('proposal' => $node)));
+    $pdf->addCover(theme('proposal_cover', array('proposal' => $node)));
 
-    $pdf->addPage('<html><body>This page intentionally left blank.</body></html>');
 
     // Attach needs assessment.
     foreach ($node->field_donor_profile[LANGUAGE_NONE] as $donor_profile) {
       $pdf->addPage(trim(theme('proposal_needs_assessment', array('donor_profile' => $donor_profile))));
+//      $pdf->addPage('<html><body>This is the donor profile page.</body></html>');
     }
-    $pdf->addPage('<html><body>This page intentionally left blank.</body></html>');
 
     // TODO: Attach sample pages - this does not work. Add as HTML or use something else to combine pdfs?
 //    $pdf->addPage(file_get_contents(drupal_get_path('module', 'create_proposal') . '/proposal_static.pdf'));
@@ -158,14 +157,14 @@ function create_proposal_generate_pdf($node) {
       $cause_node = node_load($cause_nid);
       if (!empty($cause_node)) {
         $html = _entity_print_get_generated_html('node', $cause_node);
-        $pdf->addPage(trim($html));
+//        $pdf->addPage(trim($html));
+        $pdf->addPage('<html><body>This is a cause page.</body></html>');
         $a[] = array(
           $cause_node->title,
-          $collection->field_cause_allocation[LANGUAGE_NONE]['item']['value'] . '%',
+          $collection['field_cause_allocation'][LANGUAGE_NONE]['item']['value'] . '%',
         );
       }
     }
-    $pdf->addPage('<html><body>This page intentionally left blank.</body></html>');
 
     // Add summary table of cause and allocation percentages.
     $header = array('Cause', 'Allocation Percentage');
@@ -319,19 +318,71 @@ function create_proposal_preprocess_proposal_needs_assessment(&$variables) {
   $background = base64_encode(file_get_contents(drupal_get_path('module', 'create_proposal') . '/proposal-cover.png'));
   $variables['background'] = 'data:png;base64,' . $background;
 
-  $address = $donor_profile->field_city_state[LANGUAGE_NONE][0];
 
-  if (isset($donor_profile->field_donor_name[LANGUAGE_NONE])) {
-    $variables['name'] = $donor_profile->field_donor_name[LANGUAGE_NONE][0]['value'];
+  if (isset($donor_profile['field_donor_name'][LANGUAGE_NONE])) {
+    $variables['name'] = $donor_profile['field_donor_name'][LANGUAGE_NONE][0]['value'];
   }
 
-//  $variables['alumni_associations'] = implode(',', $proposal_wrapper->field_alumni_affiliations->value());
+  if (isset($donor_profile['field_relationship'][LANGUAGE_NONE])) {
+    $variables['relationship'] = $donor_profile['field_relationship'][LANGUAGE_NONE][0]['value'];
+  }
+
+  if (isset($donor_profile['field_alumni_affiliations'][LANGUAGE_NONE])) {
+    foreach ($donor_profile['field_alumni_affiliations'][LANGUAGE_NONE] as $term) {
+      $terms[] = $term['name'];
+    }
+    $variables['alumni_associations'] = implode(', ', $terms);
+  }
+
+  if (isset($donor_profile['field_what_problems_are_you_most'][LANGUAGE_NONE])) {
+    $variables['what_problems_are_you_most'] = $donor_profile['field_what_problems_are_you_most'][LANGUAGE_NONE][0]['value'];
+  }
+
+  if (isset($donor_profile['field_philanthropic_interests'][LANGUAGE_NONE])) {
+    $variables['philanthropic_interests'] = $donor_profile['field_philanthropic_interests'][LANGUAGE_NONE][0]['value'];
+  }
+
+  if (isset($donor_profile['field_what_is_your_primary_motiv'][LANGUAGE_NONE])) {
+    $variables['what_is_your_primary_motiv'] = $donor_profile['field_what_is_your_primary_motiv'][LANGUAGE_NONE][0]['value'];
+  }
+
+  if (isset($donor_profile['field_in_addition_to_providing_f'][LANGUAGE_NONE])) {
+    $variables['in_addition_to_providing_f'] = $donor_profile['field_in_addition_to_providing_f'][LANGUAGE_NONE][0]['value'];
+  }
+
+
+
+  if (isset($donor_profile['field_research_stages'][LANGUAGE_NONE])) {
+    foreach ($donor_profile['field_research_stages'][LANGUAGE_NONE] as $stage) {
+      $term = taxonomy_term_load($stage['tid']);
+      $stages[] = $term->name;
+    }
+    $variables['research_stages'] = implode(', ', $stages);
+  }
+  if (isset($donor_profile['field_accomplishments'][LANGUAGE_NONE])) {
+    foreach ($donor_profile['field_accomplishments'][LANGUAGE_NONE] as $accomplishment) {
+      $accomplishments[] = $accomplishment['value'];
+    }
+    $variables['accomplishments'] = implode(', ', $accomplishments);
+  }
+  if (isset($donor_profile['field_engagements'][LANGUAGE_NONE])) {
+    foreach ($donor_profile['field_engagements'][LANGUAGE_NONE] as $engagement) {
+      $engagements[] = $engagement['value'];
+    }
+    $variables['engagements'] = implode(', ', $engagements);
+  }
+
+  $address = $donor_profile['field_city_state'][LANGUAGE_NONE][0];
   if (!empty($address['locality'])) {
     $variables['citystate'] = implode(', ', array(
       $address['locality'],
       $address['administrative_area'],
     ));
   }
+
+
+
+
 }
 
 /**
