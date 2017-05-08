@@ -117,11 +117,7 @@
 <h3>Distribution Management</h3>
 Initial Contribution: $1,000,000.00<br/>
 Planned Annual Contribution: $250,000.00<br/>
-Targeted Growth Rate: 4%<br/>
 Annual Distribution Percentage: 15%<br/>
-
-<h3>Investment Strategy</h3>
-Funds will be invested in a balanced portfolio of stocks, bonds, and mutual funds. Please see investment policy statement.
 
 <h3>Allocation</h3>
 
@@ -161,10 +157,8 @@ Funds will be invested in a balanced portfolio of stocks, bonds, and mutual fund
 
 <h3>Fees</h3>
 
-Total Annual Fund Overhead as a percent of fund balance: 1.93%<br/>
+Total Annual Fund Overhead as a percent of fund balance: 1.50%<br/>
 Benefunder Service Fee: 10%<br/>
-Service fee taken from the fund, not the gift, at the time of distribution<br/>
-Administrative Fee - 50 Basis Points on Net Asset Value<br/>
 Financial institution fees may apply<br/>
 
 </body>
