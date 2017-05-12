@@ -25,6 +25,20 @@ function bf_taxonomies_uuid_features_default_terms() {
     ),
   );
   $terms[] = array(
+    'name' => 'Pediatric',
+    'description' => NULL,
+    'format' => NULL,
+    'weight' => 0,
+    'uuid' => '05f68591-ca10-4301-9e30-0b0a1f9d66f9',
+    'vocabulary_machine_name' => 'research_area',
+    'field_term_icon' => array(),
+    'field_term_image' => array(),
+    'field_term_icon_with_color_' => array(),
+    'parent' => array(
+      0 => '571713b2-f33e-448f-a4bc-fc967f7dbf1d',
+    ),
+  );
+  $terms[] = array(
     'name' => 'Humanities',
     'description' => 'Philosophy, literature, religion, art, music, history, and language shape our culture. Benefunder researchers are exploring the human experience, such as creating better solutions for relieving anxiety, enhancing hands-on higher education, understanding how social networks impact our daily lives, and how identity shapes political, social, business, education, and economic outcomes.',
     'format' => 'plain_text',
@@ -45,6 +59,20 @@ function bf_taxonomies_uuid_features_default_terms() {
     'field_term_icon' => array(),
     'field_term_image' => array(),
     'field_term_icon_with_color_' => array(),
+  );
+  $terms[] = array(
+    'name' => 'Agriculture',
+    'description' => NULL,
+    'format' => NULL,
+    'weight' => 0,
+    'uuid' => '0bcde4c4-43b7-493d-aeb3-3219c18f7554',
+    'vocabulary_machine_name' => 'research_area',
+    'field_term_icon' => array(),
+    'field_term_image' => array(),
+    'field_term_icon_with_color_' => array(),
+    'parent' => array(
+      0 => '0b1631a9-faa8-47a2-8de3-834fbc6960d2',
+    ),
   );
   $terms[] = array(
     'name' => 'Health IT',
@@ -75,9 +103,9 @@ function bf_taxonomies_uuid_features_default_terms() {
     ),
   );
   $terms[] = array(
-    'name' => 'Energy',
-    'description' => NULL,
-    'format' => NULL,
+    'name' => 'Clean Energy',
+    'description' => '',
+    'format' => 'full_html',
     'weight' => 0,
     'uuid' => '14639664-8b2d-4b6f-964c-ec1dd736d7bb',
     'vocabulary_machine_name' => 'research_area',
@@ -86,6 +114,20 @@ function bf_taxonomies_uuid_features_default_terms() {
     'field_term_icon_with_color_' => array(),
     'parent' => array(
       0 => '0b1631a9-faa8-47a2-8de3-834fbc6960d2',
+    ),
+  );
+  $terms[] = array(
+    'name' => 'IOT, Devices, Data',
+    'description' => NULL,
+    'format' => NULL,
+    'weight' => 0,
+    'uuid' => '18386c69-dd26-43c7-b654-437997884c86',
+    'vocabulary_machine_name' => 'research_area',
+    'field_term_icon' => array(),
+    'field_term_image' => array(),
+    'field_term_icon_with_color_' => array(),
+    'parent' => array(
+      0 => '797fa9c6-81a9-4032-b846-763ed1162542',
     ),
   );
   $terms[] = array(
@@ -122,6 +164,20 @@ function bf_taxonomies_uuid_features_default_terms() {
     'format' => NULL,
     'weight' => 0,
     'uuid' => '2550e357-5492-4833-8c10-b532274f586c',
+    'vocabulary_machine_name' => 'research_area',
+    'field_term_icon' => array(),
+    'field_term_image' => array(),
+    'field_term_icon_with_color_' => array(),
+    'parent' => array(
+      0 => '080b773f-5832-47fb-92d9-6a65271fa81a',
+    ),
+  );
+  $terms[] = array(
+    'name' => 'Women in STEM',
+    'description' => NULL,
+    'format' => NULL,
+    'weight' => 0,
+    'uuid' => '2e1bce36-b432-4a2c-9f82-a98901c1dd44',
     'vocabulary_machine_name' => 'research_area',
     'field_term_icon' => array(),
     'field_term_image' => array(),
@@ -271,7 +327,21 @@ function bf_taxonomies_uuid_features_default_terms() {
     ),
   );
   $terms[] = array(
-    'name' => 'Life',
+    'name' => 'Evolution',
+    'description' => NULL,
+    'format' => NULL,
+    'weight' => 0,
+    'uuid' => '4d126344-6621-4f9f-abb5-c4b297f324d3',
+    'vocabulary_machine_name' => 'research_area',
+    'field_term_icon' => array(),
+    'field_term_image' => array(),
+    'field_term_icon_with_color_' => array(),
+    'parent' => array(
+      0 => '571713b2-f33e-448f-a4bc-fc967f7dbf1d',
+    ),
+  );
+  $terms[] = array(
+    'name' => 'Life Science',
     'description' => 'Improving human health, discovering treatments, finding cures - from lifestyle changes to treating disabilities, transforming healthcare, and improving medical devices and diagnostics, the nation\'s top researchers are discovering groundbreaking solutions.',
     'format' => 'plain_text',
     'weight' => 0,
@@ -280,6 +350,20 @@ function bf_taxonomies_uuid_features_default_terms() {
     'field_term_icon' => array(),
     'field_term_image' => array(),
     'field_term_icon_with_color_' => array(),
+  );
+  $terms[] = array(
+    'name' => 'Global Policy',
+    'description' => NULL,
+    'format' => NULL,
+    'weight' => 0,
+    'uuid' => '696445f9-ef5c-440b-aae3-612f048419b1',
+    'vocabulary_machine_name' => 'research_area',
+    'field_term_icon' => array(),
+    'field_term_image' => array(),
+    'field_term_icon_with_color_' => array(),
+    'parent' => array(
+      0 => '080b773f-5832-47fb-92d9-6a65271fa81a',
+    ),
   );
   $terms[] = array(
     'name' => 'Oceanic',
@@ -324,6 +408,20 @@ function bf_taxonomies_uuid_features_default_terms() {
     ),
   );
   $terms[] = array(
+    'name' => 'Regenerative Medicine',
+    'description' => NULL,
+    'format' => NULL,
+    'weight' => 0,
+    'uuid' => '750c6500-0050-4c85-8378-d2018b2e104c',
+    'vocabulary_machine_name' => 'research_area',
+    'field_term_icon' => array(),
+    'field_term_image' => array(),
+    'field_term_icon_with_color_' => array(),
+    'parent' => array(
+      0 => '571713b2-f33e-448f-a4bc-fc967f7dbf1d',
+    ),
+  );
+  $terms[] = array(
     'name' => 'Robotics',
     'description' => NULL,
     'format' => NULL,
@@ -363,9 +461,9 @@ function bf_taxonomies_uuid_features_default_terms() {
     'field_term_icon_with_color_' => array(),
   );
   $terms[] = array(
-    'name' => 'Aerospace',
-    'description' => NULL,
-    'format' => NULL,
+    'name' => 'Space',
+    'description' => '',
+    'format' => 'full_html',
     'weight' => 0,
     'uuid' => '798186f2-1c7c-4273-964e-b3e4c9844584',
     'vocabulary_machine_name' => 'research_area',
@@ -410,6 +508,20 @@ function bf_taxonomies_uuid_features_default_terms() {
     'format' => NULL,
     'weight' => 0,
     'uuid' => '85a7752e-daaa-4c02-aa87-2c4ca3d795de',
+    'vocabulary_machine_name' => 'research_area',
+    'field_term_icon' => array(),
+    'field_term_image' => array(),
+    'field_term_icon_with_color_' => array(),
+    'parent' => array(
+      0 => '080b773f-5832-47fb-92d9-6a65271fa81a',
+    ),
+  );
+  $terms[] = array(
+    'name' => 'Veteran\'s Causes',
+    'description' => NULL,
+    'format' => NULL,
+    'weight' => 0,
+    'uuid' => '89e2157e-1396-4df8-ad33-f33553697fc2',
     'vocabulary_machine_name' => 'research_area',
     'field_term_icon' => array(),
     'field_term_image' => array(),
@@ -466,6 +578,20 @@ function bf_taxonomies_uuid_features_default_terms() {
     'format' => NULL,
     'weight' => 0,
     'uuid' => 'a58146f6-c07f-411b-a2b5-75f09a8b8984',
+    'vocabulary_machine_name' => 'research_area',
+    'field_term_icon' => array(),
+    'field_term_image' => array(),
+    'field_term_icon_with_color_' => array(),
+    'parent' => array(
+      0 => '571713b2-f33e-448f-a4bc-fc967f7dbf1d',
+    ),
+  );
+  $terms[] = array(
+    'name' => 'IOT & Medical Devices',
+    'description' => NULL,
+    'format' => NULL,
+    'weight' => 0,
+    'uuid' => 'a9252a1c-96e9-43d2-970d-fd944225f118',
     'vocabulary_machine_name' => 'research_area',
     'field_term_icon' => array(),
     'field_term_image' => array(),
@@ -559,11 +685,39 @@ function bf_taxonomies_uuid_features_default_terms() {
     ),
   );
   $terms[] = array(
+    'name' => 'Natural Disasters / Emergency',
+    'description' => NULL,
+    'format' => NULL,
+    'weight' => 0,
+    'uuid' => 'cbfd4ca0-e16a-4489-9dda-dfaec571672e',
+    'vocabulary_machine_name' => 'research_area',
+    'field_term_icon' => array(),
+    'field_term_image' => array(),
+    'field_term_icon_with_color_' => array(),
+    'parent' => array(
+      0 => '0b1631a9-faa8-47a2-8de3-834fbc6960d2',
+    ),
+  );
+  $terms[] = array(
     'name' => 'Proteomics',
     'description' => NULL,
     'format' => NULL,
     'weight' => 0,
     'uuid' => 'ce222bba-6b64-45e8-965a-09147d4e21ff',
+    'vocabulary_machine_name' => 'research_area',
+    'field_term_icon' => array(),
+    'field_term_image' => array(),
+    'field_term_icon_with_color_' => array(),
+    'parent' => array(
+      0 => '571713b2-f33e-448f-a4bc-fc967f7dbf1d',
+    ),
+  );
+  $terms[] = array(
+    'name' => 'Stem Cell',
+    'description' => NULL,
+    'format' => NULL,
+    'weight' => 0,
+    'uuid' => 'cf3dcfc5-03eb-4797-a180-c9934067ea8d',
     'vocabulary_machine_name' => 'research_area',
     'field_term_icon' => array(),
     'field_term_image' => array(),
@@ -587,11 +741,53 @@ function bf_taxonomies_uuid_features_default_terms() {
     ),
   );
   $terms[] = array(
+    'name' => 'Poverty & Equality',
+    'description' => NULL,
+    'format' => NULL,
+    'weight' => 0,
+    'uuid' => 'd483b121-9c3a-4e37-abd5-ed58a3400910',
+    'vocabulary_machine_name' => 'research_area',
+    'field_term_icon' => array(),
+    'field_term_image' => array(),
+    'field_term_icon_with_color_' => array(),
+    'parent' => array(
+      0 => '080b773f-5832-47fb-92d9-6a65271fa81a',
+    ),
+  );
+  $terms[] = array(
     'name' => 'Virtual Arts',
     'description' => NULL,
     'format' => NULL,
     'weight' => 0,
     'uuid' => 'd9821a20-fb73-4d17-9fcc-0b28d2f1795a',
+    'vocabulary_machine_name' => 'research_area',
+    'field_term_icon' => array(),
+    'field_term_image' => array(),
+    'field_term_icon_with_color_' => array(),
+    'parent' => array(
+      0 => '080b773f-5832-47fb-92d9-6a65271fa81a',
+    ),
+  );
+  $terms[] = array(
+    'name' => 'Drug Development',
+    'description' => NULL,
+    'format' => NULL,
+    'weight' => 0,
+    'uuid' => 'def6fa1c-ade5-497e-9a59-e37c53057d0a',
+    'vocabulary_machine_name' => 'research_area',
+    'field_term_icon' => array(),
+    'field_term_image' => array(),
+    'field_term_icon_with_color_' => array(),
+    'parent' => array(
+      0 => '571713b2-f33e-448f-a4bc-fc967f7dbf1d',
+    ),
+  );
+  $terms[] = array(
+    'name' => 'Empowering Women',
+    'description' => NULL,
+    'format' => NULL,
+    'weight' => 0,
+    'uuid' => 'e1db40cd-7ae3-40ca-89f3-bf1610519419',
     'vocabulary_machine_name' => 'research_area',
     'field_term_icon' => array(),
     'field_term_image' => array(),
@@ -668,6 +864,20 @@ function bf_taxonomies_uuid_features_default_terms() {
     'field_term_icon_with_color_' => array(),
     'parent' => array(
       0 => '797fa9c6-81a9-4032-b846-763ed1162542',
+    ),
+  );
+  $terms[] = array(
+    'name' => 'Women\'s Health',
+    'description' => NULL,
+    'format' => NULL,
+    'weight' => 0,
+    'uuid' => 'f8423a1d-6c60-4ee3-8309-1173df93e4db',
+    'vocabulary_machine_name' => 'research_area',
+    'field_term_icon' => array(),
+    'field_term_image' => array(),
+    'field_term_icon_with_color_' => array(),
+    'parent' => array(
+      0 => '571713b2-f33e-448f-a4bc-fc967f7dbf1d',
     ),
   );
   $terms[] = array(
