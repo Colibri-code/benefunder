@@ -51,7 +51,7 @@ foreach ($files as $name => $file) {
   $taxonomy_array = taxonomy_get_term_by_name($term_name);
   $tid = array_pop($taxonomy_array)->tid;
   if (empty($tid)) {
-    echo 'Could not find TERM id for: ' . var_dump($term_name) . PHP_EOL;
+    echo 'Could not find TERM id for: ' . $term_name . PHP_EOL;
     continue;
   }
 
