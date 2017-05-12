@@ -78,7 +78,12 @@ foreach ($files as $name => $file) {
     }
     else {
       $cause_wrapper = entity_metadata_wrapper('node', $cause_nid);
-      $cause_wrapper->field_research_area[] = $tid;
+      if ($taxonomy_array->vocabulary_machine_name == 'research_area') {
+        $cause_wrapper->field_research_area[] = $tid;
+      }
+      elseif ($taxonomy_array->vocabulary_machine_name == 'aging_wellness_disease') {
+        $cause_wrapper->aging_wellness_disease[] = $tid;
+      }
       $cause_wrapper->save();
     }
   }
