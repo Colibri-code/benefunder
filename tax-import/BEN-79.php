@@ -73,7 +73,6 @@ foreach ($files as $name => $file) {
     )->fetchField();
 
     if (empty($cause_nid)) {
-      echo $name . ' row ' . $row . PHP_EOL;
       echo 'Could not find NODE id for: ' . $cause_name . PHP_EOL;
     }
     else {
@@ -85,6 +84,7 @@ foreach ($files as $name => $file) {
         $cause_wrapper->aging_wellness_disease[] = $tid;
       }
       $cause_wrapper->save();
+      echo $term_name . ' added to ' . $cause_name . PHP_EOL;
     }
   }
 }
