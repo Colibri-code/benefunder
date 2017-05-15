@@ -49,9 +49,15 @@ foreach ($files as $name => $file) {
   $term_name = str_replace('Causes of High Interest - ', '', urldecode($name));
   $term_name = isset($term_map[$term_name]) ? $term_map[$term_name] : $term_name;
   $taxonomy_array = taxonomy_get_term_by_name($term_name);
-  $tid = array_pop($taxonomy_array)->tid;
+  $term = array_pop($taxonomy_array);
+  $tid = $term->tid;
+  $vocabulary = $term->vocabulary_machine_name;
   if (empty($tid)) {
     echo 'Could not find TERM id for: ' . $term_name . PHP_EOL;
+    continue;
+  }
+  elseif (!in_array($vocabulary, array('research_area', 'aging_wellness_disease'))) {
+    echo 'Unknown VOCABULARY ' . $vocabulary . ' for term ' . $term_name . ' (' . $tid . ')' . PHP_EOL;
     continue;
   }
 
@@ -60,9 +66,7 @@ foreach ($files as $name => $file) {
   $head = fgetcsv($fp);
 
   // Update each cause with term.
-  $row = 1;
   while($column = fgetcsv($fp)) {
-    $row++;
     $column = array_combine($head, $column);
 
     $cause_name = isset($cause_map[$column['Headline']]) ? $cause_map[$column['Headline']] : $column['Headline'];
@@ -75,12 +79,12 @@ foreach ($files as $name => $file) {
     if (empty($cause_nid)) {
       echo 'Could not find NODE id for: ' . $cause_name . PHP_EOL;
     }
-    else {
+    elseif (!drush_get_option('dry-run')) {
       $cause_wrapper = entity_metadata_wrapper('node', $cause_nid);
-      if ($taxonomy_array->vocabulary_machine_name == 'research_area') {
+      if ($vocabulary == 'research_area') {
         $cause_wrapper->field_research_area[] = $tid;
       }
-      elseif ($taxonomy_array->vocabulary_machine_name == 'aging_wellness_disease') {
+      elseif ($vocabulary == 'aging_wellness_disease') {
         $cause_wrapper->aging_wellness_disease[] = $tid;
       }
       $cause_wrapper->save();
