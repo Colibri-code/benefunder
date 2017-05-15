@@ -90,5 +90,8 @@ foreach ($files as $name => $file) {
       $cause_wrapper->save();
       echo $term_name . ' added to ' . $cause_name . PHP_EOL;
     }
+    else {
+      echo 'DRY-RUN: ' . $term_name . ' added to ' . $cause_name . PHP_EOL;
+    }
   }
 }
