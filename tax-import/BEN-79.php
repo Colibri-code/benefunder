@@ -66,10 +66,26 @@ foreach ($files as $name => $file) {
   $head = fgetcsv($fp);
 
   // Update each cause with term.
+  $row = 1;
   while($column = fgetcsv($fp)) {
-    $column = array_combine($head, $column);
+    $row++;
+    $original_column = $column;
 
-    $cause_name = isset($cause_map[$column['Headline']]) ? $cause_map[$column['Headline']] : $column['Headline'];
+    if (in_array('Headline', $head)) {
+      $column = array_combine($head, $column);
+      $cause_name = $column['Headline'];
+    }
+    elseif (isset($column[4])) {
+      $cause_name = $column[4];
+    }
+
+    if (empty($cause_name)) {
+      echo 'Could not find cause name in: ' . $name . ' row ' . $row . PHP_EOL;
+      print_r($original_column);
+      continue;
+    }
+
+    $cause_name = isset($cause_map[$cause_name]) ? $cause_map[$cause_name] : $cause_name;
 
     $cause_nid = db_query('SELECT n.nid FROM {node} n WHERE n.title LIKE :title AND n.type = :type', array(
         ':title'=> '%' . db_like($cause_name) . '%',
