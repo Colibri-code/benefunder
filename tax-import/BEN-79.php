@@ -102,7 +102,7 @@ foreach ($files as $name => $file) {
         $cause_wrapper->field_research_area[] = $tid;
       }
       elseif ($vocabulary == 'aging_wellness_disease') {
-        $cause_wrapper->aging_wellness_disease[] = $tid;
+        $cause_wrapper->field_aging_wellness_disease[] = $tid;
       }
       $cause_wrapper->save();
       echo $term_name . ' added to ' . $cause_name . PHP_EOL;
