@@ -85,6 +85,7 @@ foreach ($files as $name => $file) {
       continue;
     }
 
+    $cause_name = trim($cause_name);
     $cause_name = isset($cause_map[$cause_name]) ? $cause_map[$cause_name] : $cause_name;
 
     $cause_nid = db_query('SELECT n.nid FROM {node} n WHERE n.title LIKE :title AND n.type = :type', array(
