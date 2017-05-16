@@ -21,6 +21,31 @@ function bf_team_views_api($module = NULL, $api = NULL) {
 }
 
 /**
+ * Implements hook_image_default_styles().
+ */
+function bf_team_image_default_styles() {
+  $styles = array();
+
+  // Exported image style: team_300x300.
+  $styles['team_300x300'] = array(
+    'label' => 'Team 300x300',
+    'effects' => array(
+      9 => array(
+        'name' => 'image_crop',
+        'data' => array(
+          'width' => 300,
+          'height' => 300,
+          'anchor' => 'center-center',
+        ),
+        'weight' => 1,
+      ),
+    ),
+  );
+
+  return $styles;
+}
+
+/**
  * Implements hook_node_info().
  */
 function bf_team_node_info() {
