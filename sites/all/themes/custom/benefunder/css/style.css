@@ -7655,6 +7655,9 @@ body.page-causes {
     opacity: 1;
   }
 }
+.cause-sectors .sector .sector-icon {
+  max-height: 57px;
+}
 @media (min-width: 992px) {
   .cause-sectors .sector .sector-icon {
     display: inline-block;
