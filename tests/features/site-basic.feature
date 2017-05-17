@@ -14,6 +14,7 @@ Scenario: search works
   Given I am an anonymous user
   When I go to "/search/site/cancer"
   Then I should not see "Your search yielded no results"
+  And I should not see "Fatal error"
 
 Scenario: cause listing works
   Given I am an anonymous user
