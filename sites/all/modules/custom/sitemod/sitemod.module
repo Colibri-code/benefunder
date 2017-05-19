@@ -81,12 +81,29 @@ function sitemod_cause_node_validate($form, &$form_state) {
 }
 
 /**
+ * Implements hook_service_links().
+ */
+function sitemod_service_links() {
+  $links['shorturl'] = array(
+    'name' => t('Permalink'),
+    'link' => NULL,
+    'description' => 'Permalink',
+    'module' => 'sitemod',
+    'icon' => '\f08e',
+  );
+  return $links;
+}
+
+/**
  * Changing the text for share links
  */
 function sitemod_service_links_alter(&$links) {
   $links['facebook']['name'] = t('Share on Facebook');
   $links['twitter']['name'] = t('Share on Twitter');
   $links['linkedin']['name'] = t('Share on LinkedIn');
+  if ($node = menu_get_object('node')) {
+    $links['shorturl']['link'] = url(bf_cause_get_short_alias($node), array('absolute' => TRUE));
+  }
 }
 
 /**
