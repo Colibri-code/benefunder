@@ -11,6 +11,7 @@
     }
     table {
       border-collapse: collapse;
+      width: 100%;
     }
     td {
       border: 1px dotted #1F99A4;
