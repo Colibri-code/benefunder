@@ -110,6 +110,7 @@
     }
     div.half {
       width: 50%;
+      float: left;
     }
   </style>
 </head>
