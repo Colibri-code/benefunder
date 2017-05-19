@@ -326,9 +326,6 @@ function create_proposal_preprocess_proposal_cover(&$variables) {
 function create_proposal_preprocess_proposal_needs_assessment(&$variables) {
   $donor_profile = $variables['donor_profile'];
 
-  $background = base64_encode(file_get_contents(drupal_get_path('module', 'create_proposal') . '/proposal-cover.png'));
-  $variables['background'] = 'data:png;base64,' . $background;
-
   if (isset($donor_profile['field_donor_name'][LANGUAGE_NONE])) {
     $variables['name'] = $donor_profile['field_donor_name'][LANGUAGE_NONE][0]['value'];
   }

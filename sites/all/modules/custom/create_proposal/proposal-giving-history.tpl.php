@@ -5,24 +5,19 @@
     body {
       font-family: "Raleway", sans-serif;
     }
-    h2 {
-      position: fixed;
-      top: 150px;
-      left: 75px;
-      color: white;
-    }
-    h3 {
-      color: cadetblue;
+    h1 {
+      color: #1F99A4;
+      font-weight: normal;
     }
     table {
       border-collapse: collapse;
+      width: 100%;
     }
     td {
-      border: 1px solid black;
+      border: 1px dotted #1F99A4;
       padding: 5px;
     }
     td:first-child {
-      text-align: right;
       font-weight: bold;
     }
   </style>

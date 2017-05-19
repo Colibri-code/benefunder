@@ -5,27 +5,18 @@
     body {
       font-family: "Raleway", sans-serif;
     }
-    .header {
-      background: url(<?php print $background; ?>);
-    }
-    h2 {
-      position: fixed;
-      top: 150px;
-      left: 75px;
-      color: white;
-    }
-    h3 {
-      color: cadetblue;
+    h1 {
+      color: #1F99A4;
+      font-weight: normal;
     }
     table {
       border-collapse: collapse;
     }
     td {
-      border: 1px solid black;
+      border: 1px dotted #1F99A4;
       padding: 5px;
     }
     td:first-child {
-      text-align: right;
       font-weight: bold;
     }
   </style>
@@ -33,11 +24,9 @@
 
 <body>
 
-<div class="header">
 <h1>Giving Profile</h1>
 <p>Benefunder provides you with impact in your giving: a unique opportunity to find, fund, and follow
 research that supports your charitable interests in an efficient, cost effective manner.</p>
-</div>
 
 <table>
   <tr>

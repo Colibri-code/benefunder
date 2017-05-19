@@ -5,24 +5,22 @@
     body {
       font-family: "Raleway", sans-serif;
     }
-    h2 {
-      position: fixed;
-      top: 150px;
-      left: 75px;
-      color: white;
+    h1 {
+      color: #1F99A4;
+      font-weight: normal;
     }
     h3 {
-      color: cadetblue;
+      color: #1F99A4;
+      font-weight: normal;
     }
     table {
       border-collapse: collapse;
     }
     td {
-      border: 1px solid black;
+      border: 1px dotted #1F99A4;
       padding: 5px;
     }
     td:first-child {
-      text-align: right;
       font-weight: bold;
     }
     .pieContainer {
@@ -50,7 +48,7 @@
       clip: rect(0px, 200px, 200px, 100px);
     }
     #pieSlice1 .pie {
-      background-color: red;
+      background-color: #339999;
       transform:rotate(50deg);
       -webkit-transform:rotate(50deg);
       -moz-transform:rotate(50deg);
@@ -63,7 +61,7 @@
       -o-transform:rotate(50deg);
     }
     #pieSlice2 .pie {
-      background-color: yellow;
+      background-color: #cc6600;
       transform:rotate(50deg);
       -webkit-transform:rotate(50deg);
       -moz-transform:rotate(50deg);
@@ -76,7 +74,7 @@
       -o-transform:rotate(100deg);
     }
     #pieSlice3 .pie {
-      background-color: blue;
+      background-color: #3f9ed4;
       transform:rotate(100deg);
       -webkit-transform:rotate(100deg);
       -moz-transform:rotate(100deg);
@@ -89,23 +87,23 @@
       -o-transform:rotate(200deg);
     }
     #pieSlice4 .pie {
-      background-color: green;
+      background-color: #9357b2;
       transform:rotate(160deg);
       -webkit-transform:rotate(160deg);
       -moz-transform:rotate(160deg);
       -o-transform:rotate(160deg);
     }
     .life {
-      color: red;
+      color: #339999;
     }
     .tech {
-      color: purple;
+      color: #cc6600;
     }
     .env {
-      color: blue;
+      color: #3f9ed4;
     }
     .arts {
-      color: green;
+      color: #9357b2;
     }
     .fif {
       color: gray;
