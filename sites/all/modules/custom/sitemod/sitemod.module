@@ -89,7 +89,6 @@ function sitemod_service_links() {
     'link' => NULL,
     'description' => 'Permalink',
     'module' => 'sitemod',
-    'icon' => '\f08e',
   );
   return $links;
 }
