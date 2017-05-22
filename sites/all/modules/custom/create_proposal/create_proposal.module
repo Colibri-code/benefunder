@@ -137,7 +137,12 @@ function create_proposal_generate_pdf($node) {
   // Generate proposal PDF and attach to node.
   if (($library = libraries_load('phpwkhtmltopdf')) && !empty($library['loaded'])) {
     $problem_msg = t('There was a problem creating a proposal PDF, please contact Benefunder.');
-    $pdf = new WkHtmlToPdf();
+    $pdf = new WkHtmlToPdf(array(
+      'footer-right'  => 'Page [page]/[toPage]',
+      'footer-left' => 'Copyright Benefunder ' . date('Y'),
+      'footer-line',
+      'footer-font-size' => '8',
+    ));
 
     // Attach cover page.
     $pdf->addCover(theme('proposal_cover', array('proposal' => $node)));
