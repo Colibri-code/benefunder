@@ -86,9 +86,10 @@ function sitemod_cause_node_validate($form, &$form_state) {
 function sitemod_service_links() {
   $links['shorturl'] = array(
     'name' => t('Permalink'),
-    'link' => NULL,
+    'link' => '<node-id>',
     'description' => 'Permalink',
     'module' => 'sitemod',
+    'callback' => 'sitemod_shorturl_link_callback',
   );
   return $links;
 }
@@ -100,9 +101,14 @@ function sitemod_service_links_alter(&$links) {
   $links['facebook']['name'] = t('Share on Facebook');
   $links['twitter']['name'] = t('Share on Twitter');
   $links['linkedin']['name'] = t('Share on LinkedIn');
-  if ($node = menu_get_object('node')) {
-    $links['shorturl']['link'] = url(bf_cause_get_short_alias($node), array('absolute' => TRUE));
-  }
+}
+
+/**
+ * Callback for permalink. Converts nid to short url.
+ */
+function sitemod_shorturl_link_callback(&$service, &$settings) {
+  $node = node_load($service['url'][0]);
+  $service['url'][0] = url(bf_cause_get_short_alias($node), array('absolute' => TRUE));
 }
 
 /**
