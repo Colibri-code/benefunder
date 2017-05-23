@@ -5,12 +5,21 @@
   <script>try{Typekit.load({ async: true });}catch(e){}</script>
 
   <style type="text/css">
+    html {
+      background-color: #00008b;
+    }
     /* Define page size. Requires print-area adjustment! */
     body {
+      background-color: cadetblue;
       margin:     0;
       padding:    0;
       width:      21cm;
-      height:     29.7cm;
+      height:     21.8cm;
+
+      background-image: url(<?php print $background; ?>);
+      background-origin: border-box;
+      background-size: cover;
+      background-repeat: no-repeat;
     }
 
     /* Printable area */
@@ -18,16 +27,12 @@
       position:   relative;
       top:        1cm;
       left:       1cm;
-      width:      19cm;
-      height:     27.6cm;
+      width:      15cm;
+      height:     20cm;
 
       font-family: "Raleway", sans-serif;
+      /*background-color: lightblue;*/
 
-      background-image: url(<?php print $background; ?>);
-      background-size: 17cm, 20cm, cover;
-      background-clip: border-box;
-
-      border: 1px solid black;
     }
 
     #header {
