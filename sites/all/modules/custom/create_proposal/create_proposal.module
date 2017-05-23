@@ -138,10 +138,18 @@ function create_proposal_generate_pdf($node) {
   if (($library = libraries_load('phpwkhtmltopdf')) && !empty($library['loaded'])) {
     $problem_msg = t('There was a problem creating a proposal PDF, please contact Benefunder.');
     $pdf = new WkHtmlToPdf(array(
+      'page-size' => 'Letter',
       'footer-right'  => 'Page [page]/[toPage]',
       'footer-left' => 'Copyright Benefunder ' . date('Y'),
       'footer-line',
       'footer-font-size' => '8',
+      'no-outline',
+      'margin-top'    => 0,
+      'margin-right'  => 0,
+      'margin-bottom' => 0,
+      'margin-left'   => 0,
+      'disable-smart-shrinking',
+//      'user-style-sheet' => drupal_get_path('module', 'create_proposal') . '/proposal.css',
     ));
 
     // Attach cover page.
