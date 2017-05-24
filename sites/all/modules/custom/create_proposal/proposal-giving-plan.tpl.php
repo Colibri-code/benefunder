@@ -2,27 +2,6 @@
 <head>
   <meta charset="UTF-8">
   <style type="text/css">
-    body {
-      font-family: "Raleway", sans-serif;
-    }
-    h1 {
-      color: #1F99A4;
-      font-weight: normal;
-    }
-    h3 {
-      color: #1F99A4;
-      font-weight: normal;
-    }
-    table {
-      border-collapse: collapse;
-    }
-    td {
-      border: 1px dotted #1F99A4;
-      padding: 5px;
-    }
-    td:first-child {
-      font-weight: bold;
-    }
     .pieContainer {
       height: 200px;
     }
@@ -117,101 +96,108 @@
 
 <body>
 
-<h1>Giving Plan</h1>
+<div class="print-area">
+  <h1 class="title">Giving Plan</h1>
 
-<h3>Distribution Management</h3>
-Initial Contribution: $1,000,000.00<br/>
-Planned Annual Contribution: $250,000.00<br/>
-Annual Distribution Percentage: 15%<br/>
+  <h3>Distribution Management</h3>
+  Initial Contribution: $1,000,000.00<br/>
+  Planned Annual Contribution: $250,000.00<br/>
+  Annual Distribution Percentage: 15%<br/>
 
-<div class="half">
-  <h3>Allocation by Research Area</h3>
+  <div class="half">
+    <h3>Allocation by Research Area</h3>
 
-  <div class="pieContainer">
-    <div class="pieBackground"></div>
-    <div id="pieSlice1" class="hold"><div class="pie"></div></div>
-    <div id="pieSlice2" class="hold"><div class="pie"></div></div>
-    <div id="pieSlice3" class="hold"><div class="pie"></div></div>
-    <div id="pieSlice4" class="hold"><div class="pie"></div></div>
+    <div class="pieContainer">
+      <div class="pieBackground"></div>
+      <div id="pieSlice1" class="hold"><div class="pie"></div></div>
+      <div id="pieSlice2" class="hold"><div class="pie"></div></div>
+      <div id="pieSlice3" class="hold"><div class="pie"></div></div>
+      <div id="pieSlice4" class="hold"><div class="pie"></div></div>
+    </div>
+
+    <div class="legend">
+      <ul>
+        <li class="life">Life Sciences (13.89%)</li>
+        <ul class="life">
+          <li>Genomics/Congenital</li>
+          <li>Neurological/Cognitive</li>
+        </ul>
+        <li class="tech">Technology (13.89%)</li>
+        <ul class="tech">
+          <li>Computational Sciences/Mathematics</li>
+          <li>Informational Sciences/Internet</li>
+          <li>Robotics</li>
+        </ul>
+        <li class="env">Environment (27.78%)</li>
+        <ul class="env">
+          <li>Energy</li>
+        </ul>
+        <li class="arts">Humanities (44.44%)</li>
+        <ul class="arts">
+          <li>Archaeology</li>
+          <li>Economics</li>
+          <li>Law/Ethics</li>
+        </ul>
+      </ul>
+    </div>
   </div>
 
-  <div class="legend">
-    <ul>
-      <li class="life">Life Sciences (13.89%)</li>
-      <ul class="life">
-        <li>Genomics/Congenital</li>
-        <li>Neurological/Cognitive</li>
+  <div class="half">
+    <h3>Allocation by Research Stage</h3>
+
+    <div class="pieContainer">
+      <div class="pieBackground"></div>
+      <div id="pieSlice1" class="hold"><div class="pie"></div></div>
+      <div id="pieSlice2" class="hold"><div class="pie"></div></div>
+      <div id="pieSlice3" class="hold"><div class="pie"></div></div>
+      <div id="pieSlice4" class="hold"><div class="pie"></div></div>
+    </div>
+
+    <div class="legend">
+      <ul>
+        <li class="life">Basic (13.89%)</li>
+        <ul class="life">
+          <li>Genomics/Congenital</li>
+          <li>Neurological/Cognitive</li>
+        </ul>
+        <li class="tech">Applied/Translational (13.89%)</li>
+        <ul class="tech">
+          <li>Computational Sciences/Mathematics</li>
+          <li>Informational Sciences/Internet</li>
+          <li>Robotics</li>
+        </ul>
+        <li class="env">Proof of Concept (27.78%)</li>
+        <ul class="env">
+          <li>Energy</li>
+        </ul>
+        <li class="arts">Commercialization (44.44%)</li>
+        <ul class="arts">
+          <li>Archaeology</li>
+          <li>Economics</li>
+          <li>Law/Ethics</li>
+        </ul>
+        <li class="fif">Programs & Policy (44.44%)</li>
+        <ul class="fif">
+          <li>Archaeology</li>
+          <li>Economics</li>
+          <li>Law/Ethics</li>
+        </ul>
       </ul>
-      <li class="tech">Technology (13.89%)</li>
-      <ul class="tech">
-        <li>Computational Sciences/Mathematics</li>
-        <li>Informational Sciences/Internet</li>
-        <li>Robotics</li>
-      </ul>
-      <li class="env">Environment (27.78%)</li>
-      <ul class="env">
-        <li>Energy</li>
-      </ul>
-      <li class="arts">Humanities (44.44%)</li>
-      <ul class="arts">
-        <li>Archaeology</li>
-        <li>Economics</li>
-        <li>Law/Ethics</li>
-      </ul>
-    </ul>
+    </div>
   </div>
+
+
+  <h3>Fees</h3>
+
+  Total Annual Fund Overhead as a percent of fund balance: 1.50%<br/>
+  Benefunder Service Fee: 10%<br/>
+  Financial institution fees may apply<br/>
+
 </div>
 
-<div class="half">
-  <h3>Allocation by Research Stage</h3>
-
-  <div class="pieContainer">
-    <div class="pieBackground"></div>
-    <div id="pieSlice1" class="hold"><div class="pie"></div></div>
-    <div id="pieSlice2" class="hold"><div class="pie"></div></div>
-    <div id="pieSlice3" class="hold"><div class="pie"></div></div>
-    <div id="pieSlice4" class="hold"><div class="pie"></div></div>
-  </div>
-
-  <div class="legend">
-    <ul>
-      <li class="life">Basic (13.89%)</li>
-      <ul class="life">
-        <li>Genomics/Congenital</li>
-        <li>Neurological/Cognitive</li>
-      </ul>
-      <li class="tech">Applied/Translational (13.89%)</li>
-      <ul class="tech">
-        <li>Computational Sciences/Mathematics</li>
-        <li>Informational Sciences/Internet</li>
-        <li>Robotics</li>
-      </ul>
-      <li class="env">Proof of Concept (27.78%)</li>
-      <ul class="env">
-        <li>Energy</li>
-      </ul>
-      <li class="arts">Commercialization (44.44%)</li>
-      <ul class="arts">
-        <li>Archaeology</li>
-        <li>Economics</li>
-        <li>Law/Ethics</li>
-      </ul>
-      <li class="fif">Programs & Policy (44.44%)</li>
-      <ul class="fif">
-        <li>Archaeology</li>
-        <li>Economics</li>
-        <li>Law/Ethics</li>
-      </ul>
-    </ul>
-  </div>
+<div class="footer">
+  Benefunder Page <?php print $page_num ?> of <?php print $page_total ?>
 </div>
-
-
-<h3>Fees</h3>
-
-Total Annual Fund Overhead as a percent of fund balance: 1.50%<br/>
-Benefunder Service Fee: 10%<br/>
-Financial institution fees may apply<br/>
 
 </body>
 </html>

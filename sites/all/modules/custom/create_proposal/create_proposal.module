@@ -139,30 +139,42 @@ function create_proposal_generate_pdf($node) {
     $problem_msg = t('There was a problem creating a proposal PDF, please contact Benefunder.');
     $pdf = new WkHtmlToPdf(array(
       'page-size' => 'Letter',
-      'footer-right'  => 'Page [page]/[toPage]',
-      'footer-left' => 'Copyright Benefunder ' . date('Y'),
-      'footer-line',
-      'footer-font-size' => '8',
       'no-outline',
       'margin-top'    => 0,
       'margin-right'  => 0,
       'margin-bottom' => 0,
       'margin-left'   => 0,
       'disable-smart-shrinking',
-//      'user-style-sheet' => drupal_get_path('module', 'create_proposal') . '/proposal.css',
+      'user-style-sheet' => drupal_get_path('module', 'create_proposal') . '/proposal.css',
     ));
 
     // Attach cover page.
     $pdf->addCover(theme('proposal_cover', array('proposal' => $node)));
 
 
+    // Total pages.
+    $page_total = 3 + count($node->field_donor_profile[LANGUAGE_NONE]) + count($node->field_cause[LANGUAGE_NONE]);
+    // Handle no causes selected (counted above because it has a default allocation %).
+    if (is_null($node->field_cause[LANGUAGE_NONE][0]['field_cause_name'][LANGUAGE_NONE])) {
+      $page_total--;
+    }
+    $page_num = 2;
+
     // Attach needs assessment.
     foreach ($node->field_donor_profile[LANGUAGE_NONE] as $donor_profile) {
-      $pdf->addPage(trim(theme('proposal_needs_assessment', array('donor_profile' => $donor_profile))));
+      $pdf->addPage(trim(theme('proposal_needs_assessment', array(
+        'donor_profile' => $donor_profile,
+        'page_total' => $page_total,
+        'page_num' => $page_num++,
+      ))));
     }
 
     // Attach giving history.
-    $pdf->addPage(trim(theme('proposal_giving_history', array('proposal' => $node))));
+    $pdf->addPage(trim(theme('proposal_giving_history', array(
+      'proposal' => $node,
+      'page_total' => $page_total,
+      'page_num' => $page_num++,
+    ))));
 
     // Add page for each cause.
     foreach ($node->field_cause[LANGUAGE_NONE] as $collection) {
@@ -177,6 +189,9 @@ function create_proposal_generate_pdf($node) {
           '<script>try{Typekit.load({ async: true });}catch(e){}</script>' => '',
         ));
         $pdf->addPage(trim($html));
+
+        //TODO: fix?
+        $page_num++;
 //        $a[] = array(
 //          $cause_node->title,
 //          $collection['field_cause_allocation'][LANGUAGE_NONE]['item']['value'] . '%',
@@ -185,7 +200,11 @@ function create_proposal_generate_pdf($node) {
     }
 
     // Add proposed giving plan.
-    $pdf->addPage(trim(theme('proposal_giving_plan', array('proposal' => $node))));
+    $pdf->addPage(trim(theme('proposal_giving_plan', array(
+      'proposal' => $node,
+      'page_total' => $page_total,
+      'page_num' => $page_num,
+    ))));
 
     $filename = transliteration_clean_filename($node->title . '_proposal.pdf');
     $content = $pdf->toString();
