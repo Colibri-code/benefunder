@@ -75,13 +75,13 @@
     .life {
       color: #339999;
     }
-    .tech {
+    .technology {
       color: #cc6600;
     }
-    .env {
+    .environment {
       color: #3f9ed4;
     }
-    .arts {
+    .humanities {
       color: #9357b2;
     }
     .fif {

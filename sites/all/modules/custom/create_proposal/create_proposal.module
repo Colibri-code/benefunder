@@ -184,7 +184,7 @@ function create_proposal_generate_pdf($node) {
     // Start term list with top-level terms.
     foreach ($tree as $term) {
       if ($term->depth === 0) {
-        $terms[$term->tid] = array('data' => $term->name, 'children' => array());
+        $terms[$term->tid] = array('data' => $term->name, 'children' => array(), 'class' => array($term->name));
       }
       else {
         $parent_tid = array_pop($term->parents);
@@ -211,13 +211,18 @@ function create_proposal_generate_pdf($node) {
         $page_num++;
 
         // Get terms on this node.
-        $tags[] = field_view_field('node', $node, 'field_research_area', array('default'));
+        $cause_tags = field_view_field('node', $cause_node, 'field_research_area', array('default'));
+        $tags = array_merge($tags, $cause_tags['#items']);
       }
     }
 
     // Filter tags into terms using map.
     foreach ($tags as $tag) {
-      $terms[$map[$tag['tid']]]['children'][] = $tag['taxonomy_term']->name;
+      $tid = $tag['tid'];
+      $term_name = $tag['taxonomy_term']->name;
+      if (!isset($terms[$tid]) && !in_array($term_name, $terms[$map[$tid]]['children'])) {
+        $terms[$map[$tid]]['children'][] = $term_name;
+      }
     }
 
     // Add proposed giving plan.
