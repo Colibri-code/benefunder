@@ -176,11 +176,28 @@ function create_proposal_generate_pdf($node) {
       'page_num' => $page_num++,
     ))));
 
+    // Get Research Area vocabulary.
+    $vocabulary = taxonomy_vocabulary_machine_name_load('research_area');
+    $tree = taxonomy_get_tree($vocabulary->vid);
+    $tags = array();
+
+    // Start term list with top-level terms.
+    foreach ($tree as $term) {
+      if ($term->depth === 0) {
+        $terms[$term->tid] = array('data' => $term->name, 'children' => array());
+      }
+      else {
+        $parent_tid = array_pop($term->parents);
+        $map[$term->tid] = $parent_tid;
+      }
+    }
+
     // Add page for each cause.
     foreach ($node->field_cause[LANGUAGE_NONE] as $collection) {
       $cause_nid = $collection['field_cause_name'][LANGUAGE_NONE][0]['target_id'];
       $cause_node = node_load($cause_nid);
       if (!empty($cause_node)) {
+        // TODO: add footer to cause html pages.
         $html = _entity_print_get_generated_html('node', $cause_node);
 
         // Remove script tags, the cover page includes this already.
@@ -190,13 +207,17 @@ function create_proposal_generate_pdf($node) {
         ));
         $pdf->addPage(trim($html));
 
-        //TODO: fix?
+        // TODO: fix?
         $page_num++;
-//        $a[] = array(
-//          $cause_node->title,
-//          $collection['field_cause_allocation'][LANGUAGE_NONE]['item']['value'] . '%',
-//        );
+
+        // Get terms on this node.
+        $tags[] = field_view_field('node', $node, 'field_research_area', array('default'));
       }
+    }
+
+    // Filter tags into terms using map.
+    foreach ($tags as $tag) {
+      $terms[$map[$tag['tid']]]['children'][] = $tag['taxonomy_term']->name;
     }
 
     // Add proposed giving plan.
@@ -204,6 +225,8 @@ function create_proposal_generate_pdf($node) {
       'proposal' => $node,
       'page_total' => $page_total,
       'page_num' => $page_num,
+      'legend' => $terms,
+      //      'allocation' => $allocation,
     ))));
 
     $filename = transliteration_clean_filename($node->title . '_proposal.pdf');

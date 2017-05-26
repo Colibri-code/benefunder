@@ -116,75 +116,53 @@
     </div>
 
     <div class="legend">
-      <ul>
-        <li class="life">Life Sciences (13.89%)</li>
-        <ul class="life">
-          <li>Genomics/Congenital</li>
-          <li>Neurological/Cognitive</li>
-        </ul>
-        <li class="tech">Technology (13.89%)</li>
-        <ul class="tech">
-          <li>Computational Sciences/Mathematics</li>
-          <li>Informational Sciences/Internet</li>
-          <li>Robotics</li>
-        </ul>
-        <li class="env">Environment (27.78%)</li>
-        <ul class="env">
-          <li>Energy</li>
-        </ul>
-        <li class="arts">Humanities (44.44%)</li>
-        <ul class="arts">
-          <li>Archaeology</li>
-          <li>Economics</li>
-          <li>Law/Ethics</li>
-        </ul>
-      </ul>
+      <?php print theme('item_list', array('items' => $legend)); ?>
     </div>
   </div>
 
-  <div class="half">
-    <h3>Allocation by Research Stage</h3>
-
-    <div class="pieContainer">
-      <div class="pieBackground"></div>
-      <div id="pieSlice1" class="hold"><div class="pie"></div></div>
-      <div id="pieSlice2" class="hold"><div class="pie"></div></div>
-      <div id="pieSlice3" class="hold"><div class="pie"></div></div>
-      <div id="pieSlice4" class="hold"><div class="pie"></div></div>
-    </div>
-
-    <div class="legend">
-      <ul>
-        <li class="life">Basic (13.89%)</li>
-        <ul class="life">
-          <li>Genomics/Congenital</li>
-          <li>Neurological/Cognitive</li>
-        </ul>
-        <li class="tech">Applied/Translational (13.89%)</li>
-        <ul class="tech">
-          <li>Computational Sciences/Mathematics</li>
-          <li>Informational Sciences/Internet</li>
-          <li>Robotics</li>
-        </ul>
-        <li class="env">Proof of Concept (27.78%)</li>
-        <ul class="env">
-          <li>Energy</li>
-        </ul>
-        <li class="arts">Commercialization (44.44%)</li>
-        <ul class="arts">
-          <li>Archaeology</li>
-          <li>Economics</li>
-          <li>Law/Ethics</li>
-        </ul>
-        <li class="fif">Programs & Policy (44.44%)</li>
-        <ul class="fif">
-          <li>Archaeology</li>
-          <li>Economics</li>
-          <li>Law/Ethics</li>
-        </ul>
-      </ul>
-    </div>
-  </div>
+<!--  <div class="half">-->
+<!--    <h3>Allocation by Research Stage</h3>-->
+<!---->
+<!--    <div class="pieContainer">-->
+<!--      <div class="pieBackground"></div>-->
+<!--      <div id="pieSlice1" class="hold"><div class="pie"></div></div>-->
+<!--      <div id="pieSlice2" class="hold"><div class="pie"></div></div>-->
+<!--      <div id="pieSlice3" class="hold"><div class="pie"></div></div>-->
+<!--      <div id="pieSlice4" class="hold"><div class="pie"></div></div>-->
+<!--    </div>-->
+<!---->
+<!--    <div class="legend">-->
+<!--      <ul>-->
+<!--        <li class="life">Basic (13.89%)</li>-->
+<!--        <ul class="life">-->
+<!--          <li>Genomics/Congenital</li>-->
+<!--          <li>Neurological/Cognitive</li>-->
+<!--        </ul>-->
+<!--        <li class="tech">Applied/Translational (13.89%)</li>-->
+<!--        <ul class="tech">-->
+<!--          <li>Computational Sciences/Mathematics</li>-->
+<!--          <li>Informational Sciences/Internet</li>-->
+<!--          <li>Robotics</li>-->
+<!--        </ul>-->
+<!--        <li class="env">Proof of Concept (27.78%)</li>-->
+<!--        <ul class="env">-->
+<!--          <li>Energy</li>-->
+<!--        </ul>-->
+<!--        <li class="arts">Commercialization (44.44%)</li>-->
+<!--        <ul class="arts">-->
+<!--          <li>Archaeology</li>-->
+<!--          <li>Economics</li>-->
+<!--          <li>Law/Ethics</li>-->
+<!--        </ul>-->
+<!--        <li class="fif">Programs & Policy (44.44%)</li>-->
+<!--        <ul class="fif">-->
+<!--          <li>Archaeology</li>-->
+<!--          <li>Economics</li>-->
+<!--          <li>Law/Ethics</li>-->
+<!--        </ul>-->
+<!--      </ul>-->
+<!--    </div>-->
+<!--  </div>-->
 
 
   <h3>Fees</h3>
