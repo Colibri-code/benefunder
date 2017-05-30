@@ -179,12 +179,17 @@ function create_proposal_generate_pdf($node) {
     // Get Research Area vocabulary.
     $vocabulary = taxonomy_vocabulary_machine_name_load('research_area');
     $tree = taxonomy_get_tree($vocabulary->vid);
-    $tags = array();
+    $tags = $terms = array();
 
     // Start term list with top-level terms.
     foreach ($tree as $term) {
       if ($term->depth === 0) {
-        $terms[$term->tid] = array('data' => $term->name, 'children' => array(), 'class' => array($term->name));
+        $terms[$term->tid] = array(
+          'data' => $term->name,
+          'children' => array(),
+          'class' => array($term->name),
+          'allocation' => 0,
+        );
       }
       else {
         $parent_tid = array_pop($term->parents);
@@ -213,6 +218,17 @@ function create_proposal_generate_pdf($node) {
         // Get terms on this node.
         $cause_tags = field_view_field('node', $cause_node, 'field_research_area', array('default'));
         $tags = array_merge($tags, $cause_tags['#items']);
+
+        // Add allocation % to a top-level term.
+        foreach ($cause_tags['#items'] as $tag) {
+          $tid = $tag['tid'];
+          if (isset($terms[$tid])) {
+            // Found the top-level term.
+            $terms[$tid]['allocation'] += $collection['field_cause_allocation'][LANGUAGE_NONE]['item']['value'];
+            // No need to continue.
+            break;
+          }
+        }
       }
     }
 
@@ -225,13 +241,17 @@ function create_proposal_generate_pdf($node) {
       }
     }
 
+    // Copy allocation % into the top-level term title.
+    foreach ($terms as $tid => $top_term) {
+      $terms[$tid]['data'] .= sprintf(' (%s%%)', round($terms[$tid]['allocation'], 2));
+    }
+
     // Add proposed giving plan.
     $pdf->addPage(trim(theme('proposal_giving_plan', array(
       'proposal' => $node,
       'page_total' => $page_total,
       'page_num' => $page_num,
       'legend' => $terms,
-      //      'allocation' => $allocation,
     ))));
 
     $filename = transliteration_clean_filename($node->title . '_proposal.pdf');
