@@ -28,50 +28,51 @@
     }
     #pieSlice1 .pie {
       background-color: #339999;
-      transform:rotate(50deg);
-      -webkit-transform:rotate(50deg);
-      -moz-transform:rotate(50deg);
-      -o-transform:rotate(50deg);
-    }
-    #pieSlice2 {
-      transform:rotate(50deg);
-      -webkit-transform:rotate(50deg);
-      -moz-transform:rotate(50deg);
-      -o-transform:rotate(50deg);
     }
     #pieSlice2 .pie {
       background-color: #cc6600;
-      transform:rotate(50deg);
-      -webkit-transform:rotate(50deg);
-      -moz-transform:rotate(50deg);
-      -o-transform:rotate(50deg);
-    }
-    #pieSlice3 {
-      transform:rotate(100deg);
-      -webkit-transform:rotate(100deg);
-      -moz-transform:rotate(100deg);
-      -o-transform:rotate(100deg);
     }
     #pieSlice3 .pie {
       background-color: #3f9ed4;
-      transform:rotate(100deg);
-      -webkit-transform:rotate(100deg);
-      -moz-transform:rotate(100deg);
-      -o-transform:rotate(100deg);
-    }
-    #pieSlice4 {
-      transform:rotate(200deg);
-      -webkit-transform:rotate(200deg);
-      -moz-transform:rotate(200deg);
-      -o-transform:rotate(200deg);
     }
     #pieSlice4 .pie {
       background-color: #9357b2;
-      transform:rotate(160deg);
-      -webkit-transform:rotate(160deg);
-      -moz-transform:rotate(160deg);
-      -o-transform:rotate(160deg);
     }
+
+    <?php
+      $i = 1;
+      $current_deg = 0;
+      foreach ($legend as $tid => $term) {
+        if ($term['allocation'] > 0) {
+          // Convert percentage to degrees.
+          $slice_deg = round(($term['allocation'] / 100) * 360);
+
+          if ($i > 1) {
+            print<<<ENDSLICE
+#pieSlice$i {
+  transform: rotate({$current_deg}deg);
+  -webkit-transform:rotate({$current_deg}deg);
+  -moz-transform:rotate({$current_deg}deg);
+  -o-transform:rotate({$current_deg}deg);
+}
+ENDSLICE;
+        }
+
+          print<<<ENDSLICEPIE
+#pieSlice$i .pie {
+  transform:rotate({$slice_deg}deg);
+  -webkit-transform:rotate({$slice_deg}deg);
+  -moz-transform:rotate({$slice_deg}deg);
+  -o-transform:rotate({$slice_deg}deg);
+}
+ENDSLICEPIE;
+
+          $current_deg += $slice_deg;
+        }
+      }
+    ?>
+
+
     .life {
       color: #339999;
     }

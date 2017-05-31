@@ -254,15 +254,14 @@ function create_proposal_generate_pdf($node) {
       'legend' => $terms,
     ))));
 
-    $filename = transliteration_clean_filename($node->title . '_proposal.pdf');
     $content = $pdf->toString();
-
     if ($content === FALSE) {
       watchdog('create_proposal', 'PDF content error: ' . $pdf->getError(), array(), WATCHDOG_ERROR);
       drupal_set_message($problem_msg, 'error');
       return;
     }
 
+    $filename = transliteration_clean_filename($node->title . '_proposal.pdf');
     $file = file_save_data($content, 'private://' . $filename, FILE_EXISTS_REPLACE);
     if (!$file) {
       watchdog('create_proposal', 'File save error: ' . $pdf->getError(), array(), WATCHDOG_ERROR);
