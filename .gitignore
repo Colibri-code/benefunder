@@ -48,3 +48,9 @@ Thumbs.db
 /sites/*.local
 PT-*.php
 .gitignore
+
+
+/sites/default/local.*
+stage_file_proxy
+stage_file_proxy/*
+.idea/*
