@@ -50,7 +50,7 @@ PT-*.php
 .gitignore
 
 
-/sites/default/local.*
+local.settings.inc
 stage_file_proxy
 stage_file_proxy/*
 .idea/*
