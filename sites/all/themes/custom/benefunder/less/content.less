@@ -553,6 +553,8 @@ body {
     }
 
     .sector-icon {
+      max-height: 57px;
+
       @media(min-width:@screen-md-min) {
         display:inline-block;
         vertical-align:middle;
@@ -2037,10 +2039,10 @@ div.sidebar-first {
       margin:0 auto -1px;
       z-index:2;
       position:relative;
-      width:17px;
+      width:170px;
       height:9px;
       background-image:url(../media/images/share_carrot.png);
-      background-position:center 0;
+      background-position:150px 0;
       background-repeat:no-repeat;
     }
 
@@ -2078,7 +2080,7 @@ div.sidebar-first {
           vertical-align:middle;
           background-image:url(../media/images/share_social_icons.png);
           background-repeat:no-repeat;
-          margin-right:20px;
+          margin-right:10px;
         }
 
         &.service-links-facebook {
@@ -2086,6 +2088,7 @@ div.sidebar-first {
             height:21px;
             width:11px;
             background-position:-7px 0px;
+            margin-right: 19px;
           }
         }
 
@@ -2102,6 +2105,14 @@ div.sidebar-first {
             height:19px;
             width:19px;
             background-position:0px -76px;
+          }
+        }
+
+        &.service-links-shorturl {
+          &:before {
+            height:20px;
+            width:22px;
+            background-position:0px -114px;
           }
         }
       }

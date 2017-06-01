@@ -1,0 +1,69 @@
+body {
+    margin:     0;
+    padding:    0;
+    width:      17cm;
+    height:     21cm;
+
+    background-origin: border-box;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+div.print-area-cover {
+    position:   relative;
+    top:        1cm;
+    left:       1cm;
+    width:      15cm;
+    height:     19cm;
+    font-size:  12px;
+    font-family: "Raleway", sans-serif;
+}
+div.print-area {
+    position:   relative;
+    top:        1cm;
+    left:       1cm;
+    width:      15cm;
+    height:     15cm;
+    font-size:  12px;
+    font-family: "Raleway", sans-serif;
+}
+h1.cover {
+    position: absolute;
+    top: 200px;
+    padding: 25px;
+    color: black;
+    text-transform: uppercase;
+    background: rgba(102, 102, 102, 0.50);
+}
+h1.cover span {
+    font-size: 125%;
+}
+div.footer {
+    position:   absolute;
+    bottom:     0;
+    width:      95%;
+    height:     0.75cm;
+
+    font-size: 8px;
+    font-family: "Raleway", sans-serif;
+    text-align: right;
+}
+h1.title {
+    color: #1F99A4;
+    font-weight: normal;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+td {
+    border: 1px dotted #1F99A4;
+    padding: 5px;
+}
+td:first-child {
+    font-weight: bold;
+}
+h3 {
+    color: #1F99A4;
+    font-weight: normal;
+}
+

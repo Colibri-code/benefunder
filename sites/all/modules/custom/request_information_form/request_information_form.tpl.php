@@ -1,4 +1,4 @@
-<form id="request-info" action="https://www.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST">
+<form id="request-info" action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST">
 
   <input type=hidden name="oid" value="00Do0000000JSTB">
   <input type=hidden name="retURL" value="<?php print $base_url; ?>/thank-you">

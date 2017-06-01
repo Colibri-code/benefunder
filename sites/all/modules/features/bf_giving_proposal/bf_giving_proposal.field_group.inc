@@ -21,7 +21,7 @@ function bf_giving_proposal_field_group_info() {
   $field_group->parent_name = 'group_proposal_tabs';
   $field_group->data = array(
     'label' => 'Proposal Review & Approval',
-    'weight' => '43',
+    'weight' => '44',
     'children' => array(
       0 => 'field_analyst_feedback_1',
       1 => 'field_client_feedback_1',
@@ -50,7 +50,7 @@ function bf_giving_proposal_field_group_info() {
   $field_group->parent_name = 'group_proposal_tabs';
   $field_group->data = array(
     'label' => 'Ready for Benefunder',
-    'weight' => '40',
+    'weight' => '41',
     'children' => array(
       0 => 'field_client_feedback',
       1 => 'field_client_approval',
@@ -111,18 +111,11 @@ function bf_giving_proposal_field_group_info() {
     'label' => 'Client Giving History',
     'weight' => '37',
     'children' => array(
-      0 => 'field_charitable_vehicle',
-      1 => 'field_vehicle_name',
-      2 => 'field_what_did_the_client_like_d',
-      3 => 'field_what_organizations_has_the',
-      4 => 'field_how_many_hours_per_year_di',
-      5 => 'field_does_the_family_have_an_es',
-      6 => 'field_does_the_family_currently_',
-      7 => 'field_advisor_name',
-      8 => 'field_advisor_firm',
-      9 => 'field_advisor_contact',
-      10 => 'field_giving_vehicle_type',
-      11 => 'field_what_does_the_client_like_',
+      0 => 'field_what_did_the_client_like_d',
+      1 => 'field_what_organizations_has_the',
+      2 => 'field_how_many_hours_per_year_di',
+      3 => 'field_does_the_family_have_an_es',
+      4 => 'field_what_does_the_client_like_',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -204,7 +197,7 @@ function bf_giving_proposal_field_group_info() {
   $field_group->parent_name = 'group_proposal_tabs';
   $field_group->data = array(
     'label' => 'Execution',
-    'weight' => '44',
+    'weight' => '45',
     'children' => array(
       0 => 'field_execution_markup',
     ),
@@ -231,13 +224,20 @@ function bf_giving_proposal_field_group_info() {
   $field_group->parent_name = 'group_proposal_tabs';
   $field_group->data = array(
     'label' => 'Account Details & Funding Information',
-    'weight' => '45',
+    'weight' => '38',
     'children' => array(
-      0 => 'field_contribution_funding',
-      1 => 'field_planned_annual_contributio',
-      2 => 'field_planned_initial_contributi',
-      3 => 'field_how_does_the_client_plan_o',
-      4 => 'field_what_is_the_intended_distr',
+      0 => 'field_charitable_vehicle',
+      1 => 'field_contribution_funding',
+      2 => 'field_planned_annual_contributio',
+      3 => 'field_planned_initial_contributi',
+      4 => 'field_vehicle_name',
+      5 => 'field_how_does_the_client_plan_o',
+      6 => 'field_what_is_the_intended_distr',
+      7 => 'field_does_the_family_currently_',
+      8 => 'field_advisor_name',
+      9 => 'field_advisor_firm',
+      10 => 'field_advisor_contact',
+      11 => 'field_giving_vehicle_type',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -317,7 +317,7 @@ function bf_giving_proposal_field_group_info() {
   $field_group->parent_name = 'group_proposal_tabs';
   $field_group->data = array(
     'label' => 'Preliminary Causes',
-    'weight' => '38',
+    'weight' => '39',
     'children' => array(
       0 => 'field_preliminary_causes',
     ),
@@ -459,7 +459,7 @@ function bf_giving_proposal_field_group_info() {
   $field_group->parent_name = 'group_proposal_tabs';
   $field_group->data = array(
     'label' => 'Causes & Allocations',
-    'weight' => '42',
+    'weight' => '43',
     'children' => array(
       0 => 'field_cause',
       1 => 'field_cause_markup',
@@ -518,7 +518,7 @@ function bf_giving_proposal_field_group_info() {
   $field_group->parent_name = 'group_proposal_tabs';
   $field_group->data = array(
     'label' => 'Ready to Print',
-    'weight' => '39',
+    'weight' => '40',
     'children' => array(
       0 => 'field_giving_proposal',
       1 => 'field_additional_documents',
@@ -586,7 +586,7 @@ function bf_giving_proposal_field_group_info() {
   $field_group->parent_name = 'group_proposal_tabs';
   $field_group->data = array(
     'label' => 'Proposal',
-    'weight' => '41',
+    'weight' => '42',
     'children' => array(
       0 => 'field_proposal_markup',
     ),
