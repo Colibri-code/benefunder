@@ -10637,6 +10637,9 @@ form#giving-proposal-node-form {
   line-height: 24px;
   margin-bottom: 15px;
 }
+.event__venue * {
+  display: inline;
+}
 .event__sponsor-label {
   color: #000;
   font-family: 'raleway';

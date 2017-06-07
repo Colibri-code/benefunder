@@ -95,6 +95,7 @@
 
         <div class="event__venue">
           <?php print drupal_render($content['field_venue_name']); ?>
+          <?php print drupal_render($content['field_venue_address']); ?>
         </div>
         <div class="event__sponsor-label"><?php print t('Sponsor'); ?></div>
         <div class="event__sponsor-name">

@@ -86,7 +86,9 @@
     <div class="card-event__info-wrapper">
       <div class="card-event__info-left">
         <div class="card-event__venue">
-          <?php print drupal_render($content['field_venue_name']); ?>
+          <?php if(!empty($venue)): ?>
+            <?php print $venue; ?>
+          <?php endif; ?>
         </div>
         <div class="card-event__date">
           <?php print drupal_render($content['field_event_date']); ?>
@@ -99,8 +101,10 @@
     <div class="card-event__description">
       <?php print drupal_render($content['body']); ?>
     </div>
-    <?php print l('Read more', $node_url, array('attributes' => array('class' => 'card-event__readmore'))); ?>
-    <?php print l(t('Register now'), drupal_render($content['field_registration_url']), array('attributes' => array('class' => 'card-event__register-link'))); ?>
+    <?php print l(t('Read more'), $node_url, array('attributes' => array('class' => 'card-event__readmore'))); ?>
+    <?php if(!empty($reg_url)) : ?>
+    <?php print l(t('Register now'), $reg_url, array('attributes' => array('class' => 'card-event__register-link'))); ?>
+    <?php endif; ?>
   </div>
   <div class="card-event__right-side">
     <?php if(!empty($short_date)) : ?>

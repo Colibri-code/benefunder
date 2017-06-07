@@ -202,12 +202,20 @@ function benefunder_preprocess_node(&$variables) {
   switch ($variables['type']) {
     case 'event':
       $node_w =  entity_metadata_wrapper('node', $variables['node']);
+      if($variables['view_mode'] == 'teaser'){
+        if(($city = $node_w->field_venue_address->locality->value()) && ($vname = $node_w->field_venue_name->value())){
+          $variables['venue'] = $vname . ', ' . $city;
+        }
+      }
       if($event_date = $node_w->field_event_date->value()){
         $variables['short_date']['day'] = date('d', strtotime($event_date['value']));
         $variables['short_date']['month'] = date('M', strtotime($event_date['value']));
       }
       if($hosts = $node_w->field_co_host_name->value()){
         $variables['hosts'] = implode(',', $hosts);
+      }
+      if($reg_url = $node_w->field_registration_url->url->value()){
+        $variables['reg_url'] = $reg_url;
       }
       if($ev_type = $node_w->field_event_type->label()){
         $variables['event_type'] = $ev_type;
