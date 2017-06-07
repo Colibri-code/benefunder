@@ -2,76 +2,87 @@
 <head>
   <meta charset="UTF-8">
   <style type="text/css">
-    .pieContainer {
-      height: 200px;
-    }
-    .pieBackground {
-      background-color: grey;
-      position: absolute;
-      width: 200px;
-      height: 200px;
-      border-radius: 100px;
-    }
     .pie {
-      position: absolute;
-      width: 200px;
-      height: 200px;
-      border-radius: 100px;
-      clip: rect(0px, 100px, 200px, 0px);
+      position:absolute;
+      width:100px;
+      height:200px;
+      overflow:hidden;
+      left:150px;
+      -webkit-transform-origin:left center;
+      transform-origin:left center;
     }
-    .hold {
-      position: absolute;
-      width: 200px;
-      height: 200px;
-      border-radius: 100px;
-      clip: rect(0px, 200px, 200px, 100px);
+
+    .pie.big {
+      width:200px;
+      height:200px;
+      left:50px;
+      -webkit-transform-origin:center center;
+      transform-origin:center center;
     }
-    #pieSlice1 .pie {
-      background-color: #339999;
+
+    .pie:BEFORE {
+      content:"";
+      position:absolute;
+      width:100px;
+      height:200px;
+      left:-100px;
+      border-radius:100px 0 0 100px;
+      -webkit-transform-origin:right center;
+      transform-origin:right center;
+
     }
-    #pieSlice2 .pie {
-      background-color: #cc6600;
+
+    .pie.big:BEFORE {
+      left:0px;
     }
-    #pieSlice3 .pie {
+
+    .pie.big:AFTER {
+      content:"";
+      position:absolute;
+      width:100px;
+      height:200px;
+      left:100px;
+      border-radius:0 100px 100px 0;
+    }
+
+    .pie:nth-of-type(1):BEFORE,
+    .pie:nth-of-type(1):AFTER {
       background-color: #3f9ed4;
     }
-    #pieSlice4 .pie {
+    .pie:nth-of-type(2):AFTER,
+    .pie:nth-of-type(2):BEFORE {
       background-color: #9357b2;
+    }
+    .pie:nth-of-type(3):AFTER,
+    .pie:nth-of-type(3):BEFORE {
+      background-color: #339999;
+    }
+    .pie:nth-of-type(4):AFTER,
+    .pie:nth-of-type(4):BEFORE {
+      background-color: #cc6600;
     }
 
     <?php
-      $i = 1;
       $current_deg = 0;
       foreach ($legend as $tid => $term) {
-        if ($term['allocation'] > 0) {
-          // Convert percentage to degrees.
-          $slice_deg = round(($term['allocation'] / 100) * 360);
+        // Convert percentage to degrees.
+        $slice_deg = empty($term['allocation']) ? 0 : round(($term['allocation'] / 100) * 360);
+        $legend[$tid]['slice'] = $slice_deg;
 
-          if ($i > 1) {
-            print<<<ENDSLICE
-#pieSlice$i {
+        print<<<ENDSLICE
+.pie[data-start="{$current_deg}"] {
   transform: rotate({$current_deg}deg);
-  -webkit-transform:rotate({$current_deg}deg);
-  -moz-transform:rotate({$current_deg}deg);
-  -o-transform:rotate({$current_deg}deg);
+  -webkit-transform: rotate({$current_deg}deg);
+}
+.pie[data-value="{$slice_deg}"]:BEFORE {
+  transform: rotate({$slice_deg}deg);
+  -webkit-transform: rotate({$slice_deg}deg);
 }
 ENDSLICE;
-        }
 
-          print<<<ENDSLICEPIE
-#pieSlice$i .pie {
-  transform:rotate({$slice_deg}deg);
-  -webkit-transform:rotate({$slice_deg}deg);
-  -moz-transform:rotate({$slice_deg}deg);
-  -o-transform:rotate({$slice_deg}deg);
-}
-ENDSLICEPIE;
-
-          $current_deg += $slice_deg;
-        }
+        $current_deg += $slice_deg;
       }
     ?>
-
 
     .life {
       color: #339999;
@@ -92,6 +103,9 @@ ENDSLICEPIE;
       width: 50%;
       float: left;
     }
+    div.legend {
+      margin-top: 225px;
+    }
   </style>
 </head>
 
@@ -108,13 +122,15 @@ ENDSLICEPIE;
   <div class="half">
     <h3>Allocation by Research Area</h3>
 
-    <div class="pieContainer">
-      <div class="pieBackground"></div>
-      <div id="pieSlice1" class="hold"><div class="pie"></div></div>
-      <div id="pieSlice2" class="hold"><div class="pie"></div></div>
-      <div id="pieSlice3" class="hold"><div class="pie"></div></div>
-      <div id="pieSlice4" class="hold"><div class="pie"></div></div>
-    </div>
+    <?php
+      $current_deg = 0;
+      foreach ($legend as $tid => $term) {
+        $slice_deg = $term['slice'];
+        $class = ($slice_deg > 179) ? 'pie big' : 'pie';
+        print "<div class='{$class}' data-start='{$current_deg}' data-value='{$slice_deg}'></div>";
+        $current_deg += $slice_deg;
+      }
+    ?>
 
     <div class="legend">
       <?php print theme('item_list', array('items' => $legend)); ?>
