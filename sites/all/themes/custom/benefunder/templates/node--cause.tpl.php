@@ -156,7 +156,7 @@
           </div>
           <?php $block = module_invoke('service_links', 'block_view', 'service_links'); ?>
           <div class="share-block">
-            <?php if (user_is_logged_in()): ?>
+            <?php if (user_is_logged_in() && function_exists('flag_create_link')): ?>
               <div class="favorite-link"><?php print flag_create_link('bookmarks', $nid); ?></div>
             <?php endif; ?>
             <a href="/entityprint/node/<?php print $nid; ?>" class="download-text">Download PDF</a>

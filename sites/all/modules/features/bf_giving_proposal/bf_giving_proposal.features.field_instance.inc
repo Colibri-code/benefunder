@@ -1115,7 +1115,7 @@ Family',
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_buttons',
-      'weight' => 13,
+      'weight' => 79,
     ),
   );
 
@@ -1666,7 +1666,10 @@ Family',
         'apply_chosen' => '',
         'available_options' => 'Donor Advised Fund
 Private Foundation
-Trust',
+Trust
+CRT
+Family Office
+Corporation',
         'other' => 'Other',
         'other_size' => 60,
         'other_title' => '',
@@ -1674,7 +1677,7 @@ Trust',
         'sort_options' => 0,
       ),
       'type' => 'select_or_other',
-      'weight' => 77,
+      'weight' => 78,
     ),
   );
 
@@ -1713,7 +1716,7 @@ Trust',
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_buttons',
-      'weight' => 14,
+      'weight' => 80,
     ),
   );
 
@@ -1846,7 +1849,7 @@ Trust',
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 16,
+      'weight' => 82,
     ),
   );
 
@@ -1894,7 +1897,7 @@ Trust',
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 15,
+      'weight' => 81,
     ),
   );
 
@@ -2233,7 +2236,7 @@ Trust',
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 78,
+      'weight' => 77,
     ),
   );
 
@@ -2359,7 +2362,7 @@ Trust',
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 17,
+      'weight' => 83,
     ),
   );
 

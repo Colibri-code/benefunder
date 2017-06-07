@@ -112,7 +112,9 @@ function create_proposal_submit($form, &$form_state) {
  */
 function create_proposal_node_presave($node) {
   // Generate proposal PDF.
-  create_proposal_generate_pdf($node);
+  if ($node->type == 'giving_proposal') {
+    create_proposal_generate_pdf($node);
+  }
 }
 
 function create_proposal_sent_confirmation() {
@@ -132,55 +134,134 @@ function create_proposal_sent_to_hellosign($wrapper) {
  * @throws \Exception
  */
 function create_proposal_generate_pdf($node) {
-// Generate proposal PDF and attach to node.
+  // Generate proposal PDF and attach to node.
   if (($library = libraries_load('phpwkhtmltopdf')) && !empty($library['loaded'])) {
     $problem_msg = t('There was a problem creating a proposal PDF, please contact Benefunder.');
-    $pdf = new WkHtmlToPdf();
+    $pdf = new WkHtmlToPdf(array(
+      'page-size' => 'Letter',
+      'no-outline',
+      'margin-top'    => 0,
+      'margin-right'  => 0,
+      'margin-bottom' => 0,
+      'margin-left'   => 0,
+      'disable-smart-shrinking',
+      'user-style-sheet' => drupal_get_path('module', 'create_proposal') . '/proposal.css',
+    ));
 
     // Attach cover page.
-//    $pdf->addCover(theme('proposal_cover', array('proposal' => $node)));
+    $pdf->addCover(theme('proposal_cover', array('proposal' => $node)));
 
-    $pdf->addPage('<html><body>This page intentionally left blank.</body></html>');
+
+    // Total pages.
+    $page_total = 3 + count($node->field_donor_profile[LANGUAGE_NONE]) + count($node->field_cause[LANGUAGE_NONE]);
+    // Handle no causes selected (counted above because it has a default allocation %).
+    if (is_null($node->field_cause[LANGUAGE_NONE][0]['field_cause_name'][LANGUAGE_NONE])) {
+      $page_total--;
+    }
+    $page_num = 2;
 
     // Attach needs assessment.
     foreach ($node->field_donor_profile[LANGUAGE_NONE] as $donor_profile) {
-      $pdf->addPage(trim(theme('proposal_needs_assessment', array('donor_profile' => $donor_profile))));
+      $pdf->addPage(trim(theme('proposal_needs_assessment', array(
+        'donor_profile' => $donor_profile,
+        'page_total' => $page_total,
+        'page_num' => $page_num++,
+      ))));
     }
-    $pdf->addPage('<html><body>This page intentionally left blank.</body></html>');
 
-    // TODO: Attach sample pages - this does not work. Add as HTML or use something else to combine pdfs?
-//    $pdf->addPage(file_get_contents(drupal_get_path('module', 'create_proposal') . '/proposal_static.pdf'));
+    // Attach giving history.
+    $pdf->addPage(trim(theme('proposal_giving_history', array(
+      'proposal' => $node,
+      'page_total' => $page_total,
+      'page_num' => $page_num++,
+    ))));
 
+    // Get Research Area vocabulary.
+    $vocabulary = taxonomy_vocabulary_machine_name_load('research_area');
+    $tree = taxonomy_get_tree($vocabulary->vid);
+    $tags = $terms = array();
+
+    // Start term list with top-level terms.
+    foreach ($tree as $term) {
+      if ($term->depth === 0) {
+        $terms[$term->tid] = array(
+          'data' => $term->name,
+          'children' => array(),
+          'class' => array($term->name),
+          'allocation' => 0,
+        );
+      }
+      else {
+        $parent_tid = array_pop($term->parents);
+        $map[$term->tid] = $parent_tid;
+      }
+    }
 
     // Add page for each cause.
     foreach ($node->field_cause[LANGUAGE_NONE] as $collection) {
       $cause_nid = $collection['field_cause_name'][LANGUAGE_NONE][0]['target_id'];
       $cause_node = node_load($cause_nid);
       if (!empty($cause_node)) {
+        // TODO: add footer to cause html pages.
         $html = _entity_print_get_generated_html('node', $cause_node);
+
+        // Remove script tags, the cover page includes this already.
+        $html = strtr($html, array(
+          '<script src="https://use.typekit.net/jxh1lif.js"></script>' => '',
+          '<script>try{Typekit.load({ async: true });}catch(e){}</script>' => '',
+        ));
         $pdf->addPage(trim($html));
-        $a[] = array(
-          $cause_node->title,
-          $collection->field_cause_allocation[LANGUAGE_NONE]['item']['value'] . '%',
-        );
+
+        // TODO: fix?
+        $page_num++;
+
+        // Get terms on this node.
+        $cause_tags = field_view_field('node', $cause_node, 'field_research_area', array('default'));
+        $tags = array_merge($tags, $cause_tags['#items']);
+
+        // Add allocation % to a top-level term.
+        foreach ($cause_tags['#items'] as $tag) {
+          $tid = $tag['tid'];
+          if (isset($terms[$tid])) {
+            // Found the top-level term.
+            $terms[$tid]['allocation'] += $collection['field_cause_allocation'][LANGUAGE_NONE]['item']['value'];
+            // No need to continue.
+            break;
+          }
+        }
       }
     }
-    $pdf->addPage('<html><body>This page intentionally left blank.</body></html>');
 
-    // Add summary table of cause and allocation percentages.
-    $header = array('Cause', 'Allocation Percentage');
-    $table = theme('table', array('header' => $header, 'rows' => $a));
-    $pdf->addPage('<html><body>' . $table . '</body></html>');
+    // Filter tags into terms using map.
+    foreach ($tags as $tag) {
+      $tid = $tag['tid'];
+      $term_name = $tag['taxonomy_term']->name;
+      if (!isset($terms[$tid]) && !in_array($term_name, $terms[$map[$tid]]['children'])) {
+        $terms[$map[$tid]]['children'][] = $term_name;
+      }
+    }
 
-    $filename = transliteration_clean_filename($node->title . '_proposal.pdf');
+    // Copy allocation % into the top-level term title.
+    foreach ($terms as $tid => $top_term) {
+      $terms[$tid]['data'] .= sprintf(' (%s%%)', round($terms[$tid]['allocation'], 2));
+    }
+
+    // Add proposed giving plan.
+    $pdf->addPage(trim(theme('proposal_giving_plan', array(
+      'proposal' => $node,
+      'page_total' => $page_total,
+      'page_num' => $page_num,
+      'legend' => $terms,
+    ))));
+
     $content = $pdf->toString();
-
     if ($content === FALSE) {
       watchdog('create_proposal', 'PDF content error: ' . $pdf->getError(), array(), WATCHDOG_ERROR);
       drupal_set_message($problem_msg, 'error');
       return;
     }
 
+    $filename = transliteration_clean_filename($node->title . '_proposal.pdf');
     $file = file_save_data($content, 'private://' . $filename, FILE_EXISTS_REPLACE);
     if (!$file) {
       watchdog('create_proposal', 'File save error: ' . $pdf->getError(), array(), WATCHDOG_ERROR);
@@ -295,6 +376,14 @@ function create_proposal_theme($existing, $type, $theme, $path) {
       'template' => 'proposal-cover',
       'variables' => array('proposal' => NULL),
     ),
+    'proposal_giving_history' => array(
+      'template' => 'proposal-giving-history',
+      'variables' => array('proposal' => NULL),
+    ),
+    'proposal_giving_plan' => array(
+      'template' => 'proposal-giving-plan',
+      'variables' => array('proposal' => NULL),
+    )
   );
 }
 
@@ -316,22 +405,96 @@ function create_proposal_preprocess_proposal_cover(&$variables) {
 function create_proposal_preprocess_proposal_needs_assessment(&$variables) {
   $donor_profile = $variables['donor_profile'];
 
-  $background = base64_encode(file_get_contents(drupal_get_path('module', 'create_proposal') . '/proposal-cover.png'));
-  $variables['background'] = 'data:png;base64,' . $background;
-
-  $address = $donor_profile->field_city_state[LANGUAGE_NONE][0];
-
-  if (isset($donor_profile->field_donor_name[LANGUAGE_NONE])) {
-    $variables['name'] = $donor_profile->field_donor_name[LANGUAGE_NONE][0]['value'];
+  if (isset($donor_profile['field_donor_name'][LANGUAGE_NONE])) {
+    $variables['name'] = $donor_profile['field_donor_name'][LANGUAGE_NONE][0]['value'];
   }
 
-//  $variables['alumni_associations'] = implode(',', $proposal_wrapper->field_alumni_affiliations->value());
+  if (isset($donor_profile['field_relationship'][LANGUAGE_NONE])) {
+    $variables['relationship'] = $donor_profile['field_relationship'][LANGUAGE_NONE][0]['value'];
+  }
+
+  if (isset($donor_profile['field_alumni_affiliations'][LANGUAGE_NONE])) {
+    foreach ($donor_profile['field_alumni_affiliations'][LANGUAGE_NONE] as $term) {
+      $terms[] = $term['name'];
+    }
+    $variables['alumni_associations'] = implode(', ', $terms);
+  }
+
+  if (isset($donor_profile['field_what_problems_are_you_most'][LANGUAGE_NONE])) {
+    $variables['what_problems_are_you_most'] = $donor_profile['field_what_problems_are_you_most'][LANGUAGE_NONE][0]['value'];
+  }
+
+  if (isset($donor_profile['field_philanthropic_interests'][LANGUAGE_NONE])) {
+    $variables['philanthropic_interests'] = $donor_profile['field_philanthropic_interests'][LANGUAGE_NONE][0]['value'];
+  }
+
+  if (isset($donor_profile['field_what_is_your_primary_motiv'][LANGUAGE_NONE])) {
+    $variables['what_is_your_primary_motiv'] = $donor_profile['field_what_is_your_primary_motiv'][LANGUAGE_NONE][0]['value'];
+  }
+
+  if (isset($donor_profile['field_in_addition_to_providing_f'][LANGUAGE_NONE])) {
+    $variables['in_addition_to_providing_f'] = $donor_profile['field_in_addition_to_providing_f'][LANGUAGE_NONE][0]['value'];
+  }
+
+  if (isset($donor_profile['field_research_stages'][LANGUAGE_NONE])) {
+    foreach ($donor_profile['field_research_stages'][LANGUAGE_NONE] as $stage) {
+      $term = taxonomy_term_load($stage['tid']);
+      $stages[] = $term->name;
+    }
+    $variables['research_stages'] = implode(', ', $stages);
+  }
+  if (isset($donor_profile['field_accomplishments'][LANGUAGE_NONE])) {
+    foreach ($donor_profile['field_accomplishments'][LANGUAGE_NONE] as $accomplishment) {
+      $accomplishments[] = $accomplishment['value'];
+    }
+    $variables['accomplishments'] = implode(', ', $accomplishments);
+  }
+  if (isset($donor_profile['field_engagements'][LANGUAGE_NONE])) {
+    foreach ($donor_profile['field_engagements'][LANGUAGE_NONE] as $engagement) {
+      $engagements[] = $engagement['value'];
+    }
+    $variables['engagements'] = implode(', ', $engagements);
+  }
+
+  $address = $donor_profile['field_city_state'][LANGUAGE_NONE][0];
   if (!empty($address['locality'])) {
     $variables['citystate'] = implode(', ', array(
       $address['locality'],
       $address['administrative_area'],
     ));
   }
+}
+
+/**
+ * Implements hook_preprocess_hook() for proposal-giving-history.tpl.php.
+ */
+function create_proposal_preprocess_proposal_giving_history(&$variables) {
+  $proposal = $variables['proposal'];
+
+  $variables['what_organizations_has_the'] = $proposal->field_what_organizations_has_the[LANGUAGE_NONE][0]['value'];
+  $variables['what_did_the_client_like_d'] = $proposal->field_what_did_the_client_like_d[LANGUAGE_NONE][0]['value'];
+  $variables['how_many_hours_per_year_di'] = $proposal->field_how_many_hours_per_year_di[LANGUAGE_NONE][0]['value'];
+  $variables['does_the_family_have_an_es'] = $proposal->field_does_the_family_have_an_es[LANGUAGE_NONE][0]['value'];
+  $variables['what_does_the_client_like_'] = $proposal->field_what_does_the_client_like_[LANGUAGE_NONE][0]['value'];
+
+  if ($proposal->field_does_the_family_currently_[LANGUAGE_NONE][0]['value']) {
+    $variables['advisor_name'] = $proposal->field_advisor_name[LANGUAGE_NONE][0]['value'];
+    $variables['advisor_firm'] = $proposal->field_advisor_firm[LANGUAGE_NONE][0]['value'];
+    $variables['advisor_contact'] = $proposal->field_advisor_contact[LANGUAGE_NONE][0]['value'];
+  }
+
+  if ($proposal->field_charitable_vehicle[LANGUAGE_NONE][0]['value']) {
+    $variables['vehicle_name'] = $proposal->field_vehicle_name[LANGUAGE_NONE][0]['value'];
+    $variables['giving_vehicle_type'] = $proposal->field_giving_vehicle_type[LANGUAGE_NONE][0]['value'];
+  }
+
+  $variables['contribution_funding'] = $proposal->field_contribution_funding[LANGUAGE_NONE][0]['value'];
+  $variables['how_does_the_client_plan_o'] = $proposal->field_how_does_the_client_plan_o[LANGUAGE_NONE][0]['value'];
+  $variables['what_is_the_intended_distr'] = $proposal->field_what_is_the_intended_distr[LANGUAGE_NONE][0]['value'];
+
+  setlocale(LC_MONETARY, 'en_US');
+  $variables['planned_initial_contributi'] = money_format('%n', $proposal->field_planned_initial_contributi[LANGUAGE_NONE][0]['value']);
+  $variables['planned_annual_contributio'] = money_format('%n', $proposal->field_planned_annual_contributio[LANGUAGE_NONE][0]['value']);
 }
 
 /**
