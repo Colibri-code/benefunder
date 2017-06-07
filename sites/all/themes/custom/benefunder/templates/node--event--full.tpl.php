@@ -82,9 +82,7 @@
 ?>
 <div class="event">
   <div class="event__top">
-    <div class="event__img">
-      <?php print drupal_render($content['field_event_image']); ?>
-    </div>
+    <div class="event__img" style="background-image: url(<?php print $img_uri; ?>);"></div>
     <div class="event__title">
       <?php print $node->title; ?>
     </div>

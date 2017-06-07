@@ -213,11 +213,16 @@ function benefunder_preprocess_node(&$variables) {
         $variables['event_type'] = $ev_type;
         $variables['event_type_modifier'] = drupal_html_class('card-event--' . $ev_type);
       }
-      if($variables['view_mode'] == 'full' && !empty($variables['content']['field_related_causes'])){
-        $r_causes = &$variables['content']['field_related_causes'];
-        foreach(element_children($variables['content']['field_related_causes']) as $ch){
-          $r_causes[$ch]['node'][$r_causes['#items'][$ch]['target_id']]['#modifier'] = 'card-researcher--block';
-          $r_causes[$ch]['node'][$r_causes['#items'][$ch]['target_id']]['#show_uni'] = TRUE;
+      if($variables['view_mode'] == 'full'){
+        if(!empty($variables['content']['field_related_causes'])){
+          $r_causes = &$variables['content']['field_related_causes'];
+          foreach(element_children($variables['content']['field_related_causes']) as $ch){
+            $r_causes[$ch]['node'][$r_causes['#items'][$ch]['target_id']]['#modifier'] = 'card-researcher--block';
+            $r_causes[$ch]['node'][$r_causes['#items'][$ch]['target_id']]['#show_uni'] = TRUE;
+          }
+        }
+        if($img_uri = $node_w->field_event_image->file->url->value()){
+          $variables['img_uri'] = $img_uri;
         }
       }
       break;

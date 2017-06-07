@@ -2,7 +2,9 @@
   position: relative;
   &__bg{
     position: relative;
-    background: url("../media/images/landing-hero-images/events.jpg") no-repeat top center #000005;
+    background-image: url("../media/images/landing-hero-images/events.jpg");
+    background-size: cover;
+    background-color: #000005;
     height: 600px;
     &:after{
       content: "";
@@ -43,5 +45,44 @@
     line-height: 72px;
     font-size: 42px;
     margin-bottom: 30px;
+  }
+}
+
+@media screen and (max-width: @screen-xs-max) {
+  .hero-image{
+    &__title{
+      font-size: 48px;
+      line-height: 56px;
+    }
+    &__subtitle{
+      font-size: 36px;
+      line-height: 52px;
+    }
+    &__description{
+      font-size: 20px;
+      line-height: 30px;
+    }
+  }
+}
+@media screen and (max-width: 450px) {
+  .hero-image{
+    &__bg{
+      height: 450px;
+    }
+    &__text{
+      padding: 20px 15px;
+    }
+    &__title{
+      font-size: 42px;
+      line-height: 46px;
+    }
+    &__subtitle{
+      font-size: 32px;
+      line-height: 38px;
+    }
+    &__description{
+      font-size: 16px;
+      line-height: 26px;
+    }
   }
 }

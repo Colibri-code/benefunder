@@ -55,7 +55,7 @@ function bf_events_field_default_field_bases() {
       ),
       'profile2_private' => FALSE,
       'timezone_db' => 'UTC',
-      'todate' => 'optional',
+      'todate' => '',
       'tz_handling' => 'user',
     ),
     'translatable' => 0,
