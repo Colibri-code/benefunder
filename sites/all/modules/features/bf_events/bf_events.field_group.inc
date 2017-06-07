@@ -25,9 +25,10 @@ function bf_events_field_group_info() {
     'children' => array(
       0 => 'body',
       1 => 'field_event_date',
-      2 => 'field_registration_url',
-      3 => 'field_event_type',
-      4 => 'title',
+      2 => 'field_event_type',
+      3 => 'field_registration_url',
+      4 => 'field_event_image',
+      5 => 'title',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -39,7 +40,7 @@ function bf_events_field_group_info() {
       ),
     ),
   );
-  $field_groups['group_event_info|node|event|form'] = $field_group;
+  $field_groups[''] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -66,7 +67,7 @@ function bf_events_field_group_info() {
       ),
     ),
   );
-  $field_groups['group_related|node|event|form'] = $field_group;
+  $field_groups[''] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -81,9 +82,9 @@ function bf_events_field_group_info() {
     'label' => 'Sponsor & Hosts',
     'weight' => '16',
     'children' => array(
-      0 => 'field_sponsor_logo',
-      1 => 'field_sponsor_name',
-      2 => 'field_co_host_name',
+      0 => 'field_co_host_name',
+      1 => 'field_sponsor_logo',
+      2 => 'field_sponsor_name',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -95,7 +96,7 @@ function bf_events_field_group_info() {
       ),
     ),
   );
-  $field_groups['group_sponsor|node|event|form'] = $field_group;
+  $field_groups[''] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -108,12 +109,12 @@ function bf_events_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Tabs',
-    'weight' => '1',
+    'weight' => '0',
     'children' => array(
-      0 => 'group_venue',
-      1 => 'group_sponsor',
-      2 => 'group_event_info',
-      3 => 'group_related',
+      0 => 'group_event_info',
+      1 => 'group_related',
+      2 => 'group_sponsor',
+      3 => 'group_venue',
     ),
     'format_type' => 'tabs',
     'format_settings' => array(
@@ -124,7 +125,7 @@ function bf_events_field_group_info() {
       ),
     ),
   );
-  $field_groups['group_tabs|node|event|form'] = $field_group;
+  $field_groups[''] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -139,8 +140,8 @@ function bf_events_field_group_info() {
     'label' => 'Venue',
     'weight' => '17',
     'children' => array(
-      0 => 'field_venue_name',
-      1 => 'field_venue_address',
+      0 => 'field_venue_address',
+      1 => 'field_venue_name',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -152,7 +153,7 @@ function bf_events_field_group_info() {
       ),
     ),
   );
-  $field_groups['group_venue|node|event|form'] = $field_group;
+  $field_groups[''] = $field_group;
 
   // Translatables
   // Included for use with string extractors like potx.

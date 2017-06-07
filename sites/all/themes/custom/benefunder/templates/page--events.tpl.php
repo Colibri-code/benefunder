@@ -83,30 +83,21 @@
 
 <?php
   $need_top_image = false;
-  $arg1 = arg(1);
-
-  if (arg(0) == 'node') {
-    $wrapper = entity_metadata_wrapper('node', arg(1));
-    $bundle = $wrapper->getBundle();
-    if (($bundle != 'page') && ($bundle != 'cause') && ($bundle != 'event')) {
-      $need_top_image = true;
-    }
-  }
-  else if ((arg(0) == 'causes') && (empty($arg1))) {
-    $need_top_image = false;
-  }
-  else if ((arg(0) == 'event') && (empty($arg1))) {
-    $need_top_image = false;
-  }
-  else {
-    $need_top_image = true;
-  }
 ?>
 
 <?php if ($need_top_image): ?>
   <div class="top-spacer"></div>
 <?php endif; ?>
-
-<?php print render($page['content']); ?>
-
+<div class="hero-image">
+  <div class="hero-image__bg"></div>
+  <div class="hero-image__text">
+    <h1 class="hero-image__title">Our Events</h1>
+    <h2 class="hero-image__subtitle">Connect, learn, and network</h2>
+    <p class="hero-image__description">Events provide opportunities to meet our community of researchers, learn about exciting research topics, and grow your network. See our featured events and conferences below.</p>
+  </div>
+</div>
+<!-- end .inner -->
+<div class="bf-container-fluid">
+  <?php print render($page['content']); ?>
+</div>
 <?php include_once('_includes/footer.php'); ?>
