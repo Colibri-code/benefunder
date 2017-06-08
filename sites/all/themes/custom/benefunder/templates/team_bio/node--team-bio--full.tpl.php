@@ -84,9 +84,6 @@
 <div class="bio">
   <div class="bio__top">
     <div class="bio__img"></div>
-    <div class="bio__title">
-      <?php print $node->title; ?>
-    </div>
     <?php print l(t('Back to Our Team'), 'our-team', array('attributes' => array('class' => 'bio__back-link'))); ?>
   </div>
   <div class="bio__content">
@@ -99,6 +96,7 @@
             </a>
           <?php endif; ?>
           <a href="<?php print url('node/' . $node->nid); ?>" class="card-bio__bottom">
+            <div class="card-bio__title"><?php print $title; ?></div>
             <?php if(!empty($content['field_teambio_title'][0]['#markup'])): ?>
               <div class="card-bio__subtitle"><?php print $content['field_teambio_title'][0]['#markup']; ?></div>
             <?php endif; ?>
@@ -107,7 +105,7 @@
       </div>
     </div>
     <div class="bio__right-side">
-      <div class="card-bio__title"><?php print $title; ?></div>
+      <div class="bio__title"><?php print $node->title; ?></div>
       <div class="bio__description-label"><?php print t('bio Description'); ?></div>
       <div class="bio__description">
         <?php print drupal_render($content['body']); ?>
