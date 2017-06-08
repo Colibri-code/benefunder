@@ -191,19 +191,58 @@ function benefunder_preprocess_html(&$variables) {
  * Implements template_preprocess_node().
  */
 function benefunder_preprocess_node(&$variables) {
+  $variables['theme_hook_suggestions'][] = 'node__' . $variables['node']->type . '__' . $variables['view_mode'];
   // Adding regions to node templates so that sidebars can be printed there
   if ($plugin = context_get_plugin('reaction', 'block')) {
     $variables['sidebar_first'] = $plugin->block_get_blocks_by_region('sidebar_first');
     $variables['sidebar_second'] = $plugin->block_get_blocks_by_region('sidebar_second');
   }
 
-  $variables['theme_hook_suggestions'][] = 'node__' . $variables['type'] . '__' . $variables['view_mode'];
-
   switch ($variables['type']) {
+    case 'event':
+      $node_w =  entity_metadata_wrapper('node', $variables['node']);
+      if($variables['view_mode'] == 'teaser'){
+        if(($city = $node_w->field_venue_address->locality->value()) && ($vname = $node_w->field_venue_name->value())){
+          $variables['venue'] = $vname . ', ' . $city;
+        }
+      }
+      if($event_date = $node_w->field_event_date->value()){
+        $variables['short_date']['day'] = date('d', $event_date);
+        $variables['short_date']['month'] = date('M', $event_date);
+      }
+      if($hosts = $node_w->field_co_host_name->value()){
+        $variables['hosts'] = implode(',', $hosts);
+      }
+      if($reg_url = $node_w->field_registration_url->url->value()){
+        $variables['reg_url'] = $reg_url;
+      }
+      if($ev_type = $node_w->field_event_type->label()){
+        $variables['event_type'] = $ev_type;
+        $variables['event_type_modifier'] = drupal_html_class('card-event--' . $ev_type);
+      }
+      if($variables['view_mode'] == 'full'){
+        if(!empty($variables['content']['field_related_causes'])){
+          $r_causes = &$variables['content']['field_related_causes'];
+          foreach(element_children($variables['content']['field_related_causes']) as $ch){
+            $r_causes[$ch]['node'][$r_causes['#items'][$ch]['target_id']]['#modifier'] = 'card-researcher--block';
+            $r_causes[$ch]['node'][$r_causes['#items'][$ch]['target_id']]['#show_uni'] = TRUE;
+          }
+        }
+        if($img_uri = $node_w->field_event_image->file->url->value()){
+          $variables['img_uri'] = $img_uri;
+        }
+      }
+      break;
     case 'cause':
+      if(isset($variables['elements']['#modifier'])){
+        $node_w =  entity_metadata_wrapper('node', $variables['node']);
+        $variables['modifier'] = $variables['elements']['#modifier'];
+        if(!empty($variables['elements']['#show_uni']) && ($uni = $node_w->field_university_or_institution->label())){
+          $variables['uni'] = $uni;
+        }
+      }
       if ($variables['view_mode'] != 'search_result') {
         $wrapper = entity_metadata_wrapper('node', $variables['nid']);
-  
         /* Cause image */
         $jumbotron_image = $wrapper->field_jumbotron_image->value();
         $variables['hero_image'] = !empty($jumbotron_image) ? image_style_url('cause_detail_-_jumbotron_image', $jumbotron_image['uri']) : '';

@@ -89,7 +89,6 @@ elseif(file_exists(DRUPAL_ROOT . '/sites/default/local.settings.inc')) {
   require(DRUPAL_ROOT . '/sites/default/local.settings.inc');
 }
 
-
 /**
  * Fast 404 pages:
  *
