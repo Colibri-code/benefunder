@@ -88,7 +88,7 @@ $need_top_image = false;
 <?php if ($need_top_image): ?>
   <div class="top-spacer"></div>
 <?php endif; ?>
-<div class="hero-image">
+<div class="hero-image hero-image--team">
   <div class="hero-image__bg"></div>
   <div class="hero-image__text">
     <h1 class="hero-image__title"><?php print t('Our Team'); ?></h1>
