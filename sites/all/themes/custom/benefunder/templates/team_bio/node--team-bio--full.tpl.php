@@ -88,7 +88,7 @@
   </div>
   <div class="bio__content">
     <div class="bio__left-side">
-      <div class="card-bio">
+      <div class="card-bio bio__card">
         <div class="card-bio__top">
           <?php if(!empty($content['field_teambio_photo'])): ?>
             <a href="<?php print url('node/' . $node->nid); ?>" class="card-bio__avatar">
