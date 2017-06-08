@@ -84,24 +84,23 @@
 <div class="card-bio">
   <div class="card-bio__top">
     <?php if(!empty($content['field_teambio_photo'])): ?>
-      <a href="<?php print url('node/' . $node->nid); ?>" class="card-bio__avatar">
+      <div class="card-bio__avatar">
         <?php print render($content['field_teambio_photo']); ?>
-      </a>
-    <?php endif; ?>
-    <div class="card-bio__overlay">
-      <div class="card-bio__links">
-        <?php if (!empty($content['field_teambio_twitter'])): ?>
-          <div class="card-bio__twitter">
-            <?php print render($content['field_teambio_twitter']); ?>
-          </div>
-        <?php endif; ?>
-        <?php if (!empty($content['field_teambio_linkedin'])): ?>
-          <div class="card-bio__linkedin">
-            <?php print render($content['field_teambio_linkedin']); ?>
-          </div>
-        <?php endif; ?>
       </div>
+    <?php endif; ?>
+    <div class="card-bio__links">
+      <?php if (!empty($content['field_teambio_twitter'])): ?>
+        <div class="card-bio__twitter">
+          <?php print render($content['field_teambio_twitter']); ?>
+        </div>
+      <?php endif; ?>
+      <?php if (!empty($content['field_teambio_linkedin'])): ?>
+        <div class="card-bio__linkedin">
+          <?php print render($content['field_teambio_linkedin']); ?>
+        </div>
+      <?php endif; ?>
     </div>
+    <a href="<?php print url('node/' . $node->nid); ?>" class="card-bio__overlay"> </a>
   </div>
   <a href="<?php print url('node/' . $node->nid); ?>" class="card-bio__bottom">
     <div class="card-bio__title"><?php print $title; ?></div>
