@@ -11541,7 +11541,7 @@ form#giving-proposal-node-form {
 .card-bio__linkedin:before {
   text-align: center;
   font-size: 18px;
-  padding: 11px;
+  padding: 11px 13px 13px 13px;
   color: #fff;
 }
 .card-bio__twitter,
@@ -11704,7 +11704,7 @@ form#giving-proposal-node-form {
 .bio__linkedin:before {
   text-align: center;
   font-size: 18px;
-  padding: 11px;
+  padding: 11px 13px 13px 13px;
   color: #fff;
 }
 .bio__back-link {
