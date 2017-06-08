@@ -10437,12 +10437,14 @@ form#giving-proposal-node-form {
   box-shadow: 0px -1px 0 #800080;
 }
 .bf-container-fluid {
-  width: 100%;
+  margin: 0 auto;
+  max-width: 1366px;
   padding: 90px 45px;
 }
 @media screen and (max-width: 767px) {
   .bf-container-fluid {
     padding: 30px 5px;
+    width: 100%;
   }
 }
 .hero-image {
@@ -10493,6 +10495,9 @@ form#giving-proposal-node-form {
   line-height: 72px;
   font-size: 42px;
   margin-bottom: 30px;
+}
+.hero-image--team .hero-image__bg {
+  background-image: url('../media/images/landing-hero-images/team.jpg');
 }
 @media screen and (max-width: 767px) {
   .hero-image__title {
@@ -10584,18 +10589,15 @@ form#giving-proposal-node-form {
 }
 .event__title {
   position: absolute;
-  font-family: 'raleway';
+  font-family: 'raleway-extralight';
   color: #ffffff;
   font-size: 72px;
   font-weight: 200;
   line-height: 90px;
   margin: 0 0 20px;
-  padding: 0 45px 100px;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 60%;
+  left: 0;
   z-index: 10;
+  top: -160px;
 }
 .event__info-title {
   height: 100px;
@@ -11450,6 +11452,378 @@ form#giving-proposal-node-form {
   .card-event__hosts-label:before {
     display: none;
   }
+}
+.card-bio {
+  float: left;
+  margin: 0 0 60px 0;
+  padding: 0 20px;
+  width: calc(33.33333333%);
+}
+.card-bio:nth-child(3) {
+  margin-right: 0;
+}
+.card-bio__top {
+  position: relative;
+}
+.card-bio:hover .card-bio__overlay {
+  opacity: .9;
+  border: 2px solid #3399cc;
+}
+.card-bio:hover .card-bio__bottom {
+  background: #3399cc;
+}
+.card-bio:hover .card-bio__links {
+  display: block;
+}
+.card-bio__overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: #ffffff;
+  opacity: 0;
+  z-index: 5;
+}
+.card-bio__links {
+  display: none;
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  margin: 0 auto;
+  width: 132px;
+}
+.card-bio__twitter:before {
+  font-family: 'icomoon' !important;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  content: '\e90b' !important;
+  display: inline-block;
+  font-size: inherit;
+  color: #ffffff;
+  vertical-align: text-bottom;
+}
+.card-bio__twitter > div {
+  display: inline-block;
+}
+.card-bio__twitter:before {
+  padding: 9px;
+  text-align: center;
+  font-size: 25px;
+  color: #fff;
+}
+.card-bio__linkedin:before {
+  font-family: 'icomoon' !important;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  content: '\e90a' !important;
+  display: inline-block;
+  font-size: inherit;
+  color: #ffffff;
+  vertical-align: text-bottom;
+}
+.card-bio__linkedin > div {
+  display: inline-block;
+}
+.card-bio__linkedin:before {
+  text-align: center;
+  font-size: 18px;
+  padding: 11px;
+  color: #fff;
+}
+.card-bio__twitter,
+.card-bio__linkedin {
+  border-radius: 100%;
+  display: inline-block;
+  height: 44px;
+  margin: 0 10px;
+  overflow: hidden;
+  width: 44px;
+  background: #3399cc;
+  font-size: 0;
+  position: relative;
+}
+.card-bio__twitter a,
+.card-bio__linkedin a {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 10;
+}
+.card-bio__bottom {
+  background-color: #999933;
+  height: 100px;
+  display: block;
+  text-align: center;
+  padding: 15px 0;
+}
+.card-bio__title {
+  color: #ffffff;
+  font-family: 'raleway';
+  font-size: 26px;
+  font-weight: 300;
+  line-height: 36px;
+  margin-bottom: 5px;
+}
+.card-bio__subtitle {
+  color: #ffffff;
+  font-family: 'raleway';
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 36px;
+}
+.card-bio--webinar .card-bio__image:after {
+  background: #000;
+}
+@media screen and (max-width: 1199px) {
+  .card-bio__title {
+    font-size: 20px;
+    line-height: 25px;
+    margin-bottom: 5px;
+  }
+  .card-bio__subtitle {
+    font-size: 14px;
+    line-height: 22px;
+  }
+}
+@media screen and (max-width: 991px) {
+  .card-bio {
+    width: calc(50%);
+  }
+}
+@media screen and (max-width: 400px) {
+  .card-bio {
+    width: 100%;
+    margin: 0 0 30px;
+  }
+}
+.bio__top {
+  position: relative;
+  height: 580px;
+}
+.bio__content {
+  padding: 0 45px;
+  top: -100px;
+  display: flex;
+}
+.bio__left-side {
+  position: relative;
+  top: -100px;
+  margin-right: 5%;
+  min-width: 398px;
+}
+.bio__right-side {
+  margin-left: auto;
+  position: relative;
+}
+.bio__card-bottom {
+  background: #999933 !important;
+}
+.bio__back-link {
+  bottom: 165px;
+  padding: 0 45px;
+  position: absolute;
+  color: #fff;
+  font-family: 'Chaparral W01 Regular';
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 32px;
+}
+.bio__back-link:before {
+  font-family: 'icomoon' !important;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  content: '\e906' !important;
+  display: inline-block;
+  font-size: inherit;
+  color: #309acd;
+  vertical-align: text-bottom;
+}
+.bio__back-link > div {
+  display: inline-block;
+}
+.bio__back-link:before {
+  font-size: 12px;
+  margin-right: 10px;
+  transform: rotate(180deg);
+  vertical-align: middle;
+}
+.bio__title {
+  position: absolute;
+  font-family: 'raleway-extralight';
+  color: #ffffff;
+  font-size: 72px;
+  font-weight: 200;
+  line-height: 90px;
+  margin: 0 0 20px;
+  left: 0;
+  z-index: 10;
+  top: -160px;
+}
+.bio__img {
+  background-image: url('../media/images/landing-hero-images/team-full-view.jpg');
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+}
+.bio__img:after {
+  background: #339999;
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  opacity: 0.65;
+}
+.bio__description-label {
+  color: #000000;
+  font-family: 'Chaparral W01 Regular';
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 35px;
+  border-bottom: 2px solid #999933;
+  padding-bottom: 15px;
+  margin: 70px 0 30px;
+}
+.bio__description,
+.bio__description p {
+  color: #444;
+  font-family: 'Chaparral W01 Regular';
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 32px;
+}
+.bio__card {
+  margin: 0;
+  width: 100%;
+}
+@media screen and (max-width: 1199px) {
+  .bio__left-side {
+    min-width: 310px;
+  }
+  .bio__card-bottom {
+    height: auto;
+  }
+}
+@media screen and (max-width: 991px) {
+  .bio__card {
+    float: none;
+    margin: 0 auto;
+    width: 399px;
+  }
+  .bio__title {
+    display: none;
+  }
+  .bio__content {
+    position: relative;
+    flex-flow: column;
+  }
+  .bio__left-side {
+    min-width: auto;
+    width: 100%;
+    top: auto;
+  }
+  .bio__right-side {
+    width: 100%;
+    top: auto;
+  }
+}
+@media screen and (max-width: 767px) {
+  .bio__top {
+    height: 400px;
+  }
+  .bio__title {
+    display: none;
+  }
+}
+@media screen and (max-width: 450px) {
+  .bio__top {
+    height: 400px;
+  }
+  .bio__title {
+    font-size: 30px;
+    line-height: 40px;
+    padding: 0 15px;
+  }
+  .bio__content {
+    padding: 0 5px;
+  }
+  .bio__description-label {
+    margin: 30px 0;
+  }
+}
+@media screen and (max-width: 400px) {
+  .bio__card {
+    width: 100%;
+  }
+}
+.bio-group:before,
+.bio-group:after {
+  content: " ";
+  display: table;
+}
+.bio-group:after {
+  clear: both;
+}
+.bio-group:before,
+.bio-group:after {
+  content: " ";
+  display: table;
+}
+.bio-group:after {
+  clear: both;
+}
+.bio-group__label {
+  color: #000000;
+  font-size: 40px;
+  font-weight: 300;
+  line-height: 18px;
+  font-family: 'raleway';
+  border-bottom: 2px solid #999933;
+  padding-bottom: 15px;
+  margin: 0 0 45px;
+}
+.bio-group__content {
+  margin-bottom: 30px;
+  margin-left: -20px;
+  margin-right: -20px;
+}
+.bio-group__content:before,
+.bio-group__content:after {
+  content: " ";
+  display: table;
+}
+.bio-group__content:after {
+  clear: both;
+}
+.bio-group__content:before,
+.bio-group__content:after {
+  content: " ";
+  display: table;
+}
+.bio-group__content:after {
+  clear: both;
 }
 .card-researcher {
   text-align: center;
