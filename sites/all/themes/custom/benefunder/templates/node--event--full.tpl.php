@@ -83,9 +83,6 @@
 <div class="event">
   <div class="event__top">
     <div class="event__img" style="background-image: url(<?php print $img_uri; ?>);"></div>
-    <div class="event__title">
-      <?php print $node->title; ?>
-    </div>
     <?php print l(t('Back to All Events'), 'events', array('attributes' => array('class' => 'event__back-link'))); ?>
   </div>
   <div class="event__content">
@@ -114,6 +111,9 @@
       <?php print l(t('Register for this Event'), drupal_render($content['field_registration_url']), array('attributes' => array('class' => 'event__register-link'))); ?>
     </div>
     <div class="event__right-side">
+      <div class="event__title">
+        <?php print $node->title; ?>
+      </div>
       <div class="event__info-panel">
         <?php if(!empty($short_date)) : ?>
           <div class="event__short-date">
