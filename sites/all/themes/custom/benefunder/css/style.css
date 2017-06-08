@@ -10548,6 +10548,40 @@ form#giving-proposal-node-form {
   position: relative;
   top: -100px;
 }
+.event__back-link {
+  bottom: 165px;
+  padding: 0 45px;
+  position: absolute;
+  color: #fff;
+  font-family: 'Chaparral W01 Regular';
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 32px;
+}
+.event__back-link:before {
+  font-family: 'icomoon' !important;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  content: '\e906' !important;
+  display: inline-block;
+  font-size: inherit;
+  color: #309acd;
+  vertical-align: text-bottom;
+}
+.event__back-link > div {
+  display: inline-block;
+}
+.event__back-link:before {
+  font-size: 12px;
+  margin-right: 10px;
+  transform: rotate(180deg);
+  vertical-align: middle;
+}
 .event__title {
   position: absolute;
   font-family: 'raleway';
@@ -10640,6 +10674,13 @@ form#giving-proposal-node-form {
 .event__venue * {
   display: inline;
 }
+.event__venue-name {
+  color: #444;
+  font-family: 'Chaparral W01 Regular';
+  font-size: 17px;
+  font-weight: 300;
+  line-height: 24px;
+}
 .event__sponsor-label {
   color: #000;
   font-family: 'raleway';
@@ -10686,6 +10727,7 @@ form#giving-proposal-node-form {
 }
 .event__type {
   padding: 0 30px;
+  min-width: 140px;
   height: 100px;
   font-size: 20px;
   font-weight: 300;
@@ -10924,6 +10966,7 @@ form#giving-proposal-node-form {
   .event__type {
     padding: 0 10px;
     font-size: 18px;
+    min-width: 100px;
   }
   .event__time {
     font-size: 18px;
@@ -11181,7 +11224,6 @@ form#giving-proposal-node-form {
   line-height: 25px;
 }
 .card-event__people {
-  height: 60px;
   background-color: #fff;
   opacity: 0.95;
   left: 0;
@@ -11191,7 +11233,8 @@ form#giving-proposal-node-form {
 }
 .card-event__people-inner {
   position: relative;
-  top: -25px;
+  margin-top: -25px;
+  height: auto;
   display: flex;
 }
 .card-event__hosts {
@@ -11347,7 +11390,7 @@ form#giving-proposal-node-form {
     width: 100%;
   }
 }
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 500px) {
   .card-event {
     padding-top: 40px;
   }
@@ -11359,8 +11402,17 @@ form#giving-proposal-node-form {
     line-height: 35px;
     margin: 0 0 10px;
   }
-  .card-event__short-date {
-    display: none;
+  .card-event__short-date-d {
+    font-size: 28px;
+    height: 40px;
+    line-height: 40px;
+    width: 60px;
+  }
+  .card-event__short-date-m {
+    font-size: 13px;
+    height: 22px;
+    line-height: 22px;
+    width: 60px;
   }
   .card-event__sponsor-logo {
     margin: 20px 0;
@@ -11374,6 +11426,8 @@ form#giving-proposal-node-form {
     height: auto;
   }
   .card-event__people-inner {
+    margin-top: 0;
+    top: -25px;
     flex-wrap: wrap;
   }
   .card-event__hosts {
@@ -11417,10 +11471,16 @@ form#giving-proposal-node-form {
   font-size: 14px;
   font-weight: 400;
   line-height: 24px;
+  max-height: 48px;
+  max-width: 150px;
+  overflow: hidden;
 }
 .card-researcher--block {
   display: flex;
   margin: 0 0 20px;
+}
+.card-researcher--block .card-researcher {
+  flex: 0 0 auto;
 }
 .card-researcher--block .card-researcher__avatar {
   margin-right: 15px;
@@ -11432,6 +11492,9 @@ form#giving-proposal-node-form {
   line-height: 35px;
   align-self: center;
   text-align: left;
+  max-height: none;
+  max-width: none;
+  overflow: visible;
 }
 .card-researcher--block .card-researcher__uni {
   color: #444;
@@ -11440,7 +11503,7 @@ form#giving-proposal-node-form {
   font-weight: 300;
   line-height: 24px;
 }
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 500px) {
   .card-researcher {
     margin: 5px auto;
   }

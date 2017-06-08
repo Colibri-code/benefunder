@@ -82,7 +82,7 @@
 ?>
 <div class="card-event <?php print !(empty($event_type_modifier)) ? $event_type_modifier : ''; ?>">
   <div class="card-event__left-side">
-    <h3 class="card-event__title"><?php print $node->title; ?></h3>
+    <a href="<?php print $node_url; ?>" class="card-event__title"><?php print $node->title; ?></a>
     <div class="card-event__info-wrapper">
       <div class="card-event__info-left">
         <div class="card-event__venue">

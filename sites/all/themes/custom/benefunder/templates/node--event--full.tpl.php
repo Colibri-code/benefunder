@@ -86,15 +86,17 @@
     <div class="event__title">
       <?php print $node->title; ?>
     </div>
+    <?php print l(t('Back to All Events'), 'events', array('attributes' => array('class' => 'event__back-link'))); ?>
   </div>
   <div class="event__content">
     <div class="event__left-side">
       <div class="event__info-title"><?php print t('Event information'); ?></div>
       <div class="event__info-wrapper">
         <div class="event__venue-label"><?php print t('Address'); ?></div>
-
-        <div class="event__venue">
+        <div class="event__venue-name">
           <?php print drupal_render($content['field_venue_name']); ?>
+        </div>
+        <div class="event__venue">
           <?php print drupal_render($content['field_venue_address']); ?>
         </div>
         <div class="event__sponsor-label"><?php print t('Sponsor'); ?></div>
