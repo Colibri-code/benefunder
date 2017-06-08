@@ -33,6 +33,7 @@ features[field_instance][] = node-team_bio-field_teambio_title
 features[field_instance][] = node-team_bio-field_teambio_twitter
 features[field_instance][] = node-team_bio-field_weight
 features[image][] = team_300x300
+features[image][] = team_member_teaser
 features[node][] = team_bio
 features[page_manager_pages][] = team_members
 features[variable][] = field_bundle_settings_node__team_bio

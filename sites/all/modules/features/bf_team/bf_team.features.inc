@@ -45,6 +45,21 @@ function bf_team_image_default_styles() {
     ),
   );
 
+  // Exported image style: team_member_teaser.
+  $styles['team_member_teaser'] = array(
+    'label' => 'team member - teaser',
+    'effects' => array(
+      9 => array(
+        'name' => 'image_scale_and_crop',
+        'data' => array(
+          'width' => 398,
+          'height' => 300,
+        ),
+        'weight' => 1,
+      ),
+    ),
+  );
+
   return $styles;
 }
 
