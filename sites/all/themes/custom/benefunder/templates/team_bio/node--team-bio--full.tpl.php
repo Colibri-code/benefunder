@@ -91,7 +91,6 @@
   </div>
   <div class="bio__content">
     <div class="bio__left-side">
-
       <div class="card-bio">
         <div class="card-bio__top">
           <?php if(!empty($content['field_teambio_photo'])): ?>
@@ -100,16 +99,15 @@
             </a>
           <?php endif; ?>
           <a href="<?php print url('node/' . $node->nid); ?>" class="card-bio__bottom">
-            <div class="card-bio__title"><?php print $title; ?></div>
             <?php if(!empty($content['field_teambio_title'][0]['#markup'])): ?>
               <div class="card-bio__subtitle"><?php print $content['field_teambio_title'][0]['#markup']; ?></div>
             <?php endif; ?>
           </a>
         </div>
       </div>
-
     </div>
     <div class="bio__right-side">
+      <div class="card-bio__title"><?php print $title; ?></div>
       <div class="bio__description-label"><?php print t('bio Description'); ?></div>
       <div class="bio__description">
         <?php print drupal_render($content['body']); ?>
