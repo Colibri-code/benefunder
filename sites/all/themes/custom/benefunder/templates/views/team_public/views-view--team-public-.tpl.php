@@ -31,8 +31,8 @@
 <?php if (!empty($rows)): ?>
   <div class="bio-group">
     <div class="bio-group__label">
-      <?php if ($title): ?>
-        <?php print $title; ?>
+      <?php if ($view->display[$view->current_display]->display_options['title']): ?>
+        <?php print $view->display[$view->current_display]->display_options['title']; ?>
       <?php endif; ?>
     </div>
     <div class="bio-group__content">
