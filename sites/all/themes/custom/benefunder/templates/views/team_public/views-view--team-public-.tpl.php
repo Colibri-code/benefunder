@@ -28,6 +28,7 @@
  */
 ?>
 
+<?php if (!empty($rows)): ?>
 <div class="bio-group">
   <div class="bio-group__label">
     <?php if ($title): ?>
@@ -38,6 +39,7 @@
     <?php print $rows; ?>
   </div>
 </div>
+<?php endif; ?>
 
 <?php if ($attachment_after): ?>
   <?php print $attachment_after; ?>
