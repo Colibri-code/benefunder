@@ -10597,7 +10597,7 @@ form#giving-proposal-node-form {
   margin: 0 0 20px;
   left: 0;
   z-index: 10;
-  bottom: calc(260%);
+  bottom: calc(100% + 160px);
 }
 .event__info-title {
   height: 100px;
