@@ -47,7 +47,7 @@ function bf_team_field_default_field_instances() {
         'summary_rows' => 5,
       ),
       'type' => 'text_textarea_with_summary',
-      'weight' => 5,
+      'weight' => 4,
     ),
   );
 
@@ -105,7 +105,7 @@ function bf_team_field_default_field_instances() {
       'module' => 'link',
       'settings' => array(),
       'type' => 'link_field',
-      'weight' => 2,
+      'weight' => 8,
     ),
   );
 
@@ -145,7 +145,7 @@ function bf_team_field_default_field_instances() {
         'apply_chosen' => '',
       ),
       'type' => 'options_select',
-      'weight' => 6,
+      'weight' => 5,
     ),
   );
 
@@ -204,7 +204,7 @@ function bf_team_field_default_field_instances() {
       'module' => 'link',
       'settings' => array(),
       'type' => 'link_field',
-      'weight' => 7,
+      'weight' => 6,
     ),
   );
 
@@ -253,7 +253,7 @@ function bf_team_field_default_field_instances() {
     ),
     'widget' => array(
       'active' => 1,
-      'module' => 'media',
+      'module' => 'image',
       'settings' => array(
         'allowed_schemes' => array(
           'public' => 'public',
@@ -266,10 +266,11 @@ function bf_team_field_default_field_instances() {
           'image' => 'image',
           'video' => 0,
         ),
+        'preview_image_style' => 'thumbnail',
         'progress_indicator' => 'throbber',
       ),
-      'type' => 'media_generic',
-      'weight' => 3,
+      'type' => 'image_image',
+      'weight' => 2,
     ),
   );
 
@@ -370,7 +371,7 @@ function bf_team_field_default_field_instances() {
       'module' => 'link',
       'settings' => array(),
       'type' => 'link_field',
-      'weight' => 8,
+      'weight' => 7,
     ),
   );
 
@@ -417,7 +418,7 @@ function bf_team_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 4,
+      'weight' => 3,
     ),
   );
 
