@@ -95,7 +95,7 @@
               <?php print render($content['field_teambio_photo']); ?>
             </a>
           <?php endif; ?>
-          <a href="<?php print url('node/' . $node->nid); ?>" class="card-bio__bottom">
+          <a href="<?php print url('node/' . $node->nid); ?>" class="card-bio__bottom bio__card-bottom">
             <div class="card-bio__title"><?php print $title; ?></div>
             <?php if(!empty($content['field_teambio_title'][0]['#markup'])): ?>
               <div class="card-bio__subtitle"><?php print $content['field_teambio_title'][0]['#markup']; ?></div>
