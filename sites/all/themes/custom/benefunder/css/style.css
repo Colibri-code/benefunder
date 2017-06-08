@@ -11479,12 +11479,10 @@ form#giving-proposal-node-form {
   display: flex;
   margin: 0 0 20px;
 }
-.card-researcher--block .card-researcher {
-  flex: 0 0 auto;
-}
 .card-researcher--block .card-researcher__avatar {
   margin-right: 15px;
   align-self: center;
+  flex: 0 0 auto;
 }
 .card-researcher--block .card-researcher__name {
   font-size: 16px;

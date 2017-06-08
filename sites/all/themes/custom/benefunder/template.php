@@ -208,8 +208,8 @@ function benefunder_preprocess_node(&$variables) {
         }
       }
       if($event_date = $node_w->field_event_date->value()){
-        $variables['short_date']['day'] = date('d', strtotime($event_date['value']));
-        $variables['short_date']['month'] = date('M', strtotime($event_date['value']));
+        $variables['short_date']['day'] = date('d', $event_date);
+        $variables['short_date']['month'] = date('M', $event_date);
       }
       if($hosts = $node_w->field_co_host_name->value()){
         $variables['hosts'] = implode(',', $hosts);
