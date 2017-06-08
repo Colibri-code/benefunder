@@ -102,11 +102,11 @@
         <?php endif; ?>
       </div>
     </div>
-    <a href="<?php print url('node/' . $node->nid); ?>" class="card-bio__bottom">
-      <div class="card-bio__title"><?php print $title; ?></div>
-      <?php if(!empty($content['field_teambio_title'][0]['#markup'])): ?>
-        <div class="card-bio__subtitle"><?php print $content['field_teambio_title'][0]['#markup']; ?></div>
-      <?php endif; ?>
-    </a>
   </div>
+  <a href="<?php print url('node/' . $node->nid); ?>" class="card-bio__bottom">
+    <div class="card-bio__title"><?php print $title; ?></div>
+    <?php if(!empty($content['field_teambio_title'][0]['#markup'])): ?>
+      <div class="card-bio__subtitle"><?php print $content['field_teambio_title'][0]['#markup']; ?></div>
+    <?php endif; ?>
+  </a>
 </div>
