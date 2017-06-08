@@ -42,6 +42,7 @@ features[variable][] = menu_parent_team_bio
 features[variable][] = node_options_team_bio
 features[variable][] = node_preview_team_bio
 features[variable][] = node_submitted_team_bio
+features[variable][] = pathauto_node_team_bio_pattern
 features[variable][] = xmlsitemap_settings_node_team_bio
 features[views_view][] = team
 features[views_view][] = team_members
