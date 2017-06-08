@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the BF Partner feature.
+ */
+
+include_once 'bf_partner.features.inc';
