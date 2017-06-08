@@ -106,7 +106,19 @@
     </div>
     <div class="bio__right-side">
       <div class="bio__title"><?php print $node->title; ?></div>
-      <div class="bio__description-label"><?php print t('bio Description'); ?></div>
+      <div class="bio__description-label"><?php print t('About'); ?></div>
+      <div class="bio__links">
+        <?php if (!empty($content['field_teambio_twitter'])): ?>
+          <div class="bio__twitter">
+            <?php print render($content['field_teambio_twitter']); ?>
+          </div>
+        <?php endif; ?>
+        <?php if (!empty($content['field_teambio_linkedin'])): ?>
+          <div class="bio__linkedin">
+            <?php print render($content['field_teambio_linkedin']); ?>
+          </div>
+        <?php endif; ?>
+      </div>
       <div class="bio__description">
         <?php print drupal_render($content['body']); ?>
       </div>
