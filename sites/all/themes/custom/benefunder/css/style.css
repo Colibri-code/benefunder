@@ -10597,7 +10597,7 @@ form#giving-proposal-node-form {
   margin: 0 0 20px;
   left: 0;
   z-index: 10;
-  top: -160px;
+  bottom: calc(260%);
 }
 .event__info-title {
   height: 100px;
@@ -11790,6 +11790,7 @@ form#giving-proposal-node-form {
 .bio__card {
   margin: 0;
   width: 100%;
+  padding: 0;
 }
 @media screen and (max-width: 1199px) {
   .bio__left-side {
