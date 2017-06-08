@@ -359,15 +359,16 @@ function bf_team_views_default_views() {
     'team' => 'team',
   );
 
-  /* Display: Content pane */
-  $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
-
   /* Display: Team */
   $handler = $view->new_display('page', 'Team', 'page_team');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Team';
   $handler->display->display_options['path'] = 'our-team';
 
   /* Display: Board */
   $handler = $view->new_display('attachment', 'Board', 'attachment_board');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Board';
   $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['defaults']['sorts'] = FALSE;
@@ -409,6 +410,8 @@ function bf_team_views_default_views() {
 
   /* Display: Advisors */
   $handler = $view->new_display('attachment', 'Advisors', 'attachment_advisors');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Advisors';
   $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['defaults']['sorts'] = FALSE;
