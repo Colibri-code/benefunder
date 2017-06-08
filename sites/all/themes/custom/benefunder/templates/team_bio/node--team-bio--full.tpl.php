@@ -91,16 +91,16 @@
       <div class="card-bio bio__card">
         <div class="card-bio__top">
           <?php if(!empty($content['field_teambio_photo'])): ?>
-            <a href="<?php print url('node/' . $node->nid); ?>" class="card-bio__avatar">
+            <div class="card-bio__avatar">
               <?php print render($content['field_teambio_photo']); ?>
-            </a>
+            </div>
           <?php endif; ?>
-          <a href="<?php print url('node/' . $node->nid); ?>" class="card-bio__bottom bio__card-bottom">
+          <div class="card-bio__bottom bio__card-bottom">
             <div class="card-bio__title"><?php print $title; ?></div>
             <?php if(!empty($content['field_teambio_title'][0]['#markup'])): ?>
               <div class="card-bio__subtitle"><?php print $content['field_teambio_title'][0]['#markup']; ?></div>
             <?php endif; ?>
-          </a>
+          </div>
         </div>
       </div>
     </div>
