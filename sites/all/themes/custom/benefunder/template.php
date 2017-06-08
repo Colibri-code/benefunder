@@ -197,6 +197,8 @@ function benefunder_preprocess_node(&$variables) {
     $variables['sidebar_second'] = $plugin->block_get_blocks_by_region('sidebar_second');
   }
 
+  $variables['theme_hook_suggestions'][] = 'node__' . $variables['type'] . '__' . $variables['view_mode'];
+
   switch ($variables['type']) {
     case 'cause':
       if ($variables['view_mode'] != 'search_result') {

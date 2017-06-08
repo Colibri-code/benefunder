@@ -37,20 +37,23 @@ function bf_team_strongarm() {
       'revision' => array(
         'custom_settings' => FALSE,
       ),
+      'pdf' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
         'title' => array(
-          'weight' => '1',
+          'weight' => '0',
         ),
         'path' => array(
-          'weight' => '10',
+          'weight' => '11',
         ),
         'redirect' => array(
-          'weight' => '9',
+          'weight' => '10',
         ),
         'xmlsitemap' => array(
-          'weight' => '7',
+          'weight' => '9',
         ),
       ),
       'display' => array(),
