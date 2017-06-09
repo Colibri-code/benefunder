@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * bf_partner.features.field_instance.inc
+ * bf_partners.features.field_instance.inc
  */
 
 /**
  * Implements hook_field_default_field_instances().
  */
-function bf_partner_field_default_field_instances() {
+function bf_partners_field_default_field_instances() {
   $field_instances = array();
 
   // Exported field_instance: 'node-partner-body'.
@@ -18,13 +18,6 @@ function bf_partner_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'hidden',
-        'module' => 'text',
-        'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 1,
-      ),
-      'full' => array(
         'label' => 'hidden',
         'module' => 'text',
         'settings' => array(),
@@ -54,7 +47,7 @@ function bf_partner_field_default_field_instances() {
         'summary_rows' => 5,
       ),
       'type' => 'text_textarea_with_summary',
-      'weight' => 2,
+      'weight' => 31,
     ),
   );
 
@@ -65,16 +58,6 @@ function bf_partner_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
-        'module' => 'image',
-        'settings' => array(
-          'image_link' => '',
-          'image_style' => '',
-        ),
-        'type' => 'image',
-        'weight' => 0,
-      ),
-      'full' => array(
         'label' => 'hidden',
         'module' => 'image',
         'settings' => array(
@@ -98,8 +81,8 @@ function bf_partner_field_default_field_instances() {
     'ds_extras_field_template' => '',
     'entity_type' => 'node',
     'field_name' => 'field_partner_logo',
-    'label' => 'Partner logo',
-    'required' => 1,
+    'label' => 'Partner Logo',
+    'required' => 0,
     'settings' => array(
       'alt_field' => 0,
       'default_image' => 0,
@@ -119,14 +102,14 @@ function bf_partner_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'image_image',
-      'weight' => 1,
+      'weight' => 32,
     ),
   );
 
   // Translatables
   // Included for use with string extractors like potx.
   t('Body');
-  t('Partner logo');
+  t('Partner Logo');
 
   return $field_instances;
 }

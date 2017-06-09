@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * bf_partner.strongarm.inc
+ * bf_partners.strongarm.inc
  */
 
 /**
  * Implements hook_strongarm().
  */
-function bf_partner_strongarm() {
+function bf_partners_strongarm() {
   $export = array();
 
   $strongarm = new stdClass();
@@ -20,7 +20,7 @@ function bf_partner_strongarm() {
         'custom_settings' => TRUE,
       ),
       'full' => array(
-        'custom_settings' => TRUE,
+        'custom_settings' => FALSE,
       ),
       'rss' => array(
         'custom_settings' => FALSE,
@@ -37,26 +37,29 @@ function bf_partner_strongarm() {
       'token' => array(
         'custom_settings' => FALSE,
       ),
-      'researcher' => array(
+      'revision' => array(
         'custom_settings' => FALSE,
       ),
-      'revision' => array(
+      'diff_standard' => array(
+        'custom_settings' => FALSE,
+      ),
+      'researcher' => array(
         'custom_settings' => FALSE,
       ),
     ),
     'extra_fields' => array(
       'form' => array(
         'title' => array(
-          'weight' => '0',
+          'weight' => '-5',
         ),
         'path' => array(
-          'weight' => '3',
+          'weight' => '30',
         ),
         'redirect' => array(
-          'weight' => '4',
+          'weight' => '30',
         ),
         'xmlsitemap' => array(
-          'weight' => '5',
+          'weight' => '30',
         ),
       ),
       'display' => array(),
@@ -68,9 +71,7 @@ function bf_partner_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'menu_options_partner';
-  $strongarm->value = array(
-    0 => 'main-menu',
-  );
+  $strongarm->value = array();
   $export['menu_options_partner'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -86,7 +87,6 @@ function bf_partner_strongarm() {
   $strongarm->name = 'node_options_partner';
   $strongarm->value = array(
     0 => 'status',
-    1 => 'promote',
   );
   $export['node_options_partner'] = $strongarm;
 
@@ -94,21 +94,21 @@ function bf_partner_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'node_preview_partner';
-  $strongarm->value = '1';
+  $strongarm->value = '0';
   $export['node_preview_partner'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'node_submitted_partner';
-  $strongarm->value = 1;
+  $strongarm->value = 0;
   $export['node_submitted_partner'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'pathauto_node_partner_pattern';
-  $strongarm->value = '';
+  $strongarm->value = 'partners/[node:title]';
   $export['pathauto_node_partner_pattern'] = $strongarm;
 
   $strongarm = new stdClass();

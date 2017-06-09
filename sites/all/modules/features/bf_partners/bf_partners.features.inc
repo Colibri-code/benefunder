@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * bf_partner.features.inc
+ * bf_partners.features.inc
  */
 
 /**
  * Implements hook_ctools_plugin_api().
  */
-function bf_partner_ctools_plugin_api($module = NULL, $api = NULL) {
+function bf_partners_ctools_plugin_api($module = NULL, $api = NULL) {
   if ($module == "strongarm" && $api == "strongarm") {
     return array("version" => "1");
   }
@@ -16,14 +16,14 @@ function bf_partner_ctools_plugin_api($module = NULL, $api = NULL) {
 /**
  * Implements hook_views_api().
  */
-function bf_partner_views_api($module = NULL, $api = NULL) {
+function bf_partners_views_api($module = NULL, $api = NULL) {
   return array("api" => "3.0");
 }
 
 /**
  * Implements hook_image_default_styles().
  */
-function bf_partner_image_default_styles() {
+function bf_partners_image_default_styles() {
   $styles = array();
 
   // Exported image style: partners_full.
@@ -62,14 +62,14 @@ function bf_partner_image_default_styles() {
 /**
  * Implements hook_node_info().
  */
-function bf_partner_node_info() {
+function bf_partners_node_info() {
   $items = array(
     'partner' => array(
       'name' => t('Partner'),
       'base' => 'node_content',
-      'description' => '',
+      'description' => t('Financial or community partners with Benefunder'),
       'has_title' => '1',
-      'title_label' => t('Title'),
+      'title_label' => t('Name'),
       'help' => '',
     ),
   );
