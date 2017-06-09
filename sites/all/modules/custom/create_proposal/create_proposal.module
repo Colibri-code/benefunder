@@ -138,6 +138,7 @@ function create_proposal_generate_pdf($node) {
   if (($library = libraries_load('phpwkhtmltopdf')) && !empty($library['loaded'])) {
     $problem_msg = t('There was a problem creating a proposal PDF, please contact Benefunder.');
     $pdf = new WkHtmlToPdf(array(
+      'print-media-type',
       'page-size' => 'Letter',
       'no-outline',
       'margin-top'    => 0,
@@ -150,7 +151,6 @@ function create_proposal_generate_pdf($node) {
 
     // Attach cover page.
     $pdf->addCover(theme('proposal_cover', array('proposal' => $node)));
-
 
     // Total pages.
     $page_total = 3 + count($node->field_donor_profile[LANGUAGE_NONE]) + count($node->field_cause[LANGUAGE_NONE]);
