@@ -10597,7 +10597,7 @@ form#giving-proposal-node-form {
   margin: 0 0 20px;
   left: 0;
   z-index: 10;
-  top: -160px;
+  bottom: calc(100% + 160px);
 }
 .event__info-title {
   height: 100px;
@@ -11541,7 +11541,7 @@ form#giving-proposal-node-form {
 .card-bio__linkedin:before {
   text-align: center;
   font-size: 18px;
-  padding: 11px;
+  padding: 11px 13px 13px 13px;
   color: #fff;
 }
 .card-bio__twitter,
@@ -11630,9 +11630,82 @@ form#giving-proposal-node-form {
 .bio__right-side {
   margin-left: auto;
   position: relative;
+  width: 100%;
 }
 .bio__card-bottom {
   background: #999933 !important;
+}
+.bio__links {
+  margin: 0 -10px 25px;
+}
+.bio__twitter,
+.bio__linkedin {
+  border-radius: 100%;
+  display: inline-block;
+  height: 44px;
+  margin: 0 10px;
+  overflow: hidden;
+  width: 44px;
+  background: #3399cc;
+  font-size: 0;
+  position: relative;
+}
+.bio__twitter a,
+.bio__linkedin a {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 10;
+}
+.bio__twitter:before {
+  font-family: 'icomoon' !important;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  content: '\e90b' !important;
+  display: inline-block;
+  font-size: inherit;
+  color: #ffffff;
+  vertical-align: text-bottom;
+}
+.bio__twitter > div {
+  display: inline-block;
+}
+.bio__twitter:before {
+  padding: 9px;
+  text-align: center;
+  font-size: 25px;
+  color: #fff;
+}
+.bio__linkedin:before {
+  font-family: 'icomoon' !important;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  content: '\e90a' !important;
+  display: inline-block;
+  font-size: inherit;
+  color: #ffffff;
+  vertical-align: text-bottom;
+}
+.bio__linkedin > div {
+  display: inline-block;
+}
+.bio__linkedin:before {
+  text-align: center;
+  font-size: 18px;
+  padding: 11px 13px 13px 13px;
+  color: #fff;
 }
 .bio__back-link {
   bottom: 165px;
@@ -11678,7 +11751,7 @@ form#giving-proposal-node-form {
   margin: 0 0 20px;
   left: 0;
   z-index: 10;
-  top: -160px;
+  top: -260px;
 }
 .bio__img {
   background-image: url('../media/images/landing-hero-images/team-full-view.jpg');
@@ -11687,7 +11760,7 @@ form#giving-proposal-node-form {
   height: 100%;
 }
 .bio__img:after {
-  background: #339999;
+  background: #000;
   content: "";
   position: absolute;
   bottom: 0;
@@ -11717,6 +11790,7 @@ form#giving-proposal-node-form {
 .bio__card {
   margin: 0;
   width: 100%;
+  padding: 0;
 }
 @media screen and (max-width: 1199px) {
   .bio__left-side {
