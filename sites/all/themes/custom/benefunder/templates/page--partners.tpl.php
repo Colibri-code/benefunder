@@ -88,11 +88,11 @@ $need_top_image = false;
 <?php if ($need_top_image): ?>
   <div class="top-spacer"></div>
 <?php endif; ?>
-<div class="hero-image hero-image--team">
+<div class="hero-image hero-image--partner">
   <div class="hero-image__bg"></div>
   <div class="hero-image__text">
     <h1 class="hero-image__title"><?php print t('Partners'); ?></h1>
-    <p class="hero-image__description"><?php print t('The Benefunder team is rooted in philanthropy and inspired by innovation. Our backgrounds include academia, financial services, marketing, digital and new media, and business. Our personal passions drive us to help others find and fund what matters to them.'); ?></p>
+    <p class="hero-image__description"><?php print t('Benefunder is partnering with top institutions to give donors unprecedented access to today’s top research. Together we are engaging donors, promoting research, and pushing innovation forward.'); ?></p>
   </div>
 </div>
 <!-- end .inner -->
