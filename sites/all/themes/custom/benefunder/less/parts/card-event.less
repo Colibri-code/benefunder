@@ -18,6 +18,7 @@
     font-weight: 400;
     line-height: 35px;
     margin: 0 0 20px;
+    display: inline-block;
   }
   &__info-wrapper{
     border-bottom: 1px solid #ebebeb;
@@ -64,9 +65,9 @@
 
   &__image{
     img {
-    width: 100%;
+      width: 100%;
     }
-    &:after{
+    &:before,  &:after{
       background: #000;
       content: "";
       position: absolute;
@@ -206,8 +207,33 @@
 .card-event--webinar .card-event {
   &__image{
     &:after{
-      background: #000;
+      background: #339999;
+      opacity: 0.3;
+    }
+  }
+}
+.card-event--conference .card-event {
+  &__image{
+    &:after{
+      background: #9357b2;
+      opacity: 0.3;
+    }
+  }
+}
+.card-event--meeting .card-event {
+  &__image{
+    &:after{
+      background: #3399cc;
+      opacity: 0.3;
+    }
+  }
+}
 
+.card-event--lab-visit .card-event {
+  &__image{
+    &:after{
+      background: #cc6600;
+      opacity: 0.3;
     }
   }
 }

@@ -211,14 +211,14 @@ function benefunder_preprocess_node(&$variables) {
         $variables['short_date']['month'] = date('M', $event_date);
       }
       if($hosts = $node_w->field_co_host_name->value()){
-        $variables['hosts'] = implode(',', $hosts);
+        $variables['hosts'] = implode(', ', $hosts);
       }
       if($reg_url = $node_w->field_registration_url->url->value()){
         $variables['reg_url'] = $reg_url;
       }
       if($ev_type = $node_w->field_event_type->label()){
         $variables['event_type'] = $ev_type;
-        $variables['event_type_modifier'] = drupal_html_class('card-event--' . $ev_type);
+        $variables['event_type_modifier'] = drupal_html_class($ev_type);
       }
       if($variables['view_mode'] == 'full'){
         if(!empty($variables['content']['field_related_causes'])){

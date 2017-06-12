@@ -10587,6 +10587,16 @@ form#giving-proposal-node-form {
   transform: rotate(180deg);
   vertical-align: middle;
 }
+.event__back-link:active {
+  color: #fff;
+  text-decoration: none;
+}
+.event__back-link:hover {
+  color: #d9d9d9;
+}
+.event__back-link:hover:before {
+  color: #309acd;
+}
 .event__title {
   position: absolute;
   font-family: 'raleway-extralight';
@@ -10637,7 +10647,7 @@ form#giving-proposal-node-form {
 }
 .event__venue-label {
   color: #000;
-  font-family: 'raleway';
+  font-family: 'raleway-medium';
   font-size: 16px;
   font-weight: 500;
   line-height: 35px;
@@ -10685,7 +10695,7 @@ form#giving-proposal-node-form {
 }
 .event__sponsor-label {
   color: #000;
-  font-family: 'raleway';
+  font-family: 'raleway-medium';
   font-size: 16px;
   font-weight: 500;
   line-height: 35px;
@@ -10744,8 +10754,9 @@ form#giving-proposal-node-form {
   width: 100%;
   height: 100%;
 }
+.event__img:before,
 .event__img:after {
-  background: #339999;
+  background: #000;
   content: "";
   position: absolute;
   bottom: 0;
@@ -10790,7 +10801,7 @@ form#giving-proposal-node-form {
 .event__description,
 .event__description p {
   color: #444;
-  font-family: 'Chaparral W01 Regular';
+  font-family: 'Chaparral W01 Lt';
   font-size: 18px;
   font-weight: 300;
   line-height: 32px;
@@ -10801,7 +10812,7 @@ form#giving-proposal-node-form {
 }
 .event__people-label {
   color: #000;
-  font-family: 'raleway';
+  font-family: 'raleway-medium';
   font-size: 16px;
   font-weight: 500;
   line-height: 35px;
@@ -10961,6 +10972,34 @@ form#giving-proposal-node-form {
   font-size: 15px;
   line-height: 60px;
 }
+.event--webinar .event__img:after {
+  background: #339999;
+  opacity: 0.5;
+}
+.event--webinar .event__type {
+  background: #339999;
+}
+.event--conference .event__img:after {
+  background: #9357b2;
+  opacity: 0.5;
+}
+.event--conference .event__type {
+  background: #9357b2;
+}
+.event--meeting .event__img:after {
+  background: #3399cc;
+  opacity: 0.5;
+}
+.event--meeting .event__type {
+  background: #3399cc;
+}
+.event--lab-visit .event__img:after {
+  background: #cc6600;
+  opacity: 0.5;
+}
+.event--lab-visit .event__type {
+  background: #cc6600;
+}
 @media screen and (max-width: 1199px) {
   .event__left-side {
     min-width: 310px;
@@ -10982,12 +11021,16 @@ form#giving-proposal-node-form {
   }
 }
 @media screen and (max-width: 991px) {
+  .event__back-link {
+    top: 100px;
+  }
   .event__title {
     left: 0;
     margin: 0 auto;
     padding: 0 45px;
     right: 0;
     width: 100%;
+    bottom: calc(100% + 40px);
   }
   .event__content {
     position: relative;
@@ -11089,6 +11132,7 @@ form#giving-proposal-node-form {
   font-weight: 400;
   line-height: 35px;
   margin: 0 0 20px;
+  display: inline-block;
 }
 .card-event__info-wrapper {
   border-bottom: 1px solid #ebebeb;
@@ -11151,6 +11195,7 @@ form#giving-proposal-node-form {
 .card-event__image img {
   width: 100%;
 }
+.card-event__image:before,
 .card-event__image:after {
   background: #000;
   content: "";
@@ -11332,7 +11377,20 @@ form#giving-proposal-node-form {
   font-size: 10px;
 }
 .card-event--webinar .card-event__image:after {
-  background: #000;
+  background: #339999;
+  opacity: 0.3;
+}
+.card-event--conference .card-event__image:after {
+  background: #9357b2;
+  opacity: 0.3;
+}
+.card-event--meeting .card-event__image:after {
+  background: #3399cc;
+  opacity: 0.3;
+}
+.card-event--lab-visit .card-event__image:after {
+  background: #cc6600;
+  opacity: 0.3;
 }
 @media screen and (max-width: 1199px) {
   .card-event__left-side {
@@ -11468,6 +11526,7 @@ form#giving-proposal-node-form {
 .card-bio:hover .card-bio__overlay {
   opacity: .9;
   border: 2px solid #3399cc;
+  border-bottom: none;
 }
 .card-bio:hover .card-bio__bottom {
   background: #3399cc;
@@ -11495,6 +11554,7 @@ form#giving-proposal-node-form {
   z-index: 10;
   margin: 0 auto;
   width: 132px;
+  text-align: center;
 }
 .card-bio__twitter:before {
   font-family: 'icomoon' !important;
@@ -11599,6 +11659,11 @@ form#giving-proposal-node-form {
   .card-bio__subtitle {
     font-size: 14px;
     line-height: 22px;
+  }
+}
+@media screen and (max-width: 1199px) and (min-width: 929px) {
+  .card-bio__avatar img {
+    width: 100%;
   }
 }
 @media screen and (max-width: 991px) {
@@ -11740,6 +11805,16 @@ form#giving-proposal-node-form {
   margin-right: 10px;
   transform: rotate(180deg);
   vertical-align: middle;
+}
+.bio__back-link:active {
+  color: #fff;
+  text-decoration: none;
+}
+.bio__back-link:hover {
+  color: #d9d9d9;
+}
+.bio__back-link:hover:before {
+  color: #309acd;
 }
 .bio__title {
   position: absolute;
@@ -11956,6 +12031,14 @@ form#giving-proposal-node-form {
   .card-researcher__name {
     font-size: 12px;
     line-height: 16px;
+  }
+  __f-name,
+  __l-name {
+    display: inline;
+  }
+  __f-name *,
+  __l-name * {
+    display: inline;
   }
   .card-researcher--block {
     margin: 0 0 20px;

@@ -13,6 +13,7 @@
     .card-bio__overlay{
       opacity: .9;
       border: 2px solid #3399cc;
+      border-bottom: none;
     }
     .card-bio__bottom{
       background: #3399cc;
@@ -41,6 +42,7 @@
     z-index: 10;
     margin: 0 auto;
     width: 132px;
+    text-align: center;
   }
   &__twitter{
     .ico-before('\e90b', #fff);
@@ -124,6 +126,11 @@
       font-size: 14px;
       line-height: 22px;
     }
+  }
+}
+@media screen and (max-width: @screen-md-max) and (min-width: 929px) {
+  .card-bio__avatar img{
+    width: 100%;
   }
 }
 
