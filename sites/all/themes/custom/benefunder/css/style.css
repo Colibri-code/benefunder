@@ -10499,6 +10499,9 @@ form#giving-proposal-node-form {
 .hero-image--team .hero-image__bg {
   background-image: url('../media/images/landing-hero-images/team.jpg');
 }
+.hero-image--partner .hero-image__bg {
+  background-image: url('../media/images/landing-hero-images/partners.jpg');
+}
 @media screen and (max-width: 767px) {
   .hero-image__title {
     font-size: 48px;
@@ -11867,6 +11870,12 @@ form#giving-proposal-node-form {
   width: 100%;
   padding: 0;
 }
+.bio--partner .bio__img {
+  background-image: url('../media/images/landing-hero-images/partner-full-view.jpg');
+}
+.bio--partner .bio__bottom {
+  display: none;
+}
 @media screen and (max-width: 1199px) {
   .bio__left-side {
     min-width: 310px;
@@ -11896,6 +11905,9 @@ form#giving-proposal-node-form {
   .bio__right-side {
     width: 100%;
     top: auto;
+  }
+  .bio--partner .bio__bottom {
+    display: block;
   }
 }
 @media screen and (max-width: 767px) {
