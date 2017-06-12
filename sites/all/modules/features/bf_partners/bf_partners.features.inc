@@ -30,13 +30,23 @@ function bf_partners_image_default_styles() {
   $styles['partners_full'] = array(
     'label' => 'partners_full',
     'effects' => array(
+      10 => array(
+        'name' => 'image_scale',
+        'data' => array(
+          'width' => 400,
+          'height' => '',
+          'upscale' => 0,
+        ),
+        'weight' => 2,
+      ),
       11 => array(
-        'name' => 'image_scale_and_crop',
+        'name' => 'image_crop',
         'data' => array(
           'width' => 400,
           'height' => 320,
+          'anchor' => 'center-center',
         ),
-        'weight' => 1,
+        'weight' => 3,
       ),
     ),
   );
@@ -45,13 +55,23 @@ function bf_partners_image_default_styles() {
   $styles['partners_teaser'] = array(
     'label' => 'partners_teaser',
     'effects' => array(
-      10 => array(
-        'name' => 'image_scale_and_crop',
+      13 => array(
+        'name' => 'image_scale',
         'data' => array(
-          'width' => 398,
-          'height' => 230,
+          'width' => 400,
+          'height' => '',
+          'upscale' => 0,
         ),
-        'weight' => 1,
+        'weight' => 2,
+      ),
+      14 => array(
+        'name' => 'image_crop',
+        'data' => array(
+          'width' => 400,
+          'height' => 230,
+          'anchor' => 'center-center',
+        ),
+        'weight' => 3,
       ),
     ),
   );

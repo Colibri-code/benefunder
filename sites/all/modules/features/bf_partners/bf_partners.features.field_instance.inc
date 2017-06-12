@@ -55,7 +55,7 @@ function bf_partners_field_default_field_instances() {
   $field_instances['node-partner-field_partner_logo'] = array(
     'bundle' => 'partner',
     'deleted' => 0,
-    'description' => '',
+    'description' => 'The minimum allowed image size 400x320',
     'display' => array(
       'default' => array(
         'label' => 'hidden',
@@ -90,7 +90,7 @@ function bf_partners_field_default_field_instances() {
       'file_extensions' => 'png gif jpg jpeg',
       'max_filesize' => '',
       'max_resolution' => '',
-      'min_resolution' => '',
+      'min_resolution' => '400x320',
       'title_field' => 0,
       'user_register_form' => FALSE,
     ),
@@ -110,6 +110,7 @@ function bf_partners_field_default_field_instances() {
   // Included for use with string extractors like potx.
   t('Body');
   t('Partner Logo');
+  t('The minimum allowed image size 400x320');
 
   return $field_instances;
 }

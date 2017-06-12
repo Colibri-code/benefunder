@@ -137,8 +137,8 @@ function bf_events_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'date',
         'settings' => array(
-          'format_type' => 'custom',
           'custom_date_format' => 'h:i A',
+          'format_type' => 'custom',
           'fromto' => 'value',
           'multiple_from' => '',
           'multiple_number' => '',
@@ -242,7 +242,7 @@ function bf_events_field_default_field_instances() {
       'file_extensions' => 'png gif jpg jpeg',
       'max_filesize' => '',
       'max_resolution' => '',
-      'min_resolution' => '1920x580',
+      'min_resolution' => '',
       'title_field' => 0,
       'user_register_form' => FALSE,
     ),
@@ -250,17 +250,6 @@ function bf_events_field_default_field_instances() {
       'active' => 1,
       'module' => 'image',
       'settings' => array(
-        'allowed_schemes' => array(
-          'public' => 'public',
-          'vimeo' => 0,
-          'youtube' => 0,
-        ),
-        'allowed_types' => array(
-          'audio' => 0,
-          'default' => 0,
-          'image' => 'image',
-          'video' => 0,
-        ),
         'preview_image_style' => 'thumbnail',
         'progress_indicator' => 'throbber',
       ),

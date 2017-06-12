@@ -89,25 +89,31 @@
     <div class="event__left-side">
       <div class="event__info-title"><?php print t('Event information'); ?></div>
       <div class="event__info-wrapper">
-        <div class="event__venue-label"><?php print t('Address'); ?></div>
-        <div class="event__venue-name">
-          <?php print drupal_render($content['field_venue_name']); ?>
-        </div>
-        <div class="event__venue">
-          <?php print drupal_render($content['field_venue_address']); ?>
-        </div>
-        <div class="event__sponsor-label"><?php print t('Sponsor'); ?></div>
-        <div class="event__sponsor-name">
-          <?php print drupal_render($content['field_sponsor_name']); ?>
-        </div>
-        <div class="event__sponsor-logo">
-          <?php print drupal_render($content['field_sponsor_logo']); ?>
-        </div>
+        <?php if(!empty($content['field_venue_name']) || !empty($content['field_venue_address'])): ?>
+          <div class="event__venue-label"><?php print t('Address'); ?></div>
+          <div class="event__venue-name">
+            <?php print drupal_render($content['field_venue_name']); ?>
+          </div>
+          <div class="event__venue">
+            <?php print drupal_render($content['field_venue_address']); ?>
+          </div>
+        <?php endif; ?>
+        <?php if(!empty($content['field_sponsor_name']) || !empty($content['field_sponsor_logo'])): ?>
+          <div class="event__sponsor-label"><?php print t('Sponsor'); ?></div>
+          <div class="event__sponsor-name">
+            <?php print drupal_render($content['field_sponsor_name']); ?>
+          </div>
+          <div class="event__sponsor-logo">
+            <?php print drupal_render($content['field_sponsor_logo']); ?>
+          </div>
+        <?php endif; ?>
       </div>
-      <div class="event__people">
-        <div class="event__people-label"><?php print t('Researchers'); ?></div>
-        <?php print drupal_render($content['field_related_causes']); ?>
-      </div>
+      <?php if(!empty($content['field_related_causes'])): ?>
+        <div class="event__people">
+          <div class="event__people-label"><?php print t('Researchers'); ?></div>
+          <?php print drupal_render($content['field_related_causes']); ?>
+        </div>
+      <?php endif; ?>
       <?php print l(t('Register for this Event'), drupal_render($content['field_registration_url']), array('attributes' => array('class' => 'event__register-link'))); ?>
     </div>
     <div class="event__right-side">
