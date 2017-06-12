@@ -91,7 +91,7 @@
           <?php endif; ?>
         </div>
         <div class="card-event__date">
-          <?php print drupal_render($content['field_event_date']); ?>
+          <?php print drupal_render($content['field_event_date']); ?>  (PST)D
         </div>
       </div>
       <div class="card-event__sponsor-logo">
