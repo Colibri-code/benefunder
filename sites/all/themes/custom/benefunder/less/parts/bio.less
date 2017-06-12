@@ -146,6 +146,17 @@
   }
 }
 
+.bio--partner{
+  .bio{
+    &__img {
+      background-image: url('../media/images/landing-hero-images/partner-full-view.jpg');
+    }
+    &__bottom{
+      display: none;
+    }
+  }
+}
+
 
 @media screen and (max-width: @screen-md-max) {
   .bio{
@@ -180,6 +191,14 @@
     &__right-side{
       width: 100%;
       top: auto;
+    }
+  }
+
+  .bio--partner{
+    .bio{
+      &__bottom{
+        display: block;
+      }
     }
   }
 }
