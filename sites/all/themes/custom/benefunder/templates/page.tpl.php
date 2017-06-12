@@ -89,7 +89,7 @@
     $wrapper = entity_metadata_wrapper('node', arg(1));
     $bundle = $wrapper->getBundle();
 
-    if (in_array($bundle, array('page', 'cause', 'event', 'team_bio', 'partner'))) {
+    if (!in_array($bundle, array('page', 'cause', 'event', 'team_bio', 'partner'))) {
       $need_top_image = true;
     }
   }
