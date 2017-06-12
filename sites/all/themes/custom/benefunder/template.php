@@ -218,7 +218,7 @@ function benefunder_preprocess_node(&$variables) {
       }
       if($ev_type = $node_w->field_event_type->label()){
         $variables['event_type'] = $ev_type;
-        $variables['event_type_modifier'] = drupal_html_class('card-event--' . $ev_type);
+        $variables['event_type_modifier'] = drupal_html_class($ev_type);
       }
       if($variables['view_mode'] == 'full'){
         if(!empty($variables['content']['field_related_causes'])){

@@ -35,6 +35,16 @@
       transform: rotate(180deg);
       vertical-align: middle;
     }
+    &:active{
+      color: #fff;
+      text-decoration: none;
+    }
+    &:hover{
+      color: darken(#fff, 15%);
+      &:before{
+        color: #309acd;
+      }
+    }
   }
   &__title{
     position: absolute;
@@ -146,8 +156,8 @@
     background-size: cover;
     width: 100%;
     height: 100%;
-    &:after{
-      background: #339999;
+    &:before, &:after{
+      background: #000;
       content: "";
       position: absolute;
       bottom: 0;
@@ -303,6 +313,54 @@
     }
   }
 }
+
+
+.event--webinar .event {
+  &__img{
+    &:after{
+      background: #339999;
+      opacity: 0.5;
+    }
+  }
+  &__type{
+    background: #339999;
+  }
+}
+.event--conference .event {
+  &__img{
+    &:after{
+      background: #9357b2;
+      opacity: 0.5;
+    }
+  }
+  &__type{
+    background: #9357b2;
+  }
+}
+.event--meeting .event {
+  &__img{
+    &:after{
+      background: #3399cc;
+      opacity: 0.5;
+    }
+  }
+  &__type{
+    background: #3399cc;
+  }
+}
+
+.event--lab-visit .event {
+  &__img{
+    &:after{
+      background: #cc6600;
+      opacity: 0.5;
+    }
+  }
+  &__type{
+    background: #cc6600;
+  }
+}
+
 
 
 @media screen and (max-width: @screen-md-max) {

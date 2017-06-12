@@ -80,7 +80,7 @@
  * @ingroup themeable
  */
 ?>
-<div class="event">
+<div class="event <?php print !(empty($event_type_modifier)) ? 'event--' . $event_type_modifier : ''; ?>"" >
   <div class="event__top">
     <div class="event__img" style="background-image: url(<?php print $img_uri; ?>);"></div>
     <?php print l(t('Back to All Events'), 'events', array('attributes' => array('class' => 'event__back-link'))); ?>
