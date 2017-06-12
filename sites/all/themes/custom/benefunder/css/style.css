@@ -11823,7 +11823,8 @@ form#giving-proposal-node-form {
   transform: rotate(180deg);
   vertical-align: middle;
 }
-.bio__back-link:active {
+.bio__back-link:active,
+.bio__back-link:focus {
   color: #fff;
   text-decoration: none;
 }
