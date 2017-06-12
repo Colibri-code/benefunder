@@ -11873,7 +11873,7 @@ form#giving-proposal-node-form {
 .bio--partner .bio__img {
   background-image: url('../media/images/landing-hero-images/partner-full-view.jpg');
 }
-.bio--partner .bio__bottom {
+.bio--partner .bio__card-bottom {
   display: none;
 }
 @media screen and (max-width: 1199px) {
@@ -11906,7 +11906,7 @@ form#giving-proposal-node-form {
     width: 100%;
     top: auto;
   }
-  .bio--partner .bio__bottom {
+  .bio--partner .bio__card-bottom {
     display: block;
   }
 }
