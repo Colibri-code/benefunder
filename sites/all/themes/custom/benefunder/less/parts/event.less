@@ -83,7 +83,7 @@
   }
   &__venue-label{
     color: #000;
-    font-family: @raleway;
+    font-family: @raleway-medium;
     font-size: 16px;
     font-weight: 500;
     line-height: 35px;
@@ -114,7 +114,7 @@
   }
   &__sponsor-label{
     color: #000;
-    font-family: @raleway;
+    font-family: @raleway-medium;
     font-size: 16px;
     font-weight: 500;
     line-height: 35px;
@@ -204,7 +204,7 @@
   }
   &__description, &__description p{
     color: #444;
-    font-family: @chaparral-regular;
+    font-family: @chaparral-light;
     font-size: 18px;
     font-weight: 300;
     line-height: 32px;
@@ -216,7 +216,7 @@
   }
   &__people-label{
     color: #000;
-    font-family: @raleway;
+    font-family: @raleway-medium;
     font-size: 16px;
     font-weight: 500;
     line-height: 35px;
@@ -389,12 +389,16 @@
 
 @media screen and (max-width: @screen-sm-max) {
   .event{
+    &__back-link{
+      top: 100px;
+    }
     &__title{
       left: 0;
       margin: 0 auto;
       padding: 0 45px;
       right: 0;
       width: 100%;
+      bottom: calc(~'100% + 40px');
     }
     &__content{
       position: relative;

@@ -10647,7 +10647,7 @@ form#giving-proposal-node-form {
 }
 .event__venue-label {
   color: #000;
-  font-family: 'raleway';
+  font-family: 'raleway-medium';
   font-size: 16px;
   font-weight: 500;
   line-height: 35px;
@@ -10695,7 +10695,7 @@ form#giving-proposal-node-form {
 }
 .event__sponsor-label {
   color: #000;
-  font-family: 'raleway';
+  font-family: 'raleway-medium';
   font-size: 16px;
   font-weight: 500;
   line-height: 35px;
@@ -10801,7 +10801,7 @@ form#giving-proposal-node-form {
 .event__description,
 .event__description p {
   color: #444;
-  font-family: 'Chaparral W01 Regular';
+  font-family: 'Chaparral W01 Lt';
   font-size: 18px;
   font-weight: 300;
   line-height: 32px;
@@ -10812,7 +10812,7 @@ form#giving-proposal-node-form {
 }
 .event__people-label {
   color: #000;
-  font-family: 'raleway';
+  font-family: 'raleway-medium';
   font-size: 16px;
   font-weight: 500;
   line-height: 35px;
@@ -11021,12 +11021,16 @@ form#giving-proposal-node-form {
   }
 }
 @media screen and (max-width: 991px) {
+  .event__back-link {
+    top: 100px;
+  }
   .event__title {
     left: 0;
     margin: 0 auto;
     padding: 0 45px;
     right: 0;
     width: 100%;
+    bottom: calc(100% + 40px);
   }
   .event__content {
     position: relative;
@@ -12027,6 +12031,14 @@ form#giving-proposal-node-form {
   .card-researcher__name {
     font-size: 12px;
     line-height: 16px;
+  }
+  __f-name,
+  __l-name {
+    display: inline;
+  }
+  __f-name *,
+  __l-name * {
+    display: inline;
   }
   .card-researcher--block {
     margin: 0 0 20px;

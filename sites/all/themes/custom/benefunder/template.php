@@ -211,7 +211,7 @@ function benefunder_preprocess_node(&$variables) {
         $variables['short_date']['month'] = date('M', $event_date);
       }
       if($hosts = $node_w->field_co_host_name->value()){
-        $variables['hosts'] = implode(',', $hosts);
+        $variables['hosts'] = implode(', ', $hosts);
       }
       if($reg_url = $node_w->field_registration_url->url->value()){
         $variables['reg_url'] = $reg_url;
