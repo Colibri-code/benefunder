@@ -81,7 +81,7 @@
  */
 ?>
 
-<a href="<?php print url('node/' . $node->nid); ?>" class="card-bio">
+<a href="<?php print url('node/' . $node->nid); ?>" class="card-bio card-bio--partner">
   <div class="card-bio__top">
     <?php if(!empty($content['field_partner_logo'])): ?>
       <div class="card-bio__avatar">

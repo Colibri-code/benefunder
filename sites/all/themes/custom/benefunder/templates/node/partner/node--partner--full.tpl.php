@@ -81,7 +81,7 @@
  */
 ?>
 
-<div class="bio">
+<div class="bio bio--partner">
   <div class="bio__top">
     <div class="bio__img"></div>
     <?php print l(t('Back to All Partners'), 'partners', array('attributes' => array('class' => 'bio__back-link'))); ?>
@@ -95,6 +95,9 @@
               <?php print render($content['field_partner_logo']); ?>
             </div>
           <?php endif; ?>
+        </div>
+        <div class="card-bio__bottom">
+          <div class="card-bio__title"><?php print $title; ?></div>
         </div>
       </div>
     </div>
