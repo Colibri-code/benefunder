@@ -96,7 +96,7 @@
             </div>
           <?php endif; ?>
         </div>
-        <div class="card-bio__bottom">
+        <div class="card-bio__bottom bio__card-bottom">
           <div class="card-bio__title"><?php print $title; ?></div>
         </div>
       </div>
