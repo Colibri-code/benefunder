@@ -11650,8 +11650,8 @@ form#giving-proposal-node-form {
   font-weight: 300;
   line-height: 36px;
 }
-.card-bio--webinar .card-bio__image:after {
-  background: #000;
+.card-bio--partner .card-bio__bottom {
+  height: 70px;
 }
 @media screen and (max-width: 1199px) {
   .card-bio__title {
