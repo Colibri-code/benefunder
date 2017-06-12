@@ -10590,7 +10590,8 @@ form#giving-proposal-node-form {
   transform: rotate(180deg);
   vertical-align: middle;
 }
-.event__back-link:active {
+.event__back-link:active,
+.event__back-link:focus {
   color: #fff;
   text-decoration: none;
 }
@@ -10741,8 +10742,9 @@ form#giving-proposal-node-form {
   display: flex;
 }
 .event__type {
-  padding: 0 30px;
+  max-width: 160px;
   min-width: 140px;
+  padding: 0 15px;
   height: 100px;
   font-size: 20px;
   font-weight: 300;
@@ -11137,6 +11139,11 @@ form#giving-proposal-node-form {
   margin: 0 0 20px;
   display: inline-block;
 }
+.card-event__title:active,
+.card-event__title:focus {
+  color: #000;
+  text-decoration: none;
+}
 .card-event__info-wrapper {
   border-bottom: 1px solid #ebebeb;
   padding: 0 0 15px;
@@ -11343,6 +11350,10 @@ form#giving-proposal-node-form {
   line-height: 32px;
   text-decoration: underline;
   float: left;
+}
+.card-event__readmore:active,
+.card-event__readmore:focus {
+  color: #999933;
 }
 .card-event__register-link {
   color: #fff;
@@ -11653,6 +11664,9 @@ form#giving-proposal-node-form {
 .card-bio--partner .card-bio__bottom {
   height: 70px;
 }
+.card-bio--partner .card-bio__title {
+  margin-bottom: 0;
+}
 @media screen and (max-width: 1199px) {
   .card-bio__title {
     font-size: 20px;
@@ -11662,6 +11676,9 @@ form#giving-proposal-node-form {
   .card-bio__subtitle {
     font-size: 14px;
     line-height: 22px;
+  }
+  .card-bio--partner .card-bio__bottom {
+    height: auto;
   }
 }
 @media screen and (max-width: 1199px) and (min-width: 929px) {
@@ -11809,7 +11826,8 @@ form#giving-proposal-node-form {
   transform: rotate(180deg);
   vertical-align: middle;
 }
-.bio__back-link:active {
+.bio__back-link:active,
+.bio__back-link:focus {
   color: #fff;
   text-decoration: none;
 }
@@ -11882,6 +11900,9 @@ form#giving-proposal-node-form {
   }
   .bio__card-bottom {
     height: auto;
+  }
+  .bio__card-bottom .card-bio__title {
+    margin-bottom: 0;
   }
 }
 @media screen and (max-width: 991px) {
@@ -12022,7 +12043,7 @@ form#giving-proposal-node-form {
 .card-researcher--block .card-researcher__name {
   font-size: 16px;
   font-weight: 500;
-  line-height: 35px;
+  line-height: 25px;
   align-self: center;
   text-align: left;
   max-height: none;
@@ -12036,6 +12057,14 @@ form#giving-proposal-node-form {
   font-weight: 300;
   line-height: 24px;
 }
+.card-researcher--block .card-researcher__f-name,
+.card-researcher--block .card-researcher__l-name {
+  display: inline;
+}
+.card-researcher--block .card-researcher__f-name *,
+.card-researcher--block .card-researcher__l-name * {
+  display: inline;
+}
 @media screen and (max-width: 500px) {
   .card-researcher {
     margin: 5px auto;
@@ -12043,14 +12072,6 @@ form#giving-proposal-node-form {
   .card-researcher__name {
     font-size: 12px;
     line-height: 16px;
-  }
-  __f-name,
-  __l-name {
-    display: inline;
-  }
-  __f-name *,
-  __l-name * {
-    display: inline;
   }
   .card-researcher--block {
     margin: 0 0 20px;

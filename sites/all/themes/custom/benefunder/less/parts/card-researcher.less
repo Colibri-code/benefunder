@@ -35,7 +35,7 @@
     &__name {
       font-size: 16px;
       font-weight: 500;
-      line-height: 35px;
+      line-height: 25px;
       align-self: center;
       text-align: left;
       max-height: none;
@@ -49,6 +49,13 @@
       font-weight: 300;
       line-height: 24px;
     }
+
+    &__f-name, &__l-name{
+      display: inline;
+      *{
+        display: inline;
+      }
+    }
   }
 }
 
@@ -60,12 +67,7 @@
       line-height: 16px;
     }
   }
-  &__f-name, &__l-name{
-    display: inline;
-    *{
-      display: inline;
-    }
-  }
+
   .card-researcher--block{
     margin: 0 0 20px;
   }
