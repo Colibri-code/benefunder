@@ -14,6 +14,9 @@ features[features_api][] = api:2
 features[field_base][] = field_partner_logo
 features[field_instance][] = node-partner-body
 features[field_instance][] = node-partner-field_partner_logo
+<<<<<<< HEAD
+features[image][] = partners_full
+features[image][] = partners_teaser
 features[node][] = partner
 features[variable][] = field_bundle_settings_node__partner
 features[variable][] = menu_options_partner
@@ -21,6 +24,7 @@ features[variable][] = menu_parent_partner
 features[variable][] = node_options_partner
 features[variable][] = node_preview_partner
 features[variable][] = node_submitted_partner
+features[variable][] = pathauto_node_partner_pattern
 features[variable][] = xmlsitemap_settings_node_partner
 features[views_view][] = partners
 features_exclude[dependencies][ctools] = ctools

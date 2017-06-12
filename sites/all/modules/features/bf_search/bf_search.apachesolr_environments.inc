@@ -20,6 +20,7 @@ function bf_search_apachesolr_environments() {
   $environment->index_bundles = array(
     'node' => array(
       0 => 'cause',
+      1 => 'partner',
     ),
   );
   $export['solr'] = $environment;

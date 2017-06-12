@@ -88,11 +88,15 @@
   if (arg(0) == 'node') {
     $wrapper = entity_metadata_wrapper('node', arg(1));
     $bundle = $wrapper->getBundle();
-    if (($bundle != 'page') && ($bundle != 'cause')) {
+
+    if (!in_array($bundle, array('page', 'cause', 'event', 'team_bio', 'partner'))) {
       $need_top_image = true;
     }
   }
   else if ((arg(0) == 'causes') && (empty($arg1))) {
+    $need_top_image = false;
+  }
+  else if ((arg(0) == 'event') && (empty($arg1))) {
     $need_top_image = false;
   }
   else {
