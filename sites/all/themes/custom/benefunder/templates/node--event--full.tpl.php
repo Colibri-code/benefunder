@@ -129,7 +129,7 @@
         <?php endif; ?>
         <div class="event__info-panel-center">
           <div class="event__time">
-            <?php print drupal_render($content['field_event_date']); ?> (PST)D
+            <?php print drupal_render($content['field_event_date']); ?> (PST)
           </div>
           <?php if(!empty($hosts)) : ?>
             <div class="event__hosts">
