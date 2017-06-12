@@ -80,77 +80,30 @@
  * @ingroup themeable
  */
 ?>
-<div class="event <?php print !(empty($event_type_modifier)) ? 'event--' . $event_type_modifier : ''; ?>"" >
-  <div class="event__top">
-    <div class="event__img" style="background-image: url(<?php print $img_uri; ?>);"></div>
-    <?php print l(t('Back to All Events'), 'events', array('attributes' => array('class' => 'event__back-link'))); ?>
+
+<div class="bio">
+  <div class="bio__top">
+    <div class="bio__img"></div>
+    <?php print l(t('Back to All Partners'), 'partners', array('attributes' => array('class' => 'bio__back-link'))); ?>
   </div>
-  <div class="event__content">
-    <div class="event__left-side">
-      <div class="event__info-title"><?php print t('Event information'); ?></div>
-      <div class="event__info-wrapper">
-        <?php if(!empty($content['field_venue_name']) || !empty($content['field_venue_address'])): ?>
-          <div class="event__venue-label"><?php print t('Address'); ?></div>
-          <div class="event__venue-name">
-            <?php print drupal_render($content['field_venue_name']); ?>
-          </div>
-          <div class="event__venue">
-            <?php print drupal_render($content['field_venue_address']); ?>
-          </div>
-        <?php endif; ?>
-        <?php if(!empty($content['field_sponsor_name']) || !empty($content['field_sponsor_logo'])): ?>
-          <div class="event__sponsor-label"><?php print t('Sponsor'); ?></div>
-          <div class="event__sponsor-name">
-            <?php print drupal_render($content['field_sponsor_name']); ?>
-          </div>
-          <div class="event__sponsor-logo">
-            <?php print drupal_render($content['field_sponsor_logo']); ?>
-          </div>
-        <?php endif; ?>
-      </div>
-      <?php if(!empty($content['field_related_causes'])): ?>
-        <div class="event__people">
-          <div class="event__people-label"><?php print t('Researchers'); ?></div>
-          <?php print drupal_render($content['field_related_causes']); ?>
-        </div>
-      <?php endif; ?>
-      <?php print l(t('Register for this Event'), drupal_render($content['field_registration_url']), array('attributes' => array('class' => 'event__register-link'))); ?>
-    </div>
-    <div class="event__right-side">
-      <div class="event__title">
-        <?php print $node->title; ?>
-      </div>
-      <div class="event__info-panel">
-        <?php if(!empty($short_date)) : ?>
-          <div class="event__short-date">
-            <div class="event__short-date-d"><?php print $short_date['day']; ?></div>
-            <div class="event__short-date-m"><?php print $short_date['month']; ?></div>
-          </div>
-        <?php endif; ?>
-        <div class="event__info-panel-center">
-          <div class="event__time">
-            <?php print drupal_render($content['field_event_date']); ?>
-          </div>
-          <?php if(!empty($hosts)) : ?>
-            <div class="event__hosts">
-              <div class="event__hosts-label">
-                <?php print t('Hosts:'); ?>
-              </div>
-              <div class="event__hosts-content">
-                <?php print $hosts; ?>
-              </div>
+  <div class="bio__content">
+    <div class="bio__left-side">
+      <div class="card-bio bio__card">
+        <div class="card-bio__top">
+          <?php if(!empty($content['field_partner_logo'])): ?>
+            <div class="card-bio__avatar">
+              <?php print render($content['field_partner_logo']); ?>
             </div>
           <?php endif; ?>
         </div>
-        <?php if(!empty($event_type)): ?>
-          <div class="event__type"><?php print $event_type; ?></div>
-        <?php endif; ?>
       </div>
-      <div class="event__description-label"><?php print t('Event Description'); ?></div>
-      <div class="event__description">
+    </div>
+    <div class="bio__right-side">
+      <div class="bio__title"><?php print $node->title; ?></div>
+      <div class="bio__description-label"><?php print t('About %title', array('%title' => $node->title)); ?></div>
+      <div class="bio__description">
         <?php print drupal_render($content['body']); ?>
       </div>
     </div>
   </div>
 </div>
-
