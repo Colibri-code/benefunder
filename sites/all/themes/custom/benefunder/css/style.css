@@ -11677,6 +11677,9 @@ form#giving-proposal-node-form {
     font-size: 14px;
     line-height: 22px;
   }
+  .card-bio--partner .card-bio__bottom {
+    height: auto;
+  }
 }
 @media screen and (max-width: 1199px) and (min-width: 929px) {
   .card-bio__avatar img {
@@ -12040,7 +12043,7 @@ form#giving-proposal-node-form {
 .card-researcher--block .card-researcher__name {
   font-size: 16px;
   font-weight: 500;
-  line-height: 35px;
+  line-height: 25px;
   align-self: center;
   text-align: left;
   max-height: none;
@@ -12054,6 +12057,14 @@ form#giving-proposal-node-form {
   font-weight: 300;
   line-height: 24px;
 }
+.card-researcher--block .card-researcher__f-name,
+.card-researcher--block .card-researcher__l-name {
+  display: inline;
+}
+.card-researcher--block .card-researcher__f-name *,
+.card-researcher--block .card-researcher__l-name * {
+  display: inline;
+}
 @media screen and (max-width: 500px) {
   .card-researcher {
     margin: 5px auto;
@@ -12061,14 +12072,6 @@ form#giving-proposal-node-form {
   .card-researcher__name {
     font-size: 12px;
     line-height: 16px;
-  }
-  __f-name,
-  __l-name {
-    display: inline;
-  }
-  __f-name *,
-  __l-name * {
-    display: inline;
   }
   .card-researcher--block {
     margin: 0 0 20px;
