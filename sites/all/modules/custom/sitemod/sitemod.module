@@ -168,7 +168,7 @@ function sitemod_preprocess_entity_print(&$variables) {
   $body = $node_wrapper->body->value();
   $summary = $node_wrapper->field_summary->value();
   $variables['summary'] = views_trim_text(array(
-    'max_length' => 2000,
+    'max_length' => 1750,
     'word_boundary' => TRUE,
     'ellipsis' => TRUE,
     'html' => TRUE,

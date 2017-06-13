@@ -136,7 +136,7 @@ function create_proposal_sent_to_hellosign($wrapper) {
 function create_proposal_generate_pdf($node) {
   // Generate proposal PDF and attach to node.
   if (($library = libraries_load('phpwkhtmltopdf')) && !empty($library['loaded'])) {
-    $problem_msg = t('There was a problem creating a proposal PDF, please contact Benefunder.');
+    $problem_msg = t('There was a problem creating a proposal PDF, please try again.');
     $pdf = new WkHtmlToPdf(array(
       'print-media-type',
       'page-size' => 'Letter',
@@ -185,10 +185,10 @@ function create_proposal_generate_pdf($node) {
     foreach ($tree as $term) {
       if ($term->depth === 0) {
         $terms[$term->tid] = array(
-          'data' => $term->name,
-          'children' => array(),
-          'class' => array($term->name),
-          'allocation' => 0,
+          'data'        => $term->name,
+          'children'    => array(),
+          'class'       => array($term->name),
+          'allocation'  => 0,
         );
       }
       else {
@@ -203,7 +203,12 @@ function create_proposal_generate_pdf($node) {
       $cause_node = node_load($cause_nid);
       if (!empty($cause_node)) {
         // TODO: add footer to cause html pages.
-        $html = _entity_print_get_generated_html('node', $cause_node);
+//        $html = _entity_print_get_generated_html('node', $cause_node);
+
+
+        $html = theme('entity_print__node__cause', array(
+          'entity' => $cause_node,
+        ));
 
         // Remove script tags, the cover page includes this already.
         $html = strtr($html, array(
