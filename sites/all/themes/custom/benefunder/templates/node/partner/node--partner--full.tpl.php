@@ -84,7 +84,7 @@
 <div class="bio bio--partner">
   <div class="bio__top">
     <div class="bio__img"></div>
-    <?php print l(t('Back to All Partners'), 'partners', array('attributes' => array('class' => 'bio__back-link'))); ?>
+    <?php print l(t('Back to All Partners'), 'partners', array('attributes' => array('class' => array('bio__back-link')))); ?>
   </div>
   <div class="bio__content">
     <div class="bio__left-side">

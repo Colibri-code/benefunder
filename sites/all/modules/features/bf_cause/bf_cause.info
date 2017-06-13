@@ -112,7 +112,6 @@ features[field_instance][] = node-cause-meta_description
 features[field_instance][] = node-cause-meta_keywords
 features[image][] = 50x50
 features[node][] = cause
-features[taxonomy][] = aging_wellness_disease
 features[variable][] = chosen_search_contains
 features[variable][] = field_bundle_settings_node__cause
 features[variable][] = menu_options_cause
