@@ -141,13 +141,6 @@
 
 <body>
 
-
-2004, University of California at Santa Cruz, Santa Cruz, CA
-2002, California State University East Bay, Hayward, CA
-1997-2001, Berkeley City College, Berkeley, CA
-1995, University of Maryland, College Park, MD
-
-
 <div class="print-area">
   <div class="background">
     <div class="pdf_title"><?php print $title ?></div>
