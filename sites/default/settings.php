@@ -85,6 +85,9 @@ if (defined('PANTHEON_ENVIRONMENT')) {
   // Explicitly set page_cache_maximum_age to 1 day as database won't be available.
   $conf['page_cache_maximum_age'] = 86400;
 }
+elseif(file_exists(DRUPAL_ROOT . '/sites/default/local.settings.inc')) {
+  require(DRUPAL_ROOT . '/sites/default/local.settings.inc');
+}
 
 /**
  * Fast 404 pages:

@@ -39,7 +39,7 @@ function bf_cause_field_group_info() {
       ),
     ),
   );
-  $field_groups['group_basic|node|cause|form'] = $field_group;
+  $field_groups[''] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -68,7 +68,7 @@ function bf_cause_field_group_info() {
       ),
     ),
   );
-  $field_groups['group_cause_media|node|cause|form'] = $field_group;
+  $field_groups[''] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -99,7 +99,7 @@ function bf_cause_field_group_info() {
       ),
     ),
   );
-  $field_groups['group_cause|node|cause|form'] = $field_group;
+  $field_groups[''] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -129,7 +129,7 @@ function bf_cause_field_group_info() {
       ),
     ),
   );
-  $field_groups['group_hidden|node|cause|form'] = $field_group;
+  $field_groups[''] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -156,7 +156,7 @@ function bf_cause_field_group_info() {
       ),
     ),
   );
-  $field_groups['group_overlay|node|cause|form'] = $field_group;
+  $field_groups[''] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -184,7 +184,7 @@ function bf_cause_field_group_info() {
       ),
     ),
   );
-  $field_groups['group_researcher_bio|node|cause|form'] = $field_group;
+  $field_groups[''] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -215,7 +215,7 @@ function bf_cause_field_group_info() {
       ),
     ),
   );
-  $field_groups['group_researcher_links|node|cause|form'] = $field_group;
+  $field_groups[''] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -243,7 +243,7 @@ function bf_cause_field_group_info() {
       ),
     ),
   );
-  $field_groups['group_researcher|node|cause|form'] = $field_group;
+  $field_groups[''] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -271,7 +271,7 @@ function bf_cause_field_group_info() {
       ),
     ),
   );
-  $field_groups['group_seo|node|cause|form'] = $field_group;
+  $field_groups[''] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -304,7 +304,7 @@ function bf_cause_field_group_info() {
       ),
     ),
   );
-  $field_groups['group_tabs|node|cause|form'] = $field_group;
+  $field_groups[''] = $field_group;
 
   // Translatables
   // Included for use with string extractors like potx.

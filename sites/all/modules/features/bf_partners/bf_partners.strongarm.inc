@@ -40,6 +40,12 @@ function bf_partners_strongarm() {
       'revision' => array(
         'custom_settings' => FALSE,
       ),
+      'diff_standard' => array(
+        'custom_settings' => FALSE,
+      ),
+      'researcher' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
@@ -97,6 +103,13 @@ function bf_partners_strongarm() {
   $strongarm->name = 'node_submitted_partner';
   $strongarm->value = 0;
   $export['node_submitted_partner'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_partner_pattern';
+  $strongarm->value = 'partners/[node:title]';
+  $export['pathauto_node_partner_pattern'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */

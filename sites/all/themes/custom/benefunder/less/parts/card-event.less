@@ -1,0 +1,369 @@
+.card-event{
+  display: flex;
+  margin-bottom: 70px;
+  &__left-side{
+    background: #fff;
+    width: 50%;
+    padding: 25px 30px;
+  }
+  &__right-side{
+    position: relative;
+    width: 50%;
+  }
+
+  &__title{
+    color: #000;
+    font-family: @raleway;
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 35px;
+    margin: 0 0 20px;
+    display: inline-block;
+    &:active, &:focus{
+      color: #000;
+      text-decoration: none;
+    }
+  }
+  &__info-wrapper{
+    border-bottom: 1px solid #ebebeb;
+    padding: 0 0 15px;
+    margin: 0 0 15px;
+  }
+  &__info-left{
+    display: inline-block;
+    vertical-align: middle;
+  }
+  &__venue{
+    color: #000;
+    font-family: @raleway;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    margin-bottom: 15px;
+    .ico-before('\e908', #999933);
+    &:before{
+      font-size: 16px;
+      margin-right: 5px;
+
+    }
+  }
+  &__sponsor-logo{
+    display: inline-block;
+    margin: 0 70px;
+    vertical-align: middle;
+  }
+  &__type{
+    left: 0;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    color: #fff;
+    font-family: @raleway;
+    font-size: 48px;
+    font-weight: 300;
+    line-height: 35px;
+  }
+
+  &__image{
+    img {
+      width: 100%;
+    }
+    &:before,  &:after{
+      background: #000;
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      top: 0;
+      opacity: 0.75;
+    }
+  }
+
+  &__date{
+    color: #000;
+    font-family: @raleway;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    .ico-before('\e904', #999933);
+    &:before{
+      font-size: 16px;
+      margin-right: 5px;
+    }
+  }
+  &__short-date{
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-family: @raleway;
+    z-index: 10;
+    text-align: center;
+  }
+  &__short-date-d{
+    width: 100px;
+    height: 60px;
+    background: #999933;
+    color: #ffF;
+    font-size: 48px;
+    font-weight: 400;
+    line-height: 60px;
+  }
+  &__short-date-m{
+    width: 100px;
+    height: 32px;
+    background-color: #fff;
+    color: #999933;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 32px;
+    text-transform: uppercase;
+  }
+  &__description, &__description p{
+    color: #444;
+    font-family: @raleway;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 25px;
+  }
+  &__people{
+    background-color: #fff;
+    opacity: 0.95;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+  }
+  &__people-inner{
+    position: relative;
+    margin-top: -25px;
+    height: auto;
+    display: flex;
+  }
+  
+  &__hosts{
+    position: absolute;
+    background: #333;
+    opacity: 0.75;
+    height: 60px;
+    top: 0;
+    left: 0;
+    right: 92px;
+    font-family: @raleway;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 35px;
+  }
+  &__hosts-content{
+    display: inline-block;
+    color: #fff;
+    height: 16px;
+    vertical-align: middle;
+  }
+  &__hosts-label{
+    display: inline-block;
+    color: #999933;
+    height: 16px;
+    vertical-align: middle;
+    margin-left: 20px;
+    .ico-before('\e901', #999933);
+    &:before{
+      font-size: 18px;
+      margin-right: 5px;
+    }
+  }
+  &__readmore{
+    color: #999933;
+    font-family: @raleway;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 32px;
+    text-decoration: underline;
+    float: left;
+    &:active, &:focus{
+      color: #999933;
+    }
+  }
+  &__register-link{
+    color: #fff;
+    background: #999933;
+    font-family: @raleway;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 32px;
+    text-align: left;
+    padding: 0 15px;
+    display: inline-block;
+    float: right;
+    &:hover{
+      color: #fff;
+      background: darken(#999933, 5%);
+    }
+    .ico-after('\e906', #fff);
+    &:after{
+      vertical-align: middle;
+      margin-left: 10px;
+      font-size: 10px;
+    }
+  }
+}
+
+.card-event--webinar .card-event {
+  &__image{
+    &:after{
+      background: #339999;
+      opacity: 0.3;
+    }
+  }
+}
+.card-event--conference .card-event {
+  &__image{
+    &:after{
+      background: #9357b2;
+      opacity: 0.3;
+    }
+  }
+}
+.card-event--meeting .card-event {
+  &__image{
+    &:after{
+      background: #3399cc;
+      opacity: 0.3;
+    }
+  }
+}
+
+.card-event--lab-visit .card-event {
+  &__image{
+    &:after{
+      background: #cc6600;
+      opacity: 0.3;
+    }
+  }
+}
+
+@media screen and (max-width: @screen-md-max) {
+  .card-event {
+    &__left-side{
+      padding: 15px 20px;
+    }
+    &__title{
+      font-size: 24px;
+      line-height: 35px;
+      margin: 0 0 10px;
+    }
+    &__info-wrapper{
+      padding: 0 0 10px;
+      margin: 0 0 10px;
+    }
+
+    &__venue{
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+    &__sponsor-logo{
+      margin: 0 20px;
+    }
+    &__type{
+      font-size: 35px;
+    }
+
+    &__date{
+      font-size: 14px;
+      line-height: 20px;
+    }
+    &__description, &__description p{
+      font-size: 14px;
+      line-height: 21px;
+    }
+    &__hosts{
+      font-size: 14px;
+    }
+    &__hosts-content{
+      display: inline-block;
+      color: #fff;
+      height: 16px;
+      vertical-align: middle;
+    }
+    &__hosts-label{
+      display: inline-block;
+      color: #999933;
+      height: 16px;
+      vertical-align: middle;
+      margin-left: 20px;
+    }
+  }
+}
+
+@media screen and (max-width: @screen-sm-max) {
+  .card-event {
+    flex-flow: column-reverse;
+    &__left-side, &__right-side{
+      width: 100%;
+    }
+  }
+}
+@media screen and (max-width: 500px) {
+  .card-event {
+    padding-top: 40px;
+    &__left-side{
+      padding: 15px 20px;
+    }
+    &__title{
+      font-size: 21px;
+      line-height: 35px;
+      margin: 0 0 10px;
+    }
+    &__short-date-d {
+      font-size: 28px;
+      height: 40px;
+      line-height: 40px;
+      width: 60px;
+    }
+    &__short-date-m {
+      font-size: 13px;
+      height: 22px;
+      line-height: 22px;
+      width: 60px;
+    }
+    &__sponsor-logo{
+      margin: 20px 0;
+    }
+    &__type{
+      font-size: 20px;
+      top: 25%;
+    }
+    &__people{
+      position: static;
+      height: auto;
+    }
+    &__people-inner{
+      margin-top: 0;
+      top: -25px;
+      flex-wrap: wrap;
+    }
+    &__hosts{
+      font-size: 14px;
+      top: -40px;
+      right: 0;
+      height: 40px;
+    }
+    &__hosts-content{
+      height: auto;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      width: 80%;
+    }
+    &__hosts-label{
+      height: auto;
+      margin-left: 5px;
+      &:before{
+        display: none;
+      }
+    }
+  }
+}

@@ -20,6 +20,30 @@ function bf_cause_ctools_plugin_api($module = NULL, $api = NULL) {
 }
 
 /**
+ * Implements hook_image_default_styles().
+ */
+function bf_cause_image_default_styles() {
+  $styles = array();
+
+  // Exported image style: 50x50.
+  $styles['50x50'] = array(
+    'label' => '50x50',
+    'effects' => array(
+      11 => array(
+        'name' => 'image_scale_and_crop',
+        'data' => array(
+          'width' => 50,
+          'height' => 50,
+        ),
+        'weight' => 1,
+      ),
+    ),
+  );
+
+  return $styles;
+}
+
+/**
  * Implements hook_node_info().
  */
 function bf_cause_node_info() {

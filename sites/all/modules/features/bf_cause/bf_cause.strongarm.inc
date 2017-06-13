@@ -41,6 +41,9 @@ function bf_cause_strongarm() {
       'token' => array(
         'custom_settings' => FALSE,
       ),
+      'researcher' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
