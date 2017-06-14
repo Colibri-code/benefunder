@@ -23,7 +23,8 @@ function bf_team_default_page_manager_pages() {
         'name' => 'role',
         'settings' => array(
           'rids' => array(
-            0 => 5,
+            0 => 3,
+            1 => 5,
           ),
         ),
         'context' => 'logged-in-user',
