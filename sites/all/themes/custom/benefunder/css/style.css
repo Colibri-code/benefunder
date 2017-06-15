@@ -11649,8 +11649,8 @@ form#giving-proposal-node-form {
   height: 100px;
   text-align: center;
   padding: 15px 0;
-  -ms-flex: 1 1 0;
-  flex: 1 1 0;
+  -ms-flex: 1 1 0%;
+  flex: 1 1 0%;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-flow: column;
@@ -11723,6 +11723,7 @@ form#giving-proposal-node-form {
   top: -100px;
   margin-right: 5%;
   min-width: 398px;
+  max-width: 398px;
 }
 .bio__right-side {
   margin-left: auto;
