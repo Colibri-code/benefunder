@@ -17,13 +17,6 @@
   <script src="https://use.typekit.net/jxh1lif.js"></script>
   <script>try{Typekit.load({ async: true });}catch(e){}</script>
   <style type="text/css">
-    html {
-      height: 100%;
-    }
-    body {
-      height: 100%;
-      margin: 0;
-    }
     img {
       max-width: 100%;
       height: auto;
@@ -157,6 +150,7 @@
 
 <body>
 
+<div class="print-area">
 <div class="background">
   <div class="pdf_title"><?php print $title ?></div>
   <div class="pdf_info">
@@ -213,6 +207,7 @@
       Copyright &copy; 2017 / Benefunder 4790 Eastgate Mall, Ste 125, San Diego, CA 92121 / info@benefunder.com / (858) 215-1136
     </div>
   </div>
+</div>
 </div>
 </body>
 </html>
