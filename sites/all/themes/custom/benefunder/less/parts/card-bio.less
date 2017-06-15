@@ -1,8 +1,15 @@
 .card-bio{
-  float: left;
   margin: 0 0 60px 0;
   padding: 0 20px;
-  width: calc(100% / 3);
+  -ms-flex: 1 0 33%;
+  flex: 1 0 33%;
+  max-width: 33%;
+  //width: calc(100% / 3);
+  display: -ms-flexbox;
+  display: flex;
+
+  -ms-flex-flow: column nowrap;
+  flex-flow: column nowrap;
   &:nth-child(3){
     margin-right: 0;
   }
@@ -85,9 +92,15 @@
   &__bottom{
     background-color: #999933;
     height: 100px;
-    display: block;
     text-align: center;
     padding: 15px 0;
+    -ms-flex: 1 1 0;
+    flex: 1 1 0;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-flow: column;
+    flex-flow: column;
+    justify-content: center;
   }
   &__title{
     color: #ffffff;
@@ -145,12 +158,12 @@
 
 @media screen and (max-width: @screen-sm-max) {
   .card-bio {
-    width: calc(100% / 2);
+    max-width: 50%;
   }
 }
 @media screen and (max-width: 400px) {
   .card-bio {
-    width: 100%;
+    max-width: 100%;
     margin: 0 0 30px;
   }
 }

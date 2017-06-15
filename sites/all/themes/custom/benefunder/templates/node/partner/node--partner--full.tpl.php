@@ -90,11 +90,13 @@
     <div class="bio__left-side">
       <div class="card-bio bio__card">
         <div class="card-bio__top">
-          <?php if(!empty($content['field_partner_logo'])): ?>
-            <div class="card-bio__avatar">
+          <div class="card-bio__avatar">
+            <?php if(!empty($content['field_partner_logo'])): ?>
               <?php print render($content['field_partner_logo']); ?>
-            </div>
-          <?php endif; ?>
+            <?php else: ?>
+              <img class="img-responsive" src="/<?php print drupal_get_path('theme', 'benefunder'); ?>/media/images/partner_logo_placeholder.png" alt="">
+            <?php endif; ?>
+          </div>
         </div>
         <div class="card-bio__bottom bio__card-bottom">
           <div class="card-bio__title"><?php print $title; ?></div>
