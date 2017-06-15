@@ -11646,7 +11646,6 @@ form#giving-proposal-node-form {
 }
 .card-bio__bottom {
   background-color: #999933;
-  height: 100px;
   text-align: center;
   padding: 15px 0;
   -ms-flex: 1 1 0%;
@@ -11671,9 +11670,6 @@ form#giving-proposal-node-form {
   font-size: 18px;
   font-weight: 300;
   line-height: 36px;
-}
-.card-bio--partner .card-bio__bottom {
-  height: 70px;
 }
 .card-bio--partner .card-bio__title {
   margin-bottom: 0;
