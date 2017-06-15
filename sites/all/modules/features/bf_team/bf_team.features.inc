@@ -8,6 +8,9 @@
  * Implements hook_ctools_plugin_api().
  */
 function bf_team_ctools_plugin_api($module = NULL, $api = NULL) {
+  if ($module == "page_manager" && $api == "pages_default") {
+    return array("version" => "1");
+  }
   if ($module == "strongarm" && $api == "strongarm") {
     return array("version" => "1");
   }
@@ -36,6 +39,21 @@ function bf_team_image_default_styles() {
           'width' => 300,
           'height' => 300,
           'anchor' => 'center-center',
+        ),
+        'weight' => 1,
+      ),
+    ),
+  );
+
+  // Exported image style: team_member_teaser.
+  $styles['team_member_teaser'] = array(
+    'label' => 'team member - teaser',
+    'effects' => array(
+      9 => array(
+        'name' => 'image_scale_and_crop',
+        'data' => array(
+          'width' => 398,
+          'height' => 300,
         ),
         'weight' => 1,
       ),

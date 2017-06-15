@@ -24,6 +24,61 @@ function bf_events_views_api($module = NULL, $api = NULL) {
 }
 
 /**
+ * Implements hook_image_default_styles().
+ */
+function bf_events_image_default_styles() {
+  $styles = array();
+
+  // Exported image style: 100x50.
+  $styles['100x50'] = array(
+    'label' => '100x50',
+    'effects' => array(
+      22 => array(
+        'name' => 'image_scale',
+        'data' => array(
+          'width' => 100,
+          'height' => '',
+          'upscale' => 0,
+        ),
+        'weight' => 1,
+      ),
+    ),
+  );
+
+  // Exported image style: 640x320.
+  $styles['640x320'] = array(
+    'label' => '640x320',
+    'effects' => array(
+      9 => array(
+        'name' => 'image_scale_and_crop',
+        'data' => array(
+          'width' => 640,
+          'height' => 320,
+        ),
+        'weight' => 1,
+      ),
+    ),
+  );
+
+  // Exported image style: h580.
+  $styles['h580'] = array(
+    'label' => 'h580',
+    'effects' => array(
+      13 => array(
+        'name' => 'image_scale_and_crop',
+        'data' => array(
+          'width' => 1920,
+          'height' => 580,
+        ),
+        'weight' => 1,
+      ),
+    ),
+  );
+
+  return $styles;
+}
+
+/**
  * Implements hook_node_info().
  */
 function bf_events_node_info() {
