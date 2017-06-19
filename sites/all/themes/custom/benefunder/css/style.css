@@ -11526,10 +11526,15 @@ form#giving-proposal-node-form {
   }
 }
 .card-bio {
-  float: left;
   margin: 0 0 60px 0;
   padding: 0 20px;
-  width: calc(33.33333333%);
+  -ms-flex: 1 0 33%;
+  flex: 1 0 33%;
+  max-width: 33%;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: column nowrap;
+  flex-flow: column nowrap;
 }
 .card-bio:nth-child(3) {
   margin-right: 0;
@@ -11641,10 +11646,15 @@ form#giving-proposal-node-form {
 }
 .card-bio__bottom {
   background-color: #999933;
-  height: 100px;
-  display: block;
   text-align: center;
   padding: 15px 0;
+  -ms-flex: 1 1 0%;
+  flex: 1 1 0%;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: column;
+  flex-flow: column;
+  justify-content: center;
 }
 .card-bio__title {
   color: #ffffff;
@@ -11660,9 +11670,6 @@ form#giving-proposal-node-form {
   font-size: 18px;
   font-weight: 300;
   line-height: 36px;
-}
-.card-bio--partner .card-bio__bottom {
-  height: 70px;
 }
 .card-bio--partner .card-bio__title {
   margin-bottom: 0;
@@ -11688,12 +11695,12 @@ form#giving-proposal-node-form {
 }
 @media screen and (max-width: 991px) {
   .card-bio {
-    width: calc(50%);
+    max-width: 50%;
   }
 }
 @media screen and (max-width: 400px) {
   .card-bio {
-    width: 100%;
+    max-width: 100%;
     margin: 0 0 30px;
   }
 }
@@ -11704,6 +11711,7 @@ form#giving-proposal-node-form {
 .bio__content {
   padding: 0 45px;
   top: -100px;
+  display: -ms-flexbox;
   display: flex;
 }
 .bio__left-side {
@@ -11711,6 +11719,7 @@ form#giving-proposal-node-form {
   top: -100px;
   margin-right: 5%;
   min-width: 398px;
+  max-width: 398px;
 }
 .bio__right-side {
   margin-left: auto;
@@ -11885,7 +11894,7 @@ form#giving-proposal-node-form {
 }
 .bio__card {
   margin: 0;
-  width: 100%;
+  max-width: 100%;
   padding: 0;
 }
 .bio--partner .bio__img {
@@ -11916,6 +11925,7 @@ form#giving-proposal-node-form {
   }
   .bio__content {
     position: relative;
+    -ms-flex-flow: column;
     flex-flow: column;
   }
   .bio__left-side {
@@ -12006,6 +12016,12 @@ form#giving-proposal-node-form {
 }
 .bio-group__content:after {
   clear: both;
+}
+.bio-list {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
 }
 .card-researcher {
   text-align: center;

@@ -6,6 +6,7 @@
   &__content{
     padding: 0 45px;
     top: -100px;
+    display: -ms-flexbox;
     display: flex;
   }
   &__left-side{
@@ -13,6 +14,7 @@
     top: -100px;
     margin-right: 5%;
     min-width: 398px;
+    max-width: 398px;
   }
   &__right-side{
     margin-left: auto;
@@ -140,7 +142,7 @@
   }
   &__card {
     margin: 0;
-    width: 100%;
+    max-width: 100%;
     padding: 0;
   }
 }
@@ -185,6 +187,7 @@
     }
     &__content{
       position: relative;
+      -ms-flex-flow: column;
       flex-flow: column;
     }
     &__left-side{

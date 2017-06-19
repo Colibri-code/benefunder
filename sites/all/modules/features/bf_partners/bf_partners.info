@@ -15,6 +15,7 @@ features[features_api][] = api:2
 features[field_base][] = field_partner_logo
 features[field_instance][] = node-partner-body
 features[field_instance][] = node-partner-field_partner_logo
+features[image][] = partners_full
 features[image][] = partners_teaser
 features[node][] = partner
 features[variable][] = field_bundle_settings_node__partner

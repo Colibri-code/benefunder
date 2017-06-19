@@ -33,11 +33,12 @@ function bf_events_image_default_styles() {
   $styles['100x50'] = array(
     'label' => '100x50',
     'effects' => array(
-      10 => array(
-        'name' => 'image_scale_and_crop',
+      22 => array(
+        'name' => 'image_scale',
         'data' => array(
           'width' => 100,
-          'height' => 50,
+          'height' => '',
+          'upscale' => 0,
         ),
         'weight' => 1,
       ),
