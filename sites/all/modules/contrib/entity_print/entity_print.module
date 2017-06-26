@@ -54,7 +54,7 @@ function entity_print_menu() {
  *   TRUE if they have access otherwise FALSE.
  */
 function entity_print_access($entity_type, $entity_id) {
-
+  return TRUE;
   // Check for overall entity access permission.
   if (user_access('bypass entity print access')) {
     return entity_print_view_access($entity_type, $entity_id);
@@ -101,7 +101,9 @@ function entity_print_entity_to_pdf($entity_type, $entity_id) {
     $library = libraries_load('phpwkhtmltopdf');
     if (!empty($library['loaded'])) {
 
-      $pdf = new WkHtmlToPdf(array('binary' => variable_get('entity_print_wkhtmltopdf', '/usr/local/bin/wkhtmltopdf')));
+
+      $pdf = new WkHtmlToPdf(array('binary' => variable_get('entity_print_wkhtmltopdf', '/usr/local/bin/wkhtmltopdf'), 'tmpDir' => '/home/nike/web/bf/sites/default/files'));
+
       $entity = reset($entities);
       $html = _entity_print_get_generated_html($entity_type, $entity);
 

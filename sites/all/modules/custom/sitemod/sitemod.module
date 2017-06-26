@@ -247,7 +247,8 @@ function sitemod_preprocess_entity_print(&$variables) {
 function sitemod_entity_print_pdf_alter(WkHtmlToPdf $pdf, $entity_type, $entity) {
   $options = array(
     'ignoreWarnings' => TRUE,
-    'no-outline',
+//    'no-outline',
+    'ignore-load-errors',
     'margin-top'    => 10,
     'margin-right'  => 5,
     'margin-bottom' => 0,
