@@ -49,12 +49,13 @@ function create_proposal_form_alter(&$form, &$form_state, $form_id) {
 
     // Add descriptions to Research Stages field.
     foreach ($form['field_donor_profile'][LANGUAGE_NONE] as $key => $profile) {
-      foreach ($profile['field_research_stages'][LANGUAGE_NONE]['#options'] as $tid => $option) {
-        $term = taxonomy_term_load($tid);
-        $form['field_donor_profile'][LANGUAGE_NONE][$key]['field_research_stages'][LANGUAGE_NONE]['#options'][$tid] .= ' - <i>' . $term->description . '</i>';
+      if (is_int($key)) {
+        foreach ($profile['field_research_stages'][LANGUAGE_NONE]['#options'] as $tid => $option) {
+          $term = taxonomy_term_load($tid);
+          $form['field_donor_profile'][LANGUAGE_NONE][$key]['field_research_stages'][LANGUAGE_NONE]['#options'][$tid] .= ' - <i>' . $term->description . '</i>';
+        }
       }
     }
-
   }
 }
 
