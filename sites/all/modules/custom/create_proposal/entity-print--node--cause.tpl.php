@@ -22,12 +22,15 @@
       height: auto;
     }
     .background {
+      display: flex;
+      flex-flow: column nowrap;
       background-image: url(<?php print $background ?>);
       height: 290px;
       margin: 0;
       background-repeat: no-repeat;
       background-size: cover;
       overflow: hidden;
+      position: relative;
     }
     .pdf_title {
       font-family: 'raleway', "Arial", "Helvetica", "Verdana", "sans-serif";
@@ -151,16 +154,17 @@
 <body>
 
 <div class="print-area">
-<div class="background">
-  <div class="pdf_title"><?php print $title ?></div>
-  <div class="pdf_info">
-    <div class="pdf_media">
-      <?php if (!empty($picture)): ?><div class="pdf_picture"><img src="<?php print $picture ?>"/></div><?php endif; ?>
-    </div>
-    <div class="pdf_info_block">
-      <div class="pdf_name"><?php print $name ?></div>
-      <div class="pdf_positions">
-        <?php if (!empty($academic_positions)): ?><div class="pdf_position_text"><?php print $academic_positions ?></div><?php endif; ?>
+  <div class="background">
+    <div class="pdf_title"><?php print 'Wearable Healthcare Wearable Healthcare Wearable Wearable Healthcare Wearable Healthcare Wearable Healthcare Wearable HealthcareWearable HealthcareWearable HealthcareWearable HealthcareWearable' ?></div>
+    <div class="pdf_info">
+      <div class="pdf_media">
+        <?php if (!empty($picture)): ?><div class="pdf_picture"><img src="<?php print $picture ?>"/></div><?php endif; ?>
+      </div>
+      <div class="pdf_info_block">
+        <div class="pdf_name"><?php print $name ?></div>
+        <div class="pdf_positions">
+          <?php if (!empty($academic_positions)): ?><div class="pdf_position_text"><?php print $academic_positions ?></div><?php endif; ?>
+        </div>
       </div>
     </div>
   </div>
