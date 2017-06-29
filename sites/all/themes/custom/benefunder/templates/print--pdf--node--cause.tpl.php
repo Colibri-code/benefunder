@@ -103,11 +103,17 @@ $user_image = $user->picture;
       height: auto;
     }
     div.background {
+      display: flex;
+      flex-flow: column nowrap;
       background-image: url(<?php print $background ?>);
       height: 290px;
       margin: 0;
       background-repeat: no-repeat;
       background-size: cover;
+    }
+
+    div.pdf_info_inner{
+      align-self: baseline;
     }
     div.pdf_title {
       font-family: 'raleway', "Arial", "Helvetica", "Verdana", "sans-serif";
@@ -119,6 +125,7 @@ $user_image = $user->picture;
       background-color: #999999;
     }
     div.pdf_info {
+      display: flex;
       height: 184px;
       background-color: #1F99A4;
       opacity: 0.5;
@@ -264,17 +271,19 @@ $user_image = $user->picture;
 <body>
 
 <div class="background">
-  <div class="pdf_title"><?php print $title ?></div>
+  <div class="pdf_title">111<?php print $title ?></div>
   <div class="pdf_info">
-    <div class="pdf_media">
-      <?php if (!empty($affiliation_logo)): ?><div class="pdf_institution_logo"><?php print $affiliation_logo ?></div><?php endif; ?>
-      <?php if (!empty($picture)): ?><div class="pdf_picture"><?php print $picture ?></div><?php endif; ?>
-    </div>
-    <div class="pdf_info_block">
-      <div class="pdf_name"><?php print $name ?></div>
-      <div class="pdf_positions">
-        <?php if (!empty($post)): ?><div class="pdf_position_text"><?php print $post ?></div><?php endif; ?>
-        <?php if (!empty($affiliation)): ?><div class="pdf_affiliation_text"><?php print $affiliation ?></div><?php endif; ?>
+    <div class="pdf_info_inner">
+      <div class="pdf_media">
+        <?php if (!empty($affiliation_logo)): ?><div class="pdf_institution_logo"><?php print $affiliation_logo ?></div><?php endif; ?>
+        <?php if (!empty($picture)): ?><div class="pdf_picture"><?php print $picture ?></div><?php endif; ?>
+      </div>
+      <div class="pdf_info_block">
+        <div class="pdf_name"><?php print $name ?></div>
+        <div class="pdf_positions">
+          <?php if (!empty($post)): ?><div class="pdf_position_text"><?php print $post ?></div><?php endif; ?>
+          <?php if (!empty($affiliation)): ?><div class="pdf_affiliation_text"><?php print $affiliation ?></div><?php endif; ?>
+        </div>
       </div>
     </div>
   </div>

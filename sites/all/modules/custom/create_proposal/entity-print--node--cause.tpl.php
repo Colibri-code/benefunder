@@ -32,6 +32,11 @@
       overflow: hidden;
       position: relative;
     }
+
+    div.pdf_info_inner{
+      align-self: baseline;
+      display: flex;
+    }
     .pdf_title {
       font-family: 'raleway', "Arial", "Helvetica", "Verdana", "sans-serif";
       font-size: 28px;
@@ -44,6 +49,7 @@
       font-family: 'raleway', "Arial", "Helvetica", "Verdana", "sans-serif";
     }
     .pdf_info {
+      display: flex;
       height: 184px;
       background-color: rgba(9, 50, 97, 0.75);
       padding: 40px 40px 0;
@@ -69,7 +75,15 @@
       max-width: 100%;
     }
     .pdf_info_block {
-      margin-top: 25px;
+      color: #fff;
+      height: 130px;
+      padding-left: 20px;
+      vertical-align: bottom;
+    }
+
+    .limited-text{
+      overflow: hidden;
+      max-height: 335px;
     }
     .pdf_name {
       font-family: 'raleway', "Arial", "Helvetica", "Verdana", "sans-serif";
@@ -89,6 +103,7 @@
     }
     .pdf_body {
       padding: 20px 0;
+      position: relative;
     }
     .pdf_body_content {
       width: 47.5%;
@@ -116,6 +131,7 @@
       width: 47.5%;
       margin-left: 2.5%;
       float: left;
+      position: relative;
     }
     .pdf_awards {
       font-family: 'raleway', "Arial", "Helvetica", "Verdana", "sans-serif";
@@ -147,6 +163,11 @@
       font-family: 'raleway', "Arial", "Helvetica", "Verdana", "sans-serif";
       font-size: 8px;
       margin-top: 20px;
+      background: #fff none repeat scroll 0 0;
+      bottom: 0;
+      position: absolute;
+      right: 0;
+      left: 0;
     }
   </style>
 </head>
@@ -155,63 +176,78 @@
 
 <div class="print-area">
   <div class="background">
-    <div class="pdf_title"><?php print 'Wearable Healthcare Wearable Healthcare Wearable Wearable Healthcare Wearable Healthcare Wearable Healthcare Wearable HealthcareWearable HealthcareWearable HealthcareWearable HealthcareWearable' ?></div>
+    <div class="pdf_title"><?php print 'Wearable Healthcare Wearable Healthcare Wearable Wearable Healthcare Wearable' ?></div>
     <div class="pdf_info">
-      <div class="pdf_media">
-        <?php if (!empty($picture)): ?><div class="pdf_picture"><img src="<?php print $picture ?>"/></div><?php endif; ?>
-      </div>
-      <div class="pdf_info_block">
-        <div class="pdf_name"><?php print $name ?></div>
-        <div class="pdf_positions">
-          <?php if (!empty($academic_positions)): ?><div class="pdf_position_text"><?php print $academic_positions ?></div><?php endif; ?>
-        </div>
-      </div>
+<!--      <div class="pdf_info_inner">-->
+<!--        <div class="pdf_media">-->
+<!--          --><?php //if (!empty($picture)): ?><!--<div class="pdf_picture"><img src="--><?php //print $picture ?><!--"/></div>--><?php //endif; ?>
+<!--        </div>-->
+<!--        <div class="pdf_info_block-wrapper">-->
+<!--          <div class="pdf_info_block">-->
+<!--            <div class="pdf_name">--><?php //print $name ?><!--</div>-->
+<!--            <div class="pdf_positions">-->
+<!--              --><?php //if (!empty($academic_positions)): ?><!--<div class="pdf_position_text"><p>--><?php //print strip_tags($academic_positions) ?><!--</p></div>--><?php //endif; ?>
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+      <table>
+        <tr>
+          <td><?php if (!empty($picture)): ?><span class="pdf_picture"><img src="<?php print $picture ?>"/></span><?php endif; ?></td>
+          <td class="pdf_info_block">
+            <span class="pdf_name"><?php print $name ?></span>
+            <span class="pdf_positions">
+              <?php if (!empty($academic_positions)): ?><span class="pdf_position_text"><p><?php print strip_tags($academic_positions) ?></p></span><?php endif; ?>
+            </span>
+          </td>
+        </tr>
+      </table>
     </div>
   </div>
-</div>
-<div class="pdf_body">
-  <div class="pdf_body_content">
-    <h3 class="header_title">Current Research</h3>
-    <div class="pdf_subtitle"><?php print $subtitle ?></div>
-    <div class="pdf_summary"><?php print $summary ?></div>
-    <a href="http://www.benefunder.com/<?php print $short_url ?>"><button class="btn read_more_btn">Read More at benefunder.com/<?php print $short_url ?></button></a>
-  </div>
-  <div class="pdf_body_content_right">
-    <?php if (!empty($affiliation)): ?>
-      <h3 class="header_title">Affiliation</h3>
-      <?php if (!empty($affiliation_logo)): ?>
-        <div class="pdf_affiliation_logo"><img src="<?php print $affiliation_logo ?>"/></div>
+  <div class="pdf_body">
+    <div class="pdf_body_content">
+      <h3 class="header_title">Current Research</h3>
+      <div class="pdf_subtitle"><?php print $subtitle ?></div>
+      <div class="pdf_summary"><?php print $summary ?></div>
+      <a href="http://www.benefunder.com/<?php print $short_url ?>"><button class="btn read_more_btn">Read More at benefunder.com/<?php print $short_url ?></button></a>
+    </div>
+    <div class="pdf_body_content_right">
+      <?php if (!empty($affiliation)): ?>
+        <h3 class="header_title">Affiliation</h3>
+        <?php if (!empty($affiliation_logo)): ?>
+          <div class="pdf_affiliation_logo"><img src="<?php print $affiliation_logo ?>"/></div>
+        <?php endif; ?>
+        <div class="pdf_awards"><?php print $affiliation ?></div>
       <?php endif; ?>
-      <div class="pdf_awards"><?php print $affiliation ?></div>
-    <?php endif; ?>
 
-    <?php if (!empty($education)): ?>
-      <h3 class="header_title">Education</h3>
-      <div class="pdf_awards"><?php print $education ?></div>
-    <?php endif; ?>
+      <?php if (!empty($education)): ?>
+        <h3 class="header_title">Education</h3>
+        <div class="pdf_awards"><?php print $education ?></div>
+      <?php endif; ?>
 
-    <?php if (!empty($awards)): ?>
-      <h3 class="header_title">Awards</h3>
-      <div class="pdf_awards"><?php print $awards ?></div>
-    <?php endif; ?>
+      <?php if (!empty($awards)): ?>
+        <h3 class="header_title">Awards</h3>
+        <div class="pdf_awards"><?php print $awards ?></div>
+      <?php endif; ?>
 
-    <?php if (!empty($research_areas)): ?>
-      <h3 class="header_title">Research Areas</h3>
-      <div class="pdf_awards"><?php print $research_areas ?></div>
-    <?php endif; ?>
+      <?php if (!empty($research_areas)): ?>
+        <h3 class="header_title">Research Areas</h3>
+        <div class="pdf_awards"><?php print $research_areas ?></div>
+      <?php endif; ?>
 
-    <?php if (!empty($contribution)): ?>
-      <h3 class="header_title">Funding Request</h3>
-      <div class="pdf_awards"><?php print $contribution ?></div>
-    <?php endif; ?>
+      <?php if (!empty($contribution)): ?>
+        <h3 class="header_title">Funding Request</h3>
+        <div class="pdf_awards limited-text"><?php print $contribution ?></div>
+      <?php endif; ?>
 
-    <hr size="1"/>
+      <div class="pdf_footer">
+        <hr size="1"/>
+        Copyright &copy; 2017 / Benefunder 4790 Eastgate Mall, Ste 125, San Diego, CA 92121 / info@benefunder.com / (858) 215-1136
+      </div>
 
-    <div class="pdf_footer">
-      Copyright &copy; 2017 / Benefunder 4790 Eastgate Mall, Ste 125, San Diego, CA 92121 / info@benefunder.com / (858) 215-1136
+
     </div>
   </div>
-</div>
 </div>
 </body>
 </html>
