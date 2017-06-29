@@ -89,7 +89,7 @@
     <div class="event__left-side">
       <div class="event__info-title"><?php print t('Event information'); ?></div>
       <div class="event__info-wrapper">
-        <?php if(!empty($content['field_venue_name']) || !empty($content['field_venue_address'])): ?>
+        <?php if(!empty($content['field_venue_name']) || !$venue_empty): ?>
           <div class="event__venue-label"><?php print t('Address'); ?></div>
           <div class="event__venue-name">
             <?php print drupal_render($content['field_venue_name']); ?>

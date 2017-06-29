@@ -85,11 +85,11 @@
     <a href="<?php print $node_url; ?>" class="card-event__title"><?php print $node->title; ?></a>
     <div class="card-event__info-wrapper">
       <div class="card-event__info-left">
-        <div class="card-event__venue">
-          <?php if(!empty($venue)): ?>
+        <?php if(!empty($venue)): ?>
+          <div class="card-event__venue">
             <?php print $venue; ?>
-          <?php endif; ?>
-        </div>
+          </div>
+        <?php endif; ?>
         <div class="card-event__date">
           <?php print drupal_render($content['field_event_date']); ?>  (PST)
         </div>
