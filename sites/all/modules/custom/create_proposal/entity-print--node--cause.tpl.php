@@ -176,7 +176,7 @@
 
 <div class="print-area">
   <div class="background">
-    <div class="pdf_title"><?php print 'Wearable Healthcare Wearable Healthcare Wearable Wearable Healthcare Wearable' ?></div>
+    <div class="pdf_title"><?php print $title; ?></div>
     <div class="pdf_info">
 <!--      <div class="pdf_info_inner">-->
 <!--        <div class="pdf_media">-->
