@@ -83,7 +83,7 @@
 
     .limited-text{
       overflow: hidden;
-      max-height: 335px;
+      max-height: 245px;
     }
     .pdf_name {
       font-family: 'raleway', "Arial", "Helvetica", "Verdana", "sans-serif";
@@ -127,6 +127,12 @@
       line-height: 15px;
       font-weight: normal;
     }
+    .pdf_summary * {
+      font-family: 'raleway', "Arial", "Helvetica", "Verdana", "sans-serif" !important;
+      font-size: 10px !important;
+      line-height: 15px !important;
+      font-weight: normal !important;
+    }
     .pdf_body_content_right {
       width: 47.5%;
       margin-left: 2.5%;
@@ -138,6 +144,12 @@
       font-size: 10px;
       line-height: 15px;
       font-weight: normal;
+    }
+    .pdf_awards * {
+      font-family: 'raleway', "Arial", "Helvetica", "Verdana", "sans-serif" !important;
+      font-size: 10px !important;
+      line-height: 15px !important;
+      font-weight: normal !important;
     }
     .pdf_awards ul {
       -webkit-padding-start: 0;
@@ -163,11 +175,6 @@
       font-family: 'raleway', "Arial", "Helvetica", "Verdana", "sans-serif";
       font-size: 8px;
       margin-top: 20px;
-      background: #fff none repeat scroll 0 0;
-      bottom: 0;
-      position: absolute;
-      right: 0;
-      left: 0;
     }
   </style>
 </head>

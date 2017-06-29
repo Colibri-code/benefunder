@@ -31,12 +31,12 @@ function bf_events_image_default_styles() {
 
   // Exported image style: 100x50.
   $styles['100x50'] = array(
-    'label' => '100x50',
+    'label' => 'h50',
     'effects' => array(
       22 => array(
         'name' => 'image_scale',
         'data' => array(
-          'width' => 100,
+          'width' => 50,
           'height' => '',
           'upscale' => 0,
         ),
