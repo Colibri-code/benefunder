@@ -202,26 +202,36 @@ function sitemod_preprocess_entity_print(&$variables) {
     }
   }
   if (!empty($academic_positions)) {
-    $variables['academic_positions'] = implode('<br>', $academic_positions);
+    $variables['academic_positions'] = implode(' | ', $academic_positions);
   }
 
   // Awards.
-  $awards = array();
-  foreach ($node_wrapper->field_awards as $award) {
-    $awards[] = $award->field_award_title->value();
+  $awards = $awards_list = array();
+  if($awards_list = $node_wrapper->field_awards->value()){
+    foreach (array_slice($awards_list, 0, 5) as $award) {
+      $awards[] = $award->wrapper()->field_award_title->value();
+    }
+  }
+  if(count($awards_list > 5)){
+    $awards[] = t('and !more more.',  array('!more' => count(array_slice($awards_list, 5))));
   }
   if (!empty($awards)) {
     $variables['awards'] = theme('item_list', array('items' => $awards));
   }
 
   // Education.
-  $education = array();
-  foreach ($node_wrapper->field_education as $degree) {
-    $education[] = strtr($degree->value()['value'], array(
-      '<br>' => ',',
-      '<br/>' => ',',
-      '<br />' => ',',
-    ));
+  $education = $education_list =  array();
+  if($education_list = $node_wrapper->field_education->value()) {
+    foreach (array_slice($education_list, 0, 5) as $degree) {
+      $education[] = strtr($degree['value'], array(
+        '<br>' => ',',
+        '<br/>' => ',',
+        '<br />' => ',',
+      ));
+    }
+    if(count($education_list) > 5){
+      $education[] = t('and !more more.',  array('!more' => count(array_slice($education_list, 5))));
+    }
   }
   if (!empty($education)) {
     $variables['education'] = theme('item_list', array('items' => $education));

@@ -221,6 +221,16 @@ function benefunder_preprocess_node(&$variables) {
         $variables['event_type_modifier'] = drupal_html_class($ev_type);
       }
       if($variables['view_mode'] == 'full'){
+        $variables['venue_empty'] = FALSE;
+        if($address = $node_w->field_venue_address->value()){
+          $address = implode($address);
+          if($address == variable_get('site_default_country', '')){
+            $variables['venue_empty'] = TRUE;
+          }
+
+        }
+
+
         if(!empty($variables['content']['field_related_causes'])){
           $r_causes = &$variables['content']['field_related_causes'];
           foreach(element_children($variables['content']['field_related_causes']) as $ch){

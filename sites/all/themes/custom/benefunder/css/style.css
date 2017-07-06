@@ -6782,6 +6782,7 @@ p {
   margin: 0;
 }
 .container-fluid #header-main-navigation .navbar-nav > li > a {
+  padding: 10px 9px;
   transition: all 0.3s linear 0s;
 }
 @media (min-width: 992px) {
@@ -11558,6 +11559,11 @@ form#giving-proposal-node-form {
 }
 .card-bio:hover .card-bio__links {
   display: block;
+}
+.card-bio:active,
+.card-bio:focus {
+  color: #999933;
+  text-decoration: none;
 }
 .card-bio__overlay {
   position: absolute;
