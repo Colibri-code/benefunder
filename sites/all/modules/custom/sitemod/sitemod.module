@@ -25,7 +25,7 @@ function sitemod_form_alter(&$form, &$form_state, $form_id) {
       break;
 
     case 'giving_proposal_node_form':
-      $form['#attached']['js'][] = drupal_get_path('module', 'bf_giving_proposal') . '/total-allocations.js';
+//      $form['#attached']['js'][] = drupal_get_path('module', 'bf_giving_proposal') . '/total-allocations.js';
       $lang = $form['language']['#value'];
 
       // Private fields.
