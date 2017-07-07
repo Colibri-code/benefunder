@@ -16,10 +16,10 @@ function bf_giving_proposal_field_default_field_instances() {
     'bundle' => 'field_cause',
     'default_value' => array(
       0 => array(
-        'value' => 25,
+        'value' => 0,
         'container' => array(
-          'max_value' => 250,
-          'min_value' => 25,
+          'max_value' => 100,
+          'min_value' => 0,
         ),
       ),
     ),
@@ -45,9 +45,9 @@ function bf_giving_proposal_field_default_field_instances() {
     'label' => 'Allocation',
     'required' => 0,
     'settings' => array(
-      'max' => 250,
-      'min' => 25,
-      'prefix' => '$',
+      'max' => 100,
+      'min' => 0,
+      'prefix' => '',
       'suffix' => '',
       'user_register_form' => FALSE,
     ),
@@ -63,10 +63,10 @@ function bf_giving_proposal_field_default_field_instances() {
           'display_bubble_format' => '%{value}%',
           'display_ignore_button' => 0,
           'display_values' => 1,
-          'display_values_format' => '$%{value}%K',
-          'group' => '',
+          'display_values_format' => '%{value}%%',
+          'group' => 'allocations',
           'group_master' => 0,
-          'group_type' => '',
+          'group_type' => 'total',
           'hide_inputs' => 1,
           'hide_slider_handle_when_no_value' => 0,
           'multi_value' => 0,
@@ -77,7 +77,7 @@ function bf_giving_proposal_field_default_field_instances() {
           'range' => 0,
           'slider_length' => '',
           'slider_style' => 'wild-blue-yonder',
-          'step' => 5,
+          'step' => 1,
         ),
       ),
       'type' => 'sliderfield',
@@ -96,6 +96,7 @@ function bf_giving_proposal_field_default_field_instances() {
         'label' => 'above',
         'module' => 'entityreference',
         'settings' => array(
+          'bypass_access' => FALSE,
           'link' => FALSE,
         ),
         'type' => 'entityreference_label',
@@ -225,7 +226,7 @@ function bf_giving_proposal_field_default_field_instances() {
     'ds_extras_field_template' => '',
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_city_state',
-    'label' => 'City & State',
+    'label' => 'Hometown',
     'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -237,7 +238,7 @@ function bf_giving_proposal_field_default_field_instances() {
         'available_countries' => array(
           'US' => 'US',
         ),
-        'default_country' => 'site_default',
+        'default_country' => 'US',
         'format_handlers' => array(
           'address' => 'address',
           'address-hide-postal-code' => 'address-hide-postal-code',
@@ -398,7 +399,7 @@ function bf_giving_proposal_field_default_field_instances() {
     'bundle' => 'field_donor_profile',
     'default_value' => array(
       0 => array(
-        'value' => 'Self',
+        'value' => 'Client',
       ),
     ),
     'deleted' => 0,
@@ -426,7 +427,7 @@ function bf_giving_proposal_field_default_field_instances() {
       'module' => 'select_or_other',
       'settings' => array(
         'apply_chosen' => '',
-        'available_options' => 'Self
+        'available_options' => 'Client
 Parent
 Child
 Spouse
@@ -1245,6 +1246,7 @@ Family',
   // 'node-giving_proposal-field_date_of_client_meeting'.
   $field_instances['node-giving_proposal-field_date_of_client_meeting'] = array(
     'bundle' => 'giving_proposal',
+    'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -1293,7 +1295,7 @@ Family',
         'text_parts' => array(),
         'year_range' => '-3:+3',
       ),
-      'type' => 'date_popup',
+      'type' => 'date_select',
       'weight' => 79,
     ),
   );
@@ -1380,6 +1382,54 @@ Family',
       ),
       'type' => 'text_textfield',
       'weight' => 77,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'node-giving_proposal-field_distribution_percentage'.
+  $field_instances['node-giving_proposal-field_distribution_percentage'] = array(
+    'bundle' => 'giving_proposal',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 2,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_decimal',
+        'weight' => 73,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'ds_extras_field_template' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_distribution_percentage',
+    'label' => 'Distribution Percentage',
+    'required' => 0,
+    'settings' => array(
+      'max' => 100,
+      'min' => 0,
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 84,
     ),
   );
 
@@ -1911,6 +1961,7 @@ Corporation',
         'label' => 'above',
         'module' => 'entityreference',
         'settings' => array(
+          'bypass_access' => FALSE,
           'link' => FALSE,
         ),
         'type' => 'entityreference_label',
@@ -2198,6 +2249,53 @@ Corporation',
     ),
   );
 
+  // Exported field_instance: 'node-giving_proposal-field_spend_down_period'.
+  $field_instances['node-giving_proposal-field_spend_down_period'] = array(
+    'bundle' => 'giving_proposal',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 2,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_decimal',
+        'weight' => 74,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'ds_extras_field_template' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_spend_down_period',
+    'label' => 'Spend Down Period',
+    'required' => 0,
+    'settings' => array(
+      'max' => '',
+      'min' => 0,
+      'prefix' => '',
+      'suffix' => 'year|years',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 85,
+    ),
+  );
+
   // Exported field_instance: 'node-giving_proposal-field_vehicle_name'.
   $field_instances['node-giving_proposal-field_vehicle_name'] = array(
     'bundle' => 'giving_proposal',
@@ -2325,19 +2423,23 @@ Corporation',
   );
 
   // Exported field_instance:
-  // 'node-giving_proposal-field_what_is_the_intended_distr'.
-  $field_instances['node-giving_proposal-field_what_is_the_intended_distr'] = array(
+  // 'node-giving_proposal-field_what_is_your_long_term_int'.
+  $field_instances['node-giving_proposal-field_what_is_your_long_term_int'] = array(
     'bundle' => 'giving_proposal',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => 'Annual Distribution Percentage',
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'text',
+        'module' => 'list',
         'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 48,
+        'type' => 'list_default',
+        'weight' => 72,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -2348,20 +2450,19 @@ Corporation',
     ),
     'ds_extras_field_template' => '',
     'entity_type' => 'node',
-    'field_name' => 'field_what_is_the_intended_distr',
-    'label' => 'What is the intended distribution (%) or spend down period?',
+    'field_name' => 'field_what_is_your_long_term_int',
+    'label' => 'What is your long term intent with the account?',
     'required' => 0,
     'settings' => array(
-      'text_processing' => 0,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
       'active' => 1,
-      'module' => 'text',
+      'module' => 'options',
       'settings' => array(
-        'size' => 60,
+        'apply_chosen' => '',
       ),
-      'type' => 'text_textfield',
+      'type' => 'options_select',
       'weight' => 83,
     ),
   );
@@ -2420,7 +2521,6 @@ Corporation',
   t('Approved by Client, ready to execute');
   t('Cause');
   t('Cause Markup');
-  t('City & State');
   t('Client Feedback');
   t('Comments & Feedback from Client ');
   t('DAF Disbursement Confirmed');
@@ -2429,6 +2529,7 @@ Corporation',
   t('Date of client meeting');
   t('Disbursement Frequency');
   t('Disbursement Tracking Number');
+  t('Distribution Percentage');
   t('Does the family currently have a philanthropic advisor/consultant?');
   t('Does the family have an established mission/vision statement for philanthropy?');
   t('Does the family have an existing charitable vehicle?');
@@ -2440,6 +2541,7 @@ Corporation',
   t('Giving Proposal');
   t('Giving Vehicle Name');
   t('Giving Vehicle Type');
+  t('Hometown');
   t('How does the client plan on funding the account?');
   t('How many hours per year did the family spend volunteering in the past?');
   t('If you add other family members, you may add a description like spouse, parent, child, etc.');
@@ -2457,6 +2559,7 @@ Corporation',
   t('Research Stages');
   t('Signature Request ID');
   t('Signer Emails');
+  t('Spend Down Period');
   t('Status');
   t('The legal name of the entity or fund.
 ');
@@ -2465,8 +2568,8 @@ Corporation',
   t('What does the client like/dislike about their current giving structure and/or process?');
   t('What is the anticipated annual contribution?');
   t('What is the estimated value of planned initial contribution?');
-  t('What is the intended distribution (%) or spend down period?');
   t('What is the source of funding for this account?');
+  t('What is your long term intent with the account?');
   t('What is your primary motivation behind your philanthropy?');
   t('What organizations has the client/family given to in the past?');
   t('What problems are you most interested in solving?');

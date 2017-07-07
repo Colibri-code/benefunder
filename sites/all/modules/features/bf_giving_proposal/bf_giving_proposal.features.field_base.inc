@@ -253,7 +253,7 @@ function bf_giving_proposal_field_default_field_bases() {
 <div class="full-search"><a class="btn btn-purple" href="/search/site" target="_blank">Full Search</a></div>
 
 <hr class="text-break" />
-<div class="total-allocation"><input class="text-full form-text" id="total-allocations" maxlength="255" name="total_allocations" size="30" type="text" /><label class="total-allocations-label" for="total-allocations">Total Allocations</label></div>
+<!--<div class="total-allocation"><input class="text-full form-text" id="total-allocations" maxlength="255" name="total_allocations" size="30" type="text" /><label class="total-allocations-label" for="total-allocations">Total Allocations</label></div>-->
 
 <div class="cause-detail-text">Select a Cause, once selected that Cause will appear on the list below. You may select the level of giving and the box will show the total allocations selected.</div>
 ',
@@ -429,7 +429,7 @@ function bf_giving_proposal_field_default_field_bases() {
       'allowed_values' => array(
         'Liquidity Event' => 'Liquidity Event',
         'Inheritance' => 'Inheritance',
-        'Annual Tax Planning' => 'Annual Tax Planning',
+        'Annual Planning' => 'Annual Planning',
       ),
       'allowed_values_function' => '',
       'profile2_private' => FALSE,
@@ -597,6 +597,24 @@ function bf_giving_proposal_field_default_field_bases() {
     ),
     'translatable' => 0,
     'type' => 'text',
+  );
+
+  // Exported field_base: 'field_distribution_percentage'.
+  $field_bases['field_distribution_percentage'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_distribution_percentage',
+    'indexes' => array(),
+    'locked' => 0,
+    'module' => 'number',
+    'settings' => array(
+      'decimal_separator' => '.',
+      'profile2_private' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'number_float',
   );
 
   // Exported field_base: 'field_does_the_family_currently_'.
@@ -921,6 +939,7 @@ function bf_giving_proposal_field_default_field_bases() {
         'Humanities' => 'Humanities',
         'Environment' => 'Environment',
         'Aging, Wellness & Disease' => 'Aging, Wellness & Disease',
+        'Education' => 'Education',
       ),
       'allowed_values_function' => '',
       'profile2_private' => FALSE,
@@ -1268,6 +1287,24 @@ function bf_giving_proposal_field_default_field_bases() {
     'type' => 'text',
   );
 
+  // Exported field_base: 'field_spend_down_period'.
+  $field_bases['field_spend_down_period'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_spend_down_period',
+    'indexes' => array(),
+    'locked' => 0,
+    'module' => 'number',
+    'settings' => array(
+      'decimal_separator' => '.',
+      'profile2_private' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'number_float',
+  );
+
   // Exported field_base: 'field_vehicle_name'.
   $field_bases['field_vehicle_name'] = array(
     'active' => 1,
@@ -1332,26 +1369,30 @@ function bf_giving_proposal_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_what_is_the_intended_distr'.
-  $field_bases['field_what_is_the_intended_distr'] = array(
+  // Exported field_base: 'field_what_is_your_long_term_int'.
+  $field_bases['field_what_is_your_long_term_int'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_what_is_the_intended_distr',
+    'field_name' => 'field_what_is_your_long_term_int',
     'indexes' => array(
-      'format' => array(
-        0 => 'format',
+      'value' => array(
+        0 => 'value',
       ),
     ),
     'locked' => 0,
-    'module' => 'text',
+    'module' => 'list',
     'settings' => array(
-      'max_length' => 255,
+      'allowed_values' => array(
+        'Annual Distribution Percentage' => 'Annual Distribution Percentage',
+        'Spend Down Period' => 'Spend Down Period',
+      ),
+      'allowed_values_function' => '',
       'profile2_private' => FALSE,
     ),
     'translatable' => 0,
-    'type' => 'text',
+    'type' => 'list_text',
   );
 
   // Exported field_base: 'field_what_is_your_primary_motiv'.
