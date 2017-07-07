@@ -216,11 +216,12 @@ return 0;';
   );
   $handler->display->display_options['filters']['field_aging_wellness_disease']['expose']['reduce'] = 0;
 
-  /* Display: Entity Reference View Widget */
-  $handler = $view->new_display('entityreference_view_widget', 'Entity Reference View Widget', 'entityreference_view_widget_1');
+  /* Display: Main Cause Widget */
+  $handler = $view->new_display('entityreference_view_widget', 'Main Cause Widget', 'entityreference_view_widget_1');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Choose Cause';
   $handler->display->display_options['defaults']['use_ajax'] = FALSE;
+  $handler->display->display_options['use_ajax'] = FALSE;
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'table';
   $handler->display->display_options['style_options']['columns'] = array(
@@ -268,6 +269,113 @@ return 0;';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
+
+  /* Display: Preliminary Cause Widget */
+  $handler = $view->new_display('entityreference_view_widget', 'Preliminary Cause Widget', 'entityreference_view_widget_3');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Choose Cause';
+  $handler->display->display_options['defaults']['use_ajax'] = FALSE;
+  $handler->display->display_options['use_ajax'] = FALSE;
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'table';
+  $handler->display->display_options['style_options']['columns'] = array(
+    'entityreference_view_widget' => 'entityreference_view_widget',
+    'title' => 'title',
+    'field_subtitle' => 'title',
+    'field_last_name' => 'field_last_name',
+    'field_research_area' => 'field_research_area',
+    'field_university_or_institution' => 'field_university_or_institution',
+  );
+  $handler->display->display_options['style_options']['default'] = '-1';
+  $handler->display->display_options['style_options']['info'] = array(
+    'entityreference_view_widget' => array(
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'title' => array(
+      'align' => '',
+      'separator' => '<br/>',
+      'empty_column' => 0,
+    ),
+    'field_subtitle' => array(
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_last_name' => array(
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_research_area' => array(
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_university_or_institution' => array(
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+  );
+  $handler->display->display_options['style_options']['sticky'] = TRUE;
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Entity Reference View Widget Checkbox: Indexed Content */
+  $handler->display->display_options['fields']['entityreference_view_widget']['id'] = 'entityreference_view_widget';
+  $handler->display->display_options['fields']['entityreference_view_widget']['table'] = 'search_api_index_cause_index_solr';
+  $handler->display->display_options['fields']['entityreference_view_widget']['field'] = 'entityreference_view_widget';
+  $handler->display->display_options['fields']['entityreference_view_widget']['label'] = '';
+  $handler->display->display_options['fields']['entityreference_view_widget']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['entityreference_view_widget']['ervw']['force_single'] = 0;
+  /* Field: Indexed Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'search_api_index_cause_index_solr';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = 'Cause';
+  $handler->display->display_options['fields']['title']['link_to_entity'] = 1;
+  /* Field: Indexed Content: Subtitle */
+  $handler->display->display_options['fields']['field_subtitle']['id'] = 'field_subtitle';
+  $handler->display->display_options['fields']['field_subtitle']['table'] = 'search_api_index_cause_index_solr';
+  $handler->display->display_options['fields']['field_subtitle']['field'] = 'field_subtitle';
+  /* Field: Indexed Content: Last Name */
+  $handler->display->display_options['fields']['field_last_name']['id'] = 'field_last_name';
+  $handler->display->display_options['fields']['field_last_name']['table'] = 'search_api_index_cause_index_solr';
+  $handler->display->display_options['fields']['field_last_name']['field'] = 'field_last_name';
+  $handler->display->display_options['fields']['field_last_name']['label'] = 'Name';
+  /* Field: Indexed Content: Research Area */
+  $handler->display->display_options['fields']['field_research_area']['id'] = 'field_research_area';
+  $handler->display->display_options['fields']['field_research_area']['table'] = 'search_api_index_cause_index_solr';
+  $handler->display->display_options['fields']['field_research_area']['field'] = 'field_research_area';
+  $handler->display->display_options['fields']['field_research_area']['link_to_entity'] = 0;
+  $handler->display->display_options['fields']['field_research_area']['view_mode'] = 'full';
+  $handler->display->display_options['fields']['field_research_area']['bypass_access'] = 0;
+  /* Field: Indexed Content: University or Institution */
+  $handler->display->display_options['fields']['field_university_or_institution']['id'] = 'field_university_or_institution';
+  $handler->display->display_options['fields']['field_university_or_institution']['table'] = 'search_api_index_cause_index_solr';
+  $handler->display->display_options['fields']['field_university_or_institution']['field'] = 'field_university_or_institution';
+  /* Field: Indexed Content: Jumbotron Video */
+  $handler->display->display_options['fields']['field_jumbotron_video']['id'] = 'field_jumbotron_video';
+  $handler->display->display_options['fields']['field_jumbotron_video']['table'] = 'search_api_index_cause_index_solr';
+  $handler->display->display_options['fields']['field_jumbotron_video']['field'] = 'field_jumbotron_video';
+  $handler->display->display_options['fields']['field_jumbotron_video']['label'] = 'Video';
+  $handler->display->display_options['fields']['field_jumbotron_video']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_jumbotron_video']['settings'] = array(
+    'gallery_style' => 'all_items',
+    'thumbnail_field' => 'field_jumbotron_video',
+    'thumbnail_style' => 'magnific_popup_thumbnail',
+  );
+  /* Field: Indexed Content: Node ID */
+  $handler->display->display_options['fields']['nid']['id'] = 'nid';
+  $handler->display->display_options['fields']['nid']['table'] = 'search_api_index_cause_index_solr';
+  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid']['label'] = '';
+  $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['nid']['link_to_entity'] = 0;
   $export['cause_chooser_fulltext'] = $view;
 
   return $export;
