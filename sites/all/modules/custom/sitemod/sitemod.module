@@ -202,18 +202,21 @@ function sitemod_preprocess_entity_print(&$variables) {
     }
   }
   if (!empty($academic_positions)) {
-    $variables['academic_positions'] = implode(' | ', $academic_positions);
+    if (count($academic_positions) > 3) {
+      $academic_positions = array_slice($academic_positions, 0, 3);
+    }
+    $variables['academic_positions'] = $academic_positions;
   }
 
   // Awards.
   $awards = $awards_list = array();
-  if($awards_list = $node_wrapper->field_awards->value()){
+  if ($awards_list = $node_wrapper->field_awards->value()) {
     foreach (array_slice($awards_list, 0, 5) as $award) {
       $awards[] = $award->wrapper()->field_award_title->value();
     }
   }
-  if(count($awards_list > 5)){
-    $awards[] = t('and !more more.',  array('!more' => count(array_slice($awards_list, 5))));
+  if (count($awards_list) > 5) {
+    $awards[] = t('and !more more...',  array('!more' => count(array_slice($awards_list, 5))));
   }
   if (!empty($awards)) {
     $variables['awards'] = theme('item_list', array('items' => $awards));
@@ -221,7 +224,7 @@ function sitemod_preprocess_entity_print(&$variables) {
 
   // Education.
   $education = $education_list =  array();
-  if($education_list = $node_wrapper->field_education->value()) {
+  if ($education_list = $node_wrapper->field_education->value()) {
     foreach (array_slice($education_list, 0, 5) as $degree) {
       $education[] = strtr($degree['value'], array(
         '<br>' => ',',
@@ -229,7 +232,7 @@ function sitemod_preprocess_entity_print(&$variables) {
         '<br />' => ',',
       ));
     }
-    if(count($education_list) > 5){
+    if (count($education_list) > 5) {
       $education[] = t('and !more more.',  array('!more' => count(array_slice($education_list, 5))));
     }
   }
@@ -243,7 +246,7 @@ function sitemod_preprocess_entity_print(&$variables) {
     $categories[] = $area->label();
   }
   if (!empty($categories)) {
-    $variables['research_areas'] = theme('item_list', array('items' => $categories));
+    $variables['research_areas'] = implode(', ', $categories);
   }
 
   // Contribution.
