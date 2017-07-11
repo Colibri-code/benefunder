@@ -25,7 +25,7 @@
 
   <div class="form-group"><label for="email">Email</label><input id="request-info-email" class="form-control" id="email" maxlength="80" name="email" size="20" type="email" required placeholder="Email" /></div>
 
-  <div class="form-group"><label for="Notes">Notes</label><textarea id="00No000000EvSzS" name="Notes" type="text" wrap="soft" placeholder="Notes" class="form-control"></textarea></div>
+  <div class="form-group"><label for="Notes">Notes</label><textarea id="00No000000EvSzS" name="00No000000EvSzS" type="text" wrap="soft" placeholder="Notes" class="form-control"></textarea></div>
 
   <div class="form-group"><label for="phone">Phone</label><input id="request-info-phone" class="form-control" id="phone" maxlength="40" name="phone" size="20" type="text" placeholder="Phone (Optional)" /><button type="submit" class="btn btn-default">Send</button></div>
 
