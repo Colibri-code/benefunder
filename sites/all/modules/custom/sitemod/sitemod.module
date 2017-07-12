@@ -34,6 +34,9 @@ function sitemod_form_alter(&$form, &$form_state, $form_id) {
         unset($form['field_signature_request_id']);
       }
 
+      // Change default option from "- None -" to "New Client".
+      $form['field_proposal_for_client'][$lang]['#options']['_none'] = t('New Client');
+
       // Never user accessible, these fields will be generated.
       $form['field_giving_proposal']['#disabled'] = TRUE;
 //      $form['field_additional_documents']['#disabled'] = TRUE;
@@ -205,7 +208,7 @@ function sitemod_preprocess_entity_print(&$variables) {
     if (count($academic_positions) > 3) {
       $academic_positions = array_slice($academic_positions, 0, 3);
     }
-    $variables['academic_positions'] = $academic_positions;
+    $variables['academic_positions'] = implode('<br>', $academic_positions);
   }
 
   // Awards.
