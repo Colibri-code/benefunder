@@ -129,7 +129,7 @@
         <?php endif; ?>
         <div class="event__info-panel-center">
           <div class="event__time">
-            <?php print drupal_render($content['field_event_date']); ?> (PST)
+            <?php print drupal_render($content['field_event_date']); ?> (PST) <?php //TODO: echo date('T') and add eastern time ?>
           </div>
           <?php if(!empty($hosts)) : ?>
             <div class="event__hosts">
