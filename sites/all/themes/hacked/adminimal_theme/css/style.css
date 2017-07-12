@@ -4733,3 +4733,7 @@ div.field-name-field-analyst-feedback-1 {
 #views-exposed-form-my-clients-block .views-exposed-form {
     border-top: 1px solid #0EABBB;
 }
+
+.form-item-field-donor-profile-und-0-field-city-state-und-0-country {
+    display: none;
+}
