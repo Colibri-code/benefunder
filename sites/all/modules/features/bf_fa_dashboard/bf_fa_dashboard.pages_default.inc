@@ -151,7 +151,8 @@ function bf_fa_dashboard_default_page_manager_handlers() {
 </div>
 </div>
 
-<div class="fa-solo-button"><a class="btn btn-purple" href="/node/add/giving-proposal?destination=user">Add a Client Profile / Assessment</a><span class="fa fa-question-circle fa-2x tooltip" title="To start a needs assessment and begin the Cause matching process, add a Client Profile. You\'ll be able to enter basic client information, their giving history and select some preliminary Causes. Once your needs assessment is done, send it to Benefunder to provide a comprehensive set of Causes tailored just for your client.">&nbsp;</span></div>
+<div class="fa-solo-button">
+  <a class="btn btn-purple" href="/node/add/giving-proposal?destination=user">Add a Client Profile / Assessment</a><span class="fa fa-question-circle fa-2x tooltip" title="To start a needs assessment and begin the Cause matching process, add a Client Profile. You\'ll be able to enter basic client information, their giving history and select some preliminary Causes. Once your needs assessment is done, send it to Benefunder to provide a comprehensive set of Causes tailored just for your client.">&nbsp;</span><a class="btn btn-purple" href="/node/add/client?destination=user">Quick Register Client</a>
 
 </div>
 ',
