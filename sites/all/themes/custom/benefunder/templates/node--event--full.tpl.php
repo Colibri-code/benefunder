@@ -114,7 +114,7 @@
           <?php print drupal_render($content['field_related_causes']); ?>
         </div>
       <?php endif; ?>
-      <?php print l(t('Register for this Event'), drupal_render($content['field_registration_url']), array('attributes' => array('class' => 'event__register-link'))); ?>
+      <?php print l(t('Register for this Event'), $reg_url, array('attributes' => array('class' => 'event__register-link'))); ?>
     </div>
     <div class="event__right-side">
       <div class="event__title">
