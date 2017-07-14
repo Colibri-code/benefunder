@@ -209,6 +209,17 @@ function benefunder_preprocess_node(&$variables) {
       if($event_date = $node_w->field_event_date->value()){
         $variables['short_date']['day'] = date('d', $event_date);
         $variables['short_date']['month'] = date('M', $event_date);
+
+        // Western time zone. @ is needed to parse string as timestamp.
+        $date = new DateTime("@$event_date");
+        $tz = new DateTimeZone('America/Los_Angeles');
+        $date->setTimezone($tz);
+        $variables['field_event_date'] = $date->format('g:i A (T)');
+
+        // Create Eastern time as well.
+        $tz = new DateTimeZone('America/New_York');
+        $date->setTimezone($tz);
+        $variables['eastern_date'] = $date->format('g:i A (T)');
       }
       if($hosts = $node_w->field_co_host_name->value()){
         $variables['hosts'] = implode(', ', $hosts);
