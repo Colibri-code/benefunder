@@ -1,34 +1,35 @@
 <?php
 
-// Redirect benefunder.org
+// Force HTTPS.
+if (isset($_SERVER['PANTHEON_ENVIRONMENT']) && php_sapi_name() != 'cli') {
+  // Redirect to https://$primary_domain/ in the Live environment
+  if ($_ENV['PANTHEON_ENVIRONMENT'] === 'live'):
+    $primary_domain = 'www.benefunder.com';
+  else:
+    // Redirect to HTTPS on every Pantheon environment.
+    $primary_domain = $_SERVER['HTTP_HOST'];
+  endif;
+  $base_url = 'https://'. $primary_domain;
+  if ($_SERVER['HTTP_HOST'] != $primary_domain
+    || !isset($_SERVER['HTTP_X_SSL'])
+    || $_SERVER['HTTP_X_SSL'] != 'ON' ) {
+    header('HTTP/1.0 301 Moved Permanently');
+    header('Location: '. $base_url . $_SERVER['REQUEST_URI']);
+    exit();
+  }
+}
+
+// Redirect benefunder.org, benefunder.info, benefunder.net.
 if (isset($_SERVER['PANTHEON_ENVIRONMENT']) &&
   $_SERVER['PANTHEON_ENVIRONMENT'] === 'live') {
   if ($_SERVER['HTTP_HOST'] == 'www.benefunder.org' ||
-      $_SERVER['HTTP_HOST'] == 'benefunder.org') {
-    header('HTTP/1.0 301 Moved Permanently');
-    header('Location: http://www.benefunder.com'. $_SERVER['REQUEST_URI']);
-    exit();
-  }
-}
-
-// Redirect benefunder.info
-if (isset($_SERVER['PANTHEON_ENVIRONMENT']) &&
-  $_SERVER['PANTHEON_ENVIRONMENT'] === 'live') {
-  if ($_SERVER['HTTP_HOST'] == 'www.benefunder.info' ||
-      $_SERVER['HTTP_HOST'] == 'benefunder.info') {
-    header('HTTP/1.0 301 Moved Permanently');
-    header('Location: http://www.benefunder.com'. $_SERVER['REQUEST_URI']);
-    exit();
-  }
-}
-
-// Redirect benefunder.net
-if (isset($_SERVER['PANTHEON_ENVIRONMENT']) &&
-  $_SERVER['PANTHEON_ENVIRONMENT'] === 'live') {
-  if ($_SERVER['HTTP_HOST'] == 'www.benefunder.net' ||
+      $_SERVER['HTTP_HOST'] == 'benefunder.org' ||
+      $_SERVER['HTTP_HOST'] == 'www.benefunder.info' ||
+      $_SERVER['HTTP_HOST'] == 'benefunder.info' ||
+      $_SERVER['HTTP_HOST'] == 'www.benefunder.net' ||
       $_SERVER['HTTP_HOST'] == 'benefunder.net') {
     header('HTTP/1.0 301 Moved Permanently');
-    header('Location: http://www.benefunder.com'. $_SERVER['REQUEST_URI']);
+    header('Location: https://www.benefunder.com'. $_SERVER['REQUEST_URI']);
     exit();
   }
 }
@@ -77,10 +78,6 @@ if (defined('PANTHEON_ENVIRONMENT')) {
 
   // Use Redis for Drupal locks (semaphore).
   $conf['lock_inc'] = 'sites/all/modules/contrib/redis/redis.lock.inc';
-
-  // High performance - no hook_boot(), no hook_exit(), ignores Drupal IP blacklists.
-  $conf['page_cache_without_database'] = TRUE;
-  $conf['page_cache_invoke_hooks'] = FALSE;
 
   // Explicitly set page_cache_maximum_age to 1 day as database won't be available.
   $conf['page_cache_maximum_age'] = 86400;
