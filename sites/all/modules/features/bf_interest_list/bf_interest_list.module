@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the BF Interest List feature.
+ */
+
+include_once 'bf_interest_list.features.inc';
