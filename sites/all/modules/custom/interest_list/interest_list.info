@@ -1,0 +1,6 @@
+name = Interest List Long Path
+description = Keep static hashed url for interest lists, and prevent node/123 access
+core = 7.x
+version = 7.x-1.0
+package = Benefunder Custom
+dependencies[] = pathauto

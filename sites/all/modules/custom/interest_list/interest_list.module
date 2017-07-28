@@ -1,0 +1,28 @@
+<?php
+
+/**
+ * Implements hook_boot().
+ *
+ * Prevent interest_list nodes from being accessed via node/[nid] urls.
+ */
+function interest_list_boot() {
+  $matches = array();
+  if (preg_match("/^node\/(\d+)\/?$/i", request_path(), $matches)) {
+    $type = db_query('SELECT type FROM {node} WHERE nid = :nid', array(':nid' => $matches[1]))->fetchField();
+    if ($type == 'interest_list') {
+      drupal_add_http_header('Status', '404 Not Found');
+      exit();
+    }
+  }
+}
+
+/**
+ * Implements hook_pathauto_alias_alter().
+ *
+ * We don't want a new random hash on every save, keep old alias.
+ */
+function interest_list_pathauto_alias_alter(&$alias, array &$context) {
+  if ($context['op'] == 'update' && $context['data']['node']->type == 'interest_list') {
+    $alias = $context['data']['node']->path['alias'];
+  }
+}
