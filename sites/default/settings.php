@@ -1,7 +1,9 @@
 <?php
 
 // Force HTTPS.
-if (isset($_SERVER['PANTHEON_ENVIRONMENT']) && php_sapi_name() != 'cli') {
+if (isset($_SERVER['PANTHEON_ENVIRONMENT'])
+    && php_sapi_name() != 'cli'
+    && $_SERVER['PANTHEON_ENVIRONMENT'] != 'kalabox') {
   // Redirect to https://$primary_domain/ in the Live environment
   if ($_ENV['PANTHEON_ENVIRONMENT'] === 'live'):
     $primary_domain = 'www.benefunder.com';
