@@ -26,3 +26,148 @@ function interest_list_pathauto_alias_alter(&$alias, array &$context) {
     $alias = $context['data']['node']->path['alias'];
   }
 }
+
+/**
+ * Implements hook_node_insert().
+ */
+function interest_list_node_insert($node) {
+  if ($node->type == 'interest_list') {
+    if ($node->send_email_action == 'send_email_to_address') {
+      // TODO: create lead in hubspot (submit form)
+      interest_list_hubspot_create_lead($node);
+
+      // TODO: send email
+//      drupal_mail('interest-list', 'send', $to, $language);
+
+      // TODO: log email with hubspot (engagement)
+//      interest_list_hubspot_log_engagement($node);
+
+      // TODO: fix success case.
+      $success = TRUE;
+
+      if ($success) {
+        drupal_set_message(t('Sent to %email and tracked in HubSpot.', array('%email' => '')));
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_node_update().
+ */
+function interest_list_node_update($node) {
+  interest_list_hubspot_create_lead($node);
+}
+
+function interest_list_hubspot_create_lead($node) {
+  $fc = field_collection_item_load($node->field_signer_emails[LANGUAGE_NONE][0]['value']);
+  list($fname, $lname) = explode(' ', $fc->field_signer_name[LANGUAGE_NONE][0]['value'], 2);
+
+  $fields = array(
+    'nid' => $node->nid,
+    'title' => $node->title,
+    'form_guid' => variable_get('interest_list_form_guid', ''),
+    'firstname' => $fname,
+    'lastname' => $lname,
+    'email' => $fc->field_signer_email[LANGUAGE_NONE][0]['value'],
+  );
+
+//  $result = interest_list_hubspot_call('form-submit', $fields);
+}
+
+function interest_list_hubspot_log_engagement($node) {
+  $fields = array(
+    'engagement' => array(
+      'active' => 'true',
+      'type' => 'EMAIL',
+      'timestamp' => time(),
+    ),
+    'metadata' => array(
+      'from' => array(
+        'email' => '',
+        'firstName' => '',
+        'lastName' => '',
+      ),
+      'to' => array(
+        'email' => '',
+      ),
+      'cc' => array(),
+      'bcc' => array(),
+      'subject' => '',
+      'html' => '',
+      'text' => '',
+    ),
+  );
+
+  $result = interest_list_hubspot_call('engagement', $fields);
+}
+
+/**
+ * Executes the HubSpot API POST.
+ *
+ * @param string $method
+ *   The API method to call.
+ *
+ * @param array $fields
+ *   Form fields, such as name and contact info.
+ *
+ * @return array
+ *   An associative array containing:
+ *   - Data: The response returned from drupal_http_request().
+ *   - Error: The HTTP error message from drupal_http_request().
+ *   - HTTPCode: The HTTP response code of the request.
+ *   - POST: the POST request data.
+ */
+function interest_list_hubspot_call($method, $fields) {
+  // TODO: Switch to OAuth method.
+  $fields['hapikey'] = variable_get('hubspot_api_key', '8fa200a0-97bd-4a4e-9c66-97c21dd24ddb');
+
+  switch ($method) {
+    case 'form-submit':
+      // Get form guid.
+      $form_guid = $fields['form_guid'];
+      $portal_id = variable_get('hubspot_portalid', '3065600');
+
+      // Set context for HS.
+      $hs_context = array(
+        'hutk'      => $_COOKIE['hubspotutk'],
+        'ipAddress' => ip_address(),
+        'pageUrl'   => url('node/' . $fields['nid'], array('absolute' => TRUE)),
+        'pageName'  => $fields['title'],
+      );
+      $fields['hs_context'] = drupal_json_encode($hs_context);
+
+      // Remove fields from POST.
+      unset($fields['form_guid']);
+      unset($fields['nid']);
+      unset($fields['title']);
+
+      $url = 'forms.hubspot.com/uploads/form/v2/' . $portal_id . '/' . $form_guid;
+      $content_type = 'application/x-www-form-urlencoded';
+      break;
+
+    case 'engagement':
+      $url = 'api.hubapi.com/engagements/v1/engagements';
+      $content_type = 'application/json';
+      break;
+  }
+
+  $str_post = drupal_http_build_query($fields);
+
+  // Send POST data.
+  $result = drupal_http_request('https://' . $url, array(
+    'headers' => array(
+      'Content-Type' => $content_type,
+    ),
+    'method' => 'POST',
+    'data' => $str_post,
+  ));
+
+  return array(
+    'Data'      => isset($result->data) ? $result->data : '',
+    'Error'     => isset($result->error) ? $result->error : '',
+    'HTTPCode'  => $result->code,
+    'POST'      => $str_post,
+  );
+}
+
