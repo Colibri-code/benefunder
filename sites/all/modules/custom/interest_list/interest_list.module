@@ -39,7 +39,7 @@ function interest_list_node_insert($node) {
       // TODO: send email
 //      drupal_mail('interest-list', 'send', $to, $language);
 
-      // TODO: log email with hubspot (engagement)
+      // TODO: log email with hubspot (engagement) - not needed with bcc?
 //      interest_list_hubspot_log_engagement($node);
 
       // TODO: fix success case.
@@ -50,6 +50,14 @@ function interest_list_node_insert($node) {
       }
     }
   }
+}
+
+/**
+ * Implements hook_mail().
+ */
+function interest_list_mail($key, &$message, $params) {
+  // TODO: bcc hubspot.
+
 }
 
 /**
@@ -76,6 +84,9 @@ function interest_list_hubspot_create_lead($node) {
 }
 
 function interest_list_hubspot_log_engagement($node) {
+  global $user;
+  $fc = field_collection_item_load($node->field_signer_emails[LANGUAGE_NONE][0]['value']);
+
   $fields = array(
     'engagement' => array(
       'active' => 'true',
@@ -84,16 +95,16 @@ function interest_list_hubspot_log_engagement($node) {
     ),
     'metadata' => array(
       'from' => array(
-        'email' => '',
+        'email' => $user->mail,
         'firstName' => '',
-        'lastName' => '',
+        'lastName' => $user->name,
       ),
       'to' => array(
-        'email' => '',
+        'email' => $fc->field_signer_name[LANGUAGE_NONE][0]['value'] . ' <' . $fc->field_signer_email[LANGUAGE_NONE][0]['value'] . '>',
       ),
       'cc' => array(),
       'bcc' => array(),
-      'subject' => '',
+      'subject' => 'Benefunder Interest List',
       'html' => '',
       'text' => '',
     ),
@@ -170,4 +181,3 @@ function interest_list_hubspot_call($method, $fields) {
     'POST'      => $str_post,
   );
 }
-
