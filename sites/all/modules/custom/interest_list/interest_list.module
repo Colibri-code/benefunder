@@ -57,7 +57,23 @@ function interest_list_node_insert($node) {
  */
 function interest_list_mail($key, &$message, $params) {
   // TODO: bcc hubspot.
+  if ($key == 'interest-list') {
+    $node = $params['node'];
+    $fc = field_collection_item_load($node->field_signer_emails[LANGUAGE_NONE][0]['value']);
 
+    $message['subject'] = t('List of interesting research via Benefunder');
+    // TODO: token replacement.
+    $body = "Hello [name-to],
+    I thought this list of researchers in Benefunder's network might interest you.
+
+    [research links]
+
+    Sincerely,
+    [name-from]
+    Benefunder";
+    $message['body'][] = $body;
+    $message['headers']['Bcc'] = variable_get('hubspot_portalid', '3065600') . '@hubspot.com';
+  }
 }
 
 /**
