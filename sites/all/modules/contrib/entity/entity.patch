@@ -1,0 +1,32 @@
+diff --git a/sites/all/modules/contrib/entity/includes/entity.wrapper.inc b/sites/all/modules/contrib/entity/includes/entity.wrapper.inc
+index 860d2c3..c841bcb 100644
+--- a/sites/all/modules/contrib/entity/includes/entity.wrapper.inc
++++ b/sites/all/modules/contrib/entity/includes/entity.wrapper.inc
+@@ -31,7 +31,7 @@ abstract class EntityMetadataWrapper {
+       'langcode' => NULL,
+     );
+     $this->info['type'] = $type;
+-    if (isset($data)) {
++    if (isset($data) && $data != 'add') {
+       $this->set($data);
+     }
+   }
+@@ -753,11 +753,13 @@ class EntityDrupalWrapper extends EntityStructureWrapper {
+    */
+   public function set($value) {
+     if (!$this->validate($value)) {
+-      throw new EntityMetadataWrapperException(t('Invalid data value given. Be sure it matches the required data type and format. Value at !location: !value.', array(
+-        // An exception's message is output through check_plain().
+-        '!value' => is_array($value) || is_object($value) ? var_export($value, TRUE) : $value,
+-        '!location' => $this->debugIdentifierLocation(),
+-      )));
++//      throw new EntityMetadataWrapperException(t('Invalid data value given. Be sure it matches the required data type and format. Value at !location: !value.', array(
++//        // An exception's message is output through check_plain().
++//        '!value' => is_array($value) || is_object($value) ? var_export($value, TRUE) : $value,
++//        '!location' => $this->debugIdentifierLocation(),
++//      )));
++        //dsm(debug_print_backtrace());
++        return $this;
+     }
+     if ($this->info['type'] == 'entity' && $value === $this) {
+       // Nothing to do.
