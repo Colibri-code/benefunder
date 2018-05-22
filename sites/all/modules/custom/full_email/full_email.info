@@ -1,0 +1,7 @@
+name = Full email as username
+description = Allow to use full emal address as username
+core = 7.x
+version = 7.x-1.0
+package = Benefunder Custom
+
+dependencies[] = email_registration

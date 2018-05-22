@@ -1,0 +1,32 @@
+<?php
+
+/**
+ * Implements hook_block_info().
+ */
+function basic_page_sidebar_text_block_info() {
+  $blocks['basic_page_sidebar_text'] = array(
+    'info' => t('Basic Page Sidebar Text'),
+    // This block never changes anymore.
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
+
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function basic_page_sidebar_text_block_view($delta = '') {
+  switch ($delta) {
+    case 'basic_page_sidebar_text':
+      $block['content'] = '<h4>San Diego Location</h4>
+<p><span style="font-size:14px">Benefunder<br />
+4790 Eastgate Mall, Suite 125<br />
+San Diego, CA 92121</span><br />
+<br />
+(858) 215-1136<br />
+</p>';
+      break;
+  }
+  return $block;
+}
