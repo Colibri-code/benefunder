@@ -119,7 +119,7 @@ body {
   padding-top:64px;
 
   @media(min-width:@screen-md-min) {
-    padding-top:120px;
+    padding-top:80px;
   }
 
   .feature {
@@ -223,22 +223,33 @@ body {
 .cause-features .feature-intro {
   padding:0;
   float:left;
+  background-color: #fff;
 
   @media(min-width:@screen-md-min) {
-    height:750px;
+    height:650px;
   }
 
   .feature-text {
     padding:0 25px;
 
     @media(min-width:@screen-lg-min) {
-      padding:0 46px;
+      padding:0 15px;
+    }
+    
+    .tlb {
+        background: #7a287e;
+        color: #fff;
+        padding: 15px;
+        margin: 15px 0 15px 0;
+        font-family:@raleway-extralight;
+        font-size:26px;
+        line-height: 33px;
     }
 
     h1 {
       color:#fff;
-      font-family:@raleway-extralight;
-      line-height:42px;
+      font-family:@raleway-semibold;
+      line-height:40px;
 
       @media (min-width: 992px) and (max-width: 1250px) {
         line-height: 40px;
@@ -249,12 +260,12 @@ body {
       }
       
       @media(min-width:@screen-md-min) {
-        margin:0;
+        margin:0 0 15px 0;
         font-size:28px;
       }
 
       @media (min-width: 1100px) {
-        font-size: 32px;
+        font-size: 34px;
       }
     }
   }
@@ -975,7 +986,7 @@ body {
   height: 1px !important;
   outline: none !important;
   border: none !important;
-  *font: 0/0 a !important;
+  *font: 0 a !important;
   background: none !important;
 }
 
@@ -1121,9 +1132,9 @@ body {
 }
 
 .view-cause-listing .views-row {
-  opacity: 0;
+ /* opacity: 0;
   transition: opacity 0.3s linear 0s;
-
+*/
   &.fadeIn {
     opacity: 1;
   }
