@@ -81,8 +81,6 @@
 
 <?php include_once('_includes/header.php'); ?>
 
-<?php //print render($page['content']); 
-    include_once('node--homepage.tpl.php'); ?>
-
+<?php print render($page['content']); ?>
 
 <?php include_once('_includes/footer.php'); ?>

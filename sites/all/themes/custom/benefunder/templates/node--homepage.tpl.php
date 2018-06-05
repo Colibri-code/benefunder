@@ -117,7 +117,7 @@
    </div>
    <div class="feature-main col-sm-12 col-md-8">
    <?php
-    //   print  views_embed_view('cause_listing', 'block_1');  
+       print  views_embed_view('cause_listing', 'block_1');  
    ?>
    </div>
  
