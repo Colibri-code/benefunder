@@ -26,7 +26,7 @@
  //print_r($row->field_field_jumbotron_image[0]['rendered']['#file']['uri']);
  // "http://marte.hostbits.eu/sites/default/files/content/cause/jumbotron_image/" .
  
- $jumbotron_image = str_replace('public://', 'http://marte.hostbits.eu/sites/default/files/', $row->field_field_jumbotron_image[0]['rendered']['#file']->uri);
+ $jumbotron_image = str_replace('public://', '/sites/default/files/', $row->field_field_jumbotron_image[0]['rendered']['#file']->uri);
 ?>
 
 
