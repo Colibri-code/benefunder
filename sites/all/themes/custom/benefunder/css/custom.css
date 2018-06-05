@@ -4,7 +4,7 @@
 }
 
 
-.view-cause-listing .views-row { 
+.front .view-cause-listing .views-row { 
     width:100%;
 } 
 
@@ -226,6 +226,14 @@
     margin-top: 25px;
 }
 
+.rarea {
+    text-align: right;
+    margin-right: 55px;
+    padding-top: 15px;
+    /* margin-top: 15px; */
+    color: #fff;
+    font-size: 15px;
+}
 
 
     
