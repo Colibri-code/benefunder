@@ -117,7 +117,7 @@
    </div>
    <div class="feature-main col-sm-12 col-md-8">
    <?php
-       print  views_embed_view('cause_listing', 'block_1');  
+        print  views_embed_view('cause_listing', 'block_1');  
    ?>
    </div>
  
@@ -144,31 +144,46 @@
   
     <div class="slider_car" style="width:100%; float:left" >
        
-        <div>    
-            <img typeof="foaf:Image" class="img-responsive1" src="/sites/all/themes/custom/benefunder/logos/harvard-logo.png" />
-        </div>
         <div>
             <img typeof="foaf:Image" class="img-responsive1" src="/sites/all/themes/custom/benefunder/logos/cnhs_logo-lg.png" /> 
+        </div>  
+        <div>    
+            <img typeof="foaf:Image" class="img-responsive1" src="/sites/all/themes/custom/benefunder/logos/harvard-logo.png" />
         </div>
         <div>     
             <img typeof="foaf:Image" class="img-responsive1" src="/sites/all/themes/custom/benefunder/logos/IOSI_logo.png" />
         </div>
                  
     </div>
-
-   
     <div class="slider_car" style="width:100%;  ">  
         <div>     
-            <img typeof="foaf:Image" class="img-responsive1" src="/sites/all/themes/custom/benefunder/logos/IOSI_logo.png" />
+            <img typeof="foaf:Image" class="img-responsive1" src="/sites/all/themes/custom/benefunder/logos/princeton-university-logo.jpg" />
         </div>
         <div> 
             <img typeof="foaf:Image" class="img-responsive1" src="/sites/all/themes/custom/benefunder/logos/Logo-Rutgers-University.jpg" />
         </div>   
         <div>
-            <img typeof="foaf:Image" class="img-responsive1" src="/sites/all/themes/custom/benefunder/logos/cnhs_logo-lg.png" /> 
+            <img typeof="foaf:Image" class="img-responsive1" src="/sites/all/themes/custom/benefunder/logos/stanford-university-logo.jpg" /> 
+        </div>                      
+     </div>
+      <div class="slider_car" style="width:100%;  ">  
+        <div>     
+            <img typeof="foaf:Image" class="img-responsive1" src="/sites/all/themes/custom/benefunder/logos/syracuse_u.jpg" />
+        </div>
+        <div> 
+            <img typeof="foaf:Image" class="img-responsive1" src="/sites/all/themes/custom/benefunder/logos/UT-University-of-Tennessee_logo.jpg" />
+        </div>   
+        <div>
+            <img typeof="foaf:Image" class="img-responsive1" src="/sites/all/themes/custom/benefunder/logos/ucsd-logo.jpg" /> 
+        </div>                   
+     </div>
+    <div class="slider_car" style="width:100%;  ">  
+        <div>     
+            <img typeof="foaf:Image" class="img-responsive1" src="/sites/all/themes/custom/benefunder/logos/uf-logo.jpg" />
+        </div>
+        <div> 
+            <img typeof="foaf:Image" class="img-responsive1" src="/sites/all/themes/custom/benefunder/logos/university-of-wisconsin-madison-logo.jpg" />
         </div>                 
-   
-        
      </div>
 </div>
 
