@@ -304,6 +304,9 @@
     .info-form .text {
          padding: 15px ;
     }
+    .area_icon img {
+        max-height: 50px;
+    }
 }
 
 .video-univs > div {
