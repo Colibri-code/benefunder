@@ -101,7 +101,7 @@
          <div class="area_icon" ><img src="https://www.benefunder.com/sites/default/files/content/research_area/term_icon_with_color/benefunder_research_icons-humanities.png"/></div>
    </div>
    </div>
-   <div class="feature-main col-sm-12 col-md-8">
+   <div class="feature-main col-sm-12 col-md-8 col-xs-12">
    <?php
         print  views_embed_view('cause_listing', 'block_1');  
    ?>
