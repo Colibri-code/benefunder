@@ -109,6 +109,7 @@
  
 </section >
 <section class="video-univs">
+<div>
     <div class="video col-sm-12 col-md-5">
         <h2>WATCH OUR TEDMED TALK</h2>
         
@@ -177,6 +178,7 @@
         
         </div>
     </div>
+</div>
 </section>
 <section class="chart">
     <div class="col-sm-12 col-md-12">
@@ -184,7 +186,7 @@
     </div>
 </section>
 <section class="info-form">
-<div class="container">
+<div class="container_">
     <div class=" text col-sm-12 col-md-7">
         <H2>RESEARCH DRIVES THE U.S. ECONOMY</H2>
         <H3>BUT only 3% of Philanthropy goes to research</H3>

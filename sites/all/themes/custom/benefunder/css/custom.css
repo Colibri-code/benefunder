@@ -95,7 +95,7 @@
 }
 
 .video-univs {
-    min-height:380px;
+   /*min-height:380px;*/
     background: #fff;
     padding-top: 5px;
 }
@@ -242,7 +242,7 @@
     display: block;
 }
 
-.info-form  .container {
+.info-form  .container_ {
     background-color: #fff;
 }
 
@@ -298,5 +298,20 @@
     .area_icon img {
         max-height: 50px;
     }
+}
+
+@media only screen and (max-width : 550px) {
+    .info-form .text {
+         padding: 15px ;
+    }
+}
+
+.video-univs > div {
+    background-image: none;
+}
+
+body.front {
+    background-size: 100% 550px;
+    background-color: #fff;
 }
     
