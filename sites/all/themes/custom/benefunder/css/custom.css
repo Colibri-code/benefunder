@@ -148,6 +148,13 @@
         padding-right: 15px;
     }
 }
+
+@media only screen and (max-width : 991px) {
+     .cause-features .feature-intro {
+        height: auto;
+    }
+}
+
 @media only screen and (max-width : 750px) {
     .u-logos .slider_car > div {
         width: 100%;
@@ -275,5 +282,21 @@
     font-size: 15px;
 }
 
+.area_icon {
+    text-align: center;
+}
 
+.area_icon {
+    width: 24%;
+    display: inline-block;
+}
+.area_icon img {
+    max-height: 90px;
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1322px) {
+    .area_icon img {
+        max-height: 50px;
+    }
+}
     

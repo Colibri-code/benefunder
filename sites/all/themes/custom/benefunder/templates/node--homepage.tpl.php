@@ -79,20 +79,6 @@
  * @ingroup templates
  */
 ?>
-
-<style>
-    .area_icon {
-        width: 24%;
-        display: inline-block;
-    }
-    .area_icon img {
-        max-height: 90px;
-    }
-
-
-</style>
-
-
 <section class="cause-features">
   <div class="jumbo-teaser">
     <div class="empty"><span></span>X</div>
