@@ -124,7 +124,7 @@
 </section >
 <section class="video-univs">
     <div class="video col-sm-12 col-md-5">
-        <h2>WATCH OUT TEDMED TALK</h2>
+        <h2>WATCH OUR TEDMED TALK</h2>
         
      <div class="video-container"><iframe width="853" height="480" src="https://www.youtube.com/embed/WPuo5Gg-yZY" frameborder="0" allowfullscreen></iframe></div>
     </div>
@@ -201,7 +201,7 @@
     <div class=" text col-sm-12 col-md-7">
         <H2>RESEARCH DRIVES THE U.S. ECONOMY</H2>
         <H3>BUT only 3% of Philanthropy goes to research</H3>
-        <div>There is a disparity between $390B in annual U.S. philanthropy and the 3% that makes its way to research. Benefunder was created in 2014 to address the nation’s growing innovation deficit and to provide a new and smarter way for donors to find, fund, and follow their passions. By connecting philanthropists directly to the causes that matter to them most, Benefunder empowers your donation dollars to make the biggest impact possible
+        <div>There is a disparity between $390B in annual U.S. philanthropy and the 3% that makes its way to research. Benefunder was created in 2014 to address the nation’s growing innovation deficit and to provide a new and smarter way for donors to find, fund, and follow their passions. By connecting philanthropists directly to the causes that matter to them most, Benefunder empowers your Philanthropic  dollars to make the biggest impact possible
         </div>
     </div>
     <div class="col-sm-12 col-md-5">
