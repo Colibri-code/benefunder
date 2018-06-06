@@ -55,7 +55,7 @@
   <?php if ($rows): ?>
     <div class="view-content cycle-slideshow"
         data-cycle-fx="scrollHorz" 
-        data-cycle-timeout="2000"
+        data-cycle-timeout="5000"
          data-cycle-slides="> div"
     >
       <?php print $rows; ?>
