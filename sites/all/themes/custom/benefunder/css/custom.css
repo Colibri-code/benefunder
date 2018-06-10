@@ -364,7 +364,8 @@ body.front {
 }
 
 .feature-main .text ul {
-    max-width: 75%;
+    max-width: 100%;
+    margin-left: 20px;
 }
 
 .feature-main .text li {
@@ -392,11 +393,13 @@ body.front {
 
 .cycle-pager  {
     text-align: center;
+        height: 20px;
 }
 
 .cycle-pager span { 
     font-family: arial; font-size: 50px; width: 16px; height: 16px; 
     display: inline-block; color: #ddd; cursor: pointer; 
+        line-height: 20px;
 }
 .cycle-pager span.cycle-pager-active { color: #D69746;}
 .cycle-pager > * { cursor: pointer;}
@@ -414,12 +417,18 @@ body.front {
 
 .cycle-prev {
     left: 0;
-    background: url(http://malsup.github.com/images/right.png) 50% 50% no-repeat;
+    background: url(http://malsup.github.com/images/left.png) 50% 50% no-repeat;
+        background-size: 60%;
 }
 
 .cycle-next {
     right: 0;
     background: url(http://malsup.github.com/images/right.png) 50% 50% no-repeat;
+        background-size: 60%;
+}
+
+.feature-main .slide {
+    width.100%;
 }
 
 

@@ -103,7 +103,7 @@
         data-cycle-timeout="5000"
          data-cycle-slides="div.slide">
           <div class="cycle-pager"></div>
-          <div class="cycle-prev"</div>
+          <div class="cycle-prev"></div>
     <div class="cycle-next"></div>
         <div class="slide">
             <h1>PHILANTHROPISTS</h1>
