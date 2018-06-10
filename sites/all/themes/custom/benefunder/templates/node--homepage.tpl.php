@@ -94,32 +94,76 @@
       <div class="text"><?php  print( $node->body['und'][0]['value']); ?></div>
     </div>
     </div>
-      <div class="research_icons  col-sm-12 col-md-4" style="width:100%">
+      
+   </div>
+   <div class="feature-main col-sm-12 col-md-8 col-xs-12">
+    <div class="text ">
+    <div class="view-content cycle-slideshow"
+        data-cycle-fx="scrollHorz" 
+        data-cycle-timeout="5000"
+         data-cycle-slides="div.slide">
+          <div class="cycle-pager"></div>
+          <div class="cycle-prev"</div>
+    <div class="cycle-next"></div>
+        <div class="slide">
+            <h1>PHILANTHROPISTS</h1>
+            <div class="text">
+            <ul>
+                <li>Access - over 700 vetted researchers </li>
+  <li>Efficiency - 5X more of your gift goes to the researchers that you care most about. </li>
+  <li>Engagement - from periodic reports to face-to-face meetings, be as engaged as you want to be.</li>
+
+            </ul>
+            </div>
+            <div class="pic"></div>
+        </div>
+         <div class="slide">
+            <h1>RESEARCHERS</h1>
+            <div class="text">
+            <ul>
+  <li>Lack of funding impedes researchers from producing the best work possible.  </li>
+  <li>Researchers spend 50% of their time applying for and managing grants.</li>
+
+            </ul>
+            </div>
+            <div class="pic"></div>
+        </div>
+         <div class="slide">
+            <h1>ASSET MANAGERS</h1>
+            <div class="text">
+            <ul>
+                <li>Global paradigm shift – 98% of new wealth inheritors change advisors</li>
+  <li>Millennials value impact over relationships</li>
+  <li>98% of high net-worth individuals donate but only 40% are satisfied with their giving.</li>
+
+            </ul>
+            </div>
+            <div class="pic"></div>
+        </div>
+        </div>
+
+   </div>
+ </div>
+</section >
+<section class="video-univs">
+<div>
+    <div class="video col-sm-12 col-md-4">
+    <div class="research_icons  col-sm-12 col-md-4" style="width:100%">
    <div class="area_icon" ><img src="https://www.benefunder.com/sites/default/files/content/research_area/term_icon_with_color/benefunder_research_icons-life-science.png"/></div>
      <div class="area_icon" ><img src="https://www.benefunder.com/sites/default/files/content/research_area/term_icon_with_color/benefunder_research_icons-tech.png"/></div>
        <div class="area_icon" ><img src="https://www.benefunder.com/sites/default/files/content/research_area/term_icon_with_color/benefunder_research_icons-environment.png"/></div>
          <div class="area_icon" ><img src="https://www.benefunder.com/sites/default/files/content/research_area/term_icon_with_color/benefunder_research_icons-humanities.png"/></div>
    </div>
-   </div>
-   <div class="feature-main col-sm-12 col-md-8 col-xs-12">
-   <?php
-        print  views_embed_view('cause_listing', 'block_1');  
-   ?>
-   </div>
- 
-</section >
-<section class="video-univs">
-<div>
-    <div class="video col-sm-12 col-md-5">
         <h2>WATCH OUR TEDMED TALK</h2>
         
-     <div class="video-container"><iframe width="853" height="480" src="https://www.youtube.com/embed/WPuo5Gg-yZY" frameborder="0" allowfullscreen></iframe></div>
+     <div class="video-container embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item" width="853" height="480" src="https://www.youtube.com/embed/WPuo5Gg-yZY" frameborder="0" allowfullscreen></iframe></div>
     </div>
  
-    <div class="univs col-sm-12 col-md-7">
+    <div class="univs col-sm-12 col-md-8">
         <div class="video-text">
             <h2>The Power of Philanthropy in Research</h2>
-            <div>We believe in the power of Research-based Philanthropy to change the world and have reinvented the philanthropic experience so more of your gift is directed to the impact causes that mean the most to you.</div>
+            <h4>We believe in the power of research to change the world.</h4>
+            <div>Our mission is to change the world by optimizing philanthropy and to be a catalyst that advances research to market.</div>
         </div>
         <div class="u-logos">
 <div id="slider_logos" class="cycle-slideshow" 
@@ -181,19 +225,31 @@
 </div>
 </section>
 <section class="chart">
-    <div class="col-sm-12 col-md-12">
-        <img src="/sites/all/themes/custom/benefunder/logos/chart1.jpg" />
+    <div class="first col-sm-12 col-sx-12 col-md-4">
+         <?php
+        print  views_embed_view('cause_listing', 'block_1');  
+   ?>
+    </div>
+     <div class="col-sm-12 col-sx-12 col-md-4">
+         <?php
+        print  views_embed_view('cause_listing', 'block_2');  
+   ?>
+    </div>
+     <div class="last col-sm-12 col-sx-12 col-md-4">
+         <?php
+        print  views_embed_view('cause_listing', 'block_3');  
+   ?>
     </div>
 </section>
 <section class="info-form">
 <div class="container_">
-    <div class=" text col-sm-12 col-md-7">
+    <div class=" text col-sm-12 col-md-8">
         <H2>RESEARCH DRIVES THE U.S. ECONOMY</H2>
         <H3>BUT only 3% of Philanthropy goes to research</H3>
         <div>There is a disparity between $390B in annual U.S. philanthropy and the 3% that makes its way to research. Benefunder was created in 2014 to address the nation’s growing innovation deficit and to provide a new and smarter way for donors to find, fund, and follow their passions. By connecting philanthropists directly to the causes that matter to them most, Benefunder empowers your Philanthropic  dollars to make the biggest impact possible
         </div>
     </div>
-    <div class="col-sm-12 col-md-5">
+    <div class=" form col-sm-12 col-md-4">
          <div class="request-information-block">
             <div class="block-title">
                 Request Information

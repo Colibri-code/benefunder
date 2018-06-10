@@ -91,20 +91,20 @@
 }
 
 .cause-features .feature-intro {
-    height: 350px;
+  /*  height: 350px; */
 }
 
 .video-univs {
    /*min-height:380px;*/
     background: #fff;
-    padding-top: 5px;
+    padding-top: 0;
 }
 
 
 .video-univs .video  H2{
     text-align: center;
     background: #999933;
-    margin: 8px 0 5px 0;
+    margin: 0;
     padding: 5px;
     color: #fff;
     font-family: 'raleway-semibold';
@@ -113,8 +113,9 @@
 
 .video-univs .video-container {
     position: relative;
-    padding-bottom: 56.25%;
-    padding-top: 30px; height: 0; overflow: hidden;
+    padding-bottom: 0;
+    padding-top: 0;
+    min-height: 255px;
 }
 
 .video-univs .video-container iframe,
@@ -129,7 +130,7 @@
 
 #slider_logos {
     background-color: #fff;
-    margin-top: 60px;
+    margin-top: 30px;
     height: 80px;
 }
 
@@ -137,6 +138,9 @@
    #slider_logos { 
         margin-top: 10px;
    }
+}
+.cause-features .feature-main {
+    background: #a8d3d3;
 }
 
 @media only screen and (min-width : 992px) {
@@ -149,9 +153,20 @@
     }
 }
 
+.cause-features {
+    display:flex;
+}
+
+
+
+
+
 @media only screen and (max-width : 991px) {
      .cause-features .feature-intro {
         height: auto;
+    }
+    .cause-features {
+        display: block;
     }
 }
 
@@ -171,15 +186,13 @@
 
 .video-univs  .video {
     background: #fff;
+    padding:0;
 }
 
 .video-univs .univs {
     color: #000;
     background: #fff;
-}
-
-.video-univs .univs > div {
-    
+    padding:0;
 }
 
 .video-univs .video-text {
@@ -197,14 +210,15 @@
 
 
 .video-univs .univs h2 {
-    margin-top: 8px;
+    margin-top: 0;
     text-align: center;
     font-family: 'raleway-semibold';
     line-height: 25px;
     padding: 6px;
-    font-size: 23px;
+    font-size: 28px;
     padding-top: 20px;
     margin-bottom: 20px;
+    color: #fff;
 }
 
 .u-logos {
@@ -231,8 +245,8 @@
 
 
 .chart > div {
-     background-color: #eee;
-     padding-top: 25px;
+     background-color: #fff;
+     padding-top: 10px;
 }
 
 .chart img {
@@ -291,7 +305,7 @@
     display: inline-block;
 }
 .area_icon img {
-    max-height: 90px;
+    max-height: 70px;
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1322px) {
@@ -317,4 +331,96 @@ body.front {
     background-size: 100% 550px;
     background-color: #fff;
 }
+
+.chart {
+    clear:left;
+}
+
+.chart > div {
+    padding-right:3px;
+    padding-left:0;
+}
+
+.chart > div.last {
+    padding-right:0;
+}
+
+.info-form .form {
+    padding-right:0;
+}
+
+
+.research_icons  {
+    background-color: #fff;
+}
+
+.video-text h4 {
+    font-size: 22px;
+    text-align: center;
+}
+
+.video-text > div{
+    padding: 25px;
+}
+
+.feature-main .text ul {
+    max-width: 75%;
+}
+
+.feature-main .text li {
+    color: #000;
+    font-size: 19px;
+    line-height: 25px;
+    margin-top: 5px;
+}
     
+.feature-main h1 {
+    font-family: 'raleway-bold';
+    color: #fff;
+    text-align: center;
+    font-size: 32px;
+    letter-spacing: 2px;
+}
+
+.feature-main .pic {
+
+}
+
+.cause-features .feature-intro .feature-text {
+    padding: 0;
+}
+
+.cycle-pager  {
+    text-align: center;
+}
+
+.cycle-pager span { 
+    font-family: arial; font-size: 50px; width: 16px; height: 16px; 
+    display: inline-block; color: #ddd; cursor: pointer; 
+}
+.cycle-pager span.cycle-pager-active { color: #D69746;}
+.cycle-pager > * { cursor: pointer;}
+
+.cycle-prev, .cycle-next {
+    position: absolute;
+    top: 0;
+    width: 5%;
+    opacity: 0.7;
+    filter: alpha(opacity=0);
+    z-index: 800;
+    height: 100%;
+    cursor: pointer;
+}
+
+.cycle-prev {
+    left: 0;
+    background: url(http://malsup.github.com/images/right.png) 50% 50% no-repeat;
+}
+
+.cycle-next {
+    right: 0;
+    background: url(http://malsup.github.com/images/right.png) 50% 50% no-repeat;
+}
+
+
+
