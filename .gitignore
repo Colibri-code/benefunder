@@ -53,7 +53,7 @@ Thumbs.db
 PT-*.php
 .gitignore
 
-
+sites/*/settings.local.php
 local.settings.inc
 stage_file_proxy
 stage_file_proxy/*
