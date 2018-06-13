@@ -1,0 +1,11 @@
+name = BF Researcher menu access
+description = Enable administrative menu to create new content to the researcher user role
+core = 7.x
+package = Causes Workflow
+version = 7.x-1.0
+dependencies[] = features
+dependencies[] = node
+features[features_api][] = api:2
+features[user_permission][] = create cause content
+features[user_permission][] = edit own cause content
+project path = sites/all/modules/features
