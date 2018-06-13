@@ -1,0 +1,17 @@
+name = BF Causes Workflow Settings
+description = Import workflow settings for Cause content type
+core = 7.x
+package = Causes Workflow
+version = 7.x-1.0
+dependencies[] = entity
+dependencies[] = features
+dependencies[] = workflow
+dependencies[] = workflow_notify
+features[Workflow][] = causes_workflow
+features[features_api][] = api:2
+features[user_permission][] = edit workflow comment
+features[user_permission][] = participate in workflow
+features[user_permission][] = schedule workflow transitions
+features[user_permission][] = show workflow state form
+features[user_permission][] = workflow notify
+project path = sites/all/modules/features
