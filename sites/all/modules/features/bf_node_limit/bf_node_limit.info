@@ -1,0 +1,15 @@
+name = BF Node Limit
+description = Enable node limit that allow researchers create only 1 cause once.
+core = 7.x
+package = Features
+version = 7.x-1.0
+dependencies[] = ctools
+dependencies[] = node_limit
+dependencies[] = node_limit_role
+dependencies[] = node_limit_type
+dependencies[] = strongarm
+features[ctools][] = strongarm:strongarm:1
+features[features_api][] = api:2
+features[variable][] = node_limit_cause_access_arguments
+features[variable][] = node_limit_cause_access_callback
+project path = sites/all/modules/features

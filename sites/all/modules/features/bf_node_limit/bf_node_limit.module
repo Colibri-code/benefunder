@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the BF Node Limit feature.
+ */
+
+include_once 'bf_node_limit.features.inc';
