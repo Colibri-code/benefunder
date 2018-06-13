@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the BF Senior Editor Role feature.
+ */
+
+include_once 'bf_senior_editor_role.features.inc';
