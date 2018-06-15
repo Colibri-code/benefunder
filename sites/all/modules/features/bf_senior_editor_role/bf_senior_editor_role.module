@@ -1,7 +1,5 @@
 <?php
 /**
  * @file
- * Code for the BF Senior Editor Role feature.
+ * Drupal needs this blank file.
  */
-
-include_once 'bf_senior_editor_role.features.inc';
