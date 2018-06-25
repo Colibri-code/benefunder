@@ -1,0 +1,13 @@
+name = BF Senior Editor Role
+description = Add a new user role called Senior Editor with workflow rules
+core = 7.x
+package = Causes Workflow
+version = 7.x-1.0
+dependencies[] = entity
+dependencies[] = features
+dependencies[] = workflow
+dependencies[] = workflow_admin_ui
+dependencies[] = workflow_notify
+features[features_api][] = api:2
+features[user_role][] = Senior Editor
+project path = sites/all/modules/features

@@ -26,6 +26,7 @@ regions[page_bottom]    = 'Page bottom'
 
 stylesheets[all][] = css/magnific-popup.css
 stylesheets[all][] = css/style.css
+stylesheets[all][] = css/custom.css
 
 
 ; For information on choosing the desired method, please read the Drupal
@@ -65,6 +66,7 @@ scripts[] = 'js/plugins/jquery.selectric.min.js'
 scripts[] = 'js/plugins/jquery.placeholder.js'
 scripts[] = 'js/plugins/jquery.expander.min.js'
 scripts[] = 'js/main.js'
+scripts[] = 'js/jquery.cycle2.js'
 
 ; ;-------------------------
 ; ; METHOD 2: Bootstrap CDN
